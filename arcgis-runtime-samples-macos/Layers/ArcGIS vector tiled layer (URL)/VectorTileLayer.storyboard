@@ -8,17 +8,17 @@
         <!--Vector Tile Layer View Controller-->
         <scene sceneID="hcO-4o-ba5">
             <objects>
-                <viewController id="Yxy-gg-x0k" customClass="VectorTileLayerViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yxy-gg-x0k" customClass="VectorTileLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JsI-bn-HNl">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="hmv-5h-3Qe" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="258"/>
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
                             </customView>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b4w-9x-ofF">
-                                <rect key="frame" x="43" y="266" width="365" height="25"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="f27-3H-STK" customClass="CustomSegmentedCell" customModule="arcgis_runtime_samples_osx" customModuleProvider="target">
+                                <rect key="frame" x="43" y="12" width="365" height="25"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="f27-3H-STK" customClass="CustomSegmentedCell" customModule="arcgis_runtime_samples_macos" customModuleProvider="target">
                                     <font key="font" metaFont="system"/>
                                     <segments>
                                         <segment label="Navigation" width="90" selected="YES"/>
@@ -33,12 +33,12 @@
                             </segmentedControl>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="b4w-9x-ofF" firstAttribute="top" secondItem="hmv-5h-3Qe" secondAttribute="bottom" constant="14" id="FwR-kE-7I5"/>
                             <constraint firstAttribute="trailing" secondItem="hmv-5h-3Qe" secondAttribute="trailing" id="GLM-Sl-oqE"/>
+                            <constraint firstAttribute="bottom" secondItem="b4w-9x-ofF" secondAttribute="bottom" constant="14" id="Rye-uh-bVU"/>
                             <constraint firstItem="b4w-9x-ofF" firstAttribute="centerX" secondItem="JsI-bn-HNl" secondAttribute="centerX" id="Ziv-I3-x2i"/>
+                            <constraint firstItem="hmv-5h-3Qe" firstAttribute="top" secondItem="JsI-bn-HNl" secondAttribute="top" id="jmI-KB-ZkN"/>
                             <constraint firstItem="hmv-5h-3Qe" firstAttribute="leading" secondItem="JsI-bn-HNl" secondAttribute="leading" id="qD0-Yg-FGJ"/>
-                            <constraint firstItem="hmv-5h-3Qe" firstAttribute="top" secondItem="b4w-9x-ofF" secondAttribute="bottom" constant="10" id="qeh-G7-nBM"/>
-                            <constraint firstAttribute="bottom" secondItem="hmv-5h-3Qe" secondAttribute="bottom" id="r7O-s7-e5V"/>
-                            <constraint firstItem="b4w-9x-ofF" firstAttribute="top" secondItem="JsI-bn-HNl" secondAttribute="top" constant="10" id="wZR-qb-ziL"/>
                         </constraints>
                     </view>
                     <connections>
