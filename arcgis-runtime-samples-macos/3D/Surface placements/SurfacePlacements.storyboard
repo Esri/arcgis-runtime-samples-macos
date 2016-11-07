@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F31a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Z4K-z9-wXW">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <scenes>
+        <!--Surface Placements View Controller-->
+        <scene sceneID="zs1-h5-aTM">
+            <objects>
+                <viewController id="Z4K-z9-wXW" customClass="SurfacePlacementsViewController" customModule="OSXSampleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="EKF-jm-aQI">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="h8r-qV-9QN" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="h8r-qV-9QN" firstAttribute="leading" secondItem="EKF-jm-aQI" secondAttribute="leading" id="48h-Ca-sdt"/>
+                            <constraint firstAttribute="trailing" secondItem="h8r-qV-9QN" secondAttribute="trailing" id="TDl-G0-EwT"/>
+                            <constraint firstAttribute="bottom" secondItem="h8r-qV-9QN" secondAttribute="bottom" id="ceT-HQ-wwN"/>
+                            <constraint firstItem="h8r-qV-9QN" firstAttribute="top" secondItem="EKF-jm-aQI" secondAttribute="top" id="eJz-nJ-b2A"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="h8r-qV-9QN" id="Ti4-Sd-TOw"/>
+                    </connections>
+                </viewController>
+                <customObject id="waY-9b-Rbi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="317"/>
+        </scene>
+    </scenes>
+</document>

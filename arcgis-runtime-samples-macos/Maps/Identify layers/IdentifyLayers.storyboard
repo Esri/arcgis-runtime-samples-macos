@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="SZD-me-E9k">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Identify Layers View Controller-->
+        <scene sceneID="aYh-TJ-Mnx">
+            <objects>
+                <viewController id="SZD-me-E9k" customClass="IdentifyLayersViewController" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="UI8-iS-n2C">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="LAC-NN-EbI" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="LAC-NN-EbI" firstAttribute="top" secondItem="UI8-iS-n2C" secondAttribute="top" id="7ah-J0-Oc7"/>
+                            <constraint firstAttribute="bottom" secondItem="LAC-NN-EbI" secondAttribute="bottom" id="fOG-ng-rCu"/>
+                            <constraint firstAttribute="trailing" secondItem="LAC-NN-EbI" secondAttribute="trailing" id="yur-Ku-xiE"/>
+                            <constraint firstItem="LAC-NN-EbI" firstAttribute="leading" secondItem="UI8-iS-n2C" secondAttribute="leading" id="zL7-K4-dcq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="LAC-NN-EbI" id="gTu-ro-9zF"/>
+                    </connections>
+                </viewController>
+                <customObject id="FjH-x4-3xw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113" y="154"/>
+        </scene>
+    </scenes>
+</document>

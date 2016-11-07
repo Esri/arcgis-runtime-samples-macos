@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="9rv-fj-56X">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Add Features View Controller-->
+        <scene sceneID="bAj-hu-lot">
+            <objects>
+                <viewController id="9rv-fj-56X" customClass="AddFeaturesViewController" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="LeQ-na-ZHK">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-LO-6OV" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hfn-LO-6OV" firstAttribute="leading" secondItem="LeQ-na-ZHK" secondAttribute="leading" id="B6q-7J-BHj"/>
+                            <constraint firstItem="Hfn-LO-6OV" firstAttribute="top" secondItem="LeQ-na-ZHK" secondAttribute="top" id="Hy7-QR-1kF"/>
+                            <constraint firstAttribute="bottom" secondItem="Hfn-LO-6OV" secondAttribute="bottom" id="bF7-6w-5F1"/>
+                            <constraint firstAttribute="trailing" secondItem="Hfn-LO-6OV" secondAttribute="trailing" id="oKZ-iY-8tt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Hfn-LO-6OV" id="HEG-7K-aD5"/>
+                    </connections>
+                </viewController>
+                <customObject id="heI-Ky-tgb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="189"/>
+        </scene>
+    </scenes>
+</document>

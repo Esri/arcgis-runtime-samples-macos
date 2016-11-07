@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="IEo-K1-at8">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Map Rotation View Controller-->
+        <scene sceneID="b4n-nO-LFO">
+            <objects>
+                <viewController id="IEo-K1-at8" customClass="MapRotationViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="b8p-9l-Ulw">
+                        <rect key="frame" x="0.0" y="0.0" width="528" height="336"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="IKd-AE-Nbx" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="528" height="286"/>
+                                <subviews>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="qxb-Do-RhH">
+                                        <rect key="frame" x="482" y="240" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="RO2-p4-bIK"/>
+                                            <constraint firstAttribute="width" constant="36" id="TzS-lA-0eo"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CompassIcon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="U3g-am-PKj">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="compassAction:" target="IEo-K1-at8" id="R7S-jZ-nhv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qxb-Do-RhH" secondAttribute="trailing" constant="10" id="1Qm-91-Rv8"/>
+                                    <constraint firstItem="qxb-Do-RhH" firstAttribute="top" secondItem="IKd-AE-Nbx" secondAttribute="top" constant="10" id="qwo-2V-BGr"/>
+                                </constraints>
+                            </customView>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-S3-fzb">
+                                <rect key="frame" x="112" y="15" width="304" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="oTp-y5-F9e"/>
+                                </constraints>
+                                <contentFilters>
+                                    <ciFilter name="CIColorMonochrome">
+                                        <configuration>
+                                            <ciColor key="inputColor" red="0.0" green="0.47450980390000003" blue="0.75686274509999996" alpha="1"/>
+                                            <null key="inputImage"/>
+                                            <real key="inputIntensity" value="1"/>
+                                        </configuration>
+                                    </ciFilter>
+                                </contentFilters>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="q6T-TX-Wjt"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" target="IEo-K1-at8" id="JeN-Mf-e7X"/>
+                                </connections>
+                            </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-iX-hL8">
+                                <rect key="frame" x="420" y="17" width="29" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="360" id="wOL-r0-cEy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="UPF-iX-hL8" firstAttribute="centerY" secondItem="iBi-S3-fzb" secondAttribute="centerY" id="Dq8-Va-w7e"/>
+                            <constraint firstAttribute="trailing" secondItem="IKd-AE-Nbx" secondAttribute="trailing" id="PGQ-Di-tTv"/>
+                            <constraint firstItem="IKd-AE-Nbx" firstAttribute="top" secondItem="b8p-9l-Ulw" secondAttribute="top" id="QRq-4C-FPz"/>
+                            <constraint firstAttribute="bottom" secondItem="iBi-S3-fzb" secondAttribute="bottom" constant="17" id="UWL-CZ-r0P"/>
+                            <constraint firstItem="UPF-iX-hL8" firstAttribute="leading" secondItem="iBi-S3-fzb" secondAttribute="trailing" constant="8" id="hI5-He-FTZ"/>
+                            <constraint firstItem="iBi-S3-fzb" firstAttribute="top" secondItem="IKd-AE-Nbx" secondAttribute="bottom" constant="17" id="jC2-EZ-GhS"/>
+                            <constraint firstItem="iBi-S3-fzb" firstAttribute="centerX" secondItem="b8p-9l-Ulw" secondAttribute="centerX" id="poL-6S-2Q3"/>
+                            <constraint firstItem="IKd-AE-Nbx" firstAttribute="leading" secondItem="b8p-9l-Ulw" secondAttribute="leading" id="rgq-d3-so2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="compassButton" destination="qxb-Do-RhH" id="pYa-7G-Qrt"/>
+                        <outlet property="mapView" destination="IKd-AE-Nbx" id="VOz-9p-ZAb"/>
+                        <outlet property="rotationLabel" destination="UPF-iX-hL8" id="Vfj-BP-ZLT"/>
+                        <outlet property="slider" destination="iBi-S3-fzb" id="dve-8p-BZS"/>
+                    </connections>
+                </viewController>
+                <customObject id="Viu-Y5-Sbj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="485"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CompassIcon" width="72" height="72"/>
+    </resources>
+</document>

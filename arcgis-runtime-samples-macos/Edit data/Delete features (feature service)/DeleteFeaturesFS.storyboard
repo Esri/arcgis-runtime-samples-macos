@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4Q4-Ov-0qe">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Delete Features View Controller-->
+        <scene sceneID="utH-Uj-dpv">
+            <objects>
+                <viewController id="4Q4-Ov-0qe" customClass="DeleteFeaturesViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="iZS-gB-jhp">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DT7-gr-toO" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Eb-Irf">
+                                <rect key="frame" x="185" y="8" width="80" height="32"/>
+                                <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rr8-vJ-X56">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteAction:" target="4Q4-Ov-0qe" id="5qV-z6-dAs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fLH-Eb-Irf" secondAttribute="bottom" constant="15" id="KdV-tk-9WZ"/>
+                            <constraint firstItem="fLH-Eb-Irf" firstAttribute="centerX" secondItem="iZS-gB-jhp" secondAttribute="centerX" id="SuM-h4-Ar7"/>
+                            <constraint firstItem="DT7-gr-toO" firstAttribute="top" secondItem="iZS-gB-jhp" secondAttribute="top" id="fQG-XF-Oxm"/>
+                            <constraint firstItem="DT7-gr-toO" firstAttribute="leading" secondItem="iZS-gB-jhp" secondAttribute="leading" id="g6g-x8-ckl"/>
+                            <constraint firstAttribute="trailing" secondItem="DT7-gr-toO" secondAttribute="trailing" id="mAr-YF-G4z"/>
+                            <constraint firstItem="fLH-Eb-Irf" firstAttribute="top" secondItem="DT7-gr-toO" secondAttribute="bottom" constant="14" id="vYg-1Y-OOC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="fLH-Eb-Irf" id="mUu-kg-7Af"/>
+                        <outlet property="mapView" destination="DT7-gr-toO" id="m2q-f9-xat"/>
+                    </connections>
+                </viewController>
+                <customObject id="gAN-Jg-FiI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="174"/>
+        </scene>
+    </scenes>
+</document>

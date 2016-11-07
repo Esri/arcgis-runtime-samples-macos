@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G26a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="JRR-qH-Zow">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <scenes>
+        <!--Simple Renderer View Controller-->
+        <scene sceneID="SpO-Wb-JeW">
+            <objects>
+                <viewController id="JRR-qH-Zow" customClass="SimpleRendererViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dxY-Jk-OV4">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Csb-bg-fsr" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Csb-bg-fsr" secondAttribute="trailing" id="5ql-1g-dCI"/>
+                            <constraint firstAttribute="bottom" secondItem="Csb-bg-fsr" secondAttribute="bottom" id="OLe-Ve-kij"/>
+                            <constraint firstItem="Csb-bg-fsr" firstAttribute="top" secondItem="dxY-Jk-OV4" secondAttribute="top" id="qOv-td-01S"/>
+                            <constraint firstItem="Csb-bg-fsr" firstAttribute="leading" secondItem="dxY-Jk-OV4" secondAttribute="leading" id="zVC-3D-gOm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Csb-bg-fsr" id="j7c-mH-5Yd"/>
+                    </connections>
+                </viewController>
+                <customObject id="Yof-2V-x0U" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="344"/>
+        </scene>
+    </scenes>
+</document>
