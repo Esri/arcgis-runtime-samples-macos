@@ -283,6 +283,21 @@
                  <string></string>
                  </array>
                  </dict> -->
+                <dict>
+                    <key>displayName</key>
+                    <string>Mobile map (search and route)</string>
+                    <key>storyboardName</key>
+                    <string>MobileMapSearchRoute</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to search and route using data in a map package</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>MobileMapViewController</string>
+                        <string>MapPackagesListVC</string>
+                        <string>MapPackageCellView</string>
+                        <string>MobileMapViewItem</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
