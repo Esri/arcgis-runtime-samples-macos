@@ -151,20 +151,21 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //MARK: -  AGSPopupsViewContollerDelegate methods
     
-    func popupsViewController(popupsViewController: AGSPopupsViewController, readyToEditGeometryForPopup popup: AGSPopup) -> AGSSketchEditor? {
+    func popupsViewController(popupsViewController: AGSPopupsViewController, sketchEditorForPopup popup: AGSPopup) -> AGSSketchEditor? {
+        return AGSSketchEditor()
+    }
+    
+    func popupsViewController(popupsViewController: AGSPopupsViewController, readyToEditGeometryWithSketchEditor sketchEditor: AGSSketchEditor?, forPopup popup: AGSPopup) {
         
-        //Create a sketch editor and assign to map view
-        let sketchEditor = AGSSketchEditor()
+        //assign sketch editor to the map view
         self.mapView.sketchEditor = sketchEditor
         
         //start sketch editing and
         //zoom to the existing feature's geometry
         if let geometry = popup.geoElement.geometry {
-            self.mapView.sketchEditor?.startWithGeometry(geometry)
+            sketchEditor?.startWithGeometry(geometry)
             self.mapView.setViewpointGeometry(geometry.extent, padding: 10, completion: nil)
         }
-        
-        return sketchEditor
     }
     
     func popupsViewController(popupsViewController: AGSPopupsViewController, didChangeToCurrentPopup popup: AGSPopup) {
