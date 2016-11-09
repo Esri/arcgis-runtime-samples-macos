@@ -52,6 +52,17 @@
 		3E496ED61DD15379004C921C /* MapPackagesListVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496ECA1DD14FE2004C921C /* MapPackagesListVC.swift */; };
 		3E496ED71DD15379004C921C /* MapPackageCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496EC91DD14FE2004C921C /* MapPackageCellView.swift */; };
 		3E496ED81DD15379004C921C /* MobileMapViewItem.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496ECD1DD14FE2004C921C /* MobileMapViewItem.swift */; };
+		3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E496EE11DD29B5D004C921C /* TakeScreenshot.storyboard */; };
+		3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E496EE21DD29B5D004C921C /* TakeScreenshotViewController.swift */; };
+		3E496EE71DD29BF0004C921C /* Camera Shutter.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3E496EE61DD29BF0004C921C /* Camera Shutter.caf */; };
+		3E496EE81DD29CDF004C921C /* TakeScreenshotViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496EE21DD29B5D004C921C /* TakeScreenshotViewController.swift */; };
+		3E496EF11DD39DF4004C921C /* DirectionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E496EED1DD39DF4004C921C /* DirectionsListViewController.swift */; };
+		3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E496EEE1DD39DF4004C921C /* RouteAroundBarriers.storyboard */; };
+		3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E496EEF1DD39DF4004C921C /* RouteAroundBarriersVC.swift */; };
+		3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E496EF01DD39DF4004C921C /* RouteParametersViewController.swift */; };
+		3E496EF51DD39FD7004C921C /* RouteAroundBarriersVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496EEF1DD39DF4004C921C /* RouteAroundBarriersVC.swift */; };
+		3E496EF61DD39FD7004C921C /* DirectionsListViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496EED1DD39DF4004C921C /* DirectionsListViewController.swift */; };
+		3E496EF71DD39FD7004C921C /* RouteParametersViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E496EF01DD39DF4004C921C /* RouteParametersViewController.swift */; };
 		3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E53C6E71D1B55880054B5C8 /* SceneSymbols.storyboard */; };
 		3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53C6E81D1B55880054B5C8 /* SceneSymbolsViewController.swift */; };
 		3E53C6EB1D1B5CA20054B5C8 /* SceneSymbolsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E53C6E81D1B55880054B5C8 /* SceneSymbolsViewController.swift */; };
@@ -181,6 +192,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E496EF51DD39FD7004C921C /* RouteAroundBarriersVC.swift in CopyFiles */,
+				3E496EF61DD39FD7004C921C /* DirectionsListViewController.swift in CopyFiles */,
+				3E496EF71DD39FD7004C921C /* RouteParametersViewController.swift in CopyFiles */,
+				3E496EE81DD29CDF004C921C /* TakeScreenshotViewController.swift in CopyFiles */,
 				3E496ED51DD15379004C921C /* MobileMapViewController.swift in CopyFiles */,
 				3E496ED61DD15379004C921C /* MapPackagesListVC.swift in CopyFiles */,
 				3E496ED71DD15379004C921C /* MapPackageCellView.swift in CopyFiles */,
@@ -272,6 +287,13 @@
 		3E496ECC1DD14FE2004C921C /* MobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileMapViewController.swift; sourceTree = "<group>"; };
 		3E496ECD1DD14FE2004C921C /* MobileMapViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileMapViewItem.swift; sourceTree = "<group>"; };
 		3E496ECE1DD14FE2004C921C /* MobileMapViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MobileMapViewItem.xib; sourceTree = "<group>"; };
+		3E496EE11DD29B5D004C921C /* TakeScreenshot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakeScreenshot.storyboard; sourceTree = "<group>"; };
+		3E496EE21DD29B5D004C921C /* TakeScreenshotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeScreenshotViewController.swift; sourceTree = "<group>"; };
+		3E496EE61DD29BF0004C921C /* Camera Shutter.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Camera Shutter.caf"; sourceTree = "<group>"; };
+		3E496EED1DD39DF4004C921C /* DirectionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsListViewController.swift; sourceTree = "<group>"; };
+		3E496EEE1DD39DF4004C921C /* RouteAroundBarriers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RouteAroundBarriers.storyboard; sourceTree = "<group>"; };
+		3E496EEF1DD39DF4004C921C /* RouteAroundBarriersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAroundBarriersVC.swift; sourceTree = "<group>"; };
+		3E496EF01DD39DF4004C921C /* RouteParametersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParametersViewController.swift; sourceTree = "<group>"; };
 		3E53C6E71D1B55880054B5C8 /* SceneSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SceneSymbols.storyboard; sourceTree = "<group>"; };
 		3E53C6E81D1B55880054B5C8 /* SceneSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneSymbolsViewController.swift; sourceTree = "<group>"; };
 		3E53C7361D1D9CED0054B5C8 /* SurfacePlacements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SurfacePlacements.storyboard; sourceTree = "<group>"; };
@@ -372,6 +394,7 @@
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
 			isa = PBXGroup;
 			children = (
+				3E496EE51DD29BF0004C921C /* Audio Files */,
 				3E496EC31DD14FBE004C921C /* Mobile map packages */,
 				3E09CC751D39A4FC005D2757 /* Geodatabases */,
 				3E049A141CEA92730031ADA9 /* Libraries */,
@@ -562,6 +585,43 @@
 			path = "Maps/Mobile map (search and route)";
 			sourceTree = "<group>";
 		};
+		3E496EE01DD29B5D004C921C /* Take screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				3E496EE11DD29B5D004C921C /* TakeScreenshot.storyboard */,
+				3E496EE21DD29B5D004C921C /* TakeScreenshotViewController.swift */,
+			);
+			name = "Take screenshot";
+			path = "Maps/Take screenshot";
+			sourceTree = "<group>";
+		};
+		3E496EE51DD29BF0004C921C /* Audio Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E496EE61DD29BF0004C921C /* Camera Shutter.caf */,
+			);
+			path = "Audio Files";
+			sourceTree = "<group>";
+		};
+		3E496EEB1DD39DF4004C921C /* Route & Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3E496EEC1DD39DF4004C921C /* Route around barriers */,
+			);
+			path = "Route & Navigation";
+			sourceTree = "<group>";
+		};
+		3E496EEC1DD39DF4004C921C /* Route around barriers */ = {
+			isa = PBXGroup;
+			children = (
+				3E496EEE1DD39DF4004C921C /* RouteAroundBarriers.storyboard */,
+				3E496EEF1DD39DF4004C921C /* RouteAroundBarriersVC.swift */,
+				3E496EED1DD39DF4004C921C /* DirectionsListViewController.swift */,
+				3E496EF01DD39DF4004C921C /* RouteParametersViewController.swift */,
+			);
+			path = "Route around barriers";
+			sourceTree = "<group>";
+		};
 		3E53C6E61D1B55880054B5C8 /* 3D symbols */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +699,7 @@
 				3ECCFE221BCC2E7E00CE256D /* Change viewpoint */,
 				3ECCFE2B1BCC31B600CE256D /* Map rotation */,
 				3ECCFE301BCC4F9100CE256D /* Show magnifier */,
+				3E496EE01DD29B5D004C921C /* Take screenshot */,
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
@@ -865,6 +926,7 @@
 				3E8724771BC70866006386C1 /* Display information */,
 				3E8724781BC70870006386C1 /* Edit data */,
 				3E8A25B51D36F64B00D14F08 /* Geometry */,
+				3E496EEB1DD39DF4004C921C /* Route & Navigation */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3E495C401D062E940021CD95 /* 3D */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
@@ -1056,6 +1118,7 @@
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
 				3E87248F1BC710A6006386C1 /* OpenExistingMap.storyboard in Resources */,
+				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
@@ -1064,6 +1127,7 @@
 				3EBA256C1D344AA600AB0703 /* PictureMarkerSymbols.storyboard in Resources */,
 				3E7C0E3D1CF90F0000200B6E /* xcode.css in Resources */,
 				3E53C7381D1D9CED0054B5C8 /* SurfacePlacements.storyboard in Resources */,
+				3E496EE71DD29BF0004C921C /* Camera Shutter.caf in Resources */,
 				3ECCFE2A1BCC30F500CE256D /* HighwayJson.txt in Resources */,
 				3E495C4E1D076CD40021CD95 /* DisplayScene.storyboard in Resources */,
 				3EC1AE741BAC8DA100E32B1D /* Main.storyboard in Resources */,
@@ -1084,6 +1148,7 @@
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
 				3E496ED41DD14FE2004C921C /* MobileMapViewItem.xib in Resources */,
+				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
 				3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
@@ -1119,6 +1184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E496EF11DD39DF4004C921C /* DirectionsListViewController.swift in Sources */,
 				3E495C4B1D076C170021CD95 /* DisplaySceneViewController.swift in Sources */,
 				3ECCFE041BC86A6D00CE256D /* ChangeBasemapViewController.swift in Sources */,
 				3E049A371CED132F0031ADA9 /* CalloutViewController.swift in Sources */,
@@ -1128,9 +1194,11 @@
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
+				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				3E7823651DCD54CE0011B304 /* VectorStylesViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
+				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
@@ -1140,6 +1208,7 @@
 				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
+				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
 				3ECCFE361BCC6FD300CE256D /* ExistingMapsListViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* CollectionViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,

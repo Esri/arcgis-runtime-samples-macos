@@ -247,6 +247,18 @@
                 <!--                </dict>-->
                 <dict>
                     <key>displayName</key>
+                    <string>Take screenshot</string>
+                    <key>storyboardName</key>
+                    <string>TakeScreenshot</string>
+                    <key>descriptionText</key>
+                    <string>You can now take a screenshot of the map view. You can use it as the thumbnail for you newly created map or simply share it with your co-workers</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>TakeScreenshotViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Create and save a map</string>
                     <key>storyboardName</key>
                     <string>CreateSaveMap</string>
@@ -671,6 +683,27 @@
                     <key>sourceFileNames</key>
                     <array>
                         <string>CreateGeometriesViewController</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Route &amp; Navigation</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Route around barriers</string>
+                    <key>storyboardName</key>
+                    <string>RouteAroundBarriers</string>
+                    <key>descriptionText</key>
+                    <string>Add stops and barriers to the map, set the route parameters and click route. A route will be shown connecting the stops with a list of directions</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RouteAroundBarriersVC</string>
+                        <string>DirectionsListViewController</string>
+                        <string>RouteParametersViewController</string>
                     </array>
                 </dict>
             </array>

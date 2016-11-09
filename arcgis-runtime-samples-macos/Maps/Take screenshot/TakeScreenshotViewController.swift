@@ -1,0 +1,126 @@
+//
+// Copyright 2016 Esri.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+import Cocoa
+import ArcGIS
+
+class TakeScreenshotViewController: NSViewController {
+    
+    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var overlayParentView:NSVisualEffectView!
+    @IBOutlet private weak var overlayImageView:AspectFillImageView!
+    
+    var map:AGSMap!
+    
+    var shutterSound:SystemSoundID = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //instantiate map with imagegry basemap
+        self.map = AGSMap(basemap: AGSBasemap.imageryBasemap())
+        
+        //assign the map to the map view
+        self.mapView.map = self.map
+    }
+    
+    //MARK: - Actions
+    
+    //hide the screenshot overlay view
+    func hideOverlayParentView() {
+        self.overlayParentView.hidden = true
+    }
+    
+    //show the screenshot overlay view
+    private func showOverlayParentView() {
+        self.overlayParentView.hidden = false
+    }
+    
+    //called when the user taps on the screenshot button
+    @IBAction private func screenshotAction(_ sender: AnyObject) {
+        //hide the screenshot view if currently visible
+        self.hideOverlayParentView()
+        
+        //show progress indicator
+        self.view.window?.showProgressIndicator()
+        
+        //the method on map view we can use to get the screenshot image
+        self.mapView.exportImageWithCompletion { [weak self] (image:NSImage?, error:NSError?) -> Void in
+            
+            //hide progress indicator
+            self?.view.window?.hideProgressIndicator()
+            
+            if let error = error {
+                self?.showAlert("Error", informativeText: error.localizedDescription)
+            }
+            if let image = image {
+                //on completion imitate flash
+                self?.imitateFlash(image)
+            }
+        }
+    }
+    
+    @IBAction private func closeAction(_ sender:NSButton) {
+        self.hideOverlayParentView()
+    }
+    
+    //MARK: - Helper methods
+    
+    //imitate the white flash screen when the user taps on the screenshot button
+    private func imitateFlash(image:NSImage) {
+        let flashView = NSView(frame: self.mapView.bounds)
+        flashView.wantsLayer = true
+        flashView.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        self.mapView.addSubview(flashView)
+        
+        //animate the white flash view on and off to show the flash effect
+        NSAnimationContext.runAnimationGroup({ (context: NSAnimationContext) in
+            context.duration = 0.3
+            flashView.animator().alphaValue = 0
+    
+        }) { [weak self] in
+            //On completion play the shutter sound
+            self?.playShutterSound()
+            flashView.removeFromSuperview()
+            //show the screenshot on screen
+            self?.overlayImageView.image = image
+            self?.showOverlayParentView()
+        }
+    }
+    
+    //to play the shutter sound once the screenshot is taken
+    func playShutterSound() {
+        if self.shutterSound == 0 {
+            if let filepath = NSBundle.mainBundle().pathForResource("Camera Shutter", ofType: "caf") {
+                let url = NSURL(fileURLWithPath: filepath)
+                AudioServicesCreateSystemSoundID(url, &self.shutterSound)
+            }
+        }
+        
+        AudioServicesPlaySystemSound(self.shutterSound)
+    }
+    
+    deinit {
+        AudioServicesDisposeSystemSoundID(self.shutterSound)
+    }
+    
+    private func showAlert(messageText:String, informativeText:String) {
+        let alert = NSAlert()
+        alert.messageText = messageText
+        alert.informativeText = informativeText
+        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+    }
+}
