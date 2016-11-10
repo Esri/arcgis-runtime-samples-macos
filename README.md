@@ -27,7 +27,7 @@ For Swift :
 
 ## Additional Resources
 
-* New to the API? Explore the documentation : [Guide](http://developers.arcgis.com/macos/latest/swift/guide/guide.htm) | [API Reference](http://developers.arcgis.com/macos/latest/api-reference/index.htm)
+* New to the API? Explore the documentation : [Guide](https://developers.arcgis.com/macos) | [API Reference](https://developers.arcgis.com/macos/latest/api-reference/)
 * Got a question? Ask the community on our [forum](http://geonet.esri.com/community/developers/native-app-developers/arcgis-runtime-sdk-for-os-x)
 
 ## Issues
