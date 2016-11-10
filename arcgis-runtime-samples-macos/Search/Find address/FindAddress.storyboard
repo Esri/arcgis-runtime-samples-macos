@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="JAN-h5-Cmo">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Find Address View Controller-->
+        <scene sceneID="GT2-ge-8se">
+            <objects>
+                <viewController id="JAN-h5-Cmo" customClass="FindAddressViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="g9y-Fu-Xsi">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uee-7J-qCf">
+                                <rect key="frame" x="75" y="14" width="300" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4Tg-gN-QcJ"/>
+                                </constraints>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Type in an address or POI" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" maximumRecents="6" id="wIH-8M-Rb7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <action selector="searchAction:" target="JAN-h5-Cmo" id="6DP-b8-gan"/>
+                                    <outlet property="delegate" destination="JAN-h5-Cmo" id="aC8-fu-oCn"/>
+                                    <outlet property="searchMenuTemplate" destination="2eB-Xf-UNv" id="hg6-et-Axg"/>
+                                </connections>
+                            </searchField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Fvp-GV-5hx" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Fvp-GV-5hx" secondAttribute="trailing" id="0Cm-3U-dcv"/>
+                            <constraint firstItem="Fvp-GV-5hx" firstAttribute="leading" secondItem="g9y-Fu-Xsi" secondAttribute="leading" id="85R-da-r25"/>
+                            <constraint firstItem="uee-7J-qCf" firstAttribute="top" secondItem="Fvp-GV-5hx" secondAttribute="bottom" constant="14" id="DQ1-fB-SqD"/>
+                            <constraint firstItem="uee-7J-qCf" firstAttribute="centerX" secondItem="g9y-Fu-Xsi" secondAttribute="centerX" id="InN-bU-HD1"/>
+                            <constraint firstItem="Fvp-GV-5hx" firstAttribute="top" secondItem="g9y-Fu-Xsi" secondAttribute="top" id="ZTm-oG-IY9"/>
+                            <constraint firstAttribute="bottom" secondItem="uee-7J-qCf" secondAttribute="bottom" constant="14" id="kzQ-Ij-M5O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Fvp-GV-5hx" id="dCu-li-EeN"/>
+                        <outlet property="searchField" destination="uee-7J-qCf" id="274-5S-seo"/>
+                    </connections>
+                </viewController>
+                <customObject id="Pdl-Qq-ZQD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="2eB-Xf-UNv">
+                    <items>
+                        <menuItem title="277 N Avenida Caballeros, Palm Springs, CA" id="yp6-6T-REw">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="searchTemplateAction:" target="JAN-h5-Cmo" id="oad-yB-ydA"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="380 New York St, Redlands, CA 92373" tag="1" id="cJx-Sr-ytU">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="searchTemplateAction:" target="JAN-h5-Cmo" id="nmt-sN-3b3"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Београд" id="Xan-Ef-w7Q">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="searchTemplateAction:" target="JAN-h5-Cmo" id="aOU-mA-rio"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Москва" id="wKr-sk-1rz">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="searchTemplateAction:" target="JAN-h5-Cmo" id="dWd-hU-n1U"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="北京" id="Vaa-og-2Ga">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="searchTemplateAction:" target="JAN-h5-Cmo" id="If6-er-AQO"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+            </objects>
+            <point key="canvasLocation" x="146" y="184"/>
+        </scene>
+    </scenes>
+</document>

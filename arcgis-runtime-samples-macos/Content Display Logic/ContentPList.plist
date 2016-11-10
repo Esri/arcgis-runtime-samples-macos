@@ -670,6 +670,25 @@
         </dict>
         <dict>
             <key>displayName</key>
+            <string>Search</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find address</string>
+                    <key>storyboardName</key>
+                    <string>FindAddress</string>
+                    <key>descriptionText</key>
+                    <string>Type in or select a prepopulated address to show its location on the map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindAddressViewController</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
             <string>Geometry</string>
             <key>children</key>
             <array>

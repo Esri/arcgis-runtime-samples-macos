@@ -183,6 +183,9 @@
 		3ECCFE361BCC6FD300CE256D /* ExistingMapsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE351BCC6FD300CE256D /* ExistingMapsListViewController.swift */; };
 		3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */; };
 		3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD0F721BB0CCD6007105A1 /* Node.swift */; };
+		3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
+		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
+		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -192,6 +195,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */,
 				3E496EF51DD39FD7004C921C /* RouteAroundBarriersVC.swift in CopyFiles */,
 				3E496EF61DD39FD7004C921C /* DirectionsListViewController.swift in CopyFiles */,
 				3E496EF71DD39FD7004C921C /* RouteParametersViewController.swift in CopyFiles */,
@@ -377,6 +381,8 @@
 		3ECCFE351BCC6FD300CE256D /* ExistingMapsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingMapsListViewController.swift; path = "Maps/Open an existing map/ExistingMapsListViewController.swift"; sourceTree = "<group>"; };
 		3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ContentPList.plist; sourceTree = "<group>"; };
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
+		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -924,6 +930,7 @@
 				3E8724751BC7083F006386C1 /* Layers */,
 				3E8724761BC70857006386C1 /* Features */,
 				3E8724771BC70866006386C1 /* Display information */,
+				3EE3854A1DD3AC7100B13E3C /* Search */,
 				3E8724781BC70870006386C1 /* Edit data */,
 				3E8A25B51D36F64B00D14F08 /* Geometry */,
 				3E496EEB1DD39DF4004C921C /* Route & Navigation */,
@@ -1037,6 +1044,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3EE3854A1DD3AC7100B13E3C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3EE3854B1DD3ACBC00B13E3C /* Find address */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		3EE3854B1DD3ACBC00B13E3C /* Find address */ = {
+			isa = PBXGroup;
+			children = (
+				3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */,
+				3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */,
+			);
+			name = "Find address";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1135,6 +1159,7 @@
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
 				3E049A341CED132F0031ADA9 /* GraphicsWithSymbols.storyboard in Resources */,
+				3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */,
 				3ECCFE0A1BC86CF300CE256D /* SetInitialMapArea.storyboard in Resources */,
 				3ECCFE151BC86E9A00CE256D /* SetInitialMapLocation.storyboard in Resources */,
 				3E09CC771D39A4FC005D2757 /* LA_Trails.geodatabase in Resources */,
@@ -1230,6 +1255,7 @@
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
 				3E049A2D1CED12FC0031ADA9 /* GOIdentifyViewController.swift in Sources */,
 				3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */,
+				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
 				3E495C431D0635C10021CD95 /* ExtrudeGraphicsViewController.swift in Sources */,
