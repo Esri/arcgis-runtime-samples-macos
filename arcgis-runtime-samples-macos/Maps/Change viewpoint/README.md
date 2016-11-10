@@ -3,7 +3,6 @@
 This sample demonstrates different ways in which you can change the viewpoint or visible area of a map.
 
 ![](image1.png)
-![](image2.png)
 
 ##How it works
 
