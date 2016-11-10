@@ -7,7 +7,6 @@ This sample demonstrates how to open an existing web map on your Mac.
 The sample opens with a web map displayed by default. You can tap on the `Maps` button to see a list of other web maps. On selection the web map opens up in the map view.
 
 ![](image1.png)
-![](image2.png)
 
 ##How it works
 
