@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="17h-z8-jg8">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Scene Properties Expressions-->
+        <scene sceneID="Vf5-Gk-3br">
+            <objects>
+                <viewController id="17h-z8-jg8" customClass="ScenePropertiesExpressions" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JUg-mi-Qo3">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="V91-h4-Ovh" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="60" width="450" height="240"/>
+                            </customView>
+                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-Ru-ckO">
+                                <rect key="frame" x="75" y="0.0" width="300" height="60"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="agh-SP-csO">
+                                        <rect key="frame" x="8" y="8" width="64" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="YkU-nR-hS0"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pitch" id="ZHc-bM-4Lk">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="paU-4v-23f">
+                                        <rect key="frame" x="76" y="32" width="178" height="20"/>
+                                        <contentFilters>
+                                            <ciFilter name="CIColorMonochrome">
+                                                <configuration>
+                                                    <ciColor key="inputColor" red="0.0" green="0.47450980390000003" blue="0.75686274509999996" alpha="1"/>
+                                                    <null key="inputImage"/>
+                                                    <real key="inputIntensity" value="1"/>
+                                                </configuration>
+                                            </ciFilter>
+                                        </contentFilters>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="wB4-iX-6s6"/>
+                                        <connections>
+                                            <action selector="headingSliderValueChanged:" target="17h-z8-jg8" id="5Wg-f2-h2q"/>
+                                        </connections>
+                                    </slider>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fkr-fb-hYM">
+                                        <rect key="frame" x="258" y="34" width="34" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="7AR-Yp-0eI"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="l5u-Ng-57o">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mnF-zz-1KH">
+                                        <rect key="frame" x="258" y="8" width="34" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="zl2-Z3-9Vq"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="0x0-38-tuG">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7jM-o9-eKM">
+                                        <rect key="frame" x="76" y="6" width="178" height="20"/>
+                                        <contentFilters>
+                                            <ciFilter name="CIColorMonochrome">
+                                                <configuration>
+                                                    <ciColor key="inputColor" red="0.0" green="0.47450980390000003" blue="0.75686274509999996" alpha="1"/>
+                                                    <null key="inputImage"/>
+                                                    <real key="inputIntensity" value="1"/>
+                                                </configuration>
+                                            </ciFilter>
+                                        </contentFilters>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-90" maxValue="90" tickMarkPosition="above" sliderType="linear" id="dNx-Tb-gmb"/>
+                                        <connections>
+                                            <action selector="pitchSliderValueChanged:" target="17h-z8-jg8" id="rnt-KL-MzR"/>
+                                        </connections>
+                                    </slider>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rc1-s2-agA">
+                                        <rect key="frame" x="8" y="34" width="64" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="v03-WX-8b5"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Heading" id="fKI-DV-Yc7">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mnF-zz-1KH" secondAttribute="trailing" constant="10" id="2db-rJ-Or9"/>
+                                    <constraint firstAttribute="height" constant="60" id="5zg-U7-RDg"/>
+                                    <constraint firstItem="paU-4v-23f" firstAttribute="leading" secondItem="Rc1-s2-agA" secondAttribute="trailing" constant="8" id="6QX-9L-bs1"/>
+                                    <constraint firstAttribute="width" constant="300" id="EyJ-Hd-tWr"/>
+                                    <constraint firstItem="7jM-o9-eKM" firstAttribute="top" secondItem="paU-4v-23f" secondAttribute="bottom" constant="10" id="K3t-Ju-ADH"/>
+                                    <constraint firstItem="paU-4v-23f" firstAttribute="top" secondItem="FPU-Ru-ckO" secondAttribute="top" constant="10" id="LGr-vI-0vF"/>
+                                    <constraint firstItem="7jM-o9-eKM" firstAttribute="centerY" secondItem="agh-SP-csO" secondAttribute="centerY" id="aUu-uF-E5y"/>
+                                    <constraint firstItem="Rc1-s2-agA" firstAttribute="centerY" secondItem="paU-4v-23f" secondAttribute="centerY" id="aZo-FP-bxf"/>
+                                    <constraint firstItem="Rc1-s2-agA" firstAttribute="leading" secondItem="FPU-Ru-ckO" secondAttribute="leading" constant="10" id="i9Y-mh-Vbu"/>
+                                    <constraint firstItem="Fkr-fb-hYM" firstAttribute="centerY" secondItem="paU-4v-23f" secondAttribute="centerY" id="iHN-Kw-DWI"/>
+                                    <constraint firstItem="7jM-o9-eKM" firstAttribute="leading" secondItem="agh-SP-csO" secondAttribute="trailing" constant="8" id="idf-Sr-X3Q"/>
+                                    <constraint firstItem="7jM-o9-eKM" firstAttribute="centerY" secondItem="mnF-zz-1KH" secondAttribute="centerY" id="vmx-lq-od3"/>
+                                    <constraint firstItem="agh-SP-csO" firstAttribute="leading" secondItem="FPU-Ru-ckO" secondAttribute="leading" constant="10" id="x4m-uO-WMd"/>
+                                    <constraint firstItem="Fkr-fb-hYM" firstAttribute="leading" secondItem="paU-4v-23f" secondAttribute="trailing" constant="8" id="xCd-Lu-1g0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fkr-fb-hYM" secondAttribute="trailing" constant="10" id="ym7-h4-GnS"/>
+                                    <constraint firstItem="mnF-zz-1KH" firstAttribute="leading" secondItem="7jM-o9-eKM" secondAttribute="trailing" constant="8" id="zp3-Ew-ZaS"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FPU-Ru-ckO" firstAttribute="top" secondItem="V91-h4-Ovh" secondAttribute="bottom" id="5OT-hz-Qq9"/>
+                            <constraint firstAttribute="bottom" secondItem="FPU-Ru-ckO" secondAttribute="bottom" id="eQb-4O-XSY"/>
+                            <constraint firstItem="FPU-Ru-ckO" firstAttribute="centerX" secondItem="JUg-mi-Qo3" secondAttribute="centerX" id="j2u-4c-O1m"/>
+                            <constraint firstAttribute="trailing" secondItem="V91-h4-Ovh" secondAttribute="trailing" id="wVE-QA-KZX"/>
+                            <constraint firstItem="V91-h4-Ovh" firstAttribute="top" secondItem="JUg-mi-Qo3" secondAttribute="top" id="yTr-c6-nSZ"/>
+                            <constraint firstItem="V91-h4-Ovh" firstAttribute="leading" secondItem="JUg-mi-Qo3" secondAttribute="leading" id="zVL-k9-YTn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headingLabel" destination="Fkr-fb-hYM" id="9pj-9y-rok"/>
+                        <outlet property="pitchLabel" destination="mnF-zz-1KH" id="zqZ-Ow-twI"/>
+                        <outlet property="sceneView" destination="V91-h4-Ovh" id="YRc-iR-aYb"/>
+                    </connections>
+                </viewController>
+                <customObject id="6TH-sI-ZFt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="303" y="359"/>
+        </scene>
+    </scenes>
+</document>

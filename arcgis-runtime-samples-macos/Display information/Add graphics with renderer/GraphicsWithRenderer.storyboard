@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="I0H-h1-60D">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+    </dependencies>
+    <scenes>
+        <!--Graphics With Renderer View Controller-->
+        <scene sceneID="FVO-dj-MK5">
+            <objects>
+                <viewController id="I0H-h1-60D" customClass="GraphicsWithRendererViewController" customModule="OSXSampleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="X4U-B3-FJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ijx-Ue-UUy" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <animations/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ijx-Ue-UUy" firstAttribute="top" secondItem="X4U-B3-FJ0" secondAttribute="top" id="X4Y-no-G3g"/>
+                            <constraint firstAttribute="bottom" secondItem="Ijx-Ue-UUy" secondAttribute="bottom" id="d7b-DG-Ezg"/>
+                            <constraint firstItem="Ijx-Ue-UUy" firstAttribute="leading" secondItem="X4U-B3-FJ0" secondAttribute="leading" id="iGD-av-of3"/>
+                            <constraint firstAttribute="trailing" secondItem="Ijx-Ue-UUy" secondAttribute="trailing" id="l9H-4d-eBs"/>
+                        </constraints>
+                        <animations/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ijx-Ue-UUy" id="5CL-cQ-giA"/>
+                    </connections>
+                </viewController>
+                <customObject id="2sT-30-oLh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="311"/>
+        </scene>
+    </scenes>
+</document>

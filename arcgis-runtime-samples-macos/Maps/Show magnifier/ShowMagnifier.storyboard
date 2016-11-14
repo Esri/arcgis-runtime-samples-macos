@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="IS2-0p-0ma">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+    </dependencies>
+    <scenes>
+        <!--Show Magnifier View Controller-->
+        <scene sceneID="XGv-rJ-ae3">
+            <objects>
+                <viewController id="IS2-0p-0ma" customClass="ShowMagnifierViewController" customModule="OSXSampleViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="VLU-5d-h2B">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="izq-Np-QCb" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <animations/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="izq-Np-QCb" firstAttribute="leading" secondItem="VLU-5d-h2B" secondAttribute="leading" id="Evv-Ya-0UQ"/>
+                            <constraint firstItem="izq-Np-QCb" firstAttribute="top" secondItem="VLU-5d-h2B" secondAttribute="top" id="HBf-pp-1A7"/>
+                            <constraint firstAttribute="bottom" secondItem="izq-Np-QCb" secondAttribute="bottom" id="WPz-0M-mJE"/>
+                            <constraint firstAttribute="trailing" secondItem="izq-Np-QCb" secondAttribute="trailing" id="qLM-ej-cuW"/>
+                        </constraints>
+                        <animations/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="izq-Np-QCb" id="mal-an-kis"/>
+                    </connections>
+                </viewController>
+                <customObject id="KPS-dV-pSR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="490"/>
+        </scene>
+    </scenes>
+</document>

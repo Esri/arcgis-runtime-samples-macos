@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="qXo-LI-6bg">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Drawing Status View Controller-->
+        <scene sceneID="zeF-ee-KVm">
+            <objects>
+                <viewController id="qXo-LI-6bg" customClass="DrawingStatusViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="T73-Q1-Ftt">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DSN-c1-pIn" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieR-5Y-JiL">
+                                <rect key="frame" x="175" y="0.0" width="100" height="50"/>
+                                <subviews>
+                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-mX-ydP">
+                                        <rect key="frame" x="5" y="9" width="32" height="32"/>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AnI-1V-y79">
+                                        <rect key="frame" x="43" y="17" width="54" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drawing" id="B97-dQ-jAJ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AnI-1V-y79" firstAttribute="leading" secondItem="dSk-mX-ydP" secondAttribute="trailing" constant="8" id="Ag8-ff-qCm"/>
+                                    <constraint firstAttribute="trailing" secondItem="AnI-1V-y79" secondAttribute="trailing" constant="5" id="HVa-gB-3Pu"/>
+                                    <constraint firstItem="dSk-mX-ydP" firstAttribute="centerY" secondItem="ieR-5Y-JiL" secondAttribute="centerY" id="aTN-RU-UuZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="aUz-BP-HS9"/>
+                                    <constraint firstItem="AnI-1V-y79" firstAttribute="centerY" secondItem="ieR-5Y-JiL" secondAttribute="centerY" id="b3V-Z2-Lnd"/>
+                                    <constraint firstItem="dSk-mX-ydP" firstAttribute="leading" secondItem="ieR-5Y-JiL" secondAttribute="leading" constant="5" id="j4b-at-sJv"/>
+                                    <constraint firstAttribute="height" constant="50" id="p7E-rH-wXD"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DSN-c1-pIn" secondAttribute="trailing" id="1ss-LO-dcp"/>
+                            <constraint firstItem="DSN-c1-pIn" firstAttribute="leading" secondItem="T73-Q1-Ftt" secondAttribute="leading" id="BxW-RI-kSU"/>
+                            <constraint firstItem="ieR-5Y-JiL" firstAttribute="centerX" secondItem="T73-Q1-Ftt" secondAttribute="centerX" id="Rb8-TJ-iBL"/>
+                            <constraint firstItem="ieR-5Y-JiL" firstAttribute="top" secondItem="DSN-c1-pIn" secondAttribute="bottom" id="TI9-6F-Fq7"/>
+                            <constraint firstItem="DSN-c1-pIn" firstAttribute="top" secondItem="T73-Q1-Ftt" secondAttribute="top" id="UMQ-cI-4J6"/>
+                            <constraint firstAttribute="bottom" secondItem="ieR-5Y-JiL" secondAttribute="bottom" id="jgp-qv-2RE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="ieR-5Y-JiL" id="bIw-pE-0JE"/>
+                        <outlet property="mapView" destination="DSN-c1-pIn" id="TCv-0A-ssM"/>
+                        <outlet property="progressIndicator" destination="dSk-mX-ydP" id="eEs-Oo-qX4"/>
+                    </connections>
+                </viewController>
+                <customObject id="H3o-Gp-30K" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547" y="252"/>
+        </scene>
+    </scenes>
+</document>

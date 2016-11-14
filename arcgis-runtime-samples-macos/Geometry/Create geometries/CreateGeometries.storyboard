@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G26a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-8U-c2d">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <scenes>
+        <!--Create Geometries View Controller-->
+        <scene sceneID="LQM-za-kcV">
+            <objects>
+                <viewController id="Ikd-8U-c2d" customClass="CreateGeometriesViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="y4C-sJ-rAd">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="zyb-A8-9ff" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zyb-A8-9ff" secondAttribute="bottom" id="8hF-AC-aTF"/>
+                            <constraint firstItem="zyb-A8-9ff" firstAttribute="leading" secondItem="y4C-sJ-rAd" secondAttribute="leading" id="UuL-4O-0Fl"/>
+                            <constraint firstAttribute="trailing" secondItem="zyb-A8-9ff" secondAttribute="trailing" id="avh-3d-dPN"/>
+                            <constraint firstItem="zyb-A8-9ff" firstAttribute="top" secondItem="y4C-sJ-rAd" secondAttribute="top" id="hZC-J9-vEI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="zyb-A8-9ff" id="pvw-TE-4fp"/>
+                    </connections>
+                </viewController>
+                <customObject id="mIf-V9-1PI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557" y="446"/>
+        </scene>
+    </scenes>
+</document>

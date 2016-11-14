@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="R4W-7v-y8q">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Take Screenshot View Controller-->
+        <scene sceneID="uGY-OD-NKI">
+            <objects>
+                <viewController id="R4W-7v-y8q" customClass="TakeScreenshotViewController" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="6P3-7u-umi">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="e4k-Pt-E5w" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HDO-oo-1Ry">
+                                <rect key="frame" x="155" y="8" width="140" height="32"/>
+                                <buttonCell key="cell" type="push" title="Take screenshot" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDn-lo-0Yj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="screenshotAction:" target="R4W-7v-y8q" id="rko-AQ-Xqa"/>
+                                </connections>
+                            </button>
+                            <visualEffectView hidden="YES" appearanceType="vibrantDark" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="AYf-x9-jL2">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="a9h-7h-8hu" customClass="AspectFillImageView" customModule="MapViewDemo_Swift" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="38" width="405" height="225"/>
+                                    </customView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oEG-tK-xIP">
+                                        <rect key="frame" x="188" y="8" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AhQ-M3-pg9">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="closeAction:" target="R4W-7v-y8q" id="fsv-Ud-yKj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="oEG-tK-xIP" secondAttribute="bottom" constant="15" id="9bN-oX-kgd"/>
+                                    <constraint firstItem="a9h-7h-8hu" firstAttribute="centerX" secondItem="AYf-x9-jL2" secondAttribute="centerX" id="EKl-un-dYb"/>
+                                    <constraint firstItem="a9h-7h-8hu" firstAttribute="centerY" secondItem="AYf-x9-jL2" secondAttribute="centerY" id="UmE-Nx-hjW"/>
+                                    <constraint firstItem="oEG-tK-xIP" firstAttribute="centerX" secondItem="AYf-x9-jL2" secondAttribute="centerX" id="t3Z-1k-Dvc"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AYf-x9-jL2" firstAttribute="top" secondItem="6P3-7u-umi" secondAttribute="top" id="0JE-80-MTe"/>
+                            <constraint firstItem="a9h-7h-8hu" firstAttribute="width" secondItem="e4k-Pt-E5w" secondAttribute="width" multiplier="0.9" id="4rR-9V-ODH"/>
+                            <constraint firstItem="HDO-oo-1Ry" firstAttribute="top" secondItem="e4k-Pt-E5w" secondAttribute="bottom" constant="14" id="5xx-SF-pbC"/>
+                            <constraint firstItem="e4k-Pt-E5w" firstAttribute="top" secondItem="6P3-7u-umi" secondAttribute="top" id="9Vt-48-LMM"/>
+                            <constraint firstAttribute="bottom" secondItem="HDO-oo-1Ry" secondAttribute="bottom" constant="15" id="HmG-yd-XPv"/>
+                            <constraint firstItem="e4k-Pt-E5w" firstAttribute="leading" secondItem="6P3-7u-umi" secondAttribute="leading" id="TlA-Tg-ia4"/>
+                            <constraint firstAttribute="trailing" secondItem="AYf-x9-jL2" secondAttribute="trailing" id="Xea-Ew-Dxk"/>
+                            <constraint firstAttribute="bottom" secondItem="AYf-x9-jL2" secondAttribute="bottom" id="b6a-3p-eRO"/>
+                            <constraint firstItem="AYf-x9-jL2" firstAttribute="leading" secondItem="6P3-7u-umi" secondAttribute="leading" id="m73-sj-PHs"/>
+                            <constraint firstItem="HDO-oo-1Ry" firstAttribute="centerX" secondItem="6P3-7u-umi" secondAttribute="centerX" id="tcK-Vn-giM"/>
+                            <constraint firstAttribute="trailing" secondItem="e4k-Pt-E5w" secondAttribute="trailing" id="w6c-1e-IQ9"/>
+                            <constraint firstItem="a9h-7h-8hu" firstAttribute="height" secondItem="e4k-Pt-E5w" secondAttribute="height" multiplier="0.9" id="wdH-zK-hv0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="e4k-Pt-E5w" id="G5j-NF-g0g"/>
+                        <outlet property="overlayImageView" destination="a9h-7h-8hu" id="Dcf-nE-u6Q"/>
+                        <outlet property="overlayParentView" destination="AYf-x9-jL2" id="5dZ-iN-yis"/>
+                    </connections>
+                </viewController>
+                <customObject id="PfP-ii-g1F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="168"/>
+        </scene>
+    </scenes>
+</document>

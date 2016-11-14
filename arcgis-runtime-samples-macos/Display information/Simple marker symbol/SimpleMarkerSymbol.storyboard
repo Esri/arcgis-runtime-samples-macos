@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G26a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Adv-1g-uru">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <scenes>
+        <!--Simple Marker Symbol View Controller-->
+        <scene sceneID="dc5-Q5-OfG">
+            <objects>
+                <viewController id="Adv-1g-uru" customClass="SimpleMarkerSymbolViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="5Yn-qA-N5A">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-a5-b40" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ahw-a5-b40" secondAttribute="bottom" id="DOY-Lr-gGr"/>
+                            <constraint firstItem="Ahw-a5-b40" firstAttribute="top" secondItem="5Yn-qA-N5A" secondAttribute="top" id="KEy-61-HSf"/>
+                            <constraint firstItem="Ahw-a5-b40" firstAttribute="leading" secondItem="5Yn-qA-N5A" secondAttribute="leading" id="peJ-IN-4ax"/>
+                            <constraint firstAttribute="trailing" secondItem="Ahw-a5-b40" secondAttribute="trailing" id="twl-BS-QGv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ahw-a5-b40" id="pIm-n4-wEQ"/>
+                    </connections>
+                </viewController>
+                <customObject id="TjZ-o5-a8O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="335" y="351"/>
+        </scene>
+    </scenes>
+</document>
