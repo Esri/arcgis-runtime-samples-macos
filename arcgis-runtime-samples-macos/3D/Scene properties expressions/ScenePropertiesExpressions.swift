@@ -52,9 +52,9 @@ class ScenePropertiesExpressions: NSViewController {
         
         //create a red cone graphic
         let coneSymbol = AGSSimpleMarkerSceneSymbol(style: .Cone, color: NSColor.redColor(), height: 200, width: 100, depth: 100, anchorPosition: .Center)
-        coneSymbol.pitch = 90  //correct symbol's default pitch
+        //coneSymbol.pitch = -90
         let conePoint = AGSPoint(x: 83.9, y: 28.404, z: 6000, spatialReference: AGSSpatialReference.WGS84())
-        let coneAttributes = ["HEADING": 0, "PITCH": 0]
+        let coneAttributes = ["HEADING": 0, "PITCH": -90]
         self.coneGraphic = AGSGraphic(geometry: conePoint, symbol: coneSymbol, attributes: coneAttributes)
         graphicsOverlay.graphics.addObject(self.coneGraphic)
     }

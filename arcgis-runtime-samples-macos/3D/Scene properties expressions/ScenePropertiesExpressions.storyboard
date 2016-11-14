@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="17h-z8-jg8">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="17h-z8-jg8">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Scene Properties Expressions-->
         <scene sceneID="Vf5-Gk-3br">
             <objects>
-                <viewController id="17h-z8-jg8" customClass="ScenePropertiesExpressions" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="17h-z8-jg8" customClass="ScenePropertiesExpressions" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JUg-mi-Qo3">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -62,7 +63,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="zl2-Z3-9Vq"/>
                                         </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="0x0-38-tuG">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="-90" id="0x0-38-tuG">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -79,7 +80,7 @@
                                                 </configuration>
                                             </ciFilter>
                                         </contentFilters>
-                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-90" maxValue="90" tickMarkPosition="above" sliderType="linear" id="dNx-Tb-gmb"/>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-180" maxValue="180" doubleValue="-90" tickMarkPosition="above" sliderType="linear" id="dNx-Tb-gmb"/>
                                         <connections>
                                             <action selector="pitchSliderValueChanged:" target="17h-z8-jg8" id="rnt-KL-MzR"/>
                                         </connections>
