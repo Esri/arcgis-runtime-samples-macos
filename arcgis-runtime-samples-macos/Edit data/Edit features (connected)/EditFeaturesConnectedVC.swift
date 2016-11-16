@@ -25,6 +25,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     @IBOutlet private var addFeatureButton:NSButton!
     
     private var map:AGSMap!
+    private var sketchEditor:AGSSketchEditor!
     private var featureLayer:AGSFeatureLayer!
     private var popupsVC:AGSPopupsViewController!
     private var isAddingNewFeature = false {
@@ -51,6 +52,11 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //feature layer selection settings
         self.featureLayer.selectionWidth = 4
         
+        //initialize sketch editor and assign to map view
+        self.sketchEditor = AGSSketchEditor()
+        self.mapView.sketchEditor = self.sketchEditor
+        
+        //hide popups view controller initially
         self.hidePopupsViewController(false)
     }
     
@@ -152,13 +158,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     //MARK: -  AGSPopupsViewContollerDelegate methods
     
     func popupsViewController(popupsViewController: AGSPopupsViewController, sketchEditorForPopup popup: AGSPopup) -> AGSSketchEditor? {
-        return AGSSketchEditor()
-    }
-    
-    func popupsViewController(popupsViewController: AGSPopupsViewController, readyToEditGeometryWithSketchEditor sketchEditor: AGSSketchEditor?, forPopup popup: AGSPopup) {
-        
-        //assign sketch editor to the map view
-        self.mapView.sketchEditor = sketchEditor
         
         //start sketch editing and
         //zoom to the existing feature's geometry
@@ -166,6 +165,8 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             sketchEditor?.startWithGeometry(geometry)
             self.mapView.setViewpointGeometry(geometry.extent, padding: 10, completion: nil)
         }
+        
+        return self.sketchEditor
     }
     
     func popupsViewController(popupsViewController: AGSPopupsViewController, didChangeToCurrentPopup popup: AGSPopup) {
