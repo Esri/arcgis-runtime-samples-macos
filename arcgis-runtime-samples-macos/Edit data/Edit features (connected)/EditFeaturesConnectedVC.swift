@@ -177,13 +177,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.featureLayer.selectFeature(popup.geoElement as! AGSFeature)
     }
     
-    //called when the user clicks on Delete button
-    func popupsViewController(popupsViewController: AGSPopupsViewController, didDeleteForPopup popup: AGSPopup) {
-        
-        //apply edits to the service
-        self.applyEdits()
-    }
-    
     //called when the user clicks on Finish button
     func popupsViewController(popupsViewController: AGSPopupsViewController, didFinishEditingForPopup popup: AGSPopup) {
         
