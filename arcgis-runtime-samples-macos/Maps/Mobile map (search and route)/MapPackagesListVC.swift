@@ -85,7 +85,12 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
             let previouslySelectedRow = self.selectedRow
             let previousIndexSet = NSIndexSet(index: previouslySelectedRow)
             self.tableView.noteHeightOfRowsWithIndexesChanged(previousIndexSet)
+            
+            //unselect selection for collection view
+            let cellView = self.tableView.viewAtColumn(0, row: previouslySelectedRow, makeIfNecessary: false) as! MapPackageCellView
+            cellView.collectionView.deselectAll(self)
         }
+        
         let indexSet = NSIndexSet(index: self.tableView.selectedRow)
         self.tableView.noteHeightOfRowsWithIndexesChanged(indexSet)
         self.selectedRow = self.tableView.selectedRow

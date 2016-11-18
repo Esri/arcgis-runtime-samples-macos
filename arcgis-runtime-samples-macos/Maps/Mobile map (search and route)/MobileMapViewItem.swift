@@ -47,6 +47,19 @@ class MobileMapViewItem: NSCollectionViewItem {
     @IBOutlet var routeImageView:NSImageView!
     @IBOutlet var label:NSTextField!
     
+    override var selected: Bool {
+        didSet {
+            if selected {
+                self.view.layer?.backgroundColor = NSColor.secondaryBlue().CGColor
+                self.label.textColor = NSColor.whiteColor()
+            }
+            else {
+                self.view.layer?.backgroundColor = NSColor.clearColor().CGColor
+                self.label.textColor = NSColor.blackColor()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
