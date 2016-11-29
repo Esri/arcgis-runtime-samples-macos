@@ -122,6 +122,12 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     private func showPopupsViewController(popups: [AGSPopup]) {
         
+        //hide popups view controller if it exists
+        if self.popupsVC != nil {
+            self.popupsVC.view.removeFromSuperview()
+            self.popupsVC = nil
+        }
+        
         //initialize popups view controller with popups
         self.popupsVC = AGSPopupsViewController(popups: popups)
         
