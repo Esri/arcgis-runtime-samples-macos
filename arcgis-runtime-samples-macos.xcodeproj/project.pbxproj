@@ -279,10 +279,10 @@
 		3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeaturesViewController.swift; sourceTree = "<group>"; };
 		3E29C9EB1DC7C55200E5571F /* DeleteFeaturesFS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteFeaturesFS.storyboard; sourceTree = "<group>"; };
 		3E29C9EC1DC7C55200E5571F /* DeleteFeaturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteFeaturesViewController.swift; sourceTree = "<group>"; };
-		3E495C421D0635C10021CD95 /* ExtrudeGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtrudeGraphicsViewController.swift; path = "3D/Extrude graphics/ExtrudeGraphicsViewController.swift"; sourceTree = "<group>"; };
-		3E495C441D0635E80021CD95 /* ExtrudeGraphics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ExtrudeGraphics.storyboard; path = "3D/Extrude graphics/ExtrudeGraphics.storyboard"; sourceTree = "<group>"; };
-		3E495C4A1D076C170021CD95 /* DisplaySceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplaySceneViewController.swift; path = "3D/Display a scene/DisplaySceneViewController.swift"; sourceTree = "<group>"; };
-		3E495C4D1D076CD40021CD95 /* DisplayScene.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DisplayScene.storyboard; path = "3D/Display a scene/DisplayScene.storyboard"; sourceTree = "<group>"; };
+		3E495C421D0635C10021CD95 /* ExtrudeGraphicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtrudeGraphicsViewController.swift; path = "Extrude graphics/ExtrudeGraphicsViewController.swift"; sourceTree = "<group>"; };
+		3E495C441D0635E80021CD95 /* ExtrudeGraphics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ExtrudeGraphics.storyboard; path = "Extrude graphics/ExtrudeGraphics.storyboard"; sourceTree = "<group>"; };
+		3E495C4A1D076C170021CD95 /* DisplaySceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySceneViewController.swift; sourceTree = "<group>"; };
+		3E495C4D1D076CD40021CD95 /* DisplayScene.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayScene.storyboard; sourceTree = "<group>"; };
 		3E496EC41DD14FBE004C921C /* SanFrancisco.mmpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = SanFrancisco.mmpk; sourceTree = "<group>"; };
 		3E496EC51DD14FBE004C921C /* Yellowstone.mmpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yellowstone.mmpk; sourceTree = "<group>"; };
 		3E496EC91DD14FE2004C921C /* MapPackageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPackageCellView.swift; sourceTree = "<group>"; };
@@ -337,10 +337,10 @@
 		3E8A25C11D36F9F500D14F08 /* MapLoadedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapLoadedViewController.swift; path = "Maps/Map loaded/MapLoadedViewController.swift"; sourceTree = "<group>"; };
 		3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureLayerGDBViewController.swift; path = "Features/Feature layer (geodatabase)/FeatureLayerGDBViewController.swift"; sourceTree = "<group>"; };
 		3E8A25C71D37038000D14F08 /* FeatureLayerGDB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FeatureLayerGDB.storyboard; path = "Features/Feature layer (geodatabase)/FeatureLayerGDB.storyboard"; sourceTree = "<group>"; };
-		3E8D54FF1D5513D300E628D9 /* ScenePropertiesExpressions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ScenePropertiesExpressions.storyboard; path = "3D/Scene properties expressions/ScenePropertiesExpressions.storyboard"; sourceTree = "<group>"; };
-		3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenePropertiesExpressions.swift; path = "3D/Scene properties expressions/ScenePropertiesExpressions.swift"; sourceTree = "<group>"; };
-		3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseSceneLayerViewController.swift; path = "3D/Use scene layer/UseSceneLayerViewController.swift"; sourceTree = "<group>"; };
-		3E8DB5731D2B45D900D48BC6 /* UseSceneLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UseSceneLayer.storyboard; path = "3D/Use scene layer/UseSceneLayer.storyboard"; sourceTree = "<group>"; };
+		3E8D54FF1D5513D300E628D9 /* ScenePropertiesExpressions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ScenePropertiesExpressions.storyboard; path = "Scene properties expressions/ScenePropertiesExpressions.storyboard"; sourceTree = "<group>"; };
+		3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenePropertiesExpressions.swift; path = "Scene properties expressions/ScenePropertiesExpressions.swift"; sourceTree = "<group>"; };
+		3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseSceneLayerViewController.swift; path = "Use scene layer/UseSceneLayerViewController.swift"; sourceTree = "<group>"; };
+		3E8DB5731D2B45D900D48BC6 /* UseSceneLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UseSceneLayer.storyboard; path = "Use scene layer/UseSceneLayer.storyboard"; sourceTree = "<group>"; };
 		3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = $HOME/Library/SDKs/ArcGIS/macOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<absolute>"; };
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSaveMapViewController.swift; path = "Maps/Create and save a map/CreateSaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOptionsViewController.swift; path = "Maps/Create and save a map/CreateOptionsViewController.swift"; sourceTree = "<group>"; };
@@ -537,17 +537,17 @@
 			path = "Edit data/Delete features (feature service)";
 			sourceTree = "<group>";
 		};
-		3E495C401D062E940021CD95 /* 3D */ = {
+		3E495C401D062E940021CD95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				3E495C4C1D076C1D0021CD95 /* Display a scene */,
 				3E495C411D0633F40021CD95 /* Extrude graphics */,
-				3E53C6E61D1B55880054B5C8 /* 3D symbols */,
+				3E53C6E61D1B55880054B5C8 /* Scene symbols */,
 				3E53C7351D1D9CED0054B5C8 /* Surface placements */,
 				3E8DB5701D2B457300D48BC6 /* Use scene layer */,
 				3E8D54FE1D55138500E628D9 /* Scene properties expressions */,
 			);
-			name = 3D;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		3E495C411D0633F40021CD95 /* Extrude graphics */ = {
@@ -565,7 +565,7 @@
 				3E495C4A1D076C170021CD95 /* DisplaySceneViewController.swift */,
 				3E495C4D1D076CD40021CD95 /* DisplayScene.storyboard */,
 			);
-			name = "Display a scene";
+			path = "Display a scene";
 			sourceTree = "<group>";
 		};
 		3E496EC31DD14FBE004C921C /* Mobile map packages */ = {
@@ -628,14 +628,13 @@
 			path = "Route around barriers";
 			sourceTree = "<group>";
 		};
-		3E53C6E61D1B55880054B5C8 /* 3D symbols */ = {
+		3E53C6E61D1B55880054B5C8 /* Scene symbols */ = {
 			isa = PBXGroup;
 			children = (
 				3E53C6E71D1B55880054B5C8 /* SceneSymbols.storyboard */,
 				3E53C6E81D1B55880054B5C8 /* SceneSymbolsViewController.swift */,
 			);
-			name = "3D symbols";
-			path = "3D/3D symbols";
+			path = "Scene symbols";
 			sourceTree = "<group>";
 		};
 		3E53C7351D1D9CED0054B5C8 /* Surface placements */ = {
@@ -645,7 +644,7 @@
 				3E53C7371D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift */,
 			);
 			name = "Surface placements";
-			path = "arcgis-runtime-samples-macos/3D/Surface placements";
+			path = "arcgis-runtime-samples-macos/Scenes/Surface placements";
 			sourceTree = SOURCE_ROOT;
 		};
 		3E78235B1DCD52D20011B304 /* Identify layers */ = {
@@ -910,7 +909,7 @@
 			isa = PBXGroup;
 			children = (
 				3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */,
-				3EC1AE6B1BAC8DA100E32B1D /* OSXSampleViewer */,
+				3EC1AE6B1BAC8DA100E32B1D /* macOSSampleViewer */,
 				3EC1AE6A1BAC8DA100E32B1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -923,7 +922,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3EC1AE6B1BAC8DA100E32B1D /* OSXSampleViewer */ = {
+		3EC1AE6B1BAC8DA100E32B1D /* macOSSampleViewer */ = {
 			isa = PBXGroup;
 			children = (
 				3E87246F1BC6D918006386C1 /* Maps */,
@@ -935,14 +934,14 @@
 				3E8A25B51D36F64B00D14F08 /* Geometry */,
 				3E496EEB1DD39DF4004C921C /* Route & Navigation */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
-				3E495C401D062E940021CD95 /* 3D */,
+				3E495C401D062E940021CD95 /* Scenes */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
 				3EC1AE7B1BAC913300E32B1D /* ArcGIS.framework */,
 				3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */,
 				3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */,
 				3EC1AE751BAC8DA100E32B1D /* Info.plist */,
 			);
-			name = OSXSampleViewer;
+			name = macOSSampleViewer;
 			path = "arcgis-runtime-samples-macos";
 			sourceTree = "<group>";
 		};

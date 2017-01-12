@@ -9,6 +9,19 @@
             <array>
                 <dict>
                     <key>displayName</key>
+                    <string>Open an existing map</string>
+                    <key>storyboardName</key>
+                    <string>OpenExistingMap</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to open an existing map using its url</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>OpenExistingMapViewController</string>
+                        <string>ExistingMapsListViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Create and save a map</string>
                     <key>storyboardName</key>
                     <string>CreateSaveMap</string>
@@ -43,18 +56,6 @@
                     <key>sourceFileNames</key>
                     <array>
                         <string>DisplaySceneViewController</string>
-                    </array>
-                </dict>
-                <dict>
-                    <key>displayName</key>
-                    <string>Use scene layer</string>
-                    <key>storyboardName</key>
-                    <string>UseSceneLayer</string>
-                    <key>descriptionText</key>
-                    <string>The sample shows how to use a scene layer in a scene</string>
-                    <key>sourceFileNames</key>
-                    <array>
-                        <string>UseSceneLayerViewController</string>
                     </array>
                 </dict>
             </array>
@@ -729,7 +730,7 @@
         </dict>
         <dict>
             <key>displayName</key>
-            <string>3D</string>
+            <string>Scenes</string>
             <key>children</key>
             <array>
                 <dict>
@@ -758,7 +759,7 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
-                    <string>3D symbols</string>
+                    <string>Scene symbols</string>
                     <key>storyboardName</key>
                     <string>SceneSymbols</string>
                     <key>descriptionText</key>
