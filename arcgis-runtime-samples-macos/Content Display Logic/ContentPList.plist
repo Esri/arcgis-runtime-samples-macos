@@ -161,19 +161,18 @@
                  <array>
                  <string></string>
                  </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Manage bookmarks</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>Bookmarks</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>Now you can add and view bookmarks on a map</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Manage bookmarks</string>
+                    <key>storyboardName</key>
+                    <string>ManageBookmarks</string>
+                    <key>descriptionText</key>
+                    <string>Now you can add and view bookmarks on a map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ManageBookmarksViewController</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>Display drawing status</string>
