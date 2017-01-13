@@ -333,6 +333,18 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
+                    <string>ArcGIS tiled layer (tile cache)</string>
+                    <key>storyboardName</key>
+                    <string>LocalTiledLayer</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to load an offline copy of a tiled map service so that that basemap tiled service is available when applications are offline</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>LocalTiledLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>ArcGIS map image layer (URL)</string>
                     <key>storyboardName</key>
                     <string>MILUsingURL</string>

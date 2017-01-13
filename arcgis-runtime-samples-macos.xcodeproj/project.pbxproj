@@ -15,6 +15,11 @@
 		3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */; };
 		3E0103671E2967B20013AEEF /* AddedLayerCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */; };
 		3E0103681E2967B20013AEEF /* ManageOperationalLayersVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */; };
+		3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01036A1E298B530013AEEF /* LocalTiledLayer.storyboard */; };
+		3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */; };
+		3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */ = {isa = PBXBuildFile; fileRef = 3E01036F1E298D300013AEEF /* SanFrancisco.tpk */; };
+		3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */ = {isa = PBXBuildFile; fileRef = 3E0103701E298D300013AEEF /* streetmap_SD.tpk */; };
+		3E0103731E298DC50013AEEF /* LocalTiledLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */; };
 		3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */; };
 		3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */; };
 		3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */; };
@@ -203,6 +208,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E0103731E298DC50013AEEF /* LocalTiledLayerViewController.swift in CopyFiles */,
 				3E0103671E2967B20013AEEF /* AddedLayerCellView.swift in CopyFiles */,
 				3E0103681E2967B20013AEEF /* ManageOperationalLayersVC.swift in CopyFiles */,
 				3E01035F1E2960750013AEEF /* ManageBookmarksViewController.swift in CopyFiles */,
@@ -270,6 +276,10 @@
 		3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLayerCellView.swift; sourceTree = "<group>"; };
 		3E0103621E29671E0013AEEF /* ManageOperationalLayers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageOperationalLayers.storyboard; sourceTree = "<group>"; };
 		3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageOperationalLayersVC.swift; sourceTree = "<group>"; };
+		3E01036A1E298B530013AEEF /* LocalTiledLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalTiledLayer.storyboard; sourceTree = "<group>"; };
+		3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTiledLayerViewController.swift; sourceTree = "<group>"; };
+		3E01036F1E298D300013AEEF /* SanFrancisco.tpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = SanFrancisco.tpk; sourceTree = "<group>"; };
+		3E0103701E298D300013AEEF /* streetmap_SD.tpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = streetmap_SD.tpk; sourceTree = "<group>"; };
 		3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveMapViewController.swift; path = "Maps/Create and save a map/SaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E049A201CEA93200031ADA9 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MILUsingURL.storyboard; sourceTree = "<group>"; };
@@ -434,6 +444,25 @@
 			path = "Maps/Manage operational layers";
 			sourceTree = "<group>";
 		};
+		3E0103691E298B530013AEEF /* ArcGIS tiled layer (tile cache) */ = {
+			isa = PBXGroup;
+			children = (
+				3E01036A1E298B530013AEEF /* LocalTiledLayer.storyboard */,
+				3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */,
+			);
+			name = "ArcGIS tiled layer (tile cache)";
+			path = "Layers/ArcGIS tiled layer (tile cache)";
+			sourceTree = "<group>";
+		};
+		3E01036E1E298D300013AEEF /* Tile packages */ = {
+			isa = PBXGroup;
+			children = (
+				3E01036F1E298D300013AEEF /* SanFrancisco.tpk */,
+				3E0103701E298D300013AEEF /* streetmap_SD.tpk */,
+			);
+			path = "Tile packages";
+			sourceTree = "<group>";
+		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +470,7 @@
 				3E496EC31DD14FBE004C921C /* Mobile map packages */,
 				3E09CC751D39A4FC005D2757 /* Geodatabases */,
 				3E049A141CEA92730031ADA9 /* Libraries */,
+				3E01036E1E298D300013AEEF /* Tile packages */,
 			);
 			path = "Shared resources";
 			sourceTree = "<group>";
@@ -764,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				3E8724791BC70898006386C1 /* ArcGIS tiled layer (URL) */,
+				3E0103691E298B530013AEEF /* ArcGIS tiled layer (tile cache) */,
 				3E049A241CED11A50031ADA9 /* ArcGIS map image layer (URL) */,
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
@@ -1181,6 +1212,8 @@
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
 				3E87248F1BC710A6006386C1 /* OpenExistingMap.storyboard in Resources */,
+				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
+				3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */,
 				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
@@ -1213,6 +1246,7 @@
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
 				3E496ED41DD14FE2004C921C /* MobileMapViewItem.xib in Resources */,
 				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
+				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
 				3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
@@ -1267,6 +1301,7 @@
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
+				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
