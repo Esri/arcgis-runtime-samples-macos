@@ -709,7 +709,6 @@
 		3E87246F1BC6D918006386C1 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				3E01035A1E28579C0013AEEF /* Manage bookmarks */,
 				3E8724701BC6D933006386C1 /* Display a map */,
 				3E8A25BE1D36F99800D14F08 /* Map loaded */,
 				3E87248D1BC7104F006386C1 /* Open an existing map */,
@@ -717,6 +716,7 @@
 				3ECCFE081BC86CBB00CE256D /* Set initial map area */,
 				3ECCFE0F1BC86E1A00CE256D /* Set initial map location */,
 				3ECCFE161BC86EFA00CE256D /* Set map spatial reference */,
+				3E01035A1E28579C0013AEEF /* Manage bookmarks */,
 				3ECCFE1D1BC87ABD00CE256D /* Display drawing status */,
 				3ECCFE221BCC2E7E00CE256D /* Change viewpoint */,
 				3ECCFE2B1BCC31B600CE256D /* Map rotation */,
