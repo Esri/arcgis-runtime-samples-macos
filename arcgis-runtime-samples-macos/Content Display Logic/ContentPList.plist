@@ -150,17 +150,19 @@
                         <string>SetMapsSRViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Manage operational layers</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>ManageMapLayers</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>This sample shows you how to manage layers in a map. You can reorder them, delete an existing layer or insert a new layer</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Manage operational layers</string>
+                    <key>storyboardName</key>
+                    <string>ManageOperationalLayers</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to manage layers in a map. You can reorder them, delete an existing layer or insert a new layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ManageOperationalLayersVC</string>
+                        <string>AddedLayerCellView</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>Manage bookmarks</string>

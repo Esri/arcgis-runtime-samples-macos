@@ -10,6 +10,11 @@
 		3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */; };
 		3E01035E1E28579C0013AEEF /* ManageBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
 		3E01035F1E2960750013AEEF /* ManageBookmarksViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
+		3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */; };
+		3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0103621E29671E0013AEEF /* ManageOperationalLayers.storyboard */; };
+		3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */; };
+		3E0103671E2967B20013AEEF /* AddedLayerCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */; };
+		3E0103681E2967B20013AEEF /* ManageOperationalLayersVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */; };
 		3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */; };
 		3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */; };
 		3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */; };
@@ -198,6 +203,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E0103671E2967B20013AEEF /* AddedLayerCellView.swift in CopyFiles */,
+				3E0103681E2967B20013AEEF /* ManageOperationalLayersVC.swift in CopyFiles */,
 				3E01035F1E2960750013AEEF /* ManageBookmarksViewController.swift in CopyFiles */,
 				3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */,
 				3E496EF51DD39FD7004C921C /* RouteAroundBarriersVC.swift in CopyFiles */,
@@ -260,6 +267,9 @@
 /* Begin PBXFileReference section */
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
 		3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBookmarksViewController.swift; sourceTree = "<group>"; };
+		3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLayerCellView.swift; sourceTree = "<group>"; };
+		3E0103621E29671E0013AEEF /* ManageOperationalLayers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageOperationalLayers.storyboard; sourceTree = "<group>"; };
+		3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageOperationalLayersVC.swift; sourceTree = "<group>"; };
 		3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveMapViewController.swift; path = "Maps/Create and save a map/SaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E049A201CEA93200031ADA9 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MILUsingURL.storyboard; sourceTree = "<group>"; };
@@ -411,6 +421,17 @@
 			);
 			name = "Manage bookmarks";
 			path = "Maps/Manage bookmarks";
+			sourceTree = "<group>";
+		};
+		3E0103601E29671E0013AEEF /* Manage operational layers */ = {
+			isa = PBXGroup;
+			children = (
+				3E0103631E29671E0013AEEF /* ManageOperationalLayersVC.swift */,
+				3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */,
+				3E0103621E29671E0013AEEF /* ManageOperationalLayers.storyboard */,
+			);
+			name = "Manage operational layers";
+			path = "Maps/Manage operational layers";
 			sourceTree = "<group>";
 		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
@@ -716,6 +737,7 @@
 				3ECCFE081BC86CBB00CE256D /* Set initial map area */,
 				3ECCFE0F1BC86E1A00CE256D /* Set initial map location */,
 				3ECCFE161BC86EFA00CE256D /* Set map spatial reference */,
+				3E0103601E29671E0013AEEF /* Manage operational layers */,
 				3E01035A1E28579C0013AEEF /* Manage bookmarks */,
 				3ECCFE1D1BC87ABD00CE256D /* Display drawing status */,
 				3ECCFE221BCC2E7E00CE256D /* Change viewpoint */,
@@ -1153,6 +1175,7 @@
 				3E7C0E3B1CF90F0000200B6E /* highlight.pack.js in Resources */,
 				3E7C0E3C1CF90F0000200B6E /* style.css in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
+				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
 				3E04AB311DCAA7DE00B4E2FB /* polygon.gif in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
@@ -1285,8 +1308,10 @@
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
+				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
 				3E8A25C21D36F9F500D14F08 /* MapLoadedViewController.swift in Sources */,
 				3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */,
+				3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */,
 				3EBA256E1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift in Sources */,
 				3E29C9E81DC7C20800E5571F /* AddFeaturesViewController.swift in Sources */,
 				3E04AB401DCBEA7400B4E2FB /* FeatureLayerQueryVC.swift in Sources */,
