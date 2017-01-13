@@ -20,6 +20,11 @@
 		3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */ = {isa = PBXBuildFile; fileRef = 3E01036F1E298D300013AEEF /* SanFrancisco.tpk */; };
 		3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */ = {isa = PBXBuildFile; fileRef = 3E0103701E298D300013AEEF /* streetmap_SD.tpk */; };
 		3E0103731E298DC50013AEEF /* LocalTiledLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */; };
+		3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01037B1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard */; };
+		3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */; };
+		3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01037D1E29961A0013AEEF /* SublayerCellView.swift */; };
+		3E0103811E29964B0013AEEF /* ChangeSublayerVisibilityVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */; };
+		3E0103821E29964B0013AEEF /* SublayerCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01037D1E29961A0013AEEF /* SublayerCellView.swift */; };
 		3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */; };
 		3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */; };
 		3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */; };
@@ -208,6 +213,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E0103811E29964B0013AEEF /* ChangeSublayerVisibilityVC.swift in CopyFiles */,
+				3E0103821E29964B0013AEEF /* SublayerCellView.swift in CopyFiles */,
 				3E0103731E298DC50013AEEF /* LocalTiledLayerViewController.swift in CopyFiles */,
 				3E0103671E2967B20013AEEF /* AddedLayerCellView.swift in CopyFiles */,
 				3E0103681E2967B20013AEEF /* ManageOperationalLayersVC.swift in CopyFiles */,
@@ -280,6 +287,9 @@
 		3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTiledLayerViewController.swift; sourceTree = "<group>"; };
 		3E01036F1E298D300013AEEF /* SanFrancisco.tpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = SanFrancisco.tpk; sourceTree = "<group>"; };
 		3E0103701E298D300013AEEF /* streetmap_SD.tpk */ = {isa = PBXFileReference; lastKnownFileType = file; path = streetmap_SD.tpk; sourceTree = "<group>"; };
+		3E01037B1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeSublayerVisibility.storyboard; sourceTree = "<group>"; };
+		3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSublayerVisibilityVC.swift; sourceTree = "<group>"; };
+		3E01037D1E29961A0013AEEF /* SublayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SublayerCellView.swift; sourceTree = "<group>"; };
 		3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveMapViewController.swift; path = "Maps/Create and save a map/SaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E049A201CEA93200031ADA9 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MILUsingURL.storyboard; sourceTree = "<group>"; };
@@ -461,6 +471,17 @@
 				3E0103701E298D300013AEEF /* streetmap_SD.tpk */,
 			);
 			path = "Tile packages";
+			sourceTree = "<group>";
+		};
+		3E01037A1E29961A0013AEEF /* Change sublayer visibility */ = {
+			isa = PBXGroup;
+			children = (
+				3E01037B1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard */,
+				3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */,
+				3E01037D1E29961A0013AEEF /* SublayerCellView.swift */,
+			);
+			name = "Change sublayer visibility";
+			path = "Layers/Change sublayer visibility";
 			sourceTree = "<group>";
 		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
@@ -796,6 +817,7 @@
 				3E8724791BC70898006386C1 /* ArcGIS tiled layer (URL) */,
 				3E0103691E298B530013AEEF /* ArcGIS tiled layer (tile cache) */,
 				3E049A241CED11A50031ADA9 /* ArcGIS map image layer (URL) */,
+				3E01037A1E29961A0013AEEF /* Change sublayer visibility */,
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
 			);
@@ -1197,6 +1219,7 @@
 				3E04AB2F1DCAA7DE00B4E2FB /* line.gif in Resources */,
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
+				3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */,
 				3E049A2C1CED12FC0031ADA9 /* GOIdentify.storyboard in Resources */,
 				3E496EC71DD14FBE004C921C /* Yellowstone.mmpk in Resources */,
 				3EC1AE711BAC8DA100E32B1D /* Assets.xcassets in Resources */,
@@ -1303,6 +1326,7 @@
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
+				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
 				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
@@ -1341,6 +1365,7 @@
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
+				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,

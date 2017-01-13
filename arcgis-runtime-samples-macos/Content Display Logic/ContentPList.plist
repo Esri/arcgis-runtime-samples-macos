@@ -355,18 +355,19 @@
                         <string>MILUsingURLViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Change sublayer visibility</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>SublayerVisibility</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>You can show or hide individual sublayers in a map image layer</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Change sublayer visibility</string>
+                    <key>storyboardName</key>
+                    <string>ChangeSublayerVisibility</string>
+                    <key>descriptionText</key>
+                    <string>You can show or hide individual sublayers in a map image layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeSublayerVisibilityVC</string>
+                        <string>SublayerCellView</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>ArcGIS vector tiled layer (URL)</string>
