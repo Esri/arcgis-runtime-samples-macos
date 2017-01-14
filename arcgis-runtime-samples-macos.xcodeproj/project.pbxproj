@@ -25,6 +25,9 @@
 		3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01037D1E29961A0013AEEF /* SublayerCellView.swift */; };
 		3E0103811E29964B0013AEEF /* ChangeSublayerVisibilityVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */; };
 		3E0103821E29964B0013AEEF /* SublayerCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01037D1E29961A0013AEEF /* SublayerCellView.swift */; };
+		3E0103861E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0103841E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard */; };
+		3E0103871E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */; };
+		3E0103881E29A3310013AEEF /* ChangeFeatureLayerRendererVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */; };
 		3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */; };
 		3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */; };
 		3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */; };
@@ -213,6 +216,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E0103881E29A3310013AEEF /* ChangeFeatureLayerRendererVC.swift in CopyFiles */,
 				3E0103811E29964B0013AEEF /* ChangeSublayerVisibilityVC.swift in CopyFiles */,
 				3E0103821E29964B0013AEEF /* SublayerCellView.swift in CopyFiles */,
 				3E0103731E298DC50013AEEF /* LocalTiledLayerViewController.swift in CopyFiles */,
@@ -290,6 +294,8 @@
 		3E01037B1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeSublayerVisibility.storyboard; sourceTree = "<group>"; };
 		3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSublayerVisibilityVC.swift; sourceTree = "<group>"; };
 		3E01037D1E29961A0013AEEF /* SublayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SublayerCellView.swift; sourceTree = "<group>"; };
+		3E0103841E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeFeatureLayerRenderer.storyboard; sourceTree = "<group>"; };
+		3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFeatureLayerRendererVC.swift; sourceTree = "<group>"; };
 		3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveMapViewController.swift; path = "Maps/Create and save a map/SaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E049A201CEA93200031ADA9 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MILUsingURL.storyboard; sourceTree = "<group>"; };
@@ -482,6 +488,16 @@
 			);
 			name = "Change sublayer visibility";
 			path = "Layers/Change sublayer visibility";
+			sourceTree = "<group>";
+		};
+		3E0103831E29A0850013AEEF /* Change feature layer renderer */ = {
+			isa = PBXGroup;
+			children = (
+				3E0103841E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard */,
+				3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */,
+			);
+			name = "Change feature layer renderer";
+			path = "Features/Change feature layer renderer";
 			sourceTree = "<group>";
 		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
@@ -830,6 +846,7 @@
 				3E8A25C31D36FC4400D14F08 /* Feature layer (feature service) */,
 				3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */,
 				3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */,
+				3E0103831E29A0850013AEEF /* Change feature layer renderer */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1234,6 +1251,7 @@
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
+				3E0103861E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard in Resources */,
 				3E87248F1BC710A6006386C1 /* OpenExistingMap.storyboard in Resources */,
 				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
 				3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */,
@@ -1368,6 +1386,7 @@
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
+				3E0103871E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift in Sources */,
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
 				3E8A25C21D36F9F500D14F08 /* MapLoadedViewController.swift in Sources */,
 				3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */,

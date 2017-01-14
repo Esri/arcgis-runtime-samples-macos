@@ -497,19 +497,18 @@
                  <array>
                  <string></string>
                  </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Change feature layer renderer</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>OverrideRenderer</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>The feature layer comes with a default renderer but you can also override this renderer using your custom renderer</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Change feature layer renderer</string>
+                    <key>storyboardName</key>
+                    <string>ChangeFeatureLayerRenderer</string>
+                    <key>descriptionText</key>
+                    <string>The feature layer comes with a default renderer but you can also override this renderer using your custom renderer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeFeatureLayerRendererVC</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>

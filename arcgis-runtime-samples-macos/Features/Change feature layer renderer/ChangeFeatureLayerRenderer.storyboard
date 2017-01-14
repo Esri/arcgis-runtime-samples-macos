@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qr3-in-MNV">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Change Feature Layer RendererVC-->
+        <scene sceneID="1aI-1i-e3Q">
+            <objects>
+                <viewController id="Qr3-in-MNV" customClass="ChangeFeatureLayerRendererVC" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="b5A-xc-h4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="l4p-BI-3J7" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="HIf-sr-zPi">
+                                <rect key="frame" x="115" y="0.0" width="220" height="50"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mhW-XW-mdg">
+                                        <rect key="frame" x="2" y="8" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Np0-eA-3vb">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resetRenderer:" target="Qr3-in-MNV" id="9Ce-C7-1f6"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3zg-Kw-pBP">
+                                        <rect key="frame" x="88" y="7" width="130" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Apply renderer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ypp-DG-VOv">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="applyRenderer:" target="Qr3-in-MNV" id="cnY-J8-zou"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="AAf-Qt-rbx"/>
+                                    <constraint firstItem="mhW-XW-mdg" firstAttribute="leading" secondItem="HIf-sr-zPi" secondAttribute="leading" constant="8" id="CYV-WI-oud"/>
+                                    <constraint firstItem="mhW-XW-mdg" firstAttribute="centerY" secondItem="HIf-sr-zPi" secondAttribute="centerY" id="Jnv-uz-6GR"/>
+                                    <constraint firstAttribute="trailing" secondItem="3zg-Kw-pBP" secondAttribute="trailing" constant="8" id="dvi-bc-li0"/>
+                                    <constraint firstItem="3zg-Kw-pBP" firstAttribute="centerY" secondItem="HIf-sr-zPi" secondAttribute="centerY" id="wQ7-cS-YeH"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="l4p-BI-3J7" firstAttribute="leading" secondItem="b5A-xc-h4Z" secondAttribute="leading" id="3Yg-Gy-Jvu"/>
+                            <constraint firstItem="HIf-sr-zPi" firstAttribute="top" secondItem="l4p-BI-3J7" secondAttribute="bottom" id="7wO-Uu-lmi"/>
+                            <constraint firstItem="HIf-sr-zPi" firstAttribute="centerX" secondItem="b5A-xc-h4Z" secondAttribute="centerX" id="DAv-sB-NK2"/>
+                            <constraint firstItem="l4p-BI-3J7" firstAttribute="top" secondItem="b5A-xc-h4Z" secondAttribute="top" id="U8a-fk-CNt"/>
+                            <constraint firstAttribute="trailing" secondItem="l4p-BI-3J7" secondAttribute="trailing" id="b7a-4T-i5G"/>
+                            <constraint firstAttribute="bottom" secondItem="HIf-sr-zPi" secondAttribute="bottom" id="dY6-zg-lfD"/>
+                            <constraint firstAttribute="bottom" secondItem="l4p-BI-3J7" secondAttribute="bottom" constant="50" id="lZF-6K-QQn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="l4p-BI-3J7" id="J8T-6g-Pcs"/>
+                    </connections>
+                </viewController>
+                <customObject id="ft4-Fv-LJO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="155"/>
+        </scene>
+    </scenes>
+</document>
