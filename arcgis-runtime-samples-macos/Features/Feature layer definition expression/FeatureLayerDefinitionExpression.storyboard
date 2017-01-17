@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="dLI-P4-oBM">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Feature Layer Definition ExpressionVC-->
+        <scene sceneID="unh-7K-kQh">
+            <objects>
+                <viewController id="dLI-P4-oBM" customClass="FeatureLayerDefinitionExpressionVC" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="3ux-jg-JlL">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DDY-gl-Y8A" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="2UH-z7-XoT">
+                                <rect key="frame" x="115" y="0.0" width="220" height="50"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S6X-3K-Kmd">
+                                        <rect key="frame" x="2" y="8" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TbS-8j-ZYn">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resetDefinitionExpression:" target="dLI-P4-oBM" id="GvN-Uo-boZ"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ye-mb-qqZ">
+                                        <rect key="frame" x="74" y="7" width="144" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Apply expression" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rvi-K3-3VD">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="applyDefinitionExpression:" target="dLI-P4-oBM" id="PYN-2f-3Zm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Ye-mb-qqZ" firstAttribute="centerY" secondItem="2UH-z7-XoT" secondAttribute="centerY" id="9D3-dJ-3nJ"/>
+                                    <constraint firstAttribute="width" constant="220" id="Yx5-6j-pWn"/>
+                                    <constraint firstItem="S6X-3K-Kmd" firstAttribute="centerY" secondItem="2UH-z7-XoT" secondAttribute="centerY" id="i5F-TZ-65q"/>
+                                    <constraint firstItem="S6X-3K-Kmd" firstAttribute="leading" secondItem="2UH-z7-XoT" secondAttribute="leading" constant="8" id="okM-5T-Xx3"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Ye-mb-qqZ" secondAttribute="trailing" constant="8" id="qtO-pX-rBy"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DDY-gl-Y8A" firstAttribute="leading" secondItem="3ux-jg-JlL" secondAttribute="leading" id="2XG-Tm-YJf"/>
+                            <constraint firstAttribute="bottom" secondItem="2UH-z7-XoT" secondAttribute="bottom" id="50B-YU-qpO"/>
+                            <constraint firstItem="DDY-gl-Y8A" firstAttribute="top" secondItem="3ux-jg-JlL" secondAttribute="top" id="95N-IC-KHH"/>
+                            <constraint firstAttribute="bottom" secondItem="DDY-gl-Y8A" secondAttribute="bottom" constant="50" id="K1I-1U-YTg"/>
+                            <constraint firstItem="2UH-z7-XoT" firstAttribute="top" secondItem="DDY-gl-Y8A" secondAttribute="bottom" id="Uk8-6I-tJU"/>
+                            <constraint firstAttribute="trailing" secondItem="DDY-gl-Y8A" secondAttribute="trailing" id="mGX-P6-dLh"/>
+                            <constraint firstItem="2UH-z7-XoT" firstAttribute="centerX" secondItem="3ux-jg-JlL" secondAttribute="centerX" id="yNs-h2-XU8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="DDY-gl-Y8A" id="aqD-0v-fP7"/>
+                    </connections>
+                </viewController>
+                <customObject id="4HA-uH-C9P" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="155"/>
+        </scene>
+    </scenes>
+</document>

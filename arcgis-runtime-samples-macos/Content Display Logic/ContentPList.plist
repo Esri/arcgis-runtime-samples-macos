@@ -485,18 +485,18 @@
                         <string>FeatureLayerQueryVC</string>
                     </array>
                 </dict>
-                
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Feature layer definition expression</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>DefinitionExpression</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>You can set the definition expression on the feature layer to load specific features</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer definition expression</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerDefinitionExpression</string>
+                    <key>descriptionText</key>
+                    <string>You can set the definition expression on the feature layer to load specific features</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerDefinitionExpressionVC</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>Change feature layer renderer</string>
