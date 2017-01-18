@@ -221,6 +221,9 @@
 		3EFDE0861E30100800CBCD92 /* ShowLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */; };
 		3EFDE0871E30186200CBCD92 /* ShowLegendViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */; };
 		3EFDE0881E30186200CBCD92 /* LegendCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0811E30100800CBCD92 /* LegendCellView.swift */; };
+		3EFDE08C1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */; };
+		3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */; };
+		3EFDE08E1E301CDA00CBCD92 /* GraphicDrawOrderVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +233,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EFDE08E1E301CDA00CBCD92 /* GraphicDrawOrderVC.swift in CopyFiles */,
 				3EFDE0871E30186200CBCD92 /* ShowLegendViewController.swift in CopyFiles */,
 				3EFDE0881E30186200CBCD92 /* LegendCellView.swift in CopyFiles */,
 				3EFDE07F1E2FEDA800CBCD92 /* FeatureLayerSelectionVC.swift in CopyFiles */,
@@ -453,6 +457,8 @@
 		3EFDE0811E30100800CBCD92 /* LegendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendCellView.swift; sourceTree = "<group>"; };
 		3EFDE0821E30100800CBCD92 /* ShowLegend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowLegend.storyboard; sourceTree = "<group>"; };
 		3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLegendViewController.swift; sourceTree = "<group>"; };
+		3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ControlGraphicDrawOrder.storyboard; sourceTree = "<group>"; };
+		3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicDrawOrderVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -908,6 +914,7 @@
 				3E8724861BC70DDE006386C1 /* Add graphics with renderer */,
 				3E049A2E1CED132F0031ADA9 /* Add graphics with symbols */,
 				3E049A291CED12FC0031ADA9 /* Identify graphics */,
+				3EFDE0891E301C7800CBCD92 /* Control graphic draw order */,
 				3E04AB281DCAA7DE00B4E2FB /* Sketch on the map */,
 				3E049A311CED132F0031ADA9 /* Show callout */,
 				3EFDE0801E30100800CBCD92 /* Show legend */,
@@ -1242,6 +1249,16 @@
 			path = "Display information/Show legend";
 			sourceTree = "<group>";
 		};
+		3EFDE0891E301C7800CBCD92 /* Control graphic draw order */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */,
+				3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */,
+			);
+			name = "Control graphic draw order";
+			path = "Display information/Control graphic draw order";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1350,6 +1367,7 @@
 				3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */,
 				3ECCFE0A1BC86CF300CE256D /* SetInitialMapArea.storyboard in Resources */,
 				3ECCFE151BC86E9A00CE256D /* SetInitialMapLocation.storyboard in Resources */,
+				3EFDE08C1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard in Resources */,
 				3E09CC771D39A4FC005D2757 /* LA_Trails.geodatabase in Resources */,
 				3E7823661DCD54CE0011B304 /* VectorTileCustomStyle.storyboard in Resources */,
 				3E69DE541CFF8D5F001F65F7 /* CollectionViewItem.xib in Resources */,
@@ -1465,6 +1483,7 @@
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
+				3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */,
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
