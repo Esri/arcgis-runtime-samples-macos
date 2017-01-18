@@ -509,6 +509,18 @@
                         <string>ChangeFeatureLayerRendererVC</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Generate geodatabase</string>
+                    <key>storyboardName</key>
+                    <string>GenerateGeodatabase</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to take features offline</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GenerateGeodatabaseVC</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>

@@ -31,6 +31,8 @@
 		3E01038C1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01038A1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard */; };
 		3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01038B1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift */; };
 		3E01038E1E29A92B0013AEEF /* FeatureLayerDefinitionExpressionVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01038B1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift */; };
+		3E0103921E2DC8B50013AEEF /* GenerateGeodatabase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0103901E2DC8B50013AEEF /* GenerateGeodatabase.storyboard */; };
+		3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */; };
 		3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */; };
 		3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */; };
 		3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */; };
@@ -210,6 +212,7 @@
 		3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
 		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
+		3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -219,6 +222,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */,
 				3E01038E1E29A92B0013AEEF /* FeatureLayerDefinitionExpressionVC.swift in CopyFiles */,
 				3E0103881E29A3310013AEEF /* ChangeFeatureLayerRendererVC.swift in CopyFiles */,
 				3E0103811E29964B0013AEEF /* ChangeSublayerVisibilityVC.swift in CopyFiles */,
@@ -302,6 +306,8 @@
 		3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFeatureLayerRendererVC.swift; sourceTree = "<group>"; };
 		3E01038A1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerDefinitionExpression.storyboard; sourceTree = "<group>"; };
 		3E01038B1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerDefinitionExpressionVC.swift; sourceTree = "<group>"; };
+		3E0103901E2DC8B50013AEEF /* GenerateGeodatabase.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateGeodatabase.storyboard; sourceTree = "<group>"; };
+		3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateGeodatabaseVC.swift; sourceTree = "<group>"; };
 		3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveMapViewController.swift; path = "Maps/Create and save a map/SaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E049A201CEA93200031ADA9 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MILUsingURL.storyboard; sourceTree = "<group>"; };
@@ -514,6 +520,16 @@
 			);
 			name = "Feature layer definition expression";
 			path = "Features/Feature layer definition expression";
+			sourceTree = "<group>";
+		};
+		3E01038F1E2DC8B50013AEEF /* Generate geodatabase */ = {
+			isa = PBXGroup;
+			children = (
+				3E0103901E2DC8B50013AEEF /* GenerateGeodatabase.storyboard */,
+				3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */,
+			);
+			name = "Generate geodatabase";
+			path = "Features/Generate geodatabase";
 			sourceTree = "<group>";
 		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
@@ -864,6 +880,7 @@
 				3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */,
 				3E0103891E29A7250013AEEF /* Feature layer definition expression */,
 				3E0103831E29A0850013AEEF /* Change feature layer renderer */,
+				3E01038F1E2DC8B50013AEEF /* Generate geodatabase */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1313,6 +1330,7 @@
 				3E87247F1BC70BA3006386C1 /* TiledLayerURL.storyboard in Resources */,
 				3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */,
 				3E29C9E71DC7C20800E5571F /* AddFeaturesFS.storyboard in Resources */,
+				3E0103921E2DC8B50013AEEF /* GenerateGeodatabase.storyboard in Resources */,
 				3E84EE441DCA4ADE006731B5 /* EditFeaturesConnected.storyboard in Resources */,
 				3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */,
 				3E78235E1DCD52D20011B304 /* IdentifyLayers.storyboard in Resources */,
@@ -1400,6 +1418,7 @@
 				3E8DB5721D2B45A000D48BC6 /* UseSceneLayerViewController.swift in Sources */,
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
+				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
