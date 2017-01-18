@@ -213,6 +213,9 @@
 		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
 		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 		3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */; };
+		3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */; };
+		3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
+		3EFDE07F1E2FEDA800CBCD92 /* FeatureLayerSelectionVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -222,6 +225,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EFDE07F1E2FEDA800CBCD92 /* FeatureLayerSelectionVC.swift in CopyFiles */,
 				3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */,
 				3E01038E1E29A92B0013AEEF /* FeatureLayerDefinitionExpressionVC.swift in CopyFiles */,
 				3E0103881E29A3310013AEEF /* ChangeFeatureLayerRendererVC.swift in CopyFiles */,
@@ -437,6 +441,8 @@
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
 		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
+		3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerSelection.storyboard; sourceTree = "<group>"; };
+		3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerSelectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -877,6 +883,7 @@
 			children = (
 				3E8A25C31D36FC4400D14F08 /* Feature layer (feature service) */,
 				3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */,
+				3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */,
 				3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */,
 				3E0103891E29A7250013AEEF /* Feature layer definition expression */,
 				3E0103831E29A0850013AEEF /* Change feature layer renderer */,
@@ -1203,6 +1210,16 @@
 			name = "Find address";
 			sourceTree = "<group>";
 		};
+		3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */,
+				3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */,
+			);
+			name = "Feature layer selection";
+			path = "Features/Feature layer selection";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1267,6 +1284,7 @@
 				3ECCFE261BCC2F9A00CE256D /* ChangeViewpoint.storyboard in Resources */,
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
+				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
 				3E8DB5741D2B45D900D48BC6 /* UseSceneLayer.storyboard in Resources */,
 				3E04AB2F1DCAA7DE00B4E2FB /* line.gif in Resources */,
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
@@ -1383,6 +1401,7 @@
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
+				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,

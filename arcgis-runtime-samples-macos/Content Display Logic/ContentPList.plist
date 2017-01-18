@@ -424,55 +424,18 @@
                         <string>FeatureLayerGDBViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Service feature table (cache)</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>OnInteractionCache</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>There are different request modes you can load your feature layer in. This sample uses the "On Interaction Cache Mode".</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Service feature table (no cache)</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>OnInteractionNoCache</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>There are different request modes you can load your feature layer in. This sample uses the "On Interaction No Cache Mode".</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Service feature table (manual cache)</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>ManualCache</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>There are different request modes you can load your feature layer in. This sample uses the "Manual Cache Mode".</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Feature layer selection</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>FLSelection</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>You can tap on the map to select or unselect features in a feature layer</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
-                
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer selection</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerSelection</string>
+                    <key>descriptionText</key>
+                    <string>You can click on the map to select or unselect features in a feature layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerSelectionVC</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>Feature layer query</string>
