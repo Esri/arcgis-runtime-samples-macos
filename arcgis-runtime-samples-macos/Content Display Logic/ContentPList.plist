@@ -595,18 +595,19 @@
                         <string>CalloutViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Show legend</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>MILShowLegend</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>Tap on the button in the toolbar to display legends for the layers on the map</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
+                <dict>
+                    <key>displayName</key>
+                    <string>Show legend</string>
+                    <key>storyboardName</key>
+                    <string>ShowLegend</string>
+                    <key>descriptionText</key>
+                    <string>The sample displays legends for the layers on the map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ShowLegendViewController</string>
+                        <string>LegendCellView</string>
+                    </array>
+                </dict>
                 <dict>
                     <key>displayName</key>
                     <string>Simple marker symbol</string>

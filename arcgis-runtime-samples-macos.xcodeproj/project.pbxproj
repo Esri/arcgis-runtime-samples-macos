@@ -216,6 +216,11 @@
 		3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */; };
 		3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
 		3EFDE07F1E2FEDA800CBCD92 /* FeatureLayerSelectionVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
+		3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0811E30100800CBCD92 /* LegendCellView.swift */; };
+		3EFDE0851E30100800CBCD92 /* ShowLegend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0821E30100800CBCD92 /* ShowLegend.storyboard */; };
+		3EFDE0861E30100800CBCD92 /* ShowLegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */; };
+		3EFDE0871E30186200CBCD92 /* ShowLegendViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */; };
+		3EFDE0881E30186200CBCD92 /* LegendCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0811E30100800CBCD92 /* LegendCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -225,6 +230,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EFDE0871E30186200CBCD92 /* ShowLegendViewController.swift in CopyFiles */,
+				3EFDE0881E30186200CBCD92 /* LegendCellView.swift in CopyFiles */,
 				3EFDE07F1E2FEDA800CBCD92 /* FeatureLayerSelectionVC.swift in CopyFiles */,
 				3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */,
 				3E01038E1E29A92B0013AEEF /* FeatureLayerDefinitionExpressionVC.swift in CopyFiles */,
@@ -443,6 +450,9 @@
 		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
 		3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerSelection.storyboard; sourceTree = "<group>"; };
 		3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerSelectionVC.swift; sourceTree = "<group>"; };
+		3EFDE0811E30100800CBCD92 /* LegendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendCellView.swift; sourceTree = "<group>"; };
+		3EFDE0821E30100800CBCD92 /* ShowLegend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowLegend.storyboard; sourceTree = "<group>"; };
+		3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLegendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -900,6 +910,7 @@
 				3E049A291CED12FC0031ADA9 /* Identify graphics */,
 				3E04AB281DCAA7DE00B4E2FB /* Sketch on the map */,
 				3E049A311CED132F0031ADA9 /* Show callout */,
+				3EFDE0801E30100800CBCD92 /* Show legend */,
 				3EBA25651D3448BB00AB0703 /* Simple marker symbol */,
 				3EBA256A1D344A6B00AB0703 /* Picture marker symbols */,
 				3EBA254B1D301FDD00AB0703 /* Simple renderer */,
@@ -1220,6 +1231,17 @@
 			path = "Features/Feature layer selection";
 			sourceTree = "<group>";
 		};
+		3EFDE0801E30100800CBCD92 /* Show legend */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE0821E30100800CBCD92 /* ShowLegend.storyboard */,
+				3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */,
+				3EFDE0811E30100800CBCD92 /* LegendCellView.swift */,
+			);
+			name = "Show legend";
+			path = "Display information/Show legend";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1340,6 +1362,7 @@
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
 				3E496ED41DD14FE2004C921C /* MobileMapViewItem.xib in Resources */,
 				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
+				3EFDE0851E30100800CBCD92 /* ShowLegend.storyboard in Resources */,
 				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
 				3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
@@ -1378,6 +1401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFDE0861E30100800CBCD92 /* ShowLegendViewController.swift in Sources */,
 				3E496EF11DD39DF4004C921C /* DirectionsListViewController.swift in Sources */,
 				3E495C4B1D076C170021CD95 /* DisplaySceneViewController.swift in Sources */,
 				3ECCFE041BC86A6D00CE256D /* ChangeBasemapViewController.swift in Sources */,
@@ -1395,6 +1419,7 @@
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
+				3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
