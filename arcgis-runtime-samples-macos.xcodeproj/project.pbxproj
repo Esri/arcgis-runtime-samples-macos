@@ -224,6 +224,11 @@
 		3EFDE08C1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */; };
 		3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */; };
 		3EFDE08E1E301CDA00CBCD92 /* GraphicDrawOrderVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */; };
+		3EFDE0921E30292700CBCD92 /* HillshadeRenderer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0901E30292700CBCD92 /* HillshadeRenderer.storyboard */; };
+		3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0911E30292700CBCD92 /* HillshadeRendererVC.swift */; };
+		3EFDE0941E30298E00CBCD92 /* HillshadeRendererVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0911E30292700CBCD92 /* HillshadeRendererVC.swift */; };
+		3EFDE0981E303B0600CBCD92 /* srtm.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0961E303B0600CBCD92 /* srtm.tiff */; };
+		3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0971E303B0600CBCD92 /* srtm.tiff.ovr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -233,6 +238,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EFDE0941E30298E00CBCD92 /* HillshadeRendererVC.swift in CopyFiles */,
 				3EFDE08E1E301CDA00CBCD92 /* GraphicDrawOrderVC.swift in CopyFiles */,
 				3EFDE0871E30186200CBCD92 /* ShowLegendViewController.swift in CopyFiles */,
 				3EFDE0881E30186200CBCD92 /* LegendCellView.swift in CopyFiles */,
@@ -459,6 +465,10 @@
 		3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLegendViewController.swift; sourceTree = "<group>"; };
 		3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ControlGraphicDrawOrder.storyboard; sourceTree = "<group>"; };
 		3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicDrawOrderVC.swift; sourceTree = "<group>"; };
+		3EFDE0901E30292700CBCD92 /* HillshadeRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HillshadeRenderer.storyboard; sourceTree = "<group>"; };
+		3EFDE0911E30292700CBCD92 /* HillshadeRendererVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HillshadeRendererVC.swift; sourceTree = "<group>"; };
+		3EFDE0961E303B0600CBCD92 /* srtm.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = srtm.tiff; sourceTree = "<group>"; };
+		3EFDE0971E303B0600CBCD92 /* srtm.tiff.ovr */ = {isa = PBXFileReference; lastKnownFileType = file; path = srtm.tiff.ovr; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,6 +572,7 @@
 				3E09CC751D39A4FC005D2757 /* Geodatabases */,
 				3E049A141CEA92730031ADA9 /* Libraries */,
 				3E01036E1E298D300013AEEF /* Tile packages */,
+				3EFDE0951E303B0600CBCD92 /* Rasters */,
 			);
 			path = "Shared resources";
 			sourceTree = "<group>";
@@ -890,6 +901,7 @@
 				3E01037A1E29961A0013AEEF /* Change sublayer visibility */,
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
+				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1259,6 +1271,25 @@
 			path = "Display information/Control graphic draw order";
 			sourceTree = "<group>";
 		};
+		3EFDE08F1E30292700CBCD92 /* Hillshade renderer */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE0901E30292700CBCD92 /* HillshadeRenderer.storyboard */,
+				3EFDE0911E30292700CBCD92 /* HillshadeRendererVC.swift */,
+			);
+			name = "Hillshade renderer";
+			path = "Layers/Hillshade renderer";
+			sourceTree = "<group>";
+		};
+		3EFDE0951E303B0600CBCD92 /* Rasters */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE0961E303B0600CBCD92 /* srtm.tiff */,
+				3EFDE0971E303B0600CBCD92 /* srtm.tiff.ovr */,
+			);
+			path = Rasters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1325,6 +1356,7 @@
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
 				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
 				3E8DB5741D2B45D900D48BC6 /* UseSceneLayer.storyboard in Resources */,
+				3EFDE0981E303B0600CBCD92 /* srtm.tiff in Resources */,
 				3E04AB2F1DCAA7DE00B4E2FB /* line.gif in Resources */,
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
@@ -1336,6 +1368,7 @@
 				3ECCFE181BC86F3900CE256D /* SetMapsSpatialReference.storyboard in Resources */,
 				3ECCFE291BCC30F500CE256D /* GriffithParkJson.txt in Resources */,
 				3E7C0E3B1CF90F0000200B6E /* highlight.pack.js in Resources */,
+				3EFDE0921E30292700CBCD92 /* HillshadeRenderer.storyboard in Resources */,
 				3E7C0E3C1CF90F0000200B6E /* style.css in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
@@ -1382,6 +1415,7 @@
 				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
 				3EFDE0851E30100800CBCD92 /* ShowLegend.storyboard in Resources */,
 				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
+				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
 				3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
@@ -1457,6 +1491,7 @@
 				3ECCFE1B1BC86F5A00CE256D /* SetMapsSRViewController.swift in Sources */,
 				3E69DE461CFE2DEC001F65F7 /* WindowController.swift in Sources */,
 				3E496ED01DD14FE2004C921C /* MapPackagesListVC.swift in Sources */,
+				3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */,
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */,

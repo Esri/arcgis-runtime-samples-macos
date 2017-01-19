@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="hce-ud-MQ3">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Hillshade RendererVC-->
+        <scene sceneID="KY6-y8-m5a">
+            <objects>
+                <viewController id="hce-ud-MQ3" customClass="HillshadeRendererVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="2my-AC-pct">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="9gP-Qo-aYd" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="HHc-wm-5b2">
+                                <rect key="frame" x="130" y="85" width="300" height="195"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="cEW-gk-XOg">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="195"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="acq-pE-LDU">
+                                                <rect key="frame" x="18" y="122" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55" id="BAC-3Q-GsG"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Altitude" id="HI3-cd-9VM">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="teG-xg-1u1">
+                                                <rect key="frame" x="18" y="93" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55" id="hxW-2n-5m0"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Azimuth" id="Ow5-2V-mUX">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D6T-sS-af3">
+                                                <rect key="frame" x="18" y="63" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55" id="Mdm-zr-FhL"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Slope" id="ZkL-Iv-OLA">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vm7-pI-Wjo">
+                                                <rect key="frame" x="78" y="58" width="205" height="26"/>
+                                                <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Gww-16-gBK" id="ZpZ-oS-db7">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="Kjb-3d-che">
+                                                        <items>
+                                                            <menuItem title="None" state="on" id="Gww-16-gBK"/>
+                                                            <menuItem title="Degree" id="1Qt-K0-qnQ"/>
+                                                            <menuItem title="Percent Rise" id="k6K-nB-fMo"/>
+                                                            <menuItem title="Scaled" id="yOq-ob-o3f"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                            </popUpButton>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-kV-Swd">
+                                                <rect key="frame" x="58" y="158" width="185" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hillshade Renderer Settings" id="COb-r6-GHC">
+                                                    <font key="font" metaFont="systemBold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wrb-26-k62">
+                                                <rect key="frame" x="113" y="13" width="75" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HSm-cd-NPD">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="applyAction:" target="hce-ud-MQ3" id="OaA-l1-gRx"/>
+                                                </connections>
+                                            </button>
+                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FJ5-Gt-BLO">
+                                                <rect key="frame" x="78" y="120" width="171" height="20"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="90" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="JT4-oH-24d"/>
+                                                <connections>
+                                                    <action selector="altitudeSliderAction:" target="hce-ud-MQ3" id="WUx-HQ-JSk"/>
+                                                </connections>
+                                            </slider>
+                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oqi-Ha-KmC">
+                                                <rect key="frame" x="78" y="92" width="171" height="20"/>
+                                                <sliderCell key="cell" state="on" alignment="left" maxValue="359" doubleValue="315" tickMarkPosition="above" sliderType="linear" id="5dr-ck-KH9"/>
+                                                <connections>
+                                                    <action selector="azimuthSliderAction:" target="hce-ud-MQ3" id="qLA-0x-LxU"/>
+                                                </connections>
+                                            </slider>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x0n-xt-dIS">
+                                                <rect key="frame" x="253" y="122" width="29" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="tKT-g5-OyA"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="45" id="euB-TO-gJ1">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HB6-K6-HWP">
+                                                <rect key="frame" x="253" y="93" width="29" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="8Ip-4e-QDO"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="315" id="2OF-Lf-GK9">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="teG-xg-1u1" firstAttribute="leading" secondItem="cEW-gk-XOg" secondAttribute="leading" constant="20" id="052-tJ-59B"/>
+                                            <constraint firstItem="vm7-pI-Wjo" firstAttribute="top" secondItem="Oqi-Ha-KmC" secondAttribute="bottom" constant="12" id="1IW-Rb-7b5"/>
+                                            <constraint firstItem="vm7-pI-Wjo" firstAttribute="leading" secondItem="D6T-sS-af3" secondAttribute="trailing" constant="5" id="216-gh-ATK"/>
+                                            <constraint firstItem="FJ5-Gt-BLO" firstAttribute="leading" secondItem="acq-pE-LDU" secondAttribute="trailing" constant="5" id="2b8-ln-9Ua"/>
+                                            <constraint firstItem="Wrb-26-k62" firstAttribute="top" secondItem="vm7-pI-Wjo" secondAttribute="bottom" constant="20" id="5Bd-j2-CfJ"/>
+                                            <constraint firstItem="D6T-sS-af3" firstAttribute="leading" secondItem="cEW-gk-XOg" secondAttribute="leading" constant="20" id="6Ad-Zi-UiM"/>
+                                            <constraint firstItem="teG-xg-1u1" firstAttribute="centerY" secondItem="Oqi-Ha-KmC" secondAttribute="centerY" id="6Yd-hj-5JE"/>
+                                            <constraint firstItem="acq-pE-LDU" firstAttribute="centerY" secondItem="FJ5-Gt-BLO" secondAttribute="centerY" id="9Rj-5y-QTz"/>
+                                            <constraint firstItem="Oqi-Ha-KmC" firstAttribute="leading" secondItem="teG-xg-1u1" secondAttribute="trailing" constant="5" id="Dkk-rR-ZKd"/>
+                                            <constraint firstAttribute="width" constant="300" id="F1G-Hp-rGA"/>
+                                            <constraint firstItem="x0n-xt-dIS" firstAttribute="leading" secondItem="FJ5-Gt-BLO" secondAttribute="trailing" constant="8" id="I3b-BD-YEW"/>
+                                            <constraint firstItem="Wrb-26-k62" firstAttribute="centerX" secondItem="cEW-gk-XOg" secondAttribute="centerX" id="KMx-3u-mRt"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wrb-26-k62" secondAttribute="bottom" constant="20" id="M5P-L7-7lb"/>
+                                            <constraint firstItem="D6T-sS-af3" firstAttribute="centerY" secondItem="vm7-pI-Wjo" secondAttribute="centerY" id="NiX-Lk-cFf"/>
+                                            <constraint firstItem="HB6-K6-HWP" firstAttribute="leading" secondItem="Oqi-Ha-KmC" secondAttribute="trailing" constant="8" id="OpQ-tt-37q"/>
+                                            <constraint firstItem="acq-pE-LDU" firstAttribute="leading" secondItem="cEW-gk-XOg" secondAttribute="leading" constant="20" id="Pq2-SM-Wts"/>
+                                            <constraint firstItem="FJ5-Gt-BLO" firstAttribute="centerY" secondItem="x0n-xt-dIS" secondAttribute="centerY" id="SO7-an-X4S"/>
+                                            <constraint firstAttribute="trailing" secondItem="x0n-xt-dIS" secondAttribute="trailing" constant="20" id="T7d-yQ-2dB"/>
+                                            <constraint firstItem="Oqi-Ha-KmC" firstAttribute="centerY" secondItem="HB6-K6-HWP" secondAttribute="centerY" id="TTy-6I-3Pg"/>
+                                            <constraint firstItem="FJ5-Gt-BLO" firstAttribute="top" secondItem="kAh-kV-Swd" secondAttribute="bottom" constant="20" id="Z6s-Jh-MeU"/>
+                                            <constraint firstItem="kAh-kV-Swd" firstAttribute="top" secondItem="cEW-gk-XOg" secondAttribute="top" constant="20" id="ZBq-BV-m5f"/>
+                                            <constraint firstItem="kAh-kV-Swd" firstAttribute="centerX" secondItem="cEW-gk-XOg" secondAttribute="centerX" id="blq-aW-D4H"/>
+                                            <constraint firstAttribute="trailing" secondItem="HB6-K6-HWP" secondAttribute="trailing" constant="20" id="iNB-0h-W00"/>
+                                            <constraint firstItem="Oqi-Ha-KmC" firstAttribute="top" secondItem="FJ5-Gt-BLO" secondAttribute="bottom" constant="12" id="s95-NW-pmg"/>
+                                            <constraint firstAttribute="trailing" secondItem="vm7-pI-Wjo" secondAttribute="trailing" constant="20" id="tAG-C6-7eL"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ode-fc-Vd2"/>
+                                    <constraint firstItem="cEW-gk-XOg" firstAttribute="top" secondItem="HHc-wm-5b2" secondAttribute="top" id="SGW-ih-aiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="cEW-gk-XOg" secondAttribute="trailing" id="gAX-TY-BRH"/>
+                                    <constraint firstItem="cEW-gk-XOg" firstAttribute="leading" secondItem="HHc-wm-5b2" secondAttribute="leading" id="gUA-k3-5Nf"/>
+                                    <constraint firstAttribute="bottom" secondItem="cEW-gk-XOg" secondAttribute="bottom" id="jvF-AM-Sal"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9gP-Qo-aYd" secondAttribute="trailing" id="4d1-50-6P5"/>
+                            <constraint firstItem="9gP-Qo-aYd" firstAttribute="leading" secondItem="2my-AC-pct" secondAttribute="leading" id="5kJ-Bv-olG"/>
+                            <constraint firstAttribute="bottom" secondItem="9gP-Qo-aYd" secondAttribute="bottom" id="7QI-1L-mYU"/>
+                            <constraint firstAttribute="trailing" secondItem="HHc-wm-5b2" secondAttribute="trailing" constant="20" id="Hg3-Tk-exB"/>
+                            <constraint firstItem="HHc-wm-5b2" firstAttribute="top" secondItem="2my-AC-pct" secondAttribute="top" constant="20" id="ZiB-g3-qQz"/>
+                            <constraint firstItem="9gP-Qo-aYd" firstAttribute="top" secondItem="2my-AC-pct" secondAttribute="top" id="qLj-ch-dml"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="altitudeLabel" destination="x0n-xt-dIS" id="LqN-OI-gAp"/>
+                        <outlet property="altitudeSlider" destination="FJ5-Gt-BLO" id="KUK-6l-bqy"/>
+                        <outlet property="azimuthLabel" destination="HB6-K6-HWP" id="eFO-TT-COW"/>
+                        <outlet property="azimuthSlider" destination="Oqi-Ha-KmC" id="mOo-2i-oxj"/>
+                        <outlet property="mapView" destination="9gP-Qo-aYd" id="MUj-rH-YqP"/>
+                        <outlet property="slopeType" destination="vm7-pI-Wjo" id="a4D-1x-NCn"/>
+                    </connections>
+                </viewController>
+                <customObject id="E9Q-T3-GSl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="156"/>
+        </scene>
+    </scenes>
+</document>
