@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E28C5133564AAEABCC9B84DCA5C833F1E12F9F27",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E28C5133564AAEABCC9B84DCA5C833F1E12F9F27" : 9223372036854775807,
+    "51EB09D9B48706DC6B07BCBE816738EF4D5569C2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E57E8941-4F6D-42CE-A9CB-DCD1D1181066",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E28C5133564AAEABCC9B84DCA5C833F1E12F9F27" : "arcgis-runtime-samples-macos\/",
+    "51EB09D9B48706DC6B07BCBE816738EF4D5569C2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "arcgis-runtime-samples-macos",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "arcgis-runtime-samples-macos.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ArcGIS\/maptours-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "51EB09D9B48706DC6B07BCBE816738EF4D5569C2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ArcGIS\/arcgis-runtime-samples-macos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E28C5133564AAEABCC9B84DCA5C833F1E12F9F27"
+    }
+  ]
+}
