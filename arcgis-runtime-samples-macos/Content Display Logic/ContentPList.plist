@@ -778,6 +778,18 @@
                         <string>CreateGeometriesViewController</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Spatial operations</string>
+                    <key>storyboardName</key>
+                    <string>SpatialOperations</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows how to perform geometry operations between overlapping polygons</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SpatialOperationsViewController</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
