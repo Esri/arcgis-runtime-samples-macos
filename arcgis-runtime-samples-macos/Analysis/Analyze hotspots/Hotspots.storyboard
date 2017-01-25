@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bzZ-LW-pU6">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Hotspots View Controller-->
+        <scene sceneID="2Vi-PI-lkh">
+            <objects>
+                <viewController id="bzZ-LW-pU6" customClass="HotspotsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="fEE-NL-qSO">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="6Wo-nk-gu0" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="lOw-At-1na">
+                                <rect key="frame" x="180" y="2" width="250" height="278"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="lxS-5Y-gRt">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="278"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99q-3H-9oI">
+                                                <rect key="frame" x="18" y="224" width="214" height="34"/>
+                                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Hold and drag to select a date range for analysis" id="3zK-re-FR9">
+                                                    <font key="font" metaFont="systemBold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M3I-jd-8R4">
+                                                <rect key="frame" x="88" y="13" width="75" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FGv-Td-RIM">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="applyAction:" target="bzZ-LW-pU6" id="VIn-Uw-MIw"/>
+                                                </connections>
+                                            </button>
+                                            <datePicker verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="44y-lh-hEp">
+                                                <rect key="frame" x="56" y="61" width="139" height="148"/>
+                                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerMode="range" datePickerStyle="clockAndCalendar" id="NLt-XD-0AN">
+                                                    <font key="font" metaFont="system"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="-94662000">
+                                                        <!--1998-01-01 09:00:00 +0000-->
+                                                    </date>
+                                                    <date key="minDate" timeIntervalSinceReferenceDate="-94662000">
+                                                        <!--1998-01-01 09:00:00 +0000-->
+                                                    </date>
+                                                    <date key="maxDate" timeIntervalSinceReferenceDate="-81626400">
+                                                        <!--1998-06-01 06:00:00 +0000-->
+                                                    </date>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                </datePickerCell>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="99q-3H-9oI" firstAttribute="centerX" secondItem="lxS-5Y-gRt" secondAttribute="centerX" id="1Lb-72-xpL"/>
+                                            <constraint firstItem="M3I-jd-8R4" firstAttribute="centerX" secondItem="lxS-5Y-gRt" secondAttribute="centerX" id="2yf-wV-0Fo"/>
+                                            <constraint firstItem="M3I-jd-8R4" firstAttribute="top" secondItem="44y-lh-hEp" secondAttribute="bottom" constant="20" id="URL-HG-0DF"/>
+                                            <constraint firstItem="44y-lh-hEp" firstAttribute="centerX" secondItem="lxS-5Y-gRt" secondAttribute="centerX" id="Ub1-MO-uMz"/>
+                                            <constraint firstItem="44y-lh-hEp" firstAttribute="top" secondItem="99q-3H-9oI" secondAttribute="bottom" constant="15" id="XQZ-pO-iMW"/>
+                                            <constraint firstAttribute="bottom" secondItem="M3I-jd-8R4" secondAttribute="bottom" constant="20" id="cZt-7P-Xqs"/>
+                                            <constraint firstAttribute="trailing" secondItem="99q-3H-9oI" secondAttribute="trailing" constant="20" id="nhw-Zs-xV6"/>
+                                            <constraint firstItem="99q-3H-9oI" firstAttribute="top" secondItem="lxS-5Y-gRt" secondAttribute="top" constant="20" id="vji-NA-zsb"/>
+                                            <constraint firstItem="99q-3H-9oI" firstAttribute="leading" secondItem="lxS-5Y-gRt" secondAttribute="leading" constant="20" id="xe8-8i-tjV"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="4VP-xt-efX"/>
+                                    <constraint firstAttribute="bottom" secondItem="lxS-5Y-gRt" secondAttribute="bottom" id="DUC-nO-HTc"/>
+                                    <constraint firstAttribute="trailing" secondItem="lxS-5Y-gRt" secondAttribute="trailing" id="FNp-GZ-JfE"/>
+                                    <constraint firstItem="lxS-5Y-gRt" firstAttribute="top" secondItem="lOw-At-1na" secondAttribute="top" id="JQ1-sY-okq"/>
+                                    <constraint firstItem="lxS-5Y-gRt" firstAttribute="leading" secondItem="lOw-At-1na" secondAttribute="leading" id="aY3-PZ-CnJ"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lOw-At-1na" secondAttribute="trailing" constant="20" id="8Sg-hd-80h"/>
+                            <constraint firstAttribute="trailing" secondItem="6Wo-nk-gu0" secondAttribute="trailing" id="Dgz-MP-fsC"/>
+                            <constraint firstItem="6Wo-nk-gu0" firstAttribute="top" secondItem="fEE-NL-qSO" secondAttribute="top" id="TyX-uG-TlT"/>
+                            <constraint firstItem="lOw-At-1na" firstAttribute="top" secondItem="fEE-NL-qSO" secondAttribute="top" constant="20" id="caX-3E-tzX"/>
+                            <constraint firstItem="6Wo-nk-gu0" firstAttribute="leading" secondItem="fEE-NL-qSO" secondAttribute="leading" id="kWt-nP-1bN"/>
+                            <constraint firstAttribute="bottom" secondItem="6Wo-nk-gu0" secondAttribute="bottom" id="xE3-cb-O7W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyButton" destination="M3I-jd-8R4" id="zJO-EV-Rzg"/>
+                        <outlet property="datePicker" destination="44y-lh-hEp" id="aAg-dd-23D"/>
+                        <outlet property="mapView" destination="6Wo-nk-gu0" id="Utl-yq-fdo"/>
+                    </connections>
+                </viewController>
+                <customObject id="vVG-y3-0ST" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="163"/>
+        </scene>
+    </scenes>
+</document>
