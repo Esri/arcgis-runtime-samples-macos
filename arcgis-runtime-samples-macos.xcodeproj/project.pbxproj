@@ -256,6 +256,12 @@
 		3EFDE0E61E3288C900CBCD92 /* ViewshedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */; };
 		3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */; };
 		3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */; };
+		3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0D11E31850900CBCD92 /* FeatureCollectionLayer.storyboard */; };
+		3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */; };
+		3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0D41E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard */; };
+		3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */; };
+		3EFDE0DA1E318E6D00CBCD92 /* FeatureCollectionLayerVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */; };
+		3EFDE0DB1E318E6D00CBCD92 /* FeatureCollectionLayerQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */; };
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
@@ -270,6 +276,8 @@
 			files = (
 				3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */,
 				3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */,
+				3EFDE0DA1E318E6D00CBCD92 /* FeatureCollectionLayerVC.swift in CopyFiles */,
+				3EFDE0DB1E318E6D00CBCD92 /* FeatureCollectionLayerQueryVC.swift in CopyFiles */,
 				3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */,
 				3EFDE0C11E31289800CBCD92 /* BlendRendererViewController.swift in CopyFiles */,
 				3EFDE0C21E31289800CBCD92 /* RGBRendererViewController.swift in CopyFiles */,
@@ -527,6 +535,10 @@
 		3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotspotsViewController.swift; path = "arcgis-runtime-samples-macos/Analysis/Analyze hotspots/HotspotsViewController.swift"; sourceTree = "<group>"; };
 		3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Viewshed.storyboard; path = "arcgis-runtime-samples-macos/Analysis/Analyze viewshed/Viewshed.storyboard"; sourceTree = "<group>"; };
 		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewshedViewController.swift; path = "arcgis-runtime-samples-macos/Analysis/Analyze viewshed/ViewshedViewController.swift"; sourceTree = "<group>"; };
+		3EFDE0D11E31850900CBCD92 /* FeatureCollectionLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureCollectionLayer.storyboard; sourceTree = "<group>"; };
+		3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCollectionLayerVC.swift; sourceTree = "<group>"; };
+		3EFDE0D41E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureCollectionLayerQuery.storyboard; sourceTree = "<group>"; };
+		3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCollectionLayerQueryVC.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -979,6 +991,8 @@
 				3E0103891E29A7250013AEEF /* Feature layer definition expression */,
 				3E0103831E29A0850013AEEF /* Change feature layer renderer */,
 				3E01038F1E2DC8B50013AEEF /* Generate geodatabase */,
+				3EFDE0D01E31850900CBCD92 /* Feature collection layer */,
+				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1426,6 +1440,26 @@
 			path = Viewshed;
 			sourceTree = "<group>";
 		};
+		3EFDE0D01E31850900CBCD92 /* Feature collection layer */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE0D11E31850900CBCD92 /* FeatureCollectionLayer.storyboard */,
+				3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */,
+			);
+			name = "Feature collection layer";
+			path = "Features/Feature collection layer";
+			sourceTree = "<group>";
+		};
+		3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */ = {
+			isa = PBXGroup;
+			children = (
+				3EFDE0D41E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard */,
+				3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */,
+			);
+			name = "Feature collection layer (query)";
+			path = "Features/Feature collection layer (query)";
+            sourceTree = "<group>";
+        };
 		3EFDE0E91E32D66300CBCD92 /* Spatial operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1535,6 +1569,7 @@
 				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
+				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */,
 				3E049A471CED1F460031ADA9 /* VectorTileLayer.storyboard in Resources */,
@@ -1550,6 +1585,7 @@
 				3E8A25BC1D36F75300D14F08 /* CreateGeometries.storyboard in Resources */,
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
+				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				3E049A341CED132F0031ADA9 /* GraphicsWithSymbols.storyboard in Resources */,
 				3EFDE09D1E31271700CBCD92 /* BlendRenderer.storyboard in Resources */,
 				3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */,
@@ -1645,6 +1681,8 @@
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
+				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
+				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
 				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
 				3EFDE0A81E31279700CBCD92 /* RGBRendererViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,

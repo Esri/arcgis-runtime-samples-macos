@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bzK-3f-GoC">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Feature Collection Layer QueryVC-->
+        <scene sceneID="mDY-Kb-cre">
+            <objects>
+                <viewController id="bzK-3f-GoC" customClass="FeatureCollectionLayerQueryVC" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="cP0-Qm-dZX">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="wtd-w1-Vgo" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wtd-w1-Vgo" secondAttribute="trailing" id="QwG-aH-fS2"/>
+                            <constraint firstItem="wtd-w1-Vgo" firstAttribute="leading" secondItem="cP0-Qm-dZX" secondAttribute="leading" id="YDC-ST-iSI"/>
+                            <constraint firstItem="wtd-w1-Vgo" firstAttribute="top" secondItem="cP0-Qm-dZX" secondAttribute="top" id="e0G-D1-GV6"/>
+                            <constraint firstAttribute="bottom" secondItem="wtd-w1-Vgo" secondAttribute="bottom" id="g0o-yO-mEA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="wtd-w1-Vgo" id="w9I-eX-2uj"/>
+                    </connections>
+                </viewController>
+                <customObject id="Kvp-oc-THa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="143"/>
+        </scene>
+    </scenes>
+</document>
