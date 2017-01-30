@@ -19,9 +19,9 @@ import ArcGIS
 
 protocol DirectionsListVCDelegate:class {
     
-    func directionsListViewController(directionsListViewController:DirectionsListViewController, didSelectDirectionManuever directionManeuver:AGSDirectionManeuver)
+    func directionsListViewController(_ directionsListViewController:DirectionsListViewController, didSelectDirectionManuever directionManeuver:AGSDirectionManeuver)
     
-    func directionsListViewControllerDidDeleteRoute(directionsListViewController:DirectionsListViewController)
+    func directionsListViewControllerDidDeleteRoute(_ directionsListViewController:DirectionsListViewController)
 }
 
 class DirectionsListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
@@ -55,12 +55,12 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.route?.directionManeuvers.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view = tableView.makeViewWithIdentifier("DirectionCellView", owner: self)
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let view = tableView.make(withIdentifier: "DirectionCellView", owner: self)
         
         if let textField = view?.viewWithTag(1) as? NSTextField {
             textField.stringValue = self.route.directionManeuvers[row].directionText
@@ -71,7 +71,7 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         let directionManeuver = self.route.directionManeuvers[self.tableView.selectedRow]
         self.delegate?.directionsListViewController(self, didSelectDirectionManuever: directionManeuver)
     }

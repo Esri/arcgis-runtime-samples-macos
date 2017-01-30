@@ -25,9 +25,9 @@ class FeatureTemplateInfo {
 
 protocol FeatureTemplatePickerVCDelegate:class {
     
-    func featureTemplatePickerVC(featureTemplatePickerVC:FeatureTemplatePickerVC, didSelectFeatureTemplate template:AGSFeatureTemplate, forFeatureLayer featureLayer:AGSFeatureLayer)
+    func featureTemplatePickerVC(_ featureTemplatePickerVC:FeatureTemplatePickerVC, didSelectFeatureTemplate template:AGSFeatureTemplate, forFeatureLayer featureLayer:AGSFeatureLayer)
     
-    func featureTemplatePickerVCDidCancel(featureTemplatePickerVC:FeatureTemplatePickerVC)
+    func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC:FeatureTemplatePickerVC)
 }
 
 class FeatureTemplatePickerVC: NSViewController {
@@ -44,7 +44,7 @@ class FeatureTemplatePickerVC: NSViewController {
         self.addTemplatesFromLayer(self.featureLayer)
     }
     
-    func addTemplatesFromLayer(featureLayer:AGSFeatureLayer) {
+    func addTemplatesFromLayer(_ featureLayer:AGSFeatureLayer) {
         
         let featureTable = featureLayer.featureTable as! AGSServiceFeatureTable
         //if layer contains only templates (no feature types)
@@ -84,12 +84,12 @@ class FeatureTemplatePickerVC: NSViewController {
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRowsInTableView(_ tableView: NSTableView) -> Int {
         return self.infos.count
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.makeViewWithIdentifier("FeatureTemplateCell", owner: self)
+    func tableView(_ tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cellView = tableView.make(withIdentifier: "FeatureTemplateCell", owner: self)
         
         let info = self.infos[row]
         
@@ -101,9 +101,9 @@ class FeatureTemplatePickerVC: NSViewController {
             
             let featureTable = self.featureLayer.featureTable as! AGSArcGISFeatureTable
             //create a new feature based on the template
-            let newFeature = featureTable.createFeatureWithTemplate(info.featureTemplate)!
-            let symbol = self.featureLayer.renderer?.symbolForFeature(newFeature)
-            symbol?.createSwatchWithCompletion({ (image: NSImage?, error: NSError?) in
+            let newFeature = featureTable.createFeature(with: info.featureTemplate)!
+            let symbol = self.featureLayer.renderer?.symbol(for: newFeature)
+            symbol?.createSwatch(completion: { (image: NSImage?, error: Error?) in
                 imageView.image = image
             })
         }
@@ -113,7 +113,7 @@ class FeatureTemplatePickerVC: NSViewController {
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         
         let row = self.featureTemplateTableView.selectedRow
         
@@ -121,7 +121,7 @@ class FeatureTemplatePickerVC: NSViewController {
         let info = self.infos[row]
         self.delegate?.featureTemplatePickerVC(self, didSelectFeatureTemplate: info.featureTemplate, forFeatureLayer: info.featureLayer)
         
-        self.dismissController(nil)
+        self.dismiss(nil)
     }
 }
 

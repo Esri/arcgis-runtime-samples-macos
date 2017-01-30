@@ -25,7 +25,7 @@ class DisplaySceneViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize scene with topographic basemap
-        let scene = AGSScene(basemap: AGSBasemap.imageryBasemap())
+        let scene = AGSScene(basemap: AGSBasemap.imagery())
         //assign scene to the scene view
         self.sceneView.scene = scene
         
@@ -35,7 +35,7 @@ class DisplaySceneViewController: NSViewController {
         
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(URL: NSURL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
     }

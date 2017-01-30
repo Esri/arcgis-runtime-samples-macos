@@ -44,11 +44,11 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         super.windowDidLoad()
     
         self.window?.delegate = self
-        self.window?.titleVisibility = .Hidden
+        self.window?.titleVisibility = .hidden
         self.window?.titlebarAppearsTransparent = true
         self.window?.backgroundColor = NSColor.primaryBlue()
         
-        self.suggestionsWindowController = self.storyboard?.instantiateControllerWithIdentifier("SuggestionsWindowController") as! NSWindowController
+        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: "SuggestionsWindowController") as! NSWindowController
         self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController
         self.suggestionsViewController.delegate = self
         
@@ -59,18 +59,18 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     //MARK: - Progres indicator
     
     func showProgressIndicator() {
-        self.progressIndicator.hidden = false
+        self.progressIndicator.isHidden = false
     }
 
     func hideProgressIndicator() {
-        self.progressIndicator.hidden = true
+        self.progressIndicator.isHidden = true
     }
     
     //MARK: - NSSearchFieldDelegate
     
-    override func controlTextDidChange(notification: NSNotification) {
-        if let sender = notification.object as? NSSearchField where sender == self.searchField {
-            if let suggestions = SearchEngine.sharedInstance().suggestionsForString(self.searchField.stringValue) where suggestions.count > 0 {
+    override func controlTextDidChange(_ notification: Notification) {
+        if let sender = notification.object as? NSSearchField , sender == self.searchField {
+            if let suggestions = SearchEngine.sharedInstance().suggestionsForString(self.searchField.stringValue) , suggestions.count > 0 {
             
                 self.showSuggestionsWindow(suggestions)
             }
@@ -80,19 +80,19 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         }
     }
     
-    override func controlTextDidEndEditing(obj: NSNotification) {
+    override func controlTextDidEndEditing(_ obj: Notification) {
         self.hideSuggestionsWindow()
     }
     
     //MARK: - Actions
     
-    @IBAction func searchAction(sender: NSSearchField) {
+    @IBAction func searchAction(_ sender: NSSearchField) {
         if !sender.stringValue.isEmpty {
             self.searchSamples(sender.stringValue)
         }
     }
     
-    private func searchSamples(searchString: String) {
+    private func searchSamples(_ searchString: String) {
         //hide segment control
         (self.contentViewController as! MainViewController).toggleSegmentedControl(.Off)
         
@@ -105,7 +105,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     
     //MARK: Suggestions window controller
     
-    func showSuggestionsWindow(suggestions: [String]) {
+    func showSuggestionsWindow(_ suggestions: [String]) {
 
         //assign the suggestions to the view controller
         self.suggestionsViewController.suggestions = suggestions
@@ -114,9 +114,9 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         //show the window
         let suggestionsWindow = self.suggestionsWindowController.window!
         
-        if !suggestionsWindow.visible {
+        if !suggestionsWindow.isVisible {
             
-            let mainWindow = NSApplication.sharedApplication().mainWindow!
+            let mainWindow = NSApplication.shared().mainWindow!
             
             //frame calculations
             let originX = mainWindow.frame.origin.x + mainWindow.frame.width - self.searchField.frame.width - 6
@@ -128,21 +128,21 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
             suggestionsWindow.setFrame(NSRect(origin: frameOrigin, size: frameSize), display: true)
             
             //add window as child window
-            mainWindow.addChildWindow(suggestionsWindow, ordered: .Above)
+            mainWindow.addChildWindow(suggestionsWindow, ordered: .above)
     
             self.suggestionsWindowController.window?.makeKeyAndOrderFront(self)
         }
     }
     
     func hideSuggestionsWindow() {
-        if let window = self.suggestionsWindowController?.window where window.visible {
+        if let window = self.suggestionsWindowController?.window , window.isVisible {
             window.orderOut(self)
         }
     }
     
     //MARK: - NSWindowDelegate
 
-    func windowWillResize(sender: NSWindow, toSize frameSize: NSSize) -> NSSize {
+    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
         
         //hide suggestion window instead of updating the window frame
         self.hideSuggestionsWindow()
@@ -152,7 +152,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     
     //MARK: - SuggestionsVCDelegate
     
-    func suggestionsViewController(suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String) {
+    func suggestionsViewController(_ suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String) {
         
         self.searchField.stringValue = suggestion
         self.searchSamples(suggestion)

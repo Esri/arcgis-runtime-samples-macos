@@ -24,7 +24,7 @@ class GenerateGeodatabaseVC: NSViewController {
     @IBOutlet var extentView:NSView!
     
     private var map:AGSMap!
-    private let FEATURE_SERVICE_URL = NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/WildfireSync/FeatureServer")!
+    private let FEATURE_SERVICE_URL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/WildfireSync/FeatureServer")!
     private var syncTask:AGSGeodatabaseSyncTask!
     private var generateJob:AGSGenerateGeodatabaseJob!
     private var generatedGeodatabase:AGSGeodatabase!
@@ -32,19 +32,19 @@ class GenerateGeodatabaseVC: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let path = NSBundle.mainBundle().pathForResource("SanFrancisco", ofType: "tpk")!
-        let tileCache = AGSTileCache(fileURL: NSURL(fileURLWithPath: path))
+        let path = Bundle.main.path(forResource: "SanFrancisco", ofType: "tpk")!
+        let tileCache = AGSTileCache(fileURL: URL(fileURLWithPath: path))
         let localTiledLayer = AGSArcGISTiledLayer(tileCache: tileCache)
         
         
         self.map = AGSMap(basemap: AGSBasemap(baseLayer: localTiledLayer))
         
-        self.syncTask = AGSGeodatabaseSyncTask(URL: self.FEATURE_SERVICE_URL)
+        self.syncTask = AGSGeodatabaseSyncTask(url: self.FEATURE_SERVICE_URL)
         
         self.addFeatureLayers()
         
         //setup extent view
-        self.extentView.layer?.borderColor = NSColor.redColor().CGColor
+        self.extentView.layer?.borderColor = NSColor.red.cgColor
         self.extentView.layer?.borderWidth = 3
         
         self.mapView.map = self.map
@@ -52,7 +52,7 @@ class GenerateGeodatabaseVC: NSViewController {
     
     func addFeatureLayers() {
         
-        self.syncTask.loadWithCompletion { [weak self] (error) -> Void in
+        self.syncTask.load { [weak self] (error) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: "Could not load feature service \(error.localizedDescription)")
             } else {
@@ -60,28 +60,28 @@ class GenerateGeodatabaseVC: NSViewController {
                     return
                 }
                 
-                for (index, layerInfo) in weakSelf.syncTask.featureServiceInfo!.layerInfos.enumerate().reverse() {
+                for (index, layerInfo) in weakSelf.syncTask.featureServiceInfo!.layerInfos.enumerated().reversed() {
                     
                     //For each layer in the serice, add a layer to the map
-                    let layerURL = weakSelf.FEATURE_SERVICE_URL.URLByAppendingPathComponent(String(index))
-                    let featureTable = AGSServiceFeatureTable(URL:layerURL!)
+                    let layerURL = weakSelf.FEATURE_SERVICE_URL.appendingPathComponent(String(index))
+                    let featureTable = AGSServiceFeatureTable(url:layerURL)
                     let featureLayer = AGSFeatureLayer(featureTable: featureTable)
                     featureLayer.name = layerInfo.name
                     featureLayer.opacity = 0.65
-                    weakSelf.map.operationalLayers.addObject(featureLayer)
+                    weakSelf.map.operationalLayers.add(featureLayer)
                 }
                 
                 //enable download
-                weakSelf.generateButton.enabled = true
+                weakSelf.generateButton.isEnabled = true
             }
         }
     }
     
     func frameToExtent() -> AGSEnvelope {
-        let frame = self.mapView.convertRect(self.extentView.frame, fromView: self.view)
+        let frame = self.mapView.convert(self.extentView.frame, from: self.view)
         
-        let minPoint = self.mapView.screenToLocation(frame.origin)
-        let maxPoint = self.mapView.screenToLocation(CGPoint(x: frame.origin.x+frame.width, y: frame.origin.y+frame.height))
+        let minPoint = self.mapView.screen(toLocation: frame.origin)
+        let maxPoint = self.mapView.screen(toLocation: CGPoint(x: frame.origin.x+frame.width, y: frame.origin.y+frame.height))
         let extent = AGSEnvelope(min: minPoint, max: maxPoint)
         return extent
     }
@@ -91,14 +91,14 @@ class GenerateGeodatabaseVC: NSViewController {
     @IBAction func generateAction(_ sender:NSButton) {
         
         //disable button
-        self.generateButton.enabled = false
+        self.generateButton.isEnabled = false
         
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
         //generate default param to contain all layers in the service
-        self.syncTask.defaultGenerateGeodatabaseParametersWithExtent(self.frameToExtent()) { [weak self] (params: AGSGenerateGeodatabaseParameters?, error: NSError?) in
-            if let params = params, weakSelf = self {
+        self.syncTask.defaultGenerateGeodatabaseParameters(withExtent: self.frameToExtent()) { [weak self] (params: AGSGenerateGeodatabaseParameters?, error: Error?) in
+            if let params = params, let weakSelf = self {
                 
                 //hide progress indicator
                 self?.view.window?.hideProgressIndicator()
@@ -107,22 +107,22 @@ class GenerateGeodatabaseVC: NSViewController {
                 params.returnAttachments = false
                 
                 //create a unique name for the geodatabase based on current timestamp
-                let dateFormatter = NSDateFormatter()
+                let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                 
-                let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-                let fullPath = "\(path)/\(dateFormatter.stringFromDate(NSDate())).geodatabase"
+                let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                let fullPath = "\(path)/\(dateFormatter.string(from: Date())).geodatabase"
                 
                 //request a job to generate the geodatabase
-                weakSelf.generateJob = weakSelf.syncTask.generateJobWithParameters(params, downloadFileURL: NSURL(string: fullPath)!)
+                weakSelf.generateJob = weakSelf.syncTask.generateJob(with: params, downloadFileURL: URL(string: fullPath)!)
                 
                 //show progress indicator
                 self?.view.window?.showProgressIndicator()
                 
                 //kick off the job
-                weakSelf.generateJob.startWithStatusHandler({ (status: AGSJobStatus) -> Void in
+                weakSelf.generateJob.start(statusHandler: { (status: AGSJobStatus) -> Void in
                     print(status.rawValue)
-                }) { [weak self] (object: AnyObject?, error: NSError?) -> Void in
+                }) { [weak self] (object: AnyObject?, error: Error?) -> Void in
                     
                     //hide progress indicator
                     self?.view.window?.hideProgressIndicator()
@@ -143,7 +143,7 @@ class GenerateGeodatabaseVC: NSViewController {
     }
     
     func displayLayersFromGeodatabase() {
-        self.generatedGeodatabase.loadWithCompletion({ [weak self] (error:NSError?) -> Void in
+        self.generatedGeodatabase.load(completion: { [weak self] (error:Error?) -> Void in
             
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
@@ -153,11 +153,11 @@ class GenerateGeodatabaseVC: NSViewController {
                 
                 AGSLoadObjects(self!.generatedGeodatabase.geodatabaseFeatureTables, { (success: Bool) in
                     if success {
-                        for featureTable in self!.generatedGeodatabase.geodatabaseFeatureTables.reverse() {
+                        for featureTable in self!.generatedGeodatabase.geodatabaseFeatureTables.reversed() {
                             //check if featureTable has geometry
                             if featureTable.hasGeometry {
                                 let featureLayer = AGSFeatureLayer(featureTable: featureTable)
-                                self?.map.operationalLayers.addObject(featureLayer)
+                                self?.map.operationalLayers.add(featureLayer)
                             }
                         }
                         self?.showAlert("Info", informativeText: "Now showing data from geodatabase")
@@ -168,14 +168,14 @@ class GenerateGeodatabaseVC: NSViewController {
                 self?.unregisterGeodatabase()
                 
                 //hide the extent view
-                self?.extentView.hidden = true
+                self?.extentView.isHidden = true
             }
         })
     }
     
     func unregisterGeodatabase() {
         if self.generatedGeodatabase != nil {
-            self.syncTask.unregisterGeodatabase(self.generatedGeodatabase) { [weak self] (error: NSError?) -> Void in
+            self.syncTask.unregisterGeodatabase(self.generatedGeodatabase) { [weak self] (error: Error?) -> Void in
                 
                 if let error = error {
                     print(error.localizedDescription)
@@ -190,10 +190,10 @@ class GenerateGeodatabaseVC: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

@@ -33,23 +33,23 @@ class ReadmeViewController: NSViewController {
         
     }
     
-    func fetchFileContent(folderName:String) {
+    func fetchFileContent(_ folderName:String) {
         
-        if let path = NSBundle.mainBundle().pathForResource("README", ofType: "md", inDirectory: folderName) {
+        if let path = Bundle.main.path(forResource: "README", ofType: "md", inDirectory: folderName) {
             //read the content of the file
-            if let content = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
+            if let content = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) {
                 //remove the images
                 let pattern = "!\\[.*\\]\\(.*\\)"
-                if let regex = try? NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive) {
-                    let newContent = regex.stringByReplacingMatchesInString(content, options: NSMatchingOptions(), range: NSMakeRange(0, content.characters.count), withTemplate: "")
+                if let regex = try? NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive) {
+                    let newContent = regex.stringByReplacingMatches(in: content, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, content.characters.count), withTemplate: "")
                     self.displayHTML(newContent)
                 }
             }
         }
     }
     
-    func displayHTML(readmeContent:String) {
-        let cssPath = NSBundle.mainBundle().pathForResource("style", ofType: "css") ?? ""
+    func displayHTML(_ readmeContent:String) {
+        let cssPath = Bundle.main.path(forResource: "style", ofType: "css") ?? ""
         let string = "<!doctype html>" +
             "<html>" +
             "<head> <link rel=\"stylesheet\" href=\"\(cssPath)\">" +
@@ -69,6 +69,6 @@ class ReadmeViewController: NSViewController {
             "</body>" +
         "</html>"
         
-        self.webView.mainFrame.loadHTMLString(string, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+        self.webView.mainFrame.loadHTMLString(string, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
     }
 }

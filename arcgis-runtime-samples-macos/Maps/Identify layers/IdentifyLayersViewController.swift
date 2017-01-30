@@ -30,32 +30,32 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //create an instance of a map
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //map image layer
-        self.mapImageLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer")!)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer")!)
         
         //hide Continent and World layers
-        self.mapImageLayer.loadWithCompletion { [weak self] (error: NSError?) in
+        self.mapImageLayer.load { [weak self] (error: Error?) in
             if error == nil {
-                self?.mapImageLayer.subLayerContents[1].visible = false
-                self?.mapImageLayer.subLayerContents[2].visible = false
+                self?.mapImageLayer.subLayerContents[1].isVisible = false
+                self?.mapImageLayer.subLayerContents[2].isVisible = false
             }
         }
-        self.map.operationalLayers.addObject(self.mapImageLayer)
+        self.map.operationalLayers.add(self.mapImageLayer)
         
         //feature table
-        let featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)
+        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)
         
         //feature layer
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         
         
         //add feature layer add to the operational layers
-        self.map.operationalLayers.addObject(self.featureLayer)
+        self.map.operationalLayers.add(self.featureLayer)
         
         //set initial viewpoint to a specific region
-        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -10977012.785807, y: 4514257.550369, spatialReference: AGSSpatialReference(WKID: 3857)), scale: 68015210)
+        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -10977012.785807, y: 4514257.550369, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 68015210)
         
         //assign map to the map view
         self.mapView.map = self.map
@@ -66,18 +66,18 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - AGSGeoViewTouchDelegate
     
-    func geoView(geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //get the geoElements for all layers present at the tapped point
         self.identifyLayers(screenPoint)
     }
     
     //MARK: - Identify layers
     
-    private func identifyLayers(screen: CGPoint) {
+    private func identifyLayers(_ screen: CGPoint) {
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.mapView.identifyLayersAtScreenPoint(screen, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: NSError?) in
+        self.mapView.identifyLayers(atScreenPoint: screen, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -93,18 +93,18 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func handleIdentifyResults(results: [AGSIdentifyLayerResult]) {
+    private func handleIdentifyResults(_ results: [AGSIdentifyLayerResult]) {
         
         var messageString = ""
         var totalCount = 0
         for identifyLayerResult in results {
             let count = self.geoElementsCountFromResult(identifyLayerResult)
             let layerName = identifyLayerResult.layerContent.name
-            messageString.appendContentsOf("\(layerName) :: \(count)")
+            messageString.append("\(layerName) :: \(count)")
             
             //add new line character if not the final element in array
             if identifyLayerResult != results.last! {
-                messageString.appendContentsOf("\n")
+                messageString.append("\n")
             }
             
             //update total count
@@ -121,7 +121,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    private func geoElementsCountFromResult(result: AGSIdentifyLayerResult) -> Int {
+    private func geoElementsCountFromResult(_ result: AGSIdentifyLayerResult) -> Int {
         //create temp array
         var tempResults = [result]
         
@@ -140,7 +140,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
             //if yes then add those result objects in the tempResults
             //array after the current result
             if identifyResult.sublayerResults.count > 0 {
-                tempResults.insertContentsOf(identifyResult.sublayerResults, at: index + 1)
+                tempResults.insert(contentsOf: identifyResult.sublayerResults, at: index + 1)
             }
             
             //update the count and repeat
@@ -151,10 +151,10 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //helper method to show results to the user
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

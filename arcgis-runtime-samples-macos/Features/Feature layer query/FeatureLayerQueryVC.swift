@@ -31,12 +31,12 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         //assign map to the map view
         self.mapView.map = self.map
         
         //create feature table using a url
-        self.featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/2")!)
+        self.featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/2")!)
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
@@ -44,17 +44,17 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         self.featureLayer.selectionWidth = 4
         
         //set a new renderer
-        let lineSymbol = AGSSimpleLineSymbol(style: .Solid, color: NSColor.blackColor(), width: 1)
-        let fillSymbol = AGSSimpleFillSymbol(style: .Solid, color: NSColor.yellowColor().colorWithAlphaComponent(0.5), outline: lineSymbol)
+        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.black, width: 1)
+        let fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.yellow.withAlphaComponent(0.5), outline: lineSymbol)
         self.featureLayer.renderer = AGSSimpleRenderer(symbol: fillSymbol)
         
         //add feature layer to the map
-        self.map.operationalLayers.addObject(self.featureLayer)
+        self.map.operationalLayers.add(self.featureLayer)
         //zoom to a custom viewpoint
         self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 5e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
     }
     
-    func queryForState(state:String) {
+    func queryForState(_ state:String) {
         //un select if any features already selected
         if self.selectedFeatures.count > 0 {
             self.featureLayer.unselectFeatures(self.selectedFeatures)
@@ -65,9 +65,9 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         self.view.window?.showProgressIndicator()
         
         let queryParams = AGSQueryParameters()
-        queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(state.uppercaseString)%'"
+        queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(state.uppercased())%'"
         
-        self.featureTable.queryFeaturesWithParameters(queryParams, completion: { [weak self] (result:AGSFeatureQueryResult?, error:NSError?) -> Void in
+        self.featureTable.queryFeatures(with: queryParams, completion: { [weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -78,7 +78,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
             }
             else if let features = result?.featureEnumerator().allObjects {
                 if features.count > 0 {
-                    self?.featureLayer.selectFeatures(features)
+                    self?.featureLayer.select(features)
                     //zoom to the selected feature
                     self?.mapView.setViewpointGeometry(features[0].geometry!, padding: 200, completion: nil)
                 }
@@ -94,7 +94,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
     
     //MARK: - NSTextFieldDelegate
     
-    override func controlTextDidEndEditing(obj: NSNotification) {
+    override func controlTextDidEndEditing(_ obj: Notification) {
         if let searchField = obj.object as? NSSearchField {
             
             //if field has some value then query
@@ -107,10 +107,10 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

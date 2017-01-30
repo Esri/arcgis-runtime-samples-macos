@@ -28,30 +28,30 @@ class ChangeFeatureLayerRendererVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(XMin: -1.30758164047166E7, yMin: 4014771.46954516, xMax: -1.30730056797177E7
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -1.30758164047166E7, yMin: 4014771.46954516, xMax: -1.30730056797177E7
             , yMax: 4016869.78617381, spatialReference: AGSSpatialReference.webMercator()))
         
         //assign map to the map view's map
         self.mapView.map = self.map
         
         //initialize feature table using a url to feature server url
-        let featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/PoolPermits/FeatureServer/0")!)
+        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/PoolPermits/FeatureServer/0")!)
         
         //initialize feature layer with feature table
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         
         //add the feature layer to the operational layers on the map view
-        self.map.operationalLayers.addObject(self.featureLayer)
+        self.map.operationalLayers.add(self.featureLayer)
     }
     
     //MARK: - Actions
     
     @IBAction private func applyRenderer(_ sender:NSButton) {
         //create a symbol to be used in the renderer
-        let symbol = AGSSimpleLineSymbol(style: AGSSimpleLineSymbolStyle.Solid, color: NSColor.blueColor(), width: 2)
+        let symbol = AGSSimpleLineSymbol(style: AGSSimpleLineSymbolStyle.solid, color: NSColor.blue, width: 2)
         //create a new renderer using the symbol just created
         let renderer = AGSSimpleRenderer(symbol: symbol)
         //assign the new renderer to the feature layer

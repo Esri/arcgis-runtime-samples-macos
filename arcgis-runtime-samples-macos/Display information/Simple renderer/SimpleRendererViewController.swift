@@ -26,7 +26,7 @@ class SimpleRendererViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabelsBasemap())
+        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
         
         //assign map to the map view
         self.mapView.map = map
@@ -42,9 +42,9 @@ class SimpleRendererViewController: NSViewController {
         
         //Create points to add graphics to the map to allow a renderer to style them
         //These are in WGS84 coordinates (Long, Lat)
-        let oldFaithfulPoint = AGSPoint(x: -110.828140, y: 44.460458, spatialReference: AGSSpatialReference.WGS84())
-        let cascadeGeyserPoint = AGSPoint(x: -110.829004, y: 44.462438, spatialReference: AGSSpatialReference.WGS84())
-        let plumeGeyserPoint = AGSPoint(x: -110.829381, y: 44.462735, spatialReference: AGSSpatialReference.WGS84())
+        let oldFaithfulPoint = AGSPoint(x: -110.828140, y: 44.460458, spatialReference: AGSSpatialReference.wgs84())
+        let cascadeGeyserPoint = AGSPoint(x: -110.829004, y: 44.462438, spatialReference: AGSSpatialReference.wgs84())
+        let plumeGeyserPoint = AGSPoint(x: -110.829381, y: 44.462735, spatialReference: AGSSpatialReference.wgs84())
         
         //create graphics
         let oldFaithfulGraphic = AGSGraphic(geometry: oldFaithfulPoint, symbol: nil, attributes: nil)
@@ -52,10 +52,10 @@ class SimpleRendererViewController: NSViewController {
         let plumeGeyserGraphic = AGSGraphic(geometry: plumeGeyserPoint, symbol: nil, attributes: nil)
         
         //add the graphics to the graphics overlay
-        self.graphicsOverlay.graphics.addObjectsFromArray([oldFaithfulGraphic, cascadeGeyserGraphic, plumeGeyserGraphic])
+        self.graphicsOverlay.graphics.addObjects(from: [oldFaithfulGraphic, cascadeGeyserGraphic, plumeGeyserGraphic])
         
         //add the graphics overlay to the map view
-        self.mapView.graphicsOverlays.addObject(self.graphicsOverlay)
+        self.mapView.graphicsOverlays.add(self.graphicsOverlay)
         
         //create an envelope using the points above to zoom to
         let envelope = AGSEnvelope(min: oldFaithfulPoint, max: plumeGeyserPoint)
@@ -66,7 +66,7 @@ class SimpleRendererViewController: NSViewController {
     
     private func addSimpleRenderer() {
         //create a simple renderer with red cross symbol
-        let simpleRenderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .Cross, color: NSColor.redColor(), size: 15))
+        let simpleRenderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .cross, color: NSColor.red, size: 15))
         
         //assign the renderer to the graphics overlay
         self.graphicsOverlay.renderer = simpleRenderer

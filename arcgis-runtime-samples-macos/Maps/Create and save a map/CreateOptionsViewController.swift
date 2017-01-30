@@ -18,7 +18,7 @@ import Cocoa
 import ArcGIS
 
 protocol CreateOptionsVCDelegate:class {
-    func createOptionsViewController(createOptionsViewController:CreateOptionsViewController, didSelectBasemap basemap:AGSBasemap, layers:[AGSLayer]?)
+    func createOptionsViewController(_ createOptionsViewController:CreateOptionsViewController, didSelectBasemap basemap:AGSBasemap, layers:[AGSLayer]?)
 }
 
 class CreateOptionsViewController: NSViewController {
@@ -26,7 +26,7 @@ class CreateOptionsViewController: NSViewController {
     private var selectedLayersIndexes = [Int]()
     private var selectedBasemapIndex:Int!
     
-    private var basemaps = [AGSBasemap.streetsBasemap(), AGSBasemap.imageryBasemap(), AGSBasemap.topographicBasemap(), AGSBasemap.oceansBasemap()]
+    private var basemaps = [AGSBasemap.streets(), AGSBasemap.imagery(), AGSBasemap.topographic(), AGSBasemap.oceans()]
     
     private var layers = [AGSLayer]()
     
@@ -40,20 +40,20 @@ class CreateOptionsViewController: NSViewController {
         
         //populate layers array
         for urlString in self.layerURLs {
-            let layer = AGSArcGISMapImageLayer(URL: NSURL(string: urlString)!)
+            let layer = AGSArcGISMapImageLayer(url: URL(string: urlString)!)
             self.layers.append(layer)
         }
     }
     
-    @IBAction func radioAction(sender: NSButton) {
+    @IBAction func radioAction(_ sender: NSButton) {
         self.selectedBasemapIndex = sender.tag
     }
 
-    @IBAction func checkAction(sender: NSButton) {
+    @IBAction func checkAction(_ sender: NSButton) {
         if sender.state == NSOffState {
             //remove from the array if already present
-            if let index = self.selectedLayersIndexes.indexOf(sender.tag) {
-                self.selectedLayersIndexes.removeAtIndex(index)
+            if let index = self.selectedLayersIndexes.index(of: sender.tag) {
+                self.selectedLayersIndexes.remove(at: index)
             }
         }
         else {
@@ -61,7 +61,7 @@ class CreateOptionsViewController: NSViewController {
         }
     }
     
-    @IBAction func doneAction(sender: AnyObject) {
+    @IBAction func doneAction(_ sender: AnyObject) {
         //validation
         if self.selectedBasemapIndex == nil {
             self.showAlert("A basemap is required")
@@ -83,11 +83,11 @@ class CreateOptionsViewController: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(text:String) {
+    private func showAlert(_ text:String) {
         let alert = NSAlert()
         alert.messageText = "Info"
         alert.informativeText = text
-        alert.addButtonWithTitle("OK")
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.addButton(withTitle: "OK")
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

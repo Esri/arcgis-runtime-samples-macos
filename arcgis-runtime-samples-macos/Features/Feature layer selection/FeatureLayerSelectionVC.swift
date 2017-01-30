@@ -32,30 +32,30 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streetsBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.streets())
         
         //initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(XMin: -1131596.019761, yMin: 3893114.069099, xMax: 3926705.982140, yMax: 7977912.461790, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -1131596.019761, yMin: 3893114.069099, xMax: 3926705.982140, yMax: 7977912.461790, spatialReference: AGSSpatialReference.webMercator()))
         
         //assign map to the map view
         self.mapView.map = self.map
         self.mapView.touchDelegate = self
         
         //create feature table using a url
-        self.featureTable = AGSServiceFeatureTable(URL: NSURL(string: FEATURE_SERVICE_URL)!)
+        self.featureTable = AGSServiceFeatureTable(url: URL(string: FEATURE_SERVICE_URL)!)
         
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
-        self.featureLayer.selectionColor = NSColor.cyanColor()
+        self.featureLayer.selectionColor = NSColor.cyan
         self.featureLayer.selectionWidth = 5
         
         //add feature layer to the map
-        self.map.operationalLayers.addObject(self.featureLayer)
+        self.map.operationalLayers.add(self.featureLayer)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
     
-    func geoView(geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
         //cancel previous query if exists
         if let lastQuery = self.lastQuery{
@@ -67,7 +67,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //use tolerance to compute the envelope for query
         let mapTolerance = tolerance * self.mapView.unitsPerPoint
-        let envelope = AGSEnvelope(XMin: mapPoint.x - mapTolerance,
+        let envelope = AGSEnvelope(xMin: mapPoint.x - mapTolerance,
                                    yMin: mapPoint.y - mapTolerance,
                                    xMax: mapPoint.x + mapTolerance,
                                    yMax: mapPoint.y + mapTolerance,
@@ -78,7 +78,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         queryParams.geometry = envelope
         
         //select features
-        self.featureLayer.selectFeaturesWithQuery(queryParams, mode: AGSSelectionMode.New) { [weak self] (queryResult:AGSFeatureQueryResult?, error:NSError?) -> Void in
+        self.featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult:AGSFeatureQueryResult?, error:Error?) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
@@ -90,10 +90,10 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

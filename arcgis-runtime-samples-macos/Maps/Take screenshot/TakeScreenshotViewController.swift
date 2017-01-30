@@ -31,7 +31,7 @@ class TakeScreenshotViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with imagegry basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.imagery())
         
         //assign the map to the map view
         self.mapView.map = self.map
@@ -41,12 +41,12 @@ class TakeScreenshotViewController: NSViewController {
     
     //hide the screenshot overlay view
     func hideOverlayParentView() {
-        self.overlayParentView.hidden = true
+        self.overlayParentView.isHidden = true
     }
     
     //show the screenshot overlay view
     private func showOverlayParentView() {
-        self.overlayParentView.hidden = false
+        self.overlayParentView.isHidden = false
     }
     
     //called when the user taps on the screenshot button
@@ -58,7 +58,7 @@ class TakeScreenshotViewController: NSViewController {
         self.view.window?.showProgressIndicator()
         
         //the method on map view we can use to get the screenshot image
-        self.mapView.exportImageWithCompletion { [weak self] (image:NSImage?, error:NSError?) -> Void in
+        self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -80,10 +80,10 @@ class TakeScreenshotViewController: NSViewController {
     //MARK: - Helper methods
     
     //imitate the white flash screen when the user taps on the screenshot button
-    private func imitateFlash(image:NSImage) {
+    private func imitateFlash(_ image:NSImage) {
         let flashView = NSView(frame: self.mapView.bounds)
         flashView.wantsLayer = true
-        flashView.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        flashView.layer?.backgroundColor = NSColor.white.cgColor
         self.mapView.addSubview(flashView)
         
         //animate the white flash view on and off to show the flash effect
@@ -104,9 +104,9 @@ class TakeScreenshotViewController: NSViewController {
     //to play the shutter sound once the screenshot is taken
     func playShutterSound() {
         if self.shutterSound == 0 {
-            if let filepath = NSBundle.mainBundle().pathForResource("Camera Shutter", ofType: "caf") {
-                let url = NSURL(fileURLWithPath: filepath)
-                AudioServicesCreateSystemSoundID(url, &self.shutterSound)
+            if let filepath = Bundle.main.path(forResource: "Camera Shutter", ofType: "caf") {
+                let url = URL(fileURLWithPath: filepath)
+                AudioServicesCreateSystemSoundID(url as CFURL, &self.shutterSound)
             }
         }
         
@@ -117,10 +117,10 @@ class TakeScreenshotViewController: NSViewController {
         AudioServicesDisposeSystemSoundID(self.shutterSound)
     }
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

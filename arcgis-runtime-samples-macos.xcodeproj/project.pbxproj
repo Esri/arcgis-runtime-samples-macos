@@ -535,10 +535,10 @@
 		3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCollectionLayerVC.swift; sourceTree = "<group>"; };
 		3EFDE0D41E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureCollectionLayerQuery.storyboard; sourceTree = "<group>"; };
 		3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCollectionLayerQueryVC.swift; sourceTree = "<group>"; };
-		3EFDE0DE1E3288C900CBCD92 /* Hotspots.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Hotspots.storyboard; path = Hotspots.storyboard; sourceTree = "<group>"; };
-		3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotspotsViewController.swift; path = HotspotsViewController.swift; sourceTree = "<group>"; };
-		3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Viewshed.storyboard; path = Viewshed.storyboard; sourceTree = "<group>"; };
-		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewshedViewController.swift; path = ViewshedViewController.swift; sourceTree = "<group>"; };
+		3EFDE0DE1E3288C900CBCD92 /* Hotspots.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hotspots.storyboard; sourceTree = "<group>"; };
+		3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotspotsViewController.swift; sourceTree = "<group>"; };
+		3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Viewshed.storyboard; sourceTree = "<group>"; };
+		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1446,7 +1446,6 @@
 				3EFDE0DE1E3288C900CBCD92 /* Hotspots.storyboard */,
 				3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */,
 			);
-			name = "Analyze hotspots";
 			path = "Analyze hotspots";
 			sourceTree = "<group>";
 		};
@@ -1456,7 +1455,6 @@
 				3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */,
 				3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */,
 			);
-			name = "Analyze viewshed";
 			path = "Analyze viewshed";
 			sourceTree = "<group>";
 		};
@@ -1862,7 +1860,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1887,7 +1885,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

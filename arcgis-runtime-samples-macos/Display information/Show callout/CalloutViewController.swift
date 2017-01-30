@@ -26,7 +26,7 @@ class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //assign map to the map view
         self.mapView.map = self.map
@@ -40,31 +40,31 @@ class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //method to show callout
-    private func showCalloutForPoint(mapPoint: AGSPoint) {
+    private func showCalloutForPoint(_ mapPoint: AGSPoint) {
         self.mapView.callout.title = "Location"
         self.mapView.callout.detail = String(format: "x: %.2f, y: %.2f", mapPoint.x, mapPoint.y)
-        self.mapView.callout.showCalloutAt(mapPoint, screenOffset: CGPointZero, rotateOffsetWithMap: false, animated: false)
+        self.mapView.callout.show(at: mapPoint, screenOffset: CGPoint.zero, rotateOffsetWithMap: false, animated: false)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
     
     //show callout when user does long press on map
-    func geoView(geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         self.showCalloutForPoint(mapPoint)
     }
     
     //update the callout when user moves long press
-    func geoView(geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         self.showCalloutForPoint(mapPoint)
     }
     
     //Dismiss the callout on long press end
-    func geoView(geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didEndLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         self.mapView.callout.dismiss()
     }
     
     //Dismiss the callout if long press is cancelled
-    func geoViewDidCancelLongPress(geoView: AGSGeoView) {
+    func geoViewDidCancelLongPress(_ geoView: AGSGeoView) {
         self.mapView.callout.dismiss()
     }
 }

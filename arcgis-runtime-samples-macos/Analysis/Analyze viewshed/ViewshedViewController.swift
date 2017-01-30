@@ -32,28 +32,28 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemapType: .Topographic, latitude: 45.3790902612337, longitude: 6.84905317262762, levelOfDetail: 12)
+        let map = AGSMap(basemapType: .topographic, latitude: 45.3790902612337, longitude: 6.84905317262762, levelOfDetail: 12)
         
         self.mapView.map = map
         
         self.mapView.touchDelegate = self
         
         //renderer for graphics overlays
-        let pointSymbol = AGSSimpleMarkerSymbol(style: .Circle, color: NSColor.redColor(), size: 10)
+        let pointSymbol = AGSSimpleMarkerSymbol(style: .circle, color: NSColor.red, size: 10)
         let renderer = AGSSimpleRenderer(symbol: pointSymbol)
         self.inputGraphicsOverlay.renderer = renderer
         
         let fillColor = NSColor(red: 226/255.0, green: 119/255.0, blue: 40/255.0, alpha: 120/255.0)
-        let fillSymbol = AGSSimpleFillSymbol(style: .Solid, color: fillColor, outline: nil)
+        let fillSymbol = AGSSimpleFillSymbol(style: .solid, color: fillColor, outline: nil)
         self.resultGraphicsOverlay.renderer = AGSSimpleRenderer(symbol: fillSymbol)
         
         //add graphics overlays to the map view
-        self.mapView.graphicsOverlays.addObjectsFromArray([self.resultGraphicsOverlay, self.inputGraphicsOverlay])
+        self.mapView.graphicsOverlays.addObjects(from: [self.resultGraphicsOverlay, self.inputGraphicsOverlay])
         
-        self.geoprocessingTask = AGSGeoprocessingTask(URL: NSURL(string: viewshedURLString)!)
+        self.geoprocessingTask = AGSGeoprocessingTask(url: URL(string: viewshedURLString)!)
     }
     
-    private func addGraphicForPoint(point: AGSPoint) {
+    private func addGraphicForPoint(_ point: AGSPoint) {
         //remove existing graphics
         self.inputGraphicsOverlay.graphics.removeAllObjects()
         
@@ -61,10 +61,10 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         let graphic = AGSGraphic(geometry: point, symbol: nil, attributes: nil)
         
         //add new graphic to the graphics overlay
-        self.inputGraphicsOverlay.graphics.addObject(graphic)
+        self.inputGraphicsOverlay.graphics.add(graphic)
     }
     
-    private func calculateViewshed(point: AGSPoint) {
+    private func calculateViewshed(_ point: AGSPoint) {
         
         //remove previous graphics
         self.resultGraphicsOverlay.graphics.removeAllObjects()
@@ -79,7 +79,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         //is a feature set) and add the geometry as a feature to that table.
         
         //create feature collection table for point geometry
-        let featureCollectionTable = AGSFeatureCollectionTable(fields: [AGSField](), geometryType: .Point, spatialReference: point.spatialReference)
+        let featureCollectionTable = AGSFeatureCollectionTable(fields: [AGSField](), geometryType: .point, spatialReference: point.spatialReference)
         
         //create a new feature and assign the geometry
         let newFeature = featureCollectionTable.createFeature()
@@ -89,7 +89,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.view.window?.showProgressIndicator()
         
         //add the new feature to the feature collection table
-        featureCollectionTable.addFeature(newFeature) { [weak self] (error: NSError?) in
+        featureCollectionTable.add(newFeature) { [weak self] (error: Error?) in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -103,10 +103,10 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    private func performGeoprocessing(featureCollectionTable: AGSFeatureCollectionTable) {
+    private func performGeoprocessing(_ featureCollectionTable: AGSFeatureCollectionTable) {
         
         //geoprocessing parameters
-        let params = AGSGeoprocessingParameters(executionType: .SynchronousExecute)
+        let params = AGSGeoprocessingParameters(executionType: .synchronousExecute)
         params.processSpatialReference = featureCollectionTable.spatialReference
         params.outputSpatialReference = featureCollectionTable.spatialReference
         
@@ -114,22 +114,22 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         params.inputs["Input_Observation_Point"] = AGSGeoprocessingFeatures(featureSet: featureCollectionTable)
         
         //initialize job from geoprocessing task
-        self.geoprocessingJob = self.geoprocessingTask.geoprocessingJobWithParameters(params)
+        self.geoprocessingJob = self.geoprocessingTask.geoprocessingJob(with: params)
         
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
         //start the job
-        self.geoprocessingJob.startWithStatusHandler({ (status: AGSJobStatus) in
+        self.geoprocessingJob.start(statusHandler: { (status: AGSJobStatus) in
             
             print(status.rawValue)
             
-        }, completion: { [weak self] (result: AGSGeoprocessingResult?, error: NSError?) in
+        }, completion: { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
-            if let error = error {
+            if let error = error as? NSError {
                 if error.code != NSUserCancelledError {
                     self?.showAlert("Error", informativeText: error.localizedDescription)
                 }
@@ -141,7 +141,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
                 if let resultFeatures = result?.outputs["Viewshed_Result"] as? AGSGeoprocessingFeatures, let featureSet = resultFeatures.features {
                     for feature in featureSet.featureEnumerator().allObjects {
                         let graphic = AGSGraphic(geometry: feature.geometry, symbol: nil, attributes: nil)
-                        self?.resultGraphicsOverlay.graphics.addObject(graphic)
+                        self?.resultGraphicsOverlay.graphics.add(graphic)
                     }
                 }
             }
@@ -150,7 +150,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - AGSGeoViewTouchDelegate
     
-    func geoView(geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //add a graphic in graphics overlay for the tapped point
         self.addGraphicForPoint(mapPoint)
         
@@ -160,10 +160,10 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

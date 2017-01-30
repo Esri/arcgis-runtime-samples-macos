@@ -29,7 +29,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         super.viewDidLoad()
         
         //initialize map using imagery with labels basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabelsBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
         
         //assign map to the mapView
         self.mapView.map = self.map
@@ -38,7 +38,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.addDefaultBookmarks()
         
         //zoom to the last bookmark
-        self.map.initialViewpoint = self.map.bookmarks.lastObject?.viewpoint
+        self.map.initialViewpoint = (self.map.bookmarks.lastObject as AnyObject).viewpoint
         
         self.tableView.reloadData()
     }
@@ -53,7 +53,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         bookmark.name = "Mysterious Desert Pattern"
         bookmark.viewpoint = viewpoint
         //add the bookmark to the map
-        self.map.bookmarks.addObject(bookmark)
+        self.map.bookmarks.add(bookmark)
         
         //Strange Symbol
         viewpoint = AGSViewpoint(latitude: 37.401573, longitude: -116.867808, scale: 6e3)
@@ -61,7 +61,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         bookmark.name = "Strange Symbol"
         bookmark.viewpoint = viewpoint
         //add the bookmark to the map
-        self.map.bookmarks.addObject(bookmark)
+        self.map.bookmarks.add(bookmark)
         
         //Guitar-Shaped Forest
         viewpoint = AGSViewpoint(latitude: -33.867886, longitude: -63.985, scale: 4e4)
@@ -69,7 +69,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         bookmark.name = "Guitar-Shaped Forest"
         bookmark.viewpoint = viewpoint
         //add the bookmark to the map
-        self.map.bookmarks.addObject(bookmark)
+        self.map.bookmarks.add(bookmark)
         
         //Grand Prismatic Spring
         viewpoint = AGSViewpoint(latitude: 44.525049, longitude: -110.83819, scale: 6e3)
@@ -77,17 +77,17 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         bookmark.name = "Grand Prismatic Spring"
         bookmark.viewpoint = viewpoint
         //add the bookmark to the map
-        self.map.bookmarks.addObject(bookmark)
+        self.map.bookmarks.add(bookmark)
     }
     
-    private func addBookmark(name:String) {
+    private func addBookmark(_ name:String) {
         //instantiate a bookmark and set the properties
         let bookmark = AGSBookmark()
         bookmark.name = name
-        bookmark.viewpoint = self.mapView.currentViewpointWithType(AGSViewpointType.BoundingGeometry)
+        bookmark.viewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.boundingGeometry)
         
         //add the bookmark to the map
-        self.map.bookmarks.addObject(bookmark)
+        self.map.bookmarks.add(bookmark)
         
         //refresh the table view if it exists
         self.tableView.reloadData()
@@ -95,24 +95,24 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.map?.bookmarks.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let bookmark = self.map.bookmarks[row]
         
-        let cellView = tableView.makeViewWithIdentifier("BookmarkCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.make(withIdentifier: "BookmarkCellView", owner: self) as! NSTableCellView
         
         //bookmark name
-        cellView.textField?.stringValue = bookmark.name
+        cellView.textField?.stringValue = (bookmark as AnyObject).name
         
         return cellView
     }
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         let index = self.tableView.selectedRow
         let bookmark = self.map.bookmarks[index] as! AGSBookmark
         self.mapView.setViewpoint(bookmark.viewpoint!)
@@ -125,11 +125,11 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         //show alert to get name for new bookmark
         self.alert = NSAlert()
         self.alert.messageText = "Provide a name for the bookmark"
-        self.alert.addButtonWithTitle("OK")
-        self.alert.addButtonWithTitle("Cancel")
+        self.alert.addButton(withTitle: "OK")
+        self.alert.addButton(withTitle: "Cancel")
         
         //disable ok button at first, will enable on text input
-        self.alert.buttons[0].enabled = false
+        self.alert.buttons[0].isEnabled = false
         
         //textfield for input
         let textField = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
@@ -137,24 +137,24 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.alert.accessoryView = textField
         
         //show alert
-        self.alert.beginSheetModalForWindow(self.view.window!) { [weak self] (response: NSModalResponse) in
+        self.alert.beginSheetModal(for: self.view.window!, completionHandler: { [weak self] (response: NSModalResponse) in
             //on OK
             if response == NSAlertFirstButtonReturn {
                 self?.addBookmark(textField.stringValue)
             }
-        }
+        }) 
     }
     
     //MARK: - NSTextFieldDelegate
     
-    override func controlTextDidChange(obj: NSNotification) {
+    override func controlTextDidChange(_ obj: Notification) {
         //enable OK button on alert when textfield gets input
         let textField = obj.object as! NSTextField
         if textField.stringValue.isEmpty {
-            self.alert.buttons[0].enabled = false
+            self.alert.buttons[0].isEnabled = false
         }
         else {
-            self.alert.buttons[0].enabled = true
+            self.alert.buttons[0].isEnabled = true
         }
     }
 }

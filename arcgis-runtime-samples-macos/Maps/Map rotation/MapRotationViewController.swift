@@ -30,7 +30,7 @@ class MapRotationViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streetsBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.streets())
         
         //assign map to the map view
         self.mapView.map = self.map
@@ -39,12 +39,12 @@ class MapRotationViewController: NSViewController {
         self.mapView.viewpointChangedHandler = { [weak self] () in
             self?.slider.integerValue = Int(self!.mapView.rotation)
             self?.rotationLabel.stringValue = "\(self!.slider.integerValue)\u{00B0}"
-            let rotationTransform = CGAffineTransformMakeRotation(CGFloat(self!.mapView.rotation * M_PI/180))
+            let rotationTransform = CGAffineTransform(rotationAngle: CGFloat(self!.mapView.rotation * M_PI/180))
             self?.compassButton.layer?.setAffineTransform(rotationTransform)
         }
         
         //initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(XMin: -13044000, yMin: 3855000, xMax: -13040000, yMax: 3858000, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -13044000, yMin: 3855000, xMax: -13040000, yMax: 3858000, spatialReference: AGSSpatialReference.webMercator()))
     }
     
     override func viewDidAppear() {
@@ -59,22 +59,22 @@ class MapRotationViewController: NSViewController {
         let xCoord = frame.origin.x + frame.size.width
         let yCoord = frame.origin.y + frame.size.height
         
-        let myPoint = CGPointMake(xCoord, yCoord)
+        let myPoint = CGPoint(x: xCoord, y: yCoord)
         self.compassButton.layer?.position = myPoint
     }
     
     //MARK: - Actions
     
     //rotate the map view based on the value of the slider
-    @IBAction private func sliderValueChanged(slider:NSSlider) {
-        if let viewpoint = self.mapView.currentViewpointWithType(AGSViewpointType.CenterAndScale) {
+    @IBAction private func sliderValueChanged(_ slider:NSSlider) {
+        if let viewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale) {
             let rotatedViewpoint = AGSViewpoint(center: viewpoint.targetGeometry as! AGSPoint, scale: viewpoint.targetScale, rotation: Double(slider.stringValue)!)
             self.mapView.setViewpoint(rotatedViewpoint)
         }
     }
     
-    @IBAction private func compassAction(sender:AnyObject) {
-        self.compassButton.layer?.setAffineTransform(CGAffineTransformIdentity)
+    @IBAction private func compassAction(_ sender:AnyObject) {
+        self.compassButton.layer?.setAffineTransform(CGAffineTransform.identity)
         self.mapView.setViewpointRotation(0, completion: nil)
     }
 }

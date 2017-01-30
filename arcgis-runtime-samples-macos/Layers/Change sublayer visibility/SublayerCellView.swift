@@ -17,7 +17,7 @@
 import Cocoa
 
 protocol SublayerCellViewDelegate:class {
-    func sublayerCellView(sublayerCellView:SublayerCellView, didToggleVisibility visible:Bool)
+    func sublayerCellView(_ sublayerCellView:SublayerCellView, didToggleVisibility visible:Bool)
 }
 
 class SublayerCellView: NSTableCellView {

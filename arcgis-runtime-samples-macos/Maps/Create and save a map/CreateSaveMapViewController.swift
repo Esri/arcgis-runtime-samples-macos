@@ -30,7 +30,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         super.viewDidLoad()
     
         //initialize map to imagery basemap for the blur background
-        let map = AGSMap(basemap: AGSBasemap.imageryBasemap())
+        let map = AGSMap(basemap: AGSBasemap.imagery())
         
         //assign the map to the map view
         self.mapView.map = map
@@ -41,8 +41,8 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Save map
     
-    private func saveMap(title:String, tags:[String], itemDescription:String?, thumbnail:NSImage?) {
-        self.mapView.map?.saveAs(title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true, completion: { [weak self] (error) -> Void in
+    private func saveMap(_ title:String, tags:[String], itemDescription:String?, thumbnail:NSImage?) {
+        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true, completion: { [weak self] (error) -> Void in
             
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
@@ -60,18 +60,18 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     //MARK: - Show/hide options view controller
     
     private func toggleOptionsVC(toggleOn on:Bool) {
-        self.optionsContainerView.hidden = !on
+        self.optionsContainerView.isHidden = !on
     }
     
     //MARK: - Show/hide save map view controller
     
     private func toggleSaveMapVC(toggleOn on:Bool) {
-        self.saveMapContainerView.hidden = !on
+        self.saveMapContainerView.isHidden = !on
     }
     
     //MARK: - Navigation
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
@@ -84,14 +84,14 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - CreateOptionsVCDelegate
     
-    func createOptionsViewController(createOptionsViewController: CreateOptionsViewController, didSelectBasemap basemap: AGSBasemap, layers: [AGSLayer]?) {
+    func createOptionsViewController(_ createOptionsViewController: CreateOptionsViewController, didSelectBasemap basemap: AGSBasemap, layers: [AGSLayer]?) {
         
         //create a map with the selected basemap
         let map = AGSMap(basemap: basemap)
         
         //add the selected operational layers
         if let layers = layers {
-            map.operationalLayers.addObjectsFromArray(layers)
+            map.operationalLayers.addObjects(from: layers)
         }
         //assign the new map to the map view
         self.mapView.map = map
@@ -102,16 +102,16 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - SaveMapVCDelegate
     
-    func saveMapViewControllerDidCancel(saveAsViewController: SaveMapViewController) {
+    func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController) {
         self.toggleSaveMapVC(toggleOn: false)
     }
     
-    func saveMapViewController(saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
+    func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
         
         //set the initial viewpoint from map view
-        self.mapView.map?.initialViewpoint = self.mapView.currentViewpointWithType(AGSViewpointType.CenterAndScale)
+        self.mapView.map?.initialViewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale)
         
-        self.mapView.exportImageWithCompletion { [weak self] (image:NSImage?, error:NSError?) -> Void in
+        self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
@@ -130,16 +130,16 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Actions
     
-    @IBAction private func newAction(sender: AnyObject) {
+    @IBAction private func newAction(_ sender: AnyObject) {
         self.toggleOptionsVC(toggleOn: true)
     }
     
-    @IBAction func saveAsAction(sender: AnyObject) {
-        self.portal = AGSPortal(URL: NSURL(string: "https://www.arcgis.com")!, loginRequired: true)
-        self.portal.loadWithCompletion { (error) -> Void in
-            if let error = error {
+    @IBAction func saveAsAction(_ sender: AnyObject) {
+        self.portal = AGSPortal(url: URL(string: "https://www.arcgis.com")!, loginRequired: true)
+        self.portal.load { (error) -> Void in
+            if let error = error as? NSError {
                 if error.code != NSUserCancelledError {
-                    NSAlert(error: error).beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+                    NSAlert(error: error).beginSheetModal(for: self.view.window!, completionHandler: nil)
                 }
             }
             else {
@@ -151,17 +151,17 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }
 
 extension NSImage {
     
-    func croppedImage(size:CGSize) -> NSImage {
+    func croppedImage(_ size:CGSize) -> NSImage {
         //calculate rect based on input size
         let originX = (self.size.width - size.width)/2
         let originY = (self.size.height - size.height)/2
@@ -169,8 +169,8 @@ extension NSImage {
         let rect = CGRect(x: originX, y: originY, width: size.width, height: size.height)
         
         //crop image
-        let croppedCGImage = CGImageCreateWithImageInRect(self.CGImageForProposedRect(nil, context: nil, hints: nil)!, rect)!
-        let croppedImage = NSImage(CGImage: croppedCGImage, size: NSZeroSize)
+        let croppedCGImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil)!.cropping(to: rect)!
+        let croppedImage = NSImage(cgImage: croppedCGImage, size: NSZeroSize)
         
         return croppedImage
     }

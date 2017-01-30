@@ -26,7 +26,7 @@ class CollectionViewItem: NSCollectionViewItem {
         super.viewDidLoad()
         
         thumbnailView.wantsLayer = true
-        thumbnailView.layer?.borderColor = NSColor.lightGrayColor().CGColor
+        thumbnailView.layer?.borderColor = NSColor.lightGray.cgColor
         thumbnailView.layer?.borderWidth = 1
         thumbnailView.layer?.cornerRadius = 5
         
@@ -36,7 +36,7 @@ class CollectionViewItem: NSCollectionViewItem {
 
 protocol CollectionViewControllerDelegate: class {
     
-    func collectionViewController(collectionViewController:CollectionViewController, didSelectSampleNode node:Node)
+    func collectionViewController(_ collectionViewController:CollectionViewController, didSelectSampleNode node:Node)
 }
 
 class CollectionViewController: NSViewController, NSCollectionViewDataSource, NSCollectionViewDelegate {
@@ -70,19 +70,19 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     
     //MARK: - NSCollectionViewDataSource
     
-    func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.sampleNodes?.count ?? 0
     }
     
-    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let sampleNode = self.sampleNodes[indexPath.item]
+        let sampleNode = self.sampleNodes[(indexPath as NSIndexPath).item]
         
-        let viewItem = collectionView.makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath) as! CollectionViewItem
+        let viewItem = collectionView.makeItem(withIdentifier: "CollectionViewItem", for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
         viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
         if let image = NSImage(named: sampleNode.displayName) {
@@ -94,10 +94,10 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
         
         //stylize
 //        viewItem.view.backgroundColor = NSColor(white: 235/255.0, alpha: 1)
-        viewItem.view.backgroundColor = NSColor.whiteColor()
+        viewItem.view.backgroundColor = NSColor.white
         viewItem.view.wantsLayer = true
 //        viewItem.view.layer?.borderColor = NSColor(white: 68/255.0, alpha: 1).CGColor
-        viewItem.view.layer?.borderColor = NSColor.primaryBlue().CGColor
+        viewItem.view.layer?.borderColor = NSColor.primaryBlue().cgColor
         viewItem.view.layer?.cornerRadius = 10
         viewItem.view.layer?.borderWidth = 1
         
@@ -106,7 +106,7 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     
     //MARK: - NSCollectionViewDelegate
     
-    func collectionView(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
-        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[indexPaths.first!.item])
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[(indexPaths.first! as NSIndexPath).item])
     }
 }

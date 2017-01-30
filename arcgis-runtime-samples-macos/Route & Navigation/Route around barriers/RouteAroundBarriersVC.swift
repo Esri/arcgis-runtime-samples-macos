@@ -52,19 +52,19 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        let map = AGSMap(basemap: AGSBasemap.topographic())
         
         self.mapView.map = map
         self.mapView.touchDelegate = self
         
         //add the graphics overlays to the map view
-        self.mapView.graphicsOverlays.addObjectsFromArray([routeGraphicsOverlay, directionsGraphicsOverlay, barrierGraphicsOverlay, stopGraphicsOverlay])
+        self.mapView.graphicsOverlays.addObjects(from: [routeGraphicsOverlay, directionsGraphicsOverlay, barrierGraphicsOverlay, stopGraphicsOverlay])
         
         //zoom to viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13042254.715252, y: 3857970.236806, spatialReference: AGSSpatialReference(WKID: 3857)), scale: 1e5, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13042254.715252, y: 3857970.236806, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 1e5, completion: nil)
         
         //initialize route task
-        self.routeTask = AGSRouteTask(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route")!)
+        self.routeTask = AGSRouteTask(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route")!)
         
         //get default parameters
         self.getDefaultParameters()
@@ -80,7 +80,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.routeTask.defaultRouteParametersWithCompletion({ [weak self] (params: AGSRouteParameters?, error: NSError?) -> Void in
+        self.routeTask.defaultRouteParameters(completion: { [weak self] (params: AGSRouteParameters?, error: Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -91,7 +91,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             else {
                 self?.routeParameters = params
                 //enable bar button item
-                self?.routeParametersButton.enabled = true
+                self?.routeParametersButton.isEnabled = true
             }
         })
     }
@@ -113,7 +113,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         var stops = [AGSStop]()
         for graphic in self.stopGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
             let stop = AGSStop(point: graphic.geometry as! AGSPoint)
-            stop.name = "\(self.stopGraphicsOverlay.graphics.indexOfObject(graphic)+1)"
+            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic)+1)"
             stops.append(stop)
         }
         self.routeParameters.clearStops()
@@ -132,39 +132,39 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.routeTask.solveRouteWithParameters(self.routeParameters) { [weak self] (routeResult:AGSRouteResult?, error:NSError?) -> Void in
+        self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult:AGSRouteResult?, error:Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: "\(error.localizedDescription) \(error.localizedFailureReason ?? "")")
+                self?.showAlert("Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
             }
             else {
                 let route = routeResult!.routes[0]
                 let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self!.routeSymbol(), attributes: nil)
-                self?.routeGraphicsOverlay.graphics.addObject(routeGraphic)
+                self?.routeGraphicsOverlay.graphics.add(routeGraphic)
                 self?.generatedRoute = route
             }
         }
     }
     
     func routeSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .Solid, color: NSColor.yellowColor(), width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.yellow, width: 5)
         return symbol
     }
     
     func directionSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .DashDot, color: NSColor.orangeColor(), width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .dashDot, color: NSColor.orange, width: 5)
         return symbol
     }
     
-    private func symbolForStopGraphic(index: Int) -> AGSSymbol {
+    private func symbolForStopGraphic(_ index: Int) -> AGSSymbol {
         let markerImage = NSImage(named: "BlueMarker")!
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         
-        let textSymbol = AGSTextSymbol(text: "\(index)", color: NSColor.whiteColor(), size: 20, horizontalAlignment: AGSHorizontalAlignment.Center, verticalAlignment: AGSVerticalAlignment.Middle)
+        let textSymbol = AGSTextSymbol(text: "\(index)", color: NSColor.white, size: 20, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
         textSymbol.offsetY = markerSymbol.offsetY
         
         let compositeSymbol = AGSCompositeSymbol(symbols: [markerSymbol, textSymbol])
@@ -173,32 +173,32 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     func barrierSymbol() -> AGSSimpleFillSymbol {
-        return AGSSimpleFillSymbol(style: .DiagonalCross, color: NSColor.redColor(), outline: nil)
+        return AGSSimpleFillSymbol(style: .diagonalCross, color: NSColor.red, outline: nil)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
     
-    func geoView(geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //normalize geometry
-        let normalizedPoint = AGSGeometryEngine.normalizeCentralMeridianOfGeometry(mapPoint)!
+        let normalizedPoint = AGSGeometryEngine.normalizeCentralMeridian(of: mapPoint)!
         
         if segmentedControl.selectedSegment == 0 {
             //create a graphic for stop and add to the graphics overlay
             let graphicsCount = self.stopGraphicsOverlay.graphics.count
             let symbol = self.symbolForStopGraphic(graphicsCount+1)
             let graphic = AGSGraphic(geometry: normalizedPoint, symbol: symbol, attributes: nil)
-            self.stopGraphicsOverlay.graphics.addObject(graphic)
+            self.stopGraphicsOverlay.graphics.add(graphic)
             
             //enable route button
             if graphicsCount > 0 {
-                self.routeButton.enabled = true
+                self.routeButton.isEnabled = true
             }
         }
         else {
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(normalizedPoint, byDistance: 500)
             let symbol = self.barrierSymbol()
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: symbol, attributes: nil)
-            self.barrierGraphicsOverlay.graphics.addObject(graphic)
+            self.barrierGraphicsOverlay.graphics.add(graphic)
         }
     }
     
@@ -207,14 +207,14 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     @IBAction func clearAction(_ sender:NSButton) {
         if segmentedControl.selectedSegment == 0 {
             self.stopGraphicsOverlay.graphics.removeAllObjects()
-            self.routeButton.enabled = false
+            self.routeButton.isEnabled = false
         }
         else {
             self.barrierGraphicsOverlay.graphics.removeAllObjects()
         }
     }
     
-    func toggleDirectionsList(on:Bool, animated:Bool) {
+    func toggleDirectionsList(_ on:Bool, animated:Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
         }
@@ -225,7 +225,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     
     //MARK: - Navigation
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
@@ -238,19 +238,19 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     
     //MARK: - DirectionsListVCDelegate
     
-    func directionsListViewControllerDidDeleteRoute(directionsListViewController: DirectionsListViewController) {
+    func directionsListViewControllerDidDeleteRoute(_ directionsListViewController: DirectionsListViewController) {
         self.generatedRoute = nil;
         self.routeGraphicsOverlay.graphics.removeAllObjects()
         self.directionsGraphicsOverlay.graphics.removeAllObjects()
     }
     
-    func directionsListViewController(directionsListViewController: DirectionsListViewController, didSelectDirectionManuever directionManeuver: AGSDirectionManeuver) {
+    func directionsListViewController(_ directionsListViewController: DirectionsListViewController, didSelectDirectionManuever directionManeuver: AGSDirectionManeuver) {
         //remove previous directions
         self.directionsGraphicsOverlay.graphics.removeAllObjects()
         
         //show the maneuver geometry on the map view
         let directionGraphic = AGSGraphic(geometry: directionManeuver.geometry!, symbol: self.directionSymbol(), attributes: nil)
-        self.directionsGraphicsOverlay.graphics.addObject(directionGraphic)
+        self.directionsGraphicsOverlay.graphics.add(directionGraphic)
         
         //zoom to the direction
         self.mapView.setViewpointGeometry(directionManeuver.geometry!.extent, padding: 100, completion: nil)
@@ -258,10 +258,10 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(_ messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

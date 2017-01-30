@@ -28,21 +28,21 @@ class ScenePropertiesExpressions: NSViewController {
         super.viewDidLoad()
         
         //initialize scene with topographic basemap
-        let scene = AGSScene(basemap: AGSBasemap.streetsBasemap())
+        let scene = AGSScene(basemap: AGSBasemap.streets())
         //assign scene to the scene view
         self.sceneView.scene = scene
         
         //set the viewpoint camera
-        let point = AGSPoint(x: 83.9, y: 28.4, z: 6200, spatialReference: AGSSpatialReference.WGS84())
-        let camera = AGSCamera(lookAtPoint: point, distance: 1000, heading: 0, pitch: 50, roll: 0)
+        let point = AGSPoint(x: 83.9, y: 28.4, z: 6200, spatialReference: AGSSpatialReference.wgs84())
+        let camera = AGSCamera(lookAt: point, distance: 1000, heading: 0, pitch: 50, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
         //create a graphics overlay
         let graphicsOverlay = AGSGraphicsOverlay()
-        graphicsOverlay.sceneProperties?.surfacePlacement = .Relative
+        graphicsOverlay.sceneProperties?.surfacePlacement = .relative
         
         //add it to the scene view
-        self.sceneView.graphicsOverlays.addObject(graphicsOverlay)
+        self.sceneView.graphicsOverlays.add(graphicsOverlay)
         
         //add renderer using rotation expressions
         let renderer = AGSSimpleRenderer()
@@ -51,21 +51,21 @@ class ScenePropertiesExpressions: NSViewController {
         graphicsOverlay.renderer = renderer
         
         //create a red cone graphic
-        let coneSymbol = AGSSimpleMarkerSceneSymbol(style: .Cone, color: NSColor.redColor(), height: 200, width: 100, depth: 100, anchorPosition: .Center)
+        let coneSymbol = AGSSimpleMarkerSceneSymbol(style: .cone, color: NSColor.red, height: 200, width: 100, depth: 100, anchorPosition: .center)
         coneSymbol.pitch = -90  //correct symbol's default pitch
-        let conePoint = AGSPoint(x: 83.9, y: 28.404, z: 6000, spatialReference: AGSSpatialReference.WGS84())
+        let conePoint = AGSPoint(x: 83.9, y: 28.404, z: 6000, spatialReference: AGSSpatialReference.wgs84())
         let coneAttributes = ["HEADING": 0, "PITCH": 0]
         self.coneGraphic = AGSGraphic(geometry: conePoint, symbol: coneSymbol, attributes: coneAttributes)
-        graphicsOverlay.graphics.addObject(self.coneGraphic)
+        graphicsOverlay.graphics.add(self.coneGraphic)
     }
     
-    @IBAction func headingSliderValueChanged(slider: NSSlider) {
+    @IBAction func headingSliderValueChanged(_ slider: NSSlider) {
         coneGraphic.attributes["HEADING"] = slider.doubleValue
         //update label
         self.headingLabel.stringValue = "\(slider.intValue)"
     }
     
-    @IBAction func pitchSliderValueChanged(slider: NSSlider) {
+    @IBAction func pitchSliderValueChanged(_ slider: NSSlider) {
         coneGraphic.attributes["PITCH"] = slider.doubleValue
         //update label
         self.pitchLabel.stringValue = "\(slider.intValue)"

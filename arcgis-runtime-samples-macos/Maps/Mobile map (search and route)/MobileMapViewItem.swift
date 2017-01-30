@@ -47,15 +47,15 @@ class MobileMapViewItem: NSCollectionViewItem {
     @IBOutlet var routeImageView:NSImageView!
     @IBOutlet var label:NSTextField!
     
-    override var selected: Bool {
+    override var isSelected: Bool {
         didSet {
-            if selected {
-                self.view.layer?.backgroundColor = NSColor.secondaryBlue().CGColor
-                self.label.textColor = NSColor.whiteColor()
+            if isSelected {
+                self.view.layer?.backgroundColor = NSColor.secondaryBlue().cgColor
+                self.label.textColor = NSColor.white
             }
             else {
-                self.view.layer?.backgroundColor = NSColor.clearColor().CGColor
-                self.label.textColor = NSColor.blackColor()
+                self.view.layer?.backgroundColor = NSColor.clear.cgColor
+                self.label.textColor = NSColor.black
             }
         }
     }
@@ -65,11 +65,11 @@ class MobileMapViewItem: NSCollectionViewItem {
         
         //cell view border
         self.view.wantsLayer = true
-        self.view.layer?.borderColor = NSColor.grayColor().CGColor
+        self.view.layer?.borderColor = NSColor.gray.cgColor
         self.view.layer?.borderWidth = 1
         
         //thumbnailView border
-        self.thumbnailView.layer?.borderColor = NSColor.lightGrayColor().CGColor
+        self.thumbnailView.layer?.borderColor = NSColor.lightGray.cgColor
         self.thumbnailView.layer?.borderWidth = 1
     }
     

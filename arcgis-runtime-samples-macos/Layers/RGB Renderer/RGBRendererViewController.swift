@@ -50,20 +50,20 @@ class RGBRendererViewController: NSViewController {
     func expandView() {
         self.textField2TopConstraint.constant = 12
         self.textField2HeightConstraint.constant = 22
-        self.label2.hidden = false
+        self.label2.isHidden = false
     }
     
     func shrinkView() {
         self.textField2TopConstraint.constant = 0
         self.textField2HeightConstraint.constant = 0
-        self.label2.hidden = true
+        self.label2.isHidden = true
     }
     
-    func toggleExtraTextFields(on:Bool) {
-        self.textField1b.hidden = !on
-        self.textField1c.hidden = !on
-        self.textField2b.hidden = !on
-        self.textField2c.hidden = !on
+    func toggleExtraTextFields(_ on:Bool) {
+        self.textField1b.isHidden = !on
+        self.textField1c.isHidden = !on
+        self.textField2b.isHidden = !on
+        self.textField2c.isHidden = !on
     }
     
     //MARK: - Actions
@@ -103,7 +103,7 @@ class RGBRendererViewController: NSViewController {
         case 0:
             let minValues = [self.textField1a.integerValue, self.textField1b.integerValue, self.textField1c.integerValue]
             let maxValues = [self.textField2a.integerValue, self.textField2b.integerValue, self.textField2c.integerValue]
-            stretchParams = AGSMinMaxStretchParameters(minValues: minValues, maxValues: maxValues)
+            stretchParams = AGSMinMaxStretchParameters(minValues: minValues as [NSNumber], maxValues: maxValues as [NSNumber])
         case 1:
             let min = self.textField1a.doubleValue
             let max = self.textField2a.doubleValue

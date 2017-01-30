@@ -25,7 +25,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabelsBasemap())
+        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
         
         //initial viewpoint
         let center = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())
@@ -35,7 +35,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         self.mapView.map = map
         
         //add graphics overlay to the map view
-        self.mapView.graphicsOverlays.addObject(graphicsOverlay)
+        self.mapView.graphicsOverlays.add(graphicsOverlay)
         
         //add a graphic with simple marker symbol
         self.addSimpleMarkerSymbol()
@@ -43,7 +43,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
     
     private func addSimpleMarkerSymbol() {
         //create a simple marker symbol
-        let symbol = AGSSimpleMarkerSymbol(style: .Circle, color: NSColor.redColor(), size: 12)
+        let symbol = AGSSimpleMarkerSymbol(style: .circle, color: NSColor.red, size: 12)
         
         //create point
         let point = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())
@@ -52,7 +52,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         let graphic = AGSGraphic(geometry: point, symbol: symbol, attributes: nil)
         
         //add the graphic to the graphics overlay
-        self.graphicsOverlay.graphics.addObject(graphic)
+        self.graphicsOverlay.graphics.add(graphic)
     }
     
     

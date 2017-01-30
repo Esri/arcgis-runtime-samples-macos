@@ -27,13 +27,13 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.oceansBasemap())
+        let map = AGSMap(basemap: AGSBasemap.oceans())
         
         //assign map to the map view
         self.mapView.map = map
         
         //initialize service feature table to be queried
-        self.featureTable = AGSServiceFeatureTable(URL: NSURL(string: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/0")!)
+        self.featureTable = AGSServiceFeatureTable(url: URL(string: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/0")!)
         
         //create query parameters
         let queryParams = AGSQueryParameters()
@@ -45,7 +45,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         self.view.window?.showProgressIndicator()
         
         //query feature from the table
-        self.featureTable.queryFeaturesWithParameters(queryParams) { [weak self] (queryResult: AGSFeatureQueryResult?, error: NSError?) in
+        self.featureTable.queryFeatures(with: queryParams) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) in
         
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -64,7 +64,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
                 let featureCollectionLayer = AGSFeatureCollectionLayer(featureCollection: featureCollection)
                 
                 //add the layer to the operational layers array
-                self?.mapView.map?.operationalLayers.addObject(featureCollectionLayer)
+                self?.mapView.map?.operationalLayers.add(featureCollectionLayer)
             }
         }
     }

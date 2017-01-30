@@ -31,27 +31,28 @@ class SketchOnMapViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.map = AGSMap(basemap: AGSBasemap.lightGrayCanvasBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.lightGrayCanvas())
         
         self.sketchEditor = AGSSketchEditor()
         self.mapView.sketchEditor =  self.sketchEditor
         
-        self.sketchEditor.startWithGeometryType(.Polyline)
+        //self.sketchEditor.start(with: .polyline)
+        self.sketchEditor.start(with: nil, creationMode: .polyline)
         
         self.mapView.map = self.map
-        self.mapView.interactionOptions.magnifierEnabled = true
+        self.mapView.interactionOptions.isMagnifierEnabled = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(respondToGeomChanged), name: AGSSketchEditorGeometryDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(respondToGeomChanged), name: NSNotification.Name.AGSSketchEditorGeometryDidChange, object: nil)
         
         //set initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(XMin: -10049589.670344, yMin: 3480099.843772, xMax: -10010071.251113, yMax: 3512023.489701, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -10049589.670344, yMin: 3480099.843772, xMax: -10010071.251113, yMax: 3512023.489701, spatialReference: AGSSpatialReference.webMercator()))
     }
     
     func respondToGeomChanged() {
         //Enable/disable UI elements appropriately
-        self.undoButton.enabled = self.sketchEditor.undoManager.canUndo
-        self.redoButton.enabled = self.sketchEditor.undoManager.canRedo
-        self.clearButton.enabled = self.sketchEditor.geometry != nil && !self.sketchEditor.geometry!.empty
+        self.undoButton.isEnabled = self.sketchEditor.undoManager.canUndo
+        self.redoButton.isEnabled = self.sketchEditor.undoManager.canRedo
+        self.clearButton.isEnabled = self.sketchEditor.geometry != nil && !self.sketchEditor.geometry!.isEmpty
     }
     
     //MARK: - Actions
@@ -59,13 +60,13 @@ class SketchOnMapViewController: NSViewController {
     @IBAction func geometryValueChanged(_ segmentedControl:NSSegmentedControl) {
         switch segmentedControl.selectedSegment {
         case 0://point
-            self.sketchEditor.startWithGeometryType(.Point)
+            self.sketchEditor.start(with: nil, creationMode: .point)
             
         case 1://polyline
-            self.sketchEditor.startWithGeometryType(.Polyline)
+            self.sketchEditor.start(with: nil, creationMode: .polyline)
             
         case 2://polygon
-            self.sketchEditor.startWithGeometryType(.Polygon)
+            self.sketchEditor.start(with: nil, creationMode: .polygon)
         default:
             break
         }
