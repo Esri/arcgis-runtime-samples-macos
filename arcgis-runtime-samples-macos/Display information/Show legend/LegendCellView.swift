@@ -28,11 +28,11 @@ class LegendCellView: NSTableCellView {
             self.textField?.stringValue = legendInfo.name 
             
             //set thumbnail
-            legendInfo.symbol?.createSwatch(completion: { (image: NSImage?, error: Error?) -> Void in
+            legendInfo.symbol?.createSwatch { (image: NSImage?, error: Error?) -> Void in
                 if error == nil {
                     self.thumbnail.image = image
                 }
-            })
+            }
         }
     }
 }

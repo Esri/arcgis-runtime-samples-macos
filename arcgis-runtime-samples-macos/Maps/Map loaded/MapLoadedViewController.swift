@@ -46,7 +46,7 @@ class MapLoadedViewController: NSViewController {
             
             if let weakSelf = self {
                 //get the string for load status
-                let loadStatusString = weakSelf.loadStatusString(weakSelf.map.loadStatus)
+                let loadStatusString = weakSelf.string(for: weakSelf.map.loadStatus)
                 
                 //set it on the banner label
                 weakSelf.bannerLabel.stringValue = "Load status : \(loadStatusString)"
@@ -54,8 +54,8 @@ class MapLoadedViewController: NSViewController {
         }
     }
     
-    private func loadStatusString(_ status: AGSLoadStatus) -> String {
-        switch status {
+    private func string(for loadStatus: AGSLoadStatus) -> String {
+        switch loadStatus {
         case .failedToLoad:
             return "Failed_To_Load"
         case .loaded:

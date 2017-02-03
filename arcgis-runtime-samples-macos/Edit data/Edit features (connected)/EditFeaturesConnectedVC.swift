@@ -57,7 +57,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.mapView.sketchEditor = self.sketchEditor
         
         //hide popups view controller initially
-        self.hidePopupsViewController(false)
+        self.hidePopupsViewController(animated: false)
     }
     
     func applyEdits() {
@@ -70,7 +70,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
             }
             else {
                 print("Edits applied successfully")
@@ -94,7 +94,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             self?.view.window?.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
-                self?.showAlert("Error", informativeText: "Error while identifying features :: \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Error while identifying features :: \(error.localizedDescription)")
             }
             else {
                 var popups = [AGSPopup]()
@@ -108,11 +108,11 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
                 
                 if popups.count > 0 {
                     //show popups view controller
-                    self?.showPopupsViewController(popups)
+                    self?.showPopupsViewController(with: popups)
                 }
                 else {
                     //hide popups view controller
-                    self?.hidePopupsViewController(true)
+                    self?.hidePopupsViewController(animated: true)
                 }
             }
         }
@@ -120,7 +120,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //MARK: - Show/hide popups view controller
     
-    private func showPopupsViewController(_ popups: [AGSPopup]) {
+    private func showPopupsViewController(with popups: [AGSPopup]) {
         
         //hide popups view controller if it exists
         if self.popupsVC != nil {
@@ -143,7 +143,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.containerViewLeadingConstraint.animator().constant = 0
     }
     
-    private func hidePopupsViewController(_ animated: Bool) {
+    private func hidePopupsViewController(animated: Bool) {
         
         //hide popups view controller to the left with or without animation
         if animated {
@@ -215,7 +215,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             self.isAddingNewFeature = false
             
             //hide the popupsViewController
-            self.hidePopupsViewController(true)
+            self.hidePopupsViewController(animated: true)
         }
         //disable sketch editor
         self.disableSketchEditor()
@@ -225,7 +225,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     func popupsViewControllerDidFinishViewingPopups(_ popupsViewController: AGSPopupsViewController) {
         
         //slide the popups view controller to the left
-        self.hidePopupsViewController(true)
+        self.hidePopupsViewController(animated: true)
     }
 
     private func disableSketchEditor() {
@@ -258,7 +258,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //create a popup
         let popup = AGSPopup(geoElement: newFeature, popupDefinition: popupDefinition)
         
-        self.showPopupsViewController([popup])
+        self.showPopupsViewController(with: [popup])
         self.popupsVC.startEditingCurrentPopup()
     }
     
@@ -285,7 +285,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

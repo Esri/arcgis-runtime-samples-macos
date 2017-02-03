@@ -40,22 +40,22 @@ class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //method to show callout
-    private func showCalloutForPoint(_ mapPoint: AGSPoint) {
+    private func showCallout(for point: AGSPoint) {
         self.mapView.callout.title = "Location"
-        self.mapView.callout.detail = String(format: "x: %.2f, y: %.2f", mapPoint.x, mapPoint.y)
-        self.mapView.callout.show(at: mapPoint, screenOffset: CGPoint.zero, rotateOffsetWithMap: false, animated: false)
+        self.mapView.callout.detail = String(format: "x: %.2f, y: %.2f", point.x, point.y)
+        self.mapView.callout.show(at: point, screenOffset: CGPoint.zero, rotateOffsetWithMap: false, animated: false)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
     
     //show callout when user does long press on map
     func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        self.showCalloutForPoint(mapPoint)
+        self.showCallout(for: mapPoint)
     }
     
     //update the callout when user moves long press
     func geoView(_ geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        self.showCalloutForPoint(mapPoint)
+        self.showCallout(for: mapPoint)
     }
     
     //Dismiss the callout on long press end

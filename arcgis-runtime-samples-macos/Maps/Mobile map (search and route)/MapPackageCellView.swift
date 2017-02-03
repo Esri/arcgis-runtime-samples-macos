@@ -43,14 +43,14 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         //show progress indicator
         self.window?.showProgressIndicator()
         
-        self.mapPackage.load(completion: { [weak self] (error:Error?) in
+        self.mapPackage.load { [weak self] (error:Error?) in
             
             //hide progress indicator
             self?.window?.hideProgressIndicator()
             
             if let error = error {
                 //error
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 //update title label
@@ -60,7 +60,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
                 
                 self?.collectionView.reloadData()
             }
-        })
+        }
     }
     
     //MARK: - NSCollectionViewDataSource
@@ -101,7 +101,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

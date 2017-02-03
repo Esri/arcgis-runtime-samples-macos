@@ -53,7 +53,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     
     //method that returns a graphic object for the specified point and attributes
     //also sets the leader offset and offset
-    private func graphicForPoint(_ point: AGSPoint, attributes: [String: AnyObject]?) -> AGSGraphic {
+    private func graphic(for point: AGSPoint, attributes: [String: AnyObject]?) -> AGSGraphic {
         let markerImage = NSImage(named: "RedMarker")!
         let symbol = AGSPictureMarkerSymbol(image: markerImage)
         symbol.leaderOffsetY = markerImage.size.height/2
@@ -73,7 +73,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.view.window?.showProgressIndicator()
         
         //perform geocode with input text
-        self.locatorTask.geocode(withSearchText: text, parameters: self.geocodeParameters, completion: { [weak self] (results:[AGSGeocodeResult]?, error:Error?) -> Void in
+        self.locatorTask.geocode(withSearchText: text, parameters: self.geocodeParameters) { [weak self] (results:[AGSGeocodeResult]?, error:Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
@@ -84,7 +84,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             else {
                 if let results = results , results.count > 0 {
                     //create a graphic for the first result and add to the graphics overlay
-                    let graphic = self?.graphicForPoint(results[0].displayLocation!, attributes: results[0].attributes as [String : AnyObject]?)
+                    let graphic = self?.graphic(for: results[0].displayLocation!, attributes: results[0].attributes as [String : AnyObject]?)
                     self?.graphicsOverlay.graphics.add(graphic!)
                     //zoom to the extent of the result
                     if let extent = results[0].extent {
@@ -96,7 +96,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
                     self?.showAlert("Error", informativeText: "No results found")
                 }
             }
-        })
+        }
     }
     
     //MARK: - Callout
@@ -104,7 +104,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     //method shows the callout for the specified graphic,
     //populates the title and detail of the callout with specific attributes
     //hides the accessory button
-    private func showCalloutForGraphic(_ graphic:AGSGraphic, tapLocation:AGSPoint) {
+    private func showCallout(for graphic:AGSGraphic, at point:AGSPoint) {
         let addressType = graphic.attributes["Addr_type"] as! String
         self.mapView.callout.title = graphic.attributes["Match_addr"] as? String ?? ""
         
@@ -115,7 +115,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             self.mapView.callout.detail = nil
         }
         
-        self.mapView.callout.show(for: graphic, tapLocation: tapLocation, animated: true)
+        self.mapView.callout.show(for: graphic, tapLocation: point, animated: true)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
@@ -139,7 +139,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             }
             else if result.graphics.count > 0 {
                 //show callout for the graphic
-                self?.showCalloutForGraphic(result.graphics[0], tapLocation: mapPoint)
+                self?.showCallout(for: result.graphics[0], at: mapPoint)
             }
         }
     }

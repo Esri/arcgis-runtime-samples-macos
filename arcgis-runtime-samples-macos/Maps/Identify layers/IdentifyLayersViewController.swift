@@ -68,22 +68,22 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //get the geoElements for all layers present at the tapped point
-        self.identifyLayers(screenPoint)
+        self.identifyLayers(at: screenPoint)
     }
     
     //MARK: - Identify layers
     
-    private func identifyLayers(_ screen: CGPoint) {
+    private func identifyLayers(at screenPoint: CGPoint) {
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.mapView.identifyLayers(atScreenPoint: screen, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
+        self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 self?.handleIdentifyResults(results!)
@@ -114,10 +114,10 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         //if any elements were found show the results
         //else notify user that no elements were found
         if totalCount > 0 {
-            self.showAlert("Number of geoElements found", informativeText: messageString)
+            self.showAlert(messageText: "Number of geoElements found", informativeText: messageString)
         }
         else {
-            self.showAlert("Error", informativeText: "No geoElement found")
+            self.showAlert(messageText: "Error", informativeText: "No geoElement found")
         }
     }
     
@@ -151,7 +151,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //helper method to show results to the user
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

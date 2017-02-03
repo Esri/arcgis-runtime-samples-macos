@@ -46,7 +46,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         self.tableView.reloadData()
     }
     
-    func extractName(_ path:String) -> String {
+    func extractName(fromPath path:String) -> String {
         var index = path.range(of: "/", options: .backwards, range: nil, locale: nil)?.lowerBound
         index = path.index(after: index!)
         let name = path.substring(from: index!)
@@ -63,7 +63,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         let path = self.bundleTPKPaths[row]
         
         let cellView = tableView.make(withIdentifier: "TPKCellView", owner: self) as! NSTableCellView
-        cellView.textField?.stringValue = self.extractName(path)
+        cellView.textField?.stringValue = self.extractName(fromPath: path)
         
         return cellView
     }

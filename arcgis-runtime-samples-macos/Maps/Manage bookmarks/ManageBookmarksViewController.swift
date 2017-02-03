@@ -80,7 +80,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.map.bookmarks.add(bookmark)
     }
     
-    private func addBookmark(_ name:String) {
+    private func addBookmark(with name:String) {
         //instantiate a bookmark and set the properties
         let bookmark = AGSBookmark()
         bookmark.name = name
@@ -137,12 +137,12 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.alert.accessoryView = textField
         
         //show alert
-        self.alert.beginSheetModal(for: self.view.window!, completionHandler: { [weak self] (response: NSModalResponse) in
+        self.alert.beginSheetModal(for: self.view.window!) { [weak self] (response: NSModalResponse) in
             //on OK
             if response == NSAlertFirstButtonReturn {
-                self?.addBookmark(textField.stringValue)
+                self?.addBookmark(with: textField.stringValue)
             }
-        }) 
+        }
     }
     
     //MARK: - NSTextFieldDelegate

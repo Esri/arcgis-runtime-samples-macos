@@ -100,12 +100,14 @@ class FeatureTemplatePickerVC: NSViewController {
         if let imageView = cellView?.viewWithTag(10) as? NSImageView {
             
             let featureTable = self.featureLayer.featureTable as! AGSArcGISFeatureTable
+            
             //create a new feature based on the template
             let newFeature = featureTable.createFeature(with: info.featureTemplate)!
             let symbol = self.featureLayer.renderer?.symbol(for: newFeature)
-            symbol?.createSwatch(completion: { (image: NSImage?, error: Error?) in
+            
+            symbol?.createSwatch { (image: NSImage?, error: Error?) in
                 imageView.image = image
-            })
+            }
         }
         
         return cellView

@@ -40,11 +40,11 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             if generatedRoute != nil {
                 self.directionsListViewController?.route = generatedRoute
                 //show directionsList
-                self.toggleDirectionsList(true, animated: true)
+                self.toggleDirectionsList(on: true, animated: true)
             }
             else {
                 //hide directionsList
-                self.toggleDirectionsList(false, animated: true)
+                self.toggleDirectionsList(on: false, animated: true)
             }
         }
     }
@@ -70,7 +70,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.getDefaultParameters()
         
         //hide directions list
-        self.toggleDirectionsList(false, animated: false)
+        self.toggleDirectionsList(on: false, animated: false)
     }
     
     //MARK: - Route logic
@@ -80,20 +80,20 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.routeTask.defaultRouteParameters(completion: { [weak self] (params: AGSRouteParameters?, error: Error?) -> Void in
+        self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 self?.routeParameters = params
                 //enable bar button item
                 self?.routeParametersButton.isEnabled = true
             }
-        })
+        }
     }
     
     @IBAction func route(_ sender:NSButton) {
@@ -138,7 +138,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
+                self?.showAlert(messageText: "Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
             }
             else {
                 let route = routeResult!.routes[0]
@@ -159,7 +159,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         return symbol
     }
     
-    private func symbolForStopGraphic(_ index: Int) -> AGSSymbol {
+    private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
         let markerImage = NSImage(named: "BlueMarker")!
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
@@ -185,7 +185,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             //create a graphic for stop and add to the graphics overlay
             let graphicsCount = self.stopGraphicsOverlay.graphics.count
-            let symbol = self.symbolForStopGraphic(graphicsCount+1)
+            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount+1)
             let graphic = AGSGraphic(geometry: normalizedPoint, symbol: symbol, attributes: nil)
             self.stopGraphicsOverlay.graphics.add(graphic)
             
@@ -214,7 +214,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    func toggleDirectionsList(_ on:Bool, animated:Bool) {
+    func toggleDirectionsList(on:Bool, animated:Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
         }
@@ -258,7 +258,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

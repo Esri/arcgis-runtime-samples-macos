@@ -52,7 +52,7 @@ class HotspotsViewController: NSViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
     }
     
-    private func analyzeHotspots(_ fromDate: Date, toDate: Date) {
+    private func analyzeHotspots(fromDate: Date, toDate: Date) {
         
         //disable apply button until processing
         self.applyButton.isEnabled = false
@@ -91,7 +91,7 @@ class HotspotsViewController: NSViewController {
             self?.applyButton.isEnabled = true
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 //a map image layer is generated as a result
@@ -102,7 +102,7 @@ class HotspotsViewController: NSViewController {
                 self?.mapView.map?.operationalLayers.add(result!.mapImageLayer!)
                 
                 //set map view's viewpoint to the new layer's full extent
-                (self?.mapView.map?.operationalLayers.firstObject as! AGSLayer).load(completion: { (error: Error?) in
+                (self?.mapView.map?.operationalLayers.firstObject as! AGSLayer).load { (error: Error?) in
                     if error == nil {
                         
                         //set viewpoint as the extent of the mapImageLayer
@@ -110,7 +110,7 @@ class HotspotsViewController: NSViewController {
                             self?.mapView.setViewpointGeometry(extent, completion: nil)
                         }
                     }
-                })
+                }
             }
         }
     }
@@ -124,7 +124,7 @@ class HotspotsViewController: NSViewController {
         
         //if no interval specified
         if timeInterval <= 0 {
-            self.showAlert("Error", informativeText: "Please select a date range")
+            self.showAlert(messageText: "Error", informativeText: "Please select a date range")
         }
         else {
             //get the dates from the date picker
@@ -132,13 +132,13 @@ class HotspotsViewController: NSViewController {
             let toDate = self.datePicker.dateValue.addingTimeInterval(timeInterval)
             
             //analyze hotspots
-            self.analyzeHotspots(fromDate, toDate: toDate)
+            self.analyzeHotspots(fromDate: fromDate, toDate: toDate)
         }
     }
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

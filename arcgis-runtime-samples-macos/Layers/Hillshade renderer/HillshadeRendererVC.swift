@@ -60,7 +60,7 @@ class HillshadeRendererVC: NSViewController {
         }
     }
     
-    func applyRenderer(_ altitude: Double, azimuth: Double, slopeType: AGSSlopeType) {
+    func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType) {
         //initialize hill shade renderer with provided settings
         let renderer = AGSHillshadeRenderer(altitude: altitude, azimuth: azimuth, zFactor: 0.000016, slopeType: slopeType, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
         
@@ -74,7 +74,7 @@ class HillshadeRendererVC: NSViewController {
         let altitude = self.altitudeSlider.doubleValue
         let azimuth = self.azimuthSlider.doubleValue
         
-        self.applyRenderer(altitude, azimuth: azimuth, slopeType: self.selectedSlope())
+        self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope())
     }
     
     @IBAction func altitudeSliderAction(_ sender:NSSlider) {

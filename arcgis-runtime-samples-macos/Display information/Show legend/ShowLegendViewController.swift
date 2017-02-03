@@ -53,7 +53,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         AGSLoadObjects(self.map.operationalLayers as AnyObject as! [AGSLayer]) { [weak self] (success) in
             if let weakSelf = self {
                 self?.orderArray = [AGSLayerContent]()
-                self?.populateLegends(weakSelf.map.operationalLayers as AnyObject as! [AGSLayerContent])
+                self?.populateLegends(with: weakSelf.map.operationalLayers as AnyObject as! [AGSLayerContent])
             }
         }
         
@@ -63,13 +63,13 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
     }
     
-    func populateLegends(_ layers:[AGSLayerContent]) {
+    func populateLegends(with layers:[AGSLayerContent]) {
         
         for i in 0...layers.count-1 {
             let layer = layers[i]
             
             if layer.subLayerContents.count > 0 {
-                self.populateLegends(layer.subLayerContents)
+                self.populateLegends(with: layer.subLayerContents)
             }
             else {
                 //else if no sublayers fetch legend info
@@ -78,7 +78,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 //show progress indicator
                 self.view.window?.showProgressIndicator()
                 
-                layer.fetchLegendInfos(completion: { [weak self] (legendInfos:[AGSLegendInfo]?, error:Error?) -> Void in
+                layer.fetchLegendInfos { [weak self] (legendInfos:[AGSLegendInfo]?, error:Error?) -> Void in
                 
                     //hide progress indicator
                     self?.view.window?.hideProgressIndicator()
@@ -88,11 +88,11 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                     }
                     else {
                         if let legendInfos = legendInfos {
-                            self?.legendInfosDict[self!.hashString(layer)] = legendInfos
+                            self?.legendInfosDict[self!.hashString(for: layer)] = legendInfos
                             self?.outlineView.reloadData()
                         }
                     }
-                })
+                }
             }
             
             //stylize legend view
@@ -118,7 +118,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 }
                 else {
                     //return legend infos
-                    let legendInfos = self.legendInfosDict[self.hashString(layerContent)]!
+                    let legendInfos = self.legendInfosDict[self.hashString(for: layerContent)]!
                     return legendInfos.count
                 }
             }
@@ -135,7 +135,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
         else {
             let layer = item as! AGSLayerContent
-            let legendInfos = self.legendInfosDict[self.hashString(layer)]!
+            let legendInfos = self.legendInfosDict[self.hashString(for: layer)]!
             let legendInfo = legendInfos[index]
             return legendInfo
         }
@@ -182,7 +182,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    func hashString (_ obj: AnyObject) -> String {
+    func hashString (for obj: AnyObject) -> String {
         return String(UInt(bitPattern: ObjectIdentifier(obj)))
     }
     

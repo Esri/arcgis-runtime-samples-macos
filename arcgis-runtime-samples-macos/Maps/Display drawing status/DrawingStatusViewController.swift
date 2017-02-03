@@ -49,7 +49,7 @@ class DrawingStatusViewController: NSViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        DispatchQueue.main.async(execute: { [weak self] () -> Void in
+        DispatchQueue.main.async { [weak self] () -> Void in
             guard let weakSelf = self else {
                 return
             }
@@ -60,7 +60,7 @@ class DrawingStatusViewController: NSViewController {
             else {
                 weakSelf.activityIndicatorView.isHidden = true
             }
-        })
+        }
     }
     
     deinit {

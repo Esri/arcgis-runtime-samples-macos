@@ -64,7 +64,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.inputGraphicsOverlay.graphics.add(graphic)
     }
     
-    private func calculateViewshed(_ point: AGSPoint) {
+    private func calculateViewshed(at point: AGSPoint) {
         
         //remove previous graphics
         self.resultGraphicsOverlay.graphics.removeAllObjects()
@@ -95,15 +95,15 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
-                self?.performGeoprocessing(featureCollectionTable)
+                self?.performGeoprocessing(using: featureCollectionTable)
             }
         }
     }
     
-    private func performGeoprocessing(_ featureCollectionTable: AGSFeatureCollectionTable) {
+    private func performGeoprocessing(using featureCollectionTable: AGSFeatureCollectionTable) {
         
         //geoprocessing parameters
         let params = AGSGeoprocessingParameters(executionType: .synchronousExecute)
@@ -131,7 +131,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
             
             if let error = error as? NSError {
                 if error.code != NSUserCancelledError {
-                    self?.showAlert("Error", informativeText: error.localizedDescription)
+                    self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                 }
             }
             else {
@@ -155,12 +155,12 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.addGraphicForPoint(mapPoint)
         
         //calculate viewshed
-        self.calculateViewshed(mapPoint)
+        self.calculateViewshed(at: mapPoint)
     }
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

@@ -65,7 +65,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: "Error while deleting feature : \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Error while deleting feature : \(error.localizedDescription)")
             }
             else {
                 self?.selectedFeature = nil
@@ -84,7 +84,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
             }
             else {
                 if let featureEditResults = featureEditResults , featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
@@ -113,7 +113,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
             self?.view.window?.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else if let features = identifyLayerResult.geoElements as? [AGSFeature] {
                 
@@ -132,7 +132,6 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
     
     //MARK: - Actions
     
-    //TODO: Remove the _ work around when the xcode bug gets fixed
     @IBAction func deleteAction(_ button: AnyObject) {
         //confirmation
         self.showConfirmationAlert()
@@ -140,7 +139,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

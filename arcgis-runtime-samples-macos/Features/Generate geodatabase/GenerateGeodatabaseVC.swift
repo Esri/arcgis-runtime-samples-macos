@@ -54,7 +54,7 @@ class GenerateGeodatabaseVC: NSViewController {
         
         self.syncTask.load { [weak self] (error) -> Void in
             if let error = error {
-                self?.showAlert("Error", informativeText: "Could not load feature service \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Could not load feature service \(error.localizedDescription)")
             } else {
                 guard let weakSelf = self else {
                     return
@@ -128,7 +128,7 @@ class GenerateGeodatabaseVC: NSViewController {
                     self?.view.window?.hideProgressIndicator()
                     
                     if let error = error {
-                        self?.showAlert("Error", informativeText: error.localizedDescription)
+                        self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                     }
                     else {
                         self?.generatedGeodatabase = object as! AGSGeodatabase
@@ -137,7 +137,7 @@ class GenerateGeodatabaseVC: NSViewController {
                 }
             }
             else{
-                self?.showAlert("Error", informativeText: "Could not generate default parameters : \(error!)")
+                self?.showAlert(messageText: "Error", informativeText: "Could not generate default parameters : \(error!)")
             }
         }
     }
@@ -146,12 +146,12 @@ class GenerateGeodatabaseVC: NSViewController {
         self.generatedGeodatabase.load(completion: { [weak self] (error:Error?) -> Void in
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 self?.map.operationalLayers.removeAllObjects()
                 
-                AGSLoadObjects(self!.generatedGeodatabase.geodatabaseFeatureTables, { (success: Bool) in
+                AGSLoadObjects(self!.generatedGeodatabase.geodatabaseFeatureTables) { (success: Bool) in
                     if success {
                         for featureTable in self!.generatedGeodatabase.geodatabaseFeatureTables.reversed() {
                             //check if featureTable has geometry
@@ -160,9 +160,9 @@ class GenerateGeodatabaseVC: NSViewController {
                                 self?.map.operationalLayers.add(featureLayer)
                             }
                         }
-                        self?.showAlert("Info", informativeText: "Now showing data from geodatabase")
+                        self?.showAlert(messageText: "Info", informativeText: "Now showing data from geodatabase")
                     }
-                })
+                }
                 
                 //unregister geodatabase as the sample wont be editing or syncing features
                 self?.unregisterGeodatabase()
@@ -182,7 +182,7 @@ class GenerateGeodatabaseVC: NSViewController {
                 }
                 else {
                     //TODO: Show alert
-                    self?.showAlert("Info", informativeText: "Geodatabase unregistered since we wont be editing it in this sample")
+                    self?.showAlert(messageText: "Info", informativeText: "Geodatabase unregistered since we wont be editing it in this sample")
                 }
             }
         }
@@ -190,7 +190,7 @@ class GenerateGeodatabaseVC: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

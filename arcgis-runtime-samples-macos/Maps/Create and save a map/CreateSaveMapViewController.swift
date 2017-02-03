@@ -42,30 +42,30 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     //MARK: - Save map
     
     private func saveMap(_ title:String, tags:[String], itemDescription:String?, thumbnail:NSImage?) {
-        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true, completion: { [weak self] (error) -> Void in
+        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) -> Void in
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
-                self?.showAlert("Info", informativeText: "Map was saved successfully")
+                self?.showAlert(messageText: "Info", informativeText: "Map was saved successfully")
             }
             
             //reset fields in save map view controller
             self?.saveMapVC.resetInputFields()
-        })
+        }
     }
     
     
     //MARK: - Show/hide options view controller
     
-    private func toggleOptionsVC(toggleOn on:Bool) {
+    private func toggleOptionsVC(on:Bool) {
         self.optionsContainerView.isHidden = !on
     }
     
     //MARK: - Show/hide save map view controller
     
-    private func toggleSaveMapVC(toggleOn on:Bool) {
+    private func toggleSaveMapVC(on:Bool) {
         self.saveMapContainerView.isHidden = !on
     }
     
@@ -97,13 +97,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.mapView.map = map
         
         //hide the create options view
-        self.toggleOptionsVC(toggleOn: false)
+        self.toggleOptionsVC(on: false)
     }
     
     //MARK: - SaveMapVCDelegate
     
     func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController) {
-        self.toggleSaveMapVC(toggleOn: false)
+        self.toggleSaveMapVC(on: false)
     }
     
     func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
@@ -113,25 +113,25 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         
         self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 //crop the image from the center
                 //also to cut on the size
-                let croppedImage:NSImage? = image?.croppedImage(CGSize(width: 200, height: 200))
+                let croppedImage:NSImage? = image?.croppedImage(of: CGSize(width: 200, height: 200))
                 
                 self?.saveMap(title, tags: tags, itemDescription: itemDescription, thumbnail: croppedImage)
             }
         }
         
         //hide the input screen
-        self.toggleSaveMapVC(toggleOn: false)
+        self.toggleSaveMapVC(on: false)
     }
     
     //MARK: - Actions
     
     @IBAction private func newAction(_ sender: AnyObject) {
-        self.toggleOptionsVC(toggleOn: true)
+        self.toggleOptionsVC(on: true)
     }
     
     @IBAction func saveAsAction(_ sender: AnyObject) {
@@ -144,14 +144,14 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
             }
             else {
                 //get title etc
-                self.toggleSaveMapVC(toggleOn: true)
+                self.toggleSaveMapVC(on: true)
             }
         }
     }
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
@@ -161,7 +161,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
 
 extension NSImage {
     
-    func croppedImage(_ size:CGSize) -> NSImage {
+    func croppedImage(of size:CGSize) -> NSImage {
         //calculate rect based on input size
         let originX = (self.size.width - size.width)/2
         let originY = (self.size.height - size.height)/2

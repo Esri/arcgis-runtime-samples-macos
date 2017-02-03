@@ -41,7 +41,7 @@ class ChangeViewpointViewController: NSViewController {
         
         self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: AGSSpatialReference.wgs84())
         
-        if let griffithParkGeometry = self.geometryFromTextFile("GriffithParkJson") {
+        if let griffithParkGeometry = self.geometryFromTextFile(filename: "GriffithParkJson") {
             self.griffithParkGeometry = griffithParkGeometry as! AGSPolygon
             let griffithParkSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.solid, color: NSColor(red: 0, green: 0.5, blue: 0, alpha: 0.7), outline: nil)
             let griffithParkGraphic = AGSGraphic(geometry: griffithParkGeometry, symbol: griffithParkSymbol, attributes: nil)
@@ -50,7 +50,7 @@ class ChangeViewpointViewController: NSViewController {
         self.mapView.graphicsOverlays.add(graphicsOverlay)
     }
     
-    func geometryFromTextFile(_ filename:String) -> AGSGeometry? {
+    func geometryFromTextFile(filename:String) -> AGSGeometry? {
         if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
             if let jsonString = try? String(contentsOfFile: filepath, encoding: String.Encoding.utf8) {
                 let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)

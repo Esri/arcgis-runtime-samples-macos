@@ -40,19 +40,19 @@ class GraphicsWithSymbolsViewController: NSViewController {
         self.mapView.graphicsOverlays.add(graphicsOverlay)
         
         //add some buoy positions to the graphics overlay
-        addBuoyPoints(graphicsOverlay)
+        addBuoyPoints(to: graphicsOverlay)
         
         //add boat trip polyline to graphics overlay
-        addBoatTrip(graphicsOverlay)
+        addBoatTrip(to: graphicsOverlay)
         
         //add nesting ground polygon to graphics overlay
-        addNestingGround(graphicsOverlay)
+        addNestingGround(to: graphicsOverlay)
         
         //add text symbols and points to graphics overlay
-        addText(graphicsOverlay)
+        addText(to: graphicsOverlay)
     }
     
-    private func addBuoyPoints(_ graphicsOverlay:AGSGraphicsOverlay) {
+    private func addBuoyPoints(to graphicsOverlay:AGSGraphicsOverlay) {
         
         //define the buoy locations
         let wgs84 = AGSSpatialReference.wgs84()
@@ -75,7 +75,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
 
     }
     
-    private func addText(_ graphicsOverlay:AGSGraphicsOverlay) {
+    private func addText(to graphicsOverlay:AGSGraphicsOverlay) {
         let wgs84 = AGSSpatialReference.wgs84()
         let bassLocation = AGSPoint(x: -2.640631, y: 56.078083, spatialReference: wgs84)
         let craigleithLocation = AGSPoint(x: -2.720324, y: 56.073569, spatialReference: wgs84)
@@ -94,7 +94,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         graphicsOverlay.graphics.add(craigleithGraphic)
     }
     
-    private func addBoatTrip(_ graphicsOverlay:AGSGraphicsOverlay) {
+    private func addBoatTrip(to graphicsOverlay:AGSGraphicsOverlay) {
         //boat trip geometry
         let boatRoute = self.boatTripGeometry()
         
@@ -110,7 +110,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         graphicsOverlay.graphics.add(boatTripGraphic)
     }
     
-    private func addNestingGround(_ graphicsOverlay:AGSGraphicsOverlay) {
+    private func addNestingGround(to graphicsOverlay:AGSGraphicsOverlay) {
         //nesting ground geometry
         let nestingGround = self.nestingGroundGeometry()
         

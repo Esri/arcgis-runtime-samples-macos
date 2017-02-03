@@ -64,7 +64,7 @@ class CreateOptionsViewController: NSViewController {
     @IBAction func doneAction(_ sender: AnyObject) {
         //validation
         if self.selectedBasemapIndex == nil {
-            self.showAlert("A basemap is required")
+            self.showAlert(withText: "A basemap is required")
             return
         }
         
@@ -83,7 +83,7 @@ class CreateOptionsViewController: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(_ text:String) {
+    private func showAlert(withText text:String) {
         let alert = NSAlert()
         alert.messageText = "Info"
         alert.informativeText = text

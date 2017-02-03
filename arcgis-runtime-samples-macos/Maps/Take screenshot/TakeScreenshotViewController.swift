@@ -68,7 +68,7 @@ class TakeScreenshotViewController: NSViewController {
             }
             if let image = image {
                 //on completion imitate flash
-                self?.imitateFlash(image)
+                self?.imitateFlashAndPreview(image: image)
             }
         }
     }
@@ -80,7 +80,7 @@ class TakeScreenshotViewController: NSViewController {
     //MARK: - Helper methods
     
     //imitate the white flash screen when the user taps on the screenshot button
-    private func imitateFlash(_ image:NSImage) {
+    private func imitateFlashAndPreview(image:NSImage) {
         let flashView = NSView(frame: self.mapView.bounds)
         flashView.wantsLayer = true
         flashView.layer?.backgroundColor = NSColor.white.cgColor

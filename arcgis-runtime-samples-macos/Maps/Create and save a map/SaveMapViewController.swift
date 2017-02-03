@@ -66,9 +66,9 @@ class SaveMapViewController: NSViewController {
         
         var tagsArray = tags.components(separatedBy: ",")
         
-        tagsArray = tagsArray.map ({
+        tagsArray = tagsArray.map {
             $0.trimmingCharacters(in: CharacterSet.whitespaces)
-        })
+        }
         
         self.delegate?.saveMapViewController(self, didInitiateSaveWithTitle: title, tags: tagsArray, itemDescription: itemDescription)
     }

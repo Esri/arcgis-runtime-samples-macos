@@ -67,14 +67,14 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         let queryParams = AGSQueryParameters()
         queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(state.uppercased())%'"
         
-        self.featureTable.queryFeatures(with: queryParams, completion: { [weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
+        self.featureTable.queryFeatures(with: queryParams) { [weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
             
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
             if let error = error {
                 //show error
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else if let features = result?.featureEnumerator().allObjects {
                 if features.count > 0 {
@@ -83,13 +83,13 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
                     self?.mapView.setViewpointGeometry(features[0].geometry!, padding: 200, completion: nil)
                 }
                 else {
-                    self?.showAlert("Alert", informativeText: "No state by that name")
+                    self?.showAlert(messageText: "Alert", informativeText: "No state by that name")
                 }
                 
                 //update selected features array
                 self?.selectedFeatures = features
             }
-        })
+        }
     }
     
     //MARK: - NSTextFieldDelegate
@@ -107,7 +107,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(messageText:String, informativeText:String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
