@@ -31,12 +31,12 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return 3
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.makeViewWithIdentifier("MapCell", owner: self)
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cellView = tableView.make(withIdentifier: "MapCell", owner: self)
         
         
         if let titleLabel = cellView?.viewWithTag(11) as? NSTextField {
@@ -52,8 +52,8 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         self.delegate?.existingMapsListViewController(self, didSelectItemAtIndex: self.tableView.selectedRow)
-        self.dismissController(nil)
+        self.dismiss(nil)
     }
 }

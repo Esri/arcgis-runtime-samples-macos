@@ -28,7 +28,7 @@ class FeatureLayerDefinitionExpressionVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map using topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //initial viewpoint
         self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -13630484, y: 4545415, spatialReference: AGSSpatialReference.webMercator()), scale: 90000)
@@ -37,13 +37,13 @@ class FeatureLayerDefinitionExpressionVC: NSViewController {
         self.mapView.map = self.map
         
         //create feature table using a url to feature server's layer
-        let featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SF311/FeatureServer/0")!)
+        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SF311/FeatureServer/0")!)
         
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         
         //add the feature layer to the map
-        self.map.operationalLayers.addObject(self.featureLayer)
+        self.map.operationalLayers.add(self.featureLayer)
     }
     
     @IBAction func applyDefinitionExpression(_ sender:NSButton) {

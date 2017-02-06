@@ -43,9 +43,9 @@ class RouteParametersViewController: NSViewController {
         }
     }
     
-    func enableSubSwitches(enable:Bool) {
-        self.preservceLastStopButton.enabled = enable
-        self.preservceFirstStopButton.enabled = enable
+    func enableSubSwitches(_ enable:Bool) {
+        self.preservceLastStopButton.isEnabled = enable
+        self.preservceFirstStopButton.isEnabled = enable
     }
     
     //MARK: - Actions

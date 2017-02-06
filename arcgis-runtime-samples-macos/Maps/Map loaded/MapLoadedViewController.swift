@@ -28,10 +28,10 @@ class MapLoadedViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabelsBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
         
         //register as an observer for loadStatus property on map
-        self.map.addObserver(self, forKeyPath: "loadStatus", options: .New, context: nil)
+        self.map.addObserver(self, forKeyPath: "loadStatus", options: .new, context: nil)
         
         //assign map to map view
         self.mapView.map = self.map
@@ -39,14 +39,14 @@ class MapLoadedViewController: NSViewController {
     
     //The sample uses Key-Value Observing to register and receive observations on the loadStatus
     //property of the AGSMap. The banner label will be updated everytime the status changes
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         //update the banner label on main thread
-        dispatch_async(dispatch_get_main_queue()) { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             
             if let weakSelf = self {
                 //get the string for load status
-                let loadStatusString = weakSelf.loadStatusString(weakSelf.map.loadStatus)
+                let loadStatusString = weakSelf.string(for: weakSelf.map.loadStatus)
                 
                 //set it on the banner label
                 weakSelf.bannerLabel.stringValue = "Load status : \(loadStatusString)"
@@ -54,15 +54,15 @@ class MapLoadedViewController: NSViewController {
         }
     }
     
-    private func loadStatusString(status: AGSLoadStatus) -> String {
-        switch status {
-        case .FailedToLoad:
+    private func string(for loadStatus: AGSLoadStatus) -> String {
+        switch loadStatus {
+        case .failedToLoad:
             return "Failed_To_Load"
-        case .Loaded:
+        case .loaded:
             return "Loaded"
-        case .Loading:
+        case .loading:
             return "Loading"
-        case .NotLoaded:
+        case .notLoaded:
             return "Not_Loaded"
         default:
             return "Unknown"

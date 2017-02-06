@@ -19,7 +19,7 @@ import ArcGIS
 
 protocol MapPackagesListVCDelegate: class {
     
-    func mapPackagesListVC(mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?)
+    func mapPackagesListVC(_ mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?)
 }
 
 class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MapPackageCellDelegate {
@@ -39,13 +39,13 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     
     func fetchMapPackages() {
         //load map packages from the bundle
-        let bundleMMPKPaths = NSBundle.mainBundle().pathsForResourcesOfType("mmpk", inDirectory: nil)
+        let bundleMMPKPaths = Bundle.main.paths(forResourcesOfType: "mmpk", inDirectory: nil)
         
         //create map packages from the paths
         self.mapPackages = [AGSMobileMapPackage]()
         
         for path in bundleMMPKPaths {
-            let mapPackage = AGSMobileMapPackage(fileURL: NSURL(fileURLWithPath: path))
+            let mapPackage = AGSMobileMapPackage(fileURL: URL(fileURLWithPath: path))
             self.mapPackages.append(mapPackage)
         }
         
@@ -54,13 +54,13 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.mapPackages?.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cellView = tableView.makeViewWithIdentifier("MapPackageCell", owner: self) as! MapPackageCellView
+        let cellView = tableView.make(withIdentifier: "MapPackageCell", owner: self) as! MapPackageCellView
         
         let mapPackage = self.mapPackages[row]
         cellView.mapPackage = mapPackage
@@ -69,7 +69,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
         return cellView
     }
     
-    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         if row == self.tableView.selectedRow {
             return 158  //height for expanded row
         }
@@ -80,25 +80,25 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         if self.selectedRow != -1 {
             let previouslySelectedRow = self.selectedRow
-            let previousIndexSet = NSIndexSet(index: previouslySelectedRow)
-            self.tableView.noteHeightOfRowsWithIndexesChanged(previousIndexSet)
+            let previousIndexSet = IndexSet(integer: previouslySelectedRow)
+            self.tableView.noteHeightOfRows(withIndexesChanged: previousIndexSet)
             
             //unselect selection for collection view
-            let cellView = self.tableView.viewAtColumn(0, row: previouslySelectedRow, makeIfNecessary: false) as! MapPackageCellView
+            let cellView = self.tableView.view(atColumn: 0, row: previouslySelectedRow, makeIfNecessary: false) as! MapPackageCellView
             cellView.collectionView.deselectAll(self)
         }
         
-        let indexSet = NSIndexSet(index: self.tableView.selectedRow)
-        self.tableView.noteHeightOfRowsWithIndexesChanged(indexSet)
+        let indexSet = IndexSet(integer: self.tableView.selectedRow)
+        self.tableView.noteHeightOfRows(withIndexesChanged: indexSet)
         self.selectedRow = self.tableView.selectedRow
     }
     
     //MARK: - MapPackageCellDelegate
     
-    func mapPackageCellView(mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
+    func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
         
         self.delegate?.mapPackagesListVC(self, wantsToShowMap: map, withLocatorTask: mapPackageCellView.mapPackage.locatorTask)
     }

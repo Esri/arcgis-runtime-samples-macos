@@ -32,7 +32,7 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
             }
             
             //populate popUpButton
-            self.popUpButton.addItemsWithTitles(self.fileNames)
+            self.popUpButton.addItems(withTitles: self.fileNames)
         }
     }
     
@@ -43,27 +43,27 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
     
     //MARK: - HTML logic
     
-    func loadHTMLPage(filename:String) {
+    func loadHTMLPage(_ filename:String) {
         if let content = self.contentOfFile(filename) {
             let htmlString = self.htmlStringForContent(content)
-            self.webView.mainFrame.loadHTMLString(htmlString, baseURL: NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath))
+            self.webView.mainFrame.loadHTMLString(htmlString, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
         }
     }
     
-    func contentOfFile(name:String) -> String? {
+    func contentOfFile(_ name:String) -> String? {
         //find the path of the file
-        if let path = NSBundle.mainBundle().pathForResource(name, ofType: ".swift") {
+        if let path = Bundle.main.path(forResource: name, ofType: ".swift") {
             //read the content of the file
-            if let content = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
+            if let content = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) {
                 return content
             }
         }
         return nil
     }
     
-    func htmlStringForContent(content:String) -> String {
-        let cssPath = NSBundle.mainBundle().pathForResource("xcode", ofType: "css") ?? ""
-        let jsPath = NSBundle.mainBundle().pathForResource("highlight.pack", ofType: "js") ?? ""
+    func htmlStringForContent(_ content:String) -> String {
+        let cssPath = Bundle.main.path(forResource: "xcode", ofType: "css") ?? ""
+        let jsPath = Bundle.main.path(forResource: "highlight.pack", ofType: "js") ?? ""
 //        let scale  = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? "0.5" : "1.0"
         let scale = "1.0"
         let stringForHTML = "<html> <head>" +
@@ -80,30 +80,30 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
     
     //MARK: - Actions
     
-    @IBAction func popUpButtonAction(sender: AnyObject) {
+    @IBAction func popUpButtonAction(_ sender: AnyObject) {
         let filename = popUpButton.titleOfSelectedItem!
         self.loadHTMLPage(filename)
     }
     
-    @IBAction func search(sender: AnyObject) {
+    @IBAction func search(_ sender: AnyObject) {
         if self.searchField.stringValue.isEmpty {
             return
         }
         
-        let success = self.webView.searchFor(self.searchField.stringValue, direction: true, caseSensitive: false, wrap: true)
+        let success = self.webView.search(for: self.searchField.stringValue, direction: true, caseSensitive: false, wrap: true)
         
         if !success {
             //show no result label
-            self.noResultLabel.hidden = false
+            self.noResultLabel.isHidden = false
         }
     }
     
     //MARK: - NSSearchField delegate
     
-    override func controlTextDidChange(notification: NSNotification) {
-        if let sender = notification.object as? NSSearchField where sender == self.searchField {
+    override func controlTextDidChange(_ notification: Notification) {
+        if let sender = notification.object as? NSSearchField , sender == self.searchField {
             //hide no results label if visible
-            self.noResultLabel.hidden = true
+            self.noResultLabel.isHidden = true
         }
     }
 }

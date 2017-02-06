@@ -28,7 +28,7 @@ class SurfacePlacementsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = AGSScene(basemap: AGSBasemap.topographicBasemap())
+        let scene = AGSScene(basemap: AGSBasemap.topographic())
         
         self.sceneView.scene = scene
         
@@ -37,17 +37,17 @@ class SurfacePlacementsViewController: NSViewController {
         
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(URL: NSURL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
         
         //set surface placements for the graphicsOverlays
-        self.drapedGraphicsOverlay.sceneProperties?.surfacePlacement = .Draped
-        self.relativeGraphicsOverlay.sceneProperties?.surfacePlacement = .Relative
-        self.absoluteGraphicsOverlay.sceneProperties?.surfacePlacement = .Absolute
+        self.drapedGraphicsOverlay.sceneProperties?.surfacePlacement = .draped
+        self.relativeGraphicsOverlay.sceneProperties?.surfacePlacement = .relative
+        self.absoluteGraphicsOverlay.sceneProperties?.surfacePlacement = .absolute
         
         //add graphic overlays to the scene view
-        self.sceneView.graphicsOverlays.addObjectsFromArray([self.drapedGraphicsOverlay, self.relativeGraphicsOverlay, self.absoluteGraphicsOverlay])
+        self.sceneView.graphicsOverlays.addObjects(from: [self.drapedGraphicsOverlay, self.relativeGraphicsOverlay, self.absoluteGraphicsOverlay])
         
         //add graphics
         self.addGraphics()
@@ -57,18 +57,18 @@ class SurfacePlacementsViewController: NSViewController {
     private func addGraphics() {
         
         //create point for graphic location
-        let point = AGSPoint(x: -4.04, y: 53.06, z: 1000, spatialReference: AGSSpatialReference.WGS84())
+        let point = AGSPoint(x: -4.04, y: 53.06, z: 1000, spatialReference: AGSSpatialReference.wgs84())
         
-        self.drapedGraphicsOverlay.graphics.addObjectsFromArray([AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Draped"), attributes: nil)])
-        self.relativeGraphicsOverlay.graphics.addObjectsFromArray([AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Relative"), attributes: nil)])
-        self.absoluteGraphicsOverlay.graphics.addObjectsFromArray([AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Absolute"), attributes: nil)])
+        self.drapedGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Draped"), attributes: nil)])
+        self.relativeGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Relative"), attributes: nil)])
+        self.absoluteGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Absolute"), attributes: nil)])
     }
 
     private func pointSymbol() -> AGSSimpleMarkerSceneSymbol {
-        return AGSSimpleMarkerSceneSymbol(style: .Sphere, color: NSColor.redColor(), height: 50, width: 50, depth: 50, anchorPosition: .Center)
+        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: NSColor.red, height: 50, width: 50, depth: 50, anchorPosition: .center)
     }
     
-    private func textSymbol(text: String) -> AGSTextSymbol {
-        return AGSTextSymbol(text: text, color: NSColor.blueColor(), size: 20, horizontalAlignment: .Left, verticalAlignment: .Middle)
+    private func textSymbol(_ text: String) -> AGSTextSymbol {
+        return AGSTextSymbol(text: text, color: NSColor.blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
     }
 }

@@ -32,12 +32,12 @@ class GraphicDrawOrderVC: NSViewController {
         super.viewDidLoad()
         
         //create an instance of a map with ESRI topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streetsBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.streets())
         //assign map to the map view
         self.mapView.map = self.map
         
         //add the graphics overlay to the map view
-        self.mapView.graphicsOverlays.addObject(self.graphicsOverlay)
+        self.mapView.graphicsOverlays.add(self.graphicsOverlay)
         
         //add the graphics to the overlay
         self.addGraphics()
@@ -88,7 +88,7 @@ class GraphicDrawOrderVC: NSViewController {
         self.graphics.append(graphic)
         
         //add the graphics to the overlay
-        self.graphicsOverlay.graphics.addObjectsFromArray(self.graphics)
+        self.graphicsOverlay.graphics.addObjects(from: self.graphics)
     }
     
     //MARK: - Actions

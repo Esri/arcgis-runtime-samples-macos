@@ -27,7 +27,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //call the method to add a graphics to the map view
         //will be using this graphic to test identify
@@ -46,11 +46,11 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
     func addGraphicsOverlay() {
         //polygon graphic
         let polygonGeometry = AGSPolygonBuilder(spatialReference: AGSSpatialReference.webMercator())
-        polygonGeometry.addPointWithX(-20e5, y: 20e5)
-        polygonGeometry.addPointWithX(20e5, y: 20e5)
-        polygonGeometry.addPointWithX(20e5, y: -20e5)
-        polygonGeometry.addPointWithX(-20e5, y: -20e5)
-        let polygonSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.Solid, color: NSColor.yellowColor(), outline: nil)
+        polygonGeometry.addPointWith(x: -20e5, y: 20e5)
+        polygonGeometry.addPointWith(x: 20e5, y: 20e5)
+        polygonGeometry.addPointWith(x: 20e5, y: -20e5)
+        polygonGeometry.addPointWith(x: -20e5, y: -20e5)
+        let polygonSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.solid, color: NSColor.yellow, outline: nil)
         let polygonGraphic = AGSGraphic(geometry: polygonGeometry.toGeometry(), symbol: nil, attributes: nil)
         
         //initialize the graphics overlay
@@ -58,14 +58,14 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         //assign the renderer
         self.graphicsOverlay.renderer = AGSSimpleRenderer(symbol: polygonSymbol)
         //add the polygon graphic
-        self.graphicsOverlay.graphics.addObject(polygonGraphic)
+        self.graphicsOverlay.graphics.add(polygonGraphic)
         //add the graphics overlay to the map view
-        self.mapView.graphicsOverlays.addObject(self.graphicsOverlay)
+        self.mapView.graphicsOverlays.add(self.graphicsOverlay)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
     
-    func geoView(geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //use the following method to identify graphics in a specific graphics overlay
         //otherwise if you need to identify on all the graphics overlay present in the map view
         //use `identifyGraphicsOverlaysAtScreenCoordinate:tolerance:maximumGraphics:completion:` method provided on map view
@@ -74,7 +74,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
-        self.mapView.identifyGraphicsOverlay(self.graphicsOverlay, screenPoint: screenPoint, tolerance: tolerance, returnPopupsOnly: false) { (result: AGSIdentifyGraphicsOverlayResult) in
+        self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: tolerance, returnPopupsOnly: false) { (result: AGSIdentifyGraphicsOverlayResult) in
             
             //hide progress indicator
             self.view.window?.hideProgressIndicator()

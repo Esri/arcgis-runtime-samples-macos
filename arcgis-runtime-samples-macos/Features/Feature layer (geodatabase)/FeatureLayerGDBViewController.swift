@@ -25,23 +25,23 @@ class FeatureLayerGDBViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabelsBasemap())
+        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
         
         //set initial viewpoint
-        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -13214155, y: 4040194, spatialReference: AGSSpatialReference(WKID: 3857)), scale: 35e4)
+        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -13214155, y: 4040194, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 35e4)
         
         //instantiate geodatabase with name
         self.geodatabase = AGSGeodatabase(name: "LA_Trails")
         
         //load the geodatabase for feature tables
-        self.geodatabase.loadWithCompletion { [weak self] (error: NSError?) in
+        self.geodatabase.load { [weak self] (error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             }
             else {
-                let featureTable = self!.geodatabase.geodatabaseFeatureTableWithName("Trailheads")!
+                let featureTable = self!.geodatabase.geodatabaseFeatureTable(withName: "Trailheads")!
                 let featureLayer = AGSFeatureLayer(featureTable: featureTable)
-                self?.mapView.map?.operationalLayers.addObject(featureLayer)
+                self?.mapView.map?.operationalLayers.add(featureLayer)
             }
         }
         

@@ -18,7 +18,7 @@ import Cocoa
 
 protocol SuggestionsVCDelegate: class {
     
-    func suggestionsViewController(suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String)
+    func suggestionsViewController(_ suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String)
 }
 
 class SuggestionsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
@@ -42,17 +42,17 @@ class SuggestionsViewController: NSViewController, NSTableViewDataSource, NSTabl
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.suggestions?.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         return self.suggestions[row]
     }
 
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         let selectedRow = self.tableView.selectedRow
         if selectedRow >= 0 {
             let suggestion = self.suggestions[selectedRow]

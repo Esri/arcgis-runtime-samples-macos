@@ -32,14 +32,14 @@ class OpenExistingMapViewController: NSViewController, ExistingMapsListDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.map = AGSMap(URL: NSURL(string: itemURL1)!)
+        self.map = AGSMap(url: URL(string: itemURL1)!)
         
         self.mapView.map = self.map
     }
     
     //MARK: - Navigation
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "OptionsSegue" {
             self.existingMapsListVC = segue.destinationController as! ExistingMapsListViewController
             self.existingMapsListVC.delegate = self
@@ -58,7 +58,7 @@ class OpenExistingMapViewController: NSViewController, ExistingMapsListDelegate 
         default:
             selectedPortalItemURL = self.itemURL1
         }
-        self.map = AGSMap(URL: NSURL(string: selectedPortalItemURL)!)
+        self.map = AGSMap(url: URL(string: selectedPortalItemURL)!)
         self.mapView.map = self.map
     }
 }

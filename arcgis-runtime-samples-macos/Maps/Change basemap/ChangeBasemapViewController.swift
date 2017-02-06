@@ -28,23 +28,23 @@ class ChangeBasemapViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //assign the map to the map view
         self.mapView.map = map
         
     }
     
-    @IBAction func segmentValueChanged(sender: NSSegmentedControl) {
+    @IBAction func segmentValueChanged(_ sender: NSSegmentedControl) {
         switch sender.selectedSegment {
         case 0:
-            self.map.basemap = AGSBasemap.topographicBasemap()
+            self.map.basemap = AGSBasemap.topographic()
         case 1:
-            self.map.basemap = AGSBasemap.streetsBasemap()
+            self.map.basemap = AGSBasemap.streets()
         case 2:
-            self.map.basemap = AGSBasemap.imageryBasemap()
+            self.map.basemap = AGSBasemap.imagery()
         default:
-            self.map.basemap = AGSBasemap.oceansBasemap()
+            self.map.basemap = AGSBasemap.oceans()
         }
     }
     

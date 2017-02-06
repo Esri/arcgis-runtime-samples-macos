@@ -29,38 +29,38 @@ class DrawingStatusViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         self.progressIndicator.startAnimation(self)
         
         //initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(XMin: -13639984, yMin: 4537387, xMax: -13606734, yMax: 4558866, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -13639984, yMin: 4537387, xMax: -13606734, yMax: 4558866, spatialReference: AGSSpatialReference.webMercator()))
         
         //add a feature layer
-        let featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)
+        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)
         let featureLayer = AGSFeatureLayer(featureTable: featureTable)
-        self.map.operationalLayers.addObject(featureLayer)
+        self.map.operationalLayers.add(featureLayer)
         
         //assign the map to mapView
         self.mapView.map = self.map
         
-        self.mapView.addObserver(self, forKeyPath: "drawStatus", options: .New, context: nil)
+        self.mapView.addObserver(self, forKeyPath: "drawStatus", options: .new, context: nil)
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
+        DispatchQueue.main.async { [weak self] () -> Void in
             guard let weakSelf = self else {
                 return
             }
             
-            if weakSelf.mapView.drawStatus == .InProgress {
-                weakSelf.activityIndicatorView.hidden = false
+            if weakSelf.mapView.drawStatus == .inProgress {
+                weakSelf.activityIndicatorView.isHidden = false
             }
             else {
-                weakSelf.activityIndicatorView.hidden = true
+                weakSelf.activityIndicatorView.isHidden = true
             }
-        })
+        }
     }
     
     deinit {

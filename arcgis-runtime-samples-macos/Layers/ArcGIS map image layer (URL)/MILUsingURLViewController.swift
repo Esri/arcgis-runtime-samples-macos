@@ -27,13 +27,13 @@ class MILUsingURLViewController: NSViewController {
         super.viewDidLoad()
         
         //create a map image layer using a url
-        let mapImageLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
+        let mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
         
         //initialize the map
         self.map = AGSMap()
         
         //add the image layer to the map
-        self.map.operationalLayers.addObject(mapImageLayer)
+        self.map.operationalLayers.add(mapImageLayer)
         
         self.mapView.map = self.map
     }

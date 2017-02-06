@@ -18,9 +18,9 @@ import Cocoa
 
 protocol SaveMapVCDelegate:class {
     
-    func saveMapViewController(saveMapViewController:SaveMapViewController, didInitiateSaveWithTitle title:String, tags:[String], itemDescription:String?)
+    func saveMapViewController(_ saveMapViewController:SaveMapViewController, didInitiateSaveWithTitle title:String, tags:[String], itemDescription:String?)
     
-    func saveMapViewControllerDidCancel(saveAsViewController:SaveMapViewController)
+    func saveMapViewControllerDidCancel(_ saveAsViewController:SaveMapViewController)
 }
 
 class SaveMapViewController: NSViewController {
@@ -43,12 +43,12 @@ class SaveMapViewController: NSViewController {
         self.descriptionTextField.stringValue = ""
     }
     
-    @IBAction private func cancelAction(sender: AnyObject) {
+    @IBAction private func cancelAction(_ sender: AnyObject) {
         
         self.delegate?.saveMapViewControllerDidCancel(self)
     }
     
-    @IBAction private func saveAction(sender: AnyObject) {
+    @IBAction private func saveAction(_ sender: AnyObject) {
         //Validations
         let title = titleTextField.stringValue
         let tags = tagsTextField.stringValue
@@ -59,16 +59,16 @@ class SaveMapViewController: NSViewController {
             let alert = NSAlert()
             alert.messageText = "Error"
             alert.informativeText = "Title, tags and description are required fields"
-            alert.addButtonWithTitle("OK")
-            alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil)
+            alert.addButton(withTitle: "OK")
+            alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
             return
         }
         
-        var tagsArray = tags.componentsSeparatedByString(",")
+        var tagsArray = tags.components(separatedBy: ",")
         
-        tagsArray = tagsArray.map ({
-            $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        })
+        tagsArray = tagsArray.map {
+            $0.trimmingCharacters(in: CharacterSet.whitespaces)
+        }
         
         self.delegate?.saveMapViewController(self, didInitiateSaveWithTitle: title, tags: tagsArray, itemDescription: itemDescription)
     }

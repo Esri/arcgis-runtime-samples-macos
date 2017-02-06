@@ -18,9 +18,9 @@ import Cocoa
 
 protocol VectorStylesVCDelegate: class {
     
-    func vectorStylesViewController(vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID:String)
+    func vectorStylesViewController(_ vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID:String)
     
-    func vectorStylesViewControllerDidCancel(vectorStylesViewController: VectorStylesViewController)
+    func vectorStylesViewControllerDidCancel(_ vectorStylesViewController: VectorStylesViewController)
 }
 
 class VectorStylesViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
@@ -39,20 +39,20 @@ class VectorStylesViewController: NSViewController, NSTableViewDataSource, NSTab
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return 4
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cellView = tableView.makeViewWithIdentifier("VectorStyleCell\(row)", owner: self)
+        let cellView = tableView.make(withIdentifier: "VectorStyleCell\(row)", owner: self)
         
         return cellView
     }
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         let row = self.tableView.selectedRow
         
         let itemID = self.itemIDs[row]

@@ -29,19 +29,19 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //initialize the map image layer using a url
-        self.mapImageLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer")!)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer")!)
         
-        self.mapImageLayer.loadWithCompletion { [weak self] (error: NSError?) in
+        self.mapImageLayer.load { [weak self] (error: Error?) in
             if error == nil {
                 self?.tableView.reloadData()
             }
         }
         
         //add the image layer to the map
-        self.map.operationalLayers.addObject(self.mapImageLayer)
+        self.map.operationalLayers.add(self.mapImageLayer)
         
         //assign the map to the map view
         self.mapView.map = self.map
@@ -52,15 +52,15 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         let rows = self.mapImageLayer?.mapImageSublayers.count ?? 0
         return rows
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let sublayer = self.mapImageLayer.mapImageSublayers[row] as! AGSArcGISMapImageSublayer
         
-        let cellView = tableView.makeViewWithIdentifier("SublayerCellView", owner: self) as! SublayerCellView
+        let cellView = tableView.make(withIdentifier: "SublayerCellView", owner: self) as! SublayerCellView
         cellView.button.title = sublayer.name
         cellView.delegate = self
         cellView.index = row
@@ -70,9 +70,9 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
     
     //MARK: - SublayerCellViewDelegate
     
-    func sublayerCellView(sublayerCellView: SublayerCellView, didToggleVisibility visible: Bool) {
+    func sublayerCellView(_ sublayerCellView: SublayerCellView, didToggleVisibility visible: Bool) {
         let index = sublayerCellView.index
         let sublayer = self.mapImageLayer.mapImageSublayers[index] as! AGSArcGISMapImageSublayer
-        sublayer.visible = visible
+        sublayer.isVisible = visible
     }
 }

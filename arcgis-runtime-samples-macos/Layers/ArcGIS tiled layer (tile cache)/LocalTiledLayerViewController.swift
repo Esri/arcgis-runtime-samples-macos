@@ -42,40 +42,40 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
     }
     
     func fetchTilePackages() {
-        self.bundleTPKPaths = NSBundle.mainBundle().pathsForResourcesOfType("tpk", inDirectory: nil)
+        self.bundleTPKPaths = Bundle.main.paths(forResourcesOfType: "tpk", inDirectory: nil)
         self.tableView.reloadData()
     }
     
-    func extractName(path:String) -> String {
-        var index = path.rangeOfString("/", options: .BackwardsSearch, range: nil, locale: nil)?.startIndex
-        index = index?.advancedBy(1)
-        let name = path.substringFromIndex(index!)
+    func extractName(fromPath path:String) -> String {
+        var index = path.range(of: "/", options: .backwards, range: nil, locale: nil)?.lowerBound
+        index = path.index(after: index!)
+        let name = path.substring(from: index!)
         return name
     }
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.bundleTPKPaths?.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let path = self.bundleTPKPaths[row]
         
-        let cellView = tableView.makeViewWithIdentifier("TPKCellView", owner: self) as! NSTableCellView
-        cellView.textField?.stringValue = self.extractName(path)
+        let cellView = tableView.make(withIdentifier: "TPKCellView", owner: self) as! NSTableCellView
+        cellView.textField?.stringValue = self.extractName(fromPath: path)
         
         return cellView
     }
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         let row = self.tableView.selectedRow
         let path = self.bundleTPKPaths[row]
         
         //create a new map with selected tile package as the basemap
-        let localTiledLayer = AGSArcGISTiledLayer(tileCache: AGSTileCache(fileURL: NSURL(fileURLWithPath: path)))
+        let localTiledLayer = AGSArcGISTiledLayer(tileCache: AGSTileCache(fileURL: URL(fileURLWithPath: path)))
         let map = AGSMap(basemap: AGSBasemap(baseLayer: localTiledLayer))
         self.mapView.map = map
     }

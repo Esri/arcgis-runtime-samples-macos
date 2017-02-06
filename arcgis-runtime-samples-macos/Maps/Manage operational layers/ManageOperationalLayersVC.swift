@@ -28,40 +28,40 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        let map = AGSMap(basemap: AGSBasemap.topographic())
         
-        let imageLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
-        map.operationalLayers.addObject(imageLayer)
+        let imageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
+        map.operationalLayers.add(imageLayer)
         
-        let tiledLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
-        map.operationalLayers.addObject(tiledLayer)
+        let tiledLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+        map.operationalLayers.add(tiledLayer)
         
         self.mapView.map = map
-        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: AGSSpatialReference(WKID: 3857)), scale: 2e7))
+        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 2e7))
         
-        self.mapView.map?.loadWithCompletion({ [weak self] (error:NSError?) in
+        self.mapView.map?.load(completion: { [weak self] (error:Error?) in
             self?.tableView1.reloadData()
         })
         
-        self.tableView1.registerForDraggedTypes(["hey"])
+        self.tableView1.register(forDraggedTypes: ["hey"])
         
     }
     
-    func moveLayer(layer: AGSLayer, from: Int, to: Int) {
-        self.mapView.map?.operationalLayers.removeObjectAtIndex(from)
+    func moveLayer(_ layer: AGSLayer, from: Int, to: Int) {
+        self.mapView.map?.operationalLayers.removeObject(at: from)
         
         if(to > self.mapView.map!.operationalLayers.count - 1) {
-            self.mapView.map?.operationalLayers.addObject(layer)
+            self.mapView.map?.operationalLayers.add(layer)
         }
         else {
-            self.mapView.map?.operationalLayers.insertObject(layer, atIndex: to)
+            self.mapView.map?.operationalLayers.insert(layer, at: to)
         }
         self.tableView1.reloadData()
     }
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == self.tableView1 {
             return self.mapView?.map?.operationalLayers.count ?? 0
         }
@@ -70,30 +70,30 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         
         if tableView == self.tableView1 {
-            let layer = self.mapView.map!.operationalLayers.reverse()[row]
+            let layer = self.mapView.map!.operationalLayers.reversed()[row]
             
-            let rowView = tableView.makeViewWithIdentifier("AddedLayerRowView", owner: self) as! AddedLayerCellView
+            let rowView = tableView.make(withIdentifier: "AddedLayerRowView", owner: self) as! AddedLayerCellView
             rowView.delegate = self
-            rowView.index = self.mapView.map!.operationalLayers.indexOfObject(layer)
-            rowView.textField?.stringValue = layer.name ?? ""
+            rowView.index = self.mapView.map!.operationalLayers.index(of: layer)
+            rowView.textField?.stringValue = (layer as AnyObject).name ?? ""
             return rowView
         }
         else {
-            let rowView = tableView.makeViewWithIdentifier("RemovedLayerRowView", owner: self) as! NSTableCellView
+            let rowView = tableView.make(withIdentifier: "RemovedLayerRowView", owner: self) as! NSTableCellView
             let layer = self.removedLayers[row]
-            rowView.textField?.stringValue = layer.name ?? ""
+            rowView.textField?.stringValue = layer.name 
             return rowView
         }
     }
     
-    func tableView(tableView: NSTableView, writeRowsWithIndexes rowIndexes: NSIndexSet, toPasteboard pboard: NSPasteboard) -> Bool {
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         if tableView == tableView1 {
             
-            let data = NSKeyedArchiver.archivedDataWithRootObject([rowIndexes])
+            let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
             pboard.declareTypes(["hey"], owner:self)
             pboard.setData(data, forType:"hey")
             
@@ -104,29 +104,29 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    func tableView(tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
         if tableView == tableView1 {
-            tableView.setDropRow(row, dropOperation: NSTableViewDropOperation.Above)
-            return .Move
+            tableView.setDropRow(row, dropOperation: NSTableViewDropOperation.above)
+            return .move
         }
         else {
-            return .None
+            return NSDragOperation()
         }
     }
     
-    func tableView(tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
         
         let pasteboard = info.draggingPasteboard()
-        let rowData = pasteboard.dataForType("hey")
+        let rowData = pasteboard.data(forType: "hey")
         
         if(rowData != nil) {
-            var dataArray = NSKeyedUnarchiver.unarchiveObjectWithData(rowData!) as! Array<NSIndexSet>,
+            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>,
             indexSet = dataArray[0]
             
-            let movingFromIndex = indexSet.firstIndex
-            let layer = self.mapView.map!.operationalLayers[movingFromIndex] as! AGSLayer
+            let movingFromIndex = indexSet.first
+            let layer = self.mapView.map!.operationalLayers[movingFromIndex!] as! AGSLayer
             
-            self.moveLayer(layer, from: movingFromIndex, to: row)
+            self.moveLayer(layer, from: movingFromIndex!, to: row)
             
             return true
         }
@@ -137,14 +137,14 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     //MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
             if tableView == tableView2 {
                 //add layer to the operational layers
                 let layer = self.removedLayers[tableView.selectedRow]
-                self.removedLayers.removeAtIndex(tableView.selectedRow)
+                self.removedLayers.remove(at: tableView.selectedRow)
                 self.tableView2.reloadData()
-                self.mapView.map?.operationalLayers.addObject(layer)
+                self.mapView.map?.operationalLayers.add(layer)
                 self.tableView1.reloadData()
             }
         }
@@ -152,11 +152,11 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     //MARK: - AddedLayerCellViewDelegate
     
-    func addedLayerCellViewWantsToDelete(addedLayerCellView: AddedLayerCellView) {
+    func addedLayerCellViewWantsToDelete(_ addedLayerCellView: AddedLayerCellView) {
         //remove layer and add to removed layers list
         let index = addedLayerCellView.index
         let layer = self.mapView.map?.operationalLayers[index] as! AGSLayer
-        self.mapView.map?.operationalLayers.removeObjectAtIndex(index)
+        self.mapView.map?.operationalLayers.removeObject(at: index)
         self.tableView1.reloadData()
         
         self.removedLayers.append(layer)

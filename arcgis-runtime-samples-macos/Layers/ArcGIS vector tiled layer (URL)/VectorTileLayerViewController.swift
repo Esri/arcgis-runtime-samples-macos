@@ -30,7 +30,7 @@ class VectorTileLayerViewController: NSViewController {
         super.viewDidLoad()
         
         //create a vector tiled layer
-        let vectorTileLayer = AGSArcGISVectorTiledLayer(URL: NSURL(string: navigationURLString)!)
+        let vectorTileLayer = AGSArcGISVectorTiledLayer(url: URL(string: navigationURLString)!)
         //create a map and set the vector tiled layer as the basemap
         let map = AGSMap(basemap: AGSBasemap(baseLayer: vectorTileLayer))
         
@@ -38,11 +38,11 @@ class VectorTileLayerViewController: NSViewController {
         self.mapView.map = map
 
         //center on Miami, Fl
-        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: AGSSpatialReference.WGS84()), scale: 150000, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: AGSSpatialReference.wgs84()), scale: 150000, completion: nil)
 
     }
     
-    @IBAction func segmentedControlChanged(sender:NSSegmentedControl) {
+    @IBAction func segmentedControlChanged(_ sender:NSSegmentedControl) {
         var urlString:String
         switch sender.selectedSegment {
         case 0:
@@ -56,7 +56,7 @@ class VectorTileLayerViewController: NSViewController {
         }
         
         //create the new vector tiled layer using the url
-        let vectorTileLayer = AGSArcGISVectorTiledLayer(URL: NSURL(string: urlString)!)
+        let vectorTileLayer = AGSArcGISVectorTiledLayer(url: URL(string: urlString)!)
         //change the basemap to the new layer
         self.mapView.map?.basemap = AGSBasemap(baseLayer: vectorTileLayer)
     }

@@ -21,7 +21,7 @@ class CustomSegmentedCell: NSSegmentedCell {
     @IBInspectable
     var tintColor: NSColor = NSColor.secondaryBlue()
     
-    override func drawSegment(segment: Int, inFrame frame: NSRect, withView controlView: NSView) {
+    override func drawSegment(_ segment: Int, inFrame frame: NSRect, with controlView: NSView) {
         
         let cornerRadius:CGFloat = 10
 
@@ -46,7 +46,7 @@ class CustomSegmentedCell: NSSegmentedCell {
         
         //set background color based on selection
         if self.selectedSegment != segment {
-            NSColor.whiteColor().setFill()
+            NSColor.white.setFill()
         }
         else {
             self.tintColor.setFill()
@@ -63,63 +63,63 @@ class CustomSegmentedCell: NSSegmentedCell {
                                y: -2,
                                width: frame.width,
                                height: 22)
-        text.drawInRect(textFrame)
+        text.draw(in: textFrame)
     }
     
-    private func pathWithCurvesOnLeft(radius: CGFloat, frame: NSRect) -> NSBezierPath {
+    private func pathWithCurvesOnLeft(_ radius: CGFloat, frame: NSRect) -> NSBezierPath {
         let path = NSBezierPath()
         
-        path.moveToPoint(NSPoint(x: frame.minX + radius, y: frame.minY))
-        path.lineToPoint(NSPoint(x: frame.maxX, y: frame.minY))
-        path.lineToPoint(NSPoint(x: frame.maxX, y: frame.maxY))
-        path.lineToPoint(NSPoint(x: frame.minX + radius, y: frame.maxY))
-        path.curveToPoint(NSPoint(x: frame.minX, y: frame.maxY - radius),
+        path.move(to: NSPoint(x: frame.minX + radius, y: frame.minY))
+        path.line(to: NSPoint(x: frame.maxX, y: frame.minY))
+        path.line(to: NSPoint(x: frame.maxX, y: frame.maxY))
+        path.line(to: NSPoint(x: frame.minX + radius, y: frame.maxY))
+        path.curve(to: NSPoint(x: frame.minX, y: frame.maxY - radius),
                           controlPoint1: NSPoint(x: frame.minX, y: frame.maxY),
                           controlPoint2: NSPoint(x: frame.minX, y: frame.maxY))
-        path.lineToPoint(NSPoint(x: frame.minX, y: frame.minY + radius))
-        path.curveToPoint(NSPoint(x: frame.minX + radius, y: frame.minY),
+        path.line(to: NSPoint(x: frame.minX, y: frame.minY + radius))
+        path.curve(to: NSPoint(x: frame.minX + radius, y: frame.minY),
                           controlPoint1: frame.origin,
                           controlPoint2: frame.origin)
         return path
     }
     
-    private func pathWithCurvesOnRight(radius: CGFloat, frame: NSRect) -> NSBezierPath {
+    private func pathWithCurvesOnRight(_ radius: CGFloat, frame: NSRect) -> NSBezierPath {
         let path = NSBezierPath()
      
-        path.moveToPoint(frame.origin)
-        path.lineToPoint(NSPoint(x: frame.maxX - radius, y: frame.minY))
-        path.curveToPoint(NSPoint(x: frame.maxX, y: frame.minY + radius),
+        path.move(to: frame.origin)
+        path.line(to: NSPoint(x: frame.maxX - radius, y: frame.minY))
+        path.curve(to: NSPoint(x: frame.maxX, y: frame.minY + radius),
                           controlPoint1: NSPoint(x: frame.maxX, y: frame.minY),
                           controlPoint2: NSPoint(x: frame.maxX, y: frame.minY))
-        path.lineToPoint(NSPoint(x: frame.maxX, y: frame.maxY - radius))
-        path.curveToPoint(NSPoint(x: frame.maxX - radius, y: frame.maxY),
+        path.line(to: NSPoint(x: frame.maxX, y: frame.maxY - radius))
+        path.curve(to: NSPoint(x: frame.maxX - radius, y: frame.maxY),
                           controlPoint1: NSPoint(x: frame.maxX, y: frame.maxY),
                           controlPoint2: NSPoint(x: frame.maxX, y: frame.maxY))
-        path.lineToPoint(NSPoint(x: frame.minX, y: frame.maxY))
-        path.lineToPoint(frame.origin)
+        path.line(to: NSPoint(x: frame.minX, y: frame.maxY))
+        path.line(to: frame.origin)
         
         return path
     }
     
-    private func textForSegment(segment:Int) -> NSAttributedString {
+    private func textForSegment(_ segment:Int) -> NSAttributedString {
         let font = NSFont(name: "Avenir-Medium", size: 13)!
         
         var textColor: NSColor
         if self.selectedSegment == segment {
-            textColor = NSColor.whiteColor()
+            textColor = NSColor.white
         }
         else {
             textColor = self.tintColor
         }
         
         let style = NSMutableParagraphStyle()
-        style.alignment = .Center
+        style.alignment = .center
         
         let attributes = [ NSFontAttributeName : font,
             NSForegroundColorAttributeName : textColor,
-            NSParagraphStyleAttributeName : style ]
+            NSParagraphStyleAttributeName : style ] as [String : Any]
         
-        let text = NSAttributedString(string: self.labelForSegment(segment)!, attributes: attributes)
+        let text = NSAttributedString(string: self.label(forSegment: segment)!, attributes: attributes)
         return text
     }
 }

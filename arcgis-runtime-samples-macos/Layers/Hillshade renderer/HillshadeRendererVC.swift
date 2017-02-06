@@ -43,24 +43,24 @@ class HillshadeRendererVC: NSViewController {
         self.mapView.map = self.map
         
         //initial renderer
-        let renderer = AGSHillshadeRenderer(altitude: 45, azimuth: 315, zFactor: 0.000016, slopeType: .None, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
+        let renderer = AGSHillshadeRenderer(altitude: 45, azimuth: 315, zFactor: 0.000016, slopeType: .none, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
         rasterLayer.renderer = renderer
     }
     
     func selectedSlope() -> AGSSlopeType {
         switch self.slopeType.indexOfSelectedItem {
         case 0:
-            return .None
+            return .none
         case 1:
-            return .Degree
+            return .degree
         case 2:
-            return .PercentRise
+            return .percentRise
         default:
-            return .Scaled
+            return .scaled
         }
     }
     
-    func applyRenderer(altitude: Double, azimuth: Double, slopeType: AGSSlopeType) {
+    func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType) {
         //initialize hill shade renderer with provided settings
         let renderer = AGSHillshadeRenderer(altitude: altitude, azimuth: azimuth, zFactor: 0.000016, slopeType: slopeType, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
         
@@ -74,7 +74,7 @@ class HillshadeRendererVC: NSViewController {
         let altitude = self.altitudeSlider.doubleValue
         let azimuth = self.azimuthSlider.doubleValue
         
-        self.applyRenderer(altitude, azimuth: azimuth, slopeType: self.selectedSlope())
+        self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope())
     }
     
     @IBAction func altitudeSliderAction(_ sender:NSSlider) {

@@ -18,7 +18,7 @@ import Cocoa
 
 protocol AddedLayerCellViewDelegate:class {
     
-    func addedLayerCellViewWantsToDelete(addedLayerCellView:AddedLayerCellView)
+    func addedLayerCellViewWantsToDelete(_ addedLayerCellView:AddedLayerCellView)
 }
 
 class AddedLayerCellView: NSTableCellView {

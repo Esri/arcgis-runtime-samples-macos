@@ -26,27 +26,27 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
         super.viewDidLoad()
         
         //default vector tiled layer
-        let vectorTiledLayer = AGSArcGISVectorTiledLayer(URL: NSURL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=1349bfa0ed08485d8a92c442a3850b06")!)
+        let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=1349bfa0ed08485d8a92c442a3850b06")!)
         
         //initialize map with vector tiled layer as the basemap
         let map = AGSMap(basemap: AGSBasemap(baseLayer: vectorTiledLayer))
         
         //initial viewpoint
-        let centerPoint = AGSPoint(x: 1990591.559979, y: 794036.007991, spatialReference: AGSSpatialReference(WKID: 3857))
+        let centerPoint = AGSPoint(x: 1990591.559979, y: 794036.007991, spatialReference: AGSSpatialReference(wkid: 3857))
         map.initialViewpoint = AGSViewpoint(center: centerPoint, scale: 88659253.829259947)
         
         //assign map to map view
         self.mapView.map = map
     }
     
-    private func showSelectedItem(itemID: String) {
-        let vectorTiledLayer = AGSArcGISVectorTiledLayer(URL: NSURL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemID)")!)
+    private func showSelectedItem(_ itemID: String) {
+        let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemID)")!)
         self.mapView.map?.basemap = AGSBasemap(baseLayer: vectorTiledLayer)
     }
     
     //MARK: - Navigation
 
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "VectorStylesSegue" {
             let controller = segue.destinationController as! VectorStylesViewController
             controller.delegate = self
@@ -55,7 +55,7 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
     
     //MARK: - VectorStylesVCDelegate
     
-    func vectorStylesViewController(vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID: String) {
+    func vectorStylesViewController(_ vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID: String) {
         
         //dismiss sheet
         self.dismissViewController(vectorStylesViewController)
@@ -64,7 +64,7 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
         self.showSelectedItem(itemID)
     }
 
-    func vectorStylesViewControllerDidCancel(vectorStylesViewController: VectorStylesViewController) {
+    func vectorStylesViewControllerDidCancel(_ vectorStylesViewController: VectorStylesViewController) {
         
         //dismiss sheet
         self.dismissViewController(vectorStylesViewController)

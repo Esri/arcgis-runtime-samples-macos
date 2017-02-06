@@ -46,13 +46,13 @@ class StretchRendererViewController: NSViewController {
     func expandView() {
         self.textField2TopConstraint.constant = 12
         self.textField2HeightConstraint.constant = 22
-        self.label2.hidden = false
+        self.label2.isHidden = false
     }
     
     func shrinkView() {
         self.textField2TopConstraint.constant = 0
         self.textField2HeightConstraint.constant = 0
-        self.label2.hidden = true
+        self.label2.isHidden = true
     }
     
     //MARK: - Actions
@@ -85,7 +85,7 @@ class StretchRendererViewController: NSViewController {
         case 0:
             let minValue = self.textField1.integerValue
             let maxValue = self.textField2.integerValue
-            stretchParams = AGSMinMaxStretchParameters(minValues: [minValue], maxValues: [maxValue])
+            stretchParams = AGSMinMaxStretchParameters(minValues: [NSNumber(value: minValue)], maxValues: [NSNumber(value: maxValue)])
         case 1:
             let min = self.textField1.doubleValue
             let max = self.textField2.doubleValue
@@ -95,7 +95,7 @@ class StretchRendererViewController: NSViewController {
             stretchParams = AGSStandardDeviationStretchParameters(factor: factor)
         }
         
-        let renderer = AGSStretchRenderer(stretchParameters: stretchParams, gammas: [], estimateStatistics: true, colorRamp: AGSColorRamp(type: .DEMLight, size: 1000))
+        let renderer = AGSStretchRenderer(stretchParameters: stretchParams, gammas: [], estimateStatistics: true, colorRamp: AGSColorRamp(type: .demLight, size: 1000))
         self.rasterLayer.renderer = renderer
     }
     

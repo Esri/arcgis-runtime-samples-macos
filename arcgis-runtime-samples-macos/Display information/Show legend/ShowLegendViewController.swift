@@ -32,28 +32,28 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         super.viewDidLoad()
         
         //initialize the map
-        self.map = AGSMap(basemap: AGSBasemap.topographicBasemap())
+        self.map = AGSMap(basemap: AGSBasemap.topographic())
         
         //create tiled layer
-        let tiledLayer = AGSArcGISTiledLayer(URL: NSURL(string: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer")!)
-        self.map.operationalLayers.addObject(tiledLayer)
+        let tiledLayer = AGSArcGISTiledLayer(url: URL(string: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer")!)
+        self.map.operationalLayers.add(tiledLayer)
         
         //create a map image layer using a url
-        self.mapImageLayer = AGSArcGISMapImageLayer(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
         //add the image layer to the map
-        self.map.operationalLayers.addObject(self.mapImageLayer)
+        self.map.operationalLayers.add(self.mapImageLayer)
         
         //create feature table using a url
-        let featureTable = AGSServiceFeatureTable(URL: NSURL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer/0")!)
+        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer/0")!)
         //create feature layer using this feature table
         let featureLayer = AGSFeatureLayer(featureTable: featureTable)
         //add feature layer to the map
-        self.map.operationalLayers.addObject(featureLayer)
+        self.map.operationalLayers.add(featureLayer)
         
         AGSLoadObjects(self.map.operationalLayers as AnyObject as! [AGSLayer]) { [weak self] (success) in
             if let weakSelf = self {
                 self?.orderArray = [AGSLayerContent]()
-                self?.populateLegends(weakSelf.map.operationalLayers as AnyObject as! [AGSLayerContent])
+                self?.populateLegends(with: weakSelf.map.operationalLayers as AnyObject as! [AGSLayerContent])
             }
         }
         
@@ -63,13 +63,13 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
     }
     
-    func populateLegends(layers:[AGSLayerContent]) {
+    func populateLegends(with layers:[AGSLayerContent]) {
         
         for i in 0...layers.count-1 {
             let layer = layers[i]
             
             if layer.subLayerContents.count > 0 {
-                self.populateLegends(layer.subLayerContents)
+                self.populateLegends(with: layer.subLayerContents)
             }
             else {
                 //else if no sublayers fetch legend info
@@ -78,7 +78,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 //show progress indicator
                 self.view.window?.showProgressIndicator()
                 
-                layer.fetchLegendInfosWithCompletion({ [weak self] (legendInfos:[AGSLegendInfo]?, error:NSError?) -> Void in
+                layer.fetchLegendInfos { [weak self] (legendInfos:[AGSLegendInfo]?, error:Error?) -> Void in
                 
                     //hide progress indicator
                     self?.view.window?.hideProgressIndicator()
@@ -88,26 +88,26 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                     }
                     else {
                         if let legendInfos = legendInfos {
-                            self?.legendInfosDict[self!.hashString(layer)] = legendInfos
+                            self?.legendInfosDict[self!.hashString(for: layer)] = legendInfos
                             self?.outlineView.reloadData()
                         }
                     }
-                })
+                }
             }
             
             //stylize legend view
             self.legendView.wantsLayer = true
-            self.legendView.layer?.borderColor = NSColor.grayColor().CGColor
+            self.legendView.layer?.borderColor = NSColor.gray.cgColor
             self.legendView.layer?.borderWidth = 1
             
             //unhide legend view
-            self.legendView.hidden = false
+            self.legendView.isHidden = false
         }
     }
     
     //MARK: - NSOutlineViewDataSource
     
-    func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int {
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil { //root
             return self.orderArray?.count ?? 0
         }
@@ -118,7 +118,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 }
                 else {
                     //return legend infos
-                    let legendInfos = self.legendInfosDict[self.hashString(layerContent)]!
+                    let legendInfos = self.legendInfosDict[self.hashString(for: layerContent)]!
                     return legendInfos.count
                 }
             }
@@ -128,38 +128,38 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if item == nil {
             let layer = self.orderArray[index]
             return layer
         }
         else {
             let layer = item as! AGSLayerContent
-            let legendInfos = self.legendInfosDict[self.hashString(layer)]!
+            let legendInfos = self.legendInfosDict[self.hashString(for: layer)]!
             let legendInfo = legendInfos[index]
             return legendInfo
         }
     }
     
-    func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         return (item is AGSLayerContent)
     }
     
-    func outlineView(outlineView: NSOutlineView, isGroupItem item: AnyObject) -> Bool {
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
         return (item is AGSLayerContent)
     }
     
     //MARK: - NSOutlineViewDelegate
     
-    func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
+    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
         if let layer = item as? AGSLayerContent {
-            let cellView = outlineView.makeViewWithIdentifier("LegendGroupCell", owner: self) as! NSTableCellView
+            let cellView = outlineView.make(withIdentifier: "LegendGroupCell", owner: self) as! NSTableCellView
             cellView.textField?.stringValue = self.nameForLayerContent(layer)
             return cellView
         }
         else {
-            let cellView = outlineView.makeViewWithIdentifier("LegendCellView", owner: self) as! LegendCellView
+            let cellView = outlineView.make(withIdentifier: "LegendCellView", owner: self) as! LegendCellView
 
             let legendInfo = item as! AGSLegendInfo
             cellView.legendInfo = legendInfo
@@ -170,23 +170,23 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     
     //MARK: - Helper functions
     
-    func geometryTypeForSymbol(symbol:AGSSymbol) -> AGSGeometryType {
+    func geometryTypeForSymbol(_ symbol:AGSSymbol) -> AGSGeometryType {
         if symbol is AGSFillSymbol {
-            return AGSGeometryType.Polygon
+            return AGSGeometryType.polygon
         }
         else if symbol is AGSLineSymbol {
-            return .Polyline
+            return .polyline
         }
         else {
-            return .Point
+            return .point
         }
     }
     
-    func hashString (obj: AnyObject) -> String {
-        return String(ObjectIdentifier(obj).uintValue)
+    func hashString (for obj: AnyObject) -> String {
+        return String(UInt(bitPattern: ObjectIdentifier(obj)))
     }
     
-    func nameForLayerContent(layerContent:AGSLayerContent) -> String {
+    func nameForLayerContent(_ layerContent:AGSLayerContent) -> String {
         if let layer = layerContent as? AGSLayer {
             return layer.name
         }

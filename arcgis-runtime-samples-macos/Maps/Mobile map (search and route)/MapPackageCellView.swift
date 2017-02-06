@@ -19,7 +19,7 @@ import ArcGIS
 
 protocol MapPackageCellDelegate:class {
     
-    func mapPackageCellView(mapPackageCellView:MapPackageCellView, didSelectMap map:AGSMap)
+    func mapPackageCellView(_ mapPackageCellView:MapPackageCellView, didSelectMap map:AGSMap)
 }
 
 class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollectionViewDelegate {
@@ -43,14 +43,14 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         //show progress indicator
         self.window?.showProgressIndicator()
         
-        self.mapPackage.loadWithCompletion({ [weak self] (error:NSError?) in
+        self.mapPackage.load { [weak self] (error:Error?) in
             
             //hide progress indicator
             self?.window?.hideProgressIndicator()
             
             if let error = error {
                 //error
-                self?.showAlert("Error", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 //update title label
@@ -60,40 +60,40 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
                 
                 self?.collectionView.reloadData()
             }
-        })
+        }
     }
     
     //MARK: - NSCollectionViewDataSource
     
-    func collectionView(collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.mapPackage?.maps.count ?? 0
     }
     
-    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let item = collectionView.makeItemWithIdentifier("MobileMapViewItem", forIndexPath: indexPath) as! MobileMapViewItem
+        let item = collectionView.makeItem(withIdentifier: "MobileMapViewItem", for: indexPath) as! MobileMapViewItem
         
-        let map = self.mapPackage.maps[indexPath.item]
+        let map = self.mapPackage.maps[(indexPath as NSIndexPath).item]
         //label
-        item.label.stringValue = "Map \(indexPath.item + 1)"
+        item.label.stringValue = "Map \((indexPath as NSIndexPath).item + 1)"
         
         //thumbnail
         item.thumbnailView.image = map.item?.thumbnail?.image
         
         //search image view
-        item.searchImageView.hidden = (self.mapPackage.locatorTask == nil)
+        item.searchImageView.isHidden = (self.mapPackage.locatorTask == nil)
         
         //route image view
-        item.routeImageView.hidden = (map.transportationNetworks.count == 0)
+        item.routeImageView.isHidden = (map.transportationNetworks.count == 0)
         
         return item
     }
     
     //MARK: - NSCollectionViewDelegate
     
-    func collectionView(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         let indexPath = indexPaths.first!
-        let map = self.mapPackage.maps[indexPath.item]
+        let map = self.mapPackage.maps[(indexPath as NSIndexPath).item]
         
         self.delegate?.mapPackageCellView(self, didSelectMap: map)
     }
@@ -105,6 +105,6 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModalForWindow(self.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.window!, completionHandler: nil)
     }
 }
