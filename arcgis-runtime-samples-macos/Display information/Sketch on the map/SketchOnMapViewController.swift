@@ -64,9 +64,16 @@ class SketchOnMapViewController: NSViewController {
             
         case 1://polyline
             self.sketchEditor.start(with: nil, creationMode: .polyline)
-            
-        case 2://polygon
+
+        case 2://freehand polyline
+            self.sketchEditor.start(with: nil, creationMode: .freehandPolyline)
+        
+        case 3://polygon
             self.sketchEditor.start(with: nil, creationMode: .polygon)
+            
+        case 4://freehand polygon
+            self.sketchEditor.start(with: nil, creationMode: .freehandPolygon)
+            
         default:
             break
         }
