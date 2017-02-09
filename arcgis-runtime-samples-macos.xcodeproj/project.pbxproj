@@ -517,8 +517,8 @@
 		3EFDE09C1E31271700CBCD92 /* BlendRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlendRendererViewController.swift; sourceTree = "<group>"; };
 		3EFDE0A01E31279000CBCD92 /* StretchRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StretchRenderer.storyboard; sourceTree = "<group>"; };
 		3EFDE0A11E31279000CBCD92 /* StretchRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchRendererViewController.swift; sourceTree = "<group>"; };
-		3EFDE0A51E31279700CBCD92 /* RGBRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RGBRenderer.storyboard; sourceTree = "<group>"; };
-		3EFDE0A61E31279700CBCD92 /* RGBRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBRendererViewController.swift; sourceTree = "<group>"; };
+		3EFDE0A51E31279700CBCD92 /* RGBRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RGBRenderer.storyboard; path = "../RGB renderer/RGBRenderer.storyboard"; sourceTree = "<group>"; };
+		3EFDE0A61E31279700CBCD92 /* RGBRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RGBRendererViewController.swift; path = "../RGB renderer/RGBRendererViewController.swift"; sourceTree = "<group>"; };
 		3EFDE0A91E31287B00CBCD92 /* Shasta_Elevation.tfw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Shasta_Elevation.tfw; sourceTree = "<group>"; };
 		3EFDE0AA1E31287B00CBCD92 /* Shasta_Elevation.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Shasta_Elevation.tif; sourceTree = "<group>"; };
 		3EFDE0AB1E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Shasta_Elevation.tif.aux.xml; sourceTree = "<group>"; };
@@ -975,7 +975,7 @@
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
 				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
-				3EFDE0A41E31279700CBCD92 /* RGB Renderer */,
+				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
 				3EFDE09F1E31279000CBCD92 /* Stretch renderer */,
 			);
 			name = Layers;
@@ -1401,13 +1401,13 @@
 			path = "Layers/Stretch renderer";
 			sourceTree = "<group>";
 		};
-		3EFDE0A41E31279700CBCD92 /* RGB Renderer */ = {
+		3EFDE0A41E31279700CBCD92 /* RGB renderer */ = {
 			isa = PBXGroup;
 			children = (
 				3EFDE0A51E31279700CBCD92 /* RGBRenderer.storyboard */,
 				3EFDE0A61E31279700CBCD92 /* RGBRendererViewController.swift */,
 			);
-			name = "RGB Renderer";
+			name = "RGB renderer";
 			path = "arcgis-runtime-samples-macos/Layers/RGB Renderer";
 			sourceTree = SOURCE_ROOT;
 		};
