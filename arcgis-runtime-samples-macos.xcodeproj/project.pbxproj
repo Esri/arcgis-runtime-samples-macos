@@ -850,11 +850,12 @@
 			path = "Audio Files";
 			sourceTree = "<group>";
 		};
-		3E496EEB1DD39DF4004C921C /* Route & Navigation */ = {
+		3E496EEB1DD39DF4004C921C /* Route & Directions */ = {
 			isa = PBXGroup;
 			children = (
 				3E496EEC1DD39DF4004C921C /* Route around barriers */,
 			);
+			name = "Route & Directions";
 			path = "Route & Navigation";
 			sourceTree = "<group>";
 		};
@@ -866,7 +867,8 @@
 				3E496EED1DD39DF4004C921C /* DirectionsListViewController.swift */,
 				3E496EF01DD39DF4004C921C /* RouteParametersViewController.swift */,
 			);
-			path = "Route around barriers";
+			name = "Route around barriers";
+			path = "../Route & Directions/Route around barriers";
 			sourceTree = "<group>";
 		};
 		3E53C6E61D1B55880054B5C8 /* Scene symbols */ = {
@@ -1190,7 +1192,7 @@
 				3EE3854A1DD3AC7100B13E3C /* Search */,
 				3E8724781BC70870006386C1 /* Edit data */,
 				3E8A25B51D36F64B00D14F08 /* Geometry */,
-				3E496EEB1DD39DF4004C921C /* Route & Navigation */,
+				3E496EEB1DD39DF4004C921C /* Route & Directions */,
 				3EFDE0DC1E3288C900CBCD92 /* Analysis */,
 				3E495C401D062E940021CD95 /* Scenes */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,

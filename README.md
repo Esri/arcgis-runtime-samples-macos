@@ -10,7 +10,7 @@ The samples use ArcGIS Online basemaps and services.  Learn more [here](http://w
 * Display Information - Displaying graphics, popups and callouts
 * Search - Finding an address
 * Geometry - Displaying geometries
-* Route & Navigation - Find a route around barriers
+* Route & Directions - Find a route around barriers
 * 3D - Display scenes, 3D symbols, and scene layers
 
 ## Instructions
