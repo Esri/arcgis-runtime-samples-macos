@@ -855,8 +855,7 @@
 			children = (
 				3E496EEC1DD39DF4004C921C /* Route around barriers */,
 			);
-			name = "Route & Directions";
-			path = "Route & Navigation";
+			path = "Route & Directions";
 			sourceTree = "<group>";
 		};
 		3E496EEC1DD39DF4004C921C /* Route around barriers */ = {
