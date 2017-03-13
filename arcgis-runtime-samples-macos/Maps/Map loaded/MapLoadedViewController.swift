@@ -68,4 +68,8 @@ class MapLoadedViewController: NSViewController {
             return "Unknown"
         }
     }
+    
+    deinit {
+        self.map.removeObserver(self, forKeyPath: "loadStatus")
+    }
 }
