@@ -6,7 +6,7 @@ This sample demonstrates how to create 3D symbols with different shapes.
 
 ##How it works
 
-The sample creates a symbol for each `AGSSimpleMarkerSymbolStyle`, namely
+The sample creates a symbol for each `AGSSimpleMarkerSceneSymbolStyle`, namely
 
 - Cone
 - Cube

@@ -10,7 +10,7 @@ The sample provides a search bar, where you can input the name of a US State. Wh
 
 ##How it works
 
-When you hit the search button, the sample creates an `AGSQueryParameter` object and specifies the `whereClause` on it, using the text you provided. It then fires the query on the feature table using the `queryFeaturesWithParameters:completion:` method. In the completion block it gets back an `AGSFeatureQueryResult`. Checking the enumerator, if it finds a feature then it highlights the geometry by using `selectFeatures` method on feature layer.
+When you hit the search button, the sample creates an `AGSQueryParameter` object and specifies the `whereClause` on it, using the text you provided. It then fires the query on the feature table using the `queryFeatures(with:completion:)` method. In the completion block it gets back an `AGSFeatureQueryResult`. Checking the enumerator, if it finds a feature then it highlights the geometry by using `select(_:)` method on feature layer.
 
 
 
