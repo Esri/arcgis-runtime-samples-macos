@@ -10,7 +10,7 @@ The map in the sample app comes with two map image layers already added. The lis
 
 ##How it works
 
-`AGSMap` has a property called `operationalLayers` which is a list of `AGSLayer`. To add a layer the app uses the `add() -> void` method on the list (`AGSList`). To remove a layer it uses `removeObject() -> void` method and for re-ordering it uses a combination of those methods.
+`AGSMap` has a property called `operationalLayers` which is a list of `AGSLayer`. To add a layer the app uses the `add()` method on the list `AGSList`. To remove a layer it uses `removeObject(at:)` method and for re-ordering it uses a combination of those methods.
 
 
 
