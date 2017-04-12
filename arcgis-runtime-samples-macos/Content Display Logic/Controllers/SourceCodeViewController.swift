@@ -106,4 +106,16 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
             self.noResultLabel.isHidden = true
         }
     }
+    
+    //support for search when focused on webView and return key pressed
+    override func keyDown(with event: NSEvent) {
+        
+        //for return key inside web view
+        if event.keyCode == 36 {
+            if let webHTMLView = self.view.window?.firstResponder as? NSView, webHTMLView.isDescendant(of: self.webView) {
+                
+                self.search(self.searchField)
+            }
+        }
+    }
 }

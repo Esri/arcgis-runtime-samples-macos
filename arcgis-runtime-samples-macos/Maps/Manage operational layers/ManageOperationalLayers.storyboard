@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="GaY-gy-OlK">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E163f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="GaY-gy-OlK">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Manage Operational LayersVC-->
@@ -136,7 +137,7 @@
                                                             </subviews>
                                                         </clipView>
                                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Dx7-qe-1DD">
-                                                            <rect key="frame" x="1" y="117" width="237.86820983886719" height="16"/>
+                                                            <rect key="frame" x="1" y="117" width="238" height="16"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="wcL-QI-wXT">
@@ -209,17 +210,25 @@
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
                                                                                 <tableCellView identifier="RemovedLayerRowView" id="wTO-XD-8lz">
-                                                                                    <rect key="frame" x="1" y="5" width="245" height="32"/>
+                                                                                    <rect key="frame" x="1" y="5" width="245" height="24"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
                                                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="YQ1-xo-J0q">
-                                                                                            <rect key="frame" x="2" y="0.0" width="241" height="32"/>
+                                                                                            <rect key="frame" x="2" y="0.0" width="241" height="24"/>
                                                                                             <subviews>
                                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R58-TE-6bV">
-                                                                                                    <rect key="frame" x="3" y="8" width="235" height="17"/>
+                                                                                                    <rect key="frame" x="3" y="4" width="208" height="17"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="gms-Cd-ciS">
                                                                                                         <font key="font" metaFont="system"/>
                                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    </textFieldCell>
+                                                                                                </textField>
+                                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QAN-vJ-kBQ">
+                                                                                                    <rect key="frame" x="217" y="0.0" width="21" height="24"/>
+                                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="+" id="m6V-70-qOp">
+                                                                                                        <font key="font" metaFont="system" size="20"/>
+                                                                                                        <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                     </textFieldCell>
                                                                                                 </textField>
@@ -227,7 +236,10 @@
                                                                                             <constraints>
                                                                                                 <constraint firstItem="R58-TE-6bV" firstAttribute="centerY" secondItem="YQ1-xo-J0q" secondAttribute="centerY" id="RKv-Lf-UtR"/>
                                                                                                 <constraint firstItem="R58-TE-6bV" firstAttribute="leading" secondItem="YQ1-xo-J0q" secondAttribute="leading" constant="5" id="SAa-U8-dgk"/>
-                                                                                                <constraint firstAttribute="trailing" secondItem="R58-TE-6bV" secondAttribute="trailing" constant="5" id="cZF-gA-mUx"/>
+                                                                                                <constraint firstItem="QAN-vJ-kBQ" firstAttribute="leading" secondItem="R58-TE-6bV" secondAttribute="trailing" constant="10" id="UlY-aR-XLz"/>
+                                                                                                <constraint firstAttribute="bottom" secondItem="QAN-vJ-kBQ" secondAttribute="bottom" id="XzF-U2-Pgq"/>
+                                                                                                <constraint firstItem="QAN-vJ-kBQ" firstAttribute="top" secondItem="YQ1-xo-J0q" secondAttribute="top" id="cdO-To-Sb1"/>
+                                                                                                <constraint firstAttribute="trailing" secondItem="QAN-vJ-kBQ" secondAttribute="trailing" constant="5" id="tZD-vK-3l0"/>
                                                                                             </constraints>
                                                                                             <userDefinedRuntimeAttributes>
                                                                                                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -257,7 +269,7 @@
                                                             </subviews>
                                                         </clipView>
                                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="hDT-V2-gN1">
-                                                            <rect key="frame" x="1" y="117" width="237.86820983886719" height="16"/>
+                                                            <rect key="frame" x="1" y="117" width="238" height="16"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="5ph-wo-kw2">
