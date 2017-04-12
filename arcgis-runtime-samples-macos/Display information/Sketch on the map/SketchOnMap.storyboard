@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jZn-M2-QbT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="jZn-M2-QbT">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -8,7 +8,7 @@
         <!--Sketch On Map View Controller-->
         <scene sceneID="iVz-mF-LwC">
             <objects>
-                <viewController id="jZn-M2-QbT" customClass="SketchOnMapViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jZn-M2-QbT" customClass="SketchOnMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="N7R-Wp-aaQ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -17,16 +17,26 @@
                                 <rect key="frame" x="0.0" y="50" width="450" height="250"/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="LAy-e9-gXW">
-                                <rect key="frame" x="41" y="0.0" width="368" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
                                 <subviews>
                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-IF-Vmv">
-                                        <rect key="frame" x="10" y="12" width="124" height="25"/>
+                                        <rect key="frame" x="10" y="12" width="206" height="25"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="Dsf-Op-9mk">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment image="point" width="40"/>
-                                                <segment image="line" width="40" selected="YES" tag="1"/>
-                                                <segment image="polygon" width="40">
+                                                <segment image="Point" width="40">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="Polyline" width="40" selected="YES" tag="1">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="FreehandPolyline" width="40">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="Polygon" width="40">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="FreehandPolygon" width="40">
                                                     <nil key="label"/>
                                                 </segment>
                                             </segments>
@@ -36,7 +46,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yjY-qr-5ig">
-                                        <rect key="frame" x="138" y="7" width="80" height="32"/>
+                                        <rect key="frame" x="220" y="7" width="80" height="32"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="Undo" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4XC-Gw-6zz">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -46,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="avg-fN-T3Y">
-                                        <rect key="frame" x="206" y="7" width="80" height="32"/>
+                                        <rect key="frame" x="288" y="7" width="80" height="32"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="Redo" imagePosition="overlaps" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6kO-dB-LAr">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -56,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CAa-1g-RY9">
-                                        <rect key="frame" x="284" y="7" width="80" height="32"/>
+                                        <rect key="frame" x="366" y="7" width="80" height="32"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="Discard" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h1H-x0-QSl">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -104,10 +114,12 @@
     </scenes>
     <resources>
         <image name="Discard" width="44" height="44"/>
+        <image name="FreehandPolygon" width="22" height="22"/>
+        <image name="FreehandPolyline" width="44" height="44"/>
+        <image name="Point" width="22" height="22"/>
+        <image name="Polygon" width="22" height="22"/>
+        <image name="Polyline" width="22" height="22"/>
         <image name="Redo" width="44" height="44"/>
         <image name="Undo" width="44" height="44"/>
-        <image name="line" width="28" height="28"/>
-        <image name="point" width="28" height="28"/>
-        <image name="polygon" width="28" height="28"/>
     </resources>
 </document>

@@ -44,9 +44,6 @@
 		3E049A371CED132F0031ADA9 /* CalloutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A331CED132F0031ADA9 /* CalloutViewController.swift */; };
 		3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E049A411CED1EB70031ADA9 /* VectorTileLayerViewController.swift */; };
 		3E049A471CED1F460031ADA9 /* VectorTileLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E049A461CED1F460031ADA9 /* VectorTileLayer.storyboard */; };
-		3E04AB2F1DCAA7DE00B4E2FB /* line.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E04AB2A1DCAA7DE00B4E2FB /* line.gif */; };
-		3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E04AB2B1DCAA7DE00B4E2FB /* point.gif */; };
-		3E04AB311DCAA7DE00B4E2FB /* polygon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E04AB2C1DCAA7DE00B4E2FB /* polygon.gif */; };
 		3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E04AB2D1DCAA7DE00B4E2FB /* SketchOnMap.storyboard */; };
 		3E04AB331DCAA7DE00B4E2FB /* SketchOnMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04AB2E1DCAA7DE00B4E2FB /* SketchOnMapViewController.swift */; };
 		3E04AB341DCAA9D600B4E2FB /* SketchOnMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E04AB2E1DCAA7DE00B4E2FB /* SketchOnMapViewController.swift */; };
@@ -385,9 +382,6 @@
 		3E049A331CED132F0031ADA9 /* CalloutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutViewController.swift; sourceTree = "<group>"; };
 		3E049A411CED1EB70031ADA9 /* VectorTileLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTileLayerViewController.swift; sourceTree = "<group>"; };
 		3E049A461CED1F460031ADA9 /* VectorTileLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VectorTileLayer.storyboard; sourceTree = "<group>"; };
-		3E04AB2A1DCAA7DE00B4E2FB /* line.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = line.gif; sourceTree = "<group>"; };
-		3E04AB2B1DCAA7DE00B4E2FB /* point.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = point.gif; sourceTree = "<group>"; };
-		3E04AB2C1DCAA7DE00B4E2FB /* polygon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = polygon.gif; sourceTree = "<group>"; };
 		3E04AB2D1DCAA7DE00B4E2FB /* SketchOnMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SketchOnMap.storyboard; sourceTree = "<group>"; };
 		3E04AB2E1DCAA7DE00B4E2FB /* SketchOnMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchOnMapViewController.swift; sourceTree = "<group>"; };
 		3E04AB3D1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerQuery.storyboard; sourceTree = "<group>"; };
@@ -722,22 +716,11 @@
 		3E04AB281DCAA7DE00B4E2FB /* Sketch on the map */ = {
 			isa = PBXGroup;
 			children = (
-				3E04AB291DCAA7DE00B4E2FB /* Images */,
 				3E04AB2D1DCAA7DE00B4E2FB /* SketchOnMap.storyboard */,
 				3E04AB2E1DCAA7DE00B4E2FB /* SketchOnMapViewController.swift */,
 			);
 			name = "Sketch on the map";
 			path = "Display information/Sketch on the map";
-			sourceTree = "<group>";
-		};
-		3E04AB291DCAA7DE00B4E2FB /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				3E04AB2A1DCAA7DE00B4E2FB /* line.gif */,
-				3E04AB2B1DCAA7DE00B4E2FB /* point.gif */,
-				3E04AB2C1DCAA7DE00B4E2FB /* polygon.gif */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */ = {
@@ -1536,7 +1519,6 @@
 				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
 				3E8DB5741D2B45D900D48BC6 /* UseSceneLayer.storyboard in Resources */,
 				3EFDE0981E303B0600CBCD92 /* srtm.tiff in Resources */,
-				3E04AB2F1DCAA7DE00B4E2FB /* line.gif in Resources */,
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
 				3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */,
@@ -1554,7 +1536,6 @@
 				3EFDE0BF1E31287B00CBCD92 /* ShastaBW.tif.aux.xml in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
-				3E04AB311DCAA7DE00B4E2FB /* polygon.gif in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3EFDE0E31E3288C900CBCD92 /* Hotspots.storyboard in Resources */,
@@ -1612,7 +1593,6 @@
 				3EFDE0851E30100800CBCD92 /* ShowLegend.storyboard in Resources */,
 				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
 				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
-				3E04AB301DCAA7DE00B4E2FB /* point.gif in Resources */,
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
