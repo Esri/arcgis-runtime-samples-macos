@@ -29,6 +29,11 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        //Auth Manager settings
+        let config = AGSOAuthConfiguration(portalURL: nil, clientID: "vVHDSfKfdKBs8lkA", redirectURL: nil)
+        AGSAuthenticationManager.shared().oAuthConfigurations.add(config)
+        AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
+        
         //initialize map to imagery basemap for the blur background
         let map = AGSMap(basemap: AGSBasemap.imagery())
         

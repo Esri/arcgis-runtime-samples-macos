@@ -10,7 +10,7 @@ Tap on the map to get the coordinates for the location in a callout. Tap again t
 
 ##How it works
 
-When the user taps on the map view the `mapView:didLongPressAtScreenPoint:screenPoint:mapPoint` method on the `AGSMapViewTouchDelegate` is fired. Inside this method we setup the `callout` object on the `mapView`, by setting the `title` property as "Location" and `detail` property as a string composed using `mapPoint`. Then the `showCallout` method is called.
+When the user does long press on the map view the `geoView(_:didLongPressAtScreenPoint:mapPoint:)` method on the `AGSGeoViewTouchDelegate` is fired. Inside this method we setup the `callout` object on the `mapView`, by setting the `title` property as "Location" and `detail` property as a string composed using `mapPoint`. Then the `show(at:screenOffset:rotateOffsetWithMap:animated:)` method is called to display the callout at the selected point.
 
 
 

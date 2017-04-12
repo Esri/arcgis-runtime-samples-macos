@@ -10,7 +10,7 @@ Use the buttons in the bottom to apply or reset definition expression.
 
 ##How it works
 
-You can achieve this by setting the `definitionExpression` property on an `AGSFeatureLayer`. It is the syntax of a SQL where clause by which to limit which features are displayed on the map.
+You can achieve this by setting the `definitionExpression` property on an `AGSFeatureLayer`. It is the syntax of a SQL `where` clause by which to limit which features are displayed on the map.
 
 
 

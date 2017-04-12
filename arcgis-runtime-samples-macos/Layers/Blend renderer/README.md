@@ -10,7 +10,7 @@ The sample allows you to change the `Altitude`, `Azimuth`, `Slope type` and `Col
 
 ##How it works
 
-The sample uses `AGSBlendRenderer` class to generate blend renderers. The settings provided by the user are put in the initializer to get a new renderer and the renderer is then set on the raster.
+The sample uses `AGSBlendRenderer` class to generate blend renderers. The settings provided by the user are put in the initializer `init(elevationRaster:outputMinValues:outputMaxValues:sourceMinValues:sourceMaxValues:noDataValues:gammas:colorRamp:altitude:azimuth:zFactor:slopeType:pixelSizeFactor:pixelSizePower:outputBitDepth:)` to get a new renderer and the renderer is then set on the raster.
 
 
 

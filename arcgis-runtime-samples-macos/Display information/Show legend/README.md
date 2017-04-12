@@ -10,7 +10,7 @@ The map in the app comes loaded with multiple operational layers. A list of lege
 
 ##How it works
 
-The sample runs through each layer in the operational layers list and calls `fetchLegendInfosWithCompletion:` method on it or its sublayers. On completion, the method returns an array of `AGSLegendInfo` objects. Each of these objects contain the symbol and the name describing the legend. 
+The sample runs through each layer in the operational layers list and calls `fetchLegendInfos(completion:)` method on it or its sublayers. On completion, the method returns an array of `AGSLegendInfo` objects. Each of these objects contain the symbol and the name describing the legend. 
 
 
 
