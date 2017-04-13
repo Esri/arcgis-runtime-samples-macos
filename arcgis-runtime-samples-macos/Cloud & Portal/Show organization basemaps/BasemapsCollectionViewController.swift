@@ -35,7 +35,14 @@ class BasemapsCollectionViewController: NSViewController, NSCollectionViewDataSo
     
     private func fetchBasemaps() {
         
+        //show progress indicator
+        NSApplication.shared().keyWindow?.showProgressIndicator()
+        
         BasemapHelper.shared.fetchBasemaps(from: self.portal) { [weak self] (error:Error?) in
+            
+            //hide progress indicator
+            NSApplication.shared().keyWindow?.hideProgressIndicator()
+            
             if let error = error {
                 print(error)
             }
@@ -91,7 +98,15 @@ class BasemapsCollectionViewController: NSViewController, NSCollectionViewDataSo
         
         //if the special plus cell is selected, fetch more basemaps from the portal
         if indexPath.item == BasemapHelper.shared.basemaps.count {
+            
+            //show progress indicator
+            NSApplication.shared().keyWindow?.showProgressIndicator()
+            
             BasemapHelper.shared.fetchMoreBasemaps { [weak self] (error: Error?) in
+                
+                //hide progress indicator
+                NSApplication.shared().keyWindow?.hideProgressIndicator()
+                
                 if let error = error {
                     print(error)
                 }
