@@ -846,6 +846,29 @@
         </dict>
         <dict>
             <key>displayName</key>
+            <string>Cloud &amp; Portal</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Show organization basemaps</string>
+                    <key>storyboardName</key>
+                    <string>ShowOrgBasemaps</string>
+                    <key>descriptionText</key>
+                    <string>The sample demonstrates how to show basemaps from an organization</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ShowOrgBasemapsVC</string>
+                        <string>BasemapHelper</string>
+                        <string>BasemapsCollectionViewController</string>
+                        <string>PortalSettingsViewController</string>
+                        <string>BasemapCollectionViewItem</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
             <string>Scenes</string>
             <key>children</key>
             <array>

@@ -168,6 +168,18 @@
 		3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */; };
 		3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */; };
 		3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */; };
+		3EB76A911E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB76A8A1E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift */; };
+		3EB76A921E9F2C3D00BB8022 /* BasemapCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EB76A8B1E9F2C3D00BB8022 /* BasemapCollectionViewItem.xib */; };
+		3EB76A931E9F2C3D00BB8022 /* BasemapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB76A8C1E9F2C3D00BB8022 /* BasemapHelper.swift */; };
+		3EB76A941E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB76A8D1E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift */; };
+		3EB76A951E9F2C3D00BB8022 /* PortalSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB76A8E1E9F2C3D00BB8022 /* PortalSettingsViewController.swift */; };
+		3EB76A961E9F2C3D00BB8022 /* ShowOrgBasemaps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EB76A8F1E9F2C3D00BB8022 /* ShowOrgBasemaps.storyboard */; };
+		3EB76A971E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB76A901E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift */; };
+		3EB76A981E9F2D6400BB8022 /* ShowOrgBasemapsVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EB76A901E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift */; };
+		3EB76A991E9F2D6400BB8022 /* BasemapHelper.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EB76A8C1E9F2C3D00BB8022 /* BasemapHelper.swift */; };
+		3EB76A9A1E9F2D6400BB8022 /* BasemapsCollectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EB76A8D1E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift */; };
+		3EB76A9B1E9F2D6400BB8022 /* PortalSettingsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EB76A8E1E9F2C3D00BB8022 /* PortalSettingsViewController.swift */; };
+		3EB76A9C1E9F2D6400BB8022 /* BasemapCollectionViewItem.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EB76A8A1E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift */; };
 		3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */; };
 		3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EBA25501D30206400AB0703 /* SimpleRenderer.storyboard */; };
 		3EBA25521D30256C00AB0703 /* SimpleRendererViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */; };
@@ -271,6 +283,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EB76A981E9F2D6400BB8022 /* ShowOrgBasemapsVC.swift in CopyFiles */,
+				3EB76A991E9F2D6400BB8022 /* BasemapHelper.swift in CopyFiles */,
+				3EB76A9A1E9F2D6400BB8022 /* BasemapsCollectionViewController.swift in CopyFiles */,
+				3EB76A9B1E9F2D6400BB8022 /* PortalSettingsViewController.swift in CopyFiles */,
+				3EB76A9C1E9F2D6400BB8022 /* BasemapCollectionViewItem.swift in CopyFiles */,
 				3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */,
 				3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */,
 				3EFDE0DA1E318E6D00CBCD92 /* FeatureCollectionLayerVC.swift in CopyFiles */,
@@ -458,6 +475,13 @@
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSaveMapViewController.swift; path = "Maps/Create and save a map/CreateSaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOptionsViewController.swift; path = "Maps/Create and save a map/CreateOptionsViewController.swift"; sourceTree = "<group>"; };
 		3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateSaveMap.storyboard; path = "Maps/Create and save a map/CreateSaveMap.storyboard"; sourceTree = "<group>"; };
+		3EB76A8A1E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapCollectionViewItem.swift; sourceTree = "<group>"; };
+		3EB76A8B1E9F2C3D00BB8022 /* BasemapCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasemapCollectionViewItem.xib; sourceTree = "<group>"; };
+		3EB76A8C1E9F2C3D00BB8022 /* BasemapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapHelper.swift; sourceTree = "<group>"; };
+		3EB76A8D1E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasemapsCollectionViewController.swift; sourceTree = "<group>"; };
+		3EB76A8E1E9F2C3D00BB8022 /* PortalSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalSettingsViewController.swift; sourceTree = "<group>"; };
+		3EB76A8F1E9F2C3D00BB8022 /* ShowOrgBasemaps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowOrgBasemaps.storyboard; sourceTree = "<group>"; };
+		3EB76A901E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowOrgBasemapsVC.swift; sourceTree = "<group>"; };
 		3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleRendererViewController.swift; path = "Display information/Simple renderer/SimpleRendererViewController.swift"; sourceTree = "<group>"; };
 		3EBA25501D30206400AB0703 /* SimpleRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleRenderer.storyboard; path = "Display information/Simple renderer/SimpleRenderer.storyboard"; sourceTree = "<group>"; };
 		3EBA25541D30264A00AB0703 /* UniqueValueRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UniqueValueRenderer.storyboard; path = "Display information/Unique value renderer/UniqueValueRenderer.storyboard"; sourceTree = "<group>"; };
@@ -1111,6 +1135,28 @@
 			name = "Create and save a map";
 			sourceTree = "<group>";
 		};
+		3EB76A881E9F2C3D00BB8022 /* Cloud & Portal */ = {
+			isa = PBXGroup;
+			children = (
+				3EB76A891E9F2C3D00BB8022 /* Show organization basemaps */,
+			);
+			path = "Cloud & Portal";
+			sourceTree = "<group>";
+		};
+		3EB76A891E9F2C3D00BB8022 /* Show organization basemaps */ = {
+			isa = PBXGroup;
+			children = (
+				3EB76A8F1E9F2C3D00BB8022 /* ShowOrgBasemaps.storyboard */,
+				3EB76A901E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift */,
+				3EB76A8C1E9F2C3D00BB8022 /* BasemapHelper.swift */,
+				3EB76A8D1E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift */,
+				3EB76A8E1E9F2C3D00BB8022 /* PortalSettingsViewController.swift */,
+				3EB76A8A1E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift */,
+				3EB76A8B1E9F2C3D00BB8022 /* BasemapCollectionViewItem.xib */,
+			);
+			path = "Show organization basemaps";
+			sourceTree = "<group>";
+		};
 		3EBA254B1D301FDD00AB0703 /* Simple renderer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1176,6 +1222,7 @@
 				3E8A25B51D36F64B00D14F08 /* Geometry */,
 				3E496EEB1DD39DF4004C921C /* Route & Directions */,
 				3EFDE0DC1E3288C900CBCD92 /* Analysis */,
+				3EB76A881E9F2C3D00BB8022 /* Cloud & Portal */,
 				3E495C401D062E940021CD95 /* Scenes */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
@@ -1538,6 +1585,7 @@
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
+				3EB76A921E9F2C3D00BB8022 /* BasemapCollectionViewItem.xib in Resources */,
 				3EFDE0E31E3288C900CBCD92 /* Hotspots.storyboard in Resources */,
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
 				3E0103861E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard in Resources */,
@@ -1549,6 +1597,7 @@
 				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
+				3EB76A961E9F2C3D00BB8022 /* ShowOrgBasemaps.storyboard in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */,
@@ -1632,6 +1681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EB76A941E9F2C3D00BB8022 /* BasemapsCollectionViewController.swift in Sources */,
 				3EFDE0861E30100800CBCD92 /* ShowLegendViewController.swift in Sources */,
 				3E496EF11DD39DF4004C921C /* DirectionsListViewController.swift in Sources */,
 				3E495C4B1D076C170021CD95 /* DisplaySceneViewController.swift in Sources */,
@@ -1641,6 +1691,7 @@
 				3E8724911BC710DA006386C1 /* OpenExistingMapViewController.swift in Sources */,
 				3E049A351CED132F0031ADA9 /* GraphicsWithSymbolsViewController.swift in Sources */,
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
+				3EB76A971E9F2C3D00BB8022 /* ShowOrgBasemapsVC.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
@@ -1659,6 +1710,7 @@
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
+				3EB76A951E9F2C3D00BB8022 /* PortalSettingsViewController.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
@@ -1668,6 +1720,7 @@
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
 				3EFDE09E1E31271700CBCD92 /* BlendRendererViewController.swift in Sources */,
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
+				3EB76A931E9F2C3D00BB8022 /* BasemapHelper.swift in Sources */,
 				3ECCFE361BCC6FD300CE256D /* ExistingMapsListViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* CollectionViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,
@@ -1707,6 +1760,7 @@
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
+				3EB76A911E9F2C3D00BB8022 /* BasemapCollectionViewItem.swift in Sources */,
 				3E0103871E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift in Sources */,
 				3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */,
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
