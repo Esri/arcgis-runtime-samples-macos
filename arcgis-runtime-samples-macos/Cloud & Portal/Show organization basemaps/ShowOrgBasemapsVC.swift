@@ -77,8 +77,15 @@ class ShowOrgBasemapsVC: NSViewController, BasemapsCollectionVCDelegate, PortalS
     
     @IBAction func changeBasemapAction(sender:NSButton) {
         
+        //show progress indicator
+        self.view.window?.showProgressIndicator()
+        
         self.portal = AGSPortal(url: URL(string: self.portalURLString)!, loginRequired: !self.anonymousUser)
         self.portal.load { [weak self] (error: Error?) in
+            
+            //hide progress indicator
+            self?.view.window?.hideProgressIndicator()
+            
             if let error = error {
                 print(error)
             }
