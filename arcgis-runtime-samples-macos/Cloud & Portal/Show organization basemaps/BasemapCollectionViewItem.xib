@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16E163f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BasemapCollectionViewItem" customModule="arcgis_runtime_samples_macos" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="xmD-KZ-Or5" id="acx-3W-Ckg"/>
+                <outlet property="thumbnail" destination="dJD-jp-mwT" id="arF-FL-cyf"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJD-jp-mwT">
+                    <rect key="frame" x="5" y="30" width="130" height="85"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ebI-AJ-vMT"/>
+                </imageView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="phi-rO-39G">
+                    <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xmD-KZ-Or5">
+                            <rect key="frame" x="3" y="7" width="134" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="PpL-aj-vSR">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4hx-Rs-jhG"/>
+                        <constraint firstItem="xmD-KZ-Or5" firstAttribute="centerY" secondItem="phi-rO-39G" secondAttribute="centerY" id="57F-YZ-2gO"/>
+                        <constraint firstItem="xmD-KZ-Or5" firstAttribute="leading" secondItem="phi-rO-39G" secondAttribute="leading" constant="5" id="AJX-2C-QPi"/>
+                        <constraint firstAttribute="trailing" secondItem="xmD-KZ-Or5" secondAttribute="trailing" constant="5" id="CrG-sL-a44"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="phi-rO-39G" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Mtg-n1-OXx"/>
+                <constraint firstAttribute="trailing" secondItem="dJD-jp-mwT" secondAttribute="trailing" constant="5" id="T8N-cA-FlO"/>
+                <constraint firstItem="phi-rO-39G" firstAttribute="top" secondItem="dJD-jp-mwT" secondAttribute="bottom" id="Y4M-39-Ll9"/>
+                <constraint firstAttribute="bottom" secondItem="phi-rO-39G" secondAttribute="bottom" id="cWA-Xv-nGC"/>
+                <constraint firstAttribute="trailing" secondItem="phi-rO-39G" secondAttribute="trailing" id="g7d-zN-weu"/>
+                <constraint firstItem="dJD-jp-mwT" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="j14-h2-MFe"/>
+                <constraint firstItem="dJD-jp-mwT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="tVb-Ai-w85"/>
+            </constraints>
+            <point key="canvasLocation" x="-51" y="75"/>
+        </customView>
+        <customObject id="j3s-h5-ycs" customClass="BasemapCollectionViewItem" customModule="arcgis_runtime_samples_macos" customModuleProvider="target"/>
+    </objects>
+</document>

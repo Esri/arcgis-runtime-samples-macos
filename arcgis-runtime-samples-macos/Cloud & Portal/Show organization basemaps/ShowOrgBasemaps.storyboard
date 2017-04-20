@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16E163f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZtN-HK-lrG">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Show Org BasemapsVC-->
+        <scene sceneID="j89-PO-0mh">
+            <objects>
+                <viewController id="ZtN-HK-lrG" customClass="ShowOrgBasemapsVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="kht-wJ-5K4">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="357"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="tIp-6H-mGI" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="357"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="4cl-g5-QNn">
+                                <rect key="frame" x="61" y="40" width="328" height="60"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YeK-m0-kbF">
+                                        <rect key="frame" x="168" y="13" width="146" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Change basemap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gIJ-3M-6ji">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeBasemapActionWithSender:" target="ZtN-HK-lrG" id="m0p-4t-QqC"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nqa-Mh-f8y">
+                                        <rect key="frame" x="14" y="12" width="146" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Portal Settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Dwb-yh-kDz">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <segue destination="rKC-zm-4kb" kind="popover" identifier="PortalSettingsSegue" popoverAnchorView="Nqa-Mh-f8y" popoverBehavior="t" preferredEdge="minY" id="mxj-PE-kXv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HaE-yH-lYh"/>
+                                    <constraint firstAttribute="trailing" secondItem="YeK-m0-kbF" secondAttribute="trailing" constant="20" id="RwT-oc-BpS"/>
+                                    <constraint firstItem="Nqa-Mh-f8y" firstAttribute="centerY" secondItem="4cl-g5-QNn" secondAttribute="centerY" id="il3-eZ-ZRC"/>
+                                    <constraint firstItem="YeK-m0-kbF" firstAttribute="width" secondItem="Nqa-Mh-f8y" secondAttribute="width" id="j5t-ns-dzt"/>
+                                    <constraint firstItem="Nqa-Mh-f8y" firstAttribute="leading" secondItem="4cl-g5-QNn" secondAttribute="leading" constant="20" id="quv-RD-ccc"/>
+                                    <constraint firstItem="YeK-m0-kbF" firstAttribute="centerY" secondItem="4cl-g5-QNn" secondAttribute="centerY" id="wPs-w8-ORV"/>
+                                    <constraint firstItem="YeK-m0-kbF" firstAttribute="leading" secondItem="Nqa-Mh-f8y" secondAttribute="trailing" constant="20" id="xQf-ko-kAH"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tIp-6H-mGI" firstAttribute="top" secondItem="kht-wJ-5K4" secondAttribute="top" id="07I-uZ-mxD"/>
+                            <constraint firstAttribute="trailing" secondItem="tIp-6H-mGI" secondAttribute="trailing" id="3DK-iK-3cn"/>
+                            <constraint firstItem="tIp-6H-mGI" firstAttribute="leading" secondItem="kht-wJ-5K4" secondAttribute="leading" id="R2J-HE-sms"/>
+                            <constraint firstAttribute="bottom" secondItem="tIp-6H-mGI" secondAttribute="bottom" id="abn-dk-giD"/>
+                            <constraint firstItem="4cl-g5-QNn" firstAttribute="centerX" secondItem="kht-wJ-5K4" secondAttribute="centerX" id="lgV-in-J6v"/>
+                            <constraint firstAttribute="bottom" secondItem="4cl-g5-QNn" secondAttribute="bottom" constant="40" id="qwn-Q0-C7t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeBasemapButton" destination="YeK-m0-kbF" id="eY1-75-NiJ"/>
+                        <outlet property="containerView" destination="4cl-g5-QNn" id="7J3-OD-Whb"/>
+                        <outlet property="mapView" destination="tIp-6H-mGI" id="b3G-Ba-gMb"/>
+                    </connections>
+                </viewController>
+                <customObject id="X9b-wx-YWi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="155.5"/>
+        </scene>
+        <!--Portal Settings View Controller-->
+        <scene sceneID="Bpw-pa-XNn">
+            <objects>
+                <viewController id="rKC-zm-4kb" customClass="PortalSettingsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="TRy-5x-8Lf">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="174"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pfc-g2-ZKM">
+                                <rect key="frame" x="137" y="129" width="126" height="25"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Portal Settings" id="AV1-4I-Ybm">
+                                    <font key="font" size="17" name="SFUIText-Medium"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bXo-dy-gzr">
+                                <rect key="frame" x="18" y="90" width="30" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="URL" id="5Ob-gw-5n7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sx0-ji-U2j">
+                                <rect key="frame" x="56" y="87" width="324" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="https://www.arcgis.com" drawsBackground="YES" id="Wx0-cI-2wD">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="qiS-gf-7L3">
+                                <rect key="frame" x="54" y="59" width="193" height="18"/>
+                                <buttonCell key="cell" type="check" title="Get basemaps anonymously" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tAr-4U-dio">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-7L-dKv">
+                                <rect key="frame" x="164" y="13" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a5k-hR-O4a">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doneActionWithSender:" target="rKC-zm-4kb" id="z2J-0Y-Crb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Sx0-ji-U2j" firstAttribute="leading" secondItem="bXo-dy-gzr" secondAttribute="trailing" constant="10" id="4zA-y1-cXH"/>
+                            <constraint firstAttribute="bottom" secondItem="vNh-7L-dKv" secondAttribute="bottom" constant="20" id="Cic-7O-mfN"/>
+                            <constraint firstItem="qiS-gf-7L3" firstAttribute="top" secondItem="Sx0-ji-U2j" secondAttribute="bottom" constant="12" id="DnC-4d-zMc"/>
+                            <constraint firstItem="Sx0-ji-U2j" firstAttribute="top" secondItem="Pfc-g2-ZKM" secondAttribute="bottom" constant="20" id="MAt-wh-BlY"/>
+                            <constraint firstItem="bXo-dy-gzr" firstAttribute="leading" secondItem="TRy-5x-8Lf" secondAttribute="leading" constant="20" id="NRY-4B-etH"/>
+                            <constraint firstItem="vNh-7L-dKv" firstAttribute="centerX" secondItem="TRy-5x-8Lf" secondAttribute="centerX" id="an0-i3-Uxe"/>
+                            <constraint firstAttribute="trailing" secondItem="Sx0-ji-U2j" secondAttribute="trailing" constant="20" id="d3K-4r-mDD"/>
+                            <constraint firstItem="Pfc-g2-ZKM" firstAttribute="top" secondItem="TRy-5x-8Lf" secondAttribute="top" constant="20" id="feP-Og-OhV"/>
+                            <constraint firstItem="Pfc-g2-ZKM" firstAttribute="centerX" secondItem="TRy-5x-8Lf" secondAttribute="centerX" id="fiX-Hz-fOv"/>
+                            <constraint firstItem="vNh-7L-dKv" firstAttribute="top" secondItem="qiS-gf-7L3" secondAttribute="bottom" constant="20" id="frr-KZ-nCz"/>
+                            <constraint firstItem="bXo-dy-gzr" firstAttribute="centerY" secondItem="Sx0-ji-U2j" secondAttribute="centerY" id="gU4-OA-Tgc"/>
+                            <constraint firstItem="qiS-gf-7L3" firstAttribute="leading" secondItem="Sx0-ji-U2j" secondAttribute="leading" id="hPa-7U-Nts"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="anonymousCheck" destination="qiS-gf-7L3" id="xBl-O3-tv5"/>
+                        <outlet property="textField" destination="Sx0-ji-U2j" id="hxk-Ar-x5t"/>
+                    </connections>
+                </viewController>
+                <customObject id="r3i-S8-NrI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="155"/>
+        </scene>
+        <!--Basemaps Collection View Controller-->
+        <scene sceneID="wGV-mb-1MH">
+            <objects>
+                <viewController identifier="BasemapsCollectionViewController" storyboardIdentifier="BasemapsCollectionViewController" id="bef-ft-aWF" customClass="BasemapsCollectionViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eFt-FE-vJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="255"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoM-h6-g3E">
+                                <rect key="frame" x="5" y="5" width="390" height="245"/>
+                                <clipView key="contentView" drawsBackground="NO" id="U47-fG-mMw">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="245"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" id="L00-EB-4xF">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="245"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="OLB-OO-Ovz">
+                                                <size key="itemSize" width="140" height="120"/>
+                                                <edgeInsets key="sectionInset" left="10" right="10" top="10" bottom="10"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="bef-ft-aWF" id="dGM-zF-arp"/>
+                                                <outlet property="delegate" destination="bef-ft-aWF" id="O8J-AW-Rtx"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="J2v-42-jBN">
+                                    <rect key="frame" x="0.0" y="239" width="390" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="FKd-PB-ouT">
+                                    <rect key="frame" x="374" y="0.0" width="16" height="245"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DoM-h6-g3E" secondAttribute="bottom" constant="5" id="4PY-G4-ClO"/>
+                            <constraint firstAttribute="trailing" secondItem="DoM-h6-g3E" secondAttribute="trailing" constant="5" id="Hrc-ur-mT0"/>
+                            <constraint firstItem="DoM-h6-g3E" firstAttribute="top" secondItem="eFt-FE-vJ1" secondAttribute="top" constant="5" id="dR7-fe-7BX"/>
+                            <constraint firstItem="DoM-h6-g3E" firstAttribute="leading" secondItem="eFt-FE-vJ1" secondAttribute="leading" constant="5" id="xIf-BW-Lf3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="L00-EB-4xF" id="uut-7Q-EBf"/>
+                    </connections>
+                </viewController>
+                <customObject id="2jq-4A-ROq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="461"/>
+        </scene>
+    </scenes>
+</document>
