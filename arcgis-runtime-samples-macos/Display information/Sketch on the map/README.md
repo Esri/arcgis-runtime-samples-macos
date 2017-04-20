@@ -1,14 +1,14 @@
-#Sketch on the map
+# Sketch on the map
 
 This sample demonstrates how you can use the sketch editor to draw point or line or polygon geometry. Sketch editor now also supports freehand polyline and polygon drawing.
 
-##How to use the sample
+## How to use the sample
 
 The sample has a toolbar of sketch tools at the bottom. You can choose the type of geometry using the switch. Sketch by clicking or by clicking and dragging on the map. There are tools to undo or redo an action or clear everything.
 
 ![](image1.png)
 
-##How it works
+## How it works
 
 The sample uses `start(with:creationMode:)` initializer on `AGSSketchEditor`. The initializer takes in the creation mode which could be any of the following:
 
