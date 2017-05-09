@@ -921,6 +921,18 @@
                         <string>ScenePropertiesExpressions</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Animate 3D symbols</string>
+                    <key>storyboardName</key>
+                    <string>Animate3DSymbols</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>Animate3DSymbolsVC</string>
+                    </array>
+                </dict>
             </array>
         </dict>
     </array>
