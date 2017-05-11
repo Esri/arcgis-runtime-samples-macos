@@ -69,16 +69,8 @@
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-QE-1EZ">
-                                                        <rect key="frame" x="18" y="117" width="75" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Speed (fps)" id="TWY-Wi-QDW">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9h8-jR-z5k">
-                                                        <rect key="frame" x="161" y="117" width="21" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="60" id="Z72-XK-WEU">
+                                                        <rect key="frame" x="18" y="117" width="43" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Speed" id="TWY-Wi-QDW">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -109,7 +101,6 @@
                                                 <constraints>
                                                     <constraint firstItem="dNd-V7-ZsW" firstAttribute="top" secondItem="I0h-CV-h2R" secondAttribute="bottom" constant="10" id="0Sa-HC-2MV"/>
                                                     <constraint firstItem="dNd-V7-ZsW" firstAttribute="centerX" secondItem="q2r-rH-FRo" secondAttribute="centerX" id="4uT-Bj-V1w"/>
-                                                    <constraint firstItem="9h8-jR-z5k" firstAttribute="centerY" secondItem="FE1-QE-1EZ" secondAttribute="centerY" id="HKi-Et-OPO"/>
                                                     <constraint firstItem="dir-bo-Abm" firstAttribute="top" secondItem="3Mm-Nw-88t" secondAttribute="bottom" constant="10" id="Ngb-0U-6A6"/>
                                                     <constraint firstItem="3Mm-Nw-88t" firstAttribute="leading" secondItem="q2r-rH-FRo" secondAttribute="leading" id="PaG-IK-r9I"/>
                                                     <constraint firstAttribute="trailing" secondItem="Bbn-5L-Mah" secondAttribute="trailing" constant="20" id="RHc-6x-WWM"/>
@@ -127,7 +118,6 @@
                                                     <constraint firstItem="FE1-QE-1EZ" firstAttribute="leading" secondItem="q2r-rH-FRo" secondAttribute="leading" constant="20" id="psg-XX-xjL"/>
                                                     <constraint firstItem="3Mm-Nw-88t" firstAttribute="top" secondItem="q2r-rH-FRo" secondAttribute="top" id="qgt-al-ZMX"/>
                                                     <constraint firstAttribute="trailing" secondItem="ach-EY-Swg" secondAttribute="trailing" constant="20" id="qld-Jd-aQB"/>
-                                                    <constraint firstAttribute="trailing" secondItem="9h8-jR-z5k" secondAttribute="trailing" constant="20" id="s7K-ek-OWz"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Mm-Nw-88t" secondAttribute="trailing" id="uIe-U8-Etv"/>
                                                 </constraints>
                                             </customView>
@@ -169,7 +159,7 @@
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-wW-7US">
                                                         <rect key="frame" x="18" y="190" width="164" height="19"/>
-                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="dLQ-3Z-2bK"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="dLQ-3Z-2bK"/>
                                                         <connections>
                                                             <action selector="headingOffsetValueChanged:" target="tLu-SQ-ZID" id="iWH-RF-S4w"/>
                                                         </connections>
@@ -184,7 +174,7 @@
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-bU-e94">
                                                         <rect key="frame" x="18" y="138" width="164" height="19"/>
-                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="179" doubleValue="60" tickMarkPosition="above" sliderType="linear" id="t5a-kr-ZzK"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="179" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="t5a-kr-ZzK"/>
                                                         <connections>
                                                             <action selector="pitchOffsetValueChanged:" target="tLu-SQ-ZID" id="tAJ-ZA-hww"/>
                                                         </connections>
@@ -222,15 +212,15 @@
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVs-ug-tgs">
                                                         <rect key="frame" x="155" y="163" width="27" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="60º" id="b97-VQ-kwX">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="45º" id="b97-VQ-kwX">
                                                             <font key="font" size="13" name="MonotypeSorts"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w15-1E-qhZ">
-                                                        <rect key="frame" x="155" y="215" width="27" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="90º" id="q0D-Ll-EZO">
+                                                        <rect key="frame" x="163" y="215" width="19" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0º" id="q0D-Ll-EZO">
                                                             <font key="font" size="13" name="MonotypeSorts"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -483,7 +473,6 @@
                         <outlet property="rollOffsetLabel" destination="tmf-eC-xUm" id="TCu-7u-22x"/>
                         <outlet property="rollOffsetSlider" destination="AnR-0I-y8e" id="Ujx-7i-dlt"/>
                         <outlet property="sceneView" destination="Gzv-xg-lAP" id="rUo-Jn-83C"/>
-                        <outlet property="speedLabel" destination="9h8-jR-z5k" id="lPU-cE-UMg"/>
                         <outlet property="speedSlider" destination="ach-EY-Swg" id="Sqk-OL-8vl"/>
                     </connections>
                 </viewController>

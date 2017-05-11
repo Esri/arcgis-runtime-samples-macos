@@ -21,7 +21,6 @@ class Animate3DSymbolsVC: NSViewController {
     @IBOutlet var sceneView:AGSSceneView!
     @IBOutlet var popUpButton:NSPopUpButton!
     @IBOutlet var speedSlider:NSSlider!
-    @IBOutlet var speedLabel:NSTextField!
     @IBOutlet var progressIndicator:NSProgressIndicator!
     @IBOutlet var playButton:NSButton!
     
@@ -125,10 +124,6 @@ class Animate3DSymbolsVC: NSViewController {
         //will keep the camera still while the model pitches or rolls
         self.orbitGeoElementCameraController.isAutoPitchEnabled = false
         self.orbitGeoElementCameraController.isAutoRollEnabled = false
-        
-        //For isAutoHeadingEnabled = true, camera heading aligned wrt local coordinates of the model
-        self.orbitGeoElementCameraController.cameraHeadingOffset = 90
-        self.orbitGeoElementCameraController.cameraPitchOffset = 60
         
         //min and max distance values between the model and the camera
         self.orbitGeoElementCameraController.minCameraDistance = 500
@@ -375,14 +370,17 @@ class Animate3DSymbolsVC: NSViewController {
     
     @IBAction func speedValueChanged(_ sender:NSSlider) {
         
-        //update label
-        self.speedLabel.stringValue = "\(sender.integerValue)"
-        
-        //invalidate previous timer
-        self.animationTimer?.invalidate()
-        
-        //start new timer
-        self.startAnimation()
+        //if the animation is playing, invalidate the timer and 
+        //start the animation for the speed to take effect
+        //else do nothing
+        if self.playButton.state == NSOnState {
+
+            //invalidate previous timer
+            self.animationTimer?.invalidate()
+            
+            //start new timer
+            self.startAnimation()
+        }
     }
     
     @IBAction func playAction(_ sender:NSButton) {
