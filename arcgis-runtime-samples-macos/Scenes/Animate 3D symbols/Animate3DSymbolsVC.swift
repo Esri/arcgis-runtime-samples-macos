@@ -33,6 +33,9 @@ class Animate3DSymbolsVC: NSViewController {
     @IBOutlet var headingOffsetLabel:NSTextField!
     @IBOutlet var pitchOffsetLabel:NSTextField!
     @IBOutlet var rollOffsetLabel:NSTextField!
+    @IBOutlet var autoHeadingEnabledButton:NSButton!
+    @IBOutlet var autoPitchEnabledButton:NSButton!
+    @IBOutlet var autoRollEnabledButton:NSButton!
     
     @IBOutlet var altitiudeLabel:NSTextField!
     @IBOutlet var headingLabel:NSTextField!
@@ -226,6 +229,9 @@ class Animate3DSymbolsVC: NSViewController {
             //change state of play button
             self.playButton.state = NSOffState
             
+            //reset index
+            self.currentFrameIndex = 0
+            
             return
         }
         
@@ -242,10 +248,10 @@ class Animate3DSymbolsVC: NSViewController {
         self.progressIndicator.doubleValue = Double(self.currentFrameIndex) / Double(self.frames.count) * 100
         
         //update labels
-        self.altitiudeLabel.stringValue = "\(frame.position.z.format(f: ".2"))"
-        self.headingLabel.stringValue = "\(frame.heading.format(f: ".2"))"
-        self.pitchLabel.stringValue = "\(frame.pitch.format(f: ".2"))"
-        self.rollLabel.stringValue = "\(frame.roll.format(f: ".2"))"
+        self.altitiudeLabel.stringValue = "\(Int(frame.position.z))"
+        self.headingLabel.stringValue = "\(Int(frame.heading))º"
+        self.pitchLabel.stringValue = "\(Int(frame.pitch))º"
+        self.rollLabel.stringValue = "\(Int(frame.roll))º"
         
         //increment current frame index
         self.currentFrameIndex += 1
@@ -269,19 +275,19 @@ class Animate3DSymbolsVC: NSViewController {
                 weakSelf.headingOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraHeadingOffset)
                 
                 //update label
-                weakSelf.headingOffsetLabel.stringValue = "\(weakSelf.headingOffsetSlider.integerValue)"
+                weakSelf.headingOffsetLabel.stringValue = "\(weakSelf.headingOffsetSlider.integerValue)º"
             }
             else if keyPath == "cameraPitchOffset" {
                 weakSelf.pitchOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraPitchOffset)
                 
                 //update label
-                weakSelf.pitchOffsetLabel.stringValue = "\(weakSelf.pitchOffsetSlider.integerValue)"
+                weakSelf.pitchOffsetLabel.stringValue = "\(weakSelf.pitchOffsetSlider.integerValue)º"
             }
             else if keyPath == "cameraRollOffset" {
                 weakSelf.rollOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraRollOffset)
                 
                 //update label
-                weakSelf.rollOffsetLabel.stringValue = "\(weakSelf.rollOffsetSlider.integerValue)"
+                weakSelf.rollOffsetLabel.stringValue = "\(weakSelf.rollOffsetSlider.integerValue)º"
             }
         }
     }
@@ -328,7 +334,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.cameraHeadingOffset = sender.doubleValue
         
         //update label
-        self.headingOffsetLabel.stringValue = "\(sender.integerValue)"
+        self.headingOffsetLabel.stringValue = "\(sender.integerValue)º"
     }
     
     @IBAction func pitchOffsetValueChanged(_ sender:NSSlider) {
@@ -337,7 +343,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.cameraPitchOffset = sender.doubleValue
         
         //update label
-        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)"
+        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)º"
     }
     
     @IBAction func rollOffsetValueChanged(_ sender:NSSlider) {
@@ -346,7 +352,25 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.cameraRollOffset = sender.doubleValue
         
         //update label
-        self.rollOffsetLabel.stringValue = "\(sender.integerValue)"
+        self.rollOffsetLabel.stringValue = "\(sender.integerValue)º"
+    }
+    
+    @IBAction func autoHeadingEnabledAction(_ sender:NSButton) {
+        
+        //update property
+        self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSOnState)
+    }
+    
+    @IBAction func autoPitchEnabledAction(_ sender:NSButton) {
+        
+        //update property
+        self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSOnState)
+    }
+    
+    @IBAction func autoRollEnabledAction(_ sender:NSButton) {
+        
+        //update property
+        self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSOnState)
     }
     
     @IBAction func speedValueChanged(_ sender:NSSlider) {
@@ -387,10 +411,4 @@ class Frame {
     var heading: Double = 0.0
     var pitch: Double = 0.0
     var roll: Double = 0.0
-}
-
-extension Double {
-    func format(f: String) -> String {
-        return String(format: "%\(f)f", self)
-    }
 }
