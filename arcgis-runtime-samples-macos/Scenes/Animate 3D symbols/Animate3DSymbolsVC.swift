@@ -26,12 +26,10 @@ class Animate3DSymbolsVC: NSViewController {
     
     @IBOutlet var headingOffsetSlider:NSSlider!
     @IBOutlet var pitchOffsetSlider:NSSlider!
-    @IBOutlet var rollOffsetSlider:NSSlider!
     @IBOutlet var distanceSlider:NSSlider!
     @IBOutlet var distanceLabel:NSTextField!
     @IBOutlet var headingOffsetLabel:NSTextField!
     @IBOutlet var pitchOffsetLabel:NSTextField!
-    @IBOutlet var rollOffsetLabel:NSTextField!
     @IBOutlet var autoHeadingEnabledButton:NSButton!
     @IBOutlet var autoPitchEnabledButton:NSButton!
     @IBOutlet var autoRollEnabledButton:NSButton!
@@ -136,7 +134,6 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraDistance", options: .new, context: nil)
         self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraHeadingOffset", options: .new, context: nil)
         self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraPitchOffset", options: .new, context: nil)
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraRollOffset", options: .new, context: nil)
     }
     
     private func populatePopUpButton() {
@@ -278,12 +275,6 @@ class Animate3DSymbolsVC: NSViewController {
                 //update label
                 weakSelf.pitchOffsetLabel.stringValue = "\(weakSelf.pitchOffsetSlider.integerValue)º"
             }
-            else if keyPath == "cameraRollOffset" {
-                weakSelf.rollOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraRollOffset)
-                
-                //update label
-                weakSelf.rollOffsetLabel.stringValue = "\(weakSelf.rollOffsetSlider.integerValue)º"
-            }
         }
     }
     
@@ -341,15 +332,6 @@ class Animate3DSymbolsVC: NSViewController {
         self.pitchOffsetLabel.stringValue = "\(sender.integerValue)º"
     }
     
-    @IBAction func rollOffsetValueChanged(_ sender:NSSlider) {
-        
-        //update property
-        self.orbitGeoElementCameraController.cameraRollOffset = sender.doubleValue
-        
-        //update label
-        self.rollOffsetLabel.stringValue = "\(sender.integerValue)º"
-    }
-    
     @IBAction func autoHeadingEnabledAction(_ sender:NSButton) {
         
         //update property
@@ -400,7 +382,6 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraDistance")
         self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraHeadingOffset")
         self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraPitchOffset")
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraRollOffset")
     }
 }
 

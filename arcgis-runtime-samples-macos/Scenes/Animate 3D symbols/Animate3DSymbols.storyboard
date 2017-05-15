@@ -21,10 +21,10 @@
                                 <rect key="frame" x="470" y="0.0" width="200" height="846"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ApA-W9-eNg">
-                                        <rect key="frame" x="0.0" y="73" width="200" height="701"/>
+                                        <rect key="frame" x="0.0" y="99" width="200" height="649"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q2r-rH-FRo">
-                                                <rect key="frame" x="0.0" y="486" width="200" height="215"/>
+                                                <rect key="frame" x="0.0" y="434" width="200" height="215"/>
                                                 <subviews>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="3Mm-Nw-88t">
                                                         <rect key="frame" x="0.0" y="175" width="200" height="40"/>
@@ -122,10 +122,10 @@
                                                 </constraints>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="EEt-CX-XPx">
-                                                <rect key="frame" x="0.0" y="152" width="200" height="334"/>
+                                                <rect key="frame" x="0.0" y="152" width="200" height="282"/>
                                                 <subviews>
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Jfl-8k-mLX">
-                                                        <rect key="frame" x="0.0" y="294" width="200" height="40"/>
+                                                        <rect key="frame" x="0.0" y="242" width="200" height="40"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKR-8o-X6r">
                                                                 <rect key="frame" x="45" y="11" width="110" height="17"/>
@@ -143,14 +143,14 @@
                                                         </constraints>
                                                     </customView>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-2d-P5P">
-                                                        <rect key="frame" x="18" y="242" width="164" height="19"/>
+                                                        <rect key="frame" x="18" y="190" width="164" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="500" maxValue="8000" doubleValue="1000" tickMarkPosition="above" sliderType="linear" id="hBp-gJ-Cpr"/>
                                                         <connections>
                                                             <action selector="distanceValueChanged:" target="tLu-SQ-ZID" id="xbF-JS-IT5"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tRL-2b-Sa7">
-                                                        <rect key="frame" x="18" y="267" width="112" height="17"/>
+                                                        <rect key="frame" x="18" y="215" width="112" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Distance (meters)" id="uJ6-DO-aeZ">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -158,14 +158,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-wW-7US">
-                                                        <rect key="frame" x="18" y="190" width="164" height="19"/>
-                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="dLQ-3Z-2bK"/>
+                                                        <rect key="frame" x="18" y="138" width="164" height="19"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-180" maxValue="180" tickMarkPosition="above" sliderType="linear" id="dLQ-3Z-2bK"/>
                                                         <connections>
                                                             <action selector="headingOffsetValueChanged:" target="tLu-SQ-ZID" id="iWH-RF-S4w"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s1c-wD-DCa">
-                                                        <rect key="frame" x="18" y="215" width="96" height="17"/>
+                                                        <rect key="frame" x="18" y="163" width="96" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Heading Offset" id="ZbL-rk-UUe">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -173,45 +173,22 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-bU-e94">
-                                                        <rect key="frame" x="18" y="138" width="164" height="19"/>
+                                                        <rect key="frame" x="18" y="86" width="164" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="179" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="t5a-kr-ZzK"/>
                                                         <connections>
                                                             <action selector="pitchOffsetValueChanged:" target="tLu-SQ-ZID" id="tAJ-ZA-hww"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZUs-nr-cXU">
-                                                        <rect key="frame" x="18" y="163" width="76" height="17"/>
+                                                        <rect key="frame" x="18" y="111" width="76" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pitch Offset" id="HjK-7r-iZr">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AnR-0I-y8e">
-                                                        <rect key="frame" x="18" y="86" width="164" height="19"/>
-                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="shz-aZ-Ndk"/>
-                                                        <connections>
-                                                            <action selector="rollOffsetValueChanged:" target="tLu-SQ-ZID" id="nic-VP-MC3"/>
-                                                        </connections>
-                                                    </slider>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UVE-iI-jfq">
-                                                        <rect key="frame" x="18" y="111" width="68" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Roll Offset" id="rZ3-fg-Sxc">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tmf-eC-xUm">
-                                                        <rect key="frame" x="163" y="111" width="19" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0º" id="wGI-uG-EoT">
-                                                            <font key="font" size="13" name="MonotypeSorts"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVs-ug-tgs">
-                                                        <rect key="frame" x="155" y="163" width="27" height="17"/>
+                                                        <rect key="frame" x="155" y="111" width="27" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="45º" id="b97-VQ-kwX">
                                                             <font key="font" size="13" name="MonotypeSorts"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -219,7 +196,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w15-1E-qhZ">
-                                                        <rect key="frame" x="163" y="215" width="19" height="17"/>
+                                                        <rect key="frame" x="163" y="163" width="19" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0º" id="q0D-Ll-EZO">
                                                             <font key="font" size="13" name="MonotypeSorts"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -227,7 +204,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gQ4-OC-xrU">
-                                                        <rect key="frame" x="145" y="267" width="37" height="17"/>
+                                                        <rect key="frame" x="145" y="215" width="37" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="1000" id="xSA-YX-yqP">
                                                             <font key="font" size="13" name="MonotypeSorts"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -266,7 +243,6 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="AnR-0I-y8e" secondAttribute="trailing" constant="20" id="2Fa-IS-XGK"/>
                                                     <constraint firstAttribute="trailing" secondItem="w15-1E-qhZ" secondAttribute="trailing" constant="20" id="2Iy-BD-LKS"/>
                                                     <constraint firstItem="R2o-i0-cWQ" firstAttribute="top" secondItem="eAv-jh-Iit" secondAttribute="bottom" constant="12" id="2qq-EY-UUj"/>
                                                     <constraint firstItem="eAv-jh-Iit" firstAttribute="top" secondItem="E5c-IR-tIu" secondAttribute="bottom" constant="12" id="8k1-R0-H8E"/>
@@ -276,21 +252,16 @@
                                                     <constraint firstAttribute="trailing" secondItem="Jfl-8k-mLX" secondAttribute="trailing" id="CcX-3h-5UN"/>
                                                     <constraint firstItem="s1c-wD-DCa" firstAttribute="top" secondItem="aMs-2d-P5P" secondAttribute="bottom" constant="12" id="EIA-sT-qCB"/>
                                                     <constraint firstItem="fVs-ug-tgs" firstAttribute="centerY" secondItem="ZUs-nr-cXU" secondAttribute="centerY" id="F7q-4m-YY2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tmf-eC-xUm" secondAttribute="trailing" constant="20" id="J5b-6r-xC6"/>
                                                     <constraint firstAttribute="trailing" secondItem="aMs-2d-P5P" secondAttribute="trailing" constant="20" id="Mh9-q6-iPq"/>
                                                     <constraint firstAttribute="trailing" secondItem="eAv-jh-Iit" secondAttribute="trailing" constant="20" id="Mva-lc-nMg"/>
                                                     <constraint firstItem="tRL-2b-Sa7" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="MxP-bT-tyl"/>
                                                     <constraint firstAttribute="trailing" secondItem="LAR-bU-e94" secondAttribute="trailing" constant="20" id="Of4-iR-8S1"/>
-                                                    <constraint firstItem="UVE-iI-jfq" firstAttribute="top" secondItem="LAR-bU-e94" secondAttribute="bottom" constant="12" id="QAb-cy-ecQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="fVs-ug-tgs" secondAttribute="trailing" constant="20" id="T67-3M-VL7"/>
                                                     <constraint firstItem="qm5-wW-7US" firstAttribute="top" secondItem="s1c-wD-DCa" secondAttribute="bottom" constant="8" id="Uk7-jh-nTT"/>
                                                     <constraint firstAttribute="trailing" secondItem="gQ4-OC-xrU" secondAttribute="trailing" constant="20" id="WL2-nd-5PS"/>
                                                     <constraint firstItem="s1c-wD-DCa" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="WU3-Zx-Gj3"/>
                                                     <constraint firstAttribute="bottom" secondItem="R2o-i0-cWQ" secondAttribute="bottom" constant="10" id="X86-Z2-quL"/>
                                                     <constraint firstItem="ZUs-nr-cXU" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="a9h-kf-JMK"/>
-                                                    <constraint firstItem="AnR-0I-y8e" firstAttribute="top" secondItem="UVE-iI-jfq" secondAttribute="bottom" constant="8" id="aBq-Mh-1Hl"/>
-                                                    <constraint firstItem="UVE-iI-jfq" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="aJ8-oO-Upk"/>
-                                                    <constraint firstItem="AnR-0I-y8e" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="bFN-T3-Buw"/>
                                                     <constraint firstItem="tRL-2b-Sa7" firstAttribute="top" secondItem="Jfl-8k-mLX" secondAttribute="bottom" constant="10" id="d24-Ft-Zqk"/>
                                                     <constraint firstAttribute="trailing" secondItem="qm5-wW-7US" secondAttribute="trailing" constant="20" id="fAu-Eh-IHe"/>
                                                     <constraint firstItem="w15-1E-qhZ" firstAttribute="centerY" secondItem="s1c-wD-DCa" secondAttribute="centerY" id="g1K-gu-uhn"/>
@@ -298,14 +269,13 @@
                                                     <constraint firstItem="ZUs-nr-cXU" firstAttribute="top" secondItem="qm5-wW-7US" secondAttribute="bottom" constant="12" id="jGa-NY-ycY"/>
                                                     <constraint firstItem="Jfl-8k-mLX" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" id="lcW-Fj-jO0"/>
                                                     <constraint firstItem="aMs-2d-P5P" firstAttribute="top" secondItem="tRL-2b-Sa7" secondAttribute="bottom" constant="8" id="mUB-DV-bni"/>
-                                                    <constraint firstItem="E5c-IR-tIu" firstAttribute="top" secondItem="AnR-0I-y8e" secondAttribute="bottom" constant="12" id="nt3-wl-W9V"/>
+                                                    <constraint firstItem="E5c-IR-tIu" firstAttribute="top" secondItem="LAR-bU-e94" secondAttribute="bottom" constant="12" id="n9q-dW-inR"/>
                                                     <constraint firstItem="qm5-wW-7US" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="ph2-T1-Bdw"/>
                                                     <constraint firstItem="E5c-IR-tIu" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="sTc-Jb-J7h"/>
                                                     <constraint firstItem="Jfl-8k-mLX" firstAttribute="top" secondItem="EEt-CX-XPx" secondAttribute="top" id="seo-To-18S"/>
                                                     <constraint firstItem="aMs-2d-P5P" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="tjA-W3-qic"/>
                                                     <constraint firstItem="eAv-jh-Iit" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="uAE-bd-CmK"/>
                                                     <constraint firstItem="LAR-bU-e94" firstAttribute="leading" secondItem="EEt-CX-XPx" secondAttribute="leading" constant="20" id="ujr-t7-OAK"/>
-                                                    <constraint firstItem="tmf-eC-xUm" firstAttribute="centerY" secondItem="UVE-iI-jfq" secondAttribute="centerY" id="wuH-x2-RQ2"/>
                                                     <constraint firstAttribute="trailing" secondItem="R2o-i0-cWQ" secondAttribute="trailing" constant="20" id="znC-ft-LKh"/>
                                                 </constraints>
                                             </customView>
@@ -470,8 +440,6 @@
                         <outlet property="popUpButton" destination="dir-bo-Abm" id="r1z-lq-Tsz"/>
                         <outlet property="progressIndicator" destination="I0h-CV-h2R" id="J7m-fn-PcS"/>
                         <outlet property="rollLabel" destination="vpf-4Z-Xw6" id="q1H-Y9-f0J"/>
-                        <outlet property="rollOffsetLabel" destination="tmf-eC-xUm" id="TCu-7u-22x"/>
-                        <outlet property="rollOffsetSlider" destination="AnR-0I-y8e" id="Ujx-7i-dlt"/>
                         <outlet property="sceneView" destination="Gzv-xg-lAP" id="rUo-Jn-83C"/>
                         <outlet property="speedSlider" destination="ach-EY-Swg" id="Sqk-OL-8vl"/>
                     </connections>
