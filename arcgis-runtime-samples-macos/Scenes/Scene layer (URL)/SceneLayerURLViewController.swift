@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-class UseSceneLayerViewController: NSViewController {
+class SceneLayerURLViewController: NSViewController {
 
     @IBOutlet var sceneView:AGSSceneView!
     
@@ -31,7 +31,8 @@ class UseSceneLayerViewController: NSViewController {
         self.sceneView.scene = scene
         
         //set the viewpoint camera
-        let camera = AGSCamera(latitude: 53.534, longitude: 10, altitude: 500, heading: 0, pitch: 70, roll: 0)
+        let point = AGSPoint(x: -4.49779155626782, y: 48.38282454039932, z: 62.013264927081764, spatialReference: AGSSpatialReference(wkid: 4326))
+        let camera = AGSCamera(location: point, heading: 41.64729875588979, pitch: 71.2017391571523, roll: 2.194677223e-314)
         self.sceneView.setViewpointCamera(camera)
         
         // add base surface for elevation data
@@ -41,7 +42,7 @@ class UseSceneLayerViewController: NSViewController {
         scene.baseSurface = surface
         
         //scene layer
-        let sceneLayer = AGSArcGISSceneLayer(url: URL(string: "https://scene.arcgis.com/arcgis/rest/services/Hosted/Building_Hamburg/SceneServer/layers/0")!)
+        let sceneLayer = AGSArcGISSceneLayer(url: URL(string: "http://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Buildings_Brest/SceneServer/layers/0")!)
         self.sceneView.scene?.operationalLayers.add(sceneLayer)
     }
     

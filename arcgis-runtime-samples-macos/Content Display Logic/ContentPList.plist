@@ -899,14 +899,14 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
-                    <string>Use scene layer</string>
+                    <string>Scene layer (URL)</string>
                     <key>storyboardName</key>
-                    <string>UseSceneLayer</string>
+                    <string>SceneLayerURL</string>
                     <key>descriptionText</key>
                     <string>The sample shows how to use a scene layer in a scene</string>
                     <key>sourceFileNames</key>
                     <array>
-                        <string>UseSceneLayerViewController</string>
+                        <string>SceneLayerURLViewController</string>
                     </array>
                 </dict>
                 <dict>
