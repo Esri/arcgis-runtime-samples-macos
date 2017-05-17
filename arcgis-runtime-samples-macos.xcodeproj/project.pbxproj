@@ -218,6 +218,9 @@
 		3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
 		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
+		3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */; };
+		3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
+		3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
 		3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */; };
 		3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */; };
 		3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
@@ -280,6 +283,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */,
 				3EA734111EC0CE1200356885 /* Animate3DSymbolsVC.swift in CopyFiles */,
 				3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */,
 				3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */,
@@ -514,6 +518,8 @@
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
 		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
+		3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FormatCoordinates.storyboard; sourceTree = "<group>"; };
+		3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatCoordinatesViewController.swift; sourceTree = "<group>"; };
 		3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerSelection.storyboard; sourceTree = "<group>"; };
 		3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerSelectionVC.swift; sourceTree = "<group>"; };
 		3EFDE0811E30100800CBCD92 /* LegendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendCellView.swift; sourceTree = "<group>"; };
@@ -1063,6 +1069,7 @@
 			children = (
 				3E8A25B61D36F65A00D14F08 /* Create geometries */,
 				3EFDE0E91E32D66300CBCD92 /* Spatial operations */,
+				3EF024F01ECBF44600166EC5 /* Format coordinates */,
 			);
 			name = Geometry;
 			sourceTree = "<group>";
@@ -1361,6 +1368,16 @@
 			name = "Find address";
 			sourceTree = "<group>";
 		};
+		3EF024F01ECBF44600166EC5 /* Format coordinates */ = {
+			isa = PBXGroup;
+			children = (
+				3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */,
+				3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */,
+			);
+			name = "Format coordinates";
+			path = "arcgis-runtime-samples-macos/Geometry/Format coordinates";
+			sourceTree = SOURCE_ROOT;
+		};
 		3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1613,6 +1630,7 @@
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
 				3EA734101EC0CD2D00356885 /* Bristol.png in Resources */,
 				3EA734091EC0CCF400356885 /* Pyrenees.csv in Resources */,
+				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
@@ -1762,6 +1780,7 @@
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
 				3E495C431D0635C10021CD95 /* ExtrudeGraphicsViewController.swift in Sources */,
+				3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */,
 				3E7C0E321CF8F4FE00200B6E /* SourceCodeViewController.swift in Sources */,
 				3E8DB5721D2B45A000D48BC6 /* UseSceneLayerViewController.swift in Sources */,
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
