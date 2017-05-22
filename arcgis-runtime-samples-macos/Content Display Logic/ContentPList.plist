@@ -790,6 +790,18 @@
                         <string>SpatialOperationsViewController</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Format coordinates</string>
+                    <key>storyboardName</key>
+                    <string>FormatCoordinates</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to convert a map location Point to a number of different coordinate notations. Click on the map or edit the values in textfields</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FormatCoordinatesViewController</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
