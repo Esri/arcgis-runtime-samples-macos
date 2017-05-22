@@ -161,9 +161,9 @@
 		3E8D55001D5513D300E628D9 /* ScenePropertiesExpressions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8D54FF1D5513D300E628D9 /* ScenePropertiesExpressions.storyboard */; };
 		3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */; };
 		3E8D55031D58DC2F00E628D9 /* ScenePropertiesExpressions.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */; };
-		3E8DB5721D2B45A000D48BC6 /* UseSceneLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */; };
-		3E8DB5741D2B45D900D48BC6 /* UseSceneLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8DB5731D2B45D900D48BC6 /* UseSceneLayer.storyboard */; };
-		3E8DB5751D2C2CC400D48BC6 /* UseSceneLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */; };
+		3E8DB5721D2B45A000D48BC6 /* SceneLayerURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */; };
+		3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8DB5731D2B45D900D48BC6 /* SceneLayerURL.storyboard */; };
+		3E8DB5751D2C2CC400D48BC6 /* SceneLayerURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */; };
 		3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */; };
 		3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */; };
 		3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */; };
@@ -331,7 +331,7 @@
 				3E09CC781D39A536005D2757 /* FeatureLayerGDBViewController.swift in CopyFiles */,
 				3E09CC741D39A474005D2757 /* MapLoadedViewController.swift in CopyFiles */,
 				3E8A25BD1D36F93700D14F08 /* CreateGeometriesViewController.swift in CopyFiles */,
-				3E8DB5751D2C2CC400D48BC6 /* UseSceneLayerViewController.swift in CopyFiles */,
+				3E8DB5751D2C2CC400D48BC6 /* SceneLayerURLViewController.swift in CopyFiles */,
 				3E53C73A1D1D9D4A0054B5C8 /* SurfacePlacementsViewController.swift in CopyFiles */,
 				3E53C6EB1D1B5CA20054B5C8 /* SceneSymbolsViewController.swift in CopyFiles */,
 				3EBA25581D30273100AB0703 /* UniqueValueRendererViewController.swift in CopyFiles */,
@@ -466,8 +466,8 @@
 		3E8A25C71D37038000D14F08 /* FeatureLayerGDB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FeatureLayerGDB.storyboard; path = "Features/Feature layer (geodatabase)/FeatureLayerGDB.storyboard"; sourceTree = "<group>"; };
 		3E8D54FF1D5513D300E628D9 /* ScenePropertiesExpressions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ScenePropertiesExpressions.storyboard; path = "Scene properties expressions/ScenePropertiesExpressions.storyboard"; sourceTree = "<group>"; };
 		3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenePropertiesExpressions.swift; path = "Scene properties expressions/ScenePropertiesExpressions.swift"; sourceTree = "<group>"; };
-		3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UseSceneLayerViewController.swift; path = "Use scene layer/UseSceneLayerViewController.swift"; sourceTree = "<group>"; };
-		3E8DB5731D2B45D900D48BC6 /* UseSceneLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UseSceneLayer.storyboard; path = "Use scene layer/UseSceneLayer.storyboard"; sourceTree = "<group>"; };
+		3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneLayerURLViewController.swift; path = "Scene layer (URL)/SceneLayerURLViewController.swift"; sourceTree = "<group>"; };
+		3E8DB5731D2B45D900D48BC6 /* SceneLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SceneLayerURL.storyboard; path = "Scene layer (URL)/SceneLayerURL.storyboard"; sourceTree = "<group>"; };
 		3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = $HOME/Library/SDKs/ArcGIS/macOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<absolute>"; };
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSaveMapViewController.swift; path = "Maps/Create and save a map/CreateSaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOptionsViewController.swift; path = "Maps/Create and save a map/CreateOptionsViewController.swift"; sourceTree = "<group>"; };
@@ -794,7 +794,7 @@
 				3E495C411D0633F40021CD95 /* Extrude graphics */,
 				3E53C6E61D1B55880054B5C8 /* Scene symbols */,
 				3E53C7351D1D9CED0054B5C8 /* Surface placements */,
-				3E8DB5701D2B457300D48BC6 /* Use scene layer */,
+				3E8DB5701D2B457300D48BC6 /* Scene layer (URL) */,
 				3E8D54FE1D55138500E628D9 /* Scene properties expressions */,
 				3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */,
 			);
@@ -1119,13 +1119,13 @@
 			name = "Scene properties expressions";
 			sourceTree = "<group>";
 		};
-		3E8DB5701D2B457300D48BC6 /* Use scene layer */ = {
+		3E8DB5701D2B457300D48BC6 /* Scene layer (URL) */ = {
 			isa = PBXGroup;
 			children = (
-				3E8DB5711D2B45A000D48BC6 /* UseSceneLayerViewController.swift */,
-				3E8DB5731D2B45D900D48BC6 /* UseSceneLayer.storyboard */,
+				3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */,
+				3E8DB5731D2B45D900D48BC6 /* SceneLayerURL.storyboard */,
 			);
-			name = "Use scene layer";
+			name = "Scene layer (URL)";
 			sourceTree = "<group>";
 		};
 		3E913DBA1CE65F34000375C8 /* Create and save a map */ = {
@@ -1592,7 +1592,7 @@
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
 				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
-				3E8DB5741D2B45D900D48BC6 /* UseSceneLayer.storyboard in Resources */,
+				3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */,
 				3EA734001EC0CCBE00356885 /* Animate3DSymbols.storyboard in Resources */,
 				3EFDE0981E303B0600CBCD92 /* srtm.tiff in Resources */,
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
@@ -1782,7 +1782,7 @@
 				3E495C431D0635C10021CD95 /* ExtrudeGraphicsViewController.swift in Sources */,
 				3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */,
 				3E7C0E321CF8F4FE00200B6E /* SourceCodeViewController.swift in Sources */,
-				3E8DB5721D2B45A000D48BC6 /* UseSceneLayerViewController.swift in Sources */,
+				3E8DB5721D2B45A000D48BC6 /* SceneLayerURLViewController.swift in Sources */,
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
