@@ -54,6 +54,7 @@
 		3E09CC771D39A4FC005D2757 /* LA_Trails.geodatabase in Resources */ = {isa = PBXBuildFile; fileRef = 3E09CC761D39A4FC005D2757 /* LA_Trails.geodatabase */; };
 		3E09CC781D39A536005D2757 /* FeatureLayerGDBViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */; };
 		3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C57531D7A20A900C2E0BB /* CustomSegmentedCell.swift */; };
+		3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */; };
 		3E29C9E71DC7C20800E5571F /* AddFeaturesFS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C9E51DC7C20800E5571F /* AddFeaturesFS.storyboard */; };
 		3E29C9E81DC7C20800E5571F /* AddFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */; };
 		3E29C9E91DC7C44200E5571F /* AddFeaturesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */; };
@@ -218,6 +219,8 @@
 		3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
 		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
+		3EEB2B9F1EBB8CC200B52513 /* ListRelatedFeatures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */; };
+		3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */; };
 		3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */; };
 		3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
 		3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
@@ -283,6 +286,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */,
 				3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */,
 				3EA734111EC0CE1200356885 /* Animate3DSymbolsVC.swift in CopyFiles */,
 				3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */,
@@ -518,6 +522,8 @@
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
 		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
+		3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListRelatedFeatures.storyboard; sourceTree = "<group>"; };
+		3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRelatedFeaturesVC.swift; sourceTree = "<group>"; };
 		3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FormatCoordinates.storyboard; sourceTree = "<group>"; };
 		3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatCoordinatesViewController.swift; sourceTree = "<group>"; };
 		3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerSelection.storyboard; sourceTree = "<group>"; };
@@ -1004,6 +1010,7 @@
 				3E01038F1E2DC8B50013AEEF /* Generate geodatabase */,
 				3EFDE0D01E31850900CBCD92 /* Feature collection layer */,
 				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
+				3EEB2B9C1EBB8CC200B52513 /* List related features */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1368,6 +1375,16 @@
 			name = "Find address";
 			sourceTree = "<group>";
 		};
+		3EEB2B9C1EBB8CC200B52513 /* List related features */ = {
+			isa = PBXGroup;
+			children = (
+				3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */,
+				3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */,
+			);
+			name = "List related features";
+			path = "Features/List related features";
+			sourceTree = "<group>";
+        };
 		3EF024F01ECBF44600166EC5 /* Format coordinates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1613,6 +1630,7 @@
 				3EFDE0BF1E31287B00CBCD92 /* ShastaBW.tif.aux.xml in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
+				3EEB2B9F1EBB8CC200B52513 /* ListRelatedFeatures.storyboard in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3EFDE0E31E3288C900CBCD92 /* Hotspots.storyboard in Resources */,
@@ -1742,6 +1760,7 @@
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
+				3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,

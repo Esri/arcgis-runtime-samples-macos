@@ -556,6 +556,18 @@
                         <string>FeatureCollectionLayerQueryVC</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>List related features</string>
+                    <key>storyboardName</key>
+                    <string>ListRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to query related features for a given feature. Click on a feature on the map to see its related features</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ListRelatedFeaturesVC</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
