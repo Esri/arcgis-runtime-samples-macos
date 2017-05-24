@@ -21,11 +21,11 @@
                                 <rect key="frame" x="236" y="30" width="250" height="362"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="uo3-8N-6R4">
-                                        <rect key="frame" x="0.0" y="322" width="250" height="40"/>
+                                        <rect key="frame" x="0.0" y="323" width="250" height="39"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r1T-E9-QyE">
-                                                <rect key="frame" x="18" y="11" width="214" height="19"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Related features" id="JBv-VE-fJv">
+                                                <rect key="frame" x="18" y="10" width="214" height="19"/>
+                                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Origin feature" id="JBv-VE-fJv">
                                                     <font key="font" metaFont="systemSemibold" size="15"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -33,9 +33,10 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="51b-AG-UUq"/>
+                                            <constraint firstItem="r1T-E9-QyE" firstAttribute="top" secondItem="uo3-8N-6R4" secondAttribute="top" constant="10" id="RIC-zb-1JQ"/>
                                             <constraint firstItem="r1T-E9-QyE" firstAttribute="leading" secondItem="uo3-8N-6R4" secondAttribute="leading" constant="20" id="S6M-Mk-Wko"/>
                                             <constraint firstAttribute="trailing" secondItem="r1T-E9-QyE" secondAttribute="trailing" constant="20" id="c42-Le-lvW"/>
+                                            <constraint firstAttribute="bottom" secondItem="r1T-E9-QyE" secondAttribute="bottom" constant="10" id="uhj-IN-Wyp"/>
                                             <constraint firstItem="r1T-E9-QyE" firstAttribute="centerY" secondItem="uo3-8N-6R4" secondAttribute="centerY" id="yJi-Lr-eNY"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -45,13 +46,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWQ-rB-WcA">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="322"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="296"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="NjX-Yf-k4O">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="322"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="296"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="tGw-hZ-Gfc" id="mma-QE-khn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="322"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="296"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="5"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -108,16 +109,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-L5-cId">
+                                        <rect key="frame" x="3" y="301" width="244" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Related Features" id="n7A-eT-lQN">
+                                            <font key="font" metaFont="systemSemibold" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="jWQ-rB-WcA" secondAttribute="trailing" id="2Ez-dv-UVA"/>
                                     <constraint firstItem="jWQ-rB-WcA" firstAttribute="leading" secondItem="obz-6J-MGG" secondAttribute="leading" id="7sV-0u-scw"/>
                                     <constraint firstItem="uo3-8N-6R4" firstAttribute="leading" secondItem="obz-6J-MGG" secondAttribute="leading" id="CIi-rX-TDQ"/>
+                                    <constraint firstItem="KPI-L5-cId" firstAttribute="top" secondItem="uo3-8N-6R4" secondAttribute="bottom" constant="5" id="GDR-eE-4m1"/>
                                     <constraint firstAttribute="trailing" secondItem="uo3-8N-6R4" secondAttribute="trailing" id="Pk6-8a-PT7"/>
+                                    <constraint firstItem="jWQ-rB-WcA" firstAttribute="top" secondItem="KPI-L5-cId" secondAttribute="bottom" constant="5" id="SIi-X9-eYe"/>
                                     <constraint firstItem="uo3-8N-6R4" firstAttribute="top" secondItem="obz-6J-MGG" secondAttribute="top" id="XMV-9y-QsS"/>
                                     <constraint firstAttribute="width" constant="250" id="dtp-LL-R9u"/>
+                                    <constraint firstItem="KPI-L5-cId" firstAttribute="leading" secondItem="obz-6J-MGG" secondAttribute="leading" constant="5" id="fRb-vE-2Ct"/>
+                                    <constraint firstAttribute="trailing" secondItem="KPI-L5-cId" secondAttribute="trailing" constant="5" id="iJf-Xw-JDL"/>
                                     <constraint firstAttribute="bottom" secondItem="jWQ-rB-WcA" secondAttribute="bottom" id="oOd-Pe-vXZ"/>
-                                    <constraint firstItem="jWQ-rB-WcA" firstAttribute="top" secondItem="uo3-8N-6R4" secondAttribute="bottom" id="zKV-3u-Coa"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -131,6 +143,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="featureTextField" destination="r1T-E9-QyE" id="oud-3v-GXs"/>
                         <outlet property="mapView" destination="Iw9-U4-KXN" id="G9W-Bz-WFU"/>
                         <outlet property="outlineView" destination="mma-QE-khn" id="5pm-ac-BeB"/>
                         <outlet property="visualEffectView" destination="obz-6J-MGG" id="7pN-D9-GT9"/>

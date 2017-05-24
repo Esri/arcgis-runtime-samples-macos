@@ -24,6 +24,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
     @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
     @IBOutlet private var visualEffectView:NSVisualEffectView!
+    @IBOutlet private var featureTextField:NSTextField!
     
     private var parksFeatureLayer:AGSFeatureLayer!
     private var parksFeatureTable:AGSServiceFeatureTable!
@@ -111,6 +112,8 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     
                     //toggle results on
                     self?.toggleVisualEffectView(on: true, animated: true)
+                    
+                    self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
                     
                     //reload outline view data
                     self?.outlineView.reloadData()
