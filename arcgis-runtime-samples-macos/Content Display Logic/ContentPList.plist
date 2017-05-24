@@ -802,6 +802,18 @@
                         <string>SpatialOperationsViewController</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Format coordinates</string>
+                    <key>storyboardName</key>
+                    <string>FormatCoordinates</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to convert a map location Point to a number of different coordinate notations. Click on the map or edit the values in textfields</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FormatCoordinatesViewController</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
@@ -911,14 +923,14 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
-                    <string>Use scene layer</string>
+                    <string>Scene layer (URL)</string>
                     <key>storyboardName</key>
-                    <string>UseSceneLayer</string>
+                    <string>SceneLayerURL</string>
                     <key>descriptionText</key>
                     <string>The sample shows how to use a scene layer in a scene</string>
                     <key>sourceFileNames</key>
                     <array>
-                        <string>UseSceneLayerViewController</string>
+                        <string>SceneLayerURLViewController</string>
                     </array>
                 </dict>
                 <dict>
@@ -931,6 +943,18 @@
                     <key>sourceFileNames</key>
                     <array>
                         <string>ScenePropertiesExpressions</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Animate 3D symbols</string>
+                    <key>storyboardName</key>
+                    <string>Animate3DSymbols</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>Animate3DSymbolsVC</string>
                     </array>
                 </dict>
             </array>

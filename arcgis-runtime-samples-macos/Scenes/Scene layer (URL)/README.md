@@ -1,4 +1,4 @@
-# Use scene layer
+# Scene layer (URL)
 
 The sample shows how to use a scene layer in a scene.
 
