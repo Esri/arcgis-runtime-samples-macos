@@ -36,18 +36,20 @@ class GenerateGeodatabaseVC: NSViewController {
         let tileCache = AGSTileCache(fileURL: URL(fileURLWithPath: path))
         let localTiledLayer = AGSArcGISTiledLayer(tileCache: tileCache)
         
-        
         self.map = AGSMap(basemap: AGSBasemap(baseLayer: localTiledLayer))
         
         self.syncTask = AGSGeodatabaseSyncTask(url: self.FEATURE_SERVICE_URL)
         
         self.addFeatureLayers()
         
+        self.mapView.map = self.map
+    }
+    
+    override func viewDidAppear() {
+        
         //setup extent view
         self.extentView.layer?.borderColor = NSColor.red.cgColor
         self.extentView.layer?.borderWidth = 3
-        
-        self.mapView.map = self.map
     }
     
     func addFeatureLayers() {
