@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Vw7-bt-MSI">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <scenes>
+        <!--Web Tiled Layer View Controller-->
+        <scene sceneID="UuX-6a-eZw">
+            <objects>
+                <viewController id="Vw7-bt-MSI" customClass="WebTiledLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="FCg-pc-HqI">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="9rV-XG-lBg" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9rV-XG-lBg" secondAttribute="bottom" id="H3C-pF-2fm"/>
+                            <constraint firstItem="9rV-XG-lBg" firstAttribute="leading" secondItem="FCg-pc-HqI" secondAttribute="leading" id="IiD-qm-FfO"/>
+                            <constraint firstItem="9rV-XG-lBg" firstAttribute="top" secondItem="FCg-pc-HqI" secondAttribute="top" id="gLh-um-Zav"/>
+                            <constraint firstAttribute="trailing" secondItem="9rV-XG-lBg" secondAttribute="trailing" id="myT-Zi-KX6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="9rV-XG-lBg" id="9kt-Q0-cVE"/>
+                    </connections>
+                </viewController>
+                <customObject id="MxK-hc-fdl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="143"/>
+        </scene>
+    </scenes>
+</document>
