@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="FE2-J9-Oc2">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Raster LayerVC-->
+        <scene sceneID="r9G-Mt-Ua3">
+            <objects>
+                <viewController id="FE2-J9-Oc2" customClass="RasterLayerVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ycI-cU-jeJ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oca-ud-TdP" userLabel="Map View" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="oca-ud-TdP" firstAttribute="top" secondItem="ycI-cU-jeJ" secondAttribute="top" id="80S-6g-pKT"/>
+                            <constraint firstAttribute="trailing" secondItem="oca-ud-TdP" secondAttribute="trailing" id="A6h-8H-oCs"/>
+                            <constraint firstAttribute="bottom" secondItem="oca-ud-TdP" secondAttribute="bottom" id="Wzj-2e-CTU"/>
+                            <constraint firstItem="oca-ud-TdP" firstAttribute="leading" secondItem="ycI-cU-jeJ" secondAttribute="leading" id="iPo-cu-6xZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="oca-ud-TdP" id="rBs-0I-zGY"/>
+                    </connections>
+                </viewController>
+                <customObject id="kD7-jn-ExK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41" y="85"/>
+        </scene>
+    </scenes>
+</document>
