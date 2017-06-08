@@ -42,4 +42,8 @@ class RasterLayerVC: NSViewController {
         }
     }
     
+    deinit {
+        self.rasterLayer.removeObserver(self, forKeyPath: "loadStatus")
+    }
+    
 }
