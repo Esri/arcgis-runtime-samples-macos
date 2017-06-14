@@ -31,19 +31,11 @@ class RasterLayerVC: NSViewController {
         
         self.mapView.map?.operationalLayers.add(rasterLayer!)
         
-        self.rasterLayer.addObserver(self, forKeyPath: "loadStatus", options: .new, context: nil)
+        self.rasterLayer.load { (error) in
+            if error == nil {
+                self.mapView.setViewpoint(AGSViewpoint(center: (self.rasterLayer.fullExtent?.center)!, scale: 80000))
+            }
+        }
         
     }
-    
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if self.rasterLayer.loadStatus == AGSLoadStatus.loaded {
-            self.mapView.setViewpoint(AGSViewpoint(center: (self.rasterLayer.fullExtent?.center)!, scale: 80000))
-        }
-    }
-    
-    deinit {
-        self.rasterLayer.removeObserver(self, forKeyPath: "loadStatus")
-    }
-    
 }
