@@ -46,7 +46,7 @@ class RasterLayerViewController: NSViewController {
         //set map view's viewpoint to the raster layer's full extent
         self.rasterLayer.load { [weak self] (error) in
             guard error == nil else {
-                self?.showAlert(messageText: "Error", informativeText: "Error while loading raster layer :: \(error?.localizedDescription)")
+                self?.showAlert(messageText: "Error", informativeText: "Error while loading raster layer :: \(error!.localizedDescription)")
                 return
             }
             
