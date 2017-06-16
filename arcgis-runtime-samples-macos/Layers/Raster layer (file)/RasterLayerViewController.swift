@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-class RasterLayerVC: NSViewController {
+class RasterLayerViewController: NSViewController {
 
     @IBOutlet private weak var mapView: AGSMapView!
     
@@ -44,11 +44,25 @@ class RasterLayerVC: NSViewController {
         self.mapView.map?.operationalLayers.add(rasterLayer!)
         
         //set map view's viewpoint to the raster layer's full extent
-        self.rasterLayer.load { (error) in
-            if error == nil {
-                self.mapView.setViewpoint(AGSViewpoint(center: (self.rasterLayer.fullExtent?.center)!, scale: 80000))
+        self.rasterLayer.load { [weak self] (error) in
+            guard error == nil else {
+                self?.showAlert(messageText: "Error", informativeText: "Error while loading raster layer :: \(error?.localizedDescription)")
+                return
+            }
+            
+            if let center = self?.rasterLayer.fullExtent?.center {
+                self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 80000))
             }
         }
         
+    }
+    
+    //MARK: - Helper methods
+    
+    private func showAlert(messageText:String, informativeText:String) {
+        let alert = NSAlert()
+        alert.messageText = messageText
+        alert.informativeText = informativeText
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

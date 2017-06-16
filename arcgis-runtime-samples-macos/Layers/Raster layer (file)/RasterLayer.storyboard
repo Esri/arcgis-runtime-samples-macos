@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Raster LayerVC-->
+        <!--Raster Layer View Controller-->
         <scene sceneID="r9G-Mt-Ua3">
             <objects>
-                <viewController id="FE2-J9-Oc2" customClass="RasterLayerVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FE2-J9-Oc2" customClass="RasterLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ycI-cU-jeJ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

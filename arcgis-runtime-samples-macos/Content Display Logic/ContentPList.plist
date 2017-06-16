@@ -402,7 +402,7 @@
                     <string>You can create a raster layer from a file</string>
                     <key>sourceFileNames</key>
                     <array>
-                        <string>RasterLayerVC</string>
+                        <string>RasterLayerViewController</string>
                     </array>
                 </dict>
                 <dict>

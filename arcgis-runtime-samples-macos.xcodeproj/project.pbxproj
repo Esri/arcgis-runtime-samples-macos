@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
-		166E8FA51EE6314A00C57C46 /* RasterLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerVC.swift */; };
-		166E8FA71EE6339400C57C46 /* RasterLayerVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerVC.swift */; };
+		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
+		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */; };
 		3E01035E1E28579C0013AEEF /* ManageBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
 		3E01035F1E2960750013AEEF /* ManageBookmarksViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
@@ -289,7 +289,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				166E8FA71EE6339400C57C46 /* RasterLayerVC.swift in CopyFiles */,
+				166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */,
 				3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */,
 				3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */,
 				3EA734111EC0CE1200356885 /* Animate3DSymbolsVC.swift in CopyFiles */,
@@ -375,7 +375,7 @@
 
 /* Begin PBXFileReference section */
 		166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayer.storyboard; sourceTree = "<group>"; };
-		166E8FA31EE6314A00C57C46 /* RasterLayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerVC.swift; sourceTree = "<group>"; };
+		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
 		3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBookmarksViewController.swift; sourceTree = "<group>"; };
 		3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLayerCellView.swift; sourceTree = "<group>"; };
@@ -589,7 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */,
-				166E8FA31EE6314A00C57C46 /* RasterLayerVC.swift */,
+				166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */,
 			);
 			name = "Raster layer (file)";
 			path = "Layers/Raster layer (file)";
@@ -1778,7 +1778,7 @@
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
-				166E8FA51EE6314A00C57C46 /* RasterLayerVC.swift in Sources */,
+				166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */,
 				3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
