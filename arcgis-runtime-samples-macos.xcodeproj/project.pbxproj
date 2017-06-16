@@ -1000,13 +1000,13 @@
 		3E8724751BC7083F006386C1 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				166E8FA01EE6311300C57C46 /* Raster layer (file) */,
 				3E8724791BC70898006386C1 /* ArcGIS tiled layer (URL) */,
 				3E0103691E298B530013AEEF /* ArcGIS tiled layer (tile cache) */,
 				3E049A241CED11A50031ADA9 /* ArcGIS map image layer (URL) */,
 				3E01037A1E29961A0013AEEF /* Change sublayer visibility */,
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
+				166E8FA01EE6311300C57C46 /* Raster layer (file) */,
 				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
