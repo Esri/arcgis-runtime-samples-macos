@@ -14,14 +14,41 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="9rV-XG-lBg" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qjG-LF-og5">
+                                <rect key="frame" x="94" y="0.0" width="264" height="50"/>
+                                <subviews>
+                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ldn-vG-3XM">
+                                        <rect key="frame" x="8" y="13" width="248" height="24"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Y4F-Om-0tK">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="Toner" width="80" selected="YES"/>
+                                                <segment label="Terrain" width="80" tag="1"/>
+                                                <segment label="Watercolor" width="80"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="segmentedControlValueChanged:" target="Vw7-bt-MSI" id="TUG-6Z-uxl"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ldn-vG-3XM" firstAttribute="leading" secondItem="qjG-LF-og5" secondAttribute="leading" constant="10" id="AJg-bW-ZLT"/>
+                                    <constraint firstAttribute="height" constant="50" id="MKw-SU-YGN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ldn-vG-3XM" secondAttribute="trailing" constant="10" id="lZB-WM-efs"/>
+                                    <constraint firstItem="ldn-vG-3XM" firstAttribute="centerY" secondItem="qjG-LF-og5" secondAttribute="centerY" id="ltq-SV-Hem"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="9rV-XG-lBg" secondAttribute="bottom" id="H3C-pF-2fm"/>
+                            <constraint firstAttribute="bottom" secondItem="qjG-LF-og5" secondAttribute="bottom" id="4Ln-Q7-d4v"/>
                             <constraint firstItem="9rV-XG-lBg" firstAttribute="leading" secondItem="FCg-pc-HqI" secondAttribute="leading" id="IiD-qm-FfO"/>
+                            <constraint firstItem="qjG-LF-og5" firstAttribute="centerX" secondItem="FCg-pc-HqI" secondAttribute="centerX" id="JM3-h3-3pO"/>
                             <constraint firstItem="9rV-XG-lBg" firstAttribute="top" secondItem="FCg-pc-HqI" secondAttribute="top" id="gLh-um-Zav"/>
                             <constraint firstAttribute="trailing" secondItem="9rV-XG-lBg" secondAttribute="trailing" id="myT-Zi-KX6"/>
+                            <constraint firstItem="qjG-LF-og5" firstAttribute="top" secondItem="9rV-XG-lBg" secondAttribute="bottom" id="zXw-qq-AUP"/>
                         </constraints>
                     </view>
                     <connections>
