@@ -90,6 +90,11 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         //show progress indicator
         self.view.window?.showProgressIndicator()
         
+        //reset table view till new query returns results
+        self.results = nil
+        self.outlineView.reloadData()
+        self.featureTextField.stringValue = ""
+        
         //query for related features
         self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
             
@@ -103,9 +108,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
             }
             else {
                 if let results = results, results.count > 0 {
-                    
-                    //select new park
-                    self?.parksFeatureLayer.select(self!.selectedPark)
                     
                     //store results to show in the outline view
                     self?.results = results
@@ -159,13 +161,11 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     //Will pick the first feature
                     let feature = result.geoElements[0] as! AGSArcGISFeature
                     
-                    //unselect previously selected park
-                    if let previousSelection = self?.selectedPark {
-                        self?.parksFeatureLayer.unselectFeature(previousSelection)
-                    }
-                    
                     //will need the selected park for related features query and highlighting
                     self?.selectedPark = feature
+                    
+                    //select new park
+                    self?.parksFeatureLayer.select(feature)
                     
                     //query for related features
                     self?.queryRelatedFeatures()
