@@ -580,6 +580,18 @@
                         <string>ListRelatedFeaturesVC</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add delete related features</string>
+                    <key>storyboardName</key>
+                    <string>AddDeleteRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to add or delete related features to an origin feature</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>AddDeleteRelatedFeaturesVC</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
