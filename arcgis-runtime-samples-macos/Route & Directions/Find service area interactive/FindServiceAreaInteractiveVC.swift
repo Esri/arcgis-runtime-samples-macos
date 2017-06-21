@@ -87,7 +87,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         self.serviceAreaTask.defaultServiceAreaParameters { [weak self] (parameters: AGSServiceAreaParameters?, error: Error?) in
             
             guard error == nil else {
-                print("Error getting default parameters:: \(error!.localizedDescription)")
+                self?.showAlert(messageText: "Error getting default parameters", informativeText: error!.localizedDescription)
                 return
             }
             
@@ -126,8 +126,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         //check if at least a single facility is added
         if self.facilitiesGraphicsOverlay.graphics.count == 0 {
             
-            print("At least one facility is required")
-            
+            self.showAlert(messageText: "Error", informativeText: "At least one facility is required")
             return
         }
         
@@ -169,7 +168,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             }
             
             guard error == nil else {
-                print("Error solving service area:: \(error!.localizedDescription)")
+                self?.showAlert(messageText: "Error solving service area", informativeText: error!.localizedDescription)
                 return
             }
             
@@ -229,6 +228,13 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             self.barriersGraphicsOverlay.graphics.add(graphic)
         }
     }
-
     
+    //MARK: - Helper methods
+    
+    private func showAlert(messageText:String, informativeText:String) {
+        let alert = NSAlert()
+        alert.messageText = messageText
+        alert.informativeText = informativeText
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
 }
