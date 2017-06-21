@@ -407,6 +407,18 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
+                    <string>Raster layer (file)</string>
+                    <key>storyboardName</key>
+                    <string>RasterLayer</string>
+                    <key>descriptionText</key>
+                    <string>You can create a raster layer from a file</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RasterLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Hillshade renderer</string>
                     <key>storyboardName</key>
                     <string>HillshadeRenderer</string>
@@ -845,6 +857,18 @@
                         <string>RouteAroundBarriersVC</string>
                         <string>DirectionsListViewController</string>
                         <string>RouteParametersViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find service area interactive</string>
+                    <key>storyboardName</key>
+                    <string>FindServiceAreaInteractive</string>
+                    <key>descriptionText</key>
+                    <string>This samples shows how to find service areas around a point</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindServiceAreaInteractiveVC</string>
                     </array>
                 </dict>
             </array>

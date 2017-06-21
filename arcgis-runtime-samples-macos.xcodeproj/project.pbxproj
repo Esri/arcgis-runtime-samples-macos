@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
+		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
+		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */; };
 		3E01035E1E28579C0013AEEF /* ManageBookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
 		3E01035F1E2960750013AEEF /* ManageBookmarksViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */; };
@@ -93,6 +96,9 @@
 		3E53C7381D1D9CED0054B5C8 /* SurfacePlacements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E53C7361D1D9CED0054B5C8 /* SurfacePlacements.storyboard */; };
 		3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53C7371D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift */; };
 		3E53C73A1D1D9D4A0054B5C8 /* SurfacePlacementsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E53C7371D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift */; };
+		3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5E09441EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard */; };
+		3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */; };
+		3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */; };
 		3E69DE301CFE2826001F65F7 /* OpenExistingMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8724901BC710DA006386C1 /* OpenExistingMapViewController.swift */; };
 		3E69DE311CFE2826001F65F7 /* ExistingMapsListViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE351BCC6FD300CE256D /* ExistingMapsListViewController.swift */; };
 		3E69DE321CFE2826001F65F7 /* ChangeBasemapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE021BC86A6D00CE256D /* ChangeBasemapViewController.swift */; };
@@ -290,6 +296,8 @@
 			dstSubfolderSpec = 7;
 			files = (
 				3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */,
+				3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */,
+				166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */,
 				3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */,
 				3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */,
 				3EA734111EC0CE1200356885 /* Animate3DSymbolsVC.swift in CopyFiles */,
@@ -374,6 +382,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayer.storyboard; sourceTree = "<group>"; };
+		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
 		3E01035C1E28579C0013AEEF /* ManageBookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBookmarksViewController.swift; sourceTree = "<group>"; };
 		3E0103611E29671E0013AEEF /* AddedLayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLayerCellView.swift; sourceTree = "<group>"; };
@@ -437,6 +447,8 @@
 		3E53C6E81D1B55880054B5C8 /* SceneSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneSymbolsViewController.swift; sourceTree = "<group>"; };
 		3E53C7361D1D9CED0054B5C8 /* SurfacePlacements.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SurfacePlacements.storyboard; sourceTree = "<group>"; };
 		3E53C7371D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurfacePlacementsViewController.swift; sourceTree = "<group>"; };
+		3E5E09441EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindServiceAreaInteractive.storyboard; sourceTree = "<group>"; };
+		3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindServiceAreaInteractiveVC.swift; sourceTree = "<group>"; };
 		3E69DE451CFE2DEC001F65F7 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindowController.swift; path = Controllers/WindowController.swift; sourceTree = "<group>"; };
 		3E69DE471CFE34A3001F65F7 /* ReadmeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadmeViewController.swift; path = Controllers/ReadmeViewController.swift; sourceTree = "<group>"; };
 		3E69DE4A1CFE43EA001F65F7 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
@@ -585,6 +597,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166E8FA01EE6311300C57C46 /* Raster layer (file) */ = {
+			isa = PBXGroup;
+			children = (
+				166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */,
+				166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */,
+			);
+			name = "Raster layer (file)";
+			path = "Layers/Raster layer (file)";
+			sourceTree = "<group>";
+		};
 		3E01035A1E28579C0013AEEF /* Manage bookmarks */ = {
 			isa = PBXGroup;
 			children = (
@@ -876,6 +898,7 @@
 			isa = PBXGroup;
 			children = (
 				3E496EEC1DD39DF4004C921C /* Route around barriers */,
+				3E5E09431EF843ED00FF3454 /* Find service area interactive */,
 			);
 			path = "Route & Directions";
 			sourceTree = "<group>";
@@ -910,6 +933,15 @@
 			name = "Surface placements";
 			path = "arcgis-runtime-samples-macos/Scenes/Surface placements";
 			sourceTree = SOURCE_ROOT;
+		};
+		3E5E09431EF843ED00FF3454 /* Find service area interactive */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E09441EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard */,
+				3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */,
+			);
+			path = "Find service area interactive";
+			sourceTree = "<group>";
 		};
 		3E78235B1DCD52D20011B304 /* Identify layers */ = {
 			isa = PBXGroup;
@@ -997,6 +1029,7 @@
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
 				3EA15C6C1ED88C6200B1F816 /* Web tiled layer */,
+				166E8FA01EE6311300C57C46 /* Raster layer (file) */,
 				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
@@ -1679,10 +1712,12 @@
 				3EFDE0B91E31287B00CBCD92 /* Shasta.tfw in Resources */,
 				3EFDE0BA1E31287B00CBCD92 /* Shasta.tif in Resources */,
 				3EC1AE741BAC8DA100E32B1D /* Main.storyboard in Resources */,
+				166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */,
 				3E8A25BC1D36F75300D14F08 /* CreateGeometries.storyboard in Resources */,
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
+				3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */,
 				3E049A341CED132F0031ADA9 /* GraphicsWithSymbols.storyboard in Resources */,
 				3EFDE09D1E31271700CBCD92 /* BlendRenderer.storyboard in Resources */,
 				3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */,
@@ -1771,12 +1806,14 @@
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
 				3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
+				3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
 				3EFDE0E41E3288C900CBCD92 /* HotspotsViewController.swift in Sources */,
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
+				166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */,
 				3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,

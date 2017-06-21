@@ -58,6 +58,11 @@ class ExtrudeGraphicsViewController: NSViewController {
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
         
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
         //add the graphics
         self.addGraphics()
     }
