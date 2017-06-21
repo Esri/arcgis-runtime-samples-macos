@@ -175,6 +175,9 @@
 		3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */; };
 		3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */; };
 		3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */; };
+		3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */; };
+		3EA15C701ED88D2900B1F816 /* WebTiledLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */; };
+		3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */; };
 		3EA734001EC0CCBE00356885 /* Animate3DSymbols.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA733FE1EC0CCBE00356885 /* Animate3DSymbols.storyboard */; };
 		3EA734011EC0CCBE00356885 /* Animate3DSymbolsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA733FF1EC0CCBE00356885 /* Animate3DSymbolsVC.swift */; };
 		3EA734071EC0CCF400356885 /* GrandCanyon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3EA734031EC0CCF400356885 /* GrandCanyon.csv */; };
@@ -292,6 +295,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */,
 				3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */,
 				166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */,
 				3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */,
@@ -488,6 +492,8 @@
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSaveMapViewController.swift; path = "Maps/Create and save a map/CreateSaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOptionsViewController.swift; path = "Maps/Create and save a map/CreateOptionsViewController.swift"; sourceTree = "<group>"; };
 		3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateSaveMap.storyboard; path = "Maps/Create and save a map/CreateSaveMap.storyboard"; sourceTree = "<group>"; };
+		3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebTiledLayerViewController.swift; path = "Layers/Web tiled layer/WebTiledLayerViewController.swift"; sourceTree = "<group>"; };
+		3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WebTiledLayer.storyboard; path = "Layers/Web tiled layer/WebTiledLayer.storyboard"; sourceTree = "<group>"; };
 		3EA733FE1EC0CCBE00356885 /* Animate3DSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Animate3DSymbols.storyboard; sourceTree = "<group>"; };
 		3EA733FF1EC0CCBE00356885 /* Animate3DSymbolsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animate3DSymbolsVC.swift; sourceTree = "<group>"; };
 		3EA734031EC0CCF400356885 /* GrandCanyon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GrandCanyon.csv; sourceTree = "<group>"; };
@@ -1022,6 +1028,7 @@
 				3E01037A1E29961A0013AEEF /* Change sublayer visibility */,
 				3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */,
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
+				3EA15C6C1ED88C6200B1F816 /* Web tiled layer */,
 				166E8FA01EE6311300C57C46 /* Raster layer (file) */,
 				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
@@ -1177,6 +1184,15 @@
 				3E049A111CEA6FE10031ADA9 /* SaveMapViewController.swift */,
 			);
 			name = "Create and save a map";
+			sourceTree = "<group>";
+		};
+		3EA15C6C1ED88C6200B1F816 /* Web tiled layer */ = {
+			isa = PBXGroup;
+			children = (
+				3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */,
+				3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */,
+			);
+			name = "Web tiled layer";
 			sourceTree = "<group>";
 		};
 		3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */ = {
@@ -1723,6 +1739,7 @@
 				3EFDE0E51E3288C900CBCD92 /* Viewshed.storyboard in Resources */,
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
+				3EA15C701ED88D2900B1F816 /* WebTiledLayer.storyboard in Resources */,
 				3EFDE0A71E31279700CBCD92 /* RGBRenderer.storyboard in Resources */,
 				3E496ED41DD14FE2004C921C /* MobileMapViewItem.xib in Resources */,
 				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
@@ -1817,6 +1834,7 @@
 				3E496ED01DD14FE2004C921C /* MapPackagesListVC.swift in Sources */,
 				3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */,
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
+				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */,
 				3E69DE481CFE34A3001F65F7 /* ReadmeViewController.swift in Sources */,
