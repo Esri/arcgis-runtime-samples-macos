@@ -49,7 +49,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //parks feature table
         self.parksFeatureTable = AGSServiceFeatureTable(url: URL(string: "https://services2.arcgis.com/ZQgQTuoyBrtmoGdP/ArcGIS/rest/services/AlaskaNationalParksSpecies_Add_Delete/FeatureServer/0")!)
         
-        //parks feature layer
+        //parks feature layer (origin feature layer)
         self.parksFeatureLayer = AGSFeatureLayer(featureTable: self.parksFeatureTable)
         
         //change selection width for feature layer
@@ -59,10 +59,12 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //add feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
         
-        //species feature table
+        //species feature table (destination feature table)
+        //related to the parks feature layer in a 1..M relationship
         self.speciesFeatureTable = AGSServiceFeatureTable(url: URL(string: "https://services2.arcgis.com/ZQgQTuoyBrtmoGdP/ArcGIS/rest/services/AlaskaNationalParksSpecies_Add_Delete/FeatureServer/1")!)
         
         //add table to the map
+        //for the related query to work, the related table should be present in the map
         map.tables.addObjects(from: [speciesFeatureTable])
         
         //add constraint for visual effect view wrt the attribution label on map view
@@ -81,7 +83,11 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     private func queryRelatedFeatures() {
         
         //get relationship info
+        //feature table's layer info has an array of relationshipInfos, one for each relationship
+        //in this case there is only one describing the 1..M relationship between parks and species
         guard let relationshipInfo = self.parksFeatureTable.layerInfo?.relationshipInfos[0] else {
+            
+            self.showAlert(messageText: "Error", informativeText: "Relationship info not found")
             return
         }
         
@@ -97,7 +103,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //order results by OBJECTID field
         parameters.orderByFields = [AGSOrderBy(fieldName: "OBJECTID", sortOrder: .descending)]
         
-        //query
+        //query for species related to the selected park
         self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
             
             //hide progress indicator
@@ -112,9 +118,13 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
             
             if let results = results, results.count > 0 {
                 
+                //Displaying information on selected park using the field UNIT_NAME, name of the park
                 self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
                 
+                //save the related features to display in the table view
                 self?.relatedFeatures = results[0].featureEnumerator().allObjects
+                
+                //reload table view to reflect changes
                 self?.tableView.reloadData()
                 
                 //show container view
@@ -131,7 +141,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //get related table using relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
         
-        //new feature
+        //new related feature (specie)
         let feature = relatedTable.createFeature(attributes: ["Scientific_name" : "New specie"], geometry: nil) as! AGSArcGISFeature
         
         //relate new feature to origin feature
@@ -268,10 +278,13 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
+        //related feature for row
         let feature = self.relatedFeatures[row]
         
+        //cell view
         let cellView = tableView.make(withIdentifier: "RelatedFeatureCellView", owner: self) as! NSTableCellView
         
+        //use the field Scientific_Name for specie's info
         cellView.textField?.stringValue = feature.attributes["Scientific_Name"] as! String
         
         return cellView
@@ -304,7 +317,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
             return
         }
         
-        if event.keyCode == 51 { //delete
+        if event.keyCode == 51 { //delete key is pressed
             
             if window.firstResponder == self.tableView && self.tableView.selectedRow != -1 {
                 
