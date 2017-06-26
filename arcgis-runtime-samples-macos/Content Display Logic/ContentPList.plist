@@ -395,6 +395,18 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
+                    <string>Web tiled layer</string>
+                    <key>storyboardName</key>
+                    <string>WebTiledLayer</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to display map tiles from an online resource</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>WebTiledLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Raster layer (file)</string>
                     <key>storyboardName</key>
                     <string>RasterLayer</string>
@@ -857,6 +869,18 @@
                         <string>RouteAroundBarriersVC</string>
                         <string>DirectionsListViewController</string>
                         <string>RouteParametersViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find service area interactive</string>
+                    <key>storyboardName</key>
+                    <string>FindServiceAreaInteractive</string>
+                    <key>descriptionText</key>
+                    <string>This samples shows how to find service areas around a point</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindServiceAreaInteractiveVC</string>
                     </array>
                 </dict>
             </array>
