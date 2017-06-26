@@ -233,6 +233,9 @@
 		3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */; };
 		3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
 		3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */; };
+		3EF190A91EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF190A71EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard */; };
+		3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF190A81EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift */; };
+		3EF190AB1EF9C1430037779D /* AddDeleteRelatedFeaturesVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EF190A81EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift */; };
 		3EFDE0791E2FDF4200CBCD92 /* GenerateGeodatabaseVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */; };
 		3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */; };
 		3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */; };
@@ -295,6 +298,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EF190AB1EF9C1430037779D /* AddDeleteRelatedFeaturesVC.swift in CopyFiles */,
 				3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */,
 				3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */,
 				166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */,
@@ -544,6 +548,8 @@
 		3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRelatedFeaturesVC.swift; sourceTree = "<group>"; };
 		3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FormatCoordinates.storyboard; sourceTree = "<group>"; };
 		3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatCoordinatesViewController.swift; sourceTree = "<group>"; };
+		3EF190A71EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddDeleteRelatedFeatures.storyboard; sourceTree = "<group>"; };
+		3EF190A81EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeleteRelatedFeaturesVC.swift; sourceTree = "<group>"; };
 		3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerSelection.storyboard; sourceTree = "<group>"; };
 		3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerSelectionVC.swift; sourceTree = "<group>"; };
 		3EFDE0811E30100800CBCD92 /* LegendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegendCellView.swift; sourceTree = "<group>"; };
@@ -1051,6 +1057,7 @@
 				3EFDE0D01E31850900CBCD92 /* Feature collection layer */,
 				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
 				3EEB2B9C1EBB8CC200B52513 /* List related features */,
+				3EF190A61EF9BF550037779D /* Add delete related features */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1444,6 +1451,16 @@
 			path = "arcgis-runtime-samples-macos/Geometry/Format coordinates";
 			sourceTree = SOURCE_ROOT;
 		};
+		3EF190A61EF9BF550037779D /* Add delete related features */ = {
+			isa = PBXGroup;
+			children = (
+				3EF190A71EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard */,
+				3EF190A81EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift */,
+			);
+			name = "Add delete related features";
+			path = "Features/Add delete related features";
+			sourceTree = "<group>";
+		};
 		3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1668,6 +1685,7 @@
 				3E049A2C1CED12FC0031ADA9 /* GOIdentify.storyboard in Resources */,
 				3EFDE0B51E31287B00CBCD92 /* Shasta_Elevation.tfw in Resources */,
 				3E496EC71DD14FBE004C921C /* Yellowstone.mmpk in Resources */,
+				3EF190A91EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard in Resources */,
 				3EC1AE711BAC8DA100E32B1D /* Assets.xcassets in Resources */,
 				3E496ED11DD14FE2004C921C /* MobileMapSearchRoute.storyboard in Resources */,
 				3ECCFE181BC86F3900CE256D /* SetMapsSpatialReference.storyboard in Resources */,
@@ -1845,6 +1863,7 @@
 				3EA734011EC0CCBE00356885 /* Animate3DSymbolsVC.swift in Sources */,
 				3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */,
 				3E87247C1BC70B41006386C1 /* TiledLayerURLViewController.swift in Sources */,
+				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
 				3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */,
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
