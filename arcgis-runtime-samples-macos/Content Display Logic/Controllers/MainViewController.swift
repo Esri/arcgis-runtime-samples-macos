@@ -210,6 +210,10 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
     //MARK: - NSOutlineViewDelegate
     
     func outlineViewSelectionDidChange(_ notification: Notification) {
+        
+        //hide progress indicator
+        self.view.window?.hideProgressIndicator()
+        
         let row = self.outlineView.selectedRow
         if let node = self.outlineView.item(atRow: row) as? Node {
             //display the sample on the right hand side placeholder view
