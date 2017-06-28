@@ -21,25 +21,35 @@ class TerrainExaggerationViewController: NSViewController {
     @IBOutlet weak var exaggerationValue: NSTextField!
     @IBOutlet weak var exaggerationSlider: NSSlider!
     @IBOutlet weak var sceneView: AGSSceneView!
+    
+    // initialize the scene with the streets basemap
     let scene = AGSScene(basemapType: .streets)
+    
+    // initialize the surface
     let surface = AGSSurface()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setup the surface with an elevation source and add the surface to the scene
         let elevation = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
         surface.elevationSources.append(elevation)
         scene.baseSurface = surface
         
+        // assign the scene to the scene view
         self.sceneView.scene = scene
         
+        // set the initial viewpoint and camera
         let initialLocation = AGSPoint(x: -119.94891542688772, y: 46.75792111605992, spatialReference: sceneView.spatialReference)
         let camera = AGSCamera(lookAt: initialLocation, distance: 15000.0, heading: 40.0, pitch: 60.0, roll: 0.0)
         sceneView.setViewpointCamera(camera)
     }
     
     @IBAction func sliderAction(_ sender: NSSlider) {
+        // assign the slider value to the elevation exaggeration
         surface.elevationExaggeration = sender.floatValue
+        
+        // format and display the exaggeration value
         exaggerationValue.stringValue = String(format: "%.1fx", sender.floatValue)
     }
 }
