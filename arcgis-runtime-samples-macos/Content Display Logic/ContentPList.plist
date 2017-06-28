@@ -83,7 +83,7 @@
                     <key>storyboardName</key>
                     <string>MapLoaded</string>
                     <key>descriptionText</key>
-				<string>This sample shows how to tell what the map&apos;s load status is</string>
+				<string>This sample shows how to tell what the map's load status is</string>
                     <key>sourceFileNames</key>
                     <array>
                         <string>MapLoadedViewController</string>
