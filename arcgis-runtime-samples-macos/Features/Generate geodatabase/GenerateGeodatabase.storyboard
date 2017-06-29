@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5oE-YR-dhn">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5oE-YR-dhn">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -9,16 +9,24 @@
         <!--Generate GeodatabaseVC-->
         <scene sceneID="2We-G6-sKg">
             <objects>
-                <viewController id="5oE-YR-dhn" customClass="GenerateGeodatabaseVC" customModule="MapViewDemo_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5oE-YR-dhn" customClass="GenerateGeodatabaseVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="tzx-ba-bps">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="orx-us-oc8" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="50" width="450" height="250"/>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="MHg-nk-kDD">
-                                <rect key="frame" x="45" y="75" width="360" height="200"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="MHg-nk-kDD">
+                                        <rect key="frame" x="45" y="25" width="360" height="200"/>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MHg-nk-kDD" firstAttribute="width" secondItem="orx-us-oc8" secondAttribute="width" multiplier="0.8" id="Htu-aX-yCX"/>
+                                    <constraint firstItem="MHg-nk-kDD" firstAttribute="height" secondItem="orx-us-oc8" secondAttribute="height" multiplier="0.8" id="Ir8-1C-yS8"/>
+                                    <constraint firstItem="MHg-nk-kDD" firstAttribute="centerY" secondItem="orx-us-oc8" secondAttribute="centerY" id="VcZ-WT-58M"/>
+                                    <constraint firstItem="MHg-nk-kDD" firstAttribute="centerX" secondItem="orx-us-oc8" secondAttribute="centerX" id="hgx-nr-8W0"/>
+                                </constraints>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ODH-y6-gim">
                                 <rect key="frame" x="177" y="7" width="96" height="32"/>
@@ -36,13 +44,9 @@
                             <constraint firstItem="orx-us-oc8" firstAttribute="top" secondItem="tzx-ba-bps" secondAttribute="top" id="9ng-Xf-8wZ"/>
                             <constraint firstAttribute="bottom" secondItem="ODH-y6-gim" secondAttribute="bottom" constant="14" id="BGM-34-XfS"/>
                             <constraint firstItem="orx-us-oc8" firstAttribute="leading" secondItem="tzx-ba-bps" secondAttribute="leading" id="BJq-tl-TdJ"/>
-                            <constraint firstItem="MHg-nk-kDD" firstAttribute="width" secondItem="orx-us-oc8" secondAttribute="width" multiplier="0.8" id="Id3-Mk-iWf"/>
                             <constraint firstItem="ODH-y6-gim" firstAttribute="top" secondItem="orx-us-oc8" secondAttribute="bottom" constant="15" id="NhK-jm-EsA"/>
-                            <constraint firstItem="MHg-nk-kDD" firstAttribute="centerX" secondItem="orx-us-oc8" secondAttribute="centerX" id="Z3d-pc-gyV"/>
                             <constraint firstAttribute="trailing" secondItem="orx-us-oc8" secondAttribute="trailing" id="fZQ-sl-nmY"/>
-                            <constraint firstItem="MHg-nk-kDD" firstAttribute="centerY" secondItem="orx-us-oc8" secondAttribute="centerY" id="jc7-cn-UfQ"/>
                             <constraint firstItem="ODH-y6-gim" firstAttribute="centerX" secondItem="tzx-ba-bps" secondAttribute="centerX" id="lzm-QQ-aMl"/>
-                            <constraint firstItem="MHg-nk-kDD" firstAttribute="height" secondItem="orx-us-oc8" secondAttribute="height" multiplier="0.8" id="prO-t4-wkC"/>
                         </constraints>
                     </view>
                     <connections>

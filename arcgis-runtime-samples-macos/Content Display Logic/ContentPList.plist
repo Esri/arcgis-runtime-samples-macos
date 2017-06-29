@@ -357,6 +357,18 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
+                    <string>Change sublayer renderer</string>
+                    <key>storyboardName</key>
+                    <string>ChangeSublayerRenderer</string>
+                    <key>descriptionText</key>
+                    <string>You can change the renderer of a sublayer in a map image layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeSublayerRendererVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Change sublayer visibility</string>
                     <key>storyboardName</key>
                     <string>ChangeSublayerVisibility</string>
@@ -391,6 +403,30 @@
                     <array>
                         <string>VectorTileCustomStyleVC</string>
                         <string>VectorStylesViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Web tiled layer</string>
+                    <key>storyboardName</key>
+                    <string>WebTiledLayer</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to display map tiles from an online resource</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>WebTiledLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Raster layer (file)</string>
+                    <key>storyboardName</key>
+                    <string>RasterLayer</string>
+                    <key>descriptionText</key>
+                    <string>You can create a raster layer from a file</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RasterLayerViewController</string>
                     </array>
                 </dict>
                 <dict>
@@ -554,6 +590,30 @@
                     <key>sourceFileNames</key>
                     <array>
                         <string>FeatureCollectionLayerQueryVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>List related features</string>
+                    <key>storyboardName</key>
+                    <string>ListRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to query related features for a given feature. Click on a feature on the map to see its related features</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ListRelatedFeaturesVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add delete related features</string>
+                    <key>storyboardName</key>
+                    <string>AddDeleteRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to add or delete related features to an origin feature</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>AddDeleteRelatedFeaturesVC</string>
                     </array>
                 </dict>
             </array>
@@ -790,6 +850,18 @@
                         <string>SpatialOperationsViewController</string>
                     </array>
                 </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Format coordinates</string>
+                    <key>storyboardName</key>
+                    <string>FormatCoordinates</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to convert a map location Point to a number of different coordinate notations. Click on the map or edit the values in textfields</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FormatCoordinatesViewController</string>
+                    </array>
+                </dict>
             </array>
         </dict>
         <dict>
@@ -809,6 +881,18 @@
                         <string>RouteAroundBarriersVC</string>
                         <string>DirectionsListViewController</string>
                         <string>RouteParametersViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find service area interactive</string>
+                    <key>storyboardName</key>
+                    <string>FindServiceAreaInteractive</string>
+                    <key>descriptionText</key>
+                    <string>This samples shows how to find service areas around a point</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindServiceAreaInteractiveVC</string>
                     </array>
                 </dict>
             </array>
@@ -899,14 +983,14 @@
                 </dict>
                 <dict>
                     <key>displayName</key>
-                    <string>Use scene layer</string>
+                    <string>Scene layer (URL)</string>
                     <key>storyboardName</key>
-                    <string>UseSceneLayer</string>
+                    <string>SceneLayerURL</string>
                     <key>descriptionText</key>
                     <string>The sample shows how to use a scene layer in a scene</string>
                     <key>sourceFileNames</key>
                     <array>
-                        <string>UseSceneLayerViewController</string>
+                        <string>SceneLayerURLViewController</string>
                     </array>
                 </dict>
                 <dict>
@@ -919,6 +1003,18 @@
                     <key>sourceFileNames</key>
                     <array>
                         <string>ScenePropertiesExpressions</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Animate 3D symbols</string>
+                    <key>storyboardName</key>
+                    <string>Animate3DSymbols</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>Animate3DSymbolsVC</string>
                     </array>
                 </dict>
             </array>
