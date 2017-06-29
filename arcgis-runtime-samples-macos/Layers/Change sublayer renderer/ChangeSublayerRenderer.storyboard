@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mgc-WG-hu1">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Change Sublayer RendererVC-->
+        <scene sceneID="hiN-kj-6Vm">
+            <objects>
+                <viewController id="Mgc-WG-hu1" customClass="ChangeSublayerRendererVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gHN-7i-5Ro">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cIa-Xw-CPT" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nhv-VC-BgH">
+                                <rect key="frame" x="115" y="0.0" width="220" height="50"/>
+                                <subviews>
+                                    <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VCG-jB-x58">
+                                        <rect key="frame" x="2" y="7" width="75" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5os-mE-PhZ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="reset:" target="Mgc-WG-hu1" id="SCd-98-pzw"/>
+                                        </connections>
+                                    </button>
+                                    <button horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Z2-eB-Ah4">
+                                        <rect key="frame" x="84" y="7" width="134" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Apply Renderer" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ipt-6G-9zy">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="applyRenderer:" target="Mgc-WG-hu1" id="1Hz-em-CnU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VCG-jB-x58" firstAttribute="centerY" secondItem="nhv-VC-BgH" secondAttribute="centerY" id="9ps-nY-ie8"/>
+                                    <constraint firstAttribute="width" constant="220" id="MdV-e2-eHJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="P2e-gq-4Cf"/>
+                                    <constraint firstItem="8Z2-eB-Ah4" firstAttribute="centerY" secondItem="nhv-VC-BgH" secondAttribute="centerY" id="SRU-5p-N2X"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Z2-eB-Ah4" secondAttribute="trailing" constant="8" id="l61-KW-iKi"/>
+                                    <constraint firstItem="VCG-jB-x58" firstAttribute="leading" secondItem="nhv-VC-BgH" secondAttribute="leading" constant="8" id="yKy-6n-TB8"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cIa-Xw-CPT" secondAttribute="trailing" id="2Pk-EH-yUd"/>
+                            <constraint firstItem="nhv-VC-BgH" firstAttribute="top" secondItem="cIa-Xw-CPT" secondAttribute="bottom" id="ABW-0C-Xun"/>
+                            <constraint firstItem="cIa-Xw-CPT" firstAttribute="top" secondItem="gHN-7i-5Ro" secondAttribute="top" id="K3X-34-lyF"/>
+                            <constraint firstAttribute="bottom" secondItem="nhv-VC-BgH" secondAttribute="bottom" id="oZM-or-5r9"/>
+                            <constraint firstItem="nhv-VC-BgH" firstAttribute="centerX" secondItem="gHN-7i-5Ro" secondAttribute="centerX" id="tQz-mb-4wA"/>
+                            <constraint firstItem="cIa-Xw-CPT" firstAttribute="leading" secondItem="gHN-7i-5Ro" secondAttribute="leading" id="z6u-vG-Yam"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyRendererButton" destination="8Z2-eB-Ah4" id="bxi-pH-9Ra"/>
+                        <outlet property="mapView" destination="cIa-Xw-CPT" id="0eh-tS-NEI"/>
+                        <outlet property="resetButton" destination="VCG-jB-x58" id="sNc-g7-wYV"/>
+                    </connections>
+                </viewController>
+                <customObject id="dLT-7b-0yq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="141"/>
+        </scene>
+    </scenes>
+</document>
