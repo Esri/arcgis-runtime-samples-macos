@@ -23,6 +23,7 @@ class ExtrudeGraphicsViewController: NSViewController {
     
     private var graphicsOverlay: AGSGraphicsOverlay!
     
+    private let cameraStartingPoint = AGSPoint(x: 83, y: 28.4, z: 20000, spatialReference: AGSSpatialReference.wgs84())
     private let squareSize:Double = 0.01
     private let spacing:Double = 0.01
     private let maxHeight = 10000
@@ -36,7 +37,7 @@ class ExtrudeGraphicsViewController: NSViewController {
         self.sceneView.scene = scene
         
         //set the viewpoint camera
-        let camera = AGSCamera(latitude: 28.4, longitude: 83, altitude: 20000, heading: 10, pitch: 70, roll: 300)
+        let camera = AGSCamera(location: self.cameraStartingPoint, heading: 10, pitch: 70, roll: 300)
         self.sceneView.setViewpointCamera(camera)
         
         //add graphics overlay
@@ -57,12 +58,7 @@ class ExtrudeGraphicsViewController: NSViewController {
         let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
-        
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        
+      
         //add the graphics
         self.addGraphics()
     }
@@ -70,8 +66,8 @@ class ExtrudeGraphicsViewController: NSViewController {
     
     private func addGraphics() {
         //starting point
-        let x = self.sceneView.currentViewpointCamera().location.x - 0.03
-        let y = self.sceneView.currentViewpointCamera().location.y + 0.2
+        let x = self.cameraStartingPoint.x - 0.03
+        let y = self.cameraStartingPoint.y + 0.2
         
         //creating a grid of polygon graphics
         for i in 0...6 {
