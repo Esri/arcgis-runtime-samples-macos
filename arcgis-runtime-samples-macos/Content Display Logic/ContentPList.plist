@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <array>
+<array>
         <dict>
             <key>displayName</key>
             <string>Featured</string>
@@ -83,7 +83,7 @@
                     <key>storyboardName</key>
                     <string>MapLoaded</string>
                     <key>descriptionText</key>
-                    <string>This sample shows how to tell what the map's load status is</string>
+				<string>This sample shows how to tell what the map's load status is</string>
                     <key>sourceFileNames</key>
                     <array>
                         <string>MapLoadedViewController</string>
@@ -223,30 +223,6 @@
                         <string>ShowMagnifierViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Display device location</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>DisplayLocation</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>You can start the location display on the map view to get current location updates. There are different auto pan modes you can switch between, namely, re-center mode, navigation mode or compass mode</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
-                <!--                <dict>-->
-                <!--                    <key>displayName</key>-->
-                <!--                    <string>Take screenshot</string>-->
-                <!--                    <key>storyboardName</key>-->
-                <!--                    <string>MapViewScreenshot</string>-->
-                <!--                    <key>descriptionText</key>-->
-                <!--                    <string>You can now take a screenshot of the map view. You can use it as the thumbnail for you newly created map or simply share it with your co-workers</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>-->
-                <!--                </dict>-->
                 <dict>
                     <key>displayName</key>
                     <string>Take screenshot</string>
@@ -285,18 +261,6 @@
                         <string>IdentifyLayersViewController</string>
                     </array>
                 </dict>
-                <!--                <dict>
-                 <key>displayName</key>
-                 <string>Display layer view status</string>
-                 <key>storyboardName</key>
-                 <string>LayerStatus</string>
-                 <key>descriptionText</key>
-                 <string>You can get the view status for each layer in your map. It tells you if the that layer is currently active or not currently visible or if an error occured while loading it etc</string>
-                 <key>sourceFileNames</key>
-                 <array>
-                 <string></string>
-                 </array>
-                 </dict> -->
                 <dict>
                     <key>displayName</key>
                     <string>Mobile map (search and route)</string>
@@ -1017,7 +981,19 @@
                         <string>Animate3DSymbolsVC</string>
                     </array>
                 </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Terrain exaggeration</string>
+				<key>storyboardName</key>
+				<string>TerrainExaggeration</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to use terrain exaggeration on a surface in a scene</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>TerrainExaggerationViewController</string>
             </array>
         </dict>
     </array>
+	</dict>
+</array>
 </plist>

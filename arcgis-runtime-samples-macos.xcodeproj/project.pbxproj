@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
+		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
+		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
 		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
@@ -303,6 +306,7 @@
 			files = (
 				3E0662581F032351007666DF /* ChangeSublayerRendererVC.swift in CopyFiles */,
 				3EF190AB1EF9C1430037779D /* AddDeleteRelatedFeaturesVC.swift in CopyFiles */,
+				10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */,
 				3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */,
 				3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */,
 				166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */,
@@ -390,6 +394,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
+		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
 		166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayer.storyboard; sourceTree = "<group>"; };
 		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
@@ -609,6 +615,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */ = {
+			isa = PBXGroup;
+			children = (
+				10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */,
+				10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */,
+			);
+			name = "Terrain exaggeration";
+			sourceTree = "<group>";
+		};
 		166E8FA01EE6311300C57C46 /* Raster layer (file) */ = {
 			isa = PBXGroup;
 			children = (
@@ -853,6 +868,7 @@
 				3E8DB5701D2B457300D48BC6 /* Scene layer (URL) */,
 				3E8D54FE1D55138500E628D9 /* Scene properties expressions */,
 				3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */,
+				10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1782,6 +1798,7 @@
 				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
 				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
+				10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
 				3E7C0E3A1CF90F0000200B6E /* default.css in Resources */,
@@ -1841,6 +1858,7 @@
 				3EFDE0E61E3288C900CBCD92 /* ViewshedViewController.swift in Sources */,
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
 				3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */,
+				10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
 				3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
