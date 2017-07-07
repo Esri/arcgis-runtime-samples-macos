@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wP8-H8-3FB">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Display Grid View Controller-->
+        <scene sceneID="OvX-k4-GDR">
+            <objects>
+                <viewController id="wP8-H8-3FB" customClass="DisplayGridViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="9Lv-6O-Wz6">
+                        <rect key="frame" x="0.0" y="0.0" width="656" height="592"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6y-KQ-9tg" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="656" height="592"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-rV-tiC">
+                                <rect key="frame" x="355" y="259" width="281" height="313"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="tmk-nm-TUB">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="313"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-CG-hRt" userLabel="Grid Settings">
+                                                <rect key="frame" x="18" y="273" width="245" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="oqn-u2-abg"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Grid Settings" drawsBackground="YES" id="RaS-9F-pUU" userLabel="Grid Settings">
+                                                    <font key="font" metaFont="systemBold"/>
+                                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-eF-Hfi" userLabel="Grid Visibility Label">
+                                                <rect key="frame" x="18" y="239" width="84" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Visibility" id="uds-bw-vsC">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJs-UQ-y49" userLabel="Grid Visibility Switch">
+                                                <rect key="frame" x="117" y="235" width="146" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="142" id="8ii-FY-cAO"/>
+                                                </constraints>
+                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Jse-Mr-nwm">
+                                                    <font key="font" metaFont="system"/>
+                                                    <segments>
+                                                        <segment label="On" width="70" selected="YES"/>
+                                                        <segment label="Off" width="69" tag="1"/>
+                                                    </segments>
+                                                </segmentedCell>
+                                                <connections>
+                                                    <action selector="gridVisibilityAction:" target="wP8-H8-3FB" id="1Ak-eW-4pW"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-0r-Mrp" userLabel="Grid Type Label">
+                                                <rect key="frame" x="18" y="210" width="63" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Type" id="hua-qd-f1P">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zmS-s3-O89" userLabel="Grid Type Menu">
+                                                <rect key="frame" x="117" y="205" width="147" height="26"/>
+                                                <popUpButtonCell key="cell" type="push" title="LatLong" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="9ah-Fc-bHv" id="u3X-nh-QHb" userLabel="Grid Type Menu">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="qvl-wd-Co5">
+                                                        <items>
+                                                            <menuItem title="LatLong" state="on" id="9ah-Fc-bHv"/>
+                                                            <menuItem title="MGRS" id="cmi-3P-6zY"/>
+                                                            <menuItem title="UTM" id="vTp-ox-2v7"/>
+                                                            <menuItem title="USNG" id="bKF-5l-fcN">
+                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                            </menuItem>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="gridTypeAction:" target="wP8-H8-3FB" id="2Xv-Kk-FCs"/>
+                                                </connections>
+                                            </popUpButton>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4m2-mU-j58" userLabel="Grid Color Label">
+                                                <rect key="frame" x="18" y="177" width="66" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Color" id="uR2-qi-NIp">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-Qd-D7B" userLabel="Grid Color Selector">
+                                                <rect key="frame" x="119" y="172" width="142" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="7EO-oF-aMu"/>
+                                                </constraints>
+                                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="gridColorAction:" target="wP8-H8-3FB" id="CLi-7u-qse"/>
+                                                </connections>
+                                            </colorWell>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gB-AKs" userLabel="Label Visibility Label">
+                                                <rect key="frame" x="18" y="145" width="92" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Visibility" id="dPz-Gh-NLx">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="udE-UI-cZa" userLabel="Label Visibility Switch">
+                                                <rect key="frame" x="117" y="141" width="146" height="24"/>
+                                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="JjG-U2-52d">
+                                                    <font key="font" metaFont="system"/>
+                                                    <segments>
+                                                        <segment label="On" width="70" selected="YES"/>
+                                                        <segment label="Off" width="69" tag="1"/>
+                                                    </segments>
+                                                </segmentedCell>
+                                                <connections>
+                                                    <action selector="labelVisibilityAction:" target="wP8-H8-3FB" id="zLf-zZ-OMM"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Och-RN-SWC" userLabel="Label Color Label">
+                                                <rect key="frame" x="18" y="112" width="73" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Color" id="ct5-yg-0W0">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="xRQ-Og-YMV" userLabel="Label Color Selector">
+                                                <rect key="frame" x="119" y="107" width="142" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="38a-zC-s8i"/>
+                                                </constraints>
+                                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="labelColorAction:" target="wP8-H8-3FB" id="sJ3-qU-sXS"/>
+                                                </connections>
+                                            </colorWell>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uY6-MO-ZV9" userLabel="Label Position Label">
+                                                <rect key="frame" x="18" y="80" width="89" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Position" id="aNX-BO-N73">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-pP-73X" userLabel="Label Position Menu">
+                                                <rect key="frame" x="117" y="75" width="147" height="26"/>
+                                                <popUpButtonCell key="cell" type="push" title="Geographic" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="kSx-lR-vQ1" id="ad0-dg-nGa" userLabel="Label Position Menu">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="MAP-js-KHb">
+                                                        <items>
+                                                            <menuItem title="Geographic" state="on" id="kSx-lR-vQ1" userLabel="Geographic"/>
+                                                            <menuItem title="Bottom Left" id="WMg-5S-Lwe" userLabel="Bottom Left"/>
+                                                            <menuItem title="Bottom Right" id="IVz-2o-SsN" userLabel="Bottom Right"/>
+                                                            <menuItem title="Top Left" id="D7o-gh-Fiu" userLabel="Top Left"/>
+                                                            <menuItem title="Top Right" id="nII-th-7Km" userLabel="Top Right"/>
+                                                            <menuItem title="Center" id="8Q8-3e-0Pk" userLabel="Center"/>
+                                                            <menuItem title="All Sides" id="ZOL-UE-5iQ" userLabel="All Sides"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="labelPositionAction:" target="wP8-H8-3FB" id="Eq8-8Z-KHg"/>
+                                                </connections>
+                                            </popUpButton>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-kn-QmT" userLabel="Label Format Label">
+                                                <rect key="frame" x="18" y="51" width="84" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Format" id="aJ6-CL-aHe">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xgF-Ko-QVO" userLabel="Label Format Menu">
+                                                <rect key="frame" x="117" y="46" width="147" height="26"/>
+                                                <popUpButtonCell key="cell" type="push" title="Decimal Degrees" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ziu-jM-Zyh" id="MBj-Zf-Y9y" userLabel="Label Format Menu">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="KTN-Z2-Yqb">
+                                                        <items>
+                                                            <menuItem title="Decimal Degrees" state="on" id="ziu-jM-Zyh" userLabel="Decimal Degrees"/>
+                                                            <menuItem title="Degrees Minutes Seconds" id="fK0-l8-dqE" userLabel="Degrees Minutes Seconds"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="labelFormatAction:" target="wP8-H8-3FB" id="QCm-bF-NP1"/>
+                                                </connections>
+                                            </popUpButton>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf8-ka-qID" userLabel="Label Unit Label">
+                                                <rect key="frame" x="18" y="22" width="66" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Unit" id="KgX-6W-xp7">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-eG-WWE" userLabel="Label Unit Menu">
+                                                <rect key="frame" x="117" y="17" width="147" height="26"/>
+                                                <popUpButtonCell key="cell" type="push" title="Kilometers Meters" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="esx-Gj-deb" id="rHI-PG-ZLe" userLabel="Label Unit Menu">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="a9O-fl-6Sz">
+                                                        <items>
+                                                            <menuItem title="Kilometers Meters" state="on" id="esx-Gj-deb" userLabel="Kilometers Meters"/>
+                                                            <menuItem title="Meters" id="uXy-Dg-KjM" userLabel="Meters"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="labelUnitAction:" target="wP8-H8-3FB" id="KEV-jB-ybj"/>
+                                                </connections>
+                                            </popUpButton>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bZ5-Qd-D7B" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="1Uv-av-QLe"/>
+                                            <constraint firstItem="xRQ-Og-YMV" firstAttribute="top" secondItem="udE-UI-cZa" secondAttribute="bottom" constant="8" symbolic="YES" id="3rj-W8-eWg"/>
+                                            <constraint firstItem="Och-RN-SWC" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="58Y-8V-jcg"/>
+                                            <constraint firstItem="udE-UI-cZa" firstAttribute="leading" secondItem="zia-gB-AKs" secondAttribute="trailing" constant="11" id="5ap-tf-dF0"/>
+                                            <constraint firstItem="bZ5-Qd-D7B" firstAttribute="top" secondItem="zmS-s3-O89" secondAttribute="bottom" constant="8" id="5cl-SE-3d8"/>
+                                            <constraint firstItem="udE-UI-cZa" firstAttribute="centerY" secondItem="zia-gB-AKs" secondAttribute="centerY" id="AnM-CA-L4g"/>
+                                            <constraint firstItem="zmS-s3-O89" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="B3X-Pe-KWs"/>
+                                            <constraint firstItem="xgF-Ko-QVO" firstAttribute="top" secondItem="RTo-pP-73X" secondAttribute="bottom" constant="8" id="BWx-fV-I7q"/>
+                                            <constraint firstItem="f2d-eG-WWE" firstAttribute="top" secondItem="xgF-Ko-QVO" secondAttribute="bottom" constant="8" id="CL2-Zc-saP"/>
+                                            <constraint firstItem="RTo-pP-73X" firstAttribute="top" secondItem="xRQ-Og-YMV" secondAttribute="bottom" constant="8" id="Msd-rA-3ih"/>
+                                            <constraint firstItem="f2d-eG-WWE" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="RCj-ym-eca"/>
+                                            <constraint firstItem="bZ5-Qd-D7B" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="Rfg-cm-SF5"/>
+                                            <constraint firstAttribute="bottom" secondItem="f2d-eG-WWE" secondAttribute="bottom" constant="20" symbolic="YES" id="Tv1-QR-CIO"/>
+                                            <constraint firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" constant="20" symbolic="YES" id="UuT-ph-ncp"/>
+                                            <constraint firstItem="zmS-s3-O89" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="Y5M-Rv-CTG"/>
+                                            <constraint firstItem="xRQ-Og-YMV" firstAttribute="centerY" secondItem="Och-RN-SWC" secondAttribute="centerY" id="aHy-Qm-LdE"/>
+                                            <constraint firstItem="xgF-Ko-QVO" firstAttribute="centerY" secondItem="PEt-kn-QmT" secondAttribute="centerY" id="bKA-K8-XnS"/>
+                                            <constraint firstItem="IJs-UQ-y49" firstAttribute="top" secondItem="HuD-CG-hRt" secondAttribute="bottom" constant="15" id="cSa-fL-KrF"/>
+                                            <constraint firstItem="udE-UI-cZa" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="ctg-xp-7ny"/>
+                                            <constraint firstItem="IJs-UQ-y49" firstAttribute="centerY" secondItem="lLH-eF-Hfi" secondAttribute="centerY" id="dIb-UX-kwY"/>
+                                            <constraint firstItem="RTo-pP-73X" firstAttribute="centerY" secondItem="uY6-MO-ZV9" secondAttribute="centerY" id="eug-0l-cJv"/>
+                                            <constraint firstItem="uY6-MO-ZV9" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="f8n-pV-w1l"/>
+                                            <constraint firstItem="CcY-0r-Mrp" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="fA0-nz-C0O"/>
+                                            <constraint firstItem="IJs-UQ-y49" firstAttribute="trailing" secondItem="HuD-CG-hRt" secondAttribute="trailing" constant="-2" id="g7Z-ZR-o2S"/>
+                                            <constraint firstItem="cf8-ka-qID" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="iKA-O8-hfn"/>
+                                            <constraint firstItem="zmS-s3-O89" firstAttribute="centerY" secondItem="CcY-0r-Mrp" secondAttribute="centerY" id="jIx-4V-Cgm"/>
+                                            <constraint firstItem="zmS-s3-O89" firstAttribute="top" secondItem="IJs-UQ-y49" secondAttribute="bottom" constant="8" id="jJ7-A9-mnP"/>
+                                            <constraint firstItem="xRQ-Og-YMV" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="jrW-Uy-RjX"/>
+                                            <constraint firstItem="f2d-eG-WWE" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="kc4-Dt-EiX"/>
+                                            <constraint firstItem="RTo-pP-73X" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="lVF-Ek-Gdo"/>
+                                            <constraint firstItem="xRQ-Og-YMV" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="lfM-6g-Ufu"/>
+                                            <constraint firstItem="bZ5-Qd-D7B" firstAttribute="centerY" secondItem="4m2-mU-j58" secondAttribute="centerY" id="lk4-bK-JpE"/>
+                                            <constraint firstItem="f2d-eG-WWE" firstAttribute="centerY" secondItem="cf8-ka-qID" secondAttribute="centerY" id="mdn-E9-0LF"/>
+                                            <constraint firstItem="4m2-mU-j58" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="sBa-UR-rmJ"/>
+                                            <constraint firstItem="udE-UI-cZa" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="ubB-w8-xh3"/>
+                                            <constraint firstItem="udE-UI-cZa" firstAttribute="top" secondItem="bZ5-Qd-D7B" secondAttribute="bottom" constant="8" symbolic="YES" id="vK3-OW-Hrb"/>
+                                            <constraint firstItem="xgF-Ko-QVO" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="vXl-V3-xvg"/>
+                                            <constraint firstItem="zia-gB-AKs" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="vzC-C1-ezg"/>
+                                            <constraint firstItem="xgF-Ko-QVO" firstAttribute="trailing" secondItem="IJs-UQ-y49" secondAttribute="trailing" id="xrG-59-PdF"/>
+                                            <constraint firstItem="RTo-pP-73X" firstAttribute="leading" secondItem="IJs-UQ-y49" secondAttribute="leading" id="yaT-H8-YCs"/>
+                                            <constraint firstItem="PEt-kn-QmT" firstAttribute="leading" secondItem="lLH-eF-Hfi" secondAttribute="leading" id="yfh-tL-X85"/>
+                                            <constraint firstItem="lLH-eF-Hfi" firstAttribute="leading" secondItem="HuD-CG-hRt" secondAttribute="leading" constant="2" id="zrj-4X-8Jo"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tmk-nm-TUB" firstAttribute="leading" secondItem="KSm-rV-tiC" secondAttribute="leading" id="44X-4N-oHY"/>
+                                    <constraint firstItem="tmk-nm-TUB" firstAttribute="top" secondItem="KSm-rV-tiC" secondAttribute="top" id="IFP-Qh-z7y"/>
+                                    <constraint firstAttribute="bottom" secondItem="tmk-nm-TUB" secondAttribute="bottom" id="Pbo-Kj-d5J"/>
+                                    <constraint firstAttribute="trailing" secondItem="tmk-nm-TUB" secondAttribute="trailing" id="bgc-7F-cNY"/>
+                                    <constraint firstAttribute="height" constant="313" id="rDn-eb-9Oi"/>
+                                    <constraint firstAttribute="width" constant="281" id="wN0-GV-QHI"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KSm-rV-tiC" firstAttribute="top" secondItem="9Lv-6O-Wz6" secondAttribute="top" constant="20" id="Aa0-kM-ec2"/>
+                            <constraint firstAttribute="trailing" secondItem="KSm-rV-tiC" secondAttribute="trailing" constant="20" id="ZHg-OI-glM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gridColorWell" destination="bZ5-Qd-D7B" id="NJX-jv-vAA"/>
+                        <outlet property="gridSettingsTextField" destination="HuD-CG-hRt" id="3Zm-s5-v2r"/>
+                        <outlet property="gridSettingsView" destination="KSm-rV-tiC" id="nJy-uH-BXI"/>
+                        <outlet property="gridTypeButton" destination="zmS-s3-O89" id="ecB-By-mP3"/>
+                        <outlet property="gridVisibilityControl" destination="udE-UI-cZa" id="3fO-wD-GXZ"/>
+                        <outlet property="labelColorWell" destination="xRQ-Og-YMV" id="nAL-5p-B1G"/>
+                        <outlet property="labelFormatButton" destination="xgF-Ko-QVO" id="hK2-EZ-9PX"/>
+                        <outlet property="labelPositionButton" destination="RTo-pP-73X" id="yct-9w-4tf"/>
+                        <outlet property="labelUnitButton" destination="f2d-eG-WWE" id="EQ9-Kb-Rp3"/>
+                        <outlet property="labelVisibilityControl" destination="udE-UI-cZa" id="sMe-lW-EKB"/>
+                        <outlet property="mapView" destination="v6y-KQ-9tg" id="wE0-77-yhC"/>
+                    </connections>
+                </viewController>
+                <customObject id="LN9-mg-usj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27" y="145"/>
+        </scene>
+    </scenes>
+</document>
