@@ -93,6 +93,7 @@ class DisplayGridViewController: NSViewController {
                 break
         }
         
+        // Apply other settings to selected grid
         gridVisibilityAction(gridVisibilityControl)
         gridColorAction(gridColorWell)
         labelVisibilityAction(labelVisibilityControl)
