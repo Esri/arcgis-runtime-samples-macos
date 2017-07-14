@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wP8-H8-3FB">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wP8-H8-3FB">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +24,7 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="tmk-nm-TUB">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="313"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-CG-hRt" userLabel="Grid Settings">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HuD-CG-hRt" userLabel="Grid Settings">
                                                 <rect key="frame" x="18" y="273" width="245" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="oqn-u2-abg"/>
@@ -35,7 +35,7 @@
                                                     <color key="backgroundColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-eF-Hfi" userLabel="Grid Visibility Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-eF-Hfi" userLabel="Grid Visibility Label">
                                                 <rect key="frame" x="18" y="239" width="84" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Visibility" id="uds-bw-vsC">
                                                     <font key="font" metaFont="system"/>
@@ -59,7 +59,7 @@
                                                     <action selector="gridVisibilityAction:" target="wP8-H8-3FB" id="1Ak-eW-4pW"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-0r-Mrp" userLabel="Grid Type Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-0r-Mrp" userLabel="Grid Type Label">
                                                 <rect key="frame" x="18" y="210" width="63" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Type" id="hua-qd-f1P">
                                                     <font key="font" metaFont="system"/>
@@ -87,7 +87,7 @@
                                                     <action selector="gridTypeAction:" target="wP8-H8-3FB" id="2Xv-Kk-FCs"/>
                                                 </connections>
                                             </popUpButton>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4m2-mU-j58" userLabel="Grid Color Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4m2-mU-j58" userLabel="Grid Color Label">
                                                 <rect key="frame" x="18" y="177" width="66" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Grid Color" id="uR2-qi-NIp">
                                                     <font key="font" metaFont="system"/>
@@ -105,7 +105,7 @@
                                                     <action selector="gridColorAction:" target="wP8-H8-3FB" id="CLi-7u-qse"/>
                                                 </connections>
                                             </colorWell>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gB-AKs" userLabel="Label Visibility Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gB-AKs" userLabel="Label Visibility Label">
                                                 <rect key="frame" x="18" y="145" width="92" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Visibility" id="dPz-Gh-NLx">
                                                     <font key="font" metaFont="system"/>
@@ -126,7 +126,7 @@
                                                     <action selector="labelVisibilityAction:" target="wP8-H8-3FB" id="zLf-zZ-OMM"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Och-RN-SWC" userLabel="Label Color Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Och-RN-SWC" userLabel="Label Color Label">
                                                 <rect key="frame" x="18" y="112" width="73" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Color" id="ct5-yg-0W0">
                                                     <font key="font" metaFont="system"/>
@@ -144,7 +144,7 @@
                                                     <action selector="labelColorAction:" target="wP8-H8-3FB" id="sJ3-qU-sXS"/>
                                                 </connections>
                                             </colorWell>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uY6-MO-ZV9" userLabel="Label Position Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uY6-MO-ZV9" userLabel="Label Position Label">
                                                 <rect key="frame" x="18" y="80" width="89" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Position" id="aNX-BO-N73">
                                                     <font key="font" metaFont="system"/>
@@ -154,13 +154,13 @@
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-pP-73X" userLabel="Label Position Menu">
                                                 <rect key="frame" x="117" y="75" width="147" height="26"/>
-                                                <popUpButtonCell key="cell" type="push" title="Geographic" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="kSx-lR-vQ1" id="ad0-dg-nGa" userLabel="Label Position Menu">
+                                                <popUpButtonCell key="cell" type="push" title="Bottom Left" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="WMg-5S-Lwe" id="ad0-dg-nGa" userLabel="Label Position Menu">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
                                                     <menu key="menu" id="MAP-js-KHb">
                                                         <items>
-                                                            <menuItem title="Geographic" state="on" id="kSx-lR-vQ1" userLabel="Geographic"/>
-                                                            <menuItem title="Bottom Left" id="WMg-5S-Lwe" userLabel="Bottom Left"/>
+                                                            <menuItem title="Geographic" id="kSx-lR-vQ1" userLabel="Geographic"/>
+                                                            <menuItem title="Bottom Left" state="on" id="WMg-5S-Lwe" userLabel="Bottom Left"/>
                                                             <menuItem title="Bottom Right" id="IVz-2o-SsN" userLabel="Bottom Right"/>
                                                             <menuItem title="Top Left" id="D7o-gh-Fiu" userLabel="Top Left"/>
                                                             <menuItem title="Top Right" id="nII-th-7Km" userLabel="Top Right"/>
@@ -173,7 +173,7 @@
                                                     <action selector="labelPositionAction:" target="wP8-H8-3FB" id="Eq8-8Z-KHg"/>
                                                 </connections>
                                             </popUpButton>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-kn-QmT" userLabel="Label Format Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEt-kn-QmT" userLabel="Label Format Label">
                                                 <rect key="frame" x="18" y="51" width="84" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Format" id="aJ6-CL-aHe">
                                                     <font key="font" metaFont="system"/>
@@ -197,7 +197,7 @@
                                                     <action selector="labelFormatAction:" target="wP8-H8-3FB" id="QCm-bF-NP1"/>
                                                 </connections>
                                             </popUpButton>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf8-ka-qID" userLabel="Label Unit Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cf8-ka-qID" userLabel="Label Unit Label">
                                                 <rect key="frame" x="18" y="22" width="66" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label Unit" id="KgX-6W-xp7">
                                                     <font key="font" metaFont="system"/>
@@ -288,7 +288,7 @@
                         <outlet property="gridSettingsTextField" destination="HuD-CG-hRt" id="3Zm-s5-v2r"/>
                         <outlet property="gridSettingsView" destination="KSm-rV-tiC" id="nJy-uH-BXI"/>
                         <outlet property="gridTypeButton" destination="zmS-s3-O89" id="ecB-By-mP3"/>
-                        <outlet property="gridVisibilityControl" destination="udE-UI-cZa" id="3fO-wD-GXZ"/>
+                        <outlet property="gridVisibilityControl" destination="IJs-UQ-y49" id="lcQ-6P-aAs"/>
                         <outlet property="labelColorWell" destination="xRQ-Og-YMV" id="nAL-5p-B1G"/>
                         <outlet property="labelFormatButton" destination="xgF-Ko-QVO" id="hK2-EZ-9PX"/>
                         <outlet property="labelPositionButton" destination="RTo-pP-73X" id="yct-9w-4tf"/>
