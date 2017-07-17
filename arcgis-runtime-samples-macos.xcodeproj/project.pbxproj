@@ -231,6 +231,11 @@
 		3ECCFE361BCC6FD300CE256D /* ExistingMapsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE351BCC6FD300CE256D /* ExistingMapsListViewController.swift */; };
 		3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */; };
 		3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD0F721BB0CCD6007105A1 /* Node.swift */; };
+		3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */; };
+		3EDC84161F1974F7002DBCF2 /* FindRoute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */; };
+		3EDC84181F19886E002DBCF2 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */; };
+		3EDC84191F1D579C002DBCF2 /* FindRouteViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */; };
+		3EDC841A1F1D579C002DBCF2 /* DirectionsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */; };
 		3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
 		3EE3854F1DD3AD0B00B13E3C /* FindAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */; };
 		3EE385501DD3E8BB00B13E3C /* FindAddressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */; };
@@ -304,6 +309,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				3EDC84191F1D579C002DBCF2 /* FindRouteViewController.swift in CopyFiles */,
+				3EDC841A1F1D579C002DBCF2 /* DirectionsViewController.swift in CopyFiles */,
 				3E0662581F032351007666DF /* ChangeSublayerRendererVC.swift in CopyFiles */,
 				3EF190AB1EF9C1430037779D /* AddDeleteRelatedFeaturesVC.swift in CopyFiles */,
 				10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */,
@@ -554,6 +561,9 @@
 		3ECCFE351BCC6FD300CE256D /* ExistingMapsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingMapsListViewController.swift; path = "Maps/Open an existing map/ExistingMapsListViewController.swift"; sourceTree = "<group>"; };
 		3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ContentPList.plist; sourceTree = "<group>"; };
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindRouteViewController.swift; path = "Find route/FindRouteViewController.swift"; sourceTree = "<group>"; };
+		3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindRoute.storyboard; path = "Find route/FindRoute.storyboard"; sourceTree = "<group>"; };
+		3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectionsViewController.swift; path = "Find route/DirectionsViewController.swift"; sourceTree = "<group>"; };
 		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
 		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
 		3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListRelatedFeatures.storyboard; sourceTree = "<group>"; };
@@ -935,6 +945,7 @@
 		3E496EEB1DD39DF4004C921C /* Route & Directions */ = {
 			isa = PBXGroup;
 			children = (
+				3EDC84121F196C72002DBCF2 /* Find route */,
 				3E496EEC1DD39DF4004C921C /* Route around barriers */,
 				3E5E09431EF843ED00FF3454 /* Find service area interactive */,
 			);
@@ -1447,6 +1458,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3EDC84121F196C72002DBCF2 /* Find route */ = {
+			isa = PBXGroup;
+			children = (
+				3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */,
+				3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */,
+				3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */,
+			);
+			name = "Find route";
+			sourceTree = "<group>";
+		};
 		3EE3854A1DD3AC7100B13E3C /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1742,6 +1763,7 @@
 				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
 				3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */,
 				3EA7340A1EC0CCF400356885 /* Snowdon.csv in Resources */,
+				3EDC84161F1974F7002DBCF2 /* FindRoute.storyboard in Resources */,
 				3EFDE0BC1E31287B00CBCD92 /* Shasta.tif.ovr in Resources */,
 				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
@@ -1906,6 +1928,7 @@
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
 				3E049A2D1CED12FC0031ADA9 /* GOIdentifyViewController.swift in Sources */,
 				3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */,
+				3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */,
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
@@ -1913,6 +1936,7 @@
 				3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */,
 				3E7C0E321CF8F4FE00200B6E /* SourceCodeViewController.swift in Sources */,
 				3E8DB5721D2B45A000D48BC6 /* SceneLayerURLViewController.swift in Sources */,
+				3EDC84181F19886E002DBCF2 /* DirectionsViewController.swift in Sources */,
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
