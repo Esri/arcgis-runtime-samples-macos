@@ -835,6 +835,19 @@
             <array>
                 <dict>
                     <key>displayName</key>
+                    <string>Find route</string>
+                    <key>storyboardName</key>
+                    <string>FindRoute</string>
+                    <key>descriptionText</key>
+                    <string>The sample comes loaded with start and end stops. Click on the Route button to solve for route between these stops. On completion the route is displayed on the map and the directions button is enabled. Click on the button to see the list of directions</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindRouteViewController</string>
+                        <string>DirectionsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
                     <string>Route around barriers</string>
                     <key>storyboardName</key>
                     <string>RouteAroundBarriers</string>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="OsO-Gp-eQo">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Find Route View Controller-->
+        <scene sceneID="1Vg-Ti-peB">
+            <objects>
+                <viewController id="OsO-Gp-eQo" customClass="FindRouteViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="2LO-Su-pVT">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="5AE-Vo-SGM" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cZU-Aa-UQN">
+                                <rect key="frame" x="118" y="0.0" width="214" height="50"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q8K-Uw-oMX">
+                                        <rect key="frame" x="14" y="8" width="76" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Route" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="giY-iY-Hfo">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="route:" target="OsO-Gp-eQo" id="M5e-iD-SlJ"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j1G-UY-Q3I">
+                                        <rect key="frame" x="98" y="8" width="102" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Directions" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aFg-aD-K1Y">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <segue destination="16o-GN-aiK" kind="popover" identifier="DirectionsSegue" popoverAnchorView="j1G-UY-Q3I" popoverBehavior="t" preferredEdge="maxY" id="OVK-YT-HlD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="j1G-UY-Q3I" firstAttribute="leading" secondItem="Q8K-Uw-oMX" secondAttribute="trailing" constant="20" id="JHW-KT-eII"/>
+                                    <constraint firstAttribute="trailing" secondItem="j1G-UY-Q3I" secondAttribute="trailing" constant="20" id="bYC-vQ-QUh"/>
+                                    <constraint firstAttribute="height" constant="50" id="eyO-0p-U5n"/>
+                                    <constraint firstItem="Q8K-Uw-oMX" firstAttribute="centerY" secondItem="cZU-Aa-UQN" secondAttribute="centerY" id="fEg-PZ-rRv"/>
+                                    <constraint firstItem="Q8K-Uw-oMX" firstAttribute="leading" secondItem="cZU-Aa-UQN" secondAttribute="leading" constant="20" id="r95-x9-edT"/>
+                                    <constraint firstItem="j1G-UY-Q3I" firstAttribute="centerY" secondItem="cZU-Aa-UQN" secondAttribute="centerY" id="s64-FR-dWR"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5AE-Vo-SGM" firstAttribute="top" secondItem="2LO-Su-pVT" secondAttribute="top" id="IAv-Qw-8eA"/>
+                            <constraint firstItem="5AE-Vo-SGM" firstAttribute="leading" secondItem="2LO-Su-pVT" secondAttribute="leading" id="Iba-yz-8b1"/>
+                            <constraint firstAttribute="bottom" secondItem="cZU-Aa-UQN" secondAttribute="bottom" id="LV5-TZ-ux5"/>
+                            <constraint firstAttribute="trailing" secondItem="5AE-Vo-SGM" secondAttribute="trailing" id="WwH-4v-qt9"/>
+                            <constraint firstItem="cZU-Aa-UQN" firstAttribute="centerX" secondItem="2LO-Su-pVT" secondAttribute="centerX" id="Xvr-UX-O2g"/>
+                            <constraint firstItem="cZU-Aa-UQN" firstAttribute="top" secondItem="5AE-Vo-SGM" secondAttribute="bottom" id="wCm-D6-RUK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="directionsButton" destination="j1G-UY-Q3I" id="Be1-5x-GdU"/>
+                        <outlet property="mapView" destination="5AE-Vo-SGM" id="f13-fo-kct"/>
+                        <outlet property="routeButton" destination="Q8K-Uw-oMX" id="9Dh-A3-Zul"/>
+                    </connections>
+                </viewController>
+                <customObject id="2le-56-gNk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="170"/>
+        </scene>
+        <!--Directions View Controller-->
+        <scene sceneID="73c-Ov-5fu">
+            <objects>
+                <viewController id="16o-GN-aiK" customClass="DirectionsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="fxq-Ih-aYx">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsJ-Cs-84W">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="jh8-2b-YGS">
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" id="gCj-2N-CQm">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="10"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="300" minWidth="40" maxWidth="1000" id="nre-w1-CaB">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Iqe-xO-hmn">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="DirectionCellView" id="j3k-qn-yNQ">
+                                                            <rect key="frame" x="1" y="5" width="300" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="1" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-uj-Mgr">
+                                                                    <rect key="frame" x="8" y="2" width="284" height="17"/>
+                                                                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="4IM-3p-T1m">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="6Ev-uj-Mgr" secondAttribute="trailing" constant="10" id="KQO-JZ-xiH"/>
+                                                                <constraint firstItem="6Ev-uj-Mgr" firstAttribute="top" secondItem="j3k-qn-yNQ" secondAttribute="top" constant="2" id="RjZ-HF-ycX"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6Ev-uj-Mgr" secondAttribute="bottom" constant="2" id="Z1D-fT-Nrs"/>
+                                                                <constraint firstItem="6Ev-uj-Mgr" firstAttribute="leading" secondItem="j3k-qn-yNQ" secondAttribute="leading" constant="10" id="bC0-95-6P6"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="6Ev-uj-Mgr" id="NVO-2F-5aa"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="16o-GN-aiK" id="Lla-ea-eAY"/>
+                                                <outlet property="delegate" destination="16o-GN-aiK" id="Q1L-AW-7bs"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="4HV-HG-p4z">
+                                    <rect key="frame" x="0.0" y="284" width="450" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="OHy-fk-d9u">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="gCj-2N-CQm" id="qIN-QB-tNS"/>
+                    </connections>
+                </viewController>
+                <customObject id="yPI-IN-ntV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="170"/>
+        </scene>
+    </scenes>
+</document>
