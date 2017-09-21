@@ -12,9 +12,9 @@ In the `Grid Settings` view select type of grid from `Grid Type` (LatLong, MGRS,
 
 `AGSMapView` has a property called `grid` of type `AGSGrid` and is initially set to use the LatitudeLongitude grid. The controls allow to toggle visibility, configure layout and appearance of a grid with the following properties/methods:
 - `isVisible` : Specifies whether the grid is visible or not
-- `setLineSymbol:forLevel` : Set the grid line symbol with selected color
+- `setLineSymbol(_:forLevel:)` : Set the grid line symbol with selected color
 - `labelVisibility` : Specifies whether the grid's text labels are visible or not
-- `setTextSymbol:forLevel` : Set the label text symbol with selected color
+- `setTextSymbol(_:forLevel:)` : Set the label text symbol with selected color
 - `labelPosition` : Specifies the positioning of the grid's text labels.
 - `labelFormat` : Specifies the format to use for the grid's text labels. Available only for LatitudeLongitude grid
 - `labelUnit` : Specifies the units used in grid labels. Available only for MGRS and USNG grids
