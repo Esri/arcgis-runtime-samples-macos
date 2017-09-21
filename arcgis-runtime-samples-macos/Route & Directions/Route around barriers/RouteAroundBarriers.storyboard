@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="gTW-Wr-nwU">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="gTW-Wr-nwU">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Route Around BarriersVC-->
@@ -17,7 +18,7 @@
                                 <rect key="frame" x="200" y="50" width="250" height="250"/>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="TzE-ck-jsv">
-                                <rect key="frame" x="24" y="0.0" width="403" height="50"/>
+                                <rect key="frame" x="-2" y="0.0" width="455" height="50"/>
                                 <subviews>
                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wRT-Of-Ost">
                                         <rect key="frame" x="20" y="12" width="163" height="25"/>
@@ -30,7 +31,7 @@
                                         </segmentedCell>
                                     </segmentedControl>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8se-4y-coi">
-                                        <rect key="frame" x="189" y="7" width="58" height="32"/>
+                                        <rect key="frame" x="189" y="7" width="80" height="32"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="Discard" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GeB-bK-hrv">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -40,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iC7-mc-Q7r">
-                                        <rect key="frame" x="247" y="8" width="66" height="32"/>
+                                        <rect key="frame" x="269" y="8" width="96" height="32"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="Settings" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uhl-2o-ymu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -50,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-6H-v2w">
-                                        <rect key="frame" x="313" y="7" width="76" height="32"/>
+                                        <rect key="frame" x="365" y="7" width="76" height="32"/>
                                         <buttonCell key="cell" type="push" title="Route" bezelStyle="rounded" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="swV-tr-Xag">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -145,7 +146,7 @@
                                                             <rect key="frame" x="1" y="5" width="447" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aIj-Hh-R5s">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="1" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIj-Hh-R5s">
                                                                     <rect key="frame" x="0.0" y="2" width="447" height="17"/>
                                                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="XWJ-h8-JRo">
                                                                         <font key="font" metaFont="system"/>
@@ -183,7 +184,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tcj-yq-sWT">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcj-yq-sWT">
                                 <rect key="frame" x="8" y="268" width="41" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="8 min" id="9nm-NP-UcE">
                                     <font key="font" size="13" name="SFUIText-Bold"/>
@@ -191,7 +192,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-Dx-Jme">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-Dx-Jme">
                                 <rect key="frame" x="46" y="268" width="51" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(0.5 mi)" id="qlI-qZ-mjG">
                                     <font key="font" size="13" name="SFUIText-Regular"/>
