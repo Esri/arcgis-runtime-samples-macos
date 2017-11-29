@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="RGx-Aw-seb">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terrain Exaggeration View Controller-->
+        <scene sceneID="Adv-ql-u8W">
+            <objects>
+                <viewController id="RGx-Aw-seb" customClass="TerrainExaggerationViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="Cth-3l-klW">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eCw-aM-nCJ">
+                                <rect key="frame" x="88" y="15" width="304" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="H64-Kb-LuX"/>
+                                </constraints>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="10" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="10" sliderType="linear" id="bVv-QG-zLQ"/>
+                                <connections>
+                                    <action selector="sliderAction:" target="RGx-Aw-seb" id="luL-ga-Umk"/>
+                                </connections>
+                            </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-gq-23P">
+                                <rect key="frame" x="398" y="21" width="28" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="1.0x" id="T9R-9b-KMl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ffW-qs-sHd" userLabel="SceneView" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="56" width="480" height="214"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="eCw-aM-nCJ" firstAttribute="centerX" secondItem="Cth-3l-klW" secondAttribute="centerX" id="AHw-Bf-oHC"/>
+                            <constraint firstItem="ffW-qs-sHd" firstAttribute="top" secondItem="Cth-3l-klW" secondAttribute="top" id="G10-Ae-Nlh"/>
+                            <constraint firstAttribute="bottom" secondItem="eCw-aM-nCJ" secondAttribute="bottom" constant="17" id="GcD-B0-S37"/>
+                            <constraint firstItem="eCw-aM-nCJ" firstAttribute="top" secondItem="ffW-qs-sHd" secondAttribute="bottom" constant="17" id="SIk-L7-3Ck"/>
+                            <constraint firstItem="ffW-qs-sHd" firstAttribute="leading" secondItem="Cth-3l-klW" secondAttribute="leading" id="Tws-hE-Vjh"/>
+                            <constraint firstItem="ffW-qs-sHd" firstAttribute="centerX" secondItem="Cth-3l-klW" secondAttribute="centerX" id="h3L-yn-fOc"/>
+                            <constraint firstAttribute="trailing" secondItem="ffW-qs-sHd" secondAttribute="trailing" id="ihj-bR-ehx"/>
+                            <constraint firstItem="SCc-gq-23P" firstAttribute="leading" secondItem="eCw-aM-nCJ" secondAttribute="trailing" constant="10" id="m29-Cw-rag"/>
+                            <constraint firstItem="SCc-gq-23P" firstAttribute="centerY" secondItem="eCw-aM-nCJ" secondAttribute="centerY" constant="-1" id="sPj-VV-6SJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exaggerationSlider" destination="eCw-aM-nCJ" id="Fkd-lk-9Qf"/>
+                        <outlet property="exaggerationValue" destination="SCc-gq-23P" id="ldJ-fi-KVE"/>
+                        <outlet property="sceneView" destination="ffW-qs-sHd" id="WTs-Qt-IdR"/>
+                    </connections>
+                </viewController>
+                <customObject id="YfH-WO-Faa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+    </scenes>
+</document>
