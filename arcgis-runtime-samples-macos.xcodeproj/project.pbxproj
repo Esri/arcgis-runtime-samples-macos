@@ -303,6 +303,9 @@
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
+		BA0935731FCF064F000B9D04 /* WMTSLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0935711FCF064F000B9D04 /* WMTSLayerViewController.swift */; };
+		BA0935741FCF064F000B9D04 /* WMTSLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0935721FCF064F000B9D04 /* WMTSLayer.storyboard */; };
+		BA0935751FCF06FC000B9D04 /* WMTSLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA0935711FCF064F000B9D04 /* WMTSLayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -312,6 +315,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				BA0935751FCF06FC000B9D04 /* WMTSLayerViewController.swift in CopyFiles */,
 				213850861F74382900F79149 /* DisplayGridViewController.swift in CopyFiles */,
 				3EDC84191F1D579C002DBCF2 /* FindRouteViewController.swift in CopyFiles */,
 				3EDC841A1F1D579C002DBCF2 /* DirectionsViewController.swift in CopyFiles */,
@@ -617,6 +621,8 @@
 		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
+		BA0935711FCF064F000B9D04 /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
+		BA0935721FCF064F000B9D04 /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1100,6 +1106,7 @@
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
 				3EFDE09F1E31279000CBCD92 /* Stretch renderer */,
+				BA0935701FCF064F000B9D04 /* WMTS layer */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1681,6 +1688,16 @@
 			path = "Geometry/Spatial operations";
 			sourceTree = "<group>";
 		};
+		BA0935701FCF064F000B9D04 /* WMTS layer */ = {
+			isa = PBXGroup;
+			children = (
+				BA0935711FCF064F000B9D04 /* WMTSLayerViewController.swift */,
+				BA0935721FCF064F000B9D04 /* WMTSLayer.storyboard */,
+			);
+			name = "WMTS layer";
+			path = "Layers/WMTS layer";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1744,6 +1761,7 @@
 				3E01038C1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard in Resources */,
 				3ECCFE261BCC2F9A00CE256D /* ChangeViewpoint.storyboard in Resources */,
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
+				BA0935741FCF064F000B9D04 /* WMTSLayer.storyboard in Resources */,
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
 				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
 				3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */,
@@ -1959,6 +1977,7 @@
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
+				BA0935731FCF064F000B9D04 /* WMTSLayerViewController.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */,
