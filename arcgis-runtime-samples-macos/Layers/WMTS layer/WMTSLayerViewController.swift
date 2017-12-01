@@ -41,7 +41,7 @@ class WMTSLayerViewController: NSViewController {
         //load the WMTS service to access the service information
         self.wmtsService.load {[weak self] (error) in
             if let error = error {
-                print("Error loading WMTS service: \(error.localizedDescription)")
+                self?.showAlert(messageText: "Error loading WMTS service:", informativeText: error.localizedDescription)
             } else {
                 //get the service information or metadata about the WMTS service
                 if let weakSelf = self, let wmtsServiceInfo = weakSelf.wmtsService.serviceInfo {
@@ -57,6 +57,15 @@ class WMTSLayerViewController: NSViewController {
                 }
             }
         }
+    }
+    
+    //MARK: - Helper methods
+    
+    private func showAlert(messageText:String, informativeText:String) {
+        let alert = NSAlert()
+        alert.messageText = messageText
+        alert.informativeText = informativeText
+        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
 }
