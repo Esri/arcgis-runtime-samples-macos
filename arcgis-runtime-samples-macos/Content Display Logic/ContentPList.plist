@@ -441,6 +441,18 @@
 					<string>StretchRendererViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>WMTS layer</string>
+                <key>storyboardName</key>
+                <string>WMTSLayer</string>
+                <key>descriptionText</key>
+                <string>This sample demonstrates how to display a WMTS layer as a basemap layer</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>WMTSLayerViewController</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>
