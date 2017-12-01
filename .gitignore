@@ -1,5 +1,10 @@
-arcgis-runtime-samples-macos.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-arcgis-runtime-samples-macos.xcodeproj/project.xcworkspace/xcuserdata/gaga7620.xcuserdatad/UserInterfaceState.xcuserstate
-arcgis-runtime-samples-macos.xcodeproj/xcuserdata/gaga7620.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-arcgis-runtime-samples-macos.xcodeproj/xcuserdata/gaga7620.xcuserdatad/xcschemes/arcgis-runtime-samples-macos.xcscheme
-arcgis-runtime-samples-macos.xcodeproj/xcuserdata/gaga7620.xcuserdatad/xcschemes/xcschememanagement.plist
+# Mac OS X
+*.DS_Store
+
+#Xcode
+*.xcworkspacedata
+*.xcbkptlist
+*.xcscheme
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
