@@ -42,7 +42,7 @@ class WMSLayerUsingURLViewController: NSViewController {
         //load the WMS layer
         self.wmsLayer.load {[weak self] (error) in
             if let error = error {
-                self?.showAlert(messageText: "Error loading WMS service:", informativeText: error.localizedDescription)
+                self?.showAlert(messageText: "Error loading WMS layer:", informativeText: error.localizedDescription)
             } else {
                 if let weakSelf = self, weakSelf.wmsLayer.loadStatus == .loaded {
                     //add the WMS layer to the map
