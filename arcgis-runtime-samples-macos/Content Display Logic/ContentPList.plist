@@ -453,6 +453,18 @@
                     <string>WMTSLayerViewController</string>
                 </array>
             </dict>
+            <dict>
+                <key>displayName</key>
+                <string>WMS layer (URL)</string>
+                <key>storyboardName</key>
+                <string>WMSLayerUsingURL</string>
+                <key>descriptionText</key>
+                <string>Shows how to create a WMS layer using the service URL and the layer names that are available in the service. </string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>WMSLayerUsingURLViewController</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>

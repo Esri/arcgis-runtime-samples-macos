@@ -10,9 +10,12 @@
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
-		125642351FD217C2006FE932 /* WMTSLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 125642331FD217C2006FE932 /* WMTSLayer.storyboard */; };
-		125642361FD217C2006FE932 /* WMTSLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125642341FD217C2006FE932 /* WMTSLayerViewController.swift */; };
-		125642371FD21879006FE932 /* WMTSLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 125642341FD217C2006FE932 /* WMTSLayerViewController.swift */; };
+		123F095B1FD2AA1A000760FE /* WMTSLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123F09591FD2AA19000760FE /* WMTSLayer.storyboard */; };
+		123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */; };
+		123F095D1FD2AA8B000760FE /* WMTSLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */; };
+		123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */; };
+		123F09621FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
+		123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
 		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
 		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
@@ -315,7 +318,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				125642371FD21879006FE932 /* WMTSLayerViewController.swift in CopyFiles */,
+				123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */,
+				123F095D1FD2AA8B000760FE /* WMTSLayerViewController.swift in CopyFiles */,
 				213850861F74382900F79149 /* DisplayGridViewController.swift in CopyFiles */,
 				3EDC84191F1D579C002DBCF2 /* FindRouteViewController.swift in CopyFiles */,
 				3EDC841A1F1D579C002DBCF2 /* DirectionsViewController.swift in CopyFiles */,
@@ -411,8 +415,10 @@
 /* Begin PBXFileReference section */
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
-		125642331FD217C2006FE932 /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
-		125642341FD217C2006FE932 /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
+		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
+		123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
+		123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMSLayerUsingURL.storyboard; sourceTree = "<group>"; };
+		123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMSLayerUsingURLViewController.swift; sourceTree = "<group>"; };
 		166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayer.storyboard; sourceTree = "<group>"; };
 		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		2138507F1F74348F00F79149 /* DisplayGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayGrid.storyboard; sourceTree = "<group>"; };
@@ -646,14 +652,24 @@
 			name = "Terrain exaggeration";
 			sourceTree = "<group>";
 		};
-		125642321FD217C2006FE932 /* WMTS layer */ = {
+		123F09581FD2AA19000760FE /* WMTS layer */ = {
 			isa = PBXGroup;
 			children = (
-				125642331FD217C2006FE932 /* WMTSLayer.storyboard */,
-				125642341FD217C2006FE932 /* WMTSLayerViewController.swift */,
+				123F09591FD2AA19000760FE /* WMTSLayer.storyboard */,
+				123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */,
 			);
 			name = "WMTS layer";
 			path = "Layers/WMTS layer";
+			sourceTree = "<group>";
+		};
+		123F095E1FD2AA9A000760FE /* WMS layer (URL) */ = {
+			isa = PBXGroup;
+			children = (
+				123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */,
+				123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */,
+			);
+			name = "WMS layer (URL)";
+			path = "Layers/WMS layer (URL)";
 			sourceTree = "<group>";
 		};
 		166E8FA01EE6311300C57C46 /* Raster layer (file) */ = {
@@ -1116,7 +1132,8 @@
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
 				3EFDE09F1E31279000CBCD92 /* Stretch renderer */,
-				125642321FD217C2006FE932 /* WMTS layer */,
+				123F09581FD2AA19000760FE /* WMTS layer */,
+				123F095E1FD2AA9A000760FE /* WMS layer (URL) */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1761,7 +1778,7 @@
 				3E01038C1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard in Resources */,
 				3ECCFE261BCC2F9A00CE256D /* ChangeViewpoint.storyboard in Resources */,
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
-				125642351FD217C2006FE932 /* WMTSLayer.storyboard in Resources */,
+				123F095B1FD2AA1A000760FE /* WMTSLayer.storyboard in Resources */,
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
 				3EFDE07D1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard in Resources */,
 				3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */,
@@ -1848,6 +1865,7 @@
 				3EFDE0E51E3288C900CBCD92 /* Viewshed.storyboard in Resources */,
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
+				123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */,
 				3EA15C701ED88D2900B1F816 /* WebTiledLayer.storyboard in Resources */,
 				3EFDE0A71E31279700CBCD92 /* RGBRenderer.storyboard in Resources */,
 				3E496ED41DD14FE2004C921C /* MobileMapViewItem.xib in Resources */,
@@ -1977,7 +1995,7 @@
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
-				125642361FD217C2006FE932 /* WMTSLayerViewController.swift in Sources */,
+				123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */,
@@ -1994,6 +2012,7 @@
 				3EFDE0A31E31279000CBCD92 /* StretchRendererViewController.swift in Sources */,
 				3E29C9E81DC7C20800E5571F /* AddFeaturesViewController.swift in Sources */,
 				3E04AB401DCBEA7400B4E2FB /* FeatureLayerQueryVC.swift in Sources */,
+				123F09621FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
