@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="YKX-tP-hY8">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Raster Layer Using URLVC-->
+        <scene sceneID="2vG-te-Umg">
+            <objects>
+                <viewController id="YKX-tP-hY8" customClass="RasterLayerUsingURLVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="o4r-mb-f7S">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="KBy-eA-7An" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KBy-eA-7An" firstAttribute="top" secondItem="o4r-mb-f7S" secondAttribute="top" id="947-XE-b9I"/>
+                            <constraint firstAttribute="trailing" secondItem="KBy-eA-7An" secondAttribute="trailing" id="JOB-1U-cqN"/>
+                            <constraint firstItem="KBy-eA-7An" firstAttribute="leading" secondItem="o4r-mb-f7S" secondAttribute="leading" id="lYo-4T-swk"/>
+                            <constraint firstAttribute="bottom" secondItem="KBy-eA-7An" secondAttribute="bottom" id="tOD-tG-wFN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="KBy-eA-7An" id="rdB-de-A8P"/>
+                    </connections>
+                </viewController>
+                <customObject id="6TD-69-DlR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92" y="9"/>
+        </scene>
+    </scenes>
+</document>
