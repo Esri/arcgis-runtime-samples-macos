@@ -70,7 +70,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.resultGraphicsOverlay.graphics.removeAllObjects()
         
         //Cancel previous job
-        self.geoprocessingJob?.cancel()
+        self.geoprocessingJob?.progress.cancel()
         
         //the service requires input of rest data type GPFeatureRecordSetLayer
         //which is AGSGeoprocessingFeatures in runtime
