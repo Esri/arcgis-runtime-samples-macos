@@ -309,6 +309,9 @@
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
+		D955BC951FD9B34C0091DD01 /* RasterLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D955BC931FD9B34C0091DD01 /* RasterLayerGPKG.storyboard */; };
+		D955BC961FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D955BC941FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift */; };
+		D955BC971FD9B4840091DD01 /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = D955BC941FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift */; };
 		D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */; };
 		D9ED2DB11FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */; };
 		D9ED2DB21FD764240043BFE1 /* FeatureLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */; };
@@ -322,6 +325,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				D955BC971FD9B4840091DD01 /* RasterLayerGPKGViewController.swift in CopyFiles */,
 				D9ED2DB21FD764240043BFE1 /* FeatureLayerGPKGViewController.swift in CopyFiles */,
 				123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */,
 				123F095D1FD2AA8B000760FE /* WMTSLayerViewController.swift in CopyFiles */,
@@ -634,6 +638,8 @@
 		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
+		D955BC931FD9B34C0091DD01 /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayerGPKG.storyboard; sourceTree = "<group>"; };
+		D955BC941FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerGPKGViewController.swift; sourceTree = "<group>"; };
 		D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerGPKGViewController.swift; sourceTree = "<group>"; };
 		D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerGPKG.storyboard; sourceTree = "<group>"; };
 		D9ED2DB41FD765BA0043BFE1 /* AuroraCO.gpkg */ = {isa = PBXFileReference; lastKnownFileType = file; path = AuroraCO.gpkg; sourceTree = "<group>"; };
@@ -1137,6 +1143,7 @@
 				3E7823611DCD54CE0011B304 /* ArcGIS vector tiled layer (custom style) */,
 				3EA15C6C1ED88C6200B1F816 /* Web tiled layer */,
 				166E8FA01EE6311300C57C46 /* Raster layer (file) */,
+				D955BC921FD9B3300091DD01 /* Raster layer (geopackage) */,
 				3EFDE08F1E30292700CBCD92 /* Hillshade renderer */,
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
@@ -1725,6 +1732,16 @@
 			path = "Geometry/Spatial operations";
 			sourceTree = "<group>";
 		};
+		D955BC921FD9B3300091DD01 /* Raster layer (geopackage) */ = {
+			isa = PBXGroup;
+			children = (
+				D955BC931FD9B34C0091DD01 /* RasterLayerGPKG.storyboard */,
+				D955BC941FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift */,
+			);
+			name = "Raster layer (geopackage)";
+			path = "Layers/Raster layer (geopackage)";
+			sourceTree = "<group>";
+		};
 		D9ED2DAB1FD7618E0043BFE1 /* Feature layer (geopackage) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1839,6 +1856,7 @@
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
 				3EA734071EC0CCF400356885 /* GrandCanyon.csv in Resources */,
 				3E0103861E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard in Resources */,
+				D955BC951FD9B34C0091DD01 /* RasterLayerGPKG.storyboard in Resources */,
 				3EFDE0B81E31287B00CBCD92 /* Shasta_Elevation.tif.ovr in Resources */,
 				3E87248F1BC710A6006386C1 /* OpenExistingMap.storyboard in Resources */,
 				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
@@ -2008,6 +2026,7 @@
 				3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */,
 				3E87247C1BC70B41006386C1 /* TiledLayerURLViewController.swift in Sources */,
 				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
+				D955BC961FD9B34C0091DD01 /* RasterLayerGPKGViewController.swift in Sources */,
 				3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */,
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
