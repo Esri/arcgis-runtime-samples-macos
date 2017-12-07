@@ -395,14 +395,14 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Raster layer (URL)</string>
+				<string>Raster layer (service)</string>
 				<key>storyboardName</key>
-				<string>RasterLayerUsingURL</string>
+				<string>RasterLayerUsingService</string>
 				<key>descriptionText</key>
-				<string>You can create a raster layer from a URL</string>
+				<string>You can create a raster layer from an ArcGIS Image service</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>RasterLayerUsingURLVC</string>
+					<string>RasterLayerUsingServiceVC</string>
 				</array>
 			</dict>
 			<dict>

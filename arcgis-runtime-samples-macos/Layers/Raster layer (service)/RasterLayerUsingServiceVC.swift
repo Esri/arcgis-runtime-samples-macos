@@ -17,9 +17,8 @@
 import Cocoa
 import ArcGIS
 
-class RasterLayerUsingURLVC : NSViewController {
-
- 
+class RasterLayerUsingServiceVC : NSViewController {
+    
     @IBOutlet weak var mapView: AGSMapView!
     
     private var map:AGSMap!
@@ -67,5 +66,6 @@ class RasterLayerUsingURLVC : NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
-
+    
 }
+
