@@ -52,7 +52,7 @@ class RasterLayerUsingServiceVC : NSViewController {
             }
             
             if let center = self?.rasterLayer.fullExtent?.center {
-                self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 40000000))
+                self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 50000000))
             }
         }
         
