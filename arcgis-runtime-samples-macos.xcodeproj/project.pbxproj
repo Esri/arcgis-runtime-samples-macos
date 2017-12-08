@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09607F771FDB044C00FA43B6 /* TimeBasedQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */; };
+		09607F7A1FDB05F100FA43B6 /* TimeBasedQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */; };
+		09607F7B1FDB067800FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */; };
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
@@ -331,6 +334,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				09607F7B1FDB067800FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				97F8BF181FDA6FB400A65B2E /* RasterLayerUsingServiceVC.swift in CopyFiles */,
 				97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */,
 				21EA2F541FD8B54D00F39E9E /* RasterFunctionServiceViewController.swift in CopyFiles */,
@@ -430,6 +434,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeBasedQuery.storyboard; sourceTree = "<group>"; };
+		09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedQueryVC.swift; sourceTree = "<group>"; };
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
 		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
@@ -669,6 +675,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09607F721FDB013B00FA43B6 /* Time based query */ = {
+			isa = PBXGroup;
+			children = (
+				09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */,
+				09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */,
+			);
+			name = "Time based query";
+			path = "Features/Time based query";
+			sourceTree = "<group>";
+		};
 		10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */ = {
 			isa = PBXGroup;
 			children = (
@@ -1193,6 +1209,7 @@
 				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
 				3EEB2B9C1EBB8CC200B52513 /* List related features */,
 				3EF190A61EF9BF550037779D /* Add delete related features */,
+				09607F721FDB013B00FA43B6 /* Time based query */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1923,6 +1940,7 @@
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */,
+				09607F771FDB044C00FA43B6 /* TimeBasedQuery.storyboard in Resources */,
 				3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */,
 				3E049A341CED132F0031ADA9 /* GraphicsWithSymbols.storyboard in Resources */,
 				3EFDE09D1E31271700CBCD92 /* BlendRenderer.storyboard in Resources */,
@@ -2010,6 +2028,7 @@
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */,
+				09607F7A1FDB05F100FA43B6 /* TimeBasedQueryVC.swift in Sources */,
 				3E7823651DCD54CE0011B304 /* VectorStylesViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
