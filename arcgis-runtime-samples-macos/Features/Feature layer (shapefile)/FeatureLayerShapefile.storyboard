@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="0Rv-bB-2rW">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feature Layer Shapefile View Controller-->
+        <scene sceneID="NNv-5h-uoz">
+            <objects>
+                <viewController id="0Rv-bB-2rW" customClass="FeatureLayerShapefileViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="RYI-8m-sXW">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="YYr-6u-UV5" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="46" width="450" height="254"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-AI-d0s">
+                                <rect key="frame" x="185" y="13" width="80" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Round Rect" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k9n-nw-WfK">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="setShapefileSymbol:" target="0Rv-bB-2rW" id="mEg-aB-Ecy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bSC-AI-d0s" firstAttribute="centerX" secondItem="RYI-8m-sXW" secondAttribute="centerX" id="1Hp-UV-3M0"/>
+                            <constraint firstItem="YYr-6u-UV5" firstAttribute="top" secondItem="RYI-8m-sXW" secondAttribute="top" id="HBV-TY-DCc"/>
+                            <constraint firstItem="YYr-6u-UV5" firstAttribute="leading" secondItem="RYI-8m-sXW" secondAttribute="leading" id="bVh-sG-2uB"/>
+                            <constraint firstItem="bSC-AI-d0s" firstAttribute="top" secondItem="YYr-6u-UV5" secondAttribute="bottom" constant="14" id="nSy-we-Drx"/>
+                            <constraint firstAttribute="trailing" secondItem="YYr-6u-UV5" secondAttribute="trailing" id="u76-v0-H1P"/>
+                            <constraint firstAttribute="bottom" secondItem="bSC-AI-d0s" secondAttribute="bottom" constant="14" id="vEL-NQ-P3M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="YYr-6u-UV5" id="pEr-OD-BSW"/>
+                    </connections>
+                </viewController>
+                <customObject id="58c-09-OpM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="80"/>
+        </scene>
+    </scenes>
+</document>
