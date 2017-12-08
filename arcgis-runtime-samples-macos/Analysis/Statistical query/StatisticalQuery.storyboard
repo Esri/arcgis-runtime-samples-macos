@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wP8-H8-3FB">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Statistical Query View Controller-->
+        <scene sceneID="OvX-k4-GDR">
+            <objects>
+                <viewController id="wP8-H8-3FB" customClass="StatisticalQueryViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="9Lv-6O-Wz6">
+                        <rect key="frame" x="0.0" y="0.0" width="656" height="592"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="v6y-KQ-9tg" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="656" height="592"/>
+                            </customView>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-rV-tiC">
+                                <rect key="frame" x="411" y="455" width="225" height="115"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="tmk-nm-TUB">
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="115"/>
+                                        <subviews>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Tfx-M9-Mch">
+                                                <rect key="frame" x="18" y="226" width="187" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Only cities greater than 5M" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1Rk-Mz-zLT">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="OBV-gv-rFM">
+                                                <rect key="frame" x="18" y="79" width="189" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Only cities in current extent" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Aw8-ay-MzU">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sBp-iM-ZBt">
+                                                <rect key="frame" x="51" y="13" width="122" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Get Statistics" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DPT-rg-6x9">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="getStatisticsAction:" target="wP8-H8-3FB" id="osw-6q-phA"/>
+                                                </connections>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="gkv-gh-ymH">
+                                                <rect key="frame" x="18" y="52" width="187" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Only cities greater than 5M" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JVv-fz-Pen">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gkv-gh-ymH" firstAttribute="centerX" secondItem="sBp-iM-ZBt" secondAttribute="centerX" id="03D-gj-TbG"/>
+                                            <constraint firstItem="OBV-gv-rFM" firstAttribute="leading" secondItem="gkv-gh-ymH" secondAttribute="leading" id="333-hU-pUL"/>
+                                            <constraint firstItem="gkv-gh-ymH" firstAttribute="top" secondItem="OBV-gv-rFM" secondAttribute="bottom" constant="13" id="3gn-uO-a7A"/>
+                                            <constraint firstItem="Tfx-M9-Mch" firstAttribute="leading" secondItem="OBV-gv-rFM" secondAttribute="leading" id="70N-6B-CaA"/>
+                                            <constraint firstItem="OBV-gv-rFM" firstAttribute="top" secondItem="tmk-nm-TUB" secondAttribute="top" constant="20" symbolic="YES" id="FA3-9u-B6v"/>
+                                            <constraint firstItem="OBV-gv-rFM" firstAttribute="leading" secondItem="tmk-nm-TUB" secondAttribute="leading" constant="20" symbolic="YES" id="HI8-EG-6J9"/>
+                                            <constraint firstAttribute="bottom" secondItem="sBp-iM-ZBt" secondAttribute="bottom" constant="20" symbolic="YES" id="c6X-m4-qMt"/>
+                                            <constraint firstAttribute="trailing" secondItem="OBV-gv-rFM" secondAttribute="trailing" constant="20" symbolic="YES" id="dkg-dK-VUB"/>
+                                            <constraint firstItem="sBp-iM-ZBt" firstAttribute="top" secondItem="gkv-gh-ymH" secondAttribute="bottom" constant="13" id="ePi-GB-CJG"/>
+                                            <constraint firstItem="Tfx-M9-Mch" firstAttribute="top" secondItem="tmk-nm-TUB" secondAttribute="top" constant="-127" id="zpu-e4-Kxn"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tmk-nm-TUB" firstAttribute="leading" secondItem="KSm-rV-tiC" secondAttribute="leading" id="9zW-gR-51g"/>
+                                    <constraint firstItem="tmk-nm-TUB" firstAttribute="top" secondItem="KSm-rV-tiC" secondAttribute="top" id="H8T-c2-ypJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="tmk-nm-TUB" secondAttribute="trailing" id="aXN-j6-XJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="tmk-nm-TUB" secondAttribute="bottom" id="yzT-uC-l80"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="v6y-KQ-9tg" firstAttribute="leading" secondItem="9Lv-6O-Wz6" secondAttribute="leading" id="7Q0-E9-wJ3"/>
+                            <constraint firstItem="v6y-KQ-9tg" firstAttribute="top" secondItem="9Lv-6O-Wz6" secondAttribute="top" id="Qut-8M-e2R"/>
+                            <constraint firstItem="KSm-rV-tiC" firstAttribute="top" secondItem="9Lv-6O-Wz6" secondAttribute="top" constant="22" id="hUe-SA-INO"/>
+                            <constraint firstAttribute="trailing" secondItem="v6y-KQ-9tg" secondAttribute="trailing" id="uMS-Ym-2qH"/>
+                            <constraint firstAttribute="trailing" secondItem="KSm-rV-tiC" secondAttribute="trailing" constant="20" symbolic="YES" id="veu-bN-ONl"/>
+                            <constraint firstAttribute="bottom" secondItem="v6y-KQ-9tg" secondAttribute="bottom" id="vpF-Fh-B7H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getStatisticsButton" destination="sBp-iM-ZBt" id="8ru-69-7NA"/>
+                        <outlet property="mapView" destination="v6y-KQ-9tg" id="wE0-77-yhC"/>
+                        <outlet property="onlyBigCitiesCheckBox" destination="gkv-gh-ymH" id="XeA-a5-cPg"/>
+                        <outlet property="onlyInCurrentExtentCheckBox" destination="OBV-gv-rFM" id="fSj-rW-9mn"/>
+                        <outlet property="settingsView" destination="KSm-rV-tiC" id="yvo-BX-Wcp"/>
+                    </connections>
+                </viewController>
+                <customObject id="LN9-mg-usj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27" y="145"/>
+        </scene>
+    </scenes>
+</document>
