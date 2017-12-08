@@ -383,6 +383,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Raster function (service)</string>
+				<key>storyboardName</key>
+				<string>RasterFunctionService</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to create an image service raster and apply a Hillshade raster function to it.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>RasterFunctionServiceViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Raster layer (file)</string>
 				<key>storyboardName</key>
 				<string>RasterLayer</string>
@@ -393,6 +405,22 @@
 					<string>RasterLayerViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Raster layer (geopackage)</string>
+                <key>storyboardName</key>
+                <string>RasterLayerGPKG</string>
+                <key>descriptionText</key>
+                <string>Show a raster layer on a map using a geopackage</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>RasterLayerGPKGViewController</string>
+                </array>
+                <key>dependency</key>
+                <array>
+                    <string>AuroraCOGeopackage</string>
+                </array>
+            </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Raster layer (service)</string>
