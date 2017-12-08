@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09607F6C1FD9E86D00FA43B6 /* TimeBasedQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09607F6B1FD9E86D00FA43B6 /* TimeBasedQuery.storyboard */; };
+		09607F701FD9E94800FA43B6 /* TimeBasedQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09607F6F1FD9E94800FA43B6 /* TimeBasedQueryVC.swift */; };
+		09607F711FD9E97900FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 09607F6F1FD9E94800FA43B6 /* TimeBasedQueryVC.swift */; };
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
@@ -322,6 +325,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				09607F711FD9E97900FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				D9ED2DB21FD764240043BFE1 /* FeatureLayerGPKGViewController.swift in CopyFiles */,
 				123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */,
 				123F095D1FD2AA8B000760FE /* WMTSLayerViewController.swift in CopyFiles */,
@@ -418,6 +422,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09607F6B1FD9E86D00FA43B6 /* TimeBasedQuery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeBasedQuery.storyboard; sourceTree = "<group>"; };
+		09607F6F1FD9E94800FA43B6 /* TimeBasedQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedQueryVC.swift; sourceTree = "<group>"; };
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
 		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
@@ -651,6 +657,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09607F6A1FD9E80D00FA43B6 /* Time based query */ = {
+			isa = PBXGroup;
+			children = (
+				09607F6F1FD9E94800FA43B6 /* TimeBasedQueryVC.swift */,
+				09607F6B1FD9E86D00FA43B6 /* TimeBasedQuery.storyboard */,
+			);
+			name = "Time based query";
+			path = "Features/Time based query";
+			sourceTree = "<group>";
+		};
 		10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */ = {
 			isa = PBXGroup;
 			children = (
@@ -1162,6 +1178,7 @@
 				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
 				3EEB2B9C1EBB8CC200B52513 /* List related features */,
 				3EF190A61EF9BF550037779D /* Add delete related features */,
+				09607F6A1FD9E80D00FA43B6 /* Time based query */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1815,6 +1832,7 @@
 				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
 				3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */,
+				09607F6C1FD9E86D00FA43B6 /* TimeBasedQuery.storyboard in Resources */,
 				3EFDE0C01E31287B00CBCD92 /* ShastaBW.tif.ovr in Resources */,
 				3E049A2C1CED12FC0031ADA9 /* GOIdentify.storyboard in Resources */,
 				3EFDE0B51E31287B00CBCD92 /* Shasta_Elevation.tfw in Resources */,
@@ -2041,6 +2059,7 @@
 				3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */,
 				3EBA256E1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift in Sources */,
 				3EFDE0A31E31279000CBCD92 /* StretchRendererViewController.swift in Sources */,
+				09607F701FD9E94800FA43B6 /* TimeBasedQueryVC.swift in Sources */,
 				3E29C9E81DC7C20800E5571F /* AddFeaturesViewController.swift in Sources */,
 				3E04AB401DCBEA7400B4E2FB /* FeatureLayerQueryVC.swift in Sources */,
 				123F09621FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift in Sources */,

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="DYi-U4-xRw">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Time Based QueryVC-->
+        <scene sceneID="NWs-sM-iax">
+            <objects>
+                <viewController id="DYi-U4-xRw" customClass="TimeBasedQueryVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NLH-4s-8YP">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="91R-qo-PC4" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="91R-qo-PC4" secondAttribute="bottom" id="GMB-z4-Vdz"/>
+                            <constraint firstAttribute="trailing" secondItem="91R-qo-PC4" secondAttribute="trailing" id="ZdK-U3-aJj"/>
+                            <constraint firstItem="91R-qo-PC4" firstAttribute="leading" secondItem="NLH-4s-8YP" secondAttribute="leading" id="dE8-1a-ZBQ"/>
+                            <constraint firstItem="91R-qo-PC4" firstAttribute="top" secondItem="NLH-4s-8YP" secondAttribute="top" id="onH-q0-ysn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="91R-qo-PC4" id="A9B-Eg-e2a"/>
+                    </connections>
+                </viewController>
+                <customObject id="NOC-OO-NVM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="62"/>
+        </scene>
+    </scenes>
+</document>
