@@ -39,25 +39,15 @@ class TimeBasedQueryVC: NSViewController {
         
         //define the request mode
         self.featureTable.featureRequestMode = .manualCache
+            
+        //create feature layer using the feature table
+        let layer = AGSFeatureLayer(featureTable: self.featureTable)
         
-        //load the feature table
-        self.featureTable.load { [weak self] (error) in
-            
-            guard error == nil else {
-                //show error
-                self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
-                return
-            }
-            
-            //create feature layer using the feature table
-            let layer = AGSFeatureLayer(featureTable: (self?.featureTable)!)
-            
-            //add feature layer to map's operational layers
-            self?.map.operationalLayers.add(layer)
-            
-            //populate features based on a time-based query
-            self?.populateFeaturesWithQuery()
-        }
+        //add feature layer to map's operational layers
+        self.map.operationalLayers.add(layer)
+        
+        //populate features based on a time-based query
+        self.populateFeaturesWithQuery()
         
     }
     
@@ -88,7 +78,7 @@ class TimeBasedQueryVC: NSViewController {
             
             //the resulting features should be displayed on the map
             //you can print the count of features
-            print(result?.featureEnumerator().allObjects.count ?? 0)
+            print("Hurricane features during the time inverval: \(result?.featureEnumerator().allObjects.count ?? 0)")
             
         }
     }
