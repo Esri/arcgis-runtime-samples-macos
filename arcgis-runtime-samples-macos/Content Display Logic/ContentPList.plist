@@ -676,6 +676,18 @@
 					<string>AddDeleteRelatedFeaturesVC</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Time based query</string>
+				<key>storyboardName</key>
+				<string>TimeBasedQuery</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to apply a time-based parameter to a feature layer query</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>TimeBasedQueryVC</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
