@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09607F771FDB044C00FA43B6 /* TimeBasedQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */; };
-		09607F7A1FDB05F100FA43B6 /* TimeBasedQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */; };
-		09607F7B1FDB067800FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */; };
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
@@ -25,6 +22,9 @@
 		213850841F74363000F79149 /* DisplayGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2138507F1F74348F00F79149 /* DisplayGrid.storyboard */; };
 		213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
 		213850861F74382900F79149 /* DisplayGridViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
+		2182C9891FDB1100003E3A0F /* StatisticalQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */; };
+		2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
+		218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
 		21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */; };
 		21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21EA2F501FD8AE4000F39E9E /* RasterFunctionService.storyboard */; };
 		21EA2F541FD8B54D00F39E9E /* RasterFunctionServiceViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */; };
@@ -321,6 +321,17 @@
 		97F8BF171FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		97F8BF181FDA6FB400A65B2E /* RasterLayerUsingServiceVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
+		D97B7E731FDAE98C00E1239D /* FeatureLayerShapefile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E711FDAE98C00E1239D /* FeatureLayerShapefile.storyboard */; };
+		D97B7E741FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B7E721FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift */; };
+		D97B7E901FDAEA8100E1239D /* Subdivisions.shx in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E781FDAEA8000E1239D /* Subdivisions.shx */; };
+		D97B7E911FDAEA8100E1239D /* Subdivisions.shp.xml in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E791FDAEA8000E1239D /* Subdivisions.shp.xml */; };
+		D97B7E971FDAEA8100E1239D /* Subdivisions.shp in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E7F1FDAEA8000E1239D /* Subdivisions.shp */; };
+		D97B7E9A1FDAEA8100E1239D /* Subdivisions.dbf in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E821FDAEA8100E1239D /* Subdivisions.dbf */; };
+		D97B7E9E1FDAEA8100E1239D /* Subdivisions.sbn in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E861FDAEA8100E1239D /* Subdivisions.sbn */; };
+		D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E881FDAEA8100E1239D /* Subdivisions.cpg */; };
+		D97B7EA11FDAEA8100E1239D /* Subdivisions.sbx in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E891FDAEA8100E1239D /* Subdivisions.sbx */; };
+		D97B7EA51FDAEA8200E1239D /* Subdivisions.prj in Resources */ = {isa = PBXBuildFile; fileRef = D97B7E8D1FDAEA8100E1239D /* Subdivisions.prj */; };
+		D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = D97B7E721FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift */; };
 		D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */; };
 		D9ED2DB11FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */; };
 		D9ED2DB21FD764240043BFE1 /* FeatureLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */; };
@@ -334,7 +345,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				09607F7B1FDB067800FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
+				D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */,
+				218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */,
 				97F8BF181FDA6FB400A65B2E /* RasterLayerUsingServiceVC.swift in CopyFiles */,
 				97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */,
 				21EA2F541FD8B54D00F39E9E /* RasterFunctionServiceViewController.swift in CopyFiles */,
@@ -434,8 +446,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeBasedQuery.storyboard; sourceTree = "<group>"; };
-		09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedQueryVC.swift; sourceTree = "<group>"; };
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
 		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
@@ -446,6 +456,8 @@
 		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		2138507F1F74348F00F79149 /* DisplayGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayGrid.storyboard; sourceTree = "<group>"; };
 		213850801F74348F00F79149 /* DisplayGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayGridViewController.swift; sourceTree = "<group>"; };
+		2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StatisticalQuery.storyboard; sourceTree = "<group>"; };
+		2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticalQueryViewController.swift; sourceTree = "<group>"; };
 		21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterFunctionServiceViewController.swift; sourceTree = "<group>"; };
 		21EA2F501FD8AE4000F39E9E /* RasterFunctionService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterFunctionService.storyboard; sourceTree = "<group>"; };
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
@@ -658,6 +670,16 @@
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
+		D97B7E711FDAE98C00E1239D /* FeatureLayerShapefile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerShapefile.storyboard; sourceTree = "<group>"; };
+		D97B7E721FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerShapefileViewController.swift; sourceTree = "<group>"; };
+		D97B7E781FDAEA8000E1239D /* Subdivisions.shx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Subdivisions.shx; sourceTree = "<group>"; };
+		D97B7E791FDAEA8000E1239D /* Subdivisions.shp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Subdivisions.shp.xml; sourceTree = "<group>"; };
+		D97B7E7F1FDAEA8000E1239D /* Subdivisions.shp */ = {isa = PBXFileReference; lastKnownFileType = file; path = Subdivisions.shp; sourceTree = "<group>"; };
+		D97B7E821FDAEA8100E1239D /* Subdivisions.dbf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Subdivisions.dbf; sourceTree = "<group>"; };
+		D97B7E861FDAEA8100E1239D /* Subdivisions.sbn */ = {isa = PBXFileReference; lastKnownFileType = file; path = Subdivisions.sbn; sourceTree = "<group>"; };
+		D97B7E881FDAEA8100E1239D /* Subdivisions.cpg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Subdivisions.cpg; sourceTree = "<group>"; };
+		D97B7E891FDAEA8100E1239D /* Subdivisions.sbx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Subdivisions.sbx; sourceTree = "<group>"; };
+		D97B7E8D1FDAEA8100E1239D /* Subdivisions.prj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Subdivisions.prj; sourceTree = "<group>"; };
 		D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerGPKGViewController.swift; sourceTree = "<group>"; };
 		D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerGPKG.storyboard; sourceTree = "<group>"; };
 		D9ED2DB41FD765BA0043BFE1 /* AuroraCO.gpkg */ = {isa = PBXFileReference; lastKnownFileType = file; path = AuroraCO.gpkg; sourceTree = "<group>"; };
@@ -675,16 +697,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09607F721FDB013B00FA43B6 /* Time based query */ = {
-			isa = PBXGroup;
-			children = (
-				09607F791FDB05F100FA43B6 /* TimeBasedQueryVC.swift */,
-				09607F751FDB013B00FA43B6 /* TimeBasedQuery.storyboard */,
-			);
-			name = "Time based query";
-			path = "Features/Time based query";
-			sourceTree = "<group>";
-		};
 		10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +744,15 @@
 			);
 			name = "Display grid";
 			path = "Display information/Display grid";
+			sourceTree = "<group>";
+		};
+		2182C9851FDB1100003E3A0F /* Statistical query */ = {
+			isa = PBXGroup;
+			children = (
+				2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */,
+				2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */,
+			);
+			path = "Statistical query";
 			sourceTree = "<group>";
 		};
 		21EA2F4D1FD8AE4000F39E9E /* Raster function (service) */ = {
@@ -834,6 +855,7 @@
 				3E496EC31DD14FBE004C921C /* Mobile map packages */,
 				3E09CC751D39A4FC005D2757 /* Geodatabases */,
 				D9ED2DB31FD765870043BFE1 /* Geopackages */,
+				D97B7E751FDAEA3600E1239D /* Shapefiles */,
 				3E049A141CEA92730031ADA9 /* Libraries */,
 				3E01036E1E298D300013AEEF /* Tile packages */,
 				3EFDE0951E303B0600CBCD92 /* Rasters */,
@@ -1200,6 +1222,7 @@
 				3E8A25C31D36FC4400D14F08 /* Feature layer (feature service) */,
 				3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */,
 				D9ED2DAB1FD7618E0043BFE1 /* Feature layer (geopackage) */,
+				D97B7E701FDAE91400E1239D /* Feature layer (shapefile) */,
 				3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */,
 				3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */,
 				3E0103891E29A7250013AEEF /* Feature layer definition expression */,
@@ -1209,7 +1232,6 @@
 				3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */,
 				3EEB2B9C1EBB8CC200B52513 /* List related features */,
 				3EF190A61EF9BF550037779D /* Add delete related features */,
-				09607F721FDB013B00FA43B6 /* Time based query */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1741,6 +1763,7 @@
 			children = (
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
 				3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */,
+				2182C9851FDB1100003E3A0F /* Statistical query */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -1789,6 +1812,31 @@
 				97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */,
 			);
 			path = "Raster layer (geopackage)";
+			sourceTree = "<group>";
+		};
+		D97B7E701FDAE91400E1239D /* Feature layer (shapefile) */ = {
+			isa = PBXGroup;
+			children = (
+				D97B7E711FDAE98C00E1239D /* FeatureLayerShapefile.storyboard */,
+				D97B7E721FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift */,
+			);
+			name = "Feature layer (shapefile)";
+			path = "Features/Feature layer (shapefile)";
+			sourceTree = "<group>";
+		};
+		D97B7E751FDAEA3600E1239D /* Shapefiles */ = {
+			isa = PBXGroup;
+			children = (
+				D97B7E881FDAEA8100E1239D /* Subdivisions.cpg */,
+				D97B7E821FDAEA8100E1239D /* Subdivisions.dbf */,
+				D97B7E8D1FDAEA8100E1239D /* Subdivisions.prj */,
+				D97B7E861FDAEA8100E1239D /* Subdivisions.sbn */,
+				D97B7E891FDAEA8100E1239D /* Subdivisions.sbx */,
+				D97B7E7F1FDAEA8000E1239D /* Subdivisions.shp */,
+				D97B7E791FDAEA8000E1239D /* Subdivisions.shp.xml */,
+				D97B7E781FDAEA8000E1239D /* Subdivisions.shx */,
+			);
+			path = Shapefiles;
 			sourceTree = "<group>";
 		};
 		D9ED2DAB1FD7618E0043BFE1 /* Feature layer (geopackage) */ = {
@@ -1892,9 +1940,11 @@
 				3E496ED11DD14FE2004C921C /* MobileMapSearchRoute.storyboard in Resources */,
 				3ECCFE181BC86F3900CE256D /* SetMapsSpatialReference.storyboard in Resources */,
 				3ECCFE291BCC30F500CE256D /* GriffithParkJson.txt in Resources */,
+				2182C9891FDB1100003E3A0F /* StatisticalQuery.storyboard in Resources */,
 				3E7C0E3B1CF90F0000200B6E /* highlight.pack.js in Resources */,
 				3EFDE0921E30292700CBCD92 /* HillshadeRenderer.storyboard in Resources */,
 				3E7C0E3C1CF90F0000200B6E /* style.css in Resources */,
+				D97B7EA11FDAEA8100E1239D /* Subdivisions.sbx in Resources */,
 				3EA7340F1EC0CD2D00356885 /* Bristol.dae in Resources */,
 				3EFDE0BF1E31287B00CBCD92 /* ShastaBW.tif.aux.xml in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
@@ -1906,6 +1956,7 @@
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
 				3EA734071EC0CCF400356885 /* GrandCanyon.csv in Resources */,
 				3E0103861E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard in Resources */,
+				D97B7E901FDAEA8100E1239D /* Subdivisions.shx in Resources */,
 				3EFDE0B81E31287B00CBCD92 /* Shasta_Elevation.tif.ovr in Resources */,
 				3E87248F1BC710A6006386C1 /* OpenExistingMap.storyboard in Resources */,
 				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
@@ -1913,12 +1964,16 @@
 				3EA7340A1EC0CCF400356885 /* Snowdon.csv in Resources */,
 				3EDC84161F1974F7002DBCF2 /* FindRoute.storyboard in Resources */,
 				3EFDE0BC1E31287B00CBCD92 /* Shasta.tif.ovr in Resources */,
+				D97B7E731FDAE98C00E1239D /* FeatureLayerShapefile.storyboard in Resources */,
+				D97B7E9E1FDAEA8100E1239D /* Subdivisions.sbn in Resources */,
 				3E496EE31DD29B5D004C921C /* TakeScreenshot.storyboard in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
 				3EA734101EC0CD2D00356885 /* Bristol.png in Resources */,
 				3EA734091EC0CCF400356885 /* Pyrenees.csv in Resources */,
+				D97B7E971FDAEA8100E1239D /* Subdivisions.shp in Resources */,
 				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
+				D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
@@ -1940,7 +1995,6 @@
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */,
-				09607F771FDB044C00FA43B6 /* TimeBasedQuery.storyboard in Resources */,
 				3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */,
 				3E049A341CED132F0031ADA9 /* GraphicsWithSymbols.storyboard in Resources */,
 				3EFDE09D1E31271700CBCD92 /* BlendRenderer.storyboard in Resources */,
@@ -1977,17 +2031,20 @@
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
 				3E7C0E3A1CF90F0000200B6E /* default.css in Resources */,
+				D97B7EA51FDAEA8200E1239D /* Subdivisions.prj in Resources */,
 				3EFDE0BB1E31287B00CBCD92 /* Shasta.tif.aux.xml in Resources */,
 				3E87247F1BC70BA3006386C1 /* TiledLayerURL.storyboard in Resources */,
 				3E0662561F031F2C007666DF /* ChangeSublayerRenderer.storyboard in Resources */,
 				3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */,
 				3EFDE0BE1E31287B00CBCD92 /* ShastaBW.tif in Resources */,
+				D97B7E9A1FDAEA8100E1239D /* Subdivisions.dbf in Resources */,
 				3E29C9E71DC7C20800E5571F /* AddFeaturesFS.storyboard in Resources */,
 				3E0103921E2DC8B50013AEEF /* GenerateGeodatabase.storyboard in Resources */,
 				3E84EE441DCA4ADE006731B5 /* EditFeaturesConnected.storyboard in Resources */,
 				3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */,
 				3E78235E1DCD52D20011B304 /* IdentifyLayers.storyboard in Resources */,
 				D9ED2DB51FD765BA0043BFE1 /* AuroraCO.gpkg in Resources */,
+				D97B7E911FDAEA8100E1239D /* Subdivisions.shp.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2028,7 +2085,6 @@
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */,
-				09607F7A1FDB05F100FA43B6 /* TimeBasedQueryVC.swift in Sources */,
 				3E7823651DCD54CE0011B304 /* VectorStylesViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
@@ -2064,10 +2120,12 @@
 				3E8724841BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift in Sources */,
 				3ECCFE1B1BC86F5A00CE256D /* SetMapsSRViewController.swift in Sources */,
 				3E69DE461CFE2DEC001F65F7 /* WindowController.swift in Sources */,
+				2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */,
 				21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */,
 				3E496ED01DD14FE2004C921C /* MapPackagesListVC.swift in Sources */,
 				3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */,
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
+				D97B7E741FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift in Sources */,
 				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */,
