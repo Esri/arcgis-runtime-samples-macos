@@ -10,6 +10,9 @@
 		09607F8C1FDB644700FA43B6 /* TimeBasedQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09607F8B1FDB644700FA43B6 /* TimeBasedQueryVC.swift */; };
 		09607F8D1FDB647600FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 09607F8B1FDB644700FA43B6 /* TimeBasedQueryVC.swift */; };
 		09607F8E1FDB64AF00FA43B6 /* TimeBasedQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09607F891FDB641C00FA43B6 /* TimeBasedQuery.storyboard */; };
+		10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10859BB11FE1A1AF00F6E552 /* FeatureLayerExtrusion.storyboard */; };
+		10859BB51FE1A1B000F6E552 /* FeatureLayerExtrusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10859BB21FE1A1AF00F6E552 /* FeatureLayerExtrusionViewController.swift */; };
+		10859BB71FE1A3F400F6E552 /* FeatureLayerExtrusionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10859BB21FE1A1AF00F6E552 /* FeatureLayerExtrusionViewController.swift */; };
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
@@ -361,6 +364,7 @@
 				3EDC84191F1D579C002DBCF2 /* FindRouteViewController.swift in CopyFiles */,
 				3EDC841A1F1D579C002DBCF2 /* DirectionsViewController.swift in CopyFiles */,
 				3E0662581F032351007666DF /* ChangeSublayerRendererVC.swift in CopyFiles */,
+				10859BB71FE1A3F400F6E552 /* FeatureLayerExtrusionViewController.swift in CopyFiles */,
 				3EF190AB1EF9C1430037779D /* AddDeleteRelatedFeaturesVC.swift in CopyFiles */,
 				10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */,
 				3EA15C711ED88DCB00B1F816 /* WebTiledLayerViewController.swift in CopyFiles */,
@@ -452,6 +456,8 @@
 /* Begin PBXFileReference section */
 		09607F891FDB641C00FA43B6 /* TimeBasedQuery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeBasedQuery.storyboard; sourceTree = "<group>"; };
 		09607F8B1FDB644700FA43B6 /* TimeBasedQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedQueryVC.swift; sourceTree = "<group>"; };
+		10859BB11FE1A1AF00F6E552 /* FeatureLayerExtrusion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerExtrusion.storyboard; sourceTree = "<group>"; };
+		10859BB21FE1A1AF00F6E552 /* FeatureLayerExtrusionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerExtrusionViewController.swift; sourceTree = "<group>"; };
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
 		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
@@ -711,6 +717,15 @@
 			);
 			name = "Time based query";
 			path = "Features/Time based query";
+			sourceTree = "<group>";
+		};
+		10859BB01FE1A1AF00F6E552 /* Feature layer extrusion */ = {
+			isa = PBXGroup;
+			children = (
+				10859BB11FE1A1AF00F6E552 /* FeatureLayerExtrusion.storyboard */,
+				10859BB21FE1A1AF00F6E552 /* FeatureLayerExtrusionViewController.swift */,
+			);
+			path = "Feature layer extrusion";
 			sourceTree = "<group>";
 		};
 		10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */ = {
@@ -1010,6 +1025,7 @@
 		3E495C401D062E940021CD95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				10859BB01FE1A1AF00F6E552 /* Feature layer extrusion */,
 				3E495C4C1D076C1D0021CD95 /* Display a scene */,
 				3E495C411D0633F40021CD95 /* Extrude graphics */,
 				3E53C6E61D1B55880054B5C8 /* Scene symbols */,
@@ -1993,6 +2009,7 @@
 				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
 				D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
+				10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
 				3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */,
@@ -2167,6 +2184,7 @@
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */,
+				10859BB51FE1A1B000F6E552 /* FeatureLayerExtrusionViewController.swift in Sources */,
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
 				3E495C431D0635C10021CD95 /* ExtrudeGraphicsViewController.swift in Sources */,
 				3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */,
