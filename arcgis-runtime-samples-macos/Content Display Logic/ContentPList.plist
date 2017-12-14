@@ -163,19 +163,6 @@
 					<string>AddedLayerCellView</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Read a geopackage</string>
-                <key>storyboardName</key>
-                <string>ReadGeopackage</string>
-                <key>descriptionText</key>
-                <string>This sample shows you how to manage layers in a map that are loaded from a geopackage. You can reorder them, delete an existing layer or insert a new layer.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>ReadGeopackageViewController</string>
-                    <string>GPKGLayerTableCell</string>
-                </array>
-            </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Manage bookmarks</string>
@@ -289,6 +276,19 @@
 					<string>MobileMapViewItem</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Read a geopackage</string>
+                <key>storyboardName</key>
+                <string>ReadGeopackage</string>
+                <key>descriptionText</key>
+                <string>This sample shows you how to manage layers in a map that are loaded from a geopackage. You can reorder them, delete an existing layer or insert a new layer.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>ReadGeopackageViewController</string>
+                    <string>GPKGLayerTableCell</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>

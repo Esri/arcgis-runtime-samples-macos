@@ -1171,7 +1171,6 @@
 		3E87246F1BC6D918006386C1 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				D959FE3D1FDC771400B507CB /* Read a geopackage */,
 				3E8724701BC6D933006386C1 /* Display a map */,
 				3E8A25BE1D36F99800D14F08 /* Map loaded */,
 				3E87248D1BC7104F006386C1 /* Open an existing map */,
@@ -1189,6 +1188,7 @@
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
+				D959FE3D1FDC771400B507CB /* Read a geopackage */,
 			);
 			name = Maps;
 			sourceTree = "<group>";

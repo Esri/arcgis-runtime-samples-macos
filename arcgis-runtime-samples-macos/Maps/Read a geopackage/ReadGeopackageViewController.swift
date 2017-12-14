@@ -14,7 +14,7 @@
 
 import ArcGIS
 
-private let kDragRowType:String = "hey"
+private let kDragRowType:String = "AGSLayerInMap"
 private let kLayerInTableRowKey:String = "AddedLayerRowView"
 private let kLayerNotInTableRowKey:String = "RemovedLayerRowView"
 
