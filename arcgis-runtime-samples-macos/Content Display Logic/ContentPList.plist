@@ -552,22 +552,22 @@
 					<string>AuroraCOGeopackage</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Feature layer (shapefile)</string>
-                <key>storyboardName</key>
-                <string>FeatureLayerShapefile</string>
-                <key>descriptionText</key>
-                <string>Show a feature layer on a map using a shapefile</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>FeatureLayerShapefileViewController</string>
-                </array>
-                <key>dependency</key>
-                <array>
-                    <string>SubdivisionsShapefile</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer (shapefile)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerShapefile</string>
+				<key>descriptionText</key>
+				<string>Show a feature layer on a map using a shapefile</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerShapefileViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>SubdivisionsShapefile</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Feature layer selection</string>
@@ -1035,6 +1035,18 @@
 					<string>StatisticalQueryViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Line of sight (location)</string>
+                <key>storyboardName</key>
+                <string>LineOfSightLocation</string>
+                <key>descriptionText</key>
+                <string>Shows how to interactively place a line of sight between two locations.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>LineOfSightLocationViewController</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>

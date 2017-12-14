@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ywQ-be-XN7">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--Line Of Sight Location View Controller-->
+        <scene sceneID="DEu-FT-JXv">
+            <objects>
+                <viewController id="ywQ-be-XN7" customClass="LineOfSightLocationViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="9tC-LT-Dhv">
+                        <rect key="frame" x="0.0" y="0.0" width="493" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="8MP-JI-Mun" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="493" height="300"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ucr-gl-arB">
+                                <rect key="frame" x="0.0" y="270" width="493" height="30"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-MF-y8z">
+                                        <rect key="frame" x="18" y="6" width="457" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Single tap on the map to add observer location" id="s2v-Bz-vGh">
+                                            <font key="font" metaFont="systemMedium" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tvL-MF-y8z" firstAttribute="leading" secondItem="Ucr-gl-arB" secondAttribute="leading" constant="20" id="JFp-5y-Ajf"/>
+                                    <constraint firstAttribute="trailing" secondItem="tvL-MF-y8z" secondAttribute="trailing" constant="20" id="aql-LG-ULs"/>
+                                    <constraint firstAttribute="height" constant="30" id="kl8-xN-K1J"/>
+                                    <constraint firstItem="tvL-MF-y8z" firstAttribute="centerY" secondItem="Ucr-gl-arB" secondAttribute="centerY" id="raE-B1-ZkM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.89599955673758869" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="8MP-JI-Mun" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="Eck-T3-e8b"/>
+                            <constraint firstItem="Ucr-gl-arB" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="RJ2-vQ-sSH"/>
+                            <constraint firstItem="8MP-JI-Mun" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="T3a-IT-kBV"/>
+                            <constraint firstAttribute="trailing" secondItem="Ucr-gl-arB" secondAttribute="trailing" id="UmV-kd-GYs"/>
+                            <constraint firstAttribute="trailing" secondItem="8MP-JI-Mun" secondAttribute="trailing" id="fCB-dE-114"/>
+                            <constraint firstAttribute="bottom" secondItem="8MP-JI-Mun" secondAttribute="bottom" id="fqd-lM-gGN"/>
+                            <constraint firstItem="Ucr-gl-arB" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="oSD-Sy-0qG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="instructionLabel" destination="s2v-Bz-vGh" id="BbM-Vk-Hb6"/>
+                        <outlet property="sceneView" destination="8MP-JI-Mun" id="Egm-gl-MxX"/>
+                    </connections>
+                </viewController>
+                <customObject id="rOy-WN-ymd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="115"/>
+        </scene>
+    </scenes>
+</document>
