@@ -26,6 +26,7 @@ class ReadGeopackageViewController: NSViewController {
     @IBOutlet weak var layersNotInMapTableView: NSTableView!
     
     private var geoPackage:AGSGeoPackage?
+    
     fileprivate var allLayers:[AGSLayer] = [] {
         didSet {
             var rasterCount = 1
@@ -40,7 +41,7 @@ class ReadGeopackageViewController: NSViewController {
     
     fileprivate var layersInMap:[AGSLayer] {
         // 0 is the bottom-most layer on the map, but first cell in a table.
-        // By reversing the layer order from the map, we match the UITableView order.
+        // By reversing the layer order from the map, we match the NSTableView order.
         return mapView.map?.operationalLayers.reversed() as? [AGSLayer] ?? []
     }
     
@@ -91,6 +92,7 @@ class ReadGeopackageViewController: NSViewController {
             self?.layersNotInMapTableView.reloadData()
         }
         
+        // Enable us to drag layers to reorder them in the table view.
         layersInMapTableView.register(forDraggedTypes: [kDragRowType])
     }
 
@@ -100,6 +102,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     //MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
+        // Return how many layers to show in each table
         if tableView == self.layersInMapTableView {
             return layersInMap.count
         }
@@ -111,6 +114,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         if tableView == self.layersInMapTableView {
+            // Get a row to show a layer that is in the map.
             if let rowView = tableView.make(withIdentifier: kLayerInTableRowKey, owner: self) as? GPKGLayerTableCell {
                 rowView.agsLayer = layersInMap[row]
                 rowView.delegate = self
@@ -118,6 +122,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
             }
         }
         else {
+            // Get a row to show a layer that is not in the map.
             if let rowView = tableView.make(withIdentifier: kLayerNotInTableRowKey, owner: self) as? NSTableCellView {
                 let layer = layersNotInMap[row]
                 rowView.textField?.stringValue = layer.name
@@ -158,6 +163,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         let rowData = pasteboard.data(forType: kDragRowType)
         
         if(rowData != nil) {
+            // A row for a layer in the map was dragged and dropped. Let's re-order the map layers to match.
             let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>
             
             if let movingFromIndex = dataArray.first?.first {
@@ -184,12 +190,15 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
             return
         }
         
+        // Figure out which layer was moved and where it was moved to.
         let newMapIndex = map.operationalLayers.count - to
         let layer = layersInMap[from]
 
+        // Remove the layer, and re-add it in the new layer order.
         map.operationalLayers.remove(layer)
         map.operationalLayers.insert(layer, at: newMapIndex)
 
+        // And redraw the table view to reflect the move.
         layersInMapTableView.reloadData()
     }
 
@@ -199,9 +208,11 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
             if tableView == layersNotInMapTableView {
-                //add layer to the operational layers
+                // Clicked to add a layer to the map.
                 let layer = layersNotInMap[tableView.selectedRow]
                 mapView.map?.operationalLayers.add(layer)
+                
+                // Redraw the table views for layers in the map and layers not in the map.
                 layersInMapTableView.reloadData()
                 layersNotInMapTableView.reloadData()
             }
@@ -211,8 +222,12 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     //MARK: - GPKGLayerTableCellDelegate
     
     func removeLayerFromMap(cell: GPKGLayerTableCell) {
+        // The trash can was clicked in a cell for a layer that's on the map.
         if let layer = cell.agsLayer {
+            // Remove it from the map.
             mapView.map?.operationalLayers.remove(layer)
+
+            // Redraw the table views for layers in the map and layers not in the map.
             layersInMapTableView.reloadData()
             layersNotInMapTableView.reloadData()
         }
