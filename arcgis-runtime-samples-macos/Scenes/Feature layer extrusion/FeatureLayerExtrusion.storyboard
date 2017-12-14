@@ -17,18 +17,24 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="2LL-Uc-qYv" customClass="AGSSceneView">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHH-gV-YJN">
-                                        <rect key="frame" x="14" y="222" width="182" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V0C-AD-f7H">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sjc-C6-CwA">
+                                        <rect key="frame" x="18" y="227" width="259" height="24"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Nta-Tk-7BH">
                                             <font key="font" metaFont="system"/>
-                                        </buttonCell>
+                                            <segments>
+                                                <segment label="Total Population"/>
+                                                <segment label="Population Density" selected="YES" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
                                         <connections>
-                                            <action selector="extrusionAction:" target="XfG-lQ-9wD" id="ctt-4o-j12"/>
+                                            <action selector="extrusionAction:" target="XfG-lQ-9wD" id="dXc-q1-Gif"/>
                                         </connections>
-                                    </button>
+                                    </segmentedControl>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Sjc-C6-CwA" firstAttribute="leading" secondItem="2LL-Uc-qYv" secondAttribute="leading" constant="20" id="4Z6-G6-IRW"/>
+                                    <constraint firstItem="Sjc-C6-CwA" firstAttribute="top" secondItem="2LL-Uc-qYv" secondAttribute="top" constant="20" id="CYL-y3-b7D"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
@@ -39,7 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="extrusionButton" destination="SHH-gV-YJN" id="5hN-3h-EZ4"/>
+                        <outlet property="extrusionControl" destination="Sjc-C6-CwA" id="Hlv-zf-8Bd"/>
                         <outlet property="sceneView" destination="2LL-Uc-qYv" id="RAL-PN-5vF"/>
                     </connections>
                 </viewController>

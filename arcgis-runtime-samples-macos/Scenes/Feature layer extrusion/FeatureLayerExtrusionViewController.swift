@@ -18,14 +18,13 @@ import ArcGIS
 
 class FeatureLayerExtrusionViewController: NSViewController {
 
-    @IBOutlet weak var extrusionButton: NSButton!
+    @IBOutlet weak var extrusionControl: NSSegmentedControl!
     @IBOutlet weak var sceneView: AGSSceneView!
     // initialize scene with the topographic basemap
     let scene = AGSScene(basemapType: .topographic)
 
     // US census data feature service
     let statesService = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3"
-    var showPopulation = true
     var renderer : AGSRenderer?
     
     override func viewDidLoad() {
@@ -46,9 +45,10 @@ class FeatureLayerExtrusionViewController: NSViewController {
         // need to set an extrusion type, BASE HEIGHT extrudes each point from the feature individually
         renderer?.sceneProperties?.extrusionMode = .baseHeight
         
-        // call the extrusion button action to set the extrusion
-        extrusionAction(self)
-        
+        // set the extrusion to total population
+        renderer?.sceneProperties?.extrusionExpression = "[POP2007]/ 10"
+        extrusionControl.selectedSegment = 0
+
         // set the renderer on the layer and add the layer to the scene
         layer.renderer = renderer
         self.scene.operationalLayers.add(layer)
@@ -67,17 +67,16 @@ class FeatureLayerExtrusionViewController: NSViewController {
         }
     }
 
-    @IBAction func extrusionAction(_ sender: Any) {
+    @IBAction func extrusionAction(_ sender: NSSegmentedControl) {
         // button action for extruding by total population or by population density
-        if showPopulation {
-            renderer?.sceneProperties?.extrusionExpression = "[POP07_SQMI] * 5000"
-            extrusionButton.title = "Total Population"
-        }
-        else {
+        switch sender.selectedSegment {
+        case 0:
             renderer?.sceneProperties?.extrusionExpression = "[POP2007]/ 10"
-            extrusionButton.title = "Population Density"
+        case 1:
+            renderer?.sceneProperties?.extrusionExpression = "[POP07_SQMI] * 5000"
+        default:
+            renderer?.sceneProperties?.extrusionExpression = ""
         }
-        showPopulation = !showPopulation
     }
     
 }
