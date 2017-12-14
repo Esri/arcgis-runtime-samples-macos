@@ -75,7 +75,7 @@ class FeatureLayerExtrusionViewController: NSViewController {
         }
         else {
             renderer?.sceneProperties?.extrusionExpression = "[POP2007]/ 10"
-            extrusionButton.title = "Population Desity"
+            extrusionButton.title = "Population Density"
         }
         showPopulation = !showPopulation
     }
