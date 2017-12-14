@@ -10,4 +10,4 @@ The map in the sample app starts out empty, with just a basemap. Two lists are s
 
 ## How it works
 
-`AGSMap` has a property called `operationalLayers` which is a list of `AGSLayer`. To add a layer the app uses the `add()` method on the list (`AGSList`). To remove a layer it uses `remove()` method. To re-order layers, the app uses the `remove()` method and the `insert(at:)` method to re-add the layer at the appropriate index.
+`AGSMap` has a property called `operationalLayers` which is a list of `AGSLayer`. To add a layer the app uses the `add()` method on the list (`AGSList`). To remove a layer it uses the `remove()` method. To re-order layers, the app uses the `remove()` method and the `insert(at:)` method to re-add the layer at the appropriate index.
