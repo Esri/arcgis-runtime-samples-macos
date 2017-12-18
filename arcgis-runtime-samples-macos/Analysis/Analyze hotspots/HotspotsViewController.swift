@@ -58,7 +58,7 @@ class HotspotsViewController: NSViewController {
         self.applyButton.isEnabled = false
         
         //cancel previous job request
-        self.geoprocessingJob?.cancel()
+        self.geoprocessingJob?.progress.cancel()
         
         //geoprocessing parameters
         let params = AGSGeoprocessingParameters(executionType: .asynchronousSubmit)

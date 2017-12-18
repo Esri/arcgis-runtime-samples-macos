@@ -2,325 +2,325 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict>
-		<key>displayName</key>
-		<string>Featured</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Open an existing map</string>
-				<key>storyboardName</key>
-				<string>OpenExistingMap</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to open an existing map using its url</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>OpenExistingMapViewController</string>
-					<string>ExistingMapsListViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Create and save a map</string>
-				<key>storyboardName</key>
-				<string>CreateSaveMap</string>
-				<key>descriptionText</key>
-				<string>With the new APIs you get to author a map on you mobile device. You can create a map by adding a basemap and one or more operational layers and save it to your portal</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>CreateSaveMapViewController</string>
-					<string>CreateOptionsViewController</string>
-					<string>SaveMapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>ArcGIS vector tiled layer (URL)</string>
-				<key>storyboardName</key>
-				<string>VectorTileLayer</string>
-				<key>descriptionText</key>
-				<string>You can now add vector tile layers</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>VectorTileLayerViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Display a scene</string>
-				<key>storyboardName</key>
-				<string>DisplayScene</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to display a scene with elevation data</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DisplaySceneViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Maps</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Display a map</string>
-				<key>storyboardName</key>
-				<string>DisplayMap</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to display a map with imagery basemap</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DisplayMapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Map loaded</string>
-				<key>storyboardName</key>
-				<string>MapLoaded</string>
-				<key>descriptionText</key>
+        <dict>
+            <key>displayName</key>
+            <string>Featured</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Open an existing map</string>
+                    <key>storyboardName</key>
+                    <string>OpenExistingMap</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to open an existing map using its url</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>OpenExistingMapViewController</string>
+                        <string>ExistingMapsListViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Create and save a map</string>
+                    <key>storyboardName</key>
+                    <string>CreateSaveMap</string>
+                    <key>descriptionText</key>
+                    <string>With the new APIs you get to author a map on you mobile device. You can create a map by adding a basemap and one or more operational layers and save it to your portal</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>CreateSaveMapViewController</string>
+                        <string>CreateOptionsViewController</string>
+                        <string>SaveMapViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS vector tiled layer (URL)</string>
+                    <key>storyboardName</key>
+                    <string>VectorTileLayer</string>
+                    <key>descriptionText</key>
+                    <string>You can now add vector tile layers</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>VectorTileLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Display a scene</string>
+                    <key>storyboardName</key>
+                    <string>DisplayScene</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to display a scene with elevation data</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>DisplaySceneViewController</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Maps</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Display a map</string>
+                    <key>storyboardName</key>
+                    <string>DisplayMap</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to display a map with imagery basemap</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>DisplayMapViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Map loaded</string>
+                    <key>storyboardName</key>
+                    <string>MapLoaded</string>
+                    <key>descriptionText</key>
 				<string>This sample shows how to tell what the map&apos;s load status is</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>MapLoadedViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Open an existing map</string>
-				<key>storyboardName</key>
-				<string>OpenExistingMap</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to open an existing map using its url</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>OpenExistingMapViewController</string>
-					<string>ExistingMapsListViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Change basemap</string>
-				<key>storyboardName</key>
-				<string>ChangeBasemap</string>
-				<key>descriptionText</key>
-				<string>Changing the basemap is too easy. This sample shows you how it can be done</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ChangeBasemapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Set initial map area</string>
-				<key>storyboardName</key>
-				<string>SetInitialMapArea</string>
-				<key>descriptionText</key>
-				<string>You can also specify an area or enveloper as the initial view for the map to start with</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SetInitialMapAreaViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Set initial map location</string>
-				<key>storyboardName</key>
-				<string>SetInitialMapLocation</string>
-				<key>descriptionText</key>
-				<string>You can set the initial location for a map by passing in the coordinates and the zoom level</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SetInitialMapLocationViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Set map spatial reference</string>
-				<key>storyboardName</key>
-				<string>SetMapsSpatialReference</string>
-				<key>descriptionText</key>
-				<string>You can initialize a map by specifying the spatial reference. If you add any layer with a different spatial reference it will re-project</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SetMapsSRViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Manage operational layers</string>
-				<key>storyboardName</key>
-				<string>ManageOperationalLayers</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to manage layers in a map. You can reorder them, delete an existing layer or insert a new layer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ManageOperationalLayersVC</string>
-					<string>AddedLayerCellView</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Manage bookmarks</string>
-				<key>storyboardName</key>
-				<string>ManageBookmarks</string>
-				<key>descriptionText</key>
-				<string>Now you can add and view bookmarks on a map</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ManageBookmarksViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Display drawing status</string>
-				<key>storyboardName</key>
-				<string>DrawingStatus</string>
-				<key>descriptionText</key>
-				<string>Every time the map is drawing you get an update using the callbacks</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DrawingStatusViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Change viewpoint</string>
-				<key>storyboardName</key>
-				<string>ChangeViewpoint</string>
-				<key>descriptionText</key>
-				<string>You can change the viewpoint of a map view and there are different ways you can do this. You can use a geometry or a point, etc. with or without animation</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ChangeViewpointViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Map rotation</string>
-				<key>storyboardName</key>
-				<string>MapRotation</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to rotate a map view. You can pinch to rotate or do it programmatically.</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>MapRotationViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Show magnifier</string>
-				<key>storyboardName</key>
-				<string>ShowMagnifier</string>
-				<key>descriptionText</key>
-				<string>You can tap and hold on the map to get a magnifier</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ShowMagnifierViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Take screenshot</string>
-				<key>storyboardName</key>
-				<string>TakeScreenshot</string>
-				<key>descriptionText</key>
-				<string>You can now take a screenshot of the map view. You can use it as the thumbnail for you newly created map or simply share it with your co-workers</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>TakeScreenshotViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Create and save a map</string>
-				<key>storyboardName</key>
-				<string>CreateSaveMap</string>
-				<key>descriptionText</key>
-				<string>With the new APIs you get to author a map on you mobile device. You can create a map by adding a basemap and one or more operational layers and save it to your portal</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>CreateSaveMapViewController</string>
-					<string>CreateOptionsViewController</string>
-					<string>SaveMapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Identify layers</string>
-				<key>storyboardName</key>
-				<string>IdentifyLayers</string>
-				<key>descriptionText</key>
-				<string>You can click on map and get all the elements present at that location from different layers</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>IdentifyLayersViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Mobile map (search and route)</string>
-				<key>storyboardName</key>
-				<string>MobileMapSearchRoute</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to search and route using data in a map package</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>MobileMapViewController</string>
-					<string>MapPackagesListVC</string>
-					<string>MapPackageCellView</string>
-					<string>MobileMapViewItem</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Layers</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>ArcGIS tiled layer (URL)</string>
-				<key>storyboardName</key>
-				<string>TiledLayerURL</string>
-				<key>descriptionText</key>
-				<string>You can create a tiled layer using the url to the service</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>TiledLayerURLViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>ArcGIS tiled layer (tile cache)</string>
-				<key>storyboardName</key>
-				<string>LocalTiledLayer</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to load an offline copy of a tiled map service so that that basemap tiled service is available when applications are offline</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>LocalTiledLayerViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>ArcGIS map image layer (URL)</string>
-				<key>storyboardName</key>
-				<string>MILUsingURL</string>
-				<key>descriptionText</key>
-				<string>You can use the url to a map server to create a map image layer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>MILUsingURLViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>MapLoadedViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Open an existing map</string>
+                    <key>storyboardName</key>
+                    <string>OpenExistingMap</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to open an existing map using its url</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>OpenExistingMapViewController</string>
+                        <string>ExistingMapsListViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Change basemap</string>
+                    <key>storyboardName</key>
+                    <string>ChangeBasemap</string>
+                    <key>descriptionText</key>
+                    <string>Changing the basemap is too easy. This sample shows you how it can be done</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeBasemapViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Set initial map area</string>
+                    <key>storyboardName</key>
+                    <string>SetInitialMapArea</string>
+                    <key>descriptionText</key>
+                    <string>You can also specify an area or enveloper as the initial view for the map to start with</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SetInitialMapAreaViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Set initial map location</string>
+                    <key>storyboardName</key>
+                    <string>SetInitialMapLocation</string>
+                    <key>descriptionText</key>
+                    <string>You can set the initial location for a map by passing in the coordinates and the zoom level</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SetInitialMapLocationViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Set map spatial reference</string>
+                    <key>storyboardName</key>
+                    <string>SetMapsSpatialReference</string>
+                    <key>descriptionText</key>
+                    <string>You can initialize a map by specifying the spatial reference. If you add any layer with a different spatial reference it will re-project</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SetMapsSRViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Manage operational layers</string>
+                    <key>storyboardName</key>
+                    <string>ManageOperationalLayers</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to manage layers in a map. You can reorder them, delete an existing layer or insert a new layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ManageOperationalLayersVC</string>
+                        <string>AddedLayerCellView</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Manage bookmarks</string>
+                    <key>storyboardName</key>
+                    <string>ManageBookmarks</string>
+                    <key>descriptionText</key>
+                    <string>Now you can add and view bookmarks on a map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ManageBookmarksViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Display drawing status</string>
+                    <key>storyboardName</key>
+                    <string>DrawingStatus</string>
+                    <key>descriptionText</key>
+                    <string>Every time the map is drawing you get an update using the callbacks</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>DrawingStatusViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Change viewpoint</string>
+                    <key>storyboardName</key>
+                    <string>ChangeViewpoint</string>
+                    <key>descriptionText</key>
+                    <string>You can change the viewpoint of a map view and there are different ways you can do this. You can use a geometry or a point, etc. with or without animation</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeViewpointViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Map rotation</string>
+                    <key>storyboardName</key>
+                    <string>MapRotation</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to rotate a map view. You can pinch to rotate or do it programmatically.</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>MapRotationViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Show magnifier</string>
+                    <key>storyboardName</key>
+                    <string>ShowMagnifier</string>
+                    <key>descriptionText</key>
+                    <string>You can tap and hold on the map to get a magnifier</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ShowMagnifierViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Take screenshot</string>
+                    <key>storyboardName</key>
+                    <string>TakeScreenshot</string>
+                    <key>descriptionText</key>
+                    <string>You can now take a screenshot of the map view. You can use it as the thumbnail for you newly created map or simply share it with your co-workers</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>TakeScreenshotViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Create and save a map</string>
+                    <key>storyboardName</key>
+                    <string>CreateSaveMap</string>
+                    <key>descriptionText</key>
+                    <string>With the new APIs you get to author a map on you mobile device. You can create a map by adding a basemap and one or more operational layers and save it to your portal</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>CreateSaveMapViewController</string>
+                        <string>CreateOptionsViewController</string>
+                        <string>SaveMapViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Identify layers</string>
+                    <key>storyboardName</key>
+                    <string>IdentifyLayers</string>
+                    <key>descriptionText</key>
+                    <string>You can click on map and get all the elements present at that location from different layers</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>IdentifyLayersViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Mobile map (search and route)</string>
+                    <key>storyboardName</key>
+                    <string>MobileMapSearchRoute</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to search and route using data in a map package</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>MobileMapViewController</string>
+                        <string>MapPackagesListVC</string>
+                        <string>MapPackageCellView</string>
+                        <string>MobileMapViewItem</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Layers</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS tiled layer (URL)</string>
+                    <key>storyboardName</key>
+                    <string>TiledLayerURL</string>
+                    <key>descriptionText</key>
+                    <string>You can create a tiled layer using the url to the service</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>TiledLayerURLViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS tiled layer (tile cache)</string>
+                    <key>storyboardName</key>
+                    <string>LocalTiledLayer</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to load an offline copy of a tiled map service so that that basemap tiled service is available when applications are offline</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>LocalTiledLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS map image layer (URL)</string>
+                    <key>storyboardName</key>
+                    <string>MILUsingURL</string>
+                    <key>descriptionText</key>
+                    <string>You can use the url to a map server to create a map image layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>MILUsingURLViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
 				<string>Change sublayer renderer</string>
 				<key>storyboardName</key>
 				<string>ChangeSublayerRenderer</string>
@@ -333,437 +333,545 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Change sublayer visibility</string>
+                    <string>Change sublayer visibility</string>
+                    <key>storyboardName</key>
+                    <string>ChangeSublayerVisibility</string>
+                    <key>descriptionText</key>
+                    <string>You can show or hide individual sublayers in a map image layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeSublayerVisibilityVC</string>
+                        <string>SublayerCellView</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS vector tiled layer (URL)</string>
+                    <key>storyboardName</key>
+                    <string>VectorTileLayer</string>
+                    <key>descriptionText</key>
+                    <string>You can now add vector tile layers</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>VectorTileLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>ArcGIS vector tiled layer (custom style)</string>
+                    <key>storyboardName</key>
+                    <string>VectorTileCustomStyle</string>
+                    <key>descriptionText</key>
+                    <string>You can define different styles for same vector tiled layer using custom stylesheets</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>VectorTileCustomStyleVC</string>
+                        <string>VectorStylesViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Web tiled layer</string>
+                    <key>storyboardName</key>
+                    <string>WebTiledLayer</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to display map tiles from an online resource</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>WebTiledLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+				<string>Raster function (service)</string>
 				<key>storyboardName</key>
-				<string>ChangeSublayerVisibility</string>
+				<string>RasterFunctionService</string>
 				<key>descriptionText</key>
-				<string>You can show or hide individual sublayers in a map image layer</string>
+				<string>This sample demonstrates how to create an image service raster and apply a Hillshade raster function to it.</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>ChangeSublayerVisibilityVC</string>
-					<string>SublayerCellView</string>
+					<string>RasterFunctionServiceViewController</string>
 				</array>
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>ArcGIS vector tiled layer (URL)</string>
+                    <string>Raster layer (file)</string>
+                    <key>storyboardName</key>
+                    <string>RasterLayer</string>
+                    <key>descriptionText</key>
+                    <string>You can create a raster layer from a file</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RasterLayerViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+				<string>Raster layer (geopackage)</string>
 				<key>storyboardName</key>
-				<string>VectorTileLayer</string>
+				<string>RasterLayerGPKG</string>
 				<key>descriptionText</key>
-				<string>You can now add vector tile layers</string>
+				<string>Show a raster layer on a map using a geopackage</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>VectorTileLayerViewController</string>
+					<string>RasterLayerGPKGViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>AuroraCOGeopackage</string>
 				</array>
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>ArcGIS vector tiled layer (custom style)</string>
+				<string>Raster layer (service)</string>
 				<key>storyboardName</key>
-				<string>VectorTileCustomStyle</string>
+				<string>RasterLayerUsingService</string>
 				<key>descriptionText</key>
-				<string>You can define different styles for same vector tiled layer using custom stylesheets</string>
+				<string>You can create a raster layer from an ArcGIS Image service</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>VectorTileCustomStyleVC</string>
-					<string>VectorStylesViewController</string>
+					<string>RasterLayerUsingServiceVC</string>
 				</array>
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Web tiled layer</string>
+                    <string>Hillshade renderer</string>
+                    <key>storyboardName</key>
+                    <string>HillshadeRenderer</string>
+                    <key>descriptionText</key>
+                    <string>You can apply hill shade renderer to a raster</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>HillshadeRendererVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Blend renderer</string>
+                    <key>storyboardName</key>
+                    <string>BlendRenderer</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to use blend renderer with raster layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>BlendRendererViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>RGB renderer</string>
+                    <key>storyboardName</key>
+                    <string>RGBRenderer</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to use rgb renderer with raster layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RGBRendererViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Stretch renderer</string>
+                    <key>storyboardName</key>
+                    <string>StretchRenderer</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to use stretch renderer with raster layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>StretchRendererViewController</string>
+                    </array>
+                </dict>
+			<dict>
+				<key>displayName</key>
+				<string>WMTS layer</string>
 				<key>storyboardName</key>
-				<string>WebTiledLayer</string>
+				<string>WMTSLayer</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to display map tiles from an online resource</string>
+				<string>Display a WMTS layer as a basemap layer</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>WebTiledLayerViewController</string>
+					<string>WMTSLayerViewController</string>
 				</array>
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Raster layer (file)</string>
+				<string>WMS layer (URL)</string>
 				<key>storyboardName</key>
-				<string>RasterLayer</string>
+				<string>WMSLayerUsingURL</string>
 				<key>descriptionText</key>
-				<string>You can create a raster layer from a file</string>
+				<string>Creates a WMS layer using the service URL and the layer names that are available in the service</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>RasterLayerViewController</string>
+					<string>WMSLayerUsingURLViewController</string>
 				</array>
 			</dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Features</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer (feature service)</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerFeatureService</string>
+                    <key>descriptionText</key>
+                    <string>Show a feature layer on map using the url to the service</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerFeatureServiceViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer (geodatabase)</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerGDB</string>
+                    <key>descriptionText</key>
+                    <string>Show a feature layer on map using a geodatabase</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerGDBViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+				<string>Feature layer (geopackage)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerGPKG</string>
+				<key>descriptionText</key>
+				<string>Show a feature layer on a map using a geopackage</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerGPKGViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>AuroraCOGeopackage</string>
+				</array>
+			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Feature layer (shapefile)</string>
+                <key>storyboardName</key>
+                <string>FeatureLayerShapefile</string>
+                <key>descriptionText</key>
+                <string>Show a feature layer on a map using a shapefile</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>FeatureLayerShapefileViewController</string>
+                </array>
+                <key>dependency</key>
+                <array>
+                    <string>SubdivisionsShapefile</string>
+                </array>
+            </dict>
 			<dict>
 				<key>displayName</key>
-				<string>Hillshade renderer</string>
-				<key>storyboardName</key>
-				<string>HillshadeRenderer</string>
-				<key>descriptionText</key>
-				<string>You can apply hill shade renderer to a raster</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>HillshadeRendererVC</string>
-				</array>
-			</dict>
+                    <string>Feature layer selection</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerSelection</string>
+                    <key>descriptionText</key>
+                    <string>You can click on the map to select or unselect features in a feature layer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerSelectionVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer query</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerQuery</string>
+                    <key>descriptionText</key>
+                    <string>You can query features in feature layer via service feature table. In this sample you can query for States in USA</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerQueryVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature layer definition expression</string>
+                    <key>storyboardName</key>
+                    <string>FeatureLayerDefinitionExpression</string>
+                    <key>descriptionText</key>
+                    <string>You can set the definition expression on the feature layer to load specific features</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureLayerDefinitionExpressionVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Change feature layer renderer</string>
+                    <key>storyboardName</key>
+                    <string>ChangeFeatureLayerRenderer</string>
+                    <key>descriptionText</key>
+                    <string>The feature layer comes with a default renderer but you can also override this renderer using your custom renderer</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ChangeFeatureLayerRendererVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Generate geodatabase</string>
+                    <key>storyboardName</key>
+                    <string>GenerateGeodatabase</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to take features offline</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GenerateGeodatabaseVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature collection layer</string>
+                    <key>storyboardName</key>
+                    <string>FeatureCollectionLayer</string>
+                    <key>descriptionText</key>
+                    <string>Show a feature collection layer using a URL to the service</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureCollectionLayerVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Feature collection layer (query)</string>
+                    <key>storyboardName</key>
+                    <string>FeatureCollectionLayerQuery</string>
+                    <key>descriptionText</key>
+                    <string>Use a feature collection layer to show query results from a service feature table</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FeatureCollectionLayerQueryVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>List related features</string>
+                    <key>storyboardName</key>
+                    <string>ListRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to query related features for a given feature. Click on a feature on the map to see its related features</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ListRelatedFeaturesVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add delete related features</string>
+                    <key>storyboardName</key>
+                    <string>AddDeleteRelatedFeatures</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to add or delete related features to an origin feature</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>AddDeleteRelatedFeaturesVC</string>
+                    </array>
+                </dict>
 			<dict>
 				<key>displayName</key>
-				<string>Blend renderer</string>
+				<string>Time based query</string>
 				<key>storyboardName</key>
-				<string>BlendRenderer</string>
+				<string>TimeBasedQuery</string>
 				<key>descriptionText</key>
-				<string>The sample shows you how to use blend renderer with raster layer</string>
+				<string>This sample demonstrates how to apply a time-based parameter to a feature layer query</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>BlendRendererViewController</string>
+					<string>TimeBasedQueryVC</string>
 				</array>
 			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>RGB renderer</string>
-				<key>storyboardName</key>
-				<string>RGBRenderer</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to use rgb renderer with raster layer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>RGBRendererViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Stretch renderer</string>
-				<key>storyboardName</key>
-				<string>StretchRenderer</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to use stretch renderer with raster layer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>StretchRendererViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Features</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Feature layer (feature service)</string>
-				<key>storyboardName</key>
-				<string>FeatureLayerFeatureService</string>
-				<key>descriptionText</key>
-				<string>Show a feature layer on map using the url to the service</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureLayerFeatureServiceViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature layer (geodatabase)</string>
-				<key>storyboardName</key>
-				<string>FeatureLayerGDB</string>
-				<key>descriptionText</key>
-				<string>Show a feature layer on map using a geodatabase</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureLayerGDBViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature layer selection</string>
-				<key>storyboardName</key>
-				<string>FeatureLayerSelection</string>
-				<key>descriptionText</key>
-				<string>You can click on the map to select or unselect features in a feature layer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureLayerSelectionVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature layer query</string>
-				<key>storyboardName</key>
-				<string>FeatureLayerQuery</string>
-				<key>descriptionText</key>
-				<string>You can query features in feature layer via service feature table. In this sample you can query for States in USA</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureLayerQueryVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature layer definition expression</string>
-				<key>storyboardName</key>
-				<string>FeatureLayerDefinitionExpression</string>
-				<key>descriptionText</key>
-				<string>You can set the definition expression on the feature layer to load specific features</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureLayerDefinitionExpressionVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Change feature layer renderer</string>
-				<key>storyboardName</key>
-				<string>ChangeFeatureLayerRenderer</string>
-				<key>descriptionText</key>
-				<string>The feature layer comes with a default renderer but you can also override this renderer using your custom renderer</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ChangeFeatureLayerRendererVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Generate geodatabase</string>
-				<key>storyboardName</key>
-				<string>GenerateGeodatabase</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to take features offline</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>GenerateGeodatabaseVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature collection layer</string>
-				<key>storyboardName</key>
-				<string>FeatureCollectionLayer</string>
-				<key>descriptionText</key>
-				<string>Show a feature collection layer using a URL to the service</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureCollectionLayerVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Feature collection layer (query)</string>
-				<key>storyboardName</key>
-				<string>FeatureCollectionLayerQuery</string>
-				<key>descriptionText</key>
-				<string>Use a feature collection layer to show query results from a service feature table</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FeatureCollectionLayerQueryVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>List related features</string>
-				<key>storyboardName</key>
-				<string>ListRelatedFeatures</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to query related features for a given feature. Click on a feature on the map to see its related features</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ListRelatedFeaturesVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Add delete related features</string>
-				<key>storyboardName</key>
-				<string>AddDeleteRelatedFeatures</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to add or delete related features to an origin feature</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>AddDeleteRelatedFeaturesVC</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Edit data</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Add features (feature service)</string>
-				<key>storyboardName</key>
-				<string>AddFeaturesFS</string>
-				<key>descriptionText</key>
-				<string>Click on a location on the map to add a new feature at that location</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>AddFeaturesViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Delete features (feature service)</string>
-				<key>storyboardName</key>
-				<string>DeleteFeaturesFS</string>
-				<key>descriptionText</key>
-				<string>Click on a feature to select it and then click on the delete button to delete the feature</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DeleteFeaturesViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Edit features (connected)</string>
-				<key>storyboardName</key>
-				<string>EditFeaturesConnected</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to add or edit features in an online feature layer using popups. The new popups provide inline editing for fast editing experience</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>EditFeaturesConnectedVC</string>
-					<string>FeatureTemplatePickerVC</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Display information</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Add graphics with renderer</string>
-				<key>storyboardName</key>
-				<string>GraphicsWithRenderer</string>
-				<key>descriptionText</key>
-				<string>You can add graphics to a map using the new Graphics Overlay</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>GraphicsWithRendererViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Add graphics with symbols</string>
-				<key>storyboardName</key>
-				<string>GraphicsWithSymbols</string>
-				<key>descriptionText</key>
-				<string>You can add graphics to a map using the new Graphics Overlay and specify symbol for each graphic</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>GraphicsWithSymbolsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Identify graphics</string>
-				<key>storyboardName</key>
-				<string>GOIdentify</string>
-				<key>descriptionText</key>
-				<string>You can use the identify method on map view to get the graphics at a location. It could be the location, user interacted with, via tap gesture or simply some custom location</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>GOIdentifyViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Control graphic draw order</string>
-				<key>storyboardName</key>
-				<string>ControlGraphicDrawOrder</string>
-				<key>descriptionText</key>
-				<string>You can change the drawing order of graphics in graphics overlay using the z index</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>GraphicDrawOrderVC</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Sketch on the map</string>
-				<key>storyboardName</key>
-				<string>SketchOnMap</string>
-				<key>descriptionText</key>
-				<string>You can use the sketch editor for sketching on your map</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SketchOnMapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Show callout</string>
-				<key>storyboardName</key>
-				<string>Callout</string>
-				<key>descriptionText</key>
-				<string>Tap on the map to get the coordinates for the location in a callout. Tap again to hide it.</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>CalloutViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Show legend</string>
-				<key>storyboardName</key>
-				<string>ShowLegend</string>
-				<key>descriptionText</key>
-				<string>The sample displays legends for the layers on the map</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ShowLegendViewController</string>
-					<string>LegendCellView</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Simple marker symbol</string>
-				<key>storyboardName</key>
-				<string>SimpleMarkerSymbol</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to create a graphic with simple marker symbol</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SimpleMarkerSymbolViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Picture marker symbols</string>
-				<key>storyboardName</key>
-				<string>PictureMarkerSymbols</string>
-				<key>descriptionText</key>
-				<string>This sample shows how to create picture marker symbols from a remote image and an image in assets</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>PictureMarkerSymbolsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Simple renderer</string>
-				<key>storyboardName</key>
-				<string>SimpleRenderer</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to create a simple renderer and add it to a graphics overlay</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SimpleRendererViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Unique value renderer</string>
-				<key>storyboardName</key>
-				<string>UniqueValueRenderer</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrate how to use a unique value renderer to style different features in a feature layer with different symbols</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>UniqueValueRendererViewController</string>
-				</array>
-			</dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Edit data</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add features (feature service)</string>
+                    <key>storyboardName</key>
+                    <string>AddFeaturesFS</string>
+                    <key>descriptionText</key>
+                    <string>Click on a location on the map to add a new feature at that location</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>AddFeaturesViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Delete features (feature service)</string>
+                    <key>storyboardName</key>
+                    <string>DeleteFeaturesFS</string>
+                    <key>descriptionText</key>
+                    <string>Click on a feature to select it and then click on the delete button to delete the feature</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>DeleteFeaturesViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Edit features (connected)</string>
+                    <key>storyboardName</key>
+                    <string>EditFeaturesConnected</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows you how to add or edit features in an online feature layer using popups. The new popups provide inline editing for fast editing experience</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>EditFeaturesConnectedVC</string>
+                        <string>FeatureTemplatePickerVC</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Display information</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add graphics with renderer</string>
+                    <key>storyboardName</key>
+                    <string>GraphicsWithRenderer</string>
+                    <key>descriptionText</key>
+                    <string>You can add graphics to a map using the new Graphics Overlay</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GraphicsWithRendererViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Add graphics with symbols</string>
+                    <key>storyboardName</key>
+                    <string>GraphicsWithSymbols</string>
+                    <key>descriptionText</key>
+                    <string>You can add graphics to a map using the new Graphics Overlay and specify symbol for each graphic</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GraphicsWithSymbolsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Identify graphics</string>
+                    <key>storyboardName</key>
+                    <string>GOIdentify</string>
+                    <key>descriptionText</key>
+                    <string>You can use the identify method on map view to get the graphics at a location. It could be the location, user interacted with, via tap gesture or simply some custom location</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GOIdentifyViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Control graphic draw order</string>
+                    <key>storyboardName</key>
+                    <string>ControlGraphicDrawOrder</string>
+                    <key>descriptionText</key>
+                    <string>You can change the drawing order of graphics in graphics overlay using the z index</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>GraphicDrawOrderVC</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Sketch on the map</string>
+                    <key>storyboardName</key>
+                    <string>SketchOnMap</string>
+                    <key>descriptionText</key>
+                    <string>You can use the sketch editor for sketching on your map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SketchOnMapViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Show callout</string>
+                    <key>storyboardName</key>
+                    <string>Callout</string>
+                    <key>descriptionText</key>
+                    <string>Tap on the map to get the coordinates for the location in a callout. Tap again to hide it.</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>CalloutViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Show legend</string>
+                    <key>storyboardName</key>
+                    <string>ShowLegend</string>
+                    <key>descriptionText</key>
+                    <string>The sample displays legends for the layers on the map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ShowLegendViewController</string>
+                        <string>LegendCellView</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Simple marker symbol</string>
+                    <key>storyboardName</key>
+                    <string>SimpleMarkerSymbol</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to create a graphic with simple marker symbol</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SimpleMarkerSymbolViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Picture marker symbols</string>
+                    <key>storyboardName</key>
+                    <string>PictureMarkerSymbols</string>
+                    <key>descriptionText</key>
+                    <string>This sample shows how to create picture marker symbols from a remote image and an image in assets</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>PictureMarkerSymbolsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Simple renderer</string>
+                    <key>storyboardName</key>
+                    <string>SimpleRenderer</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to create a simple renderer and add it to a graphics overlay</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SimpleRendererViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Unique value renderer</string>
+                    <key>storyboardName</key>
+                    <string>UniqueValueRenderer</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrate how to use a unique value renderer to style different features in a feature layer with different symbols</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>UniqueValueRendererViewController</string>
+                    </array>
+                </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Display grid</string>
@@ -776,77 +884,77 @@
 					<string>DisplayGridViewController</string>
 				</array>
 			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Search</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Find address</string>
-				<key>storyboardName</key>
-				<string>FindAddress</string>
-				<key>descriptionText</key>
-				<string>Type in or select a prepopulated address to show its location on the map</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FindAddressViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Geometry</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Create geometries</string>
-				<key>storyboardName</key>
-				<string>CreateGeometries</string>
-				<key>descriptionText</key>
-				<string>The sample shows simple ways to create different types of geometries</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>CreateGeometriesViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Spatial operations</string>
-				<key>storyboardName</key>
-				<string>SpatialOperations</string>
-				<key>descriptionText</key>
-				<string>The sample shows how to perform geometry operations between overlapping polygons</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SpatialOperationsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Format coordinates</string>
-				<key>storyboardName</key>
-				<string>FormatCoordinates</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to convert a map location Point to a number of different coordinate notations. Click on the map or edit the values in textfields</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>FormatCoordinatesViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Route &amp; Directions</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Search</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find address</string>
+                    <key>storyboardName</key>
+                    <string>FindAddress</string>
+                    <key>descriptionText</key>
+                    <string>Type in or select a prepopulated address to show its location on the map</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindAddressViewController</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Geometry</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Create geometries</string>
+                    <key>storyboardName</key>
+                    <string>CreateGeometries</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows simple ways to create different types of geometries</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>CreateGeometriesViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Spatial operations</string>
+                    <key>storyboardName</key>
+                    <string>SpatialOperations</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows how to perform geometry operations between overlapping polygons</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SpatialOperationsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Format coordinates</string>
+                    <key>storyboardName</key>
+                    <string>FormatCoordinates</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to convert a map location Point to a number of different coordinate notations. Click on the map or edit the values in textfields</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FormatCoordinatesViewController</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Route &amp; Directions</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
 				<string>Find route</string>
 				<key>storyboardName</key>
 				<string>FindRoute</string>
@@ -860,152 +968,164 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Route around barriers</string>
-				<key>storyboardName</key>
-				<string>RouteAroundBarriers</string>
-				<key>descriptionText</key>
-				<string>Add stops and barriers to the map, set the route parameters and click route. A route will be shown connecting the stops with a list of directions</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>RouteAroundBarriersVC</string>
-					<string>DirectionsListViewController</string>
-					<string>RouteParametersViewController</string>
-				</array>
-			</dict>
+                    <string>Route around barriers</string>
+                    <key>storyboardName</key>
+                    <string>RouteAroundBarriers</string>
+                    <key>descriptionText</key>
+                    <string>Add stops and barriers to the map, set the route parameters and click route. A route will be shown connecting the stops with a list of directions</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>RouteAroundBarriersVC</string>
+                        <string>DirectionsListViewController</string>
+                        <string>RouteParametersViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Find service area interactive</string>
+                    <key>storyboardName</key>
+                    <string>FindServiceAreaInteractive</string>
+                    <key>descriptionText</key>
+                    <string>This samples shows how to find service areas around a point</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>FindServiceAreaInteractiveVC</string>
+                    </array>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Analysis</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Analyze hotspots</string>
+                    <key>storyboardName</key>
+                    <string>Hotspots</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to execute a geoprocessing task to calculate a hotspot analysis based on the frequency of 911 calls.</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>HotspotsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Analyze viewshed</string>
+                    <key>storyboardName</key>
+                    <string>Viewshed</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to calculate a viewshed using a geoprocessing service.</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ViewshedViewController</string>
+                    </array>
+                </dict>
 			<dict>
 				<key>displayName</key>
-				<string>Find service area interactive</string>
+				<string>Statistical query</string>
 				<key>storyboardName</key>
-				<string>FindServiceAreaInteractive</string>
+				<string>StatisticalQuery</string>
 				<key>descriptionText</key>
-				<string>This samples shows how to find service areas around a point</string>
+				<string>This sample demonstrates how to query a feature table to get aggregated statistics back for a specific field.</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>FindServiceAreaInteractiveVC</string>
+					<string>StatisticalQueryViewController</string>
 				</array>
 			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Analysis</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Analyze hotspots</string>
-				<key>storyboardName</key>
-				<string>Hotspots</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to execute a geoprocessing task to calculate a hotspot analysis based on the frequency of 911 calls.</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>HotspotsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Analyze viewshed</string>
-				<key>storyboardName</key>
-				<string>Viewshed</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to calculate a viewshed using a geoprocessing service.</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ViewshedViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
-		<string>Scenes</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Display a scene</string>
-				<key>storyboardName</key>
-				<string>DisplayScene</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to display a scene with elevation data</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DisplaySceneViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Extrude graphics</string>
-				<key>storyboardName</key>
-				<string>ExtrudeGraphics</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to render graphics extruded in z direction</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ExtrudeGraphicsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Scene symbols</string>
-				<key>storyboardName</key>
-				<string>SceneSymbols</string>
-				<key>descriptionText</key>
-				<string>The sample shows how to create symbols with different 3D shapes</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SceneSymbolsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Surface placements</string>
-				<key>storyboardName</key>
-				<string>SurfacePlacements</string>
-				<key>descriptionText</key>
-				<string>The sample shows how to position graphics using different surface placements</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SurfacePlacementsViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Scene layer (URL)</string>
-				<key>storyboardName</key>
-				<string>SceneLayerURL</string>
-				<key>descriptionText</key>
-				<string>The sample shows how to use a scene layer in a scene</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>SceneLayerURLViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Scene properties expressions</string>
-				<key>storyboardName</key>
-				<string>ScenePropertiesExpressions</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to update the orientation of graphics in graphics overlay using expressions on scene properties</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ScenePropertiesExpressions</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Animate 3D symbols</string>
-				<key>storyboardName</key>
-				<string>Animate3DSymbols</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>Animate3DSymbolsVC</string>
-				</array>
-			</dict>
+            </array>
+        </dict>
+        <dict>
+            <key>displayName</key>
+            <string>Scenes</string>
+            <key>children</key>
+            <array>
+                <dict>
+                    <key>displayName</key>
+                    <string>Display a scene</string>
+                    <key>storyboardName</key>
+                    <string>DisplayScene</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to display a scene with elevation data</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>DisplaySceneViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Extrude graphics</string>
+                    <key>storyboardName</key>
+                    <string>ExtrudeGraphics</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows you how to render graphics extruded in z direction</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ExtrudeGraphicsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Scene symbols</string>
+                    <key>storyboardName</key>
+                    <string>SceneSymbols</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows how to create symbols with different 3D shapes</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SceneSymbolsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Surface placements</string>
+                    <key>storyboardName</key>
+                    <string>SurfacePlacements</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows how to position graphics using different surface placements</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SurfacePlacementsViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Scene layer (URL)</string>
+                    <key>storyboardName</key>
+                    <string>SceneLayerURL</string>
+                    <key>descriptionText</key>
+                    <string>The sample shows how to use a scene layer in a scene</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>SceneLayerURLViewController</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Scene properties expressions</string>
+                    <key>storyboardName</key>
+                    <string>ScenePropertiesExpressions</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to update the orientation of graphics in graphics overlay using expressions on scene properties</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>ScenePropertiesExpressions</string>
+                    </array>
+                </dict>
+                <dict>
+                    <key>displayName</key>
+                    <string>Animate 3D symbols</string>
+                    <key>storyboardName</key>
+                    <string>Animate3DSymbols</string>
+                    <key>descriptionText</key>
+                    <string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
+                    <key>sourceFileNames</key>
+                    <array>
+                        <string>Animate3DSymbolsVC</string>
+                    </array>
+                </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Terrain exaggeration</string>
@@ -1016,9 +1136,21 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>TerrainExaggerationViewController</string>
+            </array>
+        </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer extrusion</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerExtrusion</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to apply extrusion to a renderer on a feature layer</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerExtrusionViewController</string>
 				</array>
 			</dict>
-		</array>
+    </array>
 	</dict>
 </array>
 </plist>
