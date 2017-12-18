@@ -117,11 +117,11 @@ class ViewshedGeoElementViewController: NSViewController, AGSGeoViewTouchDelegat
                                                        azimuthUnit: AGSAngularUnit.degrees(),
                                                        curveType: .geodesic)
         
-        if let newLocation = locations?[0] {
+        if let newLocation = locations?.first {
             tank.geometry = newLocation
         }
         
-        if let heading: Double = tank.attributes["HEADING"] as? Double {
+        if let heading = tank.attributes["HEADING"] as? Double {
             tank.attributes["HEADING"] = heading + ((distance.azimuth1 - heading) / 10)
         }
         
