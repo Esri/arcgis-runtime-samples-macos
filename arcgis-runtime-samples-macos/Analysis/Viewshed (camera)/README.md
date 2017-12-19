@@ -1,4 +1,4 @@
-# Viewshed (Camera)
+# Viewshed (camera)
 
 This sample demonstrates how to create a location viewshed from a camera.
 
