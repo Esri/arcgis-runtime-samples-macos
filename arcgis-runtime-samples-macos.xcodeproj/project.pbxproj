@@ -342,6 +342,11 @@
 		D9ED2DB11FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */; };
 		D9ED2DB21FD764240043BFE1 /* FeatureLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */; };
 		D9ED2DB51FD765BA0043BFE1 /* AuroraCO.gpkg in Resources */ = {isa = PBXBuildFile; fileRef = D9ED2DB41FD765BA0043BFE1 /* AuroraCO.gpkg */; };
+		E48008E71FE44B1C0064809E /* ViewshedGeoElement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48008E61FE44B1C0064809E /* ViewshedGeoElement.storyboard */; };
+		E48008E91FE44B3A0064809E /* ViewshedGeoElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48008E81FE44B3A0064809E /* ViewshedGeoElementViewController.swift */; };
+		E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = E48008E81FE44B3A0064809E /* ViewshedGeoElementViewController.swift */; };
+		E48008EE1FE4506D0064809E /* bradle.3ds in Resources */ = {isa = PBXBuildFile; fileRef = E48008EC1FE44F990064809E /* bradle.3ds */; };
+		E48008EF1FE4506F0064809E /* tank1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E48008ED1FE44F990064809E /* tank1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -351,6 +356,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
 				09607F8D1FDB647600FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */,
 				218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */,
@@ -695,6 +701,10 @@
 		D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerGPKGViewController.swift; sourceTree = "<group>"; };
 		D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerGPKG.storyboard; sourceTree = "<group>"; };
 		D9ED2DB41FD765BA0043BFE1 /* AuroraCO.gpkg */ = {isa = PBXFileReference; lastKnownFileType = file; path = AuroraCO.gpkg; sourceTree = "<group>"; };
+		E48008E61FE44B1C0064809E /* ViewshedGeoElement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewshedGeoElement.storyboard; sourceTree = "<group>"; };
+		E48008E81FE44B3A0064809E /* ViewshedGeoElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewshedGeoElementViewController.swift; sourceTree = "<group>"; };
+		E48008EC1FE44F990064809E /* bradle.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = bradle.3ds; sourceTree = "<group>"; };
+		E48008ED1FE44F990064809E /* tank1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tank1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1433,6 +1443,7 @@
 		3EA7340B1EC0CD2D00356885 /* 3D models */ = {
 			isa = PBXGroup;
 			children = (
+				E48008EB1FE44F990064809E /* bradley_low_3ds */,
 				3EA7340C1EC0CD2D00356885 /* Bristol */,
 			);
 			path = "3D models";
@@ -1794,6 +1805,7 @@
 		3EFDE0DC1E3288C900CBCD92 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				E48008E31FE44AF10064809E /* Viewshed (GeoElement) */,
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
 				3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */,
 				2182C9851FDB1100003E3A0F /* Statistical query */,
@@ -1890,6 +1902,24 @@
 			path = Geopackages;
 			sourceTree = "<group>";
 		};
+		E48008E31FE44AF10064809E /* Viewshed (GeoElement) */ = {
+			isa = PBXGroup;
+			children = (
+				E48008E61FE44B1C0064809E /* ViewshedGeoElement.storyboard */,
+				E48008E81FE44B3A0064809E /* ViewshedGeoElementViewController.swift */,
+			);
+			path = "Viewshed (GeoElement)";
+			sourceTree = "<group>";
+		};
+		E48008EB1FE44F990064809E /* bradley_low_3ds */ = {
+			isa = PBXGroup;
+			children = (
+				E48008EC1FE44F990064809E /* bradle.3ds */,
+				E48008ED1FE44F990064809E /* tank1.jpg */,
+			);
+			path = bradley_low_3ds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1950,6 +1980,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48008EE1FE4506D0064809E /* bradle.3ds in Resources */,
 				3E01038C1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard in Resources */,
 				3ECCFE261BCC2F9A00CE256D /* ChangeViewpoint.storyboard in Resources */,
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
@@ -2009,6 +2040,7 @@
 				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
 				D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
+				E48008EF1FE4506F0064809E /* tank1.jpg in Resources */,
 				10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
@@ -2053,6 +2085,7 @@
 				3EFDE0E51E3288C900CBCD92 /* Viewshed.storyboard in Resources */,
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
+				E48008E71FE44B1C0064809E /* ViewshedGeoElement.storyboard in Resources */,
 				123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */,
 				3EA15C701ED88D2900B1F816 /* WebTiledLayer.storyboard in Resources */,
 				3EFDE0A71E31279700CBCD92 /* RGBRenderer.storyboard in Resources */,
@@ -2114,6 +2147,7 @@
 				3EBA25571D30266B00AB0703 /* UniqueValueRendererViewController.swift in Sources */,
 				3E8724911BC710DA006386C1 /* OpenExistingMapViewController.swift in Sources */,
 				3E049A351CED132F0031ADA9 /* GraphicsWithSymbolsViewController.swift in Sources */,
+				E48008E91FE44B3A0064809E /* ViewshedGeoElementViewController.swift in Sources */,
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
