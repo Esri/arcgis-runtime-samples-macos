@@ -79,7 +79,10 @@ class ReadGeopackageViewController: NSViewController {
             
             // Create raster layers for each raster in the geopackage.
             let rasterLayers = self?.geoPackage?.geoPackageRasters.map({ raster -> AGSLayer in
-                return AGSRasterLayer(raster: raster)
+                let rasterLayer = AGSRasterLayer(raster: raster)
+                //make layer semi-transparent so it doesn't obscure the contents underneath it
+                rasterLayer.opacity = 0.55
+                return rasterLayer
             }) ?? []
 
             // Keep an array of all the feature layers and raster layers in this geopackage.
