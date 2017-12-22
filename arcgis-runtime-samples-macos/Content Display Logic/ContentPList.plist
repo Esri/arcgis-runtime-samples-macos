@@ -565,22 +565,22 @@
 					<string>AuroraCOGeopackage</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Feature layer (shapefile)</string>
-                <key>storyboardName</key>
-                <string>FeatureLayerShapefile</string>
-                <key>descriptionText</key>
-                <string>Show a feature layer on a map using a shapefile</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>FeatureLayerShapefileViewController</string>
-                </array>
-                <key>dependency</key>
-                <array>
-                    <string>SubdivisionsShapefile</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer (shapefile)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerShapefile</string>
+				<key>descriptionText</key>
+				<string>Show a feature layer on a map using a shapefile</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerShapefileViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>SubdivisionsShapefile</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Feature layer selection</string>
@@ -1048,6 +1048,18 @@
 					<string>StatisticalQueryViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Viewshed (GeoElement)</string>
+                <key>storyboardName</key>
+                <string>ViewshedGeoElement</string>
+                <key>descriptionText</key>
+                <string>Demonstrates how to construct a viewshed so that it updates automatically relative to a moving GeoElement.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>ViewshedGeoElementViewController</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>
@@ -1149,6 +1161,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>TerrainExaggerationViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer extrusion</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerExtrusion</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to apply extrusion to a renderer on a feature layer</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerExtrusionViewController</string>
 				</array>
 			</dict>
 		</array>
