@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Viewshed Geo Element View Controller-->
@@ -11,18 +12,45 @@
             <objects>
                 <viewController id="lxB-4W-Frk" customClass="ViewshedGeoElementViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="cTJ-Up-nJm">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="504" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="rIn-P2-7j6" customClass="AGSSceneView">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="504" height="300"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="79e-fq-PKU">
+                                <rect key="frame" x="0.0" y="270" width="504" height="30"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QCK-8n-AwU">
+                                        <rect key="frame" x="18" y="6" width="468" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to move the tank and update the viewshed" id="dd5-Hh-XLp">
+                                            <font key="font" metaFont="systemMedium" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IYn-eY-6Vg"/>
+                                    <constraint firstItem="QCK-8n-AwU" firstAttribute="leading" secondItem="79e-fq-PKU" secondAttribute="leading" constant="20" id="Luk-ua-Wcu"/>
+                                    <constraint firstAttribute="trailing" secondItem="QCK-8n-AwU" secondAttribute="trailing" constant="20" id="N2o-kX-Zat"/>
+                                    <constraint firstItem="QCK-8n-AwU" firstAttribute="centerY" secondItem="79e-fq-PKU" secondAttribute="centerY" id="d8l-Gw-XPQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.89599955669999998" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="rIn-P2-7j6" secondAttribute="bottom" id="Ar1-yw-NQN"/>
                             <constraint firstAttribute="trailing" secondItem="rIn-P2-7j6" secondAttribute="trailing" id="G4t-8v-GhE"/>
+                            <constraint firstItem="79e-fq-PKU" firstAttribute="top" secondItem="cTJ-Up-nJm" secondAttribute="top" id="Sbb-iV-oOJ"/>
                             <constraint firstItem="rIn-P2-7j6" firstAttribute="leading" secondItem="cTJ-Up-nJm" secondAttribute="leading" id="lTy-2Z-Aij"/>
                             <constraint firstItem="rIn-P2-7j6" firstAttribute="top" secondItem="cTJ-Up-nJm" secondAttribute="top" id="sdz-2q-PvX"/>
+                            <constraint firstAttribute="trailing" secondItem="79e-fq-PKU" secondAttribute="trailing" id="wLf-ug-41a"/>
+                            <constraint firstItem="79e-fq-PKU" firstAttribute="leading" secondItem="cTJ-Up-nJm" secondAttribute="leading" id="wOW-fw-xgj"/>
                         </constraints>
                     </view>
                     <connections>
