@@ -31,6 +31,9 @@
 		2182C9891FDB1100003E3A0F /* StatisticalQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */; };
 		2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
 		218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
+		219AD30C1FEC440700FF76FE /* StatisticalQueryGroupAndSort.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219AD30B1FEC440700FF76FE /* StatisticalQueryGroupAndSort.storyboard */; };
+		219AD30E1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219AD30D1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift */; };
+		21D961B81FF597C400FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 219AD30D1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift */; };
 		21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */; };
 		21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21EA2F501FD8AE4000F39E9E /* RasterFunctionService.storyboard */; };
 		21EA2F541FD8B54D00F39E9E /* RasterFunctionServiceViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */; };
@@ -351,6 +354,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				21D961B81FF597C400FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */,
 				09607F8D1FDB647600FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */,
 				218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */,
@@ -470,6 +474,8 @@
 		213850801F74348F00F79149 /* DisplayGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayGridViewController.swift; sourceTree = "<group>"; };
 		2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StatisticalQuery.storyboard; sourceTree = "<group>"; };
 		2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticalQueryViewController.swift; sourceTree = "<group>"; };
+		219AD30B1FEC440700FF76FE /* StatisticalQueryGroupAndSort.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatisticalQueryGroupAndSort.storyboard; sourceTree = "<group>"; };
+		219AD30D1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticalQueryGroupAndSortViewController.swift; sourceTree = "<group>"; };
 		21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterFunctionServiceViewController.swift; sourceTree = "<group>"; };
 		21EA2F501FD8AE4000F39E9E /* RasterFunctionService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterFunctionService.storyboard; sourceTree = "<group>"; };
 		3E01035B1E28579C0013AEEF /* ManageBookmarks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManageBookmarks.storyboard; sourceTree = "<group>"; };
@@ -784,6 +790,15 @@
 				2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */,
 			);
 			path = "Statistical query";
+			sourceTree = "<group>";
+		};
+		219AD30A1FEC43A500FF76FE /* Statistical query (group and sort) */ = {
+			isa = PBXGroup;
+			children = (
+				219AD30B1FEC440700FF76FE /* StatisticalQueryGroupAndSort.storyboard */,
+				219AD30D1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift */,
+			);
+			path = "Statistical query (group and sort)";
 			sourceTree = "<group>";
 		};
 		21EA2F4D1FD8AE4000F39E9E /* Raster function (service) */ = {
@@ -1797,6 +1812,7 @@
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
 				3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */,
 				2182C9851FDB1100003E3A0F /* Statistical query */,
+				219AD30A1FEC43A500FF76FE /* Statistical query (group and sort) */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -2007,6 +2023,7 @@
 				3EA734091EC0CCF400356885 /* Pyrenees.csv in Resources */,
 				D97B7E971FDAEA8100E1239D /* Subdivisions.shp in Resources */,
 				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
+				219AD30C1FEC440700FF76FE /* StatisticalQueryGroupAndSort.storyboard in Resources */,
 				D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */,
@@ -2155,6 +2172,7 @@
 				3E29C9EE1DC7C55200E5571F /* DeleteFeaturesViewController.swift in Sources */,
 				3E8724841BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift in Sources */,
 				3ECCFE1B1BC86F5A00CE256D /* SetMapsSRViewController.swift in Sources */,
+				219AD30E1FEC476300FF76FE /* StatisticalQueryGroupAndSortViewController.swift in Sources */,
 				3E69DE461CFE2DEC001F65F7 /* WindowController.swift in Sources */,
 				2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */,
 				21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */,
