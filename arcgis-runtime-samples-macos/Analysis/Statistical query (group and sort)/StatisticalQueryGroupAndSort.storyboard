@@ -38,10 +38,10 @@
                                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6A-yp-je7">
                                                         <rect key="frame" x="0.0" y="0.0" width="582" height="145"/>
                                                         <clipView key="contentView" drawsBackground="NO" id="XdI-cO-dNd">
-                                                            <rect key="frame" x="1" y="23" width="580" height="121"/>
+                                                            <rect key="frame" x="1" y="0.0" width="580" height="144"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" headerView="6k0-4S-Txj" id="ujS-9g-Van">
+                                                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="6k0-4S-Txj" id="ujS-9g-Van">
                                                                     <rect key="frame" x="0.0" y="0.0" width="580" height="121"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -174,7 +174,7 @@
                                                                             </tableHeaderCell>
                                                                             <popUpButtonCell key="dataCell" type="bevel" title="Ascending" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="bezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="WcH-A7-8aO" id="2Or-Cd-IWm">
                                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                                <font key="font" metaFont="system"/>
+                                                                                <font key="font" metaFont="menu"/>
                                                                                 <menu key="menu" id="HNB-aI-Gpm">
                                                                                     <items>
                                                                                         <menuItem title="Ascending" state="on" id="WcH-A7-8aO"/>

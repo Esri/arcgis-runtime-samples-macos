@@ -272,14 +272,23 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     
     @IBAction func addStatisticDefinitionAction(_ sender: Any) {
         //
-        // Add statistic definition
+        // Get the selected values
         let fieldName = fieldNames[fieldNamesComboBox.indexOfSelectedItem]
         let statisticType = AGSStatisticType(rawValue: statisticTypeComboBox.indexOfSelectedItem)
-        let statisticDefinition = AGSStatisticDefinition(onFieldName: fieldName, statisticType: statisticType!, outputAlias: nil)
-        statisticDefinitions.append(statisticDefinition)
         
-        // Reload table
-        statisticDefinitionsTableView.reloadData()
+        // Check whether same statistic definition is already added or not.
+        let filteredStatisticDefinitions = statisticDefinitions.filter { $0.onFieldName == fieldName && $0.statisticType == statisticType }
+        
+        // Add only if it does not exist
+        if filteredStatisticDefinitions.isEmpty {
+            //
+            // Add statistic definition
+            let statisticDefinition = AGSStatisticDefinition(onFieldName: fieldName, statisticType: statisticType!, outputAlias: nil)
+            statisticDefinitions.append(statisticDefinition)
+            
+            // Reload table
+            statisticDefinitionsTableView.reloadData()
+        }
     }
     
     @IBAction func removeStatisticDefinitionAction(_ sender: Any) {
