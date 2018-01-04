@@ -61,7 +61,7 @@ class WMSCatalogViewController: NSViewController, NSTableViewDataSource, NSTable
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     func createLayers(using layerInfos: [AGSWMSLayerInfo]) {
         for info in layerInfos {
@@ -84,7 +84,7 @@ class WMSCatalogViewController: NSViewController, NSTableViewDataSource, NSTable
         alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
        return allLayers.count
@@ -101,7 +101,7 @@ class WMSCatalogViewController: NSViewController, NSTableViewDataSource, NSTable
         return cellView
     }
     
-    //MARK: - LayerCellViewDelegate
+    // MARK: - LayerCellViewDelegate
     
     func layerCellView(_ layerCellView: LayerCellView, didToggleVisibility visible: Bool) {
         let index = layerCellView.index
