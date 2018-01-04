@@ -16,6 +16,11 @@
 		10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
 		10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */; };
 		10C3F2211F02C981003C7F20 /* TerrainExaggerationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */; };
+		120B1D771FFDB8B900BE5E1D /* WMSCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B1D741FFDB8B900BE5E1D /* WMSCatalogViewController.swift */; };
+		120B1D781FFDB8B900BE5E1D /* LayerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B1D751FFDB8B900BE5E1D /* LayerCellView.swift */; };
+		120B1D791FFDB8B900BE5E1D /* WMSCatalog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 120B1D761FFDB8B900BE5E1D /* WMSCatalog.storyboard */; };
+		120B1D7A1FFDC12200BE5E1D /* WMSCatalogViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120B1D741FFDB8B900BE5E1D /* WMSCatalogViewController.swift */; };
+		120B1D7B1FFDC12C00BE5E1D /* LayerCellView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 120B1D751FFDB8B900BE5E1D /* LayerCellView.swift */; };
 		123F095B1FD2AA1A000760FE /* WMTSLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123F09591FD2AA19000760FE /* WMTSLayer.storyboard */; };
 		123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */; };
 		123F095D1FD2AA8B000760FE /* WMTSLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */; };
@@ -361,6 +366,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				120B1D7B1FFDC12C00BE5E1D /* LayerCellView.swift in CopyFiles */,
+				120B1D7A1FFDC12200BE5E1D /* WMSCatalogViewController.swift in CopyFiles */,
 				D98916D91FE23447004310CB /* GPKGLayerTableCell.swift in CopyFiles */,
 				D98916DA1FE23447004310CB /* ReadGeopackageViewController.swift in CopyFiles */,
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
@@ -473,6 +480,9 @@
 		10859BB21FE1A1AF00F6E552 /* FeatureLayerExtrusionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerExtrusionViewController.swift; sourceTree = "<group>"; };
 		10C3F21B1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainExaggerationViewController.swift; path = "Terrain exaggeration/TerrainExaggerationViewController.swift"; sourceTree = "<group>"; };
 		10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TerrainExaggeration.storyboard; path = "Terrain exaggeration/TerrainExaggeration.storyboard"; sourceTree = "<group>"; };
+		120B1D741FFDB8B900BE5E1D /* WMSCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMSCatalogViewController.swift; sourceTree = "<group>"; };
+		120B1D751FFDB8B900BE5E1D /* LayerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerCellView.swift; sourceTree = "<group>"; };
+		120B1D761FFDB8B900BE5E1D /* WMSCatalog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMSCatalog.storyboard; sourceTree = "<group>"; };
 		123F09591FD2AA19000760FE /* WMTSLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMTSLayer.storyboard; sourceTree = "<group>"; };
 		123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
 		123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMSLayerUsingURL.storyboard; sourceTree = "<group>"; };
@@ -755,6 +765,17 @@
 				10C3F21E1F02BBF5003C7F20 /* TerrainExaggeration.storyboard */,
 			);
 			name = "Terrain exaggeration";
+			sourceTree = "<group>";
+		};
+		120B1D731FFDB8B900BE5E1D /* WMS service catalog */ = {
+			isa = PBXGroup;
+			children = (
+				120B1D741FFDB8B900BE5E1D /* WMSCatalogViewController.swift */,
+				120B1D751FFDB8B900BE5E1D /* LayerCellView.swift */,
+				120B1D761FFDB8B900BE5E1D /* WMSCatalog.storyboard */,
+			);
+			name = "WMS service catalog";
+			path = "Layers/WMS service catalog";
 			sourceTree = "<group>";
 		};
 		123F09581FD2AA19000760FE /* WMTS layer */ = {
@@ -1265,6 +1286,7 @@
 				3EFDE09F1E31279000CBCD92 /* Stretch renderer */,
 				123F09581FD2AA19000760FE /* WMTS layer */,
 				123F095E1FD2AA9A000760FE /* WMS layer (URL) */,
+				120B1D731FFDB8B900BE5E1D /* WMS service catalog */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -2016,6 +2038,7 @@
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
 				D98916D81FE22B89004310CB /* ReadGeopackage.storyboard in Resources */,
 				3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */,
+				120B1D791FFDB8B900BE5E1D /* WMSCatalog.storyboard in Resources */,
 				3EFDE0C01E31287B00CBCD92 /* ShastaBW.tif.ovr in Resources */,
 				3E049A2C1CED12FC0031ADA9 /* GOIdentify.storyboard in Resources */,
 				3EFDE0B51E31287B00CBCD92 /* Shasta_Elevation.tfw in Resources */,
@@ -2200,6 +2223,7 @@
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
+				120B1D781FFDB8B900BE5E1D /* LayerCellView.swift in Sources */,
 				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
 				3EFDE0A81E31279700CBCD92 /* RGBRendererViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
@@ -2242,6 +2266,7 @@
 				3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */,
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
+				120B1D771FFDB8B900BE5E1D /* WMSCatalogViewController.swift in Sources */,
 				D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */,
 				10859BB51FE1A1B000F6E552 /* FeatureLayerExtrusionViewController.swift in Sources */,
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
