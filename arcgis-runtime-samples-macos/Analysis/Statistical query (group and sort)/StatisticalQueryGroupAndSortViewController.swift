@@ -29,6 +29,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     @IBOutlet private weak var orderByFieldsTableView: NSTableView!
     @IBOutlet private weak var statisticQueryResultsOutlineView: NSOutlineView!
     @IBOutlet private weak var removeStatisticDefinitionButton: NSButton!
+    @IBOutlet private weak var getStatisticsButton: NSButton!
 
     private var serviceFeatureTable: AGSServiceFeatureTable!
     private var fieldNames = [String]()
@@ -326,6 +327,9 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             return
         }
         
+        // Disable the button
+        getStatisticsButton.isEnabled = false
+        
         // Create the parameters with statistic definitions
         let statisticsQueryParameters = AGSStatisticsQueryParameters(statisticDefinitions: statisticDefinitions)
         
@@ -338,6 +342,9 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         // Execute the statistical query with parameters
         serviceFeatureTable?.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
             //
+            // Enable the button
+            self?.getStatisticsButton.isEnabled = true
+            
             // If there an error, display it
             guard error == nil else {
                 self?.showAlert(messageText: "Error", informativeText: "Error while executing statistics query :: \(String(describing: error?.localizedDescription))")

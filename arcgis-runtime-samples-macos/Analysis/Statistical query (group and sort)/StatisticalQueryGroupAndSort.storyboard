@@ -461,6 +461,7 @@
                     </view>
                     <connections>
                         <outlet property="fieldNamesComboBox" destination="hgv-CU-ptC" id="HaT-gA-KjJ"/>
+                        <outlet property="getStatisticsButton" destination="hBH-au-CEG" id="U0T-GA-2Cl"/>
                         <outlet property="groupByFieldsTableView" destination="sbo-NE-YJ6" id="YM1-rb-wCZ"/>
                         <outlet property="orderByFieldsTableView" destination="sVT-Gy-Aua" id="lBB-Gk-q72"/>
                         <outlet property="parametersLabel" destination="L8U-lE-ejd" id="kIa-qP-k6i"/>
