@@ -28,6 +28,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     @IBOutlet private weak var groupByFieldsTableView: NSTableView!
     @IBOutlet private weak var orderByFieldsTableView: NSTableView!
     @IBOutlet private weak var statisticQueryResultsOutlineView: NSOutlineView!
+    @IBOutlet private weak var removeStatisticDefinitionButton: NSButton!
 
     private var serviceFeatureTable: AGSServiceFeatureTable!
     private var fieldNames = [String]()
@@ -289,6 +290,11 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             // Reload table
             statisticDefinitionsTableView.reloadData()
         }
+        
+        // Enable remove button
+        if statisticDefinitions.count > 0 {
+            removeStatisticDefinitionButton.isEnabled = true
+        }
     }
     
     @IBAction func removeStatisticDefinitionAction(_ sender: Any) {
@@ -302,6 +308,12 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         // Remove selected statistic definitions
         selectedIndexes.forEach { (index) in
             statisticDefinitions.remove(at: index)
+        }
+        
+        // Disable remove button if there is no
+        // statistic definitions
+        if statisticDefinitions.count == 0 {
+            removeStatisticDefinitionButton.isEnabled = false
         }
     }
     

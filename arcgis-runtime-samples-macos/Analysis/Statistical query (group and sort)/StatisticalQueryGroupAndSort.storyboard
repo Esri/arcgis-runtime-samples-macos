@@ -262,7 +262,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="GwI-jl-W7b"/>
                                                 </constraints>
-                                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8ux-mU-Jjs">
+                                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8ux-mU-Jjs">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -359,7 +359,7 @@
                                                     <rect key="frame" x="1" y="1" width="220" height="614"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="BrB-km-cH3" id="VzW-bo-1k5">
+                                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="BrB-km-cH3" id="VzW-bo-1k5">
                                                             <rect key="frame" x="0.0" y="0.0" width="220" height="614"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -464,6 +464,7 @@
                         <outlet property="groupByFieldsTableView" destination="sbo-NE-YJ6" id="YM1-rb-wCZ"/>
                         <outlet property="orderByFieldsTableView" destination="sVT-Gy-Aua" id="lBB-Gk-q72"/>
                         <outlet property="parametersLabel" destination="L8U-lE-ejd" id="kIa-qP-k6i"/>
+                        <outlet property="removeStatisticDefinitionButton" destination="vBT-fu-yEN" id="zne-pp-cfj"/>
                         <outlet property="resultsLabel" destination="GeW-1n-bGH" id="idV-6v-FTL"/>
                         <outlet property="splitView" destination="jo6-Kv-N9A" id="ahW-tD-nrZ"/>
                         <outlet property="statisticDefinitionsTableView" destination="ujS-9g-Van" id="9Rg-rG-71I"/>

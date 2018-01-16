@@ -25,6 +25,7 @@
 		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
 		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
+		2136E7D2200EB46D0071BA99 /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21D961BC1FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift */; };
 		213850841F74363000F79149 /* DisplayGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2138507F1F74348F00F79149 /* DisplayGrid.storyboard */; };
 		213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
 		213850861F74382900F79149 /* DisplayGridViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
@@ -363,6 +364,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				2136E7D2200EB46D0071BA99 /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */,
 				D98916D91FE23447004310CB /* GPKGLayerTableCell.swift in CopyFiles */,
 				D98916DA1FE23447004310CB /* ReadGeopackageViewController.swift in CopyFiles */,
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
