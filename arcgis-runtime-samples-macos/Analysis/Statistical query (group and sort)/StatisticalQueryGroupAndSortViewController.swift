@@ -143,16 +143,14 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
                 selectedGroupByFieldNames.remove(at: index!)
                 
                 // Remove field from the order by fields
-                for i in (0..<orderByFields.count).reversed() {
-                    let orderByField = orderByFields[i]
+                for (i,orderByField) in orderByFields.enumerated().reversed() {
                     if orderByField.fieldName == fieldName {
                         orderByFields.remove(at: i)
                     }
                 }
                 
                 // Remove field from the selected order by fields
-                for i in (0..<selectedOrderByFields.count).reversed() {
-                    let selectedOrderByField = selectedOrderByFields[i]
+                for (i,selectedOrderByField) in selectedOrderByFields.enumerated().reversed() {
                     if selectedOrderByField.fieldName == fieldName {
                         selectedOrderByFields.remove(at: i)
                     }
@@ -259,8 +257,9 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         let cellView = outlineView.make(withIdentifier: "StatisticRecordCellView", owner: self) as! NSTableCellView
         if let statisticRecord = item as? AGSStatisticRecord {
             var groups = [String]()
-            for (key, value) in (statisticRecord.group)  {
-                groups.append("\(key): \(value)")
+            for fieldName in selectedGroupByFieldNames {
+                let value = statisticRecord.group[fieldName] as! String
+                groups.append("\(value)")
             }
             cellView.textField?.stringValue = groups.joined(separator: ", ")
         }
