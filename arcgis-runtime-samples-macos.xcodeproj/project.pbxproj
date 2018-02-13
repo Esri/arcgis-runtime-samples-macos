@@ -22,9 +22,6 @@
 		123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */; };
 		123F09621FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
 		123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
-		128FEB6A2032BD1F0014B6B8 /* ViewshedLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128FEB692032BD1F0014B6B8 /* ViewshedLocation.storyboard */; };
-		128FEB6C2032BD240014B6B8 /* ViewshedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128FEB6B2032BD240014B6B8 /* ViewshedLocationViewController.swift */; };
-		128FEB6D2032BD390014B6B8 /* ViewshedLocationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 128FEB6B2032BD240014B6B8 /* ViewshedLocationViewController.swift */; };
 		166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */; };
 		166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
 		166E8FA71EE6339400C57C46 /* RasterLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */; };
@@ -364,7 +361,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				128FEB6D2032BD390014B6B8 /* ViewshedLocationViewController.swift in CopyFiles */,
 				D98916D91FE23447004310CB /* GPKGLayerTableCell.swift in CopyFiles */,
 				D98916DA1FE23447004310CB /* ReadGeopackageViewController.swift in CopyFiles */,
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
@@ -481,8 +477,6 @@
 		123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
 		123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMSLayerUsingURL.storyboard; sourceTree = "<group>"; };
 		123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMSLayerUsingURLViewController.swift; sourceTree = "<group>"; };
-		128FEB692032BD1F0014B6B8 /* ViewshedLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ViewshedLocation.storyboard; path = "arcgis-runtime-samples-macos/Analysis/Viewshed (location)/ViewshedLocation.storyboard"; sourceTree = SOURCE_ROOT; };
-		128FEB6B2032BD240014B6B8 /* ViewshedLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewshedLocationViewController.swift; path = "arcgis-runtime-samples-macos/Analysis/Viewshed (location)/ViewshedLocationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RasterLayer.storyboard; sourceTree = "<group>"; };
 		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		2138507F1F74348F00F79149 /* DisplayGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayGrid.storyboard; sourceTree = "<group>"; };
@@ -781,16 +775,6 @@
 			);
 			name = "WMS layer (URL)";
 			path = "Layers/WMS layer (URL)";
-			sourceTree = "<group>";
-		};
-		128FEB662032BCBF0014B6B8 /* Viewshed (location) */ = {
-			isa = PBXGroup;
-			children = (
-				128FEB6B2032BD240014B6B8 /* ViewshedLocationViewController.swift */,
-				128FEB692032BD1F0014B6B8 /* ViewshedLocation.storyboard */,
-			);
-			name = "Viewshed (location)";
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		166E8FA01EE6311300C57C46 /* Raster layer (file) */ = {
@@ -1836,7 +1820,6 @@
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
 				3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */,
 				2182C9851FDB1100003E3A0F /* Statistical query */,
-				128FEB662032BCBF0014B6B8 /* Viewshed (location) */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -2053,7 +2036,6 @@
 				3EA7340F1EC0CD2D00356885 /* Bristol.dae in Resources */,
 				3EFDE0BF1E31287B00CBCD92 /* ShastaBW.tif.aux.xml in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
-				128FEB6A2032BD1F0014B6B8 /* ViewshedLocation.storyboard in Resources */,
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
 				3EEB2B9F1EBB8CC200B52513 /* ListRelatedFeatures.storyboard in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
@@ -2270,7 +2252,6 @@
 				3EDC84181F19886E002DBCF2 /* DirectionsViewController.swift in Sources */,
 				3ECCFE1F1BC87B8300CE256D /* DrawingStatusViewController.swift in Sources */,
 				3EC1AE6D1BAC8DA100E32B1D /* AppDelegate.swift in Sources */,
-				128FEB6C2032BD240014B6B8 /* ViewshedLocationViewController.swift in Sources */,
 				3E0103931E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift in Sources */,
 				123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
