@@ -518,6 +518,19 @@
 					<string>WMSLayerUsingURLViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>WMS service catalog</string>
+                <key>storyboardName</key>
+                <string>WMSCatalog</string>
+                <key>descriptionText</key>
+                <string>Demonstrates how to programmatically discover layers from a WMS service and display them on map</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>WMSCatalogViewController</string>
+                    <string>LayerCellView</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>
