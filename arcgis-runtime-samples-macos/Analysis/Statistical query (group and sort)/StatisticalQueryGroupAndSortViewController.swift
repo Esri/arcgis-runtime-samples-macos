@@ -31,7 +31,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     @IBOutlet private weak var removeStatisticDefinitionButton: NSButton!
     @IBOutlet private weak var getStatisticsButton: NSButton!
 
-    private var serviceFeatureTable: AGSServiceFeatureTable!
+    private var serviceFeatureTable: AGSServiceFeatureTable?
     private var fieldNames = [String]()
     private var selectedGroupByFieldNames = [String]()
     private var orderByFields = [AGSOrderBy]()
@@ -47,7 +47,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         serviceFeatureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3")!)
         
         // Load feature table
-        serviceFeatureTable.load(completion: { [weak self] (error) in
+        serviceFeatureTable?.load(completion: { [weak self] (error) in
             //
             // If there an error, display it
             guard error == nil else {
@@ -56,8 +56,8 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             }
             
             // Set title
-            let titleTable = self?.serviceFeatureTable.tableName
-            let title = "Statistics: \(titleTable!)"
+            let tableName = self?.serviceFeatureTable?.tableName
+            let title = "Statistics: \(tableName ?? "")"
             let style = NSMutableParagraphStyle()
             style.alignment = NSTextAlignment.center
             let attributes = [NSUnderlineStyleAttributeName: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSParagraphStyleAttributeName: style]
@@ -65,12 +65,18 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             self?.titleLabel.attributedStringValue = attributedTitle
             
             // Get field names
-            for field in (self?.serviceFeatureTable.fields)! {
-                self?.fieldNames.append(field.name)
+            if let fields = self?.serviceFeatureTable?.fields {
+                for field in fields {
+                    if field.type != .OID && field.type != .globalID {
+                        self?.fieldNames.append(field.name)
+                    }
+                }
             }
-            
+
             // Reload combo box
-            self?.fieldNamesComboBox.addItems(withObjectValues: (self?.fieldNames)!)
+            if let fieldNames = self?.fieldNames {
+                self?.fieldNamesComboBox.addItems(withObjectValues: fieldNames)
+            }
             
             // Reload table"
             self?.groupByFieldsTableView.reloadData()
@@ -108,174 +114,16 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         self.resultsLabel.attributedStringValue = attributedResultsString
     }
     
-    // MARK: - NSTableViewDataSource
-    
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        if tableView == statisticDefinitionsTableView {
-            return statisticDefinitions.count
-        }
-        else if tableView == groupByFieldsTableView {
-            return fieldNames.count
-        }
-        else if tableView == orderByFieldsTableView {
-            return orderByFields.count
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
-        if tableView == groupByFieldsTableView {
-            let buttonState = object as! Int?
-            let fieldName = fieldNames[row]
-            if buttonState == 1 {
-                //
-                // Add field to the selected group by fields
-                selectedGroupByFieldNames.append(fieldName)
-                
-                // Add field to order by fields
-                let orderBy = AGSOrderBy(fieldName: fieldName, sortOrder: .ascending)
-                orderByFields.append(orderBy)
-            }
-            else {
-                //
-                // Remove field from selected group by fields
-                let index = selectedGroupByFieldNames.index(of: fieldName)
-                selectedGroupByFieldNames.remove(at: index!)
-                
-                // Remove field from the order by fields
-                for (i,orderByField) in orderByFields.enumerated().reversed() {
-                    if orderByField.fieldName == fieldName {
-                        orderByFields.remove(at: i)
-                    }
-                }
-                
-                // Remove field from the selected order by fields
-                for (i,selectedOrderByField) in selectedOrderByFields.enumerated().reversed() {
-                    if selectedOrderByField.fieldName == fieldName {
-                        selectedOrderByFields.remove(at: i)
-                    }
-                }
-            }
-            
-            // Reload order by fields table
-            orderByFieldsTableView.reloadData()
-        }
-        
-        if tableView == orderByFieldsTableView {
-            let orderByField = orderByFields[row]
-            if tableColumn?.identifier == "FieldNameCheckBox" {
-                let buttonState = object as! Int?
-                if buttonState == 1 {
-                    selectedOrderByFields.append(orderByField)
-                }
-                else {
-                    //
-                    // Remove field from selected order by fields
-                    let index = selectedOrderByFields.index(of: orderByField)
-                    selectedOrderByFields.remove(at: index!)
-                }
-            }
-            else if tableColumn?.identifier == "SortOrder" {
-                let selectedIndex = object as! Int?
-                if let selectedIndex = selectedIndex {
-                    orderByField.sortOrder = AGSSortOrder(rawValue: selectedIndex)!
-                }
-            }
-        }
-    }
-    
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        if tableView == statisticDefinitionsTableView {
-            let statisticDefinition = statisticDefinitions[row]
-            let statisticTypeString = statisticTypes[statisticDefinition.statisticType.rawValue]
-            let stringValue = "\(statisticDefinition.onFieldName) (\(statisticTypeString))"
-            return stringValue
-        }
-        else if tableView == groupByFieldsTableView {
-            let fieldName = fieldNames[row]
-            let buttonCell = tableColumn?.dataCell(forRow: row) as! NSButtonCell
-            buttonCell.title = fieldName
-            if selectedGroupByFieldNames.contains(fieldName) {
-                return 1
-            }
-            else {
-                return 0
-            }
-        }
-        else if tableView == orderByFieldsTableView {
-            let orderByField = orderByFields[row]
-            if tableColumn?.identifier == "FieldNameCheckBox" {
-                let buttonCell = tableColumn?.dataCell(forRow: row) as! NSButtonCell
-                buttonCell.title = orderByField.fieldName
-                if selectedOrderByFields.contains(orderByField) {
-                    return 1
-                }
-                else {
-                    return 0
-                }
-            }
-            else if tableColumn?.identifier == "SortOrder" {
-                let popUpButtonCell = tableColumn?.dataCell(forRow: row) as! NSPopUpButtonCell
-                return popUpButtonCell.indexOfItem(withTitle: stringFor(sortOrder: orderByField.sortOrder))
-            }
-        }
-        return nil
-    }
-    
-    // MARK: - NSOutlineViewDataSource
-    
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let statisticRecord = item as? AGSStatisticRecord {
-            return statisticRecord.statistics.keys.count
-        }
-        else {
-            return self.statisticRecords.count
-        }
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if let statisticRecord = item as? AGSStatisticRecord {
-            let keys = Array(statisticRecord.statistics.keys)
-            let values = Array(statisticRecord.statistics.values)
-            return "\(keys[index]): \(values[index])"
-        }
-        else {
-            return statisticRecords[index]
-        }
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let statisticRecord = item as? AGSStatisticRecord {
-            return statisticRecord.statistics.keys.count > 0
-        }
-        else {
-            return false
-        }
-    }
-    
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        let cellView = outlineView.make(withIdentifier: "StatisticRecordCellView", owner: self) as! NSTableCellView
-        if let statisticRecord = item as? AGSStatisticRecord {
-            var groups = [String]()
-            for fieldName in selectedGroupByFieldNames {
-                let value = statisticRecord.group[fieldName] as! String
-                groups.append("\(value)")
-            }
-            cellView.textField?.stringValue = groups.joined(separator: ", ")
-        }
-        else {
-            cellView.textField?.stringValue = item as! String
-        }
-        return cellView
-    }
-    
     // MARK: - Actions
     
     @IBAction func addStatisticDefinitionAction(_ sender: Any) {
         //
         // Get the selected values
+        guard let statisticType = AGSStatisticType(rawValue: statisticTypeComboBox.indexOfSelectedItem) else {
+            print("Could not determine AGSStatisticType from UI: \(statisticTypeComboBox.indexOfSelectedItem)")
+            return
+        }
         let fieldName = fieldNames[fieldNamesComboBox.indexOfSelectedItem]
-        let statisticType = AGSStatisticType(rawValue: statisticTypeComboBox.indexOfSelectedItem)
         
         // Check whether same statistic definition is already added or not.
         let filteredStatisticDefinitions = statisticDefinitions.filter { $0.onFieldName == fieldName && $0.statisticType == statisticType }
@@ -284,7 +132,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         if filteredStatisticDefinitions.isEmpty {
             //
             // Add statistic definition
-            let statisticDefinition = AGSStatisticDefinition(onFieldName: fieldName, statisticType: statisticType!, outputAlias: nil)
+            let statisticDefinition = AGSStatisticDefinition(onFieldName: fieldName, statisticType: statisticType, outputAlias: nil)
             statisticDefinitions.append(statisticDefinition)
             
             // Reload table
@@ -342,7 +190,9 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         serviceFeatureTable?.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
             //
             // Enable the button
-            self?.getStatisticsButton.isEnabled = true
+            defer {
+                self?.getStatisticsButton.isEnabled = true
+            }
             
             // If there an error, display it
             guard error == nil else {
@@ -380,13 +230,174 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         statisticTypeComboBox.selectItem(at: 0)
     }
     
+    // MARK: - NSTableViewDataSource
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        if tableView == statisticDefinitionsTableView {
+            return statisticDefinitions.count
+        }
+        else if tableView == groupByFieldsTableView {
+            return fieldNames.count
+        }
+        else if tableView == orderByFieldsTableView {
+            return orderByFields.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
+        if tableView == groupByFieldsTableView {
+            let fieldName = fieldNames[row]
+            if let buttonState = object as? Int, buttonState == 1 {
+                //
+                // Add field to the selected group by fields
+                selectedGroupByFieldNames.append(fieldName)
+                
+                // Add field to order by fields
+                let orderBy = AGSOrderBy(fieldName: fieldName, sortOrder: .ascending)
+                orderByFields.append(orderBy)
+            }
+            else {
+                //
+                // Remove field from selected group by fields
+                if let index = selectedGroupByFieldNames.index(of: fieldName) {
+                    selectedGroupByFieldNames.remove(at: index)
+                }
+                
+                // Remove field from the order by fields
+                for (i,orderByField) in orderByFields.enumerated().reversed() {
+                    if orderByField.fieldName == fieldName {
+                        orderByFields.remove(at: i)
+                    }
+                }
+                
+                // Remove field from the selected order by fields
+                for (i,selectedOrderByField) in selectedOrderByFields.enumerated().reversed() {
+                    if selectedOrderByField.fieldName == fieldName {
+                        selectedOrderByFields.remove(at: i)
+                    }
+                }
+            }
+            
+            // Reload order by fields table
+            orderByFieldsTableView.reloadData()
+        }
+        
+        if tableView == orderByFieldsTableView {
+            let orderByField = orderByFields[row]
+            if tableColumn?.identifier == "FieldNameCheckBox" {
+                if let buttonState = object as? Int, buttonState == 1 {
+                    selectedOrderByFields.append(orderByField)
+                }
+                else {
+                    //
+                    // Remove field from selected order by fields
+                    if let index = selectedOrderByFields.index(of: orderByField) {
+                        selectedOrderByFields.remove(at: index)
+                    }
+                }
+            }
+            else if tableColumn?.identifier == "SortOrder" {
+                if let selectedIndex = object as? Int, let sortOrder = AGSSortOrder(rawValue: selectedIndex) {
+                    orderByField.sortOrder = sortOrder
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        if tableView == statisticDefinitionsTableView {
+            let statisticDefinition = statisticDefinitions[row]
+            let statisticTypeString = statisticTypes[statisticDefinition.statisticType.rawValue]
+            let stringValue = "\(statisticDefinition.onFieldName) (\(statisticTypeString))"
+            return stringValue
+        }
+        else if tableView == groupByFieldsTableView {
+            let fieldName = fieldNames[row]
+            if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
+                buttonCell.title = fieldName
+                return selectedGroupByFieldNames.contains(fieldName) ? 1 : 0
+            }
+        }
+        else if tableView == orderByFieldsTableView {
+            let orderByField = orderByFields[row]
+            if tableColumn?.identifier == "FieldNameCheckBox" {
+                if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
+                    buttonCell.title = orderByField.fieldName
+                    return selectedOrderByFields.contains(orderByField) ? 1 : 0
+                }
+            }
+            else if tableColumn?.identifier == "SortOrder" {
+                if let popUpButtonCell = tableColumn?.dataCell(forRow: row) as? NSPopUpButtonCell {
+                    return popUpButtonCell.indexOfItem(withTitle: stringFor(sortOrder: orderByField.sortOrder))
+                }
+            }
+        }
+        return nil
+    }
+    
+    // MARK: - NSOutlineViewDataSource
+    
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        if let statisticRecord = item as? AGSStatisticRecord {
+            return statisticRecord.statistics.keys.count
+        }
+        else {
+            return self.statisticRecords.count
+        }
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        if let statisticRecord = item as? AGSStatisticRecord {
+            let keys = Array(statisticRecord.statistics.keys)
+            let values = Array(statisticRecord.statistics.values)
+            return "\(keys[index]): \(values[index])"
+        }
+        else {
+            return statisticRecords[index]
+        }
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        if let statisticRecord = item as? AGSStatisticRecord {
+            return statisticRecord.statistics.keys.count > 0
+        }
+        else {
+            return false
+        }
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
+        guard let cellView = outlineView.make(withIdentifier: "StatisticRecordCellView", owner: self) as? NSTableCellView else {
+            return nil
+        }
+        
+        if let statisticRecord = item as? AGSStatisticRecord {
+            var groups = [String]()
+            for fieldName in selectedGroupByFieldNames {
+                if let value = statisticRecord.group[fieldName] as? String {
+                    groups.append("\(value)")
+                }
+            }
+            cellView.textField?.stringValue = groups.joined(separator: ", ")
+        }
+        else {
+            if let string = item as? String {
+                cellView.textField?.stringValue = string
+            }
+        }
+        return cellView
+    }
+    
     // MARK: - Helper Methods
     
     private func showAlert(messageText:String, informativeText:String) {
-        let alert = NSAlert()
-        alert.messageText = messageText
-        alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        if let window = view.window {
+            let alert = NSAlert()
+            alert.messageText = messageText
+            alert.informativeText = informativeText
+            alert.beginSheetModal(for: window, completionHandler: nil)
+        }
     }
     
     private func stringFor(sortOrder: AGSSortOrder) -> String {
