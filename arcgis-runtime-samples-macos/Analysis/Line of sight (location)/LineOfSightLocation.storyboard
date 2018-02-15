@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -18,44 +19,56 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="8MP-JI-Mun" customClass="AGSSceneView">
                                 <rect key="frame" x="0.0" y="0.0" width="493" height="300"/>
                             </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ucr-gl-arB">
-                                <rect key="frame" x="0.0" y="270" width="493" height="30"/>
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-7y-DaB" userLabel="Instructions View">
+                                <rect key="frame" x="0.0" y="242" width="493" height="58"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-MF-y8z">
-                                        <rect key="frame" x="18" y="6" width="457" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Single tap on the map to add observer location" id="s2v-Bz-vGh">
+                                        <rect key="frame" x="104" y="33" width="286" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to set the observer location" id="s2v-Bz-vGh">
+                                            <font key="font" metaFont="systemMedium" size="13"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlg-Bx-Ye6">
+                                        <rect key="frame" x="102" y="8" width="289" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click-and-hold to drag the line of sight target" id="72c-E1-ikZ">
                                             <font key="font" metaFont="systemMedium" size="13"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="tvL-MF-y8z" firstAttribute="leading" secondItem="Ucr-gl-arB" secondAttribute="leading" constant="20" id="JFp-5y-Ajf"/>
-                                    <constraint firstAttribute="trailing" secondItem="tvL-MF-y8z" secondAttribute="trailing" constant="20" id="aql-LG-ULs"/>
-                                    <constraint firstAttribute="height" constant="30" id="kl8-xN-K1J"/>
-                                    <constraint firstItem="tvL-MF-y8z" firstAttribute="centerY" secondItem="Ucr-gl-arB" secondAttribute="centerY" id="raE-B1-ZkM"/>
-                                </constraints>
+                                <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="8" bottom="8"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.89599955673758869" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="0.90485873287671237" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </customView>
+                            </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DeL-7y-DaB" secondAttribute="trailing" id="8tj-25-Zgb"/>
                             <constraint firstItem="8MP-JI-Mun" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="Eck-T3-e8b"/>
-                            <constraint firstItem="Ucr-gl-arB" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="RJ2-vQ-sSH"/>
+                            <constraint firstItem="DeL-7y-DaB" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="SER-W4-Wzc"/>
                             <constraint firstItem="8MP-JI-Mun" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="T3a-IT-kBV"/>
-                            <constraint firstAttribute="trailing" secondItem="Ucr-gl-arB" secondAttribute="trailing" id="UmV-kd-GYs"/>
+                            <constraint firstItem="DeL-7y-DaB" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="Zj5-bZ-0Bh"/>
                             <constraint firstAttribute="trailing" secondItem="8MP-JI-Mun" secondAttribute="trailing" id="fCB-dE-114"/>
                             <constraint firstAttribute="bottom" secondItem="8MP-JI-Mun" secondAttribute="bottom" id="fqd-lM-gGN"/>
-                            <constraint firstItem="Ucr-gl-arB" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="oSD-Sy-0qG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="instructionLabel" destination="s2v-Bz-vGh" id="BbM-Vk-Hb6"/>
+                        <outlet property="observerInstructionLabel" destination="tvL-MF-y8z" id="4kc-JF-wJo"/>
                         <outlet property="sceneView" destination="8MP-JI-Mun" id="Egm-gl-MxX"/>
+                        <outlet property="targetInstructionLabel" destination="rlg-Bx-Ye6" id="OmF-He-ago"/>
                     </connections>
                 </viewController>
                 <customObject id="rOy-WN-ymd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -20,73 +20,78 @@ import ArcGIS
 class LineOfSightLocationViewController: NSViewController, AGSGeoViewTouchDelegate {
 
     @IBOutlet weak var sceneView: AGSSceneView!
-    @IBOutlet weak var instructionLabel: NSTextFieldCell!
-    
-    private var lineOfSight: AGSLocationLineOfSight!
-    private var observerLocation: AGSPoint?
-    
+    @IBOutlet weak var observerInstructionLabel: NSTextField!
+    @IBOutlet weak var targetInstructionLabel: NSTextField!
+
+    private var lineOfSight: AGSLocationLineOfSight? {
+        willSet {
+            sceneView.analysisOverlays.removeAllObjects()
+        }
+        didSet {
+            guard let lineOfSight = lineOfSight else {
+                targetInstructionLabel.isHidden = true
+                return
+            }
+
+            targetInstructionLabel.isHidden = false
+
+            // create an analysis overlay using a single Line of Sight and add it to the scene view
+            let analysisOverlay = AGSAnalysisOverlay()
+            analysisOverlay.analyses.add(lineOfSight)
+            sceneView.analysisOverlays.add(analysisOverlay)
+        }
+    }
+
     private let ELEVATION_SERVICE_URL = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // prepare the UI for first use
+        targetInstructionLabel.isHidden = true
         
-        //initialize the scene with an imagery basemap
+        // initialize the scene with an imagery basemap
         let scene = AGSScene(basemap: AGSBasemap.imagery())
-        
-        //initialize the elevation source with the elevation service URL
+
+        // assign the scene to the scene view
+        sceneView.scene = scene
+
+        // initialize the elevation source with the service URL and add it to the base surface of the scene
         let elevationSrc = AGSArcGISTiledElevationSource(url: ELEVATION_SERVICE_URL)
-        
-        //add the elevation source to the base surface of the scene
         scene.baseSurface?.elevationSources.append(elevationSrc)
-        
-        //assign the scene to the scene view
-        self.sceneView.scene = scene
-        
-        //initialize the line of sight with arbitrary points (observer and target will be defined by the user)
-        self.lineOfSight = AGSLocationLineOfSight(observerLocation: AGSPoint(x: 0.0 , y: 0.0, z: 0.0, spatialReference: AGSSpatialReference.wgs84()), targetLocation: AGSPoint(x: 0.0 , y: 0.0, z: 0.0, spatialReference: AGSSpatialReference.wgs84()))
-        
-        //create an analysis overlay for the line of sight and add it to the scene view
-        let analysisOverlay = AGSAnalysisOverlay()
-        analysisOverlay.analyses.add(self.lineOfSight)
-        self.sceneView.analysisOverlays.add(analysisOverlay)
-        
-        //set the line width (default 1.0), visible color (default: green), obstructed colors (default: red). These are static properties that apply to all line of sight analyses in the scene view
+
+        // set the viewpoint specified by the camera position
+        let camera = AGSCamera(location: AGSPoint(x: -73.0815, y: -49.3272, z: 4059, spatialReference: AGSSpatialReference.wgs84()), heading: 11, pitch: 62, roll: 0)
+        sceneView.setViewpointCamera(camera)
+
+        // set touch delegate on scene view as self
+        sceneView.touchDelegate = self
+
+        // set the line width (default 1.0). This setting is applied to all line of sight analysis in the view
         AGSLineOfSight.setLineWidth(2.0)
-        AGSLineOfSight.setVisibleColor(.cyan)
-        AGSLineOfSight.setObstructedColor(.magenta)
-        
-        //set the viewpoint specified by the camera position
-        let camera = AGSCamera(location: AGSPoint(x: -73.10861935949697, y: -49.25758493899104, z: 3050, spatialReference: AGSSpatialReference.wgs84()), heading: 106, pitch: 73, roll: 0)
-        self.sceneView.setViewpointCamera(camera)
-        
-        //set touch delegate on scene view as self
-        self.sceneView.touchDelegate = self
     }
     
     
     //MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        //set the observer location once-only
-        if self.observerLocation == nil {
-            self.observerLocation = mapPoint
-            
-            //define the observer location
-            self.lineOfSight.observerLocation = self.observerLocation!
-            
-            //update the instruction label
-            self.instructionLabel.stringValue = "Press and hold on the map to update target location"
+        // user tapped to place Line of Sight observer. Create Line of Sight analysis if need be
+        if (lineOfSight == nil) {
+            // set initial Line of Sight analysis with tapped point
+            lineOfSight = AGSLocationLineOfSight(observerLocation: mapPoint, targetLocation: mapPoint)
+        } else {
+            // update the observer location
+            lineOfSight?.observerLocation = mapPoint
         }
     }
     
     func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        //check if user has set the observer location
-        guard self.observerLocation != nil else {
-            return
-        }
-        
-        //update the target location
-        self.lineOfSight.targetLocation = mapPoint
+        // update the target location
+        lineOfSight?.targetLocation = mapPoint
     }
-    
+
+    func geoView(_ geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+        // update the target location
+        lineOfSight?.targetLocation = mapPoint
+    }
 }
