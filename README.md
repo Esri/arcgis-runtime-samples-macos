@@ -19,11 +19,9 @@ The samples use ArcGIS Online basemaps and services.  Learn more [here](http://w
 2. Build and run the project to create a single app containing all of the samples.
 
 ## Requirements
-[ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/) (Requires ArcGIS for Developers account; free to sign up)
-
-For Swift : 
-* XCode 8.0 (or higher)
-* macOS SDK 10.12 (or higher)
+* [ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/) 100.2 (or higher)
+* XCode 9.0 (or higher)
+* macOS SDK 10.13 (or higher)
 
 ## Additional Resources
 
