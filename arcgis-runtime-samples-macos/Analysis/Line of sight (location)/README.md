@@ -10,10 +10,6 @@ This sample demonstrates how to interactively place a line of sight between two 
 
 Once the `AGSLocationLineOfSight` is created, it is added to a collection of analysis overlays in the `AGSSceneView`. The analysis overlays are used to render the results of visual analysis on the scene view.
 
-<<<<<<< HEAD
-The sample uses the `geoView(_:didTapAtScreenPoint:mapPoint:)` method on `AGSGeoViewTouchDelegate` to get the clicked point on scene view and sets the `observerLocation` on the `AGSLocationLineOfSight`. The `targetLocation` on the `AGSLocationLineOfSight` is updated on `geoView(_:didLongPressAtScreenPoint:mapPoint:)` when user performs long-pressed gesture at a specified location.
-=======
-The sample uses the `geoView(_:didTapAtScreenPoint:mapPoint:)` method on `AGSGeoViewTouchDelegate` to get the clicked point on the scene view and sets the `observerLocation` on the `AGSLocationLineOfSight`. To set and move the `targetLocation`, use a long click and drag gesture. The `targetLocation` is set on `geoView(_:didLongPressAtScreenPoint:mapPoint:)` and is updated on `geoView(_:didMoveLongPressAtScreenPoint:mapPoint:)`.
->>>>>>> nf_los
+The sample uses the `geoView(_:didTapAtScreenPoint:mapPoint:)` method on `AGSGeoViewTouchDelegate` set the `observerLocation` on the `AGSLocationLineOfSight` to the clicked point on the scene view. The sample starts tracking cursor movement for the scene view by settings the scene view's `trackCursorMovement` property to `true` and in the `geoView(_:didMoveCursorToScreenPoint:mapPoint:)` delegate method, sets the `targetLocation` property of the `AGSLocationLineOfSight` to the cursor's current map point.
 
-As a result of the analysis, a line is rendered between the observer and target with distinct colors representing visible and obstructed segments. The sample shows visible segment in green and obstructed segment in red.
+As a result of the analysis, a line is rendered between the observer and target with distinct colors representing visible and obstructed segments. The sample shows the visible segment in green and obstructed segment(s) in red.

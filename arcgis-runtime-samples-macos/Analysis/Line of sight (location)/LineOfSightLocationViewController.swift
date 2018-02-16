@@ -83,14 +83,10 @@ class LineOfSightLocationViewController: NSViewController, AGSGeoViewTouchDelega
             // update the observer location
             lineOfSight?.observerLocation = mapPoint
         }
-    }
-    
-    func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        // update the target location
-        lineOfSight?.targetLocation = mapPoint
+        sceneView.trackCursorMovement = true
     }
 
-    func geoView(_ geoView: AGSGeoView, didMoveLongPressToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didMoveCursorToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         // update the target location
         lineOfSight?.targetLocation = mapPoint
     }
