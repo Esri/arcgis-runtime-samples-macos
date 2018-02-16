@@ -1072,6 +1072,18 @@
 					<string>ViewshedGeoElementViewController</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Line of sight (location)</string>
+                <key>storyboardName</key>
+                <string>LineOfSightLocation</string>
+                <key>descriptionText</key>
+                <string>Shows how to interactively place a line of sight between two locations.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>LineOfSightLocationViewController</string>
+                </array>
+            </dict>
 		</array>
 	</dict>
 	<dict>
