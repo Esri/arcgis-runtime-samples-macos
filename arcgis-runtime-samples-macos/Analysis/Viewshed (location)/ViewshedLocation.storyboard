@@ -19,9 +19,8 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="M1i-Ha-DCk">
                                 <rect key="frame" x="0.0" y="360" width="587" height="30"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2x6-u1-4oe">
-                                        <rect key="frame" x="-2" y="0.0" width="635" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2x6-u1-4oe">
+                                        <rect key="frame" x="-2" y="0.0" width="591" height="30"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to add observer location" id="WNf-69-Ahr">
                                             <font key="font" metaFont="systemMedium" size="13"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -30,7 +29,11 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2x6-u1-4oe" secondAttribute="trailing" id="5gN-u7-23v"/>
+                                    <constraint firstItem="2x6-u1-4oe" firstAttribute="height" secondItem="M1i-Ha-DCk" secondAttribute="height" id="AFW-4J-QLk"/>
                                     <constraint firstAttribute="height" constant="30" id="BeN-xW-07y"/>
+                                    <constraint firstItem="2x6-u1-4oe" firstAttribute="leading" secondItem="M1i-Ha-DCk" secondAttribute="leading" id="Pwr-vk-bSx"/>
+                                    <constraint firstAttribute="bottom" secondItem="2x6-u1-4oe" secondAttribute="bottom" id="wWY-y9-m7h"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -43,9 +46,6 @@
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qrT-wp-sGW">
                                         <rect key="frame" x="-2" y="0.0" width="591" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="sLD-DG-mxh"/>
-                                        </constraints>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click-and-drag to move the viewshed" id="VBZ-PN-t5A">
                                             <font key="font" metaFont="systemMedium" size="13"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -55,6 +55,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JKy-VH-VBR"/>
+                                    <constraint firstItem="qrT-wp-sGW" firstAttribute="height" secondItem="uHY-T5-UgN" secondAttribute="height" id="Odg-Mo-gxu"/>
                                     <constraint firstAttribute="bottom" secondItem="qrT-wp-sGW" secondAttribute="bottom" id="RLa-XL-5Ym"/>
                                     <constraint firstItem="qrT-wp-sGW" firstAttribute="leading" secondItem="uHY-T5-UgN" secondAttribute="leading" id="T8z-D3-Zzd"/>
                                     <constraint firstAttribute="trailing" secondItem="qrT-wp-sGW" secondAttribute="trailing" id="ZWQ-MQ-KCi"/>
@@ -69,13 +70,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="587" height="360"/>
                             </customView>
                             <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="fPI-qF-51M">
-                                <rect key="frame" x="316" y="8" width="263" height="353"/>
+                                <rect key="frame" x="298" y="8" width="281" height="353"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDh-Zy-rYM">
-                                        <rect key="frame" x="8" y="8" width="247" height="337"/>
+                                        <rect key="frame" x="8" y="8" width="265" height="337"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uKV-mb-0wD" userLabel="Grid Settings">
-                                                <rect key="frame" x="59" y="316" width="129" height="21"/>
+                                                <rect key="frame" x="68" y="316" width="129" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="3kE-Rf-EyD"/>
                                                     <constraint firstAttribute="width" constant="129" id="guZ-wH-pHO"/>
@@ -87,7 +88,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-UJ-xX1">
-                                                <rect key="frame" x="0.0" y="287" width="247" height="21"/>
+                                                <rect key="frame" x="0.0" y="287" width="265" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="naZ-K4-XLA" userLabel="Grid Visibility Label">
                                                         <rect key="frame" x="-2" y="2" width="119" height="17"/>
@@ -101,7 +102,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iut-St-Ztq" userLabel="Grid Visibility Switch">
-                                                        <rect key="frame" x="121" y="-2" width="128" height="24"/>
+                                                        <rect key="frame" x="121" y="-2" width="146" height="24"/>
                                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="n8a-Ud-6XQ">
                                                             <font key="font" metaFont="system"/>
                                                             <segments>
@@ -127,7 +128,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-5P-SCQ">
-                                                <rect key="frame" x="0.0" y="258" width="247" height="21"/>
+                                                <rect key="frame" x="0.0" y="258" width="265" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgz-YI-4xr" userLabel="Grid Visibility Label">
                                                         <rect key="frame" x="-2" y="2" width="119" height="17"/>
@@ -141,7 +142,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="njr-5q-9Gr" userLabel="Grid Visibility Switch">
-                                                        <rect key="frame" x="121" y="-2" width="128" height="24"/>
+                                                        <rect key="frame" x="121" y="-2" width="146" height="24"/>
                                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jM1-3b-dg3">
                                                             <font key="font" metaFont="system"/>
                                                             <segments>
@@ -164,7 +165,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hoP-Ka-uaf">
-                                                <rect key="frame" x="0.0" y="222" width="247" height="28"/>
+                                                <rect key="frame" x="0.0" y="222" width="265" height="28"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kr9-sN-ui1" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="6" width="119" height="17"/>
@@ -178,7 +179,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="8P4-oZ-BJJ" userLabel="Grid Color Selector">
-                                                        <rect key="frame" x="123" y="0.0" width="124" height="28"/>
+                                                        <rect key="frame" x="123" y="0.0" width="142" height="28"/>
                                                         <color key="color" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
                                                             <action selector="obstructedAreaColorAction:" target="wP8-H8-3FB" id="9c7-E0-sgh"/>
@@ -198,7 +199,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCU-Lt-5Mg">
-                                                <rect key="frame" x="0.0" y="186" width="247" height="28"/>
+                                                <rect key="frame" x="0.0" y="186" width="265" height="28"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntQ-2o-9qx" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="6" width="119" height="17"/>
@@ -212,7 +213,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="2Tf-vz-pdQ" userLabel="Grid Color Selector">
-                                                        <rect key="frame" x="123" y="0.0" width="124" height="28"/>
+                                                        <rect key="frame" x="123" y="0.0" width="142" height="28"/>
                                                         <color key="color" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                                         <connections>
                                                             <action selector="visibleAreaColorAction:" target="wP8-H8-3FB" id="7lS-mD-L5D"/>
@@ -232,7 +233,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auC-WC-Dca">
-                                                <rect key="frame" x="0.0" y="150" width="247" height="28"/>
+                                                <rect key="frame" x="0.0" y="150" width="265" height="28"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxv-a0-5fl" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="6" width="119" height="17"/>
@@ -246,7 +247,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="clE-Dw-Bsq" userLabel="Grid Color Selector">
-                                                        <rect key="frame" x="123" y="0.0" width="124" height="28"/>
+                                                        <rect key="frame" x="123" y="0.0" width="142" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="Yq8-zI-5Cv"/>
                                                         </constraints>
@@ -269,7 +270,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-zE-j8U">
-                                                <rect key="frame" x="0.0" y="125" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="125" width="265" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew2-lO-zyu" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -283,14 +284,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AAr-xp-bvz">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="359" doubleValue="20" tickMarkPosition="above" sliderType="linear" id="zP4-On-aGB"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="2q7-6M-qsj"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E8e-vm-qh3">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="cBb-9q-qFs"/>
                                                         </constraints>
@@ -316,7 +317,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWH-LE-dlm">
-                                                <rect key="frame" x="0.0" y="100" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="100" width="265" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jwn-M8-2EX" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -330,14 +331,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="we6-Dk-Kfb">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="179" doubleValue="70" tickMarkPosition="above" sliderType="linear" id="4zJ-8J-WVQ"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="wQU-7z-vQ2"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-zV-vpl">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="rS7-N7-Y9W"/>
                                                         </constraints>
@@ -363,7 +364,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-t2-1XI">
-                                                <rect key="frame" x="0.0" y="75" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="75" width="265" height="17"/>
                                                 <subviews>
                                                     <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yut-cp-ies" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -377,14 +378,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H94-6q-D03">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="120" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="Z4Y-D4-Ha0"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="6uR-WI-Zft"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wUA-uA-tsy">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="SC2-Yg-pQB"/>
                                                         </constraints>
@@ -410,7 +411,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-WX-GIU">
-                                                <rect key="frame" x="0.0" y="50" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="50" width="265" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-bU-PZR" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -424,14 +425,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PZZ-pA-8zC">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="120" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Y6U-B1-axk"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="joF-5V-Lyn"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ifw-uM-89s">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="4eB-sR-VBO"/>
                                                         </constraints>
@@ -457,7 +458,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dHT-SM-aAk">
-                                                <rect key="frame" x="0.0" y="25" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="25" width="265" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86I-4m-Bjw" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -471,14 +472,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nHg-Ml-g3v">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="1000" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="73G-3U-f9N"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="7CX-nC-7TY"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rPx-GQ-fx2">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="pmS-Vl-7rK"/>
                                                         </constraints>
@@ -504,7 +505,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27g-lr-g8D">
-                                                <rect key="frame" x="0.0" y="0.0" width="247" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="17"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjA-5W-ESy" userLabel="Label Color Label">
                                                         <rect key="frame" x="-2" y="0.0" width="119" height="17"/>
@@ -518,14 +519,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mx5-RI-49z">
-                                                        <rect key="frame" x="121" y="-1" width="89" height="19"/>
+                                                        <rect key="frame" x="121" y="-1" width="107" height="19"/>
                                                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="2000" doubleValue="1000" tickMarkPosition="above" sliderType="linear" id="SnY-As-TsS"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" target="wP8-H8-3FB" id="qh4-EN-4qF"/>
                                                         </connections>
                                                     </slider>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y0v-PF-odp">
-                                                        <rect key="frame" x="214" y="0.0" width="35" height="17"/>
+                                                        <rect key="frame" x="232" y="0.0" width="35" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="31" id="f5A-x4-na7"/>
                                                         </constraints>
@@ -618,9 +619,7 @@
                             <constraint firstAttribute="trailing" secondItem="M1i-Ha-DCk" secondAttribute="trailing" id="gvG-3C-ajC"/>
                             <constraint firstAttribute="trailing" secondItem="v6y-KQ-9tg" secondAttribute="trailing" id="n7r-ib-sLJ"/>
                             <constraint firstItem="uHY-T5-UgN" firstAttribute="leading" secondItem="9Lv-6O-Wz6" secondAttribute="leading" id="pdI-At-Gat"/>
-                            <constraint firstAttribute="trailing" secondItem="uHY-T5-UgN" secondAttribute="trailing" id="s40-F5-TmC"/>
                             <constraint firstAttribute="bottom" secondItem="fPI-qF-51M" secondAttribute="bottom" constant="8" id="vdz-Ao-1Oj"/>
-                            <constraint firstAttribute="trailing" secondItem="M1i-Ha-DCk" secondAttribute="trailing" id="wvy-L0-BEF"/>
                         </constraints>
                     </view>
                     <connections>
