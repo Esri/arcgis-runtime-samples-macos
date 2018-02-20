@@ -24,6 +24,9 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     @IBOutlet weak var setObserverInstruction: NSView!
     @IBOutlet weak var updateObserverInstruction: NSView!
     
+    @IBOutlet weak var viewshedSettingsView: NSVisualEffectView!
+    @IBOutlet weak var viewshedSettingsTextField: NSTextField!
+
     @IBOutlet weak var frustumOutlineSegmentedControl: NSSegmentedControl!
     @IBOutlet weak var headingSlider: NSSlider!
     @IBOutlet weak var headingLabel: NSTextField!
@@ -37,7 +40,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     @IBOutlet weak var minDistanceLabel: NSTextField!
     @IBOutlet weak var maxDistanceSlider: NSSlider!
     @IBOutlet weak var maxDistanceLabel: NSTextField!
-    
+
     private var viewshed: AGSLocationViewshed!
     private var analysisOverlay: AGSAnalysisOverlay!
     
@@ -88,6 +91,16 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         
         // set touch delegate on scene view as self
         sceneView.touchDelegate = self
+    }
+
+    override func viewWillAppear() {
+        //
+        // Set style of settings view
+        viewshedSettingsView.wantsLayer = true
+        viewshedSettingsView.layer?.cornerRadius = 10
+        viewshedSettingsTextField.backgroundColor = NSColor.primaryBlue()
+        viewshedSettingsTextField.wantsLayer = true
+        viewshedSettingsTextField.layer?.cornerRadius = 5
     }
     
     // MARK: - AGSGeoViewTouchDelegate
