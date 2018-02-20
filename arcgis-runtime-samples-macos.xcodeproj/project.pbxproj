@@ -22,6 +22,9 @@
 		123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */; };
 		123F09621FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
 		123F09631FD2AB03000760FE /* WMSLayerUsingURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */; };
+		12A357E9203973ED00184E9F /* ViewshedLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12A357E8203973ED00184E9F /* ViewshedLocation.storyboard */; };
+		12A357EB203973F400184E9F /* ViewshedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A357EA203973F400184E9F /* ViewshedLocationViewController.swift */; };
+		12A357EC2039745800184E9F /* ViewshedLocationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 12A357EA203973F400184E9F /* ViewshedLocationViewController.swift */; };
 		1271FB9E1FE300E200536F60 /* LineOfSightLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1271FB9C1FE300E200536F60 /* LineOfSightLocation.storyboard */; };
 		1271FB9F1FE300E200536F60 /* LineOfSightLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271FB9D1FE300E200536F60 /* LineOfSightLocationViewController.swift */; };
 		1271FBA01FE3016B00536F60 /* LineOfSightLocationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1271FB9D1FE300E200536F60 /* LineOfSightLocationViewController.swift */; };
@@ -376,6 +379,7 @@
 				D98916DA1FE23447004310CB /* ReadGeopackageViewController.swift in CopyFiles */,
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
 				12B52BC31FE9C44600DC34F5 /* ViewshedCameraViewController.swift in CopyFiles */,
+				12A357EC2039745800184E9F /* ViewshedLocationViewController.swift in CopyFiles */,
 				09607F8D1FDB647600FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */,
 				218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */,
@@ -489,6 +493,8 @@
 		123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMTSLayerViewController.swift; sourceTree = "<group>"; };
 		123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WMSLayerUsingURL.storyboard; sourceTree = "<group>"; };
 		123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMSLayerUsingURLViewController.swift; sourceTree = "<group>"; };
+		12A357E8203973ED00184E9F /* ViewshedLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewshedLocation.storyboard; sourceTree = "<group>"; };
+		12A357EA203973F400184E9F /* ViewshedLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedLocationViewController.swift; sourceTree = "<group>"; };
 		1271FB9C1FE300E200536F60 /* LineOfSightLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LineOfSightLocation.storyboard; sourceTree = "<group>"; };
 		1271FB9D1FE300E200536F60 /* LineOfSightLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineOfSightLocationViewController.swift; sourceTree = "<group>"; };
 		12842A331FE9BF0F00DCFFC7 /* ViewshedCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewshedCamera.storyboard; sourceTree = "<group>"; };
@@ -802,6 +808,15 @@
 				1271FB9D1FE300E200536F60 /* LineOfSightLocationViewController.swift */,
 			);
 			path = "Line of sight (location)";
+			sourceTree = "<group>";
+		};
+		12A357E7203973BB00184E9F /* Viewshed (location) */ = {
+			isa = PBXGroup;
+			children = (
+				12A357EA203973F400184E9F /* ViewshedLocationViewController.swift */,
+				12A357E8203973ED00184E9F /* ViewshedLocation.storyboard */,
+			);
+			path = "Viewshed (location)";
 			sourceTree = "<group>";
 		};
 		12842A321FE9BF0F00DCFFC7 /* Viewshed (camera) */ = {
@@ -1867,6 +1882,7 @@
 				21D961B91FF59B4B00FF1CFB /* Statistical query (group and sort) */,
 				1271FB9B1FE300E200536F60 /* Line of sight (location) */,
 				12842A321FE9BF0F00DCFFC7 /* Viewshed (camera) */,
+				12A357E7203973BB00184E9F /* Viewshed (location) */,
 				E48008E31FE44AF10064809E /* Viewshed (GeoElement) */,
 			);
 			path = Analysis;
@@ -2110,6 +2126,7 @@
 				3EA734101EC0CD2D00356885 /* Bristol.png in Resources */,
 				3EA734091EC0CCF400356885 /* Pyrenees.csv in Resources */,
 				D97B7E971FDAEA8100E1239D /* Subdivisions.shp in Resources */,
+				12A357E9203973ED00184E9F /* ViewshedLocation.storyboard in Resources */,
 				3EF024F31ECBF44600166EC5 /* FormatCoordinates.storyboard in Resources */,
 				D97B7EA01FDAEA8100E1239D /* Subdivisions.cpg in Resources */,
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
@@ -2309,6 +2326,7 @@
 				12842A361FE9BF0F00DCFFC7 /* ViewshedCameraViewController.swift in Sources */,
 				123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
+				12A357EB203973F400184E9F /* ViewshedLocationViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */,
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
