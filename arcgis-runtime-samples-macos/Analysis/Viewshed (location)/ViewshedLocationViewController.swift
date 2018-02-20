@@ -133,19 +133,19 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         }
     }
     
-    @IBAction func obstructedAreaColorAction(_ sender: Any) {
+    @IBAction func obstructedAreaColorAction(_ sender: NSColorWell) {
          // sets the color with which non-visible areas of all viewsheds will be rendered (default: red color). This setting is applied to all viewshed analyses in the view.
-        AGSViewshed.setObstructedColor((sender as AnyObject).color as NSColor)
+        AGSViewshed.setObstructedColor(sender.color.withAlphaComponent(0.5))
     }
     
-    @IBAction func visibleAreaColorAction(_ sender: Any) {
+    @IBAction func visibleAreaColorAction(_ sender: NSColorWell) {
         // sets the color with which visible areas of all viewsheds will be rendered (default: green color). This setting is applied to all viewshed analyses in the view.
-        AGSViewshed.setVisibleColor((sender as AnyObject).color as NSColor)
+        AGSViewshed.setVisibleColor(sender.color.withAlphaComponent(0.5))
     }
     
-    @IBAction func frustumOutlineColorAction(_ sender: Any) {
+    @IBAction func frustumOutlineColorAction(_ sender: NSColorWell) {
         // sets the color used to render the frustum outline (default: blue color). This setting is applied to all viewshed analyses in the view.
-        AGSViewshed.setFrustumOutlineColor((sender as AnyObject).color as NSColor)
+        AGSViewshed.setFrustumOutlineColor(sender.color)
     }
     
     @IBAction private func sliderValueChanged(_ sender:NSSlider) {
