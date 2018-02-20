@@ -29,7 +29,6 @@ class LayerCellView: NSTableCellView {
     weak var delegate:LayerCellViewDelegate?
     
     @IBAction func checkboxAction(_ sender:NSButton) {
-        Swift.print(sender.state)
         self.delegate?.layerCellView(self, didToggleVisibility: sender.state == 1)
     }
     
