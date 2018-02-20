@@ -20,7 +20,7 @@
                             <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="d4V-rF-leN">
                                 <rect key="frame" x="220" y="130" width="200" height="140"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="mY0-P9-stY">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="mY0-P9-stY" userLabel="Title">
                                         <rect key="frame" x="0.0" y="100" width="200" height="40"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcI-S1-BEc">
@@ -42,7 +42,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="zp0-CP-Mun">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="zp0-CP-Mun" userLabel="Operational layers">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
                                         <subviews>
                                             <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="40" horizontalPageScroll="10" verticalLineScroll="40" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyt-Ax-UlK">
