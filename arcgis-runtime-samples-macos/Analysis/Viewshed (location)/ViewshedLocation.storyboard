@@ -636,6 +636,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="frustrumOutlineColorWell" destination="clE-Dw-Bsq" id="HAg-Xz-XOD"/>
                         <outlet property="frustumOutlineSegmentedControl" destination="njr-5q-9Gr" id="jcb-Fk-vU2"/>
                         <outlet property="headingLabel" destination="E8e-vm-qh3" id="yhe-n6-MiL"/>
                         <outlet property="headingSlider" destination="AAr-xp-bvz" id="h98-f2-p3D"/>
@@ -645,6 +646,7 @@
                         <outlet property="maxDistanceSlider" destination="Mx5-RI-49z" id="2Ve-Hf-GxA"/>
                         <outlet property="minDistanceLabel" destination="rPx-GQ-fx2" id="03X-je-8N2"/>
                         <outlet property="minDistanceSlider" destination="nHg-Ml-g3v" id="ppC-hz-zfl"/>
+                        <outlet property="obstructedAreaColorWell" destination="8P4-oZ-BJJ" id="T0h-De-juI"/>
                         <outlet property="pitchLabel" destination="7nW-zV-vpl" id="Iwv-Iu-GoP"/>
                         <outlet property="pitchSlider" destination="we6-Dk-Kfb" id="wvA-nW-Aeb"/>
                         <outlet property="sceneView" destination="v6y-KQ-9tg" id="XR4-lF-PZs"/>
@@ -654,6 +656,7 @@
                         <outlet property="verticalAngleSlider" destination="PZZ-pA-8zC" id="sa3-Q5-CDt"/>
                         <outlet property="viewshedSettingsTextField" destination="uKV-mb-0wD" id="43a-fn-Yua"/>
                         <outlet property="viewshedSettingsView" destination="fPI-qF-51M" id="fec-ml-moX"/>
+                        <outlet property="visibleAreaColorWell" destination="2Tf-vz-pdQ" id="4Mz-fJ-rvL"/>
                     </connections>
                 </viewController>
                 <customObject id="LN9-mg-usj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

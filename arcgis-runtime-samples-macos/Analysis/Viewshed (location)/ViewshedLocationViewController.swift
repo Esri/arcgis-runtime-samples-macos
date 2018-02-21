@@ -27,6 +27,10 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     @IBOutlet weak var viewshedSettingsView: NSVisualEffectView!
     @IBOutlet weak var viewshedSettingsTextField: NSTextField!
 
+    @IBOutlet weak var obstructedAreaColorWell: NSColorWell!
+    @IBOutlet weak var visibleAreaColorWell: NSColorWell!
+    @IBOutlet weak var frustrumOutlineColorWell: NSColorWell!
+
     @IBOutlet weak var frustumOutlineSegmentedControl: NSSegmentedControl!
     @IBOutlet weak var headingSlider: NSSlider!
     @IBOutlet weak var headingLabel: NSTextField!
@@ -101,6 +105,10 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         viewshedSettingsTextField.backgroundColor = NSColor.primaryBlue()
         viewshedSettingsTextField.wantsLayer = true
         viewshedSettingsTextField.layer?.cornerRadius = 5
+
+        obstructedAreaColorWell.color = AGSViewshed.obstructedColor().withAlphaComponent(1)
+        visibleAreaColorWell.color = AGSViewshed.visibleColor().withAlphaComponent(1)
+        frustrumOutlineColorWell.color = AGSViewshed.frustumOutlineColor().withAlphaComponent(1)
     }
     
     // MARK: - AGSGeoViewTouchDelegate
