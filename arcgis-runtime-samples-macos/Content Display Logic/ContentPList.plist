@@ -512,7 +512,7 @@
 				<key>storyboardName</key>
 				<string>WMSLayerUsingURL</string>
 				<key>descriptionText</key>
-				<string>Creates a WMS layer using the service URL and the layer names that are available in the service</string>
+				<string>Open a WMS layer from a URL and display it in a map</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>WMSLayerUsingURLViewController</string>
