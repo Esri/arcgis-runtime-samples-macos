@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="R4W-7v-y8q">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Viewshed Camera View Controller-->
+        <scene sceneID="uGY-OD-NKI">
+            <objects>
+                <viewController id="R4W-7v-y8q" customClass="ViewshedCameraViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="6P3-7u-umi">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="e4k-Pt-E5w" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HDO-oo-1Ry">
+                                <rect key="frame" x="143" y="8" width="165" height="32"/>
+                                <buttonCell key="cell" type="push" title="Update from camera" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDn-lo-0Yj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="updateFromCamera:" target="R4W-7v-y8q" id="LYJ-Uf-N3k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="HDO-oo-1Ry" firstAttribute="top" secondItem="e4k-Pt-E5w" secondAttribute="bottom" constant="14" id="5xx-SF-pbC"/>
+                            <constraint firstItem="e4k-Pt-E5w" firstAttribute="top" secondItem="6P3-7u-umi" secondAttribute="top" id="9Vt-48-LMM"/>
+                            <constraint firstAttribute="bottom" secondItem="HDO-oo-1Ry" secondAttribute="bottom" constant="15" id="HmG-yd-XPv"/>
+                            <constraint firstItem="e4k-Pt-E5w" firstAttribute="leading" secondItem="6P3-7u-umi" secondAttribute="leading" id="TlA-Tg-ia4"/>
+                            <constraint firstItem="HDO-oo-1Ry" firstAttribute="centerX" secondItem="6P3-7u-umi" secondAttribute="centerX" id="tcK-Vn-giM"/>
+                            <constraint firstAttribute="trailing" secondItem="e4k-Pt-E5w" secondAttribute="trailing" id="w6c-1e-IQ9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="e4k-Pt-E5w" id="eVH-pe-rpG"/>
+                    </connections>
+                </viewController>
+                <customObject id="PfP-ii-g1F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="168"/>
+        </scene>
+    </scenes>
+</document>
