@@ -2039,7 +2039,7 @@
 				TargetAttributes = {
 					3EC1AE681BAC8DA100E32B1D = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -2481,7 +2481,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2507,7 +2508,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

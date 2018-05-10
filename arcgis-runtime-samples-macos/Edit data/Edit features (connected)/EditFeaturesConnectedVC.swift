@@ -136,7 +136,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         
         //sizing
         self.popupsVC.view.frame = self.containerView.bounds
-        self.popupsVC.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+        self.popupsVC.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
         self.containerView.addSubview(self.popupsVC.view)
         
         //animate the popups view controller from left

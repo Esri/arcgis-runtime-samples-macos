@@ -45,7 +45,7 @@ class VectorStylesViewController: NSViewController, NSTableViewDataSource, NSTab
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cellView = tableView.make(withIdentifier: "VectorStyleCell\(row)", owner: self)
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "VectorStyleCell\(row)"), owner: self)
         
         return cellView
     }

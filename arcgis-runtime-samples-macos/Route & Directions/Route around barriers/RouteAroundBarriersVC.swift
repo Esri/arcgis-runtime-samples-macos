@@ -160,7 +160,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
-        let markerImage = NSImage(named: "BlueMarker")!
+        let markerImage = NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         

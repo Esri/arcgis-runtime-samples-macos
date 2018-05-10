@@ -62,7 +62,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let path = self.bundleTPKPaths[row]
         
-        let cellView = tableView.make(withIdentifier: "TPKCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TPKCellView"), owner: self) as! NSTableCellView
         cellView.textField?.stringValue = self.extractName(fromPath: path)
         
         return cellView

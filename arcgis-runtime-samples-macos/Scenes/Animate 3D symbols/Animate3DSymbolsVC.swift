@@ -205,7 +205,7 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     
-    func animate() {
+    @objc func animate() {
         
         //validations
         if self.frames == nil || self.planeModelSymbol == nil {

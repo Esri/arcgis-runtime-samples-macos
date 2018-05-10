@@ -89,7 +89,7 @@ class FeatureTemplatePickerVC: NSViewController {
     }
     
     func tableView(_ tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.make(withIdentifier: "FeatureTemplateCell", owner: self)
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FeatureTemplateCell"), owner: self)
         
         let info = self.infos[row]
         

@@ -64,14 +64,14 @@ class FindRouteViewController: NSViewController {
     func addStops() {
         
         //start symbol
-        let startSymbol = AGSPictureMarkerSymbol(image: NSImage(named: "StopA")!)
+        let startSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopA"))!)
         startSymbol.offsetY = 22
         
         //start stop graphic
         let startStopGraphic = AGSGraphic(geometry: self.stop1Geometry, symbol: startSymbol, attributes: nil)
         
         //end symbol
-        let endSymbol = AGSPictureMarkerSymbol(image: NSImage(named: "StopB")!)
+        let endSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopB"))!)
         endSymbol.offsetY = 22
         
         //end stop graphic

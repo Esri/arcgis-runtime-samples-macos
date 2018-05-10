@@ -60,7 +60,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             let title = "Statistics: \(tableName ?? "")"
             let style = NSMutableParagraphStyle()
             style.alignment = NSTextAlignment.center
-            let attributes = [NSUnderlineStyleAttributeName: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSParagraphStyleAttributeName: style]
+            let attributes = [NSAttributedStringKey.underlineStyle: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSAttributedStringKey.paragraphStyle: style]
             let attributedTitle = NSAttributedString(string: title, attributes: attributes)
             self?.titleLabel.attributedStringValue = attributedTitle
             
@@ -101,7 +101,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         // Attributes of string
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.center
-        let attributes = [NSUnderlineStyleAttributeName: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSParagraphStyleAttributeName: style]
+        let attributes = [NSAttributedStringKey.underlineStyle: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSAttributedStringKey.paragraphStyle: style]
         
         // Set parameters label
         let parametersLabelString = "Query Statistic Parameters"
@@ -150,7 +150,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         // Get selected rows and remove them.
         let selectedIndexes = statisticDefinitionsTableView.selectedRowIndexes
         statisticDefinitionsTableView.beginUpdates()
-        statisticDefinitionsTableView.removeRows(at: selectedIndexes, withAnimation: .effectFade)
+        statisticDefinitionsTableView.removeRows(at: selectedIndexes, withAnimation: NSTableView.AnimationOptions.effectFade)
         statisticDefinitionsTableView.endUpdates()
         
         // Remove selected statistic definitions
@@ -368,7 +368,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     }
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        guard let cellView = outlineView.make(withIdentifier: "StatisticRecordCellView", owner: self) as? NSTableCellView else {
+        guard let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "StatisticRecordCellView"), owner: self) as? NSTableCellView else {
             return nil
         }
         

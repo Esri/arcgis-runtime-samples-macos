@@ -154,12 +154,12 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
         if let layer = item as? AGSLayerContent {
-            let cellView = outlineView.make(withIdentifier: "LegendGroupCell", owner: self) as! NSTableCellView
+            let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LegendGroupCell"), owner: self) as! NSTableCellView
             cellView.textField?.stringValue = self.nameForLayerContent(layer)
             return cellView
         }
         else {
-            let cellView = outlineView.make(withIdentifier: "LegendCellView", owner: self) as! LegendCellView
+            let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LegendCellView"), owner: self) as! LegendCellView
 
             let legendInfo = item as! AGSLegendInfo
             cellView.legendInfo = legendInfo

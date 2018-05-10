@@ -146,16 +146,16 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
             self.toggleSegmentedControl(.On)
             
             //add the readme controller view
-            self.readmeViewController = self.storyboard!.instantiateController(withIdentifier: "ReadmeViewController") as! ReadmeViewController
-            self.readmeViewController.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+            self.readmeViewController = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ReadmeViewController")) as! ReadmeViewController
+            self.readmeViewController.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
             self.readmeViewController.view.frame = self.placeholderView.bounds
             self.readmeViewController.view.isHidden = true
             self.readmeViewController.folderName = node.displayName
             self.placeholderView.addSubview(self.readmeViewController.view)
             
             //add source code view controller
-            self.sourceCodeViewController = self.storyboard!.instantiateController(withIdentifier: "SourceCodeViewController") as! SourceCodeViewController
-            self.sourceCodeViewController.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+            self.sourceCodeViewController = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SourceCodeViewController")) as! SourceCodeViewController
+            self.sourceCodeViewController.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
             self.sourceCodeViewController.view.frame = self.placeholderView.bounds
             self.sourceCodeViewController.view.isHidden = true
             self.sourceCodeViewController.fileNames = node.sourceFileNames
@@ -166,7 +166,7 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
             self.sampleViewController = sampleStoryboard.instantiateInitialController() as! NSViewController
             
             //set the view's frame and autoresizing mask
-            self.sampleViewController.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+            self.sampleViewController.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
             self.sampleViewController.view.frame = self.placeholderView.bounds
             
             //add the view to the placeholder view as subview
@@ -262,8 +262,8 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
     
     func showCollectionView(_ sampleNodes: [Node]) {
         if self.collectionViewController == nil {
-            self.collectionViewController = self.storyboard!.instantiateController(withIdentifier: "CollectionViewController") as! CollectionViewController
-            self.collectionViewController.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+            self.collectionViewController = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "CollectionViewController")) as! CollectionViewController
+            self.collectionViewController.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
             self.collectionViewController.delegate = self
         }
         

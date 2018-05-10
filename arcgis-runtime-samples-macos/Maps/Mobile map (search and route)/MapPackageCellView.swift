@@ -71,7 +71,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let item = collectionView.makeItem(withIdentifier: "MobileMapViewItem", for: indexPath) as! MobileMapViewItem
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MobileMapViewItem"), for: indexPath) as! MobileMapViewItem
         
         let map = self.mapPackage.maps[(indexPath as NSIndexPath).item]
         //label

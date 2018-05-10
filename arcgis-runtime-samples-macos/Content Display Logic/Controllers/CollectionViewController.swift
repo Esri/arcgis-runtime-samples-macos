@@ -82,7 +82,7 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
         
         let sampleNode = self.sampleNodes[(indexPath as NSIndexPath).item]
         
-        let viewItem = collectionView.makeItem(withIdentifier: "CollectionViewItem", for: indexPath) as! CollectionViewItem
+        let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
         viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
         if let image = NSImage(named: sampleNode.displayName) {

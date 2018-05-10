@@ -282,7 +282,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let feature = self.relatedFeatures[row]
         
         //cell view
-        let cellView = tableView.make(withIdentifier: "RelatedFeatureCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RelatedFeatureCellView"), owner: self) as! NSTableCellView
         
         //use the field Scientific_Name for specie's info
         cellView.textField?.stringValue = feature.attributes["Scientific_Name"] as! String
