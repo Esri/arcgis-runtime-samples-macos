@@ -77,11 +77,14 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OptionsVCSegue" {
+        guard let id = segue.identifier else {
+            return
+        }
+        if id.rawValue == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
         }
-        else if segue.identifier == "SaveMapVCSegue" {
+        else if id.rawValue == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as! SaveMapViewController
             self.saveMapVC.delegate = self
         }

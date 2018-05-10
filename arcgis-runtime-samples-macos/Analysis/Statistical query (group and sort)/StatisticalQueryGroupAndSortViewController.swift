@@ -285,7 +285,10 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         
         if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            if tableColumn?.identifier == "FieldNameCheckBox" {
+            guard let id = tableColumn?.identifier else {
+                return
+            }
+            if id.rawValue == "FieldNameCheckBox" {
                 if let buttonState = object as? Int, buttonState == 1 {
                     selectedOrderByFields.append(orderByField)
                 }
@@ -297,7 +300,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
                     }
                 }
             }
-            else if tableColumn?.identifier == "SortOrder" {
+            else if id.rawValue == "SortOrder" {
                 if let selectedIndex = object as? Int, let sortOrder = AGSSortOrder(rawValue: selectedIndex) {
                     orderByField.sortOrder = sortOrder
                 }
@@ -321,13 +324,16 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         }
         else if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            if tableColumn?.identifier == "FieldNameCheckBox" {
+            guard let id = tableColumn?.identifier else {
+                return nil
+            }
+            if id.rawValue == "FieldNameCheckBox" {
                 if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
                     buttonCell.title = orderByField.fieldName
                     return selectedOrderByFields.contains(orderByField) ? 1 : 0
                 }
             }
-            else if tableColumn?.identifier == "SortOrder" {
+            else if id.rawValue == "SortOrder" {
                 if let popUpButtonCell = tableColumn?.dataCell(forRow: row) as? NSPopUpButtonCell {
                     return popUpButtonCell.indexOfItem(withTitle: stringFor(sortOrder: orderByField.sortOrder))
                 }

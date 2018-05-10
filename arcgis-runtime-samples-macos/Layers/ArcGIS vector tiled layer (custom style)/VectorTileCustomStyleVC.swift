@@ -45,12 +45,13 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
     }
     
     //MARK: - Navigation
-
+    
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "VectorStylesSegue" {
-            let controller = segue.destinationController as! VectorStylesViewController
-            controller.delegate = self
+        guard let id = segue.identifier, id.rawValue == "VectorStylesSegue" else {
+            return
         }
+        let controller = segue.destinationController as! VectorStylesViewController
+        controller.delegate = self
     }
     
     //MARK: - VectorStylesVCDelegate

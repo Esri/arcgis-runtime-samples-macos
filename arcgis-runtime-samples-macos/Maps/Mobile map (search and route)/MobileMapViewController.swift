@@ -82,10 +82,11 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmbedSegue" {
-            let controller = segue.destinationController as! MapPackagesListVC
-            controller.delegate = self
+        guard let id = segue.identifier, id.rawValue == "EmbedSegue" else {
+            return
         }
+        let controller = segue.destinationController as! MapPackagesListVC
+        controller.delegate = self
     }
     
     private func symbolForStopGraphic(isIndexRequired: Bool, index: Int?) -> AGSSymbol {

@@ -162,7 +162,7 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
             self.placeholderView.addSubview(self.sourceCodeViewController.view)
             
             //get the intial controller from the storyboard of the sample
-            let sampleStoryboard = NSStoryboard(name: node.storyboardName, bundle: nil)
+            let sampleStoryboard = NSStoryboard(name: NSStoryboard.Name(rawValue: node.storyboardName!), bundle: nil)
             self.sampleViewController = sampleStoryboard.instantiateInitialController() as! NSViewController
             
             //set the view's frame and autoresizing mask
