@@ -30,7 +30,7 @@ protocol FeatureTemplatePickerVCDelegate:class {
     func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC:FeatureTemplatePickerVC)
 }
 
-class FeatureTemplatePickerVC: NSViewController {
+class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     var infos = [FeatureTemplateInfo]()
     @IBOutlet weak var featureTemplateTableView: NSTableView!
@@ -84,11 +84,11 @@ class FeatureTemplatePickerVC: NSViewController {
     
     //MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(_ tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return self.infos.count
     }
     
-    func tableView(_ tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FeatureTemplateCell"), owner: self)
         
         let info = self.infos[row]
