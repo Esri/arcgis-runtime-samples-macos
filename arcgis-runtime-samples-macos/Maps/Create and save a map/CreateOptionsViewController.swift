@@ -50,7 +50,7 @@ class CreateOptionsViewController: NSViewController {
     }
 
     @IBAction func checkAction(_ sender: NSButton) {
-        if sender.state == NSOffState {
+        if sender.state == NSControl.StateValue.off {
             //remove from the array if already present
             if let index = self.selectedLayersIndexes.index(of: sender.tag) {
                 self.selectedLayersIndexes.remove(at: index)

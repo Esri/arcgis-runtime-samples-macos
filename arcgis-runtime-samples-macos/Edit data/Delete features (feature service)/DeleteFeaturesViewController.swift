@@ -151,8 +151,8 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         alert.informativeText = "Are you sure you want to delete?"
         alert.addButton(withTitle: "No")
         alert.addButton(withTitle: "Yes")
-        alert.beginSheetModal(for: self.view.window!, completionHandler: { [weak self] (response: NSModalResponse) in
-            if response == NSAlertSecondButtonReturn {
+        alert.beginSheetModal(for: self.view.window!, completionHandler: { [weak self] (response: NSApplication.ModalResponse) in
+            if response == NSApplication.ModalResponse.alertSecondButtonReturn {
                 self?.deleteFeature(self!.selectedFeature)
             }
         }) 

@@ -160,7 +160,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
-        let markerImage = NSImage(named: "BlueMarker")!
+        let markerImage = NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         
@@ -226,11 +226,14 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RouteSettingsSegue" {
+        guard let id = segue.identifier else {
+            return
+        }
+        if id.rawValue == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
         }
-        else if segue.identifier == "DirectionsListSegue" {
+        else if id.rawValue == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as! DirectionsListViewController
             self.directionsListViewController.delegate = self
         }

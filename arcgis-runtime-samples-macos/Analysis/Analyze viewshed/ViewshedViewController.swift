@@ -129,20 +129,19 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
-            if let error = error as? NSError {
-                if error.code != NSUserCancelledError {
-                    self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
+            guard error == nil else {
+                if (error! as NSError).code != NSUserCancelledError {
+                    self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
                 }
+                return
             }
-            else {
-                //The service returns result in form of AGSGeoprocessingFeatures
-                //Cast the results and add the features from featureSet to graphics overlay
-                //in form of graphics
-                if let resultFeatures = result?.outputs["Viewshed_Result"] as? AGSGeoprocessingFeatures, let featureSet = resultFeatures.features {
-                    for feature in featureSet.featureEnumerator().allObjects {
-                        let graphic = AGSGraphic(geometry: feature.geometry, symbol: nil, attributes: nil)
-                        self?.resultGraphicsOverlay.graphics.add(graphic)
-                    }
+            //The service returns result in form of AGSGeoprocessingFeatures
+            //Cast the results and add the features from featureSet to graphics overlay
+            //in form of graphics
+            if let resultFeatures = result?.outputs["Viewshed_Result"] as? AGSGeoprocessingFeatures, let featureSet = resultFeatures.features {
+                for feature in featureSet.featureEnumerator().allObjects {
+                    let graphic = AGSGraphic(geometry: feature.geometry, symbol: nil, attributes: nil)
+                    self?.resultGraphicsOverlay.graphics.add(graphic)
                 }
             }
         })

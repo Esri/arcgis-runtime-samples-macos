@@ -36,7 +36,7 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.make(withIdentifier: "MapCell", owner: self)
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MapCell"), owner: self)
         
         
         if let titleLabel = cellView?.viewWithTag(11) as? NSTextField {
@@ -44,7 +44,7 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
         }
         
         if let imageView = cellView?.viewWithTag(10) as? NSImageView {
-            imageView.image = NSImage(named: self.imageNames[row])
+            imageView.image = NSImage(named: NSImage.Name(rawValue: self.imageNames[row]))
         }
         
         return cellView

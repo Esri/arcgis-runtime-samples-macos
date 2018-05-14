@@ -102,7 +102,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let bookmark = self.map.bookmarks[row]
         
-        let cellView = tableView.make(withIdentifier: "BookmarkCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkCellView"), owner: self) as! NSTableCellView
         
         //bookmark name
         cellView.textField?.stringValue = (bookmark as AnyObject).name
@@ -137,9 +137,9 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.alert.accessoryView = textField
         
         //show alert
-        self.alert.beginSheetModal(for: self.view.window!) { [weak self] (response: NSModalResponse) in
+        self.alert.beginSheetModal(for: self.view.window!) { [weak self] (response: NSApplication.ModalResponse) in
             //on OK
-            if response == NSAlertFirstButtonReturn {
+            if response == NSApplication.ModalResponse.alertFirstButtonReturn {
                 self?.addBookmark(with: textField.stringValue)
             }
         }

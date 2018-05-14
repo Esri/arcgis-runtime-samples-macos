@@ -213,7 +213,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
-        let cellView = outlineView.make(withIdentifier: "ListCell", owner: self) as! NSTableCellView
+        let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListCell"), owner: self) as! NSTableCellView
         cellView.wantsLayer = true
         
         if let result = item as? AGSRelatedFeatureQueryResult {
