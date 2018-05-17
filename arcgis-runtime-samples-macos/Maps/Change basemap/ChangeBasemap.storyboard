@@ -1,54 +1,111 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uo4-1T-Pgs">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="awq-1g-cdP">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Change Basemap View Controller-->
-        <scene sceneID="Xj8-RJ-Shd">
+        <scene sceneID="76G-CP-3lj">
             <objects>
-                <viewController id="uo4-1T-Pgs" customClass="ChangeBasemapViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="jGu-qM-aub">
+                <viewController id="awq-1g-cdP" customClass="ChangeBasemapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="grF-Pb-tIy">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DQp-2v-Bdt" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="50" width="450" height="250"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="xvu-Gk-iaQ" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rKs-dS-JWK">
-                                <rect key="frame" x="23" y="12" width="405" height="25"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="XHj-WG-a8b" customClass="CustomSegmentedCell" customModule="arcgis_runtime_samples_osx" customModuleProvider="target">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Topographic" width="100" selected="YES"/>
-                                        <segment label="Streets" width="100" tag="1"/>
-                                        <segment label="Imagery" width="100"/>
-                                        <segment label="Oceans" width="100"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="segmentValueChanged:" target="uo4-1T-Pgs" id="sWC-6D-xLG"/>
-                                </connections>
-                            </segmentedControl>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="d4V-rF-leN">
+                                <rect key="frame" x="220" y="170" width="200" height="100"/>
+                            </visualEffectView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="zp0-CP-Mun">
+                                <rect key="frame" x="220" y="170" width="200" height="100"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-9O-aUh">
+                                        <rect key="frame" x="49" y="63" width="102" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Basemap" id="a8W-6j-upU">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-58-ToE" userLabel="Basemaps list">
+                                        <rect key="frame" x="18" y="31" width="165" height="26"/>
+                                        <popUpButtonCell key="cell" type="push" title="Streets (Raster)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HZh-bz-Niq" id="gsX-6W-zTc">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="Om6-z3-Pxz">
+                                                <items>
+                                                    <menuItem title="Streets (Raster)" state="on" id="HZh-bz-Niq"/>
+                                                    <menuItem title="Streets (Vector)" id="4ax-Pw-ege"/>
+                                                    <menuItem title="Streets - Night (Vector)" id="wHN-ug-ABq"/>
+                                                    <menuItem title="Imagery (Raster)" id="9eM-ac-wsl">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Imagery with Labels (Raster)" id="eRw-hL-jtw">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Imagery with Labels (Vector)" id="9MP-Cy-gAQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Dark Gray Canvas (Vector)" id="oPv-03-5Fp">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Light Gray Canvas (Raster)" id="3YB-wO-a5w">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Light Gray Canvas (Vector)" id="TAg-9v-tOp">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Navigation (Vector)" id="omS-z0-BxB">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="OpenStreetMap (Raster)" id="fmL-xJ-lBW">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="changeBasemapsAction:" target="awq-1g-cdP" id="JvS-2r-tVL"/>
+                                        </connections>
+                                    </popUpButton>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m1h-58-ToE" secondAttribute="trailing" constant="20" id="Csv-IV-N9L"/>
+                                    <constraint firstAttribute="width" constant="200" id="diG-sv-Jah"/>
+                                    <constraint firstItem="gXd-9O-aUh" firstAttribute="top" secondItem="zp0-CP-Mun" secondAttribute="top" constant="20" id="dpL-lt-0Uv"/>
+                                    <constraint firstAttribute="height" constant="100" id="ejM-YT-s3J"/>
+                                    <constraint firstItem="gXd-9O-aUh" firstAttribute="centerX" secondItem="zp0-CP-Mun" secondAttribute="centerX" id="f6X-Xf-nYp"/>
+                                    <constraint firstItem="m1h-58-ToE" firstAttribute="leading" secondItem="zp0-CP-Mun" secondAttribute="leading" constant="20" id="hk3-vk-3s5"/>
+                                    <constraint firstItem="m1h-58-ToE" firstAttribute="top" secondItem="gXd-9O-aUh" secondAttribute="bottom" constant="8" id="jb3-Sf-RoO"/>
+                                    <constraint firstItem="m1h-58-ToE" firstAttribute="centerX" secondItem="zp0-CP-Mun" secondAttribute="centerX" id="vrW-1A-Jd1"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="DQp-2v-Bdt" firstAttribute="top" secondItem="jGu-qM-aub" secondAttribute="top" id="DZ5-7b-abj"/>
-                            <constraint firstItem="rKs-dS-JWK" firstAttribute="top" secondItem="DQp-2v-Bdt" secondAttribute="bottom" constant="14" id="E8f-lS-l76"/>
-                            <constraint firstItem="DQp-2v-Bdt" firstAttribute="leading" secondItem="jGu-qM-aub" secondAttribute="leading" id="SwE-gj-cyU"/>
-                            <constraint firstItem="rKs-dS-JWK" firstAttribute="centerX" secondItem="jGu-qM-aub" secondAttribute="centerX" id="alf-AX-z6l"/>
-                            <constraint firstAttribute="bottom" secondItem="rKs-dS-JWK" secondAttribute="bottom" constant="14" id="c88-GT-d5C"/>
-                            <constraint firstAttribute="trailing" secondItem="DQp-2v-Bdt" secondAttribute="trailing" id="zSc-rK-FPR"/>
+                            <constraint firstAttribute="trailing" secondItem="zp0-CP-Mun" secondAttribute="trailing" constant="30" id="3LF-Z2-gZ8"/>
+                            <constraint firstItem="d4V-rF-leN" firstAttribute="height" secondItem="zp0-CP-Mun" secondAttribute="height" id="4Xt-xR-cve"/>
+                            <constraint firstAttribute="trailing" secondItem="xvu-Gk-iaQ" secondAttribute="trailing" id="9cv-Uf-oVq"/>
+                            <constraint firstItem="d4V-rF-leN" firstAttribute="leading" secondItem="zp0-CP-Mun" secondAttribute="leading" id="Dks-Ld-dwx"/>
+                            <constraint firstItem="d4V-rF-leN" firstAttribute="top" secondItem="zp0-CP-Mun" secondAttribute="top" id="F9y-kn-sWz"/>
+                            <constraint firstAttribute="bottom" secondItem="xvu-Gk-iaQ" secondAttribute="bottom" id="LgP-xR-TlU"/>
+                            <constraint firstItem="d4V-rF-leN" firstAttribute="width" secondItem="zp0-CP-Mun" secondAttribute="width" id="fDQ-xS-Nuf"/>
+                            <constraint firstItem="xvu-Gk-iaQ" firstAttribute="leading" secondItem="grF-Pb-tIy" secondAttribute="leading" id="iXx-G0-2Rq"/>
+                            <constraint firstItem="xvu-Gk-iaQ" firstAttribute="top" secondItem="grF-Pb-tIy" secondAttribute="top" id="kae-3t-Oxr"/>
+                            <constraint firstItem="zp0-CP-Mun" firstAttribute="top" secondItem="grF-Pb-tIy" secondAttribute="top" constant="30" id="utS-TK-V4I"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="DQp-2v-Bdt" id="cHH-BW-cAN"/>
-                        <outlet property="segmentedControl" destination="rKs-dS-JWK" id="LcI-l5-7JB"/>
+                        <outlet property="mapView" destination="xvu-Gk-iaQ" id="DcF-GB-lWZ"/>
+                        <outlet property="mapsList" destination="m1h-58-ToE" id="0g0-bm-78Z"/>
                     </connections>
                 </viewController>
-                <customObject id="4NO-md-7Dy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="dLa-xf-Nzc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="405"/>
+            <point key="canvasLocation" x="160" y="128"/>
         </scene>
     </scenes>
 </document>
