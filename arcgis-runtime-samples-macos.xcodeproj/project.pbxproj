@@ -326,10 +326,10 @@
 		3EFDE0DB1E318E6D00CBCD92 /* FeatureCollectionLayerQueryVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */; };
 		3EFDE0E31E3288C900CBCD92 /* Hotspots.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0DE1E3288C900CBCD92 /* Hotspots.storyboard */; };
 		3EFDE0E41E3288C900CBCD92 /* HotspotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */; };
-		3EFDE0E51E3288C900CBCD92 /* Viewshed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */; };
-		3EFDE0E61E3288C900CBCD92 /* ViewshedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */; };
+		3EFDE0E51E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0E11E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard */; };
+		3EFDE0E61E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */; };
 		3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */; };
-		3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */; };
+		3EFDE0E81E32BCDC00CBCD92 /* ViewshedGeoprocessingViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */; };
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
@@ -403,7 +403,7 @@
 				3EF024F51ECBF4F500166EC5 /* FormatCoordinatesViewController.swift in CopyFiles */,
 				3EA734111EC0CE1200356885 /* Animate3DSymbolsVC.swift in CopyFiles */,
 				3EFDE0E71E32BCDC00CBCD92 /* HotspotsViewController.swift in CopyFiles */,
-				3EFDE0E81E32BCDC00CBCD92 /* ViewshedViewController.swift in CopyFiles */,
+				3EFDE0E81E32BCDC00CBCD92 /* ViewshedGeoprocessingViewController.swift in CopyFiles */,
 				3EFDE0DA1E318E6D00CBCD92 /* FeatureCollectionLayerVC.swift in CopyFiles */,
 				3EFDE0DB1E318E6D00CBCD92 /* FeatureCollectionLayerQueryVC.swift in CopyFiles */,
 				3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */,
@@ -711,8 +711,8 @@
 		3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureCollectionLayerQueryVC.swift; sourceTree = "<group>"; };
 		3EFDE0DE1E3288C900CBCD92 /* Hotspots.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hotspots.storyboard; sourceTree = "<group>"; };
 		3EFDE0DF1E3288C900CBCD92 /* HotspotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotspotsViewController.swift; sourceTree = "<group>"; };
-		3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Viewshed.storyboard; sourceTree = "<group>"; };
-		3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedViewController.swift; sourceTree = "<group>"; };
+		3EFDE0E11E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewshedGeoprocessing.storyboard; sourceTree = "<group>"; };
+		3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedGeoprocessingViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1877,13 +1877,13 @@
 			isa = PBXGroup;
 			children = (
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
-				3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */,
 				2182C9851FDB1100003E3A0F /* Statistical query */,
 				21D961B91FF59B4B00FF1CFB /* Statistical query (group and sort) */,
-				1271FB9B1FE300E200536F60 /* Line of sight (location) */,
+				3EFDE0E01E3288C900CBCD92 /* Viewshed (geoprocessing) */,
 				12842A321FE9BF0F00DCFFC7 /* Viewshed (camera) */,
 				12A357E7203973BB00184E9F /* Viewshed (location) */,
 				E48008E31FE44AF10064809E /* Viewshed (GeoElement) */,
+				1271FB9B1FE300E200536F60 /* Line of sight (location) */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -1897,13 +1897,13 @@
 			path = "Analyze hotspots";
 			sourceTree = "<group>";
 		};
-		3EFDE0E01E3288C900CBCD92 /* Analyze viewshed */ = {
+		3EFDE0E01E3288C900CBCD92 /* Viewshed (geoprocessing) */ = {
 			isa = PBXGroup;
 			children = (
-				3EFDE0E11E3288C900CBCD92 /* Viewshed.storyboard */,
-				3EFDE0E21E3288C900CBCD92 /* ViewshedViewController.swift */,
+				3EFDE0E11E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard */,
+				3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */,
 			);
-			path = "Analyze viewshed";
+			path = "Viewshed (geoprocessing)";
 			sourceTree = "<group>";
 		};
 		3EFDE0E91E32D66300CBCD92 /* Spatial operations */ = {
@@ -2173,7 +2173,7 @@
 				3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */,
 				3E29C9ED1DC7C55200E5571F /* DeleteFeaturesFS.storyboard in Resources */,
 				3ECCFE211BC87BBB00CE256D /* DrawingStatus.storyboard in Resources */,
-				3EFDE0E51E3288C900CBCD92 /* Viewshed.storyboard in Resources */,
+				3EFDE0E51E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard in Resources */,
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
 				E48008E71FE44B1C0064809E /* ViewshedGeoElement.storyboard in Resources */,
@@ -2250,7 +2250,7 @@
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
-				3EFDE0E61E3288C900CBCD92 /* ViewshedViewController.swift in Sources */,
+				3EFDE0E61E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift in Sources */,
 				3ECCFE0D1BC86D1100CE256D /* SetInitialMapAreaViewController.swift in Sources */,
 				3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */,
 				10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */,

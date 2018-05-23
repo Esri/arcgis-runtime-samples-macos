@@ -19,7 +19,7 @@ import ArcGIS
 
 let viewshedURLString = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/ESRI_Elevation_World/GPServer/Viewshed"
 
-class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
+class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDelegate {
 
     @IBOutlet var mapView:AGSMapView!
     
