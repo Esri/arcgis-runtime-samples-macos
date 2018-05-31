@@ -47,10 +47,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
     }
     
     func extractName(fromPath path:String) -> String {
-        var index = path.range(of: "/", options: .backwards, range: nil, locale: nil)?.lowerBound
-        index = path.index(after: index!)
-        let name = path.substring(from: index!)
-        return name
+        return URL(fileURLWithPath: path).lastPathComponent
     }
     
     //MARK: - NSTableViewDataSource

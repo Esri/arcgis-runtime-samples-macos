@@ -145,8 +145,8 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     @IBAction func saveAsAction(_ sender: AnyObject) {
         self.portal = AGSPortal(url: URL(string: "https://www.arcgis.com")!, loginRequired: true)
         self.portal.load { (error) -> Void in
-            if let error = error as? NSError {
-                if error.code != NSUserCancelledError {
+            if let error = error {
+                if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!, completionHandler: nil)
                 }
             }
