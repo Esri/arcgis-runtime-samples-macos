@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -796,84 +796,6 @@
                 </menu>
             </objects>
             <point key="canvasLocation" x="75" y="235"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="sqh-ki-Sjx">
-            <objects>
-                <viewController id="5HM-5B-ksj" customClass="ViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="uLd-c9-AwH">
-                        <rect key="frame" x="0.0" y="0.0" width="741" height="415"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6p6-SV-bnS">
-                                <rect key="frame" x="0.0" y="0.0" width="741" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="GfI-Gr-nsb">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="PXL-jf-dbK">
-                                            <rect key="frame" x="1" y="1" width="298" height="0.0"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" indentationPerLevel="16" outlineTableColumn="wqU-4w-TMa" id="T15-ec-Pap">
-                                                    <rect key="frame" x="0.0" y="0.0" width="298" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <size key="intercellSpacing" width="3" height="2"/>
-                                                    <color key="backgroundColor" red="0.59607845540000004" green="0.22745099660000001" blue="0.74509805439999999" alpha="0.0" colorSpace="deviceRGB"/>
-                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                    <tableColumns>
-                                                        <tableColumn identifier="" width="295" minWidth="40" maxWidth="1000" id="wqU-4w-TMa">
-                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
-                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                            </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" title="Text Cell" id="Ek9-H6-ywn">
-                                                                <font key="font" size="15" name="Avenir-Medium"/>
-                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                        </tableColumn>
-                                                    </tableColumns>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="5HM-5B-ksj" id="Yf8-8K-xXl"/>
-                                                        <outlet property="delegate" destination="5HM-5B-ksj" id="EMw-rC-oEX"/>
-                                                    </connections>
-                                                </outlineView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                                        </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Aae-Mj-vzD">
-                                            <rect key="frame" x="-100" y="-100" width="238" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="nzY-eA-twF">
-                                            <rect key="frame" x="283" y="1" width="16" height="0.0"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </scroller>
-                                    </scrollView>
-                                    <customView fixedFrame="YES" id="egK-d4-il5">
-                                        <rect key="frame" x="301" y="0.0" width="440" height="2"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </customView>
-                                </subviews>
-                                <holdingPriorities>
-                                    <real value="250"/>
-                                    <real value="250"/>
-                                </holdingPriorities>
-                            </splitView>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="outlineView" destination="T15-ec-Pap" id="gfS-an-gRE"/>
-                        <outlet property="placeholderView" destination="egK-d4-il5" id="V4V-GB-OaJ"/>
-                    </connections>
-                </viewController>
-                <customObject id="93A-FY-Mp6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25.5" y="1338.5"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Kd8-72-fUH">
