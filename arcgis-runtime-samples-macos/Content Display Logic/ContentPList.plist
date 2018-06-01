@@ -1117,6 +1117,18 @@
 		<array>
 			<dict>
 				<key>displayName</key>
+				<string>Open a scene (portal item)</string>
+				<key>storyboardName</key>
+				<string>OpenScene</string>
+				<key>descriptionText</key>
+				<string>This sample shows you how to open a web scene from a portal item.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenSceneViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Display a scene</string>
 				<key>storyboardName</key>
 				<string>DisplayScene</string>

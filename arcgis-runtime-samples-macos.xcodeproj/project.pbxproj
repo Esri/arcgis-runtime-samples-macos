@@ -333,6 +333,9 @@
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
+		4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
+		4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C73C5D920C049F300D6D00B /* OpenScene.storyboard */; };
+		4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
 		97F8BF121FDA6E4800A65B2E /* RasterLayerUsingService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */; };
 		97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF161FDA6E6300A65B2E /* RasterLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */; };
@@ -380,6 +383,7 @@
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
 				12B52BC31FE9C44600DC34F5 /* ViewshedCameraViewController.swift in CopyFiles */,
 				12A357EC2039745800184E9F /* ViewshedLocationViewController.swift in CopyFiles */,
+				4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */,
 				09607F8D1FDB647600FA43B6 /* TimeBasedQueryVC.swift in CopyFiles */,
 				D97B7EA61FDAEDD200E1239D /* FeatureLayerShapefileViewController.swift in CopyFiles */,
 				218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */,
@@ -715,6 +719,8 @@
 		3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedGeoprocessingViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
+		4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
+		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1105,6 +1111,7 @@
 		3E495C401D062E940021CD95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4C73C5D420C0406D00D6D00B /* Open a scene (portal item) */,
 				10859BB01FE1A1AF00F6E552 /* Feature layer extrusion */,
 				3E495C4C1D076C1D0021CD95 /* Display a scene */,
 				3E495C411D0633F40021CD95 /* Extrude graphics */,
@@ -1916,6 +1923,15 @@
 			path = "Geometry/Spatial operations";
 			sourceTree = "<group>";
 		};
+		4C73C5D420C0406D00D6D00B /* Open a scene (portal item) */ = {
+			isa = PBXGroup;
+			children = (
+				4C73C5D920C049F300D6D00B /* OpenScene.storyboard */,
+				4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */,
+			);
+			path = "Open a scene (portal item)";
+			sourceTree = "<group>";
+		};
 		97F8BF0E1FDA6D7E00A65B2E /* Raster layer (service) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2171,6 +2187,7 @@
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
 				3EFDE0BD1E31287B00CBCD92 /* ShastaBW.tfw in Resources */,
 				3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */,
+				4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */,
 				3E29C9ED1DC7C55200E5571F /* DeleteFeaturesFS.storyboard in Resources */,
 				3ECCFE211BC87BBB00CE256D /* DrawingStatus.storyboard in Resources */,
 				3EFDE0E51E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard in Resources */,
@@ -2258,6 +2275,7 @@
 				3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
+				4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */,
 				09607F8C1FDB644700FA43B6 /* TimeBasedQueryVC.swift in Sources */,
 				3EFDE0E41E3288C900CBCD92 /* HotspotsViewController.swift in Sources */,
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
