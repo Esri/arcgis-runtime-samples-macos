@@ -16,9 +16,7 @@ import Cocoa
 import ArcGIS
 
 class OpenSceneViewController: NSViewController {
-    var sceneView: AGSSceneView {
-        return view as! AGSSceneView
-    }
+    @IBOutlet weak var sceneView: AGSSceneView!
     
     let portal = AGSPortal.arcGISOnline(withLoginRequired: false)
     
