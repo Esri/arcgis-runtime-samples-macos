@@ -44,6 +44,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         super.windowDidLoad()
     
         self.window?.delegate = self
+        self.window?.isMovableByWindowBackground = false
         self.window?.titleVisibility = .hidden
         self.window?.titlebarAppearsTransparent = true
         self.window?.backgroundColor = NSColor.primaryBlue()
