@@ -102,7 +102,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         // Set style of settings view
         viewshedSettingsView.wantsLayer = true
         viewshedSettingsView.layer?.cornerRadius = 10
-        viewshedSettingsTextField.backgroundColor = NSColor.primaryBlue()
+        viewshedSettingsTextField.backgroundColor = .primaryBlue
         viewshedSettingsTextField.wantsLayer = true
         viewshedSettingsTextField.layer?.cornerRadius = 5
 

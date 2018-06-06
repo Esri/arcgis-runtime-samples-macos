@@ -97,7 +97,7 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
         viewItem.view.backgroundColor = NSColor.white
         viewItem.view.wantsLayer = true
 //        viewItem.view.layer?.borderColor = NSColor(white: 68/255.0, alpha: 1).CGColor
-        viewItem.view.layer?.borderColor = NSColor.primaryBlue().cgColor
+        viewItem.view.layer?.borderColor = NSColor.primaryBlue.cgColor
         viewItem.view.layer?.cornerRadius = 10
         viewItem.view.layer?.borderWidth = 1
         
