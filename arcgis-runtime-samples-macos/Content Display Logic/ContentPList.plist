@@ -1108,6 +1108,19 @@
 					<string>LineOfSightLocationViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Distance measurement analysis</string>
+				<key>storyboardName</key>
+				<string>DistanceMeasurementAnalysis</string>
+				<key>descriptionText</key>
+				<string>Demonstrates measuring 3D distances between two points in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DistanceMeasurementAnalysisViewController</string>
+					<string>DistanceViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>

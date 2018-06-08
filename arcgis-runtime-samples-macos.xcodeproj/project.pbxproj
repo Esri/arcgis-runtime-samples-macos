@@ -333,9 +333,19 @@
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
+		4C2244AF20C9B0F6005E6DEE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244AE20C9B0F6005E6DEE /* URL.swift */; };
+		4C2244B320C9C39C005E6DEE /* AGSSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B220C9C39C005E6DEE /* AGSSurface.swift */; };
+		4C2244B520C9C3D7005E6DEE /* AGSAnalysisOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B420C9C3D7005E6DEE /* AGSAnalysisOverlay.swift */; };
+		4C2244B720C9CB57005E6DEE /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
+		4C2244B920C9DF93005E6DEE /* DistancePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B820C9DF93005E6DEE /* DistancePanel.swift */; };
+		4C2244BA20CB0299005E6DEE /* DistanceViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
+		4C2244BC20CB1811005E6DEE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C2244BB20CB1811005E6DEE /* README.md */; };
 		4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
 		4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C73C5D920C049F300D6D00B /* OpenScene.storyboard */; };
 		4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
+		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
+		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
+		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		97F8BF121FDA6E4800A65B2E /* RasterLayerUsingService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */; };
 		97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF161FDA6E6300A65B2E /* RasterLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */; };
@@ -378,6 +388,8 @@
 			files = (
 				1271FBA01FE3016B00536F60 /* LineOfSightLocationViewController.swift in CopyFiles */,
 				2136E7D2200EB46D0071BA99 /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */,
+				4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */,
+				4C2244BA20CB0299005E6DEE /* DistanceViewController.swift in CopyFiles */,
 				D98916D91FE23447004310CB /* GPKGLayerTableCell.swift in CopyFiles */,
 				D98916DA1FE23447004310CB /* ReadGeopackageViewController.swift in CopyFiles */,
 				E48008EA1FE44C300064809E /* ViewshedGeoElementViewController.swift in CopyFiles */,
@@ -719,8 +731,16 @@
 		3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedGeoprocessingViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
+		4C2244AE20C9B0F6005E6DEE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		4C2244B220C9C39C005E6DEE /* AGSSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSSurface.swift; sourceTree = "<group>"; };
+		4C2244B420C9C3D7005E6DEE /* AGSAnalysisOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSAnalysisOverlay.swift; sourceTree = "<group>"; };
+		4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
+		4C2244B820C9DF93005E6DEE /* DistancePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancePanel.swift; sourceTree = "<group>"; };
+		4C2244BB20CB1811005E6DEE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
 		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
+		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
+		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1602,6 +1622,7 @@
 				3E496EEB1DD39DF4004C921C /* Route & Directions */,
 				3EFDE0DC1E3288C900CBCD92 /* Analysis */,
 				3E495C401D062E940021CD95 /* Scenes */,
+				4CD4A8DC20C9B07D007B8D6B /* Extensions */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
 				3EC1AE7B1BAC913300E32B1D /* ArcGIS.framework */,
@@ -1883,6 +1904,7 @@
 		3EFDE0DC1E3288C900CBCD92 /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				4CD4A8D620C9A64C007B8D6B /* Distance measurement analysis */,
 				3EFDE0DD1E3288C900CBCD92 /* Analyze hotspots */,
 				2182C9851FDB1100003E3A0F /* Statistical query */,
 				21D961B91FF59B4B00FF1CFB /* Statistical query (group and sort) */,
@@ -1923,6 +1945,23 @@
 			path = "Geometry/Spatial operations";
 			sourceTree = "<group>";
 		};
+		4C2244B020C9C37D005E6DEE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4C2244AE20C9B0F6005E6DEE /* URL.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4C2244B120C9C38A005E6DEE /* ArcGIS */ = {
+			isa = PBXGroup;
+			children = (
+				4C2244B420C9C3D7005E6DEE /* AGSAnalysisOverlay.swift */,
+				4C2244B220C9C39C005E6DEE /* AGSSurface.swift */,
+			);
+			path = ArcGIS;
+			sourceTree = "<group>";
+		};
 		4C73C5D420C0406D00D6D00B /* Open a scene (portal item) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1930,6 +1969,27 @@
 				4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */,
 			);
 			path = "Open a scene (portal item)";
+			sourceTree = "<group>";
+		};
+		4CD4A8D620C9A64C007B8D6B /* Distance measurement analysis */ = {
+			isa = PBXGroup;
+			children = (
+				4C2244BB20CB1811005E6DEE /* README.md */,
+				4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */,
+				4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */,
+				4C2244B820C9DF93005E6DEE /* DistancePanel.swift */,
+				4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */,
+			);
+			path = "Distance measurement analysis";
+			sourceTree = "<group>";
+		};
+		4CD4A8DC20C9B07D007B8D6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C2244B120C9C38A005E6DEE /* ArcGIS */,
+				4C2244B020C9C37D005E6DEE /* Foundation */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		97F8BF0E1FDA6D7E00A65B2E /* Raster layer (service) */ = {
@@ -2187,6 +2247,7 @@
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
 				3EFDE0BD1E31287B00CBCD92 /* ShastaBW.tfw in Resources */,
 				3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */,
+				4C2244BC20CB1811005E6DEE /* README.md in Resources */,
 				4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */,
 				3E29C9ED1DC7C55200E5571F /* DeleteFeaturesFS.storyboard in Resources */,
 				3ECCFE211BC87BBB00CE256D /* DrawingStatus.storyboard in Resources */,
@@ -2212,6 +2273,7 @@
 				3E87247F1BC70BA3006386C1 /* TiledLayerURL.storyboard in Resources */,
 				3E0662561F031F2C007666DF /* ChangeSublayerRenderer.storyboard in Resources */,
 				3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */,
+				4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */,
 				3EFDE0BE1E31287B00CBCD92 /* ShastaBW.tif in Resources */,
 				D97B7E9A1FDAEA8100E1239D /* Subdivisions.dbf in Resources */,
 				3E29C9E71DC7C20800E5571F /* AddFeaturesFS.storyboard in Resources */,
@@ -2258,6 +2320,7 @@
 				3E049A351CED132F0031ADA9 /* GraphicsWithSymbolsViewController.swift in Sources */,
 				E48008E91FE44B3A0064809E /* ViewshedGeoElementViewController.swift in Sources */,
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
+				4C2244B520C9C3D7005E6DEE /* AGSAnalysisOverlay.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
@@ -2282,6 +2345,7 @@
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
 				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
 				166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */,
+				4C2244B320C9C39C005E6DEE /* AGSSurface.swift in Sources */,
 				3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
@@ -2293,6 +2357,7 @@
 				3E0662571F031F2C007666DF /* ChangeSublayerRendererVC.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
 				3EFDE09E1E31271700CBCD92 /* BlendRendererViewController.swift in Sources */,
+				4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */,
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
 				3ECCFE361BCC6FD300CE256D /* ExistingMapsListViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* CollectionViewController.swift in Sources */,
@@ -2310,6 +2375,7 @@
 				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				D98916D41FE22B10004310CB /* GPKGLayerTableCell.swift in Sources */,
+				4C2244B920C9DF93005E6DEE /* DistancePanel.swift in Sources */,
 				3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */,
 				3E69DE481CFE34A3001F65F7 /* ReadmeViewController.swift in Sources */,
 				3E8724721BC6D971006386C1 /* DisplayMapViewController.swift in Sources */,
@@ -2329,6 +2395,7 @@
 				3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */,
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				21D961C01FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in Sources */,
+				4C2244AF20C9B0F6005E6DEE /* URL.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */,
 				10859BB51FE1A1B000F6E552 /* FeatureLayerExtrusionViewController.swift in Sources */,
@@ -2356,6 +2423,7 @@
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
 				3E8A25C21D36F9F500D14F08 /* MapLoadedViewController.swift in Sources */,
 				3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */,
+				4C2244B720C9CB57005E6DEE /* DistanceViewController.swift in Sources */,
 				3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */,
 				3EBA256E1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift in Sources */,
 				3EFDE0A31E31279000CBCD92 /* StretchRendererViewController.swift in Sources */,
