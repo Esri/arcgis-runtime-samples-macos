@@ -65,10 +65,10 @@ class SurfacePlacementsViewController: NSViewController {
     }
 
     private func pointSymbol() -> AGSSimpleMarkerSceneSymbol {
-        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: NSColor.red, height: 50, width: 50, depth: 50, anchorPosition: .center)
+        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: .red, height: 50, width: 50, depth: 50, anchorPosition: .center)
     }
     
     private func textSymbol(_ text: String) -> AGSTextSymbol {
-        return AGSTextSymbol(text: text, color: NSColor.blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
+        return AGSTextSymbol(text: text, color: .blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
     }
 }

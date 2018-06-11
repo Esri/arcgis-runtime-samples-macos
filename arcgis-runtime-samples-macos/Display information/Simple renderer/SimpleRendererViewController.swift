@@ -66,7 +66,7 @@ class SimpleRendererViewController: NSViewController {
     
     private func addSimpleRenderer() {
         //create a simple renderer with red cross symbol
-        let simpleRenderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .cross, color: NSColor.red, size: 15))
+        let simpleRenderer = AGSSimpleRenderer(symbol: AGSSimpleMarkerSymbol(style: .cross, color: .red, size: 15))
         
         //assign the renderer to the graphics overlay
         self.graphicsOverlay.renderer = simpleRenderer

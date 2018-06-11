@@ -150,12 +150,12 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     func routeSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.yellow, width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .solid, color: .yellow, width: 5)
         return symbol
     }
     
     func directionSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .dashDot, color: NSColor.orange, width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .dashDot, color: .orange, width: 5)
         return symbol
     }
     
@@ -164,7 +164,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         
-        let textSymbol = AGSTextSymbol(text: "\(index)", color: NSColor.white, size: 20, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+        let textSymbol = AGSTextSymbol(text: "\(index)", color: .white, size: 20, horizontalAlignment: .center, verticalAlignment: .middle)
         textSymbol.offsetY = markerSymbol.offsetY
         
         let compositeSymbol = AGSCompositeSymbol(symbols: [markerSymbol, textSymbol])
@@ -173,7 +173,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     func barrierSymbol() -> AGSSimpleFillSymbol {
-        return AGSSimpleFillSymbol(style: .diagonalCross, color: NSColor.red, outline: nil)
+        return AGSSimpleFillSymbol(style: .diagonalCross, color: .red, outline: nil)
     }
     
     //MARK: - AGSGeoViewTouchDelegate

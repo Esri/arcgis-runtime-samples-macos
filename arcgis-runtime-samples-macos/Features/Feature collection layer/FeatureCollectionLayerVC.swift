@@ -65,7 +65,7 @@ class FeatureCollectionLayerVC: NSViewController {
         let pointsCollectionTable = AGSFeatureCollectionTable(fields: fields, geometryType: .point, spatialReference: AGSSpatialReference.wgs84())
         
         //renderer
-        let symbol = AGSSimpleMarkerSymbol(style: .triangle, color: NSColor.red, size: 18)
+        let symbol = AGSSimpleMarkerSymbol(style: .triangle, color: .red, size: 18)
         pointsCollectionTable.renderer = AGSSimpleRenderer(symbol: symbol)
         
         // Create a new point feature, provide geometry and attribute values
@@ -92,7 +92,7 @@ class FeatureCollectionLayerVC: NSViewController {
         let linesCollectionTable = AGSFeatureCollectionTable(fields: fields, geometryType: .polyline, spatialReference: AGSSpatialReference.wgs84())
         
         //renderer
-        let symbol = AGSSimpleLineSymbol(style: .dash, color: NSColor.green, width: 3)
+        let symbol = AGSSimpleLineSymbol(style: .dash, color: .green, width: 3)
         linesCollectionTable.renderer = AGSSimpleRenderer(symbol: symbol)
         
         // Create a new point feature, provide geometry and attribute values
@@ -122,8 +122,8 @@ class FeatureCollectionLayerVC: NSViewController {
         let polygonsCollectionTable = AGSFeatureCollectionTable(fields: fields, geometryType: .polygon, spatialReference: AGSSpatialReference.wgs84())
         
         //renderer
-        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.blue, width: 2)
-        let fillSymbol = AGSSimpleFillSymbol(style: .diagonalCross, color: NSColor.cyan, outline: lineSymbol)
+        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: .blue, width: 2)
+        let fillSymbol = AGSSimpleFillSymbol(style: .diagonalCross, color: .cyan, outline: lineSymbol)
         polygonsCollectionTable.renderer = AGSSimpleRenderer(symbol: fillSymbol)
         
         // Create a new point feature, provide geometry and attribute values

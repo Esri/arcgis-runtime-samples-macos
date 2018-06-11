@@ -131,7 +131,7 @@ class DisplayGridViewController: NSViewController {
                 textSymbol.size = 14
                 textSymbol.horizontalAlignment = .left
                 textSymbol.verticalAlignment = .bottom
-                textSymbol.haloColor = NSColor.white
+                textSymbol.haloColor = .white
                 textSymbol.haloWidth = CGFloat(gridLevel+1)
                 mapView.grid?.setTextSymbol(textSymbol, forLevel: gridLevel)
             }

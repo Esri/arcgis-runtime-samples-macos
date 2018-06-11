@@ -59,7 +59,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //change selection width for feature layer
         self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = NSColor.yellow
+        self.parksFeatureLayer.selectionColor = .yellow
         
         //add parks feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
