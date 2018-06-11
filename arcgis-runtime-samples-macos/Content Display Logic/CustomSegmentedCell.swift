@@ -104,9 +104,9 @@ class CustomSegmentedCell: NSSegmentedCell {
     private func textForSegment(_ segment:Int) -> NSAttributedString {
         let font = NSFont(name: "Avenir-Medium", size: 13)!
         
-        var textColor: NSColor
+        let textColor: NSColor
         if self.selectedSegment == segment {
-            textColor = NSColor.white
+            textColor = .white
         }
         else {
             textColor = self.tintColor

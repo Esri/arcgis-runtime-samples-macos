@@ -46,7 +46,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
-        self.featureLayer.selectionColor = NSColor.cyan
+        self.featureLayer.selectionColor = .cyan
         self.featureLayer.selectionWidth = 5
         
         //add feature layer to the map

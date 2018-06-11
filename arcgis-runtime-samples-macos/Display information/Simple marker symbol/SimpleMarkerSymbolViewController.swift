@@ -43,7 +43,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
     
     private func addSimpleMarkerSymbol() {
         //create a simple marker symbol
-        let symbol = AGSSimpleMarkerSymbol(style: .circle, color: NSColor.red, size: 12)
+        let symbol = AGSSimpleMarkerSymbol(style: .circle, color: .red, size: 12)
         
         //create point
         let point = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())

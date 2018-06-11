@@ -55,10 +55,10 @@ class UniqueValueRendererViewController: NSViewController {
         renderer.fieldNames = ["STATE_ABBR"]
         
         //create symbols to be used in the renderer
-        let defaultSymbol = AGSSimpleFillSymbol(style: .null, color: NSColor.clear, outline: AGSSimpleLineSymbol(style: .solid, color: NSColor.lightGray, width: 2))
-        let californiaSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.red, outline: AGSSimpleLineSymbol(style: .solid, color: NSColor.red, width: 2))
-        let arizonaSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.green, outline: AGSSimpleLineSymbol(style: .solid, color: NSColor.green, width: 2))
-        let nevadaSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.blue, outline: AGSSimpleLineSymbol(style: .solid, color: NSColor.blue, width: 2))
+        let defaultSymbol = AGSSimpleFillSymbol(style: .null, color: .clear, outline: AGSSimpleLineSymbol(style: .solid, color: .lightGray, width: 2))
+        let californiaSymbol = AGSSimpleFillSymbol(style: .solid, color: .red, outline: AGSSimpleLineSymbol(style: .solid, color: .red, width: 2))
+        let arizonaSymbol = AGSSimpleFillSymbol(style: .solid, color: .green, outline: AGSSimpleLineSymbol(style: .solid, color: .green, width: 2))
+        let nevadaSymbol = AGSSimpleFillSymbol(style: .solid, color: .blue, outline: AGSSimpleLineSymbol(style: .solid, color: .blue, width: 2))
         
         //set the default symbol
         renderer.defaultSymbol = defaultSymbol

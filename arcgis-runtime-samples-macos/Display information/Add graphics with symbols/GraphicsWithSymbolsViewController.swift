@@ -62,7 +62,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         let buoy4Loc = AGSPoint(x: -2.6395150461199726, y: 56.06127916736989, spatialReference: wgs84)
         
         //create a marker symbol
-        let buoyMarker = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.circle, color: NSColor.red, size: 10)
+        let buoyMarker = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.circle, color: .red, size: 10)
         
         //create graphics
         let buoyGraphic1 = AGSGraphic(geometry: buoy1Loc, symbol: buoyMarker, attributes: nil)
