@@ -47,7 +47,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         self.window?.isMovableByWindowBackground = false
         self.window?.titleVisibility = .hidden
         self.window?.titlebarAppearsTransparent = true
-        self.window?.backgroundColor = NSColor.primaryBlue()
+        self.window?.backgroundColor = .primaryBlue
         
         self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as! NSWindowController
         self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController

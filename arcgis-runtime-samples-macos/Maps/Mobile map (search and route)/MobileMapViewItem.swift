@@ -50,7 +50,7 @@ class MobileMapViewItem: NSCollectionViewItem {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.view.layer?.backgroundColor = NSColor.secondaryBlue().cgColor
+                self.view.layer?.backgroundColor = NSColor.secondaryBlue.cgColor
                 self.label.textColor = NSColor.white
             }
             else {

@@ -84,8 +84,8 @@ class FindRouteViewController: NSViewController {
     //method provides a line symbol for the route graphic
     func routeSymbol() -> AGSSymbol {
         
-        let outerSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.secondaryBlue(), width: 5)
-        let innerSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.primaryBlue(), width: 2)
+        let outerSymbol = AGSSimpleLineSymbol(style: .solid, color: .secondaryBlue, width: 5)
+        let innerSymbol = AGSSimpleLineSymbol(style: .solid, color: .primaryBlue, width: 2)
         let compositeSymbol = AGSCompositeSymbol(symbols: [outerSymbol, innerSymbol])
         return compositeSymbol
     }

@@ -92,7 +92,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         splitView.wantsLayer = true
         splitView.layer?.cornerRadius = 10
         splitView.layer?.borderWidth = 2
-        splitView.layer?.borderColor = NSColor.primaryBlue().cgColor
+        splitView.layer?.borderColor = NSColor.primaryBlue.cgColor
         
         // Set values for combo boxs
         fieldNamesComboBox.addItems(withObjectValues: fieldNames)

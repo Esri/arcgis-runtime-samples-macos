@@ -33,16 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension NSColor {
-    class func primaryBlue() -> NSColor {
-        return NSColor(red: 0, green: 0.475, blue: 0.757, alpha: 1)
-    }
-    
-    class func secondaryBlue() -> NSColor {
-        return NSColor(red: 0, green: 0.368, blue: 0.584, alpha: 1)
-    }
-    
-    class func backgroundGray() -> NSColor {
-        return NSColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-    }
+    class var primaryBlue: NSColor { return #colorLiteral(red: 0, green: 0.475, blue: 0.757, alpha: 1) }
+    class var secondaryBlue: NSColor { return #colorLiteral(red: 0, green: 0.368, blue: 0.584, alpha: 1) }
+    class var backgroundGray: NSColor { return #colorLiteral(red: 0.973, green: 0.973, blue: 0.973, alpha: 1) }
 }
-

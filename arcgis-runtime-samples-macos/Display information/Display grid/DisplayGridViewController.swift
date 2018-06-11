@@ -53,7 +53,7 @@ class DisplayGridViewController: NSViewController {
         // Set style of settings view
         gridSettingsView.wantsLayer = true
         gridSettingsView.layer?.cornerRadius = 10
-        gridSettingsTextField.backgroundColor = NSColor.primaryBlue()
+        gridSettingsTextField.backgroundColor = .primaryBlue
         gridSettingsTextField.wantsLayer = true
         gridSettingsTextField.layer?.cornerRadius = 5
     }
