@@ -20,7 +20,7 @@ The samples use ArcGIS Online basemaps and services.  Learn more [here](http://w
 
 ## Requirements
 * [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/) 100.2.1 (or higher)
-* XCode 9.0 (or higher)
+* Xcode 9.0 (or higher)
 * macOS SDK 10.13 (or higher)
 
 ## Additional Resources
