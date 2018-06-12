@@ -26,7 +26,9 @@ class DistanceMeasurementAnalysisViewController: NSViewController {
             sceneView.touchDelegate = self
             sceneView.scene = scene
             sceneView.setViewpointCamera(AGSCamera(lookAt: defaultStartPoint, distance: 200, heading: 0, pitch: 45, roll: 0))
-            sceneView.analysisOverlays.add(AGSAnalysisOverlay(analyses: [locationDistanceMeasurement]))
+            let analysisOverlay = AGSAnalysisOverlay()
+            analysisOverlay.analyses.add(locationDistanceMeasurement)
+            sceneView.analysisOverlays.add(analysisOverlay)
         }
     }
     
@@ -42,12 +44,12 @@ class DistanceMeasurementAnalysisViewController: NSViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        let surface = AGSSurface(
-            elevationSources: [
-                AGSArcGISTiledElevationSource(url: .terrain3DService),
-                AGSArcGISTiledElevationSource(url: URL(string: "https://tiles.arcgis.com/tiles/d3voDfTFbHOCRwVR/arcgis/rest/services/MNT_IDF/ImageServer")!)
-            ]
-        )
+        let elevationSources = [
+            AGSArcGISTiledElevationSource(url: .terrain3DService),
+            AGSArcGISTiledElevationSource(url: URL(string: "https://tiles.arcgis.com/tiles/d3voDfTFbHOCRwVR/arcgis/rest/services/MNT_IDF/ImageServer")!)
+        ]
+        let surface = AGSSurface()
+        surface.elevationSources.append(contentsOf: elevationSources)
         let buildingsLayer = AGSArcGISSceneLayer(url: .brestBuildingsService)
         
         scene.baseSurface = surface
