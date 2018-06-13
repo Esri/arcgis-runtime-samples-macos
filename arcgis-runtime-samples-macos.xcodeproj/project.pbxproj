@@ -337,7 +337,6 @@
 		4C2244B720C9CB57005E6DEE /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
 		4C2244B920C9DF93005E6DEE /* DistancePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B820C9DF93005E6DEE /* DistancePanel.swift */; };
 		4C2244BA20CB0299005E6DEE /* DistanceViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
-		4C2244BC20CB1811005E6DEE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C2244BB20CB1811005E6DEE /* README.md */; };
 		4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
 		4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C73C5D920C049F300D6D00B /* OpenScene.storyboard */; };
 		4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
@@ -2233,7 +2232,6 @@
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
 				3EFDE0BD1E31287B00CBCD92 /* ShastaBW.tfw in Resources */,
 				3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */,
-				4C2244BC20CB1811005E6DEE /* README.md in Resources */,
 				4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */,
 				3E29C9ED1DC7C55200E5571F /* DeleteFeaturesFS.storyboard in Resources */,
 				3ECCFE211BC87BBB00CE256D /* DrawingStatus.storyboard in Resources */,
