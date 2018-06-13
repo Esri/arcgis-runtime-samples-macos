@@ -22,7 +22,7 @@ extension URL {
     /// The url of the Terrain 3D ArcGIS REST Service.
     static let worldElevationService = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
     /// The url of the image service for elevation in Brest, France.
-    static let brestElevationService = URL(string: "http://scene.arcgis.com/arcgis/rest/services/BREST_DTM_1M/ImageServer")!
+    static let brestElevationService = URL(string: "https://scene.arcgis.com/arcgis/rest/services/BREST_DTM_1M/ImageServer")!
     
     // Scene Services
     
