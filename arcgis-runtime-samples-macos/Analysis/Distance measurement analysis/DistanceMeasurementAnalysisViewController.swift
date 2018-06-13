@@ -17,43 +17,84 @@
 import Cocoa
 import ArcGIS
 
-private let defaultStartPoint = AGSPoint(x: -4.494677, y: 48.384472, z: 24.772694, spatialReference: .wgs84())
-private let defaultEndPoint = AGSPoint(x: -4.495646, y: 48.384377, z: 58.501115, spatialReference: .wgs84())
-
-class DistanceMeasurementAnalysisViewController: NSViewController {
-    @IBOutlet weak var sceneView: AGSSceneView! {
-        didSet {
-            sceneView.touchDelegate = self
-            sceneView.scene = scene
-            sceneView.setViewpointCamera(AGSCamera(lookAt: defaultStartPoint, distance: 200, heading: 0, pitch: 45, roll: 0))
-            let analysisOverlay = AGSAnalysisOverlay()
-            analysisOverlay.analyses.add(locationDistanceMeasurement)
-            sceneView.analysisOverlays.add(analysisOverlay)
-        }
-    }
+/// A view controller that manages the interface of the Distance Measurement
+/// Analysis sample.
+class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTouchDelegate {
+    /// The scene displayed in the scene view.
+    let scene: AGSScene
+    /// The location distance measurement analysis.
+    var locationDistanceMeasurement: AGSLocationDistanceMeasurement
     
-    let scene = AGSScene(basemap: .imagery())
-    var locationDistanceMeasurement = AGSLocationDistanceMeasurement(startLocation: defaultStartPoint, endLocation: defaultEndPoint)
-    
-    var distanceWindowController: NSWindowController?
-    
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        fatalError("init(nibName:bundle:) has not been implemented")
-    }
+    /// The scene view managed by the view controller.
+    @IBOutlet weak var sceneView: AGSSceneView!
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        // Create the scene.
+        scene = AGSScene(basemap: .imagery())
         
+        // Create the surface and set it as the base surface of the scene.
         let elevationSources = [
             AGSArcGISTiledElevationSource(url: .terrain3DService),
             AGSArcGISTiledElevationSource(url: URL(string: "https://tiles.arcgis.com/tiles/d3voDfTFbHOCRwVR/arcgis/rest/services/MNT_IDF/ImageServer")!)
         ]
         let surface = AGSSurface()
         surface.elevationSources.append(contentsOf: elevationSources)
-        let buildingsLayer = AGSArcGISSceneLayer(url: .brestBuildingsService)
-        
         scene.baseSurface = surface
+        
+        // Create the building layer and add it to the scene.
+        let buildingsLayer = AGSArcGISSceneLayer(url: .brestBuildingsService)
         scene.operationalLayers.add(buildingsLayer)
+        
+        // Create the location distance measurement.
+        let startPoint = AGSPoint(x: -4.494677, y: 48.384472, z: 24.772694, spatialReference: .wgs84())
+        let endPoint = AGSPoint(x: -4.495646, y: 48.384377, z: 58.501115, spatialReference: .wgs84())
+        locationDistanceMeasurement = AGSLocationDistanceMeasurement(startLocation: startPoint, endLocation: endPoint)
+        
+        super.init(coder: coder)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Configure the scene view.
+        sceneView.scene = scene
+        sceneView.touchDelegate = self
+        let camera = AGSCamera(lookAt: locationDistanceMeasurement.startLocation, distance: 200, heading: 0, pitch: 45, roll: 0)
+        sceneView.setViewpointCamera(camera)
+        
+        // Create the analysis overlay with the location distance measurement
+        // analysis and add it to the scene view.
+        let analysisOverlay = AGSAnalysisOverlay()
+        analysisOverlay.analyses.add(locationDistanceMeasurement)
+        sceneView.analysisOverlays.add(analysisOverlay)
+    }
+    
+    // MARK: AGSGeoViewTouchDelegate
+    
+    func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
+        sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
+            guard let measurement = self?.locationDistanceMeasurement else { return }
+            if measurement.startLocation != measurement.endLocation {
+                measurement.startLocation = mapLocation
+                measurement.endLocation = mapLocation
+            } else {
+                measurement.endLocation = mapLocation
+            }
+        }
+        completion(true)
+    }
+    
+    func geoView(_ geoView: AGSGeoView, didTouchDragToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+        sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
+            guard let measurement = self?.locationDistanceMeasurement else { return }
+            measurement.endLocation = mapLocation
+        }
+    }
+    
+    // MARK: NSViewController
+    
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        fatalError("init(nibName:bundle:) has not been implemented")
     }
     
     override func viewDidAppear() {
@@ -77,26 +118,7 @@ class DistanceMeasurementAnalysisViewController: NSViewController {
         distanceViewController.locationDistanceMeasurement = locationDistanceMeasurement
         distanceWindowController = windowController
     }
-}
-
-extension DistanceMeasurementAnalysisViewController: AGSGeoViewTouchDelegate {
-    func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
-        sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
-            guard let measurement = self?.locationDistanceMeasurement else { return }
-            if measurement.startLocation != measurement.endLocation {
-                measurement.startLocation = mapLocation
-                measurement.endLocation = mapLocation
-            } else {
-                measurement.endLocation = mapLocation
-            }
-        }
-        completion(true)
-    }
     
-    func geoView(_ geoView: AGSGeoView, didTouchDragToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
-            guard let measurement = self?.locationDistanceMeasurement else { return }
-            measurement.endLocation = mapLocation
-        }
-    }
+    /// The controller of the distance panel.
+    var distanceWindowController: NSWindowController?
 }
