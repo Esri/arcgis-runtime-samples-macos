@@ -33,9 +33,12 @@ class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTou
         scene = AGSScene(basemap: .imagery())
         
         // Create the surface and set it as the base surface of the scene.
-        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
+        let elevationSources = [
+            AGSArcGISTiledElevationSource(url: .worldElevationService),
+            AGSArcGISTiledElevationSource(url: .brestElevationService)
+        ]
         let surface = AGSSurface()
-        surface.elevationSources.append(elevationSource)
+        surface.elevationSources.append(contentsOf: elevationSources)
         scene.baseSurface = surface
         
         // Create the building layer and add it to the scene.
