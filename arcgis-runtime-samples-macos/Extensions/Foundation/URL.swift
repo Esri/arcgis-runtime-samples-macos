@@ -14,13 +14,13 @@
 // limitations under the License.
 //
 
-import Foundation
+import struct Foundation.URL
 
 extension URL {
     // Image Services
     
     /// The url of the Terrain 3D ArcGIS REST Service.
-    static let terrain3DService = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
+    static let worldElevationService = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
     
     // Scene Services
     
