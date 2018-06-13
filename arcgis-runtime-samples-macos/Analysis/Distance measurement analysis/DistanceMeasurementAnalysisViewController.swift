@@ -71,23 +71,22 @@ class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTou
     
     // MARK: AGSGeoViewTouchDelegate
     
-    func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
+    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
-            guard let measurement = self?.locationDistanceMeasurement else { return }
-            if measurement.startLocation != measurement.endLocation {
-                measurement.startLocation = mapLocation
-                measurement.endLocation = mapLocation
-            } else {
-                measurement.endLocation = mapLocation
+            guard let `self` = self else { return }
+            let isTrackingCursorMovement = self.sceneView.trackCursorMovement
+            if !isTrackingCursorMovement {
+                self.locationDistanceMeasurement.startLocation = mapLocation
             }
+            self.locationDistanceMeasurement.endLocation = mapLocation
+            self.sceneView.trackCursorMovement = !isTrackingCursorMovement
         }
-        completion(true)
     }
     
-    func geoView(_ geoView: AGSGeoView, didTouchDragToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didMoveCursorToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
-            guard let measurement = self?.locationDistanceMeasurement else { return }
-            measurement.endLocation = mapLocation
+            guard let `self` = self, self.sceneView.trackCursorMovement else { return }
+            self.locationDistanceMeasurement.endLocation = mapLocation
         }
     }
     
