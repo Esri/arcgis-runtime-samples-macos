@@ -23,7 +23,7 @@ class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTou
     /// The scene displayed in the scene view.
     let scene: AGSScene
     /// The location distance measurement analysis.
-    var locationDistanceMeasurement: AGSLocationDistanceMeasurement
+    let locationDistanceMeasurement: AGSLocationDistanceMeasurement
     
     /// The scene view managed by the view controller.
     @IBOutlet weak var sceneView: AGSSceneView!
