@@ -58,7 +58,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneView.scene = scene
         
         //elevation source
-        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "http://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
         
         //surface
         let surface = AGSSurface()
