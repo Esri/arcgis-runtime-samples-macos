@@ -1094,7 +1094,7 @@
                                             <action selector="popUpButtonAction:" target="lPX-Bg-gfI" id="y72-fg-gOg"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
                                         <rect key="frame" x="18" y="11" width="75" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source File:" id="raF-q1-HLV">
                                             <font key="font" metaFont="system"/>
