@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -1081,10 +1082,21 @@
                                 </webPreferences>
                             </webView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="OR7-Wf-OcB">
-                                <rect key="frame" x="90" y="390" width="380" height="40"/>
+                                <rect key="frame" x="190" y="390" width="180" height="40"/>
                                 <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-9M-l79">
+                                        <rect key="frame" x="20" y="0.0" width="140" height="40"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
+                                                <rect key="frame" x="-2" y="12" width="75" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source File:" id="raF-q1-HLV">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-pS-yNo">
-                                        <rect key="frame" x="97" y="6" width="266" height="26"/>
+                                                <rect key="frame" x="77" y="7" width="66" height="26"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="zbD-en-mGK">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
@@ -1094,23 +1106,24 @@
                                             <action selector="popUpButtonAction:" target="lPX-Bg-gfI" id="y72-fg-gOg"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
-                                        <rect key="frame" x="18" y="11" width="75" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source File:" id="raF-q1-HLV">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="GxK-pS-yNo" firstAttribute="leading" secondItem="rxD-Xh-xkB" secondAttribute="trailing" constant="8" id="5W9-yc-Yfp"/>
-                                    <constraint firstAttribute="trailing" secondItem="GxK-pS-yNo" secondAttribute="trailing" constant="20" id="Cha-XI-E1w"/>
-                                    <constraint firstItem="rxD-Xh-xkB" firstAttribute="centerY" secondItem="OR7-Wf-OcB" secondAttribute="centerY" id="IFp-70-Nrc"/>
-                                    <constraint firstAttribute="width" constant="380" id="M9X-Nd-pBs"/>
-                                    <constraint firstItem="rxD-Xh-xkB" firstAttribute="leading" secondItem="OR7-Wf-OcB" secondAttribute="leading" constant="20" id="Wx0-CM-k0J"/>
-                                    <constraint firstItem="GxK-pS-yNo" firstAttribute="centerY" secondItem="OR7-Wf-OcB" secondAttribute="centerY" id="mjQ-bj-ULU"/>
+                                    <constraint firstItem="bO6-9M-l79" firstAttribute="top" secondItem="OR7-Wf-OcB" secondAttribute="top" id="1dS-UF-tIP"/>
+                                    <constraint firstAttribute="bottom" secondItem="bO6-9M-l79" secondAttribute="bottom" id="688-Qp-NRo"/>
+                                    <constraint firstItem="bO6-9M-l79" firstAttribute="leading" secondItem="OR7-Wf-OcB" secondAttribute="leading" constant="20" symbolic="YES" id="Bl7-B8-0LS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="M9X-Nd-pBs"/>
                                     <constraint firstAttribute="height" constant="40" id="oj0-yP-vLn"/>
+                                    <constraint firstAttribute="trailing" secondItem="bO6-9M-l79" secondAttribute="trailing" constant="20" symbolic="YES" id="rnX-OC-sph"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Xi-AI-47q">
@@ -1167,6 +1180,7 @@
                             <constraint firstAttribute="bottom" secondItem="1Xi-AI-47q" secondAttribute="bottom" id="VXB-4a-MAc"/>
                             <constraint firstItem="1Xi-AI-47q" firstAttribute="leading" secondItem="k7Y-O1-xhC" secondAttribute="leading" id="aeg-Ta-n2n"/>
                             <constraint firstItem="yjd-69-o1y" firstAttribute="top" secondItem="OR7-Wf-OcB" secondAttribute="bottom" constant="5" id="bGi-Ux-fSp"/>
+                            <constraint firstItem="OR7-Wf-OcB" firstAttribute="width" relation="lessThanOrEqual" secondItem="k7Y-O1-xhC" secondAttribute="width" id="dX6-9t-Wih"/>
                             <constraint firstItem="OR7-Wf-OcB" firstAttribute="centerX" secondItem="k7Y-O1-xhC" secondAttribute="centerX" id="fr5-qa-6T2"/>
                             <constraint firstItem="1Xi-AI-47q" firstAttribute="top" secondItem="yjd-69-o1y" secondAttribute="bottom" id="gJj-K9-AMj"/>
                             <constraint firstAttribute="trailing" secondItem="1Xi-AI-47q" secondAttribute="trailing" id="kvM-ye-PSI"/>
