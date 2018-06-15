@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14019"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
+    </dependencies>
+    <scenes>
+        <!--Style Web Map Service Layer View Controller-->
+        <scene sceneID="sCs-a0-IaD">
+            <objects>
+                <viewController id="4at-8Q-tJz" customClass="StyleWebMapServiceLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="EYk-Ia-i1s">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="EJD-Bj-JQr" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
+                                <rect key="frame" x="299" y="14" width="137" height="24"/>
+                                <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Style 1" selected="YES"/>
+                                        <segment label="Style 2" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="changeStyle:" target="4at-8Q-tJz" id="UOp-4e-oyr"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EJD-Bj-JQr" secondAttribute="trailing" id="3fW-d0-uc0"/>
+                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="bottom" secondItem="TKX-jE-LhD" secondAttribute="bottom" constant="16" id="GS9-GW-5Og"/>
+                            <constraint firstAttribute="bottom" secondItem="EJD-Bj-JQr" secondAttribute="bottom" id="HKu-x8-AWU"/>
+                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="top" secondItem="EYk-Ia-i1s" secondAttribute="top" id="MZx-6I-MEg"/>
+                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="leading" secondItem="EYk-Ia-i1s" secondAttribute="leading" id="cdz-E8-NIP"/>
+                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="trailing" secondItem="TKX-jE-LhD" secondAttribute="trailing" constant="16" id="m6Z-ct-TY7"/>
+                        </constraints>
+                    </view>
+                    <touchBar key="touchBar" id="GxE-B5-ZTN">
+                        <touchBarItems>
+                            <touchBarItem id="qnW-3w-0Z2">
+                                <viewController key="viewController" id="UKf-nD-lil">
+                                    <segmentedControl key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6SJ-sM-fqj">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="wPO-RK-Gkh">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="Style 1" selected="YES"/>
+                                                <segment label="Style 2" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="changeStyle:" target="4at-8Q-tJz" id="KS6-HH-HHw"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </viewController>
+                                <size key="designTimeSize" width="144" height="0.0"/>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
+                    <connections>
+                        <outlet property="mapView" destination="EJD-Bj-JQr" id="qgf-7i-JPr"/>
+                        <outlet property="segmentedControl" destination="TKX-jE-LhD" id="o2Y-EG-fod"/>
+                        <outlet property="touchBarSegmentedControl" destination="6SJ-sM-fqj" id="QvO-XS-DSO"/>
+                    </connections>
+                </viewController>
+                <customObject id="if8-tH-m5e" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="96"/>
+        </scene>
+    </scenes>
+</document>
