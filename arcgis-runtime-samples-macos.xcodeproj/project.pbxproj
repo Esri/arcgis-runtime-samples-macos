@@ -610,8 +610,8 @@
 		3E84EE431DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureTemplatePickerVC.swift; sourceTree = "<group>"; };
 		3E8724711BC6D971006386C1 /* DisplayMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayMapViewController.swift; path = "Maps/Display a map/DisplayMapViewController.swift"; sourceTree = "<group>"; };
 		3E8724731BC6D9CD006386C1 /* DisplayMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DisplayMap.storyboard; path = "Maps/Display a map/DisplayMap.storyboard"; sourceTree = "<group>"; };
-		3E87247A1BC70B41006386C1 /* TiledLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TiledLayerURLViewController.swift; path = "Layers/ArcGIS tiled layer (URL)/TiledLayerURLViewController.swift"; sourceTree = "<group>"; };
-		3E87247E1BC70BA3006386C1 /* TiledLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TiledLayerURL.storyboard; path = "Layers/ArcGIS tiled layer (URL)/TiledLayerURL.storyboard"; sourceTree = "<group>"; };
+		3E87247A1BC70B41006386C1 /* TiledLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledLayerURLViewController.swift; sourceTree = "<group>"; };
+		3E87247E1BC70BA3006386C1 /* TiledLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TiledLayerURL.storyboard; sourceTree = "<group>"; };
 		3E8724801BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FeatureLayerFeatureService.storyboard; path = "Features/Feature layer (feature service)/FeatureLayerFeatureService.storyboard"; sourceTree = "<group>"; };
 		3E8724821BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureLayerFeatureServiceViewController.swift; path = "Features/Feature layer (feature service)/FeatureLayerFeatureServiceViewController.swift"; sourceTree = "<group>"; };
 		3E8724871BC70E00006386C1 /* GraphicsWithRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicsWithRendererViewController.swift; path = "Display information/Add graphics with renderer/GraphicsWithRendererViewController.swift"; sourceTree = "<group>"; };
@@ -632,8 +632,8 @@
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateSaveMapViewController.swift; path = "Maps/Create and save a map/CreateSaveMapViewController.swift"; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOptionsViewController.swift; path = "Maps/Create and save a map/CreateOptionsViewController.swift"; sourceTree = "<group>"; };
 		3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateSaveMap.storyboard; path = "Maps/Create and save a map/CreateSaveMap.storyboard"; sourceTree = "<group>"; };
-		3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebTiledLayerViewController.swift; path = "Layers/Web tiled layer/WebTiledLayerViewController.swift"; sourceTree = "<group>"; };
-		3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = WebTiledLayer.storyboard; path = "Layers/Web tiled layer/WebTiledLayer.storyboard"; sourceTree = "<group>"; };
+		3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTiledLayerViewController.swift; sourceTree = "<group>"; };
+		3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebTiledLayer.storyboard; sourceTree = "<group>"; };
 		3EA733FE1EC0CCBE00356885 /* Animate3DSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Animate3DSymbols.storyboard; sourceTree = "<group>"; };
 		3EA733FF1EC0CCBE00356885 /* Animate3DSymbolsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animate3DSymbolsVC.swift; sourceTree = "<group>"; };
 		3EA734031EC0CCF400356885 /* GrandCanyon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GrandCanyon.csv; sourceTree = "<group>"; };
@@ -807,8 +807,7 @@
 				123F09591FD2AA19000760FE /* WMTSLayer.storyboard */,
 				123F095A1FD2AA19000760FE /* WMTSLayerViewController.swift */,
 			);
-			name = "WMTS layer";
-			path = "Layers/WMTS layer";
+			path = "WMTS layer";
 			sourceTree = "<group>";
 		};
 		123F095E1FD2AA9A000760FE /* WMS layer (URL) */ = {
@@ -817,8 +816,7 @@
 				123F095F1FD2AA9A000760FE /* WMSLayerUsingURL.storyboard */,
 				123F09601FD2AA9A000760FE /* WMSLayerUsingURLViewController.swift */,
 			);
-			name = "WMS layer (URL)";
-			path = "Layers/WMS layer (URL)";
+			path = "WMS layer (URL)";
 			sourceTree = "<group>";
 		};
 		1271FB9B1FE300E200536F60 /* Line of sight (location) */ = {
@@ -854,8 +852,7 @@
 				166E8FA11EE6313A00C57C46 /* RasterLayer.storyboard */,
 				166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */,
 			);
-			name = "Raster layer (file)";
-			path = "Layers/Raster layer (file)";
+			path = "Raster layer (file)";
 			sourceTree = "<group>";
 		};
 		2138507E1F74348F00F79149 /* Display grid */ = {
@@ -892,8 +889,7 @@
 				21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */,
 				21EA2F501FD8AE4000F39E9E /* RasterFunctionService.storyboard */,
 			);
-			name = "Raster function (service)";
-			path = "Layers/Raster function (service)";
+			path = "Raster function (service)";
 			sourceTree = "<group>";
 		};
 		3E01035A1E28579C0013AEEF /* Manage bookmarks */ = {
@@ -923,8 +919,7 @@
 				3E01036A1E298B530013AEEF /* LocalTiledLayer.storyboard */,
 				3E01036B1E298B530013AEEF /* LocalTiledLayerViewController.swift */,
 			);
-			name = "ArcGIS tiled layer (tile cache)";
-			path = "Layers/ArcGIS tiled layer (tile cache)";
+			path = "ArcGIS tiled layer (tile cache)";
 			sourceTree = "<group>";
 		};
 		3E01036E1E298D300013AEEF /* Tile packages */ = {
@@ -943,8 +938,7 @@
 				3E01037C1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift */,
 				3E01037D1E29961A0013AEEF /* SublayerCellView.swift */,
 			);
-			name = "Change sublayer visibility";
-			path = "Layers/Change sublayer visibility";
+			path = "Change sublayer visibility";
 			sourceTree = "<group>";
 		};
 		3E0103831E29A0850013AEEF /* Change feature layer renderer */ = {
@@ -1020,8 +1014,7 @@
 				3E049A251CED11A50031ADA9 /* MILUsingURL.storyboard */,
 				3E049A261CED11A50031ADA9 /* MILUsingURLViewController.swift */,
 			);
-			name = "ArcGIS map image layer (URL)";
-			path = "Layers/ArcGIS map image layer (URL)";
+			path = "ArcGIS map image layer (URL)";
 			sourceTree = "<group>";
 		};
 		3E049A291CED12FC0031ADA9 /* Identify graphics */ = {
@@ -1060,8 +1053,7 @@
 				3E049A411CED1EB70031ADA9 /* VectorTileLayerViewController.swift */,
 				3E049A461CED1F460031ADA9 /* VectorTileLayer.storyboard */,
 			);
-			name = "ArcGIS vector tiled layer (URL)";
-			path = "Layers/ArcGIS vector tiled layer (URL)";
+			path = "ArcGIS vector tiled layer (URL)";
 			sourceTree = "<group>";
 		};
 		3E04AB281DCAA7DE00B4E2FB /* Sketch on the map */ = {
@@ -1090,8 +1082,7 @@
 				3E0662541F031F2C007666DF /* ChangeSublayerRenderer.storyboard */,
 				3E0662551F031F2C007666DF /* ChangeSublayerRendererVC.swift */,
 			);
-			name = "Change sublayer renderer";
-			path = "Layers/Change sublayer renderer";
+			path = "Change sublayer renderer";
 			sourceTree = "<group>";
 		};
 		3E09CC751D39A4FC005D2757 /* Geodatabases */ = {
@@ -1265,9 +1256,8 @@
 				3E7823641DCD54CE0011B304 /* VectorTileCustomStyleVC.swift */,
 				3E7823621DCD54CE0011B304 /* VectorStylesViewController.swift */,
 			);
-			name = "ArcGIS vector tiled layer (custom style)";
-			path = "arcgis-runtime-samples-macos/Layers/ArcGIS vector tiled layer (custom style)";
-			sourceTree = SOURCE_ROOT;
+			path = "ArcGIS vector tiled layer (custom style)";
+			sourceTree = "<group>";
 		};
 		3E7C0E351CF90F0000200B6E /* Js */ = {
 			isa = PBXGroup;
@@ -1347,7 +1337,7 @@
 				123F09581FD2AA19000760FE /* WMTS layer */,
 				123F095E1FD2AA9A000760FE /* WMS layer (URL) */,
 			);
-			name = Layers;
+			path = Layers;
 			sourceTree = "<group>";
 		};
 		3E8724761BC70857006386C1 /* Features */ = {
@@ -1406,7 +1396,7 @@
 				3E87247A1BC70B41006386C1 /* TiledLayerURLViewController.swift */,
 				3E87247E1BC70BA3006386C1 /* TiledLayerURL.storyboard */,
 			);
-			name = "ArcGIS tiled layer (URL)";
+			path = "ArcGIS tiled layer (URL)";
 			sourceTree = "<group>";
 		};
 		3E8724861BC70DDE006386C1 /* Add graphics with renderer */ = {
@@ -1509,7 +1499,7 @@
 				3EA15C6D1ED88C9800B1F816 /* WebTiledLayerViewController.swift */,
 				3EA15C6F1ED88D2900B1F816 /* WebTiledLayer.storyboard */,
 			);
-			name = "Web tiled layer";
+			path = "Web tiled layer";
 			sourceTree = "<group>";
 		};
 		3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */ = {
@@ -1820,8 +1810,7 @@
 				3EFDE0901E30292700CBCD92 /* HillshadeRenderer.storyboard */,
 				3EFDE0911E30292700CBCD92 /* HillshadeRendererVC.swift */,
 			);
-			name = "Hillshade renderer";
-			path = "Layers/Hillshade renderer";
+			path = "Hillshade renderer";
 			sourceTree = "<group>";
 		};
 		3EFDE0951E303B0600CBCD92 /* Rasters */ = {
@@ -1851,8 +1840,7 @@
 				3EFDE09B1E31271700CBCD92 /* BlendRenderer.storyboard */,
 				3EFDE09C1E31271700CBCD92 /* BlendRendererViewController.swift */,
 			);
-			name = "Blend renderer";
-			path = "Layers/Blend renderer";
+			path = "Blend renderer";
 			sourceTree = "<group>";
 		};
 		3EFDE09F1E31279000CBCD92 /* Stretch renderer */ = {
@@ -1861,8 +1849,7 @@
 				3EFDE0A01E31279000CBCD92 /* StretchRenderer.storyboard */,
 				3EFDE0A11E31279000CBCD92 /* StretchRendererViewController.swift */,
 			);
-			name = "Stretch renderer";
-			path = "Layers/Stretch renderer";
+			path = "Stretch renderer";
 			sourceTree = "<group>";
 		};
 		3EFDE0A41E31279700CBCD92 /* RGB renderer */ = {
@@ -1872,8 +1859,8 @@
 				3EFDE0A61E31279700CBCD92 /* RGBRendererViewController.swift */,
 			);
 			name = "RGB renderer";
-			path = "arcgis-runtime-samples-macos/Layers/RGB Renderer";
-			sourceTree = SOURCE_ROOT;
+			path = "RGB Renderer";
+			sourceTree = "<group>";
 		};
 		3EFDE0D01E31850900CBCD92 /* Feature collection layer */ = {
 			isa = PBXGroup;
