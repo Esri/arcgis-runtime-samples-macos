@@ -1947,8 +1947,7 @@
 				4C240F7E20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard */,
 				4C240F8020D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift */,
 			);
-			name = "Style WMS layers";
-			path = "Layers/Style WMS layers";
+			path = "Style WMS layers";
 			sourceTree = "<group>";
 		};
 		4C73C5D420C0406D00D6D00B /* Open a scene (portal item) */ = {
