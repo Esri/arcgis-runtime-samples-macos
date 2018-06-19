@@ -147,7 +147,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.portal.load { (error) -> Void in
             if let error = error {
                 if (error as NSError).code != NSUserCancelledError {
-                    NSAlert(error: error).beginSheetModal(for: self.view.window!, completionHandler: nil)
+                    NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
             }
             else {
@@ -163,7 +163,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }
 
