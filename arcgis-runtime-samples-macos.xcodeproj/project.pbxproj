@@ -612,8 +612,8 @@
 		3E8724731BC6D9CD006386C1 /* DisplayMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayMap.storyboard; sourceTree = "<group>"; };
 		3E87247A1BC70B41006386C1 /* TiledLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TiledLayerURLViewController.swift; sourceTree = "<group>"; };
 		3E87247E1BC70BA3006386C1 /* TiledLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TiledLayerURL.storyboard; sourceTree = "<group>"; };
-		3E8724801BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FeatureLayerFeatureService.storyboard; path = "Features/Feature layer (feature service)/FeatureLayerFeatureService.storyboard"; sourceTree = "<group>"; };
-		3E8724821BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureLayerFeatureServiceViewController.swift; path = "Features/Feature layer (feature service)/FeatureLayerFeatureServiceViewController.swift"; sourceTree = "<group>"; };
+		3E8724801BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerFeatureService.storyboard; sourceTree = "<group>"; };
+		3E8724821BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerFeatureServiceViewController.swift; sourceTree = "<group>"; };
 		3E8724871BC70E00006386C1 /* GraphicsWithRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicsWithRendererViewController.swift; path = "Display information/Add graphics with renderer/GraphicsWithRendererViewController.swift"; sourceTree = "<group>"; };
 		3E87248B1BC70E78006386C1 /* GraphicsWithRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GraphicsWithRenderer.storyboard; path = "Display information/Add graphics with renderer/GraphicsWithRenderer.storyboard"; sourceTree = "<group>"; };
 		3E87248E1BC710A6006386C1 /* OpenExistingMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenExistingMap.storyboard; sourceTree = "<group>"; };
@@ -622,8 +622,8 @@
 		3E8A25BB1D36F75300D14F08 /* CreateGeometries.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateGeometries.storyboard; path = "Geometry/Create geometries/CreateGeometries.storyboard"; sourceTree = "<group>"; };
 		3E8A25BF1D36F9D200D14F08 /* MapLoaded.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapLoaded.storyboard; sourceTree = "<group>"; };
 		3E8A25C11D36F9F500D14F08 /* MapLoadedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLoadedViewController.swift; sourceTree = "<group>"; };
-		3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureLayerGDBViewController.swift; path = "Features/Feature layer (geodatabase)/FeatureLayerGDBViewController.swift"; sourceTree = "<group>"; };
-		3E8A25C71D37038000D14F08 /* FeatureLayerGDB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FeatureLayerGDB.storyboard; path = "Features/Feature layer (geodatabase)/FeatureLayerGDB.storyboard"; sourceTree = "<group>"; };
+		3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerGDBViewController.swift; sourceTree = "<group>"; };
+		3E8A25C71D37038000D14F08 /* FeatureLayerGDB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerGDB.storyboard; sourceTree = "<group>"; };
 		3E8D54FF1D5513D300E628D9 /* ScenePropertiesExpressions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ScenePropertiesExpressions.storyboard; path = "Scene properties expressions/ScenePropertiesExpressions.storyboard"; sourceTree = "<group>"; };
 		3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScenePropertiesExpressions.swift; path = "Scene properties expressions/ScenePropertiesExpressions.swift"; sourceTree = "<group>"; };
 		3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneLayerURLViewController.swift; path = "Scene layer (URL)/SceneLayerURLViewController.swift"; sourceTree = "<group>"; };
@@ -779,8 +779,7 @@
 				09607F8B1FDB644700FA43B6 /* TimeBasedQueryVC.swift */,
 				09607F891FDB641C00FA43B6 /* TimeBasedQuery.storyboard */,
 			);
-			name = "Time based query";
-			path = "Features/Time based query";
+			path = "Time based query";
 			sourceTree = "<group>";
 		};
 		10859BB01FE1A1AF00F6E552 /* Feature layer extrusion */ = {
@@ -945,8 +944,7 @@
 				3E0103841E29A0850013AEEF /* ChangeFeatureLayerRenderer.storyboard */,
 				3E0103851E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift */,
 			);
-			name = "Change feature layer renderer";
-			path = "Features/Change feature layer renderer";
+			path = "Change feature layer renderer";
 			sourceTree = "<group>";
 		};
 		3E0103891E29A7250013AEEF /* Feature layer definition expression */ = {
@@ -955,8 +953,7 @@
 				3E01038A1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard */,
 				3E01038B1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift */,
 			);
-			name = "Feature layer definition expression";
-			path = "Features/Feature layer definition expression";
+			path = "Feature layer definition expression";
 			sourceTree = "<group>";
 		};
 		3E01038F1E2DC8B50013AEEF /* Generate geodatabase */ = {
@@ -965,8 +962,7 @@
 				3E0103901E2DC8B50013AEEF /* GenerateGeodatabase.storyboard */,
 				3E0103911E2DC8B50013AEEF /* GenerateGeodatabaseVC.swift */,
 			);
-			name = "Generate geodatabase";
-			path = "Features/Generate geodatabase";
+			path = "Generate geodatabase";
 			sourceTree = "<group>";
 		};
 		3E049A131CEA92730031ADA9 /* Shared resources */ = {
@@ -1070,8 +1066,7 @@
 				3E04AB3D1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard */,
 				3E04AB3E1DCBEA7400B4E2FB /* FeatureLayerQueryVC.swift */,
 			);
-			name = "Feature layer query";
-			path = "Features/Feature layer query";
+			path = "Feature layer query";
 			sourceTree = "<group>";
 		};
 		3E0662531F031F2C007666DF /* Change sublayer renderer */ = {
@@ -1353,7 +1348,7 @@
 				3EF190A61EF9BF550037779D /* Add delete related features */,
 				09607F861FDB641C00FA43B6 /* Time based query */,
 			);
-			name = Features;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		3E8724771BC70866006386C1 /* Display information */ = {
@@ -1447,7 +1442,7 @@
 				3E8724801BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard */,
 				3E8724821BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift */,
 			);
-			name = "Feature layer (feature service)";
+			path = "Feature layer (feature service)";
 			sourceTree = "<group>";
 		};
 		3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */ = {
@@ -1456,7 +1451,7 @@
 				3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */,
 				3E8A25C71D37038000D14F08 /* FeatureLayerGDB.storyboard */,
 			);
-			name = "Feature layer (geodatabase)";
+			path = "Feature layer (geodatabase)";
 			sourceTree = "<group>";
 		};
 		3E8D54FE1D55138500E628D9 /* Scene properties expressions */ = {
@@ -1744,8 +1739,7 @@
 				3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */,
 				3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */,
 			);
-			name = "List related features";
-			path = "Features/List related features";
+			path = "List related features";
 			sourceTree = "<group>";
 		};
 		3EF024F01ECBF44600166EC5 /* Format coordinates */ = {
@@ -1764,8 +1758,7 @@
 				3EF190A71EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard */,
 				3EF190A81EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift */,
 			);
-			name = "Add delete related features";
-			path = "Features/Add delete related features";
+			path = "Add delete related features";
 			sourceTree = "<group>";
 		};
 		3EFDE07A1E2FED2C00CBCD92 /* Feature layer selection */ = {
@@ -1774,8 +1767,7 @@
 				3EFDE07B1E2FED2C00CBCD92 /* FeatureLayerSelection.storyboard */,
 				3EFDE07C1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift */,
 			);
-			name = "Feature layer selection";
-			path = "Features/Feature layer selection";
+			path = "Feature layer selection";
 			sourceTree = "<group>";
 		};
 		3EFDE0801E30100800CBCD92 /* Show legend */ = {
@@ -1863,8 +1855,7 @@
 				3EFDE0D11E31850900CBCD92 /* FeatureCollectionLayer.storyboard */,
 				3EFDE0D21E31850900CBCD92 /* FeatureCollectionLayerVC.swift */,
 			);
-			name = "Feature collection layer";
-			path = "Features/Feature collection layer";
+			path = "Feature collection layer";
 			sourceTree = "<group>";
 		};
 		3EFDE0D31E31850900CBCD92 /* Feature collection layer (query) */ = {
@@ -1873,8 +1864,7 @@
 				3EFDE0D41E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard */,
 				3EFDE0D51E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift */,
 			);
-			name = "Feature collection layer (query)";
-			path = "Features/Feature collection layer (query)";
+			path = "Feature collection layer (query)";
 			sourceTree = "<group>";
 		};
 		3EFDE0DC1E3288C900CBCD92 /* Analysis */ = {
@@ -1991,8 +1981,7 @@
 				D97B7E711FDAE98C00E1239D /* FeatureLayerShapefile.storyboard */,
 				D97B7E721FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift */,
 			);
-			name = "Feature layer (shapefile)";
-			path = "Features/Feature layer (shapefile)";
+			path = "Feature layer (shapefile)";
 			sourceTree = "<group>";
 		};
 		D97B7E751FDAEA3600E1239D /* Shapefiles */ = {
@@ -2016,8 +2005,7 @@
 				D9ED2DB01FD7622C0043BFE1 /* FeatureLayerGPKG.storyboard */,
 				D9ED2DAD1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift */,
 			);
-			name = "Feature layer (geopackage)";
-			path = "Features/Feature layer (geopackage)";
+			path = "Feature layer (geopackage)";
 			sourceTree = "<group>";
 		};
 		D9ED2DB31FD765870043BFE1 /* Geopackages */ = {
