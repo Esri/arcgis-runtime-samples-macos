@@ -681,8 +681,8 @@
 		3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindRouteViewController.swift; path = "Find route/FindRouteViewController.swift"; sourceTree = "<group>"; };
 		3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindRoute.storyboard; path = "Find route/FindRoute.storyboard"; sourceTree = "<group>"; };
 		3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectionsViewController.swift; path = "Find route/DirectionsViewController.swift"; sourceTree = "<group>"; };
-		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindAddressViewController.swift; path = "Search/Find address/FindAddressViewController.swift"; sourceTree = "<group>"; };
-		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FindAddress.storyboard; path = "Search/Find address/FindAddress.storyboard"; sourceTree = "<group>"; };
+		3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindAddressViewController.swift; sourceTree = "<group>"; };
+		3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindAddress.storyboard; sourceTree = "<group>"; };
 		3EEB2B9D1EBB8CC200B52513 /* ListRelatedFeatures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListRelatedFeatures.storyboard; sourceTree = "<group>"; };
 		3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRelatedFeaturesVC.swift; sourceTree = "<group>"; };
 		3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FormatCoordinates.storyboard; sourceTree = "<group>"; };
@@ -1716,7 +1716,7 @@
 			children = (
 				3EE3854B1DD3ACBC00B13E3C /* Find address */,
 			);
-			name = Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		3EE3854B1DD3ACBC00B13E3C /* Find address */ = {
@@ -1725,7 +1725,7 @@
 				3EE3854C1DD3ACF600B13E3C /* FindAddressViewController.swift */,
 				3EE3854E1DD3AD0B00B13E3C /* FindAddress.storyboard */,
 			);
-			name = "Find address";
+			path = "Find address";
 			sourceTree = "<group>";
 		};
 		3EEB2B9C1EBB8CC200B52513 /* List related features */ = {
