@@ -614,8 +614,8 @@
 		3E87247E1BC70BA3006386C1 /* TiledLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TiledLayerURL.storyboard; sourceTree = "<group>"; };
 		3E8724801BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerFeatureService.storyboard; sourceTree = "<group>"; };
 		3E8724821BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerFeatureServiceViewController.swift; sourceTree = "<group>"; };
-		3E8724871BC70E00006386C1 /* GraphicsWithRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicsWithRendererViewController.swift; path = "Display information/Add graphics with renderer/GraphicsWithRendererViewController.swift"; sourceTree = "<group>"; };
-		3E87248B1BC70E78006386C1 /* GraphicsWithRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GraphicsWithRenderer.storyboard; path = "Display information/Add graphics with renderer/GraphicsWithRenderer.storyboard"; sourceTree = "<group>"; };
+		3E8724871BC70E00006386C1 /* GraphicsWithRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsWithRendererViewController.swift; sourceTree = "<group>"; };
+		3E87248B1BC70E78006386C1 /* GraphicsWithRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphicsWithRenderer.storyboard; sourceTree = "<group>"; };
 		3E87248E1BC710A6006386C1 /* OpenExistingMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenExistingMap.storyboard; sourceTree = "<group>"; };
 		3E8724901BC710DA006386C1 /* OpenExistingMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenExistingMapViewController.swift; sourceTree = "<group>"; };
 		3E8A25B71D36F69400D14F08 /* CreateGeometriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGeometriesViewController.swift; path = "Geometry/Create geometries/CreateGeometriesViewController.swift"; sourceTree = "<group>"; };
@@ -642,14 +642,14 @@
 		3EA734061EC0CCF400356885 /* Snowdon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snowdon.csv; sourceTree = "<group>"; };
 		3EA7340D1EC0CD2D00356885 /* Bristol.dae */ = {isa = PBXFileReference; explicitFileType = compiled; fileEncoding = 4; path = Bristol.dae; sourceTree = "<group>"; };
 		3EA7340E1EC0CD2D00356885 /* Bristol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bristol.png; sourceTree = "<group>"; };
-		3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleRendererViewController.swift; path = "Display information/Simple renderer/SimpleRendererViewController.swift"; sourceTree = "<group>"; };
-		3EBA25501D30206400AB0703 /* SimpleRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleRenderer.storyboard; path = "Display information/Simple renderer/SimpleRenderer.storyboard"; sourceTree = "<group>"; };
-		3EBA25541D30264A00AB0703 /* UniqueValueRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UniqueValueRenderer.storyboard; path = "Display information/Unique value renderer/UniqueValueRenderer.storyboard"; sourceTree = "<group>"; };
-		3EBA25561D30266B00AB0703 /* UniqueValueRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniqueValueRendererViewController.swift; path = "Display information/Unique value renderer/UniqueValueRendererViewController.swift"; sourceTree = "<group>"; };
-		3EBA25661D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMarkerSymbolViewController.swift; path = "Display information/Simple marker symbol/SimpleMarkerSymbolViewController.swift"; sourceTree = "<group>"; };
-		3EBA25681D34491C00AB0703 /* SimpleMarkerSymbol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SimpleMarkerSymbol.storyboard; path = "Display information/Simple marker symbol/SimpleMarkerSymbol.storyboard"; sourceTree = "<group>"; };
-		3EBA256B1D344AA600AB0703 /* PictureMarkerSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PictureMarkerSymbols.storyboard; path = "Display information/Picture marker symbols/PictureMarkerSymbols.storyboard"; sourceTree = "<group>"; };
-		3EBA256D1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureMarkerSymbolsViewController.swift; path = "Display information/Picture marker symbols/PictureMarkerSymbolsViewController.swift"; sourceTree = "<group>"; };
+		3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRendererViewController.swift; sourceTree = "<group>"; };
+		3EBA25501D30206400AB0703 /* SimpleRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleRenderer.storyboard; sourceTree = "<group>"; };
+		3EBA25541D30264A00AB0703 /* UniqueValueRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UniqueValueRenderer.storyboard; sourceTree = "<group>"; };
+		3EBA25561D30266B00AB0703 /* UniqueValueRendererViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueValueRendererViewController.swift; sourceTree = "<group>"; };
+		3EBA25661D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMarkerSymbolViewController.swift; sourceTree = "<group>"; };
+		3EBA25681D34491C00AB0703 /* SimpleMarkerSymbol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleMarkerSymbol.storyboard; sourceTree = "<group>"; };
+		3EBA256B1D344AA600AB0703 /* PictureMarkerSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PictureMarkerSymbols.storyboard; sourceTree = "<group>"; };
+		3EBA256D1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureMarkerSymbolsViewController.swift; sourceTree = "<group>"; };
 		3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "arcgis-runtime-samples-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Controllers/MainViewController.swift; sourceTree = "<group>"; };
@@ -860,8 +860,7 @@
 				2138507F1F74348F00F79149 /* DisplayGrid.storyboard */,
 				213850801F74348F00F79149 /* DisplayGridViewController.swift */,
 			);
-			name = "Display grid";
-			path = "Display information/Display grid";
+			path = "Display grid";
 			sourceTree = "<group>";
 		};
 		2182C9851FDB1100003E3A0F /* Statistical query */ = {
@@ -1017,8 +1016,7 @@
 				3E049A2A1CED12FC0031ADA9 /* GOIdentify.storyboard */,
 				3E049A2B1CED12FC0031ADA9 /* GOIdentifyViewController.swift */,
 			);
-			name = "Identify graphics";
-			path = "Display information/Identify graphics";
+			path = "Identify graphics";
 			sourceTree = "<group>";
 		};
 		3E049A2E1CED132F0031ADA9 /* Add graphics with symbols */ = {
@@ -1027,8 +1025,7 @@
 				3E049A2F1CED132F0031ADA9 /* GraphicsWithSymbols.storyboard */,
 				3E049A301CED132F0031ADA9 /* GraphicsWithSymbolsViewController.swift */,
 			);
-			name = "Add graphics with symbols";
-			path = "Display information/Add graphics with symbols";
+			path = "Add graphics with symbols";
 			sourceTree = "<group>";
 		};
 		3E049A311CED132F0031ADA9 /* Show callout */ = {
@@ -1037,8 +1034,7 @@
 				3E049A321CED132F0031ADA9 /* Callout.storyboard */,
 				3E049A331CED132F0031ADA9 /* CalloutViewController.swift */,
 			);
-			name = "Show callout";
-			path = "Display information/Show callout";
+			path = "Show callout";
 			sourceTree = "<group>";
 		};
 		3E049A3D1CED1EB70031ADA9 /* ArcGIS vector tiled layer (URL) */ = {
@@ -1056,8 +1052,7 @@
 				3E04AB2D1DCAA7DE00B4E2FB /* SketchOnMap.storyboard */,
 				3E04AB2E1DCAA7DE00B4E2FB /* SketchOnMapViewController.swift */,
 			);
-			name = "Sketch on the map";
-			path = "Display information/Sketch on the map";
+			path = "Sketch on the map";
 			sourceTree = "<group>";
 		};
 		3E04AB3C1DCBEA7400B4E2FB /* Feature layer query */ = {
@@ -1367,7 +1362,7 @@
 				3EBA25531D30261800AB0703 /* Unique value renderer */,
 				2138507E1F74348F00F79149 /* Display grid */,
 			);
-			name = "Display information";
+			path = "Display information";
 			sourceTree = "<group>";
 		};
 		3E8724781BC70870006386C1 /* Edit data */ = {
@@ -1395,7 +1390,7 @@
 				3E8724871BC70E00006386C1 /* GraphicsWithRendererViewController.swift */,
 				3E87248B1BC70E78006386C1 /* GraphicsWithRenderer.storyboard */,
 			);
-			name = "Add graphics with renderer";
+			path = "Add graphics with renderer";
 			sourceTree = "<group>";
 		};
 		3E87248D1BC7104F006386C1 /* Open an existing map */ = {
@@ -1536,7 +1531,7 @@
 				3EBA254E1D30204700AB0703 /* SimpleRendererViewController.swift */,
 				3EBA25501D30206400AB0703 /* SimpleRenderer.storyboard */,
 			);
-			name = "Simple renderer";
+			path = "Simple renderer";
 			sourceTree = "<group>";
 		};
 		3EBA25531D30261800AB0703 /* Unique value renderer */ = {
@@ -1545,7 +1540,7 @@
 				3EBA25541D30264A00AB0703 /* UniqueValueRenderer.storyboard */,
 				3EBA25561D30266B00AB0703 /* UniqueValueRendererViewController.swift */,
 			);
-			name = "Unique value renderer";
+			path = "Unique value renderer";
 			sourceTree = "<group>";
 		};
 		3EBA25651D3448BB00AB0703 /* Simple marker symbol */ = {
@@ -1554,7 +1549,7 @@
 				3EBA25661D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift */,
 				3EBA25681D34491C00AB0703 /* SimpleMarkerSymbol.storyboard */,
 			);
-			name = "Simple marker symbol";
+			path = "Simple marker symbol";
 			sourceTree = "<group>";
 		};
 		3EBA256A1D344A6B00AB0703 /* Picture marker symbols */ = {
@@ -1563,7 +1558,7 @@
 				3EBA256B1D344AA600AB0703 /* PictureMarkerSymbols.storyboard */,
 				3EBA256D1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift */,
 			);
-			name = "Picture marker symbols";
+			path = "Picture marker symbols";
 			sourceTree = "<group>";
 		};
 		3EC1AE601BAC8DA100E32B1D = {
@@ -1777,8 +1772,7 @@
 				3EFDE0831E30100800CBCD92 /* ShowLegendViewController.swift */,
 				3EFDE0811E30100800CBCD92 /* LegendCellView.swift */,
 			);
-			name = "Show legend";
-			path = "Display information/Show legend";
+			path = "Show legend";
 			sourceTree = "<group>";
 		};
 		3EFDE0891E301C7800CBCD92 /* Control graphic draw order */ = {
@@ -1787,8 +1781,7 @@
 				3EFDE08A1E301C7800CBCD92 /* ControlGraphicDrawOrder.storyboard */,
 				3EFDE08B1E301C7800CBCD92 /* GraphicDrawOrderVC.swift */,
 			);
-			name = "Control graphic draw order";
-			path = "Display information/Control graphic draw order";
+			path = "Control graphic draw order";
 			sourceTree = "<group>";
 		};
 		3EFDE08F1E30292700CBCD92 /* Hillshade renderer */ = {
