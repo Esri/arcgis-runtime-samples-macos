@@ -1087,8 +1087,7 @@
 				3E29C9E51DC7C20800E5571F /* AddFeaturesFS.storyboard */,
 				3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */,
 			);
-			name = "Add features (feature service)";
-			path = "Edit data/Add features (feature service)";
+			path = "Add features (feature service)";
 			sourceTree = "<group>";
 		};
 		3E29C9EA1DC7C55200E5571F /* Delete features (feature service) */ = {
@@ -1097,8 +1096,7 @@
 				3E29C9EB1DC7C55200E5571F /* DeleteFeaturesFS.storyboard */,
 				3E29C9EC1DC7C55200E5571F /* DeleteFeaturesViewController.swift */,
 			);
-			name = "Delete features (feature service)";
-			path = "Edit data/Delete features (feature service)";
+			path = "Delete features (feature service)";
 			sourceTree = "<group>";
 		};
 		3E495C401D062E940021CD95 /* Scenes */ = {
@@ -1262,8 +1260,7 @@
 				3E84EE421DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift */,
 				3E84EE431DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift */,
 			);
-			name = "Edit features (connected)";
-			path = "Edit data/Edit features (connected)";
+			path = "Edit features (connected)";
 			sourceTree = "<group>";
 		};
 		3E87246F1BC6D918006386C1 /* Maps */ = {
@@ -1372,7 +1369,7 @@
 				3E29C9EA1DC7C55200E5571F /* Delete features (feature service) */,
 				3E84EE401DCA4ADE006731B5 /* Edit features (connected) */,
 			);
-			name = "Edit data";
+			path = "Edit data";
 			sourceTree = "<group>";
 		};
 		3E8724791BC70898006386C1 /* ArcGIS tiled layer (URL) */ = {
