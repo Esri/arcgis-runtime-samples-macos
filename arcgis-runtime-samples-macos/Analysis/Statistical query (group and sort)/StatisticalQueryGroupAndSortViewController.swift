@@ -402,7 +402,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             let alert = NSAlert()
             alert.messageText = messageText
             alert.informativeText = informativeText
-            alert.beginSheetModal(for: window, completionHandler: nil)
+            alert.beginSheetModal(for: window)
         }
     }
     
