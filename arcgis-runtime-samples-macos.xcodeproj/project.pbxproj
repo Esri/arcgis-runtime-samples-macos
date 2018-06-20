@@ -618,8 +618,8 @@
 		3E87248B1BC70E78006386C1 /* GraphicsWithRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GraphicsWithRenderer.storyboard; sourceTree = "<group>"; };
 		3E87248E1BC710A6006386C1 /* OpenExistingMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenExistingMap.storyboard; sourceTree = "<group>"; };
 		3E8724901BC710DA006386C1 /* OpenExistingMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenExistingMapViewController.swift; sourceTree = "<group>"; };
-		3E8A25B71D36F69400D14F08 /* CreateGeometriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGeometriesViewController.swift; path = "Geometry/Create geometries/CreateGeometriesViewController.swift"; sourceTree = "<group>"; };
-		3E8A25BB1D36F75300D14F08 /* CreateGeometries.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateGeometries.storyboard; path = "Geometry/Create geometries/CreateGeometries.storyboard"; sourceTree = "<group>"; };
+		3E8A25B71D36F69400D14F08 /* CreateGeometriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGeometriesViewController.swift; sourceTree = "<group>"; };
+		3E8A25BB1D36F75300D14F08 /* CreateGeometries.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGeometries.storyboard; sourceTree = "<group>"; };
 		3E8A25BF1D36F9D200D14F08 /* MapLoaded.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapLoaded.storyboard; sourceTree = "<group>"; };
 		3E8A25C11D36F9F500D14F08 /* MapLoadedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLoadedViewController.swift; sourceTree = "<group>"; };
 		3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerGDBViewController.swift; sourceTree = "<group>"; };
@@ -1410,7 +1410,7 @@
 				3EFDE0E91E32D66300CBCD92 /* Spatial operations */,
 				3EF024F01ECBF44600166EC5 /* Format coordinates */,
 			);
-			name = Geometry;
+			path = Geometry;
 			sourceTree = "<group>";
 		};
 		3E8A25B61D36F65A00D14F08 /* Create geometries */ = {
@@ -1419,7 +1419,7 @@
 				3E8A25B71D36F69400D14F08 /* CreateGeometriesViewController.swift */,
 				3E8A25BB1D36F75300D14F08 /* CreateGeometries.storyboard */,
 			);
-			name = "Create geometries";
+			path = "Create geometries";
 			sourceTree = "<group>";
 		};
 		3E8A25BE1D36F99800D14F08 /* Map loaded */ = {
@@ -1743,9 +1743,8 @@
 				3EF024F11ECBF44600166EC5 /* FormatCoordinates.storyboard */,
 				3EF024F21ECBF44600166EC5 /* FormatCoordinatesViewController.swift */,
 			);
-			name = "Format coordinates";
-			path = "arcgis-runtime-samples-macos/Geometry/Format coordinates";
-			sourceTree = SOURCE_ROOT;
+			path = "Format coordinates";
+			sourceTree = "<group>";
 		};
 		3EF190A61EF9BF550037779D /* Add delete related features */ = {
 			isa = PBXGroup;
@@ -1900,8 +1899,7 @@
 				3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */,
 				3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */,
 			);
-			name = "Spatial operations";
-			path = "Geometry/Spatial operations";
+			path = "Spatial operations";
 			sourceTree = "<group>";
 		};
 		4C2244B020C9C37D005E6DEE /* Foundation */ = {
