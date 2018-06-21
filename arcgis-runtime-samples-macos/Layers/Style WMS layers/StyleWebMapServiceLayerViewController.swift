@@ -58,11 +58,11 @@ class StyleWebMapServiceLayerViewController: NSViewController {
         // Assign the map to the map view.
         mapView.map = map
         
+        mapView.attributionTopAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16).isActive = true
+        
         // The segmented control needs to be enabled here if the layer is
         // already loaded.
         updateSegmentedControlEnabledState()
-        
-        view.becomeFirstResponder()
     }
     
     /// Called in response to the layer loading successfully.
