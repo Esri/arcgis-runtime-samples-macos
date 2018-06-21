@@ -333,6 +333,6 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

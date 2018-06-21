@@ -32,7 +32,7 @@ class TerrainExaggerationViewController: NSViewController {
         super.viewDidLoad()
         
         // setup the surface with an elevation source and add the surface to the scene
-        let elevation = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevation = AGSArcGISTiledElevationSource(url: .worldElevationService)
         surface.elevationSources.append(elevation)
         scene.baseSurface = surface
         

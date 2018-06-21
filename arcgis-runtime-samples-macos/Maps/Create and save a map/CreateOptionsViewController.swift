@@ -88,6 +88,6 @@ class CreateOptionsViewController: NSViewController {
         alert.messageText = "Info"
         alert.informativeText = text
         alert.addButton(withTitle: "OK")
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

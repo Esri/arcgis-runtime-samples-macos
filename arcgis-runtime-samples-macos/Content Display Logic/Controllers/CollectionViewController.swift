@@ -80,7 +80,7 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let sampleNode = self.sampleNodes[(indexPath as NSIndexPath).item]
+        let sampleNode = self.sampleNodes[indexPath.item]
         
         let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
@@ -105,6 +105,6 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     //MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[(indexPaths.first! as NSIndexPath).item])
+        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[indexPaths.first!.item])
     }
 }

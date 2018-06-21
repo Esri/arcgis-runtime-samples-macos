@@ -14,12 +14,12 @@
 
 import ArcGIS
 
-protocol GPKGLayerTableCellDelegate {
+protocol GPKGLayerTableCellDelegate: class {
     func removeLayerFromMap(cell:GPKGLayerTableCell)
 }
 
 class GPKGLayerTableCell: NSTableCellView {
-    var delegate:GPKGLayerTableCellDelegate?
+    weak var delegate:GPKGLayerTableCellDelegate?
     
     var agsLayer:AGSLayer? {
         didSet {

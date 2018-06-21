@@ -73,9 +73,9 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MobileMapViewItem"), for: indexPath) as! MobileMapViewItem
         
-        let map = self.mapPackage.maps[(indexPath as NSIndexPath).item]
+        let map = self.mapPackage.maps[indexPath.item]
         //label
-        item.label.stringValue = "Map \((indexPath as NSIndexPath).item + 1)"
+        item.label.stringValue = "Map \(indexPath.item + 1)"
         
         //thumbnail
         item.thumbnailView.image = map.item?.thumbnail?.image
@@ -93,7 +93,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         let indexPath = indexPaths.first!
-        let map = self.mapPackage.maps[(indexPath as NSIndexPath).item]
+        let map = self.mapPackage.maps[indexPath.item]
         
         self.delegate?.mapPackageCellView(self, didSelectMap: map)
     }
@@ -105,6 +105,6 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.window!)
     }
 }
