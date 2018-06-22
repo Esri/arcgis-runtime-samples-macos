@@ -85,7 +85,7 @@ class StyleWebMapServiceLayerViewController: NSViewController {
         alert.messageText = "Failed to load WMS layer"
         alert.alertStyle = .informational
         alert.addButton(withTitle: "OK")
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
     
     /// Sets the enabled state of the segmented control based on whether there
