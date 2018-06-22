@@ -36,7 +36,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         self.mapView.map = self.map
         
         //create feature table using a url
-        self.featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/2")!)
+        self.featureTable = AGSServiceFeatureTable(url: .unitedStatesMapService)
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
