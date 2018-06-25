@@ -27,7 +27,6 @@ class StyleWebMapServiceLayerViewController: NSViewController {
     /// The map view managed by the view controller.
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var segmentedControl: NSSegmentedControl!
-    @IBOutlet weak var touchBarSegmentedControl: NSSegmentedControl!
     
     required init?(coder aDecoder: NSCoder) {
         // Create the map.
@@ -91,21 +90,11 @@ class StyleWebMapServiceLayerViewController: NSViewController {
     /// Sets the enabled state of the segmented control based on whether there
     /// are multiple styles.
     func updateSegmentedControlEnabledState() {
-        let newEnabled = styles.count > 1
-        segmentedControl?.isEnabled = newEnabled
-        touchBarSegmentedControl?.isEnabled = newEnabled
+        segmentedControl?.isEnabled = styles.count > 1
     }
     
     @IBAction func changeStyle(_ sender: NSSegmentedControl) {
         let sublayer = layer.sublayers.firstObject as? AGSWMSSublayer
         sublayer?.currentStyle = styles[sender.selectedSegment]
-        switch sender {
-        case segmentedControl:
-            touchBarSegmentedControl.selectedSegment = sender.selectedSegment
-        case touchBarSegmentedControl:
-            segmentedControl.selectedSegment = sender.selectedSegment
-        default:
-            break
-        }
     }
 }
