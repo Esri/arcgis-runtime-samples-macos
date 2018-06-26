@@ -980,18 +980,10 @@
 				3E09CC751D39A4FC005D2757 /* Geodatabases */,
 				D9ED2DB31FD765870043BFE1 /* Geopackages */,
 				D97B7E751FDAEA3600E1239D /* Shapefiles */,
-				3E049A141CEA92730031ADA9 /* Libraries */,
 				3E01036E1E298D300013AEEF /* Tile packages */,
 				3EFDE0951E303B0600CBCD92 /* Rasters */,
 			);
 			path = "Shared resources";
-			sourceTree = "<group>";
-		};
-		3E049A141CEA92730031ADA9 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Libraries;
 			sourceTree = "<group>";
 		};
 		3E049A231CED0C760031ADA9 /* Controllers */ = {
