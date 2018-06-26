@@ -226,7 +226,7 @@ class MainViewController: NSViewController, NSOutlineViewDataSource, NSOutlineVi
         if self.expandedNodeIndex != nil {
             self.outlineView.collapseItem(self.nodesArray[self.expandedNodeIndex])
         }
-        if let node = (notification as NSNotification).userInfo?["NSObject"] as? Node {
+        if let node = notification.userInfo?["NSObject"] as? Node {
             
             self.expandedNodeIndex = self.nodesArray.index(of: node)
         }
