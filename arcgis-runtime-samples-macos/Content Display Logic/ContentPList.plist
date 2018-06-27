@@ -1260,6 +1260,18 @@
 					<string>FeatureLayerExtrusionViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Scene layer selection</string>
+				<key>storyboardName</key>
+				<string>SceneLayerSelection</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to identify geoelements in a scene layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SceneLayerSelectionViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 </array>

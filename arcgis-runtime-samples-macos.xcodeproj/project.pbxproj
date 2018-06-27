@@ -346,6 +346,9 @@
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
+		4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
+		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
+		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		97F8BF121FDA6E4800A65B2E /* RasterLayerUsingService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */; };
 		97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF161FDA6E6300A65B2E /* RasterLayerGPKG.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */; };
@@ -386,6 +389,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */,
 				1271FBA01FE3016B00536F60 /* LineOfSightLocationViewController.swift in CopyFiles */,
 				2136E7D2200EB46D0071BA99 /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */,
 				4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */,
@@ -741,6 +745,8 @@
 		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
 		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
+		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
+		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1110,6 +1116,7 @@
 				3E8D54FE1D55138500E628D9 /* Scene properties expressions */,
 				3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */,
 				10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */,
+				4CE3B22920E2ACE000D4A06A /* Scene layer selection */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1942,6 +1949,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4CE3B22920E2ACE000D4A06A /* Scene layer selection */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */,
+				4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */,
+			);
+			path = "Scene layer selection";
+			sourceTree = "<group>";
+		};
 		97F8BF0E1FDA6D7E00A65B2E /* Raster layer (service) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2173,6 +2189,7 @@
 				166E8FA21EE6313A00C57C46 /* RasterLayer.storyboard in Resources */,
 				3E8A25BC1D36F75300D14F08 /* CreateGeometries.storyboard in Resources */,
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
+				4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */,
@@ -2281,6 +2298,7 @@
 				3EFDE0841E30100800CBCD92 /* LegendCellView.swift in Sources */,
 				10C3F21C1F02BBB6003C7F20 /* TerrainExaggerationViewController.swift in Sources */,
 				3E78235F1DCD52D20011B304 /* IdentifyLayersViewController.swift in Sources */,
+				4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */,
 				3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
