@@ -18,11 +18,21 @@ import AppKit
 import ArcGIS
 
 class QueryMapImageSublayerViewController: NSViewController {
+    /// The map view managed by the view controller.
+    @IBOutlet weak var mapView: AGSMapView!
+    @IBOutlet weak var populationTextField: NSTextField!
+    @IBOutlet weak var queryButton: NSButton!
+
     /// The map displayed in the map view.
     let map: AGSMap
     let imageLayer: AGSArcGISMapImageLayer
     let graphicsOverlay: AGSGraphicsOverlay
-    
+
+    // Convenience property
+    var subLayers:[AGSArcGISMapImageSublayer] {
+        return imageLayer.mapImageSublayers as? [AGSArcGISMapImageSublayer] ?? []
+    }
+
     required init?(coder: NSCoder) {
         map = AGSMap(basemap: .streetsVector())
         
@@ -48,12 +58,7 @@ class QueryMapImageSublayerViewController: NSViewController {
             }
         }
     }
-    
-    /// The map view managed by the view controller.
-    @IBOutlet weak var mapView: AGSMapView!
-    @IBOutlet weak var populationTextField: NSTextField!
-    @IBOutlet weak var queryButton: NSButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,10 +73,11 @@ class QueryMapImageSublayerViewController: NSViewController {
     
     /// Called in response to the layer loading successfully.
     func layerDidLoad() {
-        imageLayer.mapImageSublayers.forEach { ($0 as? AGSArcGISMapImageSublayer)?.load() }
-        enableControlsIfNeeded()
+        AGSLoadObjects(subLayers) { [weak self] _ in
+            self?.enableControlsIfNeeded()
+        }
     }
-    
+
     /// Called in response to the layer failing to load. Presents an alert
     /// announcing the failure.
     ///
@@ -100,7 +106,10 @@ class QueryMapImageSublayerViewController: NSViewController {
     /// Enables the text field and button if they can be enabled and haven't
     /// been already.
     func enableControlsIfNeeded() {
-        guard isViewLoaded, imageLayer.loadStatus == .loaded else { return }
+        guard isViewLoaded, imageLayer.loadStatus == .loaded, subLayers.filter({ subLayer in
+            return subLayer.loadStatus == .loaded
+        }).count > 0 else { return }
+
         populationTextField.isEnabled = true
         populationTextField.window?.makeFirstResponder(populationTextField)
         queryButton.isEnabled = true
@@ -127,52 +136,28 @@ class QueryMapImageSublayerViewController: NSViewController {
     /// The population value provided by the user.
     var populationValue: Int? {
         didSet {
-            populationValueDidChange()
-        }
-    }
-    
-    /// Called in response to the population value changing.
-    func populationValueDidChange() {
-        graphicsOverlay.graphics.removeAllObjects()
-        
-        guard let populationValue = populationValue else { return }
-        
-        let populationQuery = AGSQueryParameters()
-        populationQuery.whereClause = "POP2000 > \(populationValue)"
-        populationQuery.geometry = mapView.currentViewpoint(with: .boundingGeometry)?.targetGeometry
-        
-        for table in [citiesTable, statesTable, countiesTable] {
-            table?.queryFeatures(with: populationQuery) { [weak self, weak table] (result, error) in
-                guard let featureTable = table else { return }
-                if let result = result {
-                    self?.featureTable(featureTable, featureQueryDidSucceedWith: result)
-                } else if let error = error {
-                    self?.featureTable(featureTable, featureQueryDidFailWith: error)
+            graphicsOverlay.graphics.removeAllObjects()
+
+            guard let populationValue = populationValue else { return }
+
+            let populationQuery = AGSQueryParameters()
+            populationQuery.whereClause = "POP2000 > \(populationValue)"
+            populationQuery.geometry = mapView.currentViewpoint(with: .boundingGeometry)?.targetGeometry
+
+            for table in [citiesTable, statesTable, countiesTable] {
+                table?.queryFeatures(with: populationQuery) { [weak self, weak table] (result, error) in
+                    guard let featureTable = table, let symbol = self?.makeSymbol(featureTable: featureTable) else { return }
+                    if let result = result {
+                        let graphics = result.featureEnumerator().allObjects.map {
+                            AGSGraphic(geometry: $0.geometry, symbol: symbol, attributes: nil)
+                        }
+                        self?.graphicsOverlay.graphics.addObjects(from: graphics)
+                    } else if let error = error {
+                        print("\(featureTable.tableName) feature query failed: \(error)")
+                    }
                 }
             }
         }
-    }
-    
-    /// Called when a feature query of a feature table finishes successfully.
-    ///
-    /// - Parameters:
-    ///   - featureTable: The feature table that was queried.
-    ///   - result: The feature query result.
-    func featureTable(_ featureTable: AGSFeatureTable, featureQueryDidSucceedWith result: AGSFeatureQueryResult) {
-        let symbol = makeSymbol(featureTable: featureTable)
-        let graphics: [AGSGraphic] = result.featureEnumerator().map {
-            AGSGraphic(geometry: ($0 as! AGSFeature).geometry, symbol: symbol, attributes: nil)
-        }
-        graphicsOverlay.graphics.addObjects(from: graphics)
-    }
-    
-    /// Called when a feature query of a feature table is unsuccessful.
-    ///
-    /// - Parameters:
-    ///   - featureTable: The feature table that was queried.
-    ///   - error: The error that caused the query to fail.
-    func featureTable(_ featureTable: AGSFeatureTable, featureQueryDidFailWith error: Error) {
-        print("\(featureTable.tableName) feature query failed: \(error)")
     }
     
     /// Creates a symbol for features of the given feature table.
