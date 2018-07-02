@@ -20,7 +20,6 @@ import ArcGIS
 class QueryMapImageSublayerViewController: NSViewController {
     /// The map displayed in the map view.
     let map: AGSMap
-    let imageLayer: AGSArcGISMapImageLayer
     let graphicsOverlay: AGSGraphicsOverlay
     
     required init?(coder: NSCoder) {
@@ -31,8 +30,8 @@ class QueryMapImageSublayerViewController: NSViewController {
         map.initialViewpoint = AGSViewpoint(center: center, scale: 6000000)
         
         // Create an image layer and add it to the map.
-        imageLayer = AGSArcGISMapImageLayer(url: .unitedStatesMapService)
-        map.operationalLayers.add(imageLayer)
+        let mapImageLayer = AGSArcGISMapImageLayer(url: .unitedStatesMapService)
+        map.operationalLayers.add(mapImageLayer)
         
         // Create the graphics overlay.
         graphicsOverlay = AGSGraphicsOverlay()
@@ -40,11 +39,11 @@ class QueryMapImageSublayerViewController: NSViewController {
         super.init(coder: coder)
         
         // Begin loading the image layer.
-        imageLayer.load { [weak self] (error) in
+        mapImageLayer.load { [weak self, unowned layer = mapImageLayer] (error) in
             if let error = error {
-                self?.layerDidFailToLoad(with: error)
+                self?.mapImageLayer(layer, didFailToLoadWith: error)
             } else {
-                self?.layerDidLoad()
+                self?.mapImageLayerDidLoad(layer)
             }
         }
     }
@@ -66,41 +65,41 @@ class QueryMapImageSublayerViewController: NSViewController {
         enableControlsIfNeeded()
     }
     
-    /// Called in response to the layer loading successfully.
     func layerDidLoad() {
         imageLayer.mapImageSublayers.forEach { ($0 as? AGSArcGISMapImageSublayer)?.load() }
         enableControlsIfNeeded()
     }
     
-    /// Called in response to the layer failing to load. Presents an alert
     /// announcing the failure.
+                    print("Error loading sublayer \(sublayer.name): \(error)")
+                } else {
+                    self?.enableControlsIfNeeded()
+                }
+            }
+        }
+    }
+    
+    /// Called in response to the map image layer failing to load. Presents an
+    /// alert announcing the failure.
     ///
     /// - Parameter error: The error that caused loading to fail.
-    func layerDidFailToLoad(with error: Error) {
+    func mapImageLayer(_ layer: AGSArcGISMapImageLayer, didFailToLoadWith error: Error) {
         guard let window = view.window else { return }
         let alert = NSAlert()
-        alert.messageText = "Failed to load ArcGIS map image layer"
+        alert.messageText = "Failed to load ArcGIS map image layer \(layer.name)."
         alert.alertStyle = .informational
         alert.addButton(withTitle: "OK")
         alert.beginSheetModal(for: window)
     }
     
-    var citiesTable: AGSServiceFeatureTable? {
-        return (imageLayer.mapImageSublayers[0] as? AGSArcGISMapImageSublayer)?.table
-    }
-    
-    var statesTable: AGSServiceFeatureTable? {
-        return (imageLayer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer)?.table
-    }
-    
-    var countiesTable: AGSServiceFeatureTable? {
-        return (imageLayer.mapImageSublayers[3] as? AGSArcGISMapImageSublayer)?.table
-    }
-    
     /// Enables the text field and button if they can be enabled and haven't
     /// been already.
     func enableControlsIfNeeded() {
-        guard isViewLoaded, imageLayer.loadStatus == .loaded else { return }
+        guard isViewLoaded,
+            !populationTextField.isEnabled,
+            mapImageLayerSublayers.contains(where: { $0.value.loadStatus == .loaded }) else {
+                return
+        }
         populationTextField.isEnabled = true
         populationTextField.window?.makeFirstResponder(populationTextField)
         queryButton.isEnabled = true
@@ -141,13 +140,13 @@ class QueryMapImageSublayerViewController: NSViewController {
         populationQuery.whereClause = "POP2000 > \(populationValue)"
         populationQuery.geometry = mapView.currentViewpoint(with: .boundingGeometry)?.targetGeometry
         
-        for table in [citiesTable, statesTable, countiesTable] {
-            table?.queryFeatures(with: populationQuery) { [weak self, weak table] (result, error) in
-                guard let featureTable = table else { return }
+        for (_, sublayer) in mapImageLayerSublayers {
+            guard let table = sublayer.table else { continue }
+            table.queryFeatures(with: populationQuery) { [weak self] (result, error) in
                 if let result = result {
-                    self?.featureTable(featureTable, featureQueryDidSucceedWith: result)
+                    self?.featureTable(table, featureQueryDidSucceedWith: result)
                 } else if let error = error {
-                    self?.featureTable(featureTable, featureQueryDidFailWith: error)
+                    self?.featureTable(table, featureQueryDidFailWith: error)
                 }
             }
         }
@@ -181,12 +180,12 @@ class QueryMapImageSublayerViewController: NSViewController {
     /// - Returns: An `AGSSymbol` object.
     func makeSymbol(featureTable: AGSFeatureTable) -> AGSSymbol? {
         switch featureTable {
-        case citiesTable:
+        case mapImageLayerSublayers[.cities]?.table:
             return AGSSimpleMarkerSymbol(style: .circle, color: .red, size: 16)
-        case statesTable:
+        case mapImageLayerSublayers[.states]?.table:
             let outline = AGSSimpleLineSymbol(style: .solid, color: #colorLiteral(red: 0, green: 0.5450980392, blue: 0.5450980392, alpha: 1), width: 6)
             return AGSSimpleFillSymbol(style: .null, color: .cyan, outline: outline)
-        case countiesTable:
+        case mapImageLayerSublayers[.counties]?.table:
             let outline = AGSSimpleLineSymbol(style: .dash, color: .cyan, width: 2)
             return AGSSimpleFillSymbol(style: .diagonalCross, color: .cyan, outline: outline)
         default:
