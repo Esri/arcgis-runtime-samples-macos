@@ -43,28 +43,24 @@ class DrawingStatusViewController: NSViewController {
         
         //assign the map to mapView
         self.mapView.map = self.map
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         
-        self.mapView.addObserver(self, forKeyPath: "drawStatus", options: .new, context: nil)
+        mapView.addObserver(self, forKeyPath: #keyPath(AGSGeoView.drawStatus), options: .initial, context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        DispatchQueue.main.async { [weak self] () -> Void in
-            guard let weakSelf = self else {
-                return
-            }
-            
-            if weakSelf.mapView.drawStatus == .inProgress {
-                weakSelf.activityIndicatorView.isHidden = false
-            }
-            else {
-                weakSelf.activityIndicatorView.isHidden = true
-            }
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.activityIndicatorView.isHidden = strongSelf.mapView.drawStatus == .completed
         }
     }
     
-    deinit {
-        self.mapView.removeObserver(self, forKeyPath: "drawStatus")
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        
+        mapView.removeObserver(self, forKeyPath: #keyPath(AGSGeoView.drawStatus))
     }
-    
 }
