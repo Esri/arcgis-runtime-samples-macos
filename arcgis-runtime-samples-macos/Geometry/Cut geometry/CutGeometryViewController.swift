@@ -21,7 +21,7 @@ class CutGeometryViewController: NSViewController {
     
     let graphicsOverlay = AGSGraphicsOverlay()
     
-    var lakeSuperiorPolygonGraphic: AGSGraphic = {
+    let lakeSuperiorPolygonGraphic: AGSGraphic = {
         
         // create an array of points that represents Lake Superior (polygon). Use the same spatial reference as the underlying base map
         let points = [
@@ -72,7 +72,7 @@ class CutGeometryViewController: NSViewController {
         return graphic
     }()
     
-    var borderPolylineGraphic: AGSGraphic = {
+    let borderPolylineGraphic: AGSGraphic = {
         
         // create an array of points that represents a cut line
         let points = [
