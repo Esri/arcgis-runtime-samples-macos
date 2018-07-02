@@ -520,6 +520,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Style WMS layers</string>
+				<key>storyboardName</key>
+				<string>StyleWebMapServiceLayer</string>
+				<key>descriptionText</key>
+				<string>Shows how to change the style of a WMS layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>StyleWebMapServiceLayerViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Query a map image sublayer</string>
 				<key>storyboardName</key>
 				<string>QueryMapImageSublayer</string>
@@ -1258,6 +1270,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>FeatureLayerExtrusionViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Scene layer selection</string>
+				<key>storyboardName</key>
+				<string>SceneLayerSelection</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to identify geoelements in a scene layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SceneLayerSelectionViewController</string>
 				</array>
 			</dict>
 		</array>

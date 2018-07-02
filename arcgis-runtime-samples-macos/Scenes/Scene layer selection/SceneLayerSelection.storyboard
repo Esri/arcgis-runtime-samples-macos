@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zgy-hP-Hx9">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scene Layer Selection View Controller-->
+        <scene sceneID="qFd-Kr-7iR">
+            <objects>
+                <viewController id="Zgy-hP-Hx9" customClass="SceneLayerSelectionViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="X0d-4M-Qub">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="K5w-3I-esk" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="K5w-3I-esk" firstAttribute="top" secondItem="X0d-4M-Qub" secondAttribute="top" id="5Cz-dh-XC6"/>
+                            <constraint firstAttribute="trailing" secondItem="K5w-3I-esk" secondAttribute="trailing" id="GLB-Hp-4mE"/>
+                            <constraint firstItem="K5w-3I-esk" firstAttribute="leading" secondItem="X0d-4M-Qub" secondAttribute="leading" id="Qvb-yu-7vr"/>
+                            <constraint firstAttribute="bottom" secondItem="K5w-3I-esk" secondAttribute="bottom" id="qGY-Hy-MUN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="K5w-3I-esk" id="t0R-xb-JsM"/>
+                    </connections>
+                </viewController>
+                <customObject id="VEC-H1-Frw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="192"/>
+        </scene>
+    </scenes>
+</document>
