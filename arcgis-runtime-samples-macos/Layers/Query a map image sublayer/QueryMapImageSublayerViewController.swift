@@ -65,12 +65,23 @@ class QueryMapImageSublayerViewController: NSViewController {
         enableControlsIfNeeded()
     }
     
-    func layerDidLoad() {
-        imageLayer.mapImageSublayers.forEach { ($0 as? AGSArcGISMapImageSublayer)?.load() }
-        enableControlsIfNeeded()
+    enum SublayerKey {
+        case cities
+        case states
+        case counties
     }
     
-    /// announcing the failure.
+    /// The sublayers of the map image layer.
+    var mapImageLayerSublayers = [SublayerKey: AGSArcGISMapImageSublayer]()
+    
+    /// Called in response to the map image layer loading successfully.
+    func mapImageLayerDidLoad(_ layer: AGSArcGISMapImageLayer) {
+        mapImageLayerSublayers[.cities] = layer.mapImageSublayers[0] as? AGSArcGISMapImageSublayer
+        mapImageLayerSublayers[.states] = layer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer
+        mapImageLayerSublayers[.counties] = layer.mapImageSublayers[3] as? AGSArcGISMapImageSublayer
+        for sublayer in mapImageLayerSublayers.values {
+            sublayer.load { [weak self] (error) in
+                if let error = error {
                     print("Error loading sublayer \(sublayer.name): \(error)")
                 } else {
                     self?.enableControlsIfNeeded()
