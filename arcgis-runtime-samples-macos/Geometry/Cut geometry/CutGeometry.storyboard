@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cut Geometry View Controller-->
+        <scene sceneID="e7x-ur-E6P">
+            <objects>
+                <viewController id="snF-ms-OmO" customClass="CutGeometryViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="MPW-TP-25B">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-Fg-Hvg" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lW7-NO-G6Y">
+                                        <rect key="frame" x="355" y="252" width="81" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1n0-Yq-m9b"/>
+                                            <constraint firstAttribute="width" constant="69" id="rmp-hj-GaR"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="push" title="Cut" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eVz-kU-eQV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="cutGeometryWithPolyline:" target="snF-ms-OmO" id="lBQ-LW-tMw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lW7-NO-G6Y" firstAttribute="top" secondItem="aoQ-Fg-Hvg" secondAttribute="top" constant="20" id="Kd9-rg-j59"/>
+                                    <constraint firstAttribute="trailing" secondItem="lW7-NO-G6Y" secondAttribute="trailing" constant="20" id="TTn-oh-uVt"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="1M4-tR-pfz"/>
+                            <constraint firstAttribute="trailing" secondItem="aoQ-Fg-Hvg" secondAttribute="trailing" id="7Hh-ib-wcJ"/>
+                            <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="N8A-bk-Tfs"/>
+                            <constraint firstAttribute="bottom" secondItem="aoQ-Fg-Hvg" secondAttribute="bottom" id="edp-fc-R8Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aoQ-Fg-Hvg" id="zoe-5E-YwM"/>
+                    </connections>
+                </viewController>
+                <customObject id="R6H-6h-X9c" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="257"/>
+        </scene>
+    </scenes>
+</document>
