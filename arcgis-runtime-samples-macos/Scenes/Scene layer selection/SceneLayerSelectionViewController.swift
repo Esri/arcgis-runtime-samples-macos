@@ -84,8 +84,7 @@ extension SceneLayerSelectionViewController: AGSGeoViewTouchDelegate {
         sceneView.identifyLayer(buildingsLayer, screenPoint: screenPoint, tolerance: 10, returnPopupsOnly: false) { [weak self] (result) in
             if let error = result.error {
                 print("\(result.layerContent.name) identify failed: \(error)")
-            } else {
-                guard let feature = result.geoElements.first as? AGSFeature else { return }
+            } else if let feature = result.geoElements.first as? AGSFeature {
                 self?.buildingsLayer.select(feature)
             }
         }
