@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="I0H-h1-60D">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Geodesic Operations View Controller-->
+        <scene sceneID="FVO-dj-MK5">
+            <objects>
+                <viewController id="I0H-h1-60D" customClass="GeodesicOperationsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="X4U-B3-FJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ijx-Ue-UUy" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="266"/>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q47-iH-UAW">
+                                <rect key="frame" x="3" y="271" width="444" height="24"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to set destination" id="n0f-Yi-ORR">
+                                    <font key="font" size="14" name="Avenir-Medium"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ijx-Ue-UUy" firstAttribute="top" secondItem="Q47-iH-UAW" secondAttribute="bottom" constant="5" id="LaX-Zb-c4R"/>
+                            <constraint firstAttribute="bottom" secondItem="Ijx-Ue-UUy" secondAttribute="bottom" id="d7b-DG-Ezg"/>
+                            <constraint firstItem="Ijx-Ue-UUy" firstAttribute="leading" secondItem="X4U-B3-FJ0" secondAttribute="leading" id="iGD-av-of3"/>
+                            <constraint firstAttribute="trailing" secondItem="Ijx-Ue-UUy" secondAttribute="trailing" id="l9H-4d-eBs"/>
+                            <constraint firstItem="Q47-iH-UAW" firstAttribute="leading" secondItem="X4U-B3-FJ0" secondAttribute="leading" constant="5" id="pKV-BZ-poG"/>
+                            <constraint firstItem="Q47-iH-UAW" firstAttribute="top" secondItem="X4U-B3-FJ0" secondAttribute="top" constant="5" id="wMM-UX-AaH"/>
+                            <constraint firstAttribute="trailing" secondItem="Q47-iH-UAW" secondAttribute="trailing" constant="5" id="wYY-KR-9mp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ijx-Ue-UUy" id="5CL-cQ-giA"/>
+                    </connections>
+                </viewController>
+                <customObject id="2sT-30-oLh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="311"/>
+        </scene>
+    </scenes>
+</document>
