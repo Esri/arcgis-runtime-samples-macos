@@ -346,6 +346,9 @@
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
+		94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
+		94557F6420EAA0CD0003644A /* CutGeometry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94557F6320EAA0CD0003644A /* CutGeometry.storyboard */; };
+		94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
 		4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
 		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
@@ -498,6 +501,7 @@
 				3E69DE431CFE2826001F65F7 /* GOIdentifyViewController.swift in CopyFiles */,
 				3E69DE441CFE2826001F65F7 /* CalloutViewController.swift in CopyFiles */,
 				3E7C0E341CF8FD6000200B6E /* DisplayMapViewController.swift in CopyFiles */,
+				94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +749,8 @@
 		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
 		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
+		94557F6120EAA0B90003644A /* CutGeometryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutGeometryViewController.swift; sourceTree = "<group>"; };
+		94557F6320EAA0CD0003644A /* CutGeometry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CutGeometry.storyboard; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
 		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1411,6 +1417,7 @@
 				3E8A25B61D36F65A00D14F08 /* Create geometries */,
 				3EFDE0E91E32D66300CBCD92 /* Spatial operations */,
 				3EF024F01ECBF44600166EC5 /* Format coordinates */,
+				94557F6020EAA08D0003644A /* Cut geometry */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -1949,6 +1956,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		94557F6020EAA08D0003644A /* Cut geometry */ = {
+			isa = PBXGroup;
+			children = (
+				94557F6120EAA0B90003644A /* CutGeometryViewController.swift */,
+				94557F6320EAA0CD0003644A /* CutGeometry.storyboard */,
+			);
+			path = "Cut geometry";
+            sourceTree = "<group>";
+        };
 		4CE3B22920E2ACE000D4A06A /* Scene layer selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -2144,6 +2160,7 @@
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
 				3EEB2B9F1EBB8CC200B52513 /* ListRelatedFeatures.storyboard in Resources */,
 				3E496EC61DD14FBE004C921C /* SanFrancisco.mmpk in Resources */,
+				94557F6420EAA0CD0003644A /* CutGeometry.storyboard in Resources */,
 				3EBA25551D30264A00AB0703 /* UniqueValueRenderer.storyboard in Resources */,
 				3EFDE0E31E3288C900CBCD92 /* Hotspots.storyboard in Resources */,
 				3E8724811BC70CC4006386C1 /* FeatureLayerFeatureService.storyboard in Resources */,
@@ -2366,6 +2383,7 @@
 				3E8724891BC70E00006386C1 /* GraphicsWithRendererViewController.swift in Sources */,
 				3E495C431D0635C10021CD95 /* ExtrudeGraphicsViewController.swift in Sources */,
 				3EF024F41ECBF44600166EC5 /* FormatCoordinatesViewController.swift in Sources */,
+				94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */,
 				3E7C0E321CF8F4FE00200B6E /* SourceCodeViewController.swift in Sources */,
 				3E8DB5721D2B45A000D48BC6 /* SceneLayerURLViewController.swift in Sources */,
 				3EDC84181F19886E002DBCF2 /* DirectionsViewController.swift in Sources */,
