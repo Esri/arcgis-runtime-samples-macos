@@ -57,11 +57,14 @@ class SceneLayerSelectionViewController: NSViewController {
         
         let camera = AGSCamera(latitude: 48.378, longitude: -4.494, altitude: 200, heading: 345, pitch: 65, roll: 0)
         sceneView.setViewpointCamera(camera)
+        if buildingsLayer.loadStatus == .loaded {
+            sceneView.touchDelegate = self
+        }
     }
     
     /// Called in response to the layer loading successfully.
     func layerDidLoad() {
-        sceneView.touchDelegate = self
+        sceneView?.touchDelegate = self
     }
     
     /// Called in response to the layer failing to load. Presents an alert
