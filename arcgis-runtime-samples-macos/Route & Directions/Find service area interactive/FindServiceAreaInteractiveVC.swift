@@ -63,7 +63,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         self.getDefaultParameters()
         
         //facility picture marker symbol
-        let facilitySymbol = AGSPictureMarkerSymbol(image: NSImage(named: "Facility")!)
+        let facilitySymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "Facility"))!)
         
         //offset symbol in Y to align image properly
         facilitySymbol.offsetY = 21
@@ -72,7 +72,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         self.facilitiesGraphicsOverlay.renderer = AGSSimpleRenderer(symbol: facilitySymbol)
         
         //barrier symbol
-        let barrierSymbol = AGSSimpleFillSymbol(style: .diagonalCross, color: NSColor.red, outline: nil)
+        let barrierSymbol = AGSSimpleFillSymbol(style: .diagonalCross, color: .red, outline: nil)
         
         //set symbol on barrier graphics overlay using renderer
         self.barriersGraphicsOverlay.renderer = AGSSimpleRenderer(symbol: barrierSymbol)
@@ -235,6 +235,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

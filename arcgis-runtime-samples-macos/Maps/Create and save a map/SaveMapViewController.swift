@@ -60,7 +60,7 @@ class SaveMapViewController: NSViewController {
             alert.messageText = "Error"
             alert.informativeText = "Title, tags and description are required fields"
             alert.addButton(withTitle: "OK")
-            alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+            alert.beginSheetModal(for: self.view.window!)
             return
         }
         

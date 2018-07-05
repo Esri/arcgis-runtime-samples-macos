@@ -59,7 +59,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //change selection width for feature layer
         self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = NSColor.yellow
+        self.parksFeatureLayer.selectionColor = .yellow
         
         //add parks feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
@@ -213,7 +213,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
-        let cellView = outlineView.make(withIdentifier: "ListCell", owner: self) as! NSTableCellView
+        let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListCell"), owner: self) as! NSTableCellView
         cellView.wantsLayer = true
         
         if let result = item as? AGSRelatedFeatureQueryResult {
@@ -255,6 +255,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

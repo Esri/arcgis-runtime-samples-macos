@@ -19,8 +19,8 @@ import ArcGIS
 
 class ChangeBasemapViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var segmentedControl:NSSegmentedControl!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var mapsList: NSPopUpButton!
     
     var map:AGSMap!
     
@@ -28,23 +28,37 @@ class ChangeBasemapViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: AGSBasemap.streets())
         
         //assign the map to the map view
         self.mapView.map = map
         
     }
     
-    @IBAction func segmentValueChanged(_ sender: NSSegmentedControl) {
-        switch sender.selectedSegment {
+    @IBAction func changeBasemapsAction(_ sender: NSPopUpButton) {
+        switch sender.indexOfSelectedItem {
         case 0:
-            self.map.basemap = AGSBasemap.topographic()
-        case 1:
             self.map.basemap = AGSBasemap.streets()
+        case 1:
+            self.map.basemap = AGSBasemap.streetsVector()
         case 2:
+            self.map.basemap = AGSBasemap.streetsNightVector()
+        case 3:
             self.map.basemap = AGSBasemap.imagery()
+        case 4:
+            self.map.basemap = AGSBasemap.imageryWithLabels()
+        case 5:
+            self.map.basemap = AGSBasemap.imageryWithLabelsVector()
+        case 6:
+            self.map.basemap = AGSBasemap.darkGrayCanvasVector()
+        case 7:
+            self.map.basemap = AGSBasemap.lightGrayCanvas()
+        case 8:
+            self.map.basemap = AGSBasemap.lightGrayCanvasVector()
+        case 9:
+            self.map.basemap = AGSBasemap.navigationVector()
         default:
-            self.map.basemap = AGSBasemap.oceans()
+            self.map.basemap = AGSBasemap.openStreetMap()
         }
     }
     

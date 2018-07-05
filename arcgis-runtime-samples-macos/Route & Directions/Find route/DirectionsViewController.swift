@@ -35,7 +35,7 @@ class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTable
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         //cell view
-        let view = tableView.make(withIdentifier: "DirectionCellView", owner: self)
+        let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DirectionCellView"), owner: self)
         
         guard let directionManeuver = self.route?.directionManeuvers[row] else {
             return view

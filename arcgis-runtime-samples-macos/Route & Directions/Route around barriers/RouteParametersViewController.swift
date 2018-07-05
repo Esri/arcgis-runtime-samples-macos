@@ -36,9 +36,9 @@ class RouteParametersViewController: NSViewController {
     
     func setupUI() {
         if self.routeParameters != nil {
-            self.findBestSequenceButton.state = self.routeParameters.findBestSequence ? NSOnState : NSOffState
-            self.preservceFirstStopButton.state = self.routeParameters.preserveFirstStop ? NSOnState : NSOffState
-            self.preservceLastStopButton.state = self.routeParameters.preserveLastStop ? NSOnState : NSOffState
+            self.findBestSequenceButton.state = self.routeParameters.findBestSequence ? NSControl.StateValue.on : NSControl.StateValue.off
+            self.preservceFirstStopButton.state = self.routeParameters.preserveFirstStop ? NSControl.StateValue.on : NSControl.StateValue.off
+            self.preservceLastStopButton.state = self.routeParameters.preserveLastStop ? NSControl.StateValue.on : NSControl.StateValue.off
             self.enableSubSwitches(self.routeParameters.findBestSequence)
         }
     }
@@ -52,14 +52,14 @@ class RouteParametersViewController: NSViewController {
     
     @IBAction func switchValueChanged(_ sender:NSButton) {
         if sender == self.findBestSequenceButton {
-            self.routeParameters.findBestSequence = (sender.state == NSOnState)
-            self.enableSubSwitches(sender.state == NSOnState)
+            self.routeParameters.findBestSequence = (sender.state == NSControl.StateValue.on)
+            self.enableSubSwitches(sender.state == NSControl.StateValue.on)
         }
         else if sender == self.preservceFirstStopButton {
-            self.routeParameters.preserveFirstStop = (self.preservceFirstStopButton.state == NSOnState)
+            self.routeParameters.preserveFirstStop = (self.preservceFirstStopButton.state == NSControl.StateValue.on)
         }
         else {
-            self.routeParameters.preserveLastStop = (self.preservceLastStopButton.state == NSOnState)
+            self.routeParameters.preserveLastStop = (self.preservceLastStopButton.state == NSControl.StateValue.on)
         }
     }
 }

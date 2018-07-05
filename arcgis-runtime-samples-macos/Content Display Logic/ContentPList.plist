@@ -518,6 +518,18 @@
 					<string>WMSLayerUsingURLViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Style WMS layers</string>
+				<key>storyboardName</key>
+				<string>StyleWebMapServiceLayer</string>
+				<key>descriptionText</key>
+				<string>Shows how to change the style of a WMS layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>StyleWebMapServiceLayerViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -959,6 +971,18 @@
 					<string>FormatCoordinatesViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Cut geometry</string>
+				<key>storyboardName</key>
+				<string>CutGeometry</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to cut a geometry with a polyline using the GeometryEngine. For example, you may want to subdivide a large parcel polygon into several smaller parcels.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>CutGeometryViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -1026,18 +1050,6 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Analyze viewshed</string>
-				<key>storyboardName</key>
-				<string>Viewshed</string>
-				<key>descriptionText</key>
-				<string>This sample demonstrates how to calculate a viewshed using a geoprocessing service.</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>ViewshedViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
 				<string>Statistical query</string>
 				<key>storyboardName</key>
 				<string>StatisticalQuery</string>
@@ -1060,30 +1072,42 @@
 					<string>StatisticalQueryGroupAndSortViewController</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Viewshed (camera)</string>
-                <key>storyboardName</key>
-                <string>ViewshedCamera</string>
-                <key>descriptionText</key>
-                <string>This sample demonstrates how to create a location viewshed from a camera.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>ViewshedCameraViewController</string>
-                </array>
-            </dict>
-            <dict>
-                <key>displayName</key>
-                <string>Viewshed (location)</string>
-                <key>storyboardName</key>
-                <string>ViewshedLocation</string>
-                <key>descriptionText</key>
-                <string>Demonstrates how to interactively edit a viewshed analysis in a scene and see updates on-the-fly.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>ViewshedLocationViewController</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Viewshed (geoprocessing)</string>
+				<key>storyboardName</key>
+				<string>ViewshedGeoprocessing</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to calculate a viewshed using a geoprocessing service.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ViewshedGeoprocessingViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Viewshed (camera)</string>
+				<key>storyboardName</key>
+				<string>ViewshedCamera</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to create a location viewshed from a camera.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ViewshedCameraViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Viewshed (location)</string>
+				<key>storyboardName</key>
+				<string>ViewshedLocation</string>
+				<key>descriptionText</key>
+				<string>Demonstrates how to interactively edit a viewshed analysis in a scene and see updates on-the-fly.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ViewshedLocationViewController</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Viewshed (GeoElement)</string>
@@ -1096,18 +1120,31 @@
 					<string>ViewshedGeoElementViewController</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Line of sight (location)</string>
-                <key>storyboardName</key>
-                <string>LineOfSightLocation</string>
-                <key>descriptionText</key>
-                <string>Shows how to interactively place a line of sight between two locations.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>LineOfSightLocationViewController</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Line of sight (location)</string>
+				<key>storyboardName</key>
+				<string>LineOfSightLocation</string>
+				<key>descriptionText</key>
+				<string>Shows how to interactively place a line of sight between two locations.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>LineOfSightLocationViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Distance measurement analysis</string>
+				<key>storyboardName</key>
+				<string>DistanceMeasurementAnalysis</string>
+				<key>descriptionText</key>
+				<string>Demonstrates measuring 3D distances between two points in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DistanceMeasurementAnalysisViewController</string>
+					<string>DistanceViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -1115,6 +1152,18 @@
 		<string>Scenes</string>
 		<key>children</key>
 		<array>
+			<dict>
+				<key>displayName</key>
+				<string>Open a scene (portal item)</string>
+				<key>storyboardName</key>
+				<string>OpenScene</string>
+				<key>descriptionText</key>
+				<string>This sample shows you how to open a web scene from a portal item.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenSceneViewController</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Display a scene</string>
@@ -1221,6 +1270,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>FeatureLayerExtrusionViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Scene layer selection</string>
+				<key>storyboardName</key>
+				<string>SceneLayerSelection</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to identify geoelements in a scene layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SceneLayerSelectionViewController</string>
 				</array>
 			</dict>
 		</array>

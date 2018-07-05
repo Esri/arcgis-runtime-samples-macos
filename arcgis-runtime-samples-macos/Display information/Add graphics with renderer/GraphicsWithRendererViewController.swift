@@ -39,7 +39,7 @@ class GraphicsWithRendererViewController: NSViewController {
     func addGraphicsOverlay() {
         //point graphic
         let pointGeometry = AGSPoint(x: 40e5, y: 40e5, spatialReference: AGSSpatialReference.webMercator())
-        let pointSymbol = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.diamond, color: NSColor.red, size: 10)
+        let pointSymbol = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.diamond, color: .red, size: 10)
         let pointGraphic = AGSGraphic(geometry: pointGeometry, symbol: nil, attributes: nil)
         
         //create graphics overlay for point
@@ -60,7 +60,7 @@ class GraphicsWithRendererViewController: NSViewController {
         lineGeometry.addPointWith(x: -10e5, y: 40e5)
         lineGeometry.addPointWith(x: 20e5, y: 50e5)
     
-        let lineSymbol = AGSSimpleLineSymbol(style: AGSSimpleLineSymbolStyle.solid, color: NSColor.blue, width: 5)
+        let lineSymbol = AGSSimpleLineSymbol(style: AGSSimpleLineSymbolStyle.solid, color: .blue, width: 5)
         let lineGraphic = AGSGraphic(geometry: lineGeometry.toGeometry(), symbol: nil, attributes: nil)
         
         // create graphics overlay for polyline
@@ -82,7 +82,7 @@ class GraphicsWithRendererViewController: NSViewController {
         polygonGeometry.addPointWith(x: 20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: -20e5)
         polygonGeometry.addPointWith(x: -20e5, y: -20e5)
-        let polygonSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.solid, color: NSColor.yellow, outline: nil)
+        let polygonSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.solid, color: .yellow, outline: nil)
         let polygonGraphic = AGSGraphic(geometry: polygonGeometry.toGeometry(), symbol: nil, attributes: nil)
         
         //create graphics overlay for polygon

@@ -54,7 +54,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         
         //change selection width for feature layer
         self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = NSColor.yellow
+        self.parksFeatureLayer.selectionColor = .yellow
         
         //add feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
@@ -282,7 +282,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let feature = self.relatedFeatures[row]
         
         //cell view
-        let cellView = tableView.make(withIdentifier: "RelatedFeatureCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RelatedFeatureCellView"), owner: self) as! NSTableCellView
         
         //use the field Scientific_Name for specie's info
         cellView.textField?.stringValue = feature.attributes["Scientific_Name"] as! String
@@ -333,6 +333,6 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

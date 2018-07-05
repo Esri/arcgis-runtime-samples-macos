@@ -150,21 +150,21 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     func routeSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.yellow, width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .solid, color: .yellow, width: 5)
         return symbol
     }
     
     func directionSymbol() -> AGSSimpleLineSymbol {
-        let symbol = AGSSimpleLineSymbol(style: .dashDot, color: NSColor.orange, width: 5)
+        let symbol = AGSSimpleLineSymbol(style: .dashDot, color: .orange, width: 5)
         return symbol
     }
     
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
-        let markerImage = NSImage(named: "BlueMarker")!
+        let markerImage = NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         
-        let textSymbol = AGSTextSymbol(text: "\(index)", color: NSColor.white, size: 20, horizontalAlignment: AGSHorizontalAlignment.center, verticalAlignment: AGSVerticalAlignment.middle)
+        let textSymbol = AGSTextSymbol(text: "\(index)", color: .white, size: 20, horizontalAlignment: .center, verticalAlignment: .middle)
         textSymbol.offsetY = markerSymbol.offsetY
         
         let compositeSymbol = AGSCompositeSymbol(symbols: [markerSymbol, textSymbol])
@@ -173,7 +173,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     }
     
     func barrierSymbol() -> AGSSimpleFillSymbol {
-        return AGSSimpleFillSymbol(style: .diagonalCross, color: NSColor.red, outline: nil)
+        return AGSSimpleFillSymbol(style: .diagonalCross, color: .red, outline: nil)
     }
     
     //MARK: - AGSGeoViewTouchDelegate
@@ -226,11 +226,14 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RouteSettingsSegue" {
+        guard let id = segue.identifier else {
+            return
+        }
+        if id.rawValue == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
         }
-        else if segue.identifier == "DirectionsListSegue" {
+        else if id.rawValue == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as! DirectionsListViewController
             self.directionsListViewController.delegate = self
         }
@@ -262,6 +265,6 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

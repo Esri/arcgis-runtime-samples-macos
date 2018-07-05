@@ -35,7 +35,7 @@ class DisplaySceneViewController: NSViewController {
         
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
     }

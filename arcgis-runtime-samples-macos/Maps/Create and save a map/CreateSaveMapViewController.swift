@@ -77,11 +77,14 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OptionsVCSegue" {
+        guard let id = segue.identifier else {
+            return
+        }
+        if id.rawValue == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
         }
-        else if segue.identifier == "SaveMapVCSegue" {
+        else if id.rawValue == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as! SaveMapViewController
             self.saveMapVC.delegate = self
         }
@@ -142,9 +145,9 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     @IBAction func saveAsAction(_ sender: AnyObject) {
         self.portal = AGSPortal(url: URL(string: "https://www.arcgis.com")!, loginRequired: true)
         self.portal.load { (error) -> Void in
-            if let error = error as? NSError {
-                if error.code != NSUserCancelledError {
-                    NSAlert(error: error).beginSheetModal(for: self.view.window!, completionHandler: nil)
+            if let error = error {
+                if (error as NSError).code != NSUserCancelledError {
+                    NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
             }
             else {
@@ -160,7 +163,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }
 

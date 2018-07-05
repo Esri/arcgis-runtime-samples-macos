@@ -21,16 +21,17 @@ class VectorTileLayerViewController: NSViewController {
 
     @IBOutlet var mapView:AGSMapView!
     
-    private var navigationURLString = "https://www.arcgis.com/home/item.html?id=dcbbba0edf094eaa81af19298b9c6247"
-    private var streetsURLString = "https://www.arcgis.com/home/item.html?id=4e1133c28ac04cca97693cf336cd49ad"
-    private var nightURLString = "https://www.arcgis.com/home/item.html?id=bf79e422e9454565ae0cbe9553cf6471"
-    private var darkGrayURLString = "https://www.arcgis.com/home/item.html?id=850db44b9eb845d3bd42b19e8aa7a024"
+    private var midCenturyURLString = "https://www.arcgis.com/home/item.html?id=7675d44bb1e4428aa2c30a9b68f97822"
+    private var coloredPencilURLString = "https://www.arcgis.com/home/item.html?id=4cf7e1fb9f254dcda9c8fbadb15cf0f8"
+    private var newsPaperURLString = "https://www.arcgis.com/home/item.html?id=dfb04de5f3144a80bc3f9f336228d24a"
+    private var novaURLString = "https://www.arcgis.com/home/item.html?id=75f4dfdff19e445395653121a95a85db"
+    private var nightURLString = "https://www.arcgis.com/home/item.html?id=86f556a2d1fd468181855a35e344567f"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //create a vector tiled layer
-        let vectorTileLayer = AGSArcGISVectorTiledLayer(url: URL(string: navigationURLString)!)
+        let vectorTileLayer = AGSArcGISVectorTiledLayer(url: URL(string: midCenturyURLString)!)
         //create a map and set the vector tiled layer as the basemap
         let map = AGSMap(basemap: AGSBasemap(baseLayer: vectorTileLayer))
         
@@ -46,13 +47,15 @@ class VectorTileLayerViewController: NSViewController {
         var urlString:String
         switch sender.selectedSegment {
         case 0:
-            urlString = navigationURLString
+            urlString = midCenturyURLString
         case 1:
-            urlString = streetsURLString
+            urlString = coloredPencilURLString
         case 2:
-            urlString = nightURLString
+            urlString = newsPaperURLString
+        case 3:
+            urlString = novaURLString
         default:
-            urlString = darkGrayURLString
+            urlString = nightURLString
         }
         
         //create the new vector tiled layer using the url

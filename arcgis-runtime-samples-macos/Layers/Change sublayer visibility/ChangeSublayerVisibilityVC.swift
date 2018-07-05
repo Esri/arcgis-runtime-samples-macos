@@ -60,7 +60,7 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let sublayer = self.mapImageLayer.mapImageSublayers[row] as! AGSArcGISMapImageSublayer
         
-        let cellView = tableView.make(withIdentifier: "SublayerCellView", owner: self) as! SublayerCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "SublayerCellView"), owner: self) as! SublayerCellView
         cellView.button.title = sublayer.name
         cellView.delegate = self
         cellView.index = row

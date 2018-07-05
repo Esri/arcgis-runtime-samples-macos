@@ -19,7 +19,7 @@ import ArcGIS
 
 let viewshedURLString = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/ESRI_Elevation_World/GPServer/Viewshed"
 
-class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
+class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDelegate {
 
     @IBOutlet var mapView:AGSMapView!
     
@@ -39,7 +39,7 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.mapView.touchDelegate = self
         
         //renderer for graphics overlays
-        let pointSymbol = AGSSimpleMarkerSymbol(style: .circle, color: NSColor.red, size: 10)
+        let pointSymbol = AGSSimpleMarkerSymbol(style: .circle, color: .red, size: 10)
         let renderer = AGSSimpleRenderer(symbol: pointSymbol)
         self.inputGraphicsOverlay.renderer = renderer
         
@@ -129,20 +129,19 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
             //hide progress indicator
             self?.view.window?.hideProgressIndicator()
             
-            if let error = error as? NSError {
-                if error.code != NSUserCancelledError {
-                    self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
+            guard error == nil else {
+                if (error! as NSError).code != NSUserCancelledError {
+                    self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
                 }
+                return
             }
-            else {
-                //The service returns result in form of AGSGeoprocessingFeatures
-                //Cast the results and add the features from featureSet to graphics overlay
-                //in form of graphics
-                if let resultFeatures = result?.outputs["Viewshed_Result"] as? AGSGeoprocessingFeatures, let featureSet = resultFeatures.features {
-                    for feature in featureSet.featureEnumerator().allObjects {
-                        let graphic = AGSGraphic(geometry: feature.geometry, symbol: nil, attributes: nil)
-                        self?.resultGraphicsOverlay.graphics.add(graphic)
-                    }
+            //The service returns result in form of AGSGeoprocessingFeatures
+            //Cast the results and add the features from featureSet to graphics overlay
+            //in form of graphics
+            if let resultFeatures = result?.outputs["Viewshed_Result"] as? AGSGeoprocessingFeatures, let featureSet = resultFeatures.features {
+                for feature in featureSet.featureEnumerator().allObjects {
+                    let graphic = AGSGraphic(geometry: feature.geometry, symbol: nil, attributes: nil)
+                    self?.resultGraphicsOverlay.graphics.add(graphic)
                 }
             }
         })
@@ -164,6 +163,6 @@ class ViewshedViewController: NSViewController, AGSGeoViewTouchDelegate {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

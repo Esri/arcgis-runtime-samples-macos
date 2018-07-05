@@ -68,7 +68,7 @@ class PictureMarkerSymbolsViewController: NSViewController {
         let imageName = "PinBlueStar"
         
         //create pin symbol using the image
-        let pinSymbol = AGSPictureMarkerSymbol(image: NSImage(named: imageName)!)
+        let pinSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: imageName))!)
         
         //change offsets, so the symbol aligns properly to the point
         pinSymbol.offsetY = pinSymbol.image!.size.height/2

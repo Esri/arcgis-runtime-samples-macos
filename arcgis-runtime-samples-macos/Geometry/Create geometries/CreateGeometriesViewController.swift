@@ -34,9 +34,9 @@ class CreateGeometriesViewController: NSViewController {
         self.mapView.graphicsOverlays.add(self.graphicsOverlay)
         
         //create symbols for drawing graphics
-        let markerSymbol = AGSSimpleMarkerSymbol(style: .triangle, color: NSColor.blue, size: 14)
-        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.blue, width: 3)
-        let fillSymbol = AGSSimpleFillSymbol(style: .cross, color: NSColor.blue, outline: nil)
+        let markerSymbol = AGSSimpleMarkerSymbol(style: .triangle, color: .blue, size: 14)
+        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: .blue, width: 3)
+        let fillSymbol = AGSSimpleFillSymbol(style: .cross, color: .blue, outline: nil)
         
         //add a graphic of point, multipoint, polyline and polygon
         self.graphicsOverlay.graphics.add(AGSGraphic(geometry: self.createPoint(), symbol: markerSymbol, attributes: nil))

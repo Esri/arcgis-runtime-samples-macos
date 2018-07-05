@@ -54,7 +54,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     //method that returns a graphic object for the specified point and attributes
     //also sets the leader offset and offset
     private func graphic(for point: AGSPoint, attributes: [String: AnyObject]?) -> AGSGraphic {
-        let markerImage = NSImage(named: "RedMarker")!
+        let markerImage = NSImage(named: NSImage.Name(rawValue: "RedMarker"))!
         let symbol = AGSPictureMarkerSymbol(image: markerImage)
         symbol.leaderOffsetY = markerImage.size.height/2
         symbol.offsetY = markerImage.size.height/2
@@ -176,6 +176,6 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

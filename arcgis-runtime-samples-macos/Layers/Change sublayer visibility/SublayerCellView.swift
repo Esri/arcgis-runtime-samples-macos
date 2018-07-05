@@ -30,7 +30,7 @@ class SublayerCellView: NSTableCellView {
     
     @IBAction func checkboxAction(_ sender:NSButton) {
         Swift.print(sender.state)
-        self.delegate?.sublayerCellView(self, didToggleVisibility: sender.state == 1)
+        self.delegate?.sublayerCellView(self, didToggleVisibility: sender.state.rawValue == 1)
     }
     
 }

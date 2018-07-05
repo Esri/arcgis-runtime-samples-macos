@@ -143,7 +143,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
     
     private func showConfirmationAlert() {
@@ -151,10 +151,10 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         alert.informativeText = "Are you sure you want to delete?"
         alert.addButton(withTitle: "No")
         alert.addButton(withTitle: "Yes")
-        alert.beginSheetModal(for: self.view.window!, completionHandler: { [weak self] (response: NSModalResponse) in
-            if response == NSAlertSecondButtonReturn {
+        alert.beginSheetModal(for: self.view.window!) { [weak self] (response: NSApplication.ModalResponse) in
+            if response == NSApplication.ModalResponse.alertSecondButtonReturn {
                 self?.deleteFeature(self!.selectedFeature)
             }
-        }) 
+        }
     }
 }

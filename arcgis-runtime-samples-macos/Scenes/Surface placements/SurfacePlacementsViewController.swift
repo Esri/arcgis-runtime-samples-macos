@@ -37,7 +37,7 @@ class SurfacePlacementsViewController: NSViewController {
         
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
         
@@ -65,10 +65,10 @@ class SurfacePlacementsViewController: NSViewController {
     }
 
     private func pointSymbol() -> AGSSimpleMarkerSceneSymbol {
-        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: NSColor.red, height: 50, width: 50, depth: 50, anchorPosition: .center)
+        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: .red, height: 50, width: 50, depth: 50, anchorPosition: .center)
     }
     
     private func textSymbol(_ text: String) -> AGSTextSymbol {
-        return AGSTextSymbol(text: text, color: NSColor.blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
+        return AGSTextSymbol(text: text, color: .blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
     }
 }

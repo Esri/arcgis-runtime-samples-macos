@@ -43,7 +43,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
             self?.tableView1.reloadData()
         })
         
-        self.tableView1.register(forDraggedTypes: ["hey"])
+        self.tableView1.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: "hey")])
         
     }
     
@@ -76,14 +76,14 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         if tableView == self.tableView1 {
             let layer = self.mapView.map!.operationalLayers.reversed()[row]
             
-            let rowView = tableView.make(withIdentifier: "AddedLayerRowView", owner: self) as! AddedLayerCellView
+            let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "AddedLayerRowView"), owner: self) as! AddedLayerCellView
             rowView.delegate = self
             rowView.index = self.mapView.map!.operationalLayers.index(of: layer)
             rowView.textField?.stringValue = (layer as AnyObject).name ?? ""
             return rowView
         }
         else {
-            let rowView = tableView.make(withIdentifier: "RemovedLayerRowView", owner: self) as! NSTableCellView
+            let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RemovedLayerRowView"), owner: self) as! NSTableCellView
             let layer = self.removedLayers[row]
             rowView.textField?.stringValue = layer.name 
             return rowView
@@ -94,8 +94,8 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         if tableView == tableView1 {
             
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
-            pboard.declareTypes(["hey"], owner:self)
-            pboard.setData(data, forType:"hey")
+            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "hey")], owner:self)
+            pboard.setData(data, forType:NSPasteboard.PasteboardType(rawValue: "hey"))
             
             return true
         }
@@ -104,9 +104,9 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         if tableView == tableView1 {
-            tableView.setDropRow(row, dropOperation: NSTableViewDropOperation.above)
+            tableView.setDropRow(row, dropOperation: NSTableView.DropOperation.above)
             return .move
         }
         else {
@@ -114,10 +114,10 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         
         let pasteboard = info.draggingPasteboard()
-        let rowData = pasteboard.data(forType: "hey")
+        let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
         if(rowData != nil) {
             var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>,

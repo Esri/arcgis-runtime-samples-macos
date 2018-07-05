@@ -19,7 +19,7 @@ import Cocoa
 class CustomSegmentedCell: NSSegmentedCell {
 
     @IBInspectable
-    var tintColor: NSColor = NSColor.secondaryBlue()
+    var tintColor = NSColor.secondaryBlue
     
     override func drawSegment(_ segment: Int, inFrame frame: NSRect, with controlView: NSView) {
         
@@ -104,9 +104,9 @@ class CustomSegmentedCell: NSSegmentedCell {
     private func textForSegment(_ segment:Int) -> NSAttributedString {
         let font = NSFont(name: "Avenir-Medium", size: 13)!
         
-        var textColor: NSColor
+        let textColor: NSColor
         if self.selectedSegment == segment {
-            textColor = NSColor.white
+            textColor = .white
         }
         else {
             textColor = self.tintColor
@@ -115,9 +115,9 @@ class CustomSegmentedCell: NSSegmentedCell {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         
-        let attributes = [ NSFontAttributeName : font,
-            NSForegroundColorAttributeName : textColor,
-            NSParagraphStyleAttributeName : style ] as [String : Any]
+        let attributes = [ NSAttributedStringKey.font : font,
+                           NSAttributedStringKey.foregroundColor : textColor,
+                           NSAttributedStringKey.paragraphStyle : style ] as [NSAttributedStringKey : Any]
         
         let text = NSAttributedString(string: self.label(forSegment: segment)!, attributes: attributes)
         return text

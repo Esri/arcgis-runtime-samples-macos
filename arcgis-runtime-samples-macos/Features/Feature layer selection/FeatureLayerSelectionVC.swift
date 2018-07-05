@@ -46,7 +46,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
-        self.featureLayer.selectionColor = NSColor.cyan
+        self.featureLayer.selectionColor = .cyan
         self.featureLayer.selectionWidth = 5
         
         //add feature layer to the map
@@ -94,6 +94,6 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

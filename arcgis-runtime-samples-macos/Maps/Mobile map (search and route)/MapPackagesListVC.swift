@@ -60,7 +60,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        let cellView = tableView.make(withIdentifier: "MapPackageCell", owner: self) as! MapPackageCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MapPackageCell"), owner: self) as! MapPackageCellView
         
         let mapPackage = self.mapPackages[row]
         cellView.mapPackage = mapPackage

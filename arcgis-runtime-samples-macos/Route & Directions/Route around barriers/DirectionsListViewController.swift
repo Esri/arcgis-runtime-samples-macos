@@ -60,7 +60,7 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view = tableView.make(withIdentifier: "DirectionCellView", owner: self)
+        let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DirectionCellView"), owner: self)
         
         if let textField = view?.viewWithTag(1) as? NSTextField {
             textField.stringValue = self.route.directionManeuvers[row].directionText

@@ -53,7 +53,7 @@ class DisplayGridViewController: NSViewController {
         // Set style of settings view
         gridSettingsView.wantsLayer = true
         gridSettingsView.layer?.cornerRadius = 10
-        gridSettingsTextField.backgroundColor = NSColor.primaryBlue()
+        gridSettingsTextField.backgroundColor = .primaryBlue
         gridSettingsTextField.wantsLayer = true
         gridSettingsTextField.layer?.cornerRadius = 5
     }
@@ -131,7 +131,7 @@ class DisplayGridViewController: NSViewController {
                 textSymbol.size = 14
                 textSymbol.horizontalAlignment = .left
                 textSymbol.verticalAlignment = .bottom
-                textSymbol.haloColor = NSColor.white
+                textSymbol.haloColor = .white
                 textSymbol.haloWidth = CGFloat(gridLevel+1)
                 mapView.grid?.setTextSymbol(textSymbol, forLevel: gridLevel)
             }

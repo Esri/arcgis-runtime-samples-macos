@@ -65,25 +65,25 @@ class GraphicDrawOrderVC: NSViewController {
         
         //blue marker
         var geometry = AGSPoint(x: x, y: y, spatialReference: AGSSpatialReference.webMercator())
-        var symbol = AGSPictureMarkerSymbol(image: NSImage(named: "BlueMarker")!)
+        var symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!)
         var graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
         self.graphics.append(graphic)
         
         //red marker
         geometry = AGSPoint(x: x+delta, y: y, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: "RedMarker2")!)
+        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "RedMarker2"))!)
         graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
         self.graphics.append(graphic)
         
         //green marker
         geometry = AGSPoint(x: x, y: y+delta, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: "GreenMarker")!)
+        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "GreenMarker"))!)
         graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
         self.graphics.append(graphic)
         
         //Violet marker
         geometry = AGSPoint(x: x+delta, y: y+delta, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: "VioletMarker")!)
+        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "VioletMarker"))!)
         graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
         self.graphics.append(graphic)
         

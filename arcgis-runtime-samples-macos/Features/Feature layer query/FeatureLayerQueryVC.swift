@@ -44,7 +44,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         self.featureLayer.selectionWidth = 4
         
         //set a new renderer
-        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.black, width: 1)
+        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: .black, width: 1)
         let fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.yellow.withAlphaComponent(0.5), outline: lineSymbol)
         self.featureLayer.renderer = AGSSimpleRenderer(symbol: fillSymbol)
         
@@ -111,6 +111,6 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

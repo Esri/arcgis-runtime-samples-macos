@@ -47,10 +47,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
     }
     
     func extractName(fromPath path:String) -> String {
-        var index = path.range(of: "/", options: .backwards, range: nil, locale: nil)?.lowerBound
-        index = path.index(after: index!)
-        let name = path.substring(from: index!)
-        return name
+        return URL(fileURLWithPath: path).lastPathComponent
     }
     
     //MARK: - NSTableViewDataSource
@@ -62,7 +59,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let path = self.bundleTPKPaths[row]
         
-        let cellView = tableView.make(withIdentifier: "TPKCellView", owner: self) as! NSTableCellView
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TPKCellView"), owner: self) as! NSTableCellView
         cellView.textField?.stringValue = self.extractName(fromPath: path)
         
         return cellView

@@ -44,11 +44,12 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         super.windowDidLoad()
     
         self.window?.delegate = self
+        self.window?.isMovableByWindowBackground = false
         self.window?.titleVisibility = .hidden
         self.window?.titlebarAppearsTransparent = true
-        self.window?.backgroundColor = NSColor.primaryBlue()
+        self.window?.backgroundColor = .primaryBlue
         
-        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: "SuggestionsWindowController") as! NSWindowController
+        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as! NSWindowController
         self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController
         self.suggestionsViewController.delegate = self
         
@@ -116,7 +117,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         
         if !suggestionsWindow.isVisible {
             
-            let mainWindow = NSApplication.shared().mainWindow!
+            let mainWindow = NSApplication.shared.mainWindow!
             
             //frame calculations
             let originX = mainWindow.frame.origin.x + mainWindow.frame.width - self.searchField.frame.width - 6

@@ -56,9 +56,6 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
             }
         }
     }
-    
-    private let ELEVATION_SERVICE_URL = URL(string: "https://scene.arcgis.com/arcgis/rest/services/BREST_DTM_1M/ImageServer")!
-    private let SCENE_LAYER_URL = URL(string: "https://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Buildings_Brest/SceneServer/layers/0")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,11 +75,11 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         sceneView.setViewpointCamera(camera)
         
         // initialize the elevation source with the service URL and add it to the base surface of the scene
-        let elevationSrc = AGSArcGISTiledElevationSource(url: ELEVATION_SERVICE_URL)
+        let elevationSrc = AGSArcGISTiledElevationSource(url: .brestElevationService)
         scene.baseSurface?.elevationSources.append(elevationSrc)
         
         // initialize the scene layer with the scene layer URL and add it to the scene
-        let buildings = AGSArcGISSceneLayer(url: SCENE_LAYER_URL)
+        let buildings = AGSArcGISSceneLayer(url: .brestBuildingsService)
         scene.operationalLayers.add(buildings)
         
         // initialize a viewshed analysis object with arbitrary location (the location will be defined by the user), heading, pitch, view angles, and distance range (in meters) from which visibility is calculated from the observer location
@@ -102,7 +99,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         // Set style of settings view
         viewshedSettingsView.wantsLayer = true
         viewshedSettingsView.layer?.cornerRadius = 10
-        viewshedSettingsTextField.backgroundColor = NSColor.primaryBlue()
+        viewshedSettingsTextField.backgroundColor = .primaryBlue
         viewshedSettingsTextField.wantsLayer = true
         viewshedSettingsTextField.layer?.cornerRadius = 5
 

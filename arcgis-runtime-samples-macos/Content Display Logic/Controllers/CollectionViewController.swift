@@ -80,12 +80,12 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let sampleNode = self.sampleNodes[(indexPath as NSIndexPath).item]
+        let sampleNode = self.sampleNodes[indexPath.item]
         
-        let viewItem = collectionView.makeItem(withIdentifier: "CollectionViewItem", for: indexPath) as! CollectionViewItem
+        let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
         viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
-        if let image = NSImage(named: sampleNode.displayName) {
+        if let image = NSImage(named: NSImage.Name(rawValue: sampleNode.displayName!)) {
             viewItem.thumbnailView.image = image
         }
         else {
@@ -93,11 +93,9 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
         }
         
         //stylize
-//        viewItem.view.backgroundColor = NSColor(white: 235/255.0, alpha: 1)
-        viewItem.view.backgroundColor = NSColor.white
+        viewItem.view.backgroundColor = .white
         viewItem.view.wantsLayer = true
-//        viewItem.view.layer?.borderColor = NSColor(white: 68/255.0, alpha: 1).CGColor
-        viewItem.view.layer?.borderColor = NSColor.primaryBlue().cgColor
+        viewItem.view.layer?.borderColor = NSColor.primaryBlue.cgColor
         viewItem.view.layer?.cornerRadius = 10
         viewItem.view.layer?.borderWidth = 1
         
@@ -107,6 +105,6 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     //MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[(indexPaths.first! as NSIndexPath).item])
+        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[indexPaths.first!.item])
     }
 }

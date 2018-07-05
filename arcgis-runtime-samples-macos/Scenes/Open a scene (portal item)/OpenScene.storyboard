@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Erh-kN-fsi">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Open Scene View Controller-->
+        <scene sceneID="LLT-9J-EhG">
+            <objects>
+                <viewController id="Erh-kN-fsi" customClass="OpenSceneViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Xdm-hj-PBb">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pbP-2K-0V2" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pbP-2K-0V2" secondAttribute="bottom" id="eWd-FS-Ogc"/>
+                            <constraint firstItem="pbP-2K-0V2" firstAttribute="leading" secondItem="Xdm-hj-PBb" secondAttribute="leading" id="grT-Yy-LD4"/>
+                            <constraint firstItem="pbP-2K-0V2" firstAttribute="top" secondItem="Xdm-hj-PBb" secondAttribute="top" id="vZe-gZ-vWS"/>
+                            <constraint firstAttribute="trailing" secondItem="pbP-2K-0V2" secondAttribute="trailing" id="wpO-M9-pgw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="pbP-2K-0V2" id="Zy6-8O-0Dn"/>
+                    </connections>
+                </viewController>
+                <customObject id="chz-5q-94W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="174"/>
+        </scene>
+    </scenes>
+</document>

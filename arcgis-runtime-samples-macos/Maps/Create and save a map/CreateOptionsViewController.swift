@@ -50,7 +50,7 @@ class CreateOptionsViewController: NSViewController {
     }
 
     @IBAction func checkAction(_ sender: NSButton) {
-        if sender.state == NSOffState {
+        if sender.state == NSControl.StateValue.off {
             //remove from the array if already present
             if let index = self.selectedLayersIndexes.index(of: sender.tag) {
                 self.selectedLayersIndexes.remove(at: index)
@@ -88,6 +88,6 @@ class CreateOptionsViewController: NSViewController {
         alert.messageText = "Info"
         alert.informativeText = text
         alert.addButton(withTitle: "OK")
-        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        alert.beginSheetModal(for: self.view.window!)
     }
 }

@@ -47,15 +47,15 @@ class ExtrudeGraphicsViewController: NSViewController {
         
         //simple renderer with extrusion property
         let renderer = AGSSimpleRenderer()
-        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor.white, width: 1)
-        renderer.symbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.primaryBlue(), outline: lineSymbol)
+        let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: .white, width: 1)
+        renderer.symbol = AGSSimpleFillSymbol(style: .solid, color: .primaryBlue, outline: lineSymbol)
         renderer.sceneProperties?.extrusionMode = .baseHeight
         renderer.sceneProperties?.extrusionExpression = "[height]"
         self.graphicsOverlay.renderer = renderer
         
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
       

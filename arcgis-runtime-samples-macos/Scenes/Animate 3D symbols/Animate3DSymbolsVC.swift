@@ -58,7 +58,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneView.scene = scene
         
         //elevation source
-        let elevationSource = AGSArcGISTiledElevationSource(url: URL(string: "http://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!)
+        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
         
         //surface
         let surface = AGSSurface()
@@ -205,7 +205,7 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     
-    func animate() {
+    @objc func animate() {
         
         //validations
         if self.frames == nil || self.planeModelSymbol == nil {
@@ -219,7 +219,7 @@ class Animate3DSymbolsVC: NSViewController {
             self.animationTimer?.invalidate()
             
             //change state of play button
-            self.playButton.state = NSOffState
+            self.playButton.state = NSControl.StateValue.off
             
             //reset index
             self.currentFrameIndex = 0
@@ -286,7 +286,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.animationTimer?.invalidate()
         
         //set play button state to off
-        self.playButton.state = NSOffState
+        self.playButton.state = NSControl.StateValue.off
         
         //new mission name
         self.loadMissionData(sender.selectedItem!.title)
@@ -335,19 +335,19 @@ class Animate3DSymbolsVC: NSViewController {
     @IBAction func autoHeadingEnabledAction(_ sender:NSButton) {
         
         //update property
-        self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSOnState)
+        self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func autoPitchEnabledAction(_ sender:NSButton) {
         
         //update property
-        self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSOnState)
+        self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func autoRollEnabledAction(_ sender:NSButton) {
         
         //update property
-        self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSOnState)
+        self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func speedValueChanged(_ sender:NSSlider) {
@@ -355,7 +355,7 @@ class Animate3DSymbolsVC: NSViewController {
         //if the animation is playing, invalidate the timer and 
         //start the animation for the speed to take effect
         //else do nothing
-        if self.playButton.state == NSOnState {
+        if self.playButton.state == NSControl.StateValue.on {
 
             //invalidate previous timer
             self.animationTimer?.invalidate()
@@ -369,7 +369,7 @@ class Animate3DSymbolsVC: NSViewController {
         
         //if the button is now in on state then start animation
         //else stop animation by invalidating the timer
-        if sender.state == NSOnState {
+        if sender.state == NSControl.StateValue.on {
             self.startAnimation()
         }
         else {

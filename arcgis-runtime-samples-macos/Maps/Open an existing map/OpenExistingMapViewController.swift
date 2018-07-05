@@ -40,10 +40,11 @@ class OpenExistingMapViewController: NSViewController, ExistingMapsListDelegate 
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OptionsSegue" {
-            self.existingMapsListVC = segue.destinationController as! ExistingMapsListViewController
-            self.existingMapsListVC.delegate = self
+        guard let id = segue.identifier, id.rawValue == "OptionsSegue" else {
+            return
         }
+        self.existingMapsListVC = segue.destinationController as! ExistingMapsListViewController
+        self.existingMapsListVC.delegate = self
     }
     
     //MARK: - ExistingMapsListDelegate
