@@ -43,6 +43,7 @@
 		218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
 		21C729EA20EEC05100F676D9 /* SpatialRelationships.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C729E620EEC05100F676D9 /* SpatialRelationships.storyboard */; };
 		21C729EB20EEC05100F676D9 /* SpatialRelationshipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C729E720EEC05100F676D9 /* SpatialRelationshipsViewController.swift */; };
+		21C729EE20EEC0E500F676D9 /* SpatialRelationshipsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21C729E720EEC05100F676D9 /* SpatialRelationshipsViewController.swift */; };
 		21D961BF1FF59B4B00FF1CFB /* StatisticalQueryGroupAndSort.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D961BB1FF59B4B00FF1CFB /* StatisticalQueryGroupAndSort.storyboard */; };
 		21D961C01FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D961BC1FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift */; };
 		21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA2F4E1FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift */; };
@@ -394,6 +395,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				21C729EE20EEC0E500F676D9 /* SpatialRelationshipsViewController.swift in CopyFiles */,
 				4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */,
 				1271FBA01FE3016B00536F60 /* LineOfSightLocationViewController.swift in CopyFiles */,
 				2136E7D2200EB46D0071BA99 /* StatisticalQueryGroupAndSortViewController.swift in CopyFiles */,
