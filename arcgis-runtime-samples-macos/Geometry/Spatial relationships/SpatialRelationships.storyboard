@@ -24,12 +24,26 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="MqB-d5-vca" customClass="AGSMapView">
                                                 <rect key="frame" x="0.0" y="0.0" width="649" height="761"/>
                                             </customView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-5c-ABk">
+                                                <rect key="frame" x="0.0" y="738" width="649" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="ZkV-6t-FmL"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to select the graphic" drawsBackground="YES" id="c9L-gU-1zo">
+                                                    <font key="font" metaFont="system" size="14"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="MqB-d5-vca" firstAttribute="leading" secondItem="IEg-pp-nRE" secondAttribute="leading" id="O7D-hT-IjQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="MqB-d5-vca" secondAttribute="bottom" id="V3A-qW-BRz"/>
-                                            <constraint firstItem="MqB-d5-vca" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" id="irC-D9-w6r"/>
-                                            <constraint firstAttribute="trailing" secondItem="MqB-d5-vca" secondAttribute="trailing" id="qn0-EZ-7Ze"/>
+                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="leading" secondItem="IEg-pp-nRE" secondAttribute="leading" id="0dL-kz-Qwe"/>
+                                            <constraint firstAttribute="bottom" secondItem="MqB-d5-vca" secondAttribute="bottom" id="6ar-hl-l6J"/>
+                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" constant="1" id="HcA-RV-Rr3"/>
+                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="leading" secondItem="MqB-d5-vca" secondAttribute="leading" id="d12-bG-NJq"/>
+                                            <constraint firstAttribute="trailing" secondItem="CVW-5c-ABk" secondAttribute="trailing" id="hnZ-Iz-hZq"/>
+                                            <constraint firstItem="MqB-d5-vca" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" id="iIh-pc-Oj2"/>
+                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="trailing" secondItem="MqB-d5-vca" secondAttribute="trailing" id="rdD-2t-qKg"/>
                                         </constraints>
                                     </customView>
                                     <customView id="es1-zt-8L8">
@@ -76,9 +90,9 @@
                                                                                 </textField>
                                                                             </subviews>
                                                                             <constraints>
-                                                                                <constraint firstItem="DDt-bE-yi1" firstAttribute="leading" secondItem="88g-eB-9da" secondAttribute="leading" constant="2" id="OiB-DW-wgm"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="DDt-bE-yi1" secondAttribute="trailing" constant="-3" id="Pmt-29-L0u"/>
-                                                                                <constraint firstItem="DDt-bE-yi1" firstAttribute="centerY" secondItem="88g-eB-9da" secondAttribute="centerY" id="Y56-0T-jnh"/>
+                                                                                <constraint firstItem="DDt-bE-yi1" firstAttribute="centerY" secondItem="88g-eB-9da" secondAttribute="centerY" id="PZI-RW-8Iw"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="DDt-bE-yi1" secondAttribute="trailing" constant="-3" id="Ply-nc-5DO"/>
+                                                                                <constraint firstItem="DDt-bE-yi1" firstAttribute="leading" secondItem="88g-eB-9da" secondAttribute="leading" constant="2" id="yEk-up-bzh"/>
                                                                             </constraints>
                                                                             <connections>
                                                                                 <outlet property="textField" destination="DDt-bE-yi1" id="f7p-9d-CgP"/>
@@ -95,7 +109,7 @@
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pn9-3h-IBi">
-                                                    <rect key="frame" x="1" y="744" width="266" height="16"/>
+                                                    <rect key="frame" x="0.0" y="745" width="274" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="LRN-Lj-7fn">
@@ -105,10 +119,11 @@
                                             </scrollView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Pmn-CX-2hS" firstAttribute="top" secondItem="es1-zt-8L8" secondAttribute="top" id="KOk-3O-G13"/>
-                                            <constraint firstAttribute="trailing" secondItem="Pmn-CX-2hS" secondAttribute="trailing" id="Wg2-Xh-9CB"/>
-                                            <constraint firstItem="Pmn-CX-2hS" firstAttribute="leading" secondItem="es1-zt-8L8" secondAttribute="leading" id="ovx-BV-5ZI"/>
-                                            <constraint firstAttribute="bottom" secondItem="Pmn-CX-2hS" secondAttribute="bottom" id="qr8-nr-FAS"/>
+                                            <constraint firstItem="Pmn-CX-2hS" firstAttribute="top" secondItem="es1-zt-8L8" secondAttribute="top" id="5fa-KZ-hH8"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pmn-CX-2hS" secondAttribute="trailing" id="AGs-B2-d01"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pmn-CX-2hS" secondAttribute="bottom" id="QBe-de-HUu"/>
+                                            <constraint firstAttribute="width" constant="274" id="kw3-hL-Tv5"/>
+                                            <constraint firstItem="Pmn-CX-2hS" firstAttribute="leading" secondItem="es1-zt-8L8" secondAttribute="leading" id="umP-gz-4gL"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -119,10 +134,10 @@
                             </splitView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="IgA-z0-kO0" firstAttribute="leading" secondItem="Vdw-Fa-WA3" secondAttribute="leading" id="2bq-ft-rV4"/>
-                            <constraint firstItem="IgA-z0-kO0" firstAttribute="top" secondItem="Vdw-Fa-WA3" secondAttribute="top" id="51w-iU-3aP"/>
-                            <constraint firstAttribute="trailing" secondItem="IgA-z0-kO0" secondAttribute="trailing" id="Jfh-Bp-o1I"/>
-                            <constraint firstAttribute="bottom" secondItem="IgA-z0-kO0" secondAttribute="bottom" id="nWz-qZ-Xfk"/>
+                            <constraint firstAttribute="bottom" secondItem="IgA-z0-kO0" secondAttribute="bottom" id="JFy-BZ-4rb"/>
+                            <constraint firstAttribute="trailing" secondItem="IgA-z0-kO0" secondAttribute="trailing" id="L23-Mr-DUw"/>
+                            <constraint firstItem="IgA-z0-kO0" firstAttribute="leading" secondItem="Vdw-Fa-WA3" secondAttribute="leading" id="gxi-ua-4ng"/>
+                            <constraint firstItem="IgA-z0-kO0" firstAttribute="top" secondItem="Vdw-Fa-WA3" secondAttribute="top" id="x9q-aM-vWy"/>
                         </constraints>
                     </view>
                     <connections>

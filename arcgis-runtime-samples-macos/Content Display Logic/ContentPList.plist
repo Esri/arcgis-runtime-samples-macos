@@ -973,6 +973,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Geodesic operations</string>
+				<key>storyboardName</key>
+				<string>GeodesicOperations</string>
+				<key>descriptionText</key>
+				<string>Use geometry engine to calculate a geodesic path between two points and measure its distance.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>GeodesicOperationsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Cut geometry</string>
 				<key>storyboardName</key>
 				<string>CutGeometry</string>
