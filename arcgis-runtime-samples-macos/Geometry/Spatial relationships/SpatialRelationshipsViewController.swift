@@ -28,7 +28,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     private var polylineRelationships = [String]()
     private var polygonRelationships = [String]()
     
-    var polygonGraphic: AGSGraphic = {
+    let polygonGraphic: AGSGraphic = {
         //
         // Create an array of points that represents polygon. Use the same spatial reference as the underlying base map.
         let points = [
@@ -55,7 +55,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         return graphic
     }()
     
-    var polylineGraphic: AGSGraphic = {
+    let polylineGraphic: AGSGraphic = {
         //
         // Create an array of points that represents polyline. Use the same spatial reference as the underlying base map.
         let points = [
@@ -78,7 +78,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         return graphic
     }()
     
-    var pointGraphic: AGSGraphic = {
+    let pointGraphic: AGSGraphic = {
         //
         // Create a point. Use the same spatial reference as the underlying base map.
         let point = AGSPoint(x: -4487263.495911, y: 3699176.480377, spatialReference: .webMercator())
@@ -157,8 +157,8 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
                 strongSelf.findRelationshipsForGeometry = "Point"
                 
                 // Get the relationships with polyline and polygon
-                strongSelf.polylineRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: polylineGeometry)
-                strongSelf.polygonRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: polygonGeometry)
+                strongSelf.polylineRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: polylineGeometry)
+                strongSelf.polygonRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: polygonGeometry)
                 
                 // Add relationships to results array
                 strongSelf.relationshipsResults.append(strongSelf.polylineRelationships)
@@ -170,8 +170,8 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
                 strongSelf.findRelationshipsForGeometry = "Polyline"
                 
                 // Get the relationships with point and polygon
-                strongSelf.pointRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: pointGeometry)
-                strongSelf.polygonRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: polygonGeometry)
+                strongSelf.pointRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: pointGeometry)
+                strongSelf.polygonRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: polygonGeometry)
                 
                 // Add relationships to results array
                 strongSelf.relationshipsResults.append(strongSelf.pointRelationships)
@@ -183,8 +183,8 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
                 strongSelf.findRelationshipsForGeometry = "Polygon"
                 
                 // Get the relationships with point and polyline
-                strongSelf.pointRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: pointGeometry)
-                strongSelf.polylineRelationships = strongSelf.getSpatialRelationships(a: selectedGeometry, b: polylineGeometry)
+                strongSelf.pointRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: pointGeometry)
+                strongSelf.polylineRelationships = strongSelf.getSpatialRelationships(geometry1: selectedGeometry, geometry2: polylineGeometry)
                 
                 // Add relationships to results array
                 strongSelf.relationshipsResults.append(strongSelf.pointRelationships)
@@ -201,17 +201,22 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     
     // MARK: Helper Function
     
-    // This function checks the different relationships between
-    // two geometries and returns result as an array of strings
-    private func getSpatialRelationships(a: AGSGeometry, b: AGSGeometry) -> [String] {
+    /// This function checks the different relationships between
+    /// two geometries and returns result as an array of strings
+    ///
+    /// - Parameters:
+    ///   - geometry1: The input geometry to be compared
+    ///   - geometry2: The input geometry to be compared
+    /// - Returns: An array of strings representing relationship
+    private func getSpatialRelationships(geometry1: AGSGeometry, geometry2: AGSGeometry) -> [String] {
         var relationships = [String]()
-        if AGSGeometryEngine.geometry(a, crossesGeometry: b) { relationships.append("Crosses") }
-        if AGSGeometryEngine.geometry(a, contains: b) { relationships.append("Contains") }
-        if AGSGeometryEngine.geometry(a, disjointTo: b) { relationships.append("Disjoint") }
-        if AGSGeometryEngine.geometry(a, intersects: b) { relationships.append("Intersects") }
-        if AGSGeometryEngine.geometry(a, overlapsGeometry: b) { relationships.append("Overlaps") }
-        if AGSGeometryEngine.geometry(a, touchesGeometry: b)  { relationships.append("Touches") }
-        if AGSGeometryEngine.geometry(a, within: b) { relationships.append("Within") }
+        if AGSGeometryEngine.geometry(geometry1, crossesGeometry: geometry2) { relationships.append("Crosses") }
+        if AGSGeometryEngine.geometry(geometry1, contains: geometry2) { relationships.append("Contains") }
+        if AGSGeometryEngine.geometry(geometry1, disjointTo: geometry2) { relationships.append("Disjoint") }
+        if AGSGeometryEngine.geometry(geometry1, intersects: geometry2) { relationships.append("Intersects") }
+        if AGSGeometryEngine.geometry(geometry1, overlapsGeometry: geometry2) { relationships.append("Overlaps") }
+        if AGSGeometryEngine.geometry(geometry1, touchesGeometry: geometry2)  { relationships.append("Touches") }
+        if AGSGeometryEngine.geometry(geometry1, within: geometry2) { relationships.append("Within") }
         return relationships
     }
     
