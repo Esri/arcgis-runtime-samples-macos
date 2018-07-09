@@ -36,14 +36,6 @@ class SceneLayerSelectionViewController: NSViewController {
         scene.operationalLayers.add(buildingsLayer)
         
         super.init(coder: coder)
-        
-        buildingsLayer.load { [weak self] (error) in
-            if let error = error {
-                self?.layerDidFailToLoad(with: error)
-            } else {
-                self?.layerDidLoad()
-            }
-        }
     }
     
     /// The scene view managed by the view controller.
@@ -57,27 +49,7 @@ class SceneLayerSelectionViewController: NSViewController {
         
         let camera = AGSCamera(latitude: 48.378, longitude: -4.494, altitude: 200, heading: 345, pitch: 65, roll: 0)
         sceneView.setViewpointCamera(camera)
-        if buildingsLayer.loadStatus == .loaded {
-            sceneView.touchDelegate = self
-        }
-    }
-    
-    /// Called in response to the layer loading successfully.
-    func layerDidLoad() {
-        sceneView?.touchDelegate = self
-    }
-    
-    /// Called in response to the layer failing to load. Presents an alert
-    /// announcing the failure.
-    ///
-    /// - Parameter error: The error that caused loading to fail.
-    func layerDidFailToLoad(with error: Error) {
-        guard let window = view.window else { return }
-        let alert = NSAlert()
-        alert.messageText = "Failed to load the layer."
-        alert.alertStyle = .informational
-        alert.addButton(withTitle: "OK")
-        alert.beginSheetModal(for: window)
+        sceneView.touchDelegate = self
     }
 }
 
