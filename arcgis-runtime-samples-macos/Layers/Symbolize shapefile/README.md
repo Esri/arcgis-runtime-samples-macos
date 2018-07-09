@@ -1,4 +1,4 @@
-# Feature layer (shapefile)
+# Symbolize Shapefile
 
 This sample demonstrates how to override the default renderer of a shapefile when displaying with a FeatureLayer.
 
