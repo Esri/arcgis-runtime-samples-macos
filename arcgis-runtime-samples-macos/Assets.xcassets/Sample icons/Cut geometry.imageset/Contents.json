@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "featurelayer_shapefile.png",
+      "filename" : "CutGeometryIcon80.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "featurelayer_shapefile@2x.png",
+      "filename" : "CutGeometryIcon160.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "featurelayer_shapefile@3x.png",
+      "filename" : "CutGeometryIcon240.png",
       "scale" : "3x"
     }
   ],
