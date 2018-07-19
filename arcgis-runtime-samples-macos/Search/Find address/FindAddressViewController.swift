@@ -51,20 +51,6 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
     }
     
-    /// Creates a graphic with the specified point and attributes.
-    ///
-    /// - Parameters:
-    ///   - point: A point for the geometry of the graphic.
-    ///   - attributes: A dictionary of attributes for the graphic.
-    /// - Returns: A new `AGSGraphic` object.
-    private func makeGraphic(point: AGSPoint, attributes: [String: Any]?) -> AGSGraphic {
-        let markerImage = #imageLiteral(resourceName: "RedMarker")
-        let symbol = AGSPictureMarkerSymbol(image: markerImage)
-        symbol.leaderOffsetY = markerImage.size.height / 2
-        symbol.offsetY = markerImage.size.height / 2
-        return AGSGraphic(geometry: point, symbol: symbol, attributes: attributes)
-    }
-    
     private func geocodeSearchText(_ text:String) {
         //clear already existing graphics
         self.graphicsOverlay.graphics.removeAllObjects()
@@ -87,7 +73,11 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             } else {
                 if let result = results?.first {
                     //create a graphic for the first result and add to the graphics overlay
-                    let graphic = strongSelf.makeGraphic(point: result.displayLocation!, attributes: result.attributes)
+                    let markerImage = #imageLiteral(resourceName: "RedMarker")
+                    let symbol = AGSPictureMarkerSymbol(image: markerImage)
+                    symbol.leaderOffsetY = markerImage.size.height / 2
+                    symbol.offsetY = markerImage.size.height / 2
+                    let graphic = AGSGraphic(geometry: result.displayLocation!, symbol: symbol, attributes: result.attributes)
                     strongSelf.graphicsOverlay.graphics.add(graphic)
                     //zoom to the extent of the result
                     if let extent = result.extent {
