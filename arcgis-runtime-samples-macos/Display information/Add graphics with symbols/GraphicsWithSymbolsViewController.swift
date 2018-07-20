@@ -27,7 +27,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with basemap, initial viewpoint and level of detail
-        self.map = AGSMap(basemap: AGSBasemap.oceans())
+        self.map = AGSMap(basemap: .oceans())
         
         //assign the map to the map view
         self.mapView.map = self.map

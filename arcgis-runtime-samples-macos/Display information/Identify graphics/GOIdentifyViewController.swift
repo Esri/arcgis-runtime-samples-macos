@@ -27,7 +27,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //call the method to add a graphics to the map view
         //will be using this graphic to test identify

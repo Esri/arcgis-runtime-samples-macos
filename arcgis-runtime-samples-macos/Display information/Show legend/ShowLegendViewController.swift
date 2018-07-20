@@ -32,7 +32,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         super.viewDidLoad()
         
         //initialize the map
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //create tiled layer
         let tiledLayer = AGSArcGISTiledLayer(url: URL(string: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer")!)

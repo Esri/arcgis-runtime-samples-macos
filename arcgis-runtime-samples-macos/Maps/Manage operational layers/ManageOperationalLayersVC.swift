@@ -28,7 +28,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         let imageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
         map.operationalLayers.add(imageLayer)

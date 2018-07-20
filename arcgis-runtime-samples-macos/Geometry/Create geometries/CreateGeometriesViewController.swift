@@ -25,7 +25,7 @@ class CreateGeometriesViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map using basemap
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         //assign map to the map view
         self.mapView.map = map

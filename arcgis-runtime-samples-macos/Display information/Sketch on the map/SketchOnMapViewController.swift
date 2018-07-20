@@ -31,7 +31,7 @@ class SketchOnMapViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.map = AGSMap(basemap: AGSBasemap.lightGrayCanvas())
+        self.map = AGSMap(basemap: .lightGrayCanvas())
         
         self.sketchEditor = AGSSketchEditor()
         self.mapView.sketchEditor =  self.sketchEditor

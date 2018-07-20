@@ -26,7 +26,7 @@ class SceneSymbolsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = AGSScene(basemap: AGSBasemap.nationalGeographic())
+        let scene = AGSScene(basemap: .nationalGeographic())
         self.sceneView.scene = scene
         
         //set the camera

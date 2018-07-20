@@ -27,7 +27,7 @@ class RasterFunctionServiceViewController: NSViewController {
         super.viewDidLoad()
         
         // Initialize map and set it on map view
-        map = AGSMap(basemap: AGSBasemap.darkGrayCanvasVector())
+        map = AGSMap(basemap: .darkGrayCanvasVector())
         mapView.map = map
         
         // Initialize image service raster and apply raster function when it's loaded
