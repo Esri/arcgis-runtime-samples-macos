@@ -530,6 +530,22 @@
 					<string>StyleWebMapServiceLayerViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Symbolize shapefile</string>
+				<key>storyboardName</key>
+				<string>SymbolizeShapefile</string>
+				<key>descriptionText</key>
+				<string>Symbolize a feature layer on a map using a shapefile</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SymbolizeShapefileViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>SubdivisionsShapefile</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -589,9 +605,7 @@
 					<string>FeatureLayerShapefileViewController</string>
 				</array>
 				<key>dependency</key>
-				<array>
-					<string>SubdivisionsShapefile</string>
-				</array>
+				<array/>
 			</dict>
 			<dict>
 				<key>displayName</key>

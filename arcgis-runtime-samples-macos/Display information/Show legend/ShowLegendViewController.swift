@@ -26,7 +26,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     private var map:AGSMap!
     private var mapImageLayer:AGSArcGISMapImageLayer!
     var legendInfosDict = [String:[AGSLegendInfo]]()
-    private var orderArray:[AGSLayerContent]!
+    private var orderArray = [AGSLayerContent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +51,9 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.map.operationalLayers.add(featureLayer)
         
         AGSLoadObjects(self.map.operationalLayers as AnyObject as! [AGSLayer]) { [weak self] (success) in
-            if let weakSelf = self {
-                self?.orderArray = [AGSLayerContent]()
-                self?.populateLegends(with: weakSelf.map.operationalLayers as AnyObject as! [AGSLayerContent])
-            }
+            guard let strongSelf = self else { return }
+            strongSelf.orderArray.removeAll()
+            strongSelf.populateLegends(with: strongSelf.map.operationalLayers as! [AGSLayerContent])
         }
         
         self.mapView.map = self.map
@@ -63,45 +62,38 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
     }
     
-    func populateLegends(with layers:[AGSLayerContent]) {
-        
-        for i in 0...layers.count-1 {
-            let layer = layers[i]
-            
-            if layer.subLayerContents.count > 0 {
-                self.populateLegends(with: layer.subLayerContents)
-            }
-            else {
+    func populateLegends<S: Sequence>(with layers: S) where S.Element == AGSLayerContent {
+        for layer in layers {
+            if !layer.subLayerContents.isEmpty {
+                populateLegends(with: layer.subLayerContents)
+            } else {
                 //else if no sublayers fetch legend info
-                self.orderArray.append(layer)
+                orderArray.append(layer)
                 
                 //show progress indicator
-                self.view.window?.showProgressIndicator()
+                view.window?.showProgressIndicator()
                 
-                layer.fetchLegendInfos { [weak self] (legendInfos:[AGSLegendInfo]?, error:Error?) -> Void in
-                
+                layer.fetchLegendInfos { [weak self] (legendInfos: [AGSLegendInfo]?, error: Error?) -> Void in
+                    guard let strongSelf = self else { return }
                     //hide progress indicator
-                    self?.view.window?.hideProgressIndicator()
+                    strongSelf.view.window?.hideProgressIndicator()
                     
                     if let error = error {
                         print(error)
-                    }
-                    else {
-                        if let legendInfos = legendInfos {
-                            self?.legendInfosDict[self!.hashString(for: layer)] = legendInfos
-                            self?.outlineView.reloadData()
-                        }
+                    } else if let legendInfos = legendInfos {
+                        strongSelf.legendInfosDict[strongSelf.hashString(for: layer)] = legendInfos
+                        strongSelf.outlineView.reloadData()
                     }
                 }
             }
             
             //stylize legend view
-            self.legendView.wantsLayer = true
-            self.legendView.layer?.borderColor = NSColor.gray.cgColor
-            self.legendView.layer?.borderWidth = 1
+            legendView.wantsLayer = true
+            legendView.layer?.borderColor = NSColor.gray.cgColor
+            legendView.layer?.borderWidth = 1
             
             //unhide legend view
-            self.legendView.isHidden = false
+            legendView.isHidden = false
         }
     }
     
@@ -109,7 +101,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil { //root
-            return self.orderArray?.count ?? 0
+            return orderArray.count
         }
         else {
             if let layerContent = item as? AGSLayerContent {

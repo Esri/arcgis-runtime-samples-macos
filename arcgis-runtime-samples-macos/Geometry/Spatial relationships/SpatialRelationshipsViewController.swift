@@ -132,6 +132,10 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
             // Clear selection
             strongSelf.graphicsOverlay.clearSelection()
             
+            // Clear previous results
+            strongSelf.relationshipsResults.removeAll()
+            strongSelf.resultsOutlineView.reloadData()
+            
             // Make sure there is no error
             guard result.error == nil else {
                 strongSelf.showAlert(messageText: "Error", informativeText: "Error identifying graphics overlay : \(String(describing: result.error?.localizedDescription))")
@@ -145,9 +149,6 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
             
             // Select identified graphic
             identifiedGraphic.isSelected = true
-            
-            // Remove all objects from results array
-            strongSelf.relationshipsResults.removeAll()
             
             // Check the geometry type and find it's
             // relationship with other geometries
