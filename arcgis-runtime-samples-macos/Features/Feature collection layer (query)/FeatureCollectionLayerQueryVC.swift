@@ -27,7 +27,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.oceans())
+        let map = AGSMap(basemap: .oceans())
         
         //assign map to the map view
         self.mapView.map = map

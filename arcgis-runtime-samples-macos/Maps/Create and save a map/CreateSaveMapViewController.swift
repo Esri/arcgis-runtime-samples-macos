@@ -35,7 +35,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
         
         //initialize map to imagery basemap for the blur background
-        let map = AGSMap(basemap: AGSBasemap.imagery())
+        let map = AGSMap(basemap: .imagery())
         
         //assign the map to the map view
         self.mapView.map = map

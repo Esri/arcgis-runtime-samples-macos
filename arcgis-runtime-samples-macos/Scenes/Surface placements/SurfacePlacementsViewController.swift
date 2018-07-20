@@ -28,7 +28,7 @@ class SurfacePlacementsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = AGSScene(basemap: AGSBasemap.topographic())
+        let scene = AGSScene(basemap: .topographic())
         
         self.sceneView.scene = scene
         

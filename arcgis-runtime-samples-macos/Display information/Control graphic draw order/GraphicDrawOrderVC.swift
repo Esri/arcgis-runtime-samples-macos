@@ -32,7 +32,7 @@ class GraphicDrawOrderVC: NSViewController {
         super.viewDidLoad()
         
         //create an instance of a map with ESRI topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streets())
+        self.map = AGSMap(basemap: .streets())
         //assign map to the map view
         self.mapView.map = self.map
         

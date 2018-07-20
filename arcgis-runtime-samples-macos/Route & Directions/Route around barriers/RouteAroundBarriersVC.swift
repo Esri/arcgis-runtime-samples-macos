@@ -52,7 +52,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         self.mapView.map = map
         self.mapView.touchDelegate = self

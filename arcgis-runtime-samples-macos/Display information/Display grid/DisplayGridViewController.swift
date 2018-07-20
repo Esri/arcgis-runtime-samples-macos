@@ -35,7 +35,7 @@ class DisplayGridViewController: NSViewController {
         super.viewDidLoad()
         
         // Initialize map with imagery basemap
-        let map = AGSMap(basemap: AGSBasemap.imagery())
+        let map = AGSMap(basemap: .imagery())
         
         // Set initial viewpoint
         let center = AGSPoint(x: -7702852.905619, y: 6217972.345771, spatialReference: AGSSpatialReference(wkid: 3857))

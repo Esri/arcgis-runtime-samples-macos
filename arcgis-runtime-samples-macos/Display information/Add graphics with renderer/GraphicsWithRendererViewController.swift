@@ -27,7 +27,7 @@ class GraphicsWithRendererViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //add the graphics overaly, with graphics added, to map view
         self.addGraphicsOverlay()

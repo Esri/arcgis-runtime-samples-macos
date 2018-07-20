@@ -33,7 +33,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         super.viewDidLoad()
         
         //instantiate a map with an imagery with labels basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        let map = AGSMap(basemap: .imageryWithLabels())
         self.mapView.map = map
         self.mapView.touchDelegate = self
         
