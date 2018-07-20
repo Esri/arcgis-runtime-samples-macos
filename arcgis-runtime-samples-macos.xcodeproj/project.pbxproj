@@ -41,6 +41,9 @@
 		213850841F74363000F79149 /* DisplayGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2138507F1F74348F00F79149 /* DisplayGrid.storyboard */; };
 		213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
 		213850861F74382900F79149 /* DisplayGridViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 213850801F74348F00F79149 /* DisplayGridViewController.swift */; };
+		215E23DD210248B4001DE092 /* SpatialRelationships.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215E23D9210248B4001DE092 /* SpatialRelationships.storyboard */; };
+		215E23DE210248B4001DE092 /* SpatialRelationshipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215E23DA210248B4001DE092 /* SpatialRelationshipsViewController.swift */; };
+		215E23E1210248E0001DE092 /* SpatialRelationshipsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 215E23DA210248B4001DE092 /* SpatialRelationshipsViewController.swift */; };
 		2182C9891FDB1100003E3A0F /* StatisticalQuery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */; };
 		2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
 		218314361FDB21090031CCCE /* StatisticalQueryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */; };
@@ -406,6 +409,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				215E23E1210248E0001DE092 /* SpatialRelationshipsViewController.swift in CopyFiles */,
 				D971AC5A20EEE1210062DA69 /* SymbolizeShapefileViewController.swift in CopyFiles */,
 				12FDB3A120EAD9AC00EE7127 /* GeodesicOperationsViewController.swift in CopyFiles */,
 				4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */,
@@ -546,6 +550,8 @@
 		166E8FA31EE6314A00C57C46 /* RasterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterLayerViewController.swift; sourceTree = "<group>"; };
 		2138507F1F74348F00F79149 /* DisplayGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayGrid.storyboard; sourceTree = "<group>"; };
 		213850801F74348F00F79149 /* DisplayGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayGridViewController.swift; sourceTree = "<group>"; };
+		215E23D9210248B4001DE092 /* SpatialRelationships.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialRelationships.storyboard; sourceTree = "<group>"; };
+		215E23DA210248B4001DE092 /* SpatialRelationshipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialRelationshipsViewController.swift; sourceTree = "<group>"; };
 		2182C9861FDB1100003E3A0F /* StatisticalQuery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StatisticalQuery.storyboard; sourceTree = "<group>"; };
 		2182C9881FDB1100003E3A0F /* StatisticalQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticalQueryViewController.swift; sourceTree = "<group>"; };
 		21D961BB1FF59B4B00FF1CFB /* StatisticalQueryGroupAndSort.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StatisticalQueryGroupAndSort.storyboard; sourceTree = "<group>"; };
@@ -916,6 +922,15 @@
 				213850801F74348F00F79149 /* DisplayGridViewController.swift */,
 			);
 			path = "Display grid";
+			sourceTree = "<group>";
+		};
+		215E23D8210248B4001DE092 /* Spatial relationships */ = {
+			isa = PBXGroup;
+			children = (
+				215E23D9210248B4001DE092 /* SpatialRelationships.storyboard */,
+				215E23DA210248B4001DE092 /* SpatialRelationshipsViewController.swift */,
+			);
+			path = "Spatial relationships";
 			sourceTree = "<group>";
 		};
 		2182C9851FDB1100003E3A0F /* Statistical query */ = {
@@ -1457,6 +1472,7 @@
 				3EF024F01ECBF44600166EC5 /* Format coordinates */,
 				124FAF3720E6CF6700F96548 /* Geodesic operations */,
 				94557F6020EAA08D0003644A /* Cut geometry */,
+				215E23D8210248B4001DE092 /* Spatial relationships */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -2214,6 +2230,7 @@
 				4C240F7F20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard in Resources */,
 				3EFDE0B51E31287B00CBCD92 /* Shasta_Elevation.tfw in Resources */,
 				3E496EC71DD14FBE004C921C /* Yellowstone.mmpk in Resources */,
+				215E23DD210248B4001DE092 /* SpatialRelationships.storyboard in Resources */,
 				3EF190A91EF9BF550037779D /* AddDeleteRelatedFeatures.storyboard in Resources */,
 				97F8BF121FDA6E4800A65B2E /* RasterLayerUsingService.storyboard in Resources */,
 				3EC1AE711BAC8DA100E32B1D /* Assets.xcassets in Resources */,
@@ -2477,6 +2494,7 @@
 				123F095C1FD2AA1A000760FE /* WMTSLayerViewController.swift in Sources */,
 				3E049A451CED1EB70031ADA9 /* VectorTileLayerViewController.swift in Sources */,
 				12A357EB203973F400184E9F /* ViewshedLocationViewController.swift in Sources */,
+				215E23DE210248B4001DE092 /* SpatialRelationshipsViewController.swift in Sources */,
 				3E496ED21DD14FE2004C921C /* MobileMapViewController.swift in Sources */,
 				3EFDE08D1E301C7800CBCD92 /* GraphicDrawOrderVC.swift in Sources */,
 				3E01037F1E29961A0013AEEF /* ChangeSublayerVisibilityVC.swift in Sources */,
