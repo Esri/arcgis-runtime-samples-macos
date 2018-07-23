@@ -1021,6 +1021,18 @@
 					<string>ListTransformationsViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Spatial relationships</string>
+				<key>storyboardName</key>
+				<string>SpatialRelationships</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to use the AGSGeometryEngine to evaluate the spatial relationships between geometries.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SpatialRelationshipsViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
