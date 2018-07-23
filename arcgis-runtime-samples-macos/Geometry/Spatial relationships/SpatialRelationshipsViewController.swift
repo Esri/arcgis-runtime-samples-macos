@@ -133,6 +133,9 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
             strongSelf.graphicsOverlay.clearSelection()
             
             // Clear previous results
+            strongSelf.pointRelationships.removeAll()
+            strongSelf.polylineRelationships.removeAll()
+            strongSelf.polygonRelationships.removeAll()
             strongSelf.relationshipsResults.removeAll()
             strongSelf.resultsOutlineView.reloadData()
             
