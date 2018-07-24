@@ -532,6 +532,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Query a map image sublayer</string>
+				<key>storyboardName</key>
+				<string>QueryMapImageSublayer</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to execute an attribute and spatial query on the sublayers of an ArcGIS map image layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>QueryMapImageSublayerViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Symbolize shapefile</string>
 				<key>storyboardName</key>
 				<string>SymbolizeShapefile</string>

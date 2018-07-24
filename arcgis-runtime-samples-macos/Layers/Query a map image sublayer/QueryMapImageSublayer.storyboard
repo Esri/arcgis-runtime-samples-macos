@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="G1W-SO-sfQ">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <scenes>
+        <!--Query Map Image Sublayer View Controller-->
+        <scene sceneID="Lvy-Oz-F9L">
+            <objects>
+                <viewController id="G1W-SO-sfQ" customClass="QueryMapImageSublayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="pLG-ZX-qeY">
+                        <rect key="frame" x="0.0" y="0.0" width="674" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="B93-iV-4PG" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="38" width="674" height="262"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogt-Ns-wNC">
+                                <rect key="frame" x="0.0" y="0.0" width="674" height="38"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9wS-SA-GTl">
+                                        <rect key="frame" x="6" y="11" width="116" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Population 2000 &gt;" id="JLh-LL-qfM">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjZ-R0-k6g">
+                                        <rect key="frame" x="128" y="8" width="409" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="sBs-p0-Ahn">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="query:" target="G1W-SO-sfQ" id="dyr-nm-AFh"/>
+                                            <outlet property="delegate" destination="G1W-SO-sfQ" id="uOh-IF-Bsw"/>
+                                            <outlet property="nextKeyView" destination="B93-iV-4PG" id="GUk-Of-ntE"/>
+                                        </connections>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-Av-CEY">
+                                        <rect key="frame" x="539" y="1" width="133" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Query in Extent" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FL6-Mg-UBc">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="query:" target="G1W-SO-sfQ" id="qwJ-YO-k9E"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <edgeInsets key="edgeInsets" left="8" right="8" top="8" bottom="8"/>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ogt-Ns-wNC" secondAttribute="bottom" id="0KH-jP-9zf"/>
+                            <constraint firstItem="ogt-Ns-wNC" firstAttribute="leading" secondItem="pLG-ZX-qeY" secondAttribute="leading" id="RgH-tf-clc"/>
+                            <constraint firstItem="ogt-Ns-wNC" firstAttribute="top" secondItem="B93-iV-4PG" secondAttribute="bottom" id="Xzd-x8-271"/>
+                            <constraint firstAttribute="trailing" secondItem="B93-iV-4PG" secondAttribute="trailing" id="dnW-Dg-XXQ"/>
+                            <constraint firstItem="B93-iV-4PG" firstAttribute="top" secondItem="pLG-ZX-qeY" secondAttribute="top" id="ofN-Dp-xXg"/>
+                            <constraint firstItem="B93-iV-4PG" firstAttribute="leading" secondItem="pLG-ZX-qeY" secondAttribute="leading" id="qJ8-3Z-sUq"/>
+                            <constraint firstAttribute="trailing" secondItem="ogt-Ns-wNC" secondAttribute="trailing" id="rE4-Tw-ZeK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="B93-iV-4PG" id="L3z-qX-tnp"/>
+                        <outlet property="populationTextField" destination="yjZ-R0-k6g" id="DHJ-tg-jBP"/>
+                        <outlet property="queryButton" destination="K0x-Av-CEY" id="kGI-MF-hdZ"/>
+                    </connections>
+                </viewController>
+                <customObject id="1yT-Jb-c5g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="103"/>
+        </scene>
+    </scenes>
+</document>
