@@ -23,7 +23,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var orderByMapExtent: NSButton!
     
-    var datatumTransformations = [AGSDatumTransformation]()
+    var datumTransformations = [AGSDatumTransformation]()
     var defaultTransformation: AGSDatumTransformation?
     let graphicsOverlay = AGSGraphicsOverlay()
     var originalGeometry = AGSPoint(x: 538985.355, y: 177329.516, spatialReference: AGSSpatialReference(wkid: 27700))
@@ -77,10 +77,10 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         
         // if orderByMapExtent is on, use the map extent when retrieving the transformations
         if orderByMapExtent.state == .on {
-            datatumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR, areaOfInterest: mapView.visibleArea?.extent)
+            datumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR, areaOfInterest: mapView.visibleArea?.extent)
         }
         else {
-            datatumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR)
+            datumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR)
         }
         
         defaultTransformation = AGSTransformationCatalog.transformation(forInputSpatialReference: inputSR, outputSpatialReference: outputSR)
@@ -121,13 +121,13 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
     //MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return datatumTransformations.count
+        return datumTransformations.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cellView: NSView?
 
-        let transformation = datatumTransformations[row]
+        let transformation = datumTransformations[row]
         if transformation.isMissingProjectionEngineFiles,
             // if we're missing the grid files, detail which ones
             let geographicTransformation = transformation as? AGSGeographicTransformation {
@@ -162,7 +162,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard let mapViewSR = mapView.spatialReference else { return }
         
-        let selectedTransform = datatumTransformations[tableView.selectedRow]
+        let selectedTransform = datumTransformations[tableView.selectedRow]
         if let projectedGeometry = AGSGeometryEngine.projectGeometry(originalGeometry, to: mapViewSR, datumTransformation: selectedTransform) {
             // projectGeometry succeeded
             if let graphic = projectedGraphic {
@@ -186,13 +186,13 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         // don't allow selection on transformations with missing files
-        let transformation = datatumTransformations[row]
+        let transformation = datumTransformations[row]
         return !transformation.isMissingProjectionEngineFiles
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         // we have two different row heights
-        let transformation = datatumTransformations[row]
+        let transformation = datumTransformations[row]
         return (transformation.isMissingProjectionEngineFiles ? 46.0 : 20.0)
     }
 }
