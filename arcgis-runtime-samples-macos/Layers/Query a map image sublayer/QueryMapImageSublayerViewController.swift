@@ -79,20 +79,20 @@ class QueryMapImageSublayerViewController: NSViewController {
     /// The sublayers of the map image layer.
     var mapImageLayerSublayers = [SublayerKey: AGSArcGISMapImageSublayer]()
     
-/// Called in response to the map image layer loading successfully.
-func mapImageLayerDidLoad(_ layer: AGSArcGISMapImageLayer) {
-    for key in SublayerKey.allCases {
-        guard let sublayer = layer.mapImageSublayers[key.rawValue] as? AGSArcGISMapImageSublayer else { continue }
-        mapImageLayerSublayers[key] = sublayer
-        sublayer.load { [weak self] (error) in
-            if let error = error {
-                print("Error loading sublayer \(sublayer.name): \(error)")
-            } else {
-                self?.enableControlsIfNeeded()
+    /// Called in response to the map image layer loading successfully.
+    func mapImageLayerDidLoad(_ layer: AGSArcGISMapImageLayer) {
+        for key in SublayerKey.allCases {
+            guard let sublayer = layer.mapImageSublayers[key.rawValue] as? AGSArcGISMapImageSublayer else { continue }
+            mapImageLayerSublayers[key] = sublayer
+            sublayer.load { [weak self] (error) in
+                if let error = error {
+                    print("Error loading sublayer \(sublayer.name): \(error)")
+                } else {
+                    self?.enableControlsIfNeeded()
+                }
             }
         }
     }
-}
     
     /// Called in response to the map image layer failing to load. Presents an
     /// alert announcing the failure.
