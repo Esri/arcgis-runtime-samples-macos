@@ -17,7 +17,6 @@ import ArcGIS
 
 fileprivate let observerZMin = 20.0
 fileprivate let observerZMax = 1500.0
-fileprivate let observerZUnitString = AGSLinearUnit.meters().abbreviation
 
 class LineOfSightGeoElementViewController: NSViewController {
     
@@ -142,7 +141,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         observerZSlider.minValue = observerZMin
         observerZSlider.maxValue = observerZMax
 
-        observerZMaxLabel.stringValue = "\(Int(observerZMax))\(observerZUnitString)"
+        observerZMaxLabel.stringValue = observerZMax.asZString()
         
         updateObserverZLabel()
     }
@@ -195,11 +194,12 @@ class LineOfSightGeoElementViewController: NSViewController {
     }
 
     func updateObserverZLabel() {
-        var label = "Unknown"
-        if let geom = observerGraphic.geometry as? AGSPoint {
-            label = "\(Int(geom.z))"
-        }
-        observerZLabel.stringValue = "\(label)\(observerZUnitString)"
+        observerZLabel.stringValue = {
+            guard let observerLocation = observerGraphic.geometry as? AGSPoint, observerLocation.hasZ else {
+                return "Unknown"
+            }
+            return observerLocation.z.asZString()
+        }()
     }
 
 
@@ -263,3 +263,17 @@ fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, 
                      z: firstPoint.z + diff.z,
                      spatialReference: firstPoint.spatialReference), heading)
 }
+
+fileprivate extension Double {
+    func asZString() -> String {
+        return zValuesFormatter.string(from: Measurement<UnitLength>(value: self, unit: .meters))
+    }
+}
+
+fileprivate let zValuesFormatter: MeasurementFormatter = {
+    let formatter = MeasurementFormatter()
+    formatter.numberFormatter.maximumFractionDigits = 0
+    formatter.numberFormatter.roundingMode = .down
+    formatter.unitOptions = .providedUnit
+    return formatter
+}()
