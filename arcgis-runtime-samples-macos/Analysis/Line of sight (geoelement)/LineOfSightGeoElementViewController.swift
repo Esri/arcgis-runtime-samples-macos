@@ -29,10 +29,10 @@ class LineOfSightGeoElementViewController: NSViewController {
     @IBOutlet var observerZMaxLabel: NSTextField!
     
     // properties for setting up and manipulating the scene
-    private let scene:AGSScene
-    private let overlay:AGSGraphicsOverlay
-    private let taxiGraphic:AGSGraphic
-    private let observerGraphic:AGSGraphic
+    private let scene: AGSScene
+    private let overlay: AGSGraphicsOverlay
+    private let taxiGraphic: AGSGraphic
+    private let observerGraphic: AGSGraphic
     private let lineOfSight: AGSGeoElementLineOfSight
 
     // locations used in the sample
@@ -46,9 +46,9 @@ class LineOfSightGeoElementViewController: NSViewController {
     ]
 
     // handle onto any line of sight KVO observer
-    private var losObserver:NSKeyValueObservation?
+    private var losObserver: NSKeyValueObservation?
 
-    private var initialViewpointCenter:AGSPoint {
+    private var initialViewpointCenter: AGSPoint {
         // If possible, find the middle of the block that the taxi will drive around, or else focus on the observer
         return AGSGeometryEngine.unionGeometries(streetIntersectionLocations)?.extent.center ?? observerPoint
     }
@@ -180,7 +180,7 @@ class LineOfSightGeoElementViewController: NSViewController {
 
 
     // current line of sight status
-    private func updateLineOfSightVisibilityLabel(visibility:AGSLineOfSightTargetVisibility) {
+    private func updateLineOfSightVisibilityLabel(visibility: AGSLineOfSightTargetVisibility) {
         switch visibility {
         case .obstructed:
             targetVisibilityLabel.stringValue = "Obstructed"
@@ -206,7 +206,7 @@ class LineOfSightGeoElementViewController: NSViewController {
 
     // Track animation progress
     private var animationProgess = (frameIndex: 0, pointIndex: 0)
-    private var animationTimer:Timer?
+    private var animationTimer: Timer?
     private let framesPerSegment = 150
 
     private func startAnimation() {
@@ -245,7 +245,7 @@ class LineOfSightGeoElementViewController: NSViewController {
     }
 }
 
-fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint:AGSPoint, progress:Double) -> (AGSPoint, Double) {
+fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, progress: Double) -> (AGSPoint, Double) {
     // Use the geometry engine to calculate the heading between point 1 and 2
     let geResult = AGSGeometryEngine.geodeticDistanceBetweenPoint1(firstPoint, point2: secondPoint,
                                                                    distanceUnit: .meters(),
