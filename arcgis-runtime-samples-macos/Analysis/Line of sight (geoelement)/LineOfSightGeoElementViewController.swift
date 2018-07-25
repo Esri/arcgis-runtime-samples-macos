@@ -59,7 +59,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         // ====================================
 
         // initialize the scene with an imagery basemap
-        scene = AGSScene(basemap: AGSBasemap.imageryWithLabels())
+        scene = AGSScene(basemap: .imageryWithLabels())
 
         // initialize the elevation source and add it to the base surface of the scene
         let elevationSrc = AGSArcGISTiledElevationSource(url: .worldElevationService)
