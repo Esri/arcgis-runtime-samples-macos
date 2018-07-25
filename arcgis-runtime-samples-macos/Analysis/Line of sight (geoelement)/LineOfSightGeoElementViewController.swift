@@ -142,10 +142,8 @@ class LineOfSightGeoElementViewController: NSViewController {
         observerZSlider.maxValue = observerZMax
 
         observerZMaxLabel.stringValue = observerZMax.asZString()
-        
-        updateObserverZLabel()
     }
-
+    
     // update the observer height when the slider is moved
     @IBAction func observerHeightChanged(_ observerZSlider: NSSlider) {
         if let oldLocation = observerGraphic.geometry as? AGSPoint,
@@ -155,6 +153,11 @@ class LineOfSightGeoElementViewController: NSViewController {
         }
     }
 
+    // Clean up when done with the sample
+    deinit {
+        losObserver?.invalidate()
+    }
+    
 
 
     // start and stop animation
@@ -193,7 +196,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         }
     }
 
-    func updateObserverZLabel() {
+    private func updateObserverZLabel() {
         observerZLabel.stringValue = {
             guard let observerLocation = observerGraphic.geometry as? AGSPoint, observerLocation.hasZ else {
                 return "Unknown"
