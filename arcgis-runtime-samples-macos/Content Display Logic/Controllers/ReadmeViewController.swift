@@ -17,8 +17,7 @@ import Cocoa
 import WebKit
 
 class ReadmeViewController: NSViewController {
-
-    @IBOutlet private var webView:WebView!
+    @IBOutlet private var webView: WKWebView!
     
     var folderName:String! {
         didSet {
@@ -26,11 +25,6 @@ class ReadmeViewController: NSViewController {
                 self.fetchFileContent(self.folderName)
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     }
     
     func fetchFileContent(_ folderName:String) {
@@ -59,9 +53,7 @@ class ReadmeViewController: NSViewController {
                 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
             </head>
             <body>
-                <div id="preview" sd-model-to-html="text">
-                    <div id="content">\(readmeContent)</div>
-                </div>
+                <div id="content">\(readmeContent)</div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.1.0/showdown.js"></script>
                 <script>
                     var conv = new showdown.Converter();
@@ -71,6 +63,6 @@ class ReadmeViewController: NSViewController {
             </body>
             </html>
             """
-        self.webView.mainFrame.loadHTMLString(string, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
+        self.webView.loadHTMLString(string, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
     }
 }
