@@ -4,6 +4,8 @@ Transformations (sometimes known as datum or geographic transformations) are use
 
 This sample demonstrates how to use the `AGSTransformationCatalog` to get a list of available `AGSDatumTransformation` that can be used to project an `AGSGeometry` between two different `AGSSpatialReference`, and how to use one of the transformations to perform the `AGSGeometryEngine.project` operation. The `AGSTransformationCatalog` is also used to set the location of files upon which grid-based transformations depend, and to find the default transformation used for the two `AGSSpatialReference`.
 
+![](image1.png)
+
 ## How to use the sample
 Optionally, begin by adding projection engine data to your device before running this sample. When you use the projection engine data, more transformations are available for use.
 
