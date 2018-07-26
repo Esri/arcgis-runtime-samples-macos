@@ -141,7 +141,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         observerZSlider.minValue = observerZMin
         observerZSlider.maxValue = observerZMax
 
-        observerZMaxLabel.stringValue = observerZMax.asZString()
+        observerZMaxLabel.stringValue = getFormattedString(z: observerZMax)
     }
     
     // update the observer height when the slider is moved
@@ -180,6 +180,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         animationTimer?.invalidate()
     }
 
+    
 
     // current line of sight status
     private func updateLineOfSightVisibilityLabel(visibility: AGSLineOfSightTargetVisibility) {
@@ -201,7 +202,7 @@ class LineOfSightGeoElementViewController: NSViewController {
             guard let observerLocation = observerGraphic.geometry as? AGSPoint, observerLocation.hasZ else {
                 return "Unknown"
             }
-            return observerLocation.z.asZString()
+            return getFormattedString(z: observerLocation.z)
         }()
     }
 
@@ -246,6 +247,21 @@ class LineOfSightGeoElementViewController: NSViewController {
         taxiGraphic.geometry = animationPoint
         (taxiGraphic.symbol as? AGSModelSceneSymbol)?.heading = heading
     }
+
+    
+    
+    // Formatting z values for locale
+    private let zValuesFormatter: MeasurementFormatter = {
+        let formatter = MeasurementFormatter()
+        formatter.numberFormatter.maximumFractionDigits = 0
+        formatter.numberFormatter.roundingMode = .down
+        formatter.unitOptions = .providedUnit
+        return formatter
+    }()
+
+    private func getFormattedString(z value:Double) -> String {
+        return zValuesFormatter.string(from: Measurement<UnitLength>(value: value, unit: .meters))
+    }
 }
 
 fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, progress: Double) -> (AGSPoint, Double) {
@@ -266,17 +282,3 @@ fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, 
                      z: firstPoint.z + diff.z,
                      spatialReference: firstPoint.spatialReference), heading)
 }
-
-fileprivate extension Double {
-    func asZString() -> String {
-        return zValuesFormatter.string(from: Measurement<UnitLength>(value: self, unit: .meters))
-    }
-}
-
-fileprivate let zValuesFormatter: MeasurementFormatter = {
-    let formatter = MeasurementFormatter()
-    formatter.numberFormatter.maximumFractionDigits = 0
-    formatter.numberFormatter.roundingMode = .down
-    formatter.unitOptions = .providedUnit
-    return formatter
-}()
