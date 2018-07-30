@@ -52,7 +52,7 @@ class Animate3DSymbolsVC: NSViewController {
         super.viewDidLoad()
         
         //initalize scene with imagery basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         
         //assign scene to scene view
         self.sceneView.scene = scene

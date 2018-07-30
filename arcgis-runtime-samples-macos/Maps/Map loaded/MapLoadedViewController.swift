@@ -18,58 +18,55 @@ import Cocoa
 import ArcGIS
 
 class MapLoadedViewController: NSViewController {
-
+    /// The map displayed in the map view.
+    let map = AGSMap(basemap: .imageryWithLabels())
+    
     @IBOutlet var mapView:AGSMapView!
     @IBOutlet var bannerLabel:NSTextField!
     
-    private var map:AGSMap!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //initialize map with basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
-        
-        //register as an observer for loadStatus property on map
-        self.map.addObserver(self, forKeyPath: "loadStatus", options: .new, context: nil)
         
         //assign map to map view
         self.mapView.map = self.map
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        //register as an observer for loadStatus property on map
+        map.addObserver(self, forKeyPath: #keyPath(AGSMap.loadStatus), options: .initial, context: nil)
+    }
+    
     //The sample uses Key-Value Observing to register and receive observations on the loadStatus
     //property of the AGSMap. The banner label will be updated everytime the status changes
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
         //update the banner label on main thread
         DispatchQueue.main.async { [weak self] in
-            
-            if let weakSelf = self {
-                //get the string for load status
-                let loadStatusString = weakSelf.string(for: weakSelf.map.loadStatus)
-                
-                //set it on the banner label
-                weakSelf.bannerLabel.stringValue = "Load status : \(loadStatusString)"
-            }
+            guard let strongSelf = self else { return }
+            strongSelf.bannerLabel.stringValue = "Load status: \(strongSelf.map.loadStatus.title)"
         }
     }
     
-    private func string(for loadStatus: AGSLoadStatus) -> String {
-        switch loadStatus {
-        case .failedToLoad:
-            return "Failed_To_Load"
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        map.removeObserver(self, forKeyPath: #keyPath(AGSMap.loadStatus))
+    }
+}
+
+extension AGSLoadStatus {
+    /// The human readable name of the load status.
+    var title: String {
+        switch self {
         case .loaded:
             return "Loaded"
         case .loading:
             return "Loading"
+        case .failedToLoad:
+            return "Failed to Load"
         case .notLoaded:
-            return "Not_Loaded"
-        default:
+            return "Not Loaded"
+        case .unknown:
             return "Unknown"
         }
-    }
-    
-    deinit {
-        self.map.removeObserver(self, forKeyPath: "loadStatus")
     }
 }

@@ -25,7 +25,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        let map = AGSMap(basemap: .imageryWithLabels())
         
         //initial viewpoint
         let center = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())

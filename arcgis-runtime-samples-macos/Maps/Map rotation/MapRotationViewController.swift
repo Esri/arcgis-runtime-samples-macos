@@ -30,7 +30,7 @@ class MapRotationViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streets())
+        self.map = AGSMap(basemap: .streets())
         
         //assign map to the map view
         self.mapView.map = self.map

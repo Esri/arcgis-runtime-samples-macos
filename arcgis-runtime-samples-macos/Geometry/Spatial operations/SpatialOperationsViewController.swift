@@ -34,7 +34,7 @@ class SpatialOperationsViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         //assign map to map view
         self.mapView.map = map
