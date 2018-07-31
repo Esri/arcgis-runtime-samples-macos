@@ -530,6 +530,34 @@
 					<string>StyleWebMapServiceLayerViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Query a map image sublayer</string>
+				<key>storyboardName</key>
+				<string>QueryMapImageSublayer</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to execute an attribute and spatial query on the sublayers of an ArcGIS map image layer.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>QueryMapImageSublayerViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Symbolize shapefile</string>
+				<key>storyboardName</key>
+				<string>SymbolizeShapefile</string>
+				<key>descriptionText</key>
+				<string>Symbolize a feature layer on a map using a shapefile</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SymbolizeShapefileViewController</string>
+				</array>
+				<key>dependency</key>
+				<array>
+					<string>SubdivisionsShapefile</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -589,9 +617,7 @@
 					<string>FeatureLayerShapefileViewController</string>
 				</array>
 				<key>dependency</key>
-				<array>
-					<string>SubdivisionsShapefile</string>
-				</array>
+				<array/>
 			</dict>
 			<dict>
 				<key>displayName</key>
@@ -973,6 +999,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Geodesic operations</string>
+				<key>storyboardName</key>
+				<string>GeodesicOperations</string>
+				<key>descriptionText</key>
+				<string>Use geometry engine to calculate a geodesic path between two points and measure its distance.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>GeodesicOperationsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Cut geometry</string>
 				<key>storyboardName</key>
 				<string>CutGeometry</string>
@@ -981,6 +1019,30 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>CutGeometryViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>List transformations</string>
+				<key>storyboardName</key>
+				<string>ListTransformations</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to use the transformation catalog to get a list of available datum transformations that can be used to project a geometry between two different spatial references, and how to use one of the transformations to perform the geometry engine's "project" operation.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ListTransformationsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Spatial relationships</string>
+				<key>storyboardName</key>
+				<string>SpatialRelationships</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to use the AGSGeometryEngine to evaluate the spatial relationships between geometries.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>SpatialRelationshipsViewController</string>
 				</array>
 			</dict>
 		</array>
@@ -1130,6 +1192,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>LineOfSightLocationViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Line of sight (geoelement)</string>
+				<key>storyboardName</key>
+				<string>LineOfSightGeoElement</string>
+				<key>descriptionText</key>
+				<string>Line of sight between an observer and a moving GeoElement.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>LineOfSightGeoElementViewController</string>
 				</array>
 			</dict>
 			<dict>

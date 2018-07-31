@@ -1077,15 +1077,15 @@
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-9M-l79" userLabel="Source Picker View">
                                 <rect key="frame" x="190" y="390" width="180" height="40"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
-                                                <rect key="frame" x="-2" y="12" width="75" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source File:" id="raF-q1-HLV">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-Xh-xkB">
+                                        <rect key="frame" x="-2" y="12" width="75" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source File:" id="raF-q1-HLV">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GxK-pS-yNo">
                                         <rect key="frame" x="77" y="7" width="106" height="26"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="zbD-en-mGK">
@@ -1097,20 +1097,20 @@
                                             <action selector="popUpButtonAction:" target="lPX-Bg-gfI" id="y72-fg-gOg"/>
                                         </connections>
                                     </popUpButton>
-                                        </subviews>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="SKC-wg-YGn"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="sK7-Qe-ztt"/>
                                 </constraints>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="yjd-69-o1y">
                                 <rect key="frame" x="0.0" y="36" width="559" height="349"/>
                                 <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
