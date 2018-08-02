@@ -18,11 +18,8 @@ import Cocoa
 import WebKit
 
 class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
-
-    @IBOutlet var popUpButton:NSPopUpButton!
-    @IBOutlet var webView:WebView!
-    @IBOutlet var searchField: NSSearchField!
-    @IBOutlet var noResultLabel: NSTextField!
+    @IBOutlet var popUpButton: NSPopUpButton!
+    @IBOutlet var webView: WKWebView!
     
     var fileNames:[String]! {
         didSet {
@@ -36,17 +33,12 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     //MARK: - HTML logic
     
     func loadHTMLPage(_ filename:String) {
         if let content = self.contentOfFile(filename) {
             let htmlString = self.htmlStringForContent(content)
-            self.webView.mainFrame.loadHTMLString(htmlString, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
+            webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
         }
     }
     
@@ -86,39 +78,5 @@ class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
     @IBAction func popUpButtonAction(_ sender: AnyObject) {
         let filename = popUpButton.titleOfSelectedItem!
         self.loadHTMLPage(filename)
-    }
-    
-    @IBAction func search(_ sender: AnyObject) {
-        if self.searchField.stringValue.isEmpty {
-            return
-        }
-        
-        let success = self.webView.search(for: self.searchField.stringValue, direction: true, caseSensitive: false, wrap: true)
-        
-        if !success {
-            //show no result label
-            self.noResultLabel.isHidden = false
-        }
-    }
-    
-    //MARK: - NSSearchField delegate
-    
-    override func controlTextDidChange(_ notification: Notification) {
-        if let sender = notification.object as? NSSearchField , sender == self.searchField {
-            //hide no results label if visible
-            self.noResultLabel.isHidden = true
-        }
-    }
-    
-    //support for search when focused on webView and return key pressed
-    override func keyDown(with event: NSEvent) {
-        
-        //for return key inside web view
-        if event.keyCode == 36 {
-            if let webHTMLView = self.view.window?.firstResponder as? NSView, webHTMLView.isDescendant(of: self.webView) {
-                
-                self.search(self.searchField)
-            }
-        }
     }
 }
