@@ -28,7 +28,7 @@ class ChangeBasemapViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.streets())
+        self.map = AGSMap(basemap: .streets())
         
         //assign the map to the map view
         self.mapView.map = map
@@ -38,27 +38,27 @@ class ChangeBasemapViewController: NSViewController {
     @IBAction func changeBasemapsAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {
         case 0:
-            self.map.basemap = AGSBasemap.streets()
+            self.map.basemap = .streets()
         case 1:
-            self.map.basemap = AGSBasemap.streetsVector()
+            self.map.basemap = .streetsVector()
         case 2:
-            self.map.basemap = AGSBasemap.streetsNightVector()
+            self.map.basemap = .streetsNightVector()
         case 3:
-            self.map.basemap = AGSBasemap.imagery()
+            self.map.basemap = .imagery()
         case 4:
-            self.map.basemap = AGSBasemap.imageryWithLabels()
+            self.map.basemap = .imageryWithLabels()
         case 5:
-            self.map.basemap = AGSBasemap.imageryWithLabelsVector()
+            self.map.basemap = .imageryWithLabelsVector()
         case 6:
-            self.map.basemap = AGSBasemap.darkGrayCanvasVector()
+            self.map.basemap = .darkGrayCanvasVector()
         case 7:
-            self.map.basemap = AGSBasemap.lightGrayCanvas()
+            self.map.basemap = .lightGrayCanvas()
         case 8:
-            self.map.basemap = AGSBasemap.lightGrayCanvasVector()
+            self.map.basemap = .lightGrayCanvasVector()
         case 9:
-            self.map.basemap = AGSBasemap.navigationVector()
+            self.map.basemap = .navigationVector()
         default:
-            self.map.basemap = AGSBasemap.openStreetMap()
+            self.map.basemap = .openStreetMap()
         }
     }
     

@@ -28,7 +28,7 @@ class ChangeFeatureLayerRendererVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //initial viewpoint
         self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -1.30758164047166E7, yMin: 4014771.46954516, xMax: -1.30730056797177E7

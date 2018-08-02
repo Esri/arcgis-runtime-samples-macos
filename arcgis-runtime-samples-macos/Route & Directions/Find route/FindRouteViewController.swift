@@ -47,7 +47,7 @@ class FindRouteViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        let map = AGSMap(basemap: AGSBasemap.navigationVector())
+        let map = AGSMap(basemap: .navigationVector())
         self.mapView.map = map
         
         //add graphicsOverlays to the map view

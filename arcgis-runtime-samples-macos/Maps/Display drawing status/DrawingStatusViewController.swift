@@ -29,7 +29,7 @@ class DrawingStatusViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         self.progressIndicator.startAnimation(self)
         

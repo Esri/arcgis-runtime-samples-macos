@@ -25,7 +25,7 @@ class DisplaySceneViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize scene with topographic basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         //assign scene to the scene view
         self.sceneView.scene = scene
         
