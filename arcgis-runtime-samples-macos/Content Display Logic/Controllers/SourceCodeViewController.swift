@@ -17,7 +17,7 @@
 import Cocoa
 import WebKit
 
-class SourceCodeViewController: NSViewController, NSSearchFieldDelegate {
+class SourceCodeViewController: NSViewController {
     @IBOutlet var popUpButton: NSPopUpButton!
     @IBOutlet var webView: WKWebView!
     
