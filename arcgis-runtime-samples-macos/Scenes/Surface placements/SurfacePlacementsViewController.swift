@@ -17,23 +17,14 @@
 import Cocoa
 import ArcGIS
 
+/// A view controller that manages the interface of the Surface Placements
+/// sample.
 class SurfacePlacementsViewController: NSViewController {
+    /// The scene displayed in the scene view.
+    let scene: AGSScene
     
-    @IBOutlet var sceneView:AGSSceneView!
-    
-    private var drapedGraphicsOverlay = AGSGraphicsOverlay()
-    private var relativeGraphicsOverlay = AGSGraphicsOverlay()
-    private var absoluteGraphicsOverlay = AGSGraphicsOverlay()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let scene = AGSScene(basemap: .topographic())
-        
-        self.sceneView.scene = scene
-        
-        let camera = AGSCamera(latitude: 53.04, longitude: -4.04, altitude: 1300, heading: 0, pitch: 90, roll: 0)
-        self.sceneView.setViewpointCamera(camera)
+    required init?(coder: NSCoder) {
+        scene = AGSScene(basemap: .topographic())
         
         // add base surface for elevation data
         let surface = AGSSurface()
@@ -41,34 +32,56 @@ class SurfacePlacementsViewController: NSViewController {
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
         
-        //set surface placements for the graphicsOverlays
-        self.drapedGraphicsOverlay.sceneProperties?.surfacePlacement = .draped
-        self.relativeGraphicsOverlay.sceneProperties?.surfacePlacement = .relative
-        self.absoluteGraphicsOverlay.sceneProperties?.surfacePlacement = .absolute
-        
-        //add graphic overlays to the scene view
-        self.sceneView.graphicsOverlays.addObjects(from: [self.drapedGraphicsOverlay, self.relativeGraphicsOverlay, self.absoluteGraphicsOverlay])
-        
-        //add graphics
-        self.addGraphics()
+        super.init(coder: coder)
     }
     
+    /// The scene view managed by the view controller.
+    @IBOutlet var sceneView: AGSSceneView!
     
-    private func addGraphics() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        //create point for graphic location
-        let point = AGSPoint(x: -4.04, y: 53.06, z: 1000, spatialReference: AGSSpatialReference.wgs84())
+        self.sceneView.scene = scene
         
-        self.drapedGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Draped"), attributes: nil)])
-        self.relativeGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Relative"), attributes: nil)])
-        self.absoluteGraphicsOverlay.graphics.addObjects(from: [AGSGraphic(geometry: point, symbol: self.pointSymbol(), attributes: nil), AGSGraphic(geometry: point, symbol: self.textSymbol("Absolute"), attributes: nil)])
+        let camera = AGSCamera(latitude: 53.04, longitude: -4.04, altitude: 1300, heading: 0, pitch: 90, roll: 0)
+        self.sceneView.setViewpointCamera(camera)
+        
+        let graphicsOverlays = AGSSurfacePlacement.allCases.map { makeGraphicsOverlay(surfacePlacement: $0) }
+        sceneView.graphicsOverlays.addObjects(from: graphicsOverlays)
     }
+    
+    /// Creates a graphics overlay for the given surface placement.
+    ///
+    /// - Parameter surfacePlacement: The surface placement for which to create
+    /// a graphics overlay.
+    /// - Returns: A new `AGSGraphicsOverlay` object.
+    func makeGraphicsOverlay(surfacePlacement: AGSSurfacePlacement) -> AGSGraphicsOverlay {
+        let symbols = [
+            AGSSimpleMarkerSceneSymbol(style: .sphere, color: .red, height: 50, width: 50, depth: 50, anchorPosition: .center),
+            AGSTextSymbol(text: surfacePlacement.title, color: .blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
+        ]
+        let point = AGSPoint(x: -4.04, y: 53.06, z: 1000, spatialReference: .wgs84())
+        let graphics = symbols.map { AGSGraphic(geometry: point, symbol: $0) }
+        
+        let graphicsOverlay = AGSGraphicsOverlay()
+        graphicsOverlay.sceneProperties?.surfacePlacement = surfacePlacement
+        graphicsOverlay.graphics.addObjects(from: graphics)
+        return graphicsOverlay
+    }
+}
 
-    private func pointSymbol() -> AGSSimpleMarkerSceneSymbol {
-        return AGSSimpleMarkerSceneSymbol(style: .sphere, color: .red, height: 50, width: 50, depth: 50, anchorPosition: .center)
+private extension AGSSurfacePlacement {
+    /// A set of all values of this type.
+    static var allCases: [AGSSurfacePlacement] {
+        return [.draped, .relative, .absolute]
     }
     
-    private func textSymbol(_ text: String) -> AGSTextSymbol {
-        return AGSTextSymbol(text: text, color: .blue, size: 20, horizontalAlignment: .left, verticalAlignment: .middle)
+    /// The human readable name of the surface placement.
+    var title: String {
+        switch self {
+        case .draped: return "Draped"
+        case .relative: return "Relative"
+        case .absolute: return "Absolute"
+        }
     }
 }
