@@ -216,7 +216,6 @@
 		3E8DB5721D2B45A000D48BC6 /* SceneLayerURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */; };
 		3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8DB5731D2B45D900D48BC6 /* SceneLayerURL.storyboard */; };
 		3E8DB5751D2C2CC400D48BC6 /* SceneLayerURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */; };
-		3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */; };
 		3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */; };
 		3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */; };
 		3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */; };
@@ -248,7 +247,6 @@
 		3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */; };
 		3EC1AE711BAC8DA100E32B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */; };
 		3EC1AE741BAC8DA100E32B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC1AE721BAC8DA100E32B1D /* Main.storyboard */; };
-		3EC1AE7C1BAC913300E32B1D /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC1AE7B1BAC913300E32B1D /* ArcGIS.framework */; };
 		3ECCFE041BC86A6D00CE256D /* ChangeBasemapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE021BC86A6D00CE256D /* ChangeBasemapViewController.swift */; };
 		3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCFE061BC86AAF00CE256D /* ChangeBasemap.storyboard */; };
 		3ECCFE0A1BC86CF300CE256D /* SetInitialMapArea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCFE091BC86CF300CE256D /* SetInitialMapArea.storyboard */; };
@@ -358,6 +356,8 @@
 		4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
 		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
+		4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; };
+		4CF02586211893C100806810 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
 		94557F6420EAA0CD0003644A /* CutGeometry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94557F6320EAA0CD0003644A /* CutGeometry.storyboard */; };
 		94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
@@ -542,6 +542,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4CF02587211893C100806810 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4CF02586211893C100806810 /* ArcGIS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -681,7 +692,6 @@
 		3E8D55011D58D85400E628D9 /* ScenePropertiesExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenePropertiesExpressions.swift; sourceTree = "<group>"; };
 		3E8DB5711D2B45A000D48BC6 /* SceneLayerURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLayerURLViewController.swift; sourceTree = "<group>"; };
 		3E8DB5731D2B45D900D48BC6 /* SceneLayerURL.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SceneLayerURL.storyboard; sourceTree = "<group>"; };
-		3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ArcGIS.bundle; path = $HOME/Library/SDKs/ArcGIS/macOS/Frameworks/Static/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle; sourceTree = "<absolute>"; };
 		3E913DBB1CE6602E000375C8 /* CreateSaveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSaveMapViewController.swift; sourceTree = "<group>"; };
 		3E913DC11CE6608D000375C8 /* CreateOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOptionsViewController.swift; sourceTree = "<group>"; };
 		3E913DC31CE660BD000375C8 /* CreateSaveMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateSaveMap.storyboard; sourceTree = "<group>"; };
@@ -709,7 +719,6 @@
 		3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EC1AE731BAC8DA100E32B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EC1AE751BAC8DA100E32B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EC1AE7B1BAC913300E32B1D /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = $HOME/Library/SDKs/ArcGIS/OSX/Frameworks/Static/ArcGIS.framework; sourceTree = "<absolute>"; };
 		3ECCFE021BC86A6D00CE256D /* ChangeBasemapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeBasemapViewController.swift; sourceTree = "<group>"; };
 		3ECCFE061BC86AAF00CE256D /* ChangeBasemap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeBasemap.storyboard; sourceTree = "<group>"; };
 		3ECCFE091BC86CF300CE256D /* SetInitialMapArea.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetInitialMapArea.storyboard; sourceTree = "<group>"; };
@@ -794,6 +803,7 @@
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
 		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
+		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
 		94557F6120EAA0B90003644A /* CutGeometryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutGeometryViewController.swift; sourceTree = "<group>"; };
 		94557F6320EAA0CD0003644A /* CutGeometry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CutGeometry.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -846,7 +856,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EC1AE7C1BAC913300E32B1D /* ArcGIS.framework in Frameworks */,
+				4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1659,8 +1669,8 @@
 		3EC1AE601BAC8DA100E32B1D = {
 			isa = PBXGroup;
 			children = (
-				3E913DB81CE64D4C000375C8 /* ArcGIS.bundle */,
 				3EC1AE6B1BAC8DA100E32B1D /* macOSSampleViewer */,
+				4CF025822118931500806810 /* Frameworks */,
 				3EC1AE6A1BAC8DA100E32B1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1689,7 +1699,6 @@
 				4CD4A8DC20C9B07D007B8D6B /* Extensions */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
-				3EC1AE7B1BAC913300E32B1D /* ArcGIS.framework */,
 				3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */,
 				3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */,
 				3EC1AE751BAC8DA100E32B1D /* Info.plist */,
@@ -2061,6 +2070,14 @@
 			path = "Scene layer selection";
 			sourceTree = "<group>";
 		};
+		4CF025822118931500806810 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CF025832118933E00806810 /* ArcGIS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		94557F6020EAA08D0003644A /* Cut geometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -2232,6 +2249,7 @@
 				3EC1AE671BAC8DA100E32B1D /* Resources */,
 				3E7C0E331CF8FD5100200B6E /* CopyFiles */,
 				3E69DE491CFE36F4001F65F7 /* ShellScript */,
+				4CF02587211893C100806810 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2292,7 +2310,6 @@
 				3E8DB5741D2B45D900D48BC6 /* SceneLayerURL.storyboard in Resources */,
 				3EA734001EC0CCBE00356885 /* Animate3DSymbols.storyboard in Resources */,
 				3EFDE0981E303B0600CBCD92 /* srtm.tiff in Resources */,
-				3E913DB91CE64D4C000375C8 /* ArcGIS.bundle in Resources */,
 				3E87248C1BC70E78006386C1 /* GraphicsWithRenderer.storyboard in Resources */,
 				D98916D81FE22B89004310CB /* ReadGeopackage.storyboard in Resources */,
 				3E01037E1E29961A0013AEEF /* ChangeSublayerVisibility.storyboard in Resources */,
@@ -2719,10 +2736,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Static",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Dynamic",
 				);
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -2746,10 +2764,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Static",
+					"$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Dynamic",
 				);
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
