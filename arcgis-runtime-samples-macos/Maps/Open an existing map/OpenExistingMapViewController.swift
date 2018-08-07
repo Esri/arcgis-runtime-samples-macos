@@ -17,49 +17,36 @@
 import Cocoa
 import ArcGIS
 
-class OpenExistingMapViewController: NSViewController, ExistingMapsListDelegate {
-
-    @IBOutlet private weak var mapView:AGSMapView!
+class OpenExistingMapViewController: NSViewController {
+    let existingMaps = [
+        ExistingMap(title: "Housing with Mortgages", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail1"), url: URL(string: "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977")!),
+        ExistingMap(title: "USA Tapestry Segmentation", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail2"), url: URL(string: "https://www.arcgis.com/home/item.html?id=01f052c8995e4b9e889d73c3e210ebe3")!),
+        ExistingMap(title: "Geology of United States", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail3"), url: URL(string: "https://www.arcgis.com/home/item.html?id=92ad152b9da94dee89b9e387dfe21acd")!)
+    ]
     
-    private var existingMapsListVC:ExistingMapsListViewController!
-    
-    private let itemURL1 = "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977"
-    private let itemURL2 = "https://www.arcgis.com/home/item.html?id=01f052c8995e4b9e889d73c3e210ebe3"
-    private let itemURL3 = "https://www.arcgis.com/home/item.html?id=92ad152b9da94dee89b9e387dfe21acd"
-    
-    private var map:AGSMap!
+    @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.map = AGSMap(url: URL(string: itemURL1)!)
-        
-        self.mapView.map = self.map
+        mapView.map = AGSMap(url: existingMaps.first!.url)
     }
     
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "OptionsSegue" else {
-            return
-        }
-        self.existingMapsListVC = segue.destinationController as! ExistingMapsListViewController
-        self.existingMapsListVC.delegate = self
-    }
-    
-    //MARK: - ExistingMapsListDelegate
-    
-    func existingMapsListViewController(_: ExistingMapsListViewController, didSelectItemAtIndex index: Int) {
-        var selectedPortalItemURL:String
-        switch index {
-        case 1:
-            selectedPortalItemURL = self.itemURL2
-        case 2:
-            selectedPortalItemURL = self.itemURL3
+        switch segue.destinationController {
+        case let existingMapsListViewController as ExistingMapsListViewController:
+            existingMapsListViewController.existingMaps = existingMaps
+            existingMapsListViewController.delegate = self
         default:
-            selectedPortalItemURL = self.itemURL1
+            break
         }
-        self.map = AGSMap(url: URL(string: selectedPortalItemURL)!)
-        self.mapView.map = self.map
+    }
+}
+
+extension OpenExistingMapViewController: ExistingMapsListViewControllerDelegate {
+    func existingMapsListViewController(_: ExistingMapsListViewController, didSelectItemAt index: Int) {
+        let existingMap = existingMaps[index]
+        mapView.map = AGSMap(url: existingMap.url)
     }
 }
