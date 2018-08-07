@@ -77,6 +77,12 @@ class MainViewController: NSSplitViewController {
     }
 }
 
+extension MainViewController /* NSSplitViewDelegate */ {
+    override func splitView(_ splitView: NSSplitView, constrainSplitPosition proposedPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        return min(proposedPosition, splitView.bounds.width / 2)
+    }
+}
+
 extension MainViewController: SampleListViewControllerDelegate {
     func sampleListViewController(_ controller: SampleListViewController, didSelect node: Node) {
         show(node)
