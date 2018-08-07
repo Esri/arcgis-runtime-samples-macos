@@ -94,14 +94,11 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     }
     
     private func searchSamples(_ searchString: String) {
-        //hide segment control
-        (self.contentViewController as! MainViewController).toggleSegmentedControl(.Off)
-        
         //hide suggestions window
-        self.hideSuggestionsWindow()
+        hideSuggestionsWindow()
         
-        let mainVC = self.contentViewController as! MainViewController
-        mainVC.searchSamplesForString(searchString)
+        let mainViewController = contentViewController as! MainViewController
+        mainViewController.searchSamples(for: searchString)
     }
     
     //MARK: Suggestions window controller

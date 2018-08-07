@@ -34,38 +34,32 @@ class CollectionViewItem: NSCollectionViewItem {
     
 }
 
-protocol CollectionViewControllerDelegate: class {
-    
-    func collectionViewController(_ collectionViewController:CollectionViewController, didSelectSampleNode node:Node)
+protocol SampleCollectionViewControllerDelegate: class {
+    func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Node)
 }
 
-class CollectionViewController: NSViewController, NSCollectionViewDataSource, NSCollectionViewDelegate {
-
-    @IBOutlet var collectionView:NSCollectionView!
-    @IBOutlet var headerLabel: NSTextField!
+class SampleCollectionViewController: NSViewController, NSCollectionViewDataSource, NSCollectionViewDelegate {
+    @IBOutlet var collectionView: NSCollectionView!
+    @IBOutlet var collectionViewLayout: NSCollectionViewFlowLayout!
     
-    weak var delegate:CollectionViewControllerDelegate?
+    weak var delegate: SampleCollectionViewControllerDelegate?
     
-    var sampleNodes: [Node]! {
-        didSet {
-            self.collectionView?.reloadData()
-            self.updateHeaderLabel()
-        }
+    let samples: [Node]
+    
+    init(samples: [Node]) {
+        self.samples = samples
+        super.init(nibName: NSNib.Name("SampleCollectionViewController"), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
         
-    }
-    
-    private func updateHeaderLabel() {
-        if self.sampleNodes.count > 0 {
-            self.headerLabel.stringValue = "\(self.sampleNodes.count) sample(s)"
-        }
-        else {
-            self.headerLabel.stringValue = "No samples found"
-        }
+        collectionView.register(NSNib(nibNamed: NSNib.Name("SampleCollectionHeaderView"), bundle: nil), forSupplementaryViewOfKind: .sectionHeader, withIdentifier: .headerView)
+        collectionViewLayout.sectionHeadersPinToVisibleBounds = true
     }
     
     //MARK: - NSCollectionViewDataSource
@@ -75,22 +69,17 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.sampleNodes?.count ?? 0
+        return samples.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let sampleNode = self.sampleNodes[indexPath.item]
+        let sampleNode = samples[indexPath.item]
         
-        let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as! CollectionViewItem
+        let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("CollectionViewItem"), for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
         viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
-        if let image = NSImage(named: NSImage.Name(rawValue: sampleNode.displayName!)) {
-            viewItem.thumbnailView.image = image
-        }
-        else {
-            viewItem.thumbnailView.image = nil
-        }
+        viewItem.thumbnailView.image = NSImage(named: NSImage.Name(sampleNode.displayName))
         
         //stylize
         viewItem.view.backgroundColor = .white
@@ -102,9 +91,25 @@ class CollectionViewController: NSViewController, NSCollectionViewDataSource, NS
         return viewItem
     }
     
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        let headerView = collectionView.makeSupplementaryView(ofKind: kind, withIdentifier: .headerView, for: indexPath) as! SampleCollectionHeaderView
+        headerView.label.stringValue = {
+            if !samples.isEmpty {
+                return "\(samples.count) sample(s)"
+            } else {
+                return "No samples found"
+            }
+        }()
+        return headerView
+    }
+    
     //MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        self.delegate?.collectionViewController(self, didSelectSampleNode: self.sampleNodes[indexPaths.first!.item])
+        delegate?.sampleCollectionViewController(self, didSelect: samples[indexPaths.first!.item])
     }
+}
+
+private extension NSUserInterfaceItemIdentifier {
+    static let headerView = NSUserInterfaceItemIdentifier("HeaderView")
 }

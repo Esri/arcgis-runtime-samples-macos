@@ -19,12 +19,11 @@ import WebKit
 class ReadmeViewController: NSViewController {
     @IBOutlet private var webView: WKWebView!
     
-    var folderName:String! {
-        didSet {
-            if self.folderName != nil {
-                self.fetchFileContent(self.folderName)
-            }
-        }
+    var folderName = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchFileContent(folderName)
     }
     
     func fetchFileContent(_ folderName:String) {
