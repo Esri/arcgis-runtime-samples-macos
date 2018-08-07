@@ -46,7 +46,11 @@ class SurfacePlacementsViewController: NSViewController {
         let camera = AGSCamera(latitude: 53.04, longitude: -4.04, altitude: 1300, heading: 0, pitch: 90, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
-        let graphicsOverlays = AGSSurfacePlacement.allCases.map { makeGraphicsOverlay(surfacePlacement: $0) }
+        let graphicsOverlays = [
+            makeGraphicsOverlay(surfacePlacement: .draped),
+            makeGraphicsOverlay(surfacePlacement: .relative),
+            makeGraphicsOverlay(surfacePlacement: .absolute)
+        ]
         sceneView.graphicsOverlays.addObjects(from: graphicsOverlays)
     }
     
@@ -71,11 +75,6 @@ class SurfacePlacementsViewController: NSViewController {
 }
 
 private extension AGSSurfacePlacement {
-    /// A set of all values of this type.
-    static var allCases: [AGSSurfacePlacement] {
-        return [.draped, .relative, .absolute]
-    }
-    
     /// The human readable name of the surface placement.
     var title: String {
         switch self {
