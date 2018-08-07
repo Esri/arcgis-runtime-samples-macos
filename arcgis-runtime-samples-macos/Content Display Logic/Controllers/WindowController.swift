@@ -33,7 +33,8 @@ extension NSWindow {
 }
 
 class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDelegate, SuggestionsVCDelegate {
-
+    let searchEngine = SearchEngine()
+    
     @IBOutlet var searchField:NSSearchField!
     @IBOutlet private var progressIndicator:NSProgressIndicator!
     
@@ -71,11 +72,9 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     
     override func controlTextDidChange(_ notification: Notification) {
         if let sender = notification.object as? NSSearchField , sender == self.searchField {
-            if let suggestions = SearchEngine.sharedInstance().suggestionsForString(self.searchField.stringValue) , suggestions.count > 0 {
-            
+            if let suggestions = searchEngine.suggestionsForString(searchField.stringValue) , suggestions.count > 0 {
                 self.showSuggestionsWindow(suggestions)
-            }
-            else {
+            } else {
                 self.hideSuggestionsWindow()
             }
         }
@@ -98,7 +97,13 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         hideSuggestionsWindow()
         
         let mainViewController = contentViewController as! MainViewController
-        mainViewController.searchSamples(for: searchString)
+        
+        let node = Node()
+        if let searchResults = searchEngine.searchForString(searchString) {
+            let names = Set(searchResults)
+            node.childNodes = mainViewController.nodes.dropFirst().flatMap { $0.childNodes.filter { names.contains($0.displayName) } }
+        }
+        mainViewController.show(node)
     }
     
     //MARK: Suggestions window controller

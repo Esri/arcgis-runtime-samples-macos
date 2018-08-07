@@ -55,6 +55,12 @@ class MainViewController: NSSplitViewController {
         sampleListViewController.nodes = nodes
     }
     
+    /// Shows the given node in the right split view item. If the node does not
+    /// have any child nodes and has a storyboard name, it is assumed to be a
+    /// sample and is displayed in a sample view controller. Otherwise it's
+    /// children are displayed in a sample collection view controller.
+    ///
+    /// - Parameter node: A node.
     func show(_ node: Node) {
         let oldSplitViewItem = splitViewItems.last!
         let newSplitViewItem: NSSplitViewItem
@@ -68,28 +74,6 @@ class MainViewController: NSSplitViewController {
         }
         removeSplitViewItem(oldSplitViewItem)
         addSplitViewItem(newSplitViewItem)
-    }
-    
-    func searchSamples(for string: String) {
-        let node = Node()
-        node.childNodes = {
-            if let searchResults = SearchEngine.sharedInstance().searchForString(string) {
-                return nodesByDisplayNames(searchResults)
-            } else {
-                return []
-            }
-        }()
-        show(node)
-    }
-    
-    func nodesByDisplayNames(_ names: [String]) -> [Node] {
-        var nodes = [Node]()
-        // Drop the Featured node to avoid redundancy.
-        for node in self.nodes.dropFirst() {
-            let matchingNodes = node.childNodes.filter { return names.contains($0.displayName) }
-            nodes.append(contentsOf: matchingNodes)
-        }
-        return nodes
     }
 }
 
