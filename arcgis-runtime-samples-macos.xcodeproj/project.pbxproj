@@ -360,7 +360,6 @@
 		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
 		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0258021151F9C00806810 /* SampleViewController.swift */; };
-		4CF0258921189C6E00806810 /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0258821189C6E00806810 /* SampleViewController.xib */; };
 		4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */; };
 		4CF92E952118D9FF009A62C6 /* SampleCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF92E942118D9FF009A62C6 /* SampleCollectionHeaderView.swift */; };
 		4CF92E972118DABE009A62C6 /* SampleCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E962118DABE009A62C6 /* SampleCollectionHeaderView.xib */; };
@@ -802,7 +801,6 @@
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
 		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
 		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		4CF0258821189C6E00806810 /* SampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
 		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
 		4CF92E942118D9FF009A62C6 /* SampleCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionHeaderView.swift; sourceTree = "<group>"; };
 		4CF92E962118DABE009A62C6 /* SampleCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionHeaderView.xib; sourceTree = "<group>"; };
@@ -1100,7 +1098,6 @@
 				3E69DE4C1CFE48D5001F65F7 /* SuggestionsViewController.swift */,
 				4C8130D62100F29C00FD4892 /* SampleListViewController.swift */,
 				4CF0258021151F9C00806810 /* SampleViewController.swift */,
-				4CF0258821189C6E00806810 /* SampleViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2388,7 +2385,6 @@
 				10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
-				4CF0258921189C6E00806810 /* SampleViewController.xib in Resources */,
 				3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */,
 				3E049A471CED1F460031ADA9 /* VectorTileLayer.storyboard in Resources */,
 				3EBA256C1D344AA600AB0703 /* PictureMarkerSymbols.storyboard in Resources */,

@@ -16,49 +16,33 @@
 
 import AppKit
 
-class SampleViewController: NSViewController {
-    @IBOutlet private var liveSampleSegmentedControl: NSSegmentedControl!
-    @IBOutlet private var containerView: NSView!
-    
-    private let sampleViewController: NSViewController
-    private let sourceCodeViewController: SourceCodeViewController
-    private let readmeViewController: ReadmeViewController
-    
-    private enum Item: Int, Equatable {
-        case sample
-        case sourceCode
-        case readme
-    }
-    
-    private var selectedItem = Item.sample {
-        didSet {
-            guard selectedItem != oldValue else { return }
-            selectedItemDidChange()
-        }
-    }
-    
+class SampleViewController: NSTabViewController {
     let sample: Node
     
     init(sample: Node) {
         self.sample = sample
         
-        sampleViewController = {
-            let sampleStoryboard = NSStoryboard(name: NSStoryboard.Name(sample.storyboardName), bundle: nil)
-            return sampleStoryboard.instantiateInitialController() as! NSViewController
-        }()
-        let mainStoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        sourceCodeViewController = {
-            let viewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SourceCodeViewController")) as! SourceCodeViewController
-            viewController.fileNames = sample.sourceFileNames
-            return viewController
-        }()
-        readmeViewController = {
-            let viewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ReadmeViewController")) as! ReadmeViewController
-            viewController.folderName = sample.displayName
-            return viewController
-        }()
+        super.init(nibName: nil, bundle: nil)
         
-        super.init(nibName: NSNib.Name("SampleViewController"), bundle: nil)
+        let sampleStoryboard = NSStoryboard(name: NSStoryboard.Name(sample.storyboardName), bundle: nil)
+        let sampleViewController = sampleStoryboard.instantiateInitialController() as! NSViewController
+        let sampleTabViewItem = NSTabViewItem(viewController: sampleViewController)
+        sampleTabViewItem.label = "Live Sample"
+        addTabViewItem(sampleTabViewItem)
+        
+        let mainStoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        
+        let sourceCodeViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SourceCodeViewController")) as! SourceCodeViewController
+        sourceCodeViewController.fileNames = sample.sourceFileNames
+        let sourceCodeTabViewItem = NSTabViewItem(viewController: sourceCodeViewController)
+        sourceCodeTabViewItem.label = "Source Code"
+        addTabViewItem(sourceCodeTabViewItem)
+        
+        let readmeViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ReadmeViewController")) as! ReadmeViewController
+        readmeViewController.folderName = sample.displayName
+        let readmeTabViewItem = NSTabViewItem(viewController: readmeViewController)
+        readmeTabViewItem.label = "Description"
+        addTabViewItem(readmeTabViewItem)
     }
     
     required init?(coder: NSCoder) {
@@ -67,37 +51,6 @@ class SampleViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let sampleView = sampleViewController.view
-        sampleView.autoresizingMask = [.width, .height]
-        sampleView.frame = containerView.bounds
-        containerView.addSubview(sampleView)
-        addChildViewController(sampleViewController)
-    }
-    
-    private func selectedItemDidChange() {
-        let fromViewController = childViewControllers.first!
-        let toViewController = viewController(for: selectedItem)
-        
-        addChildViewController(toViewController)
-        transition(from: fromViewController, to: toViewController, options: .crossfade) {
-            fromViewController.removeFromParentViewController()
-        }
-    }
-    
-    private func viewController(for item: Item) -> NSViewController {
-        switch item {
-        case .sample:
-            return sampleViewController
-        case .sourceCode:
-            return sourceCodeViewController
-        case .readme:
-            return readmeViewController
-        }
-    }
-    
-    @IBAction func segmentedControlDidChangeSelection(_ sender: NSSegmentedControl) {
-        guard let item = Item(rawValue: sender.selectedSegment) else { return }
-        selectedItem = item
+        view.backgroundColor = .windowBackgroundColor
     }
 }
