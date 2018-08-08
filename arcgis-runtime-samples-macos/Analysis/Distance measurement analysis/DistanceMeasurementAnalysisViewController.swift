@@ -72,7 +72,7 @@ class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTou
     
     // MARK: AGSGeoViewTouchDelegate
     
-    func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+    func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
         sceneView.screen(toLocation: screenPoint) { [weak self] mapLocation in
             guard let `self` = self else { return }
             let isTrackingCursorMovement = self.sceneView.trackCursorMovement
