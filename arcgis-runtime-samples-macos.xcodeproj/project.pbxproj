@@ -2745,13 +2745,7 @@
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
@@ -2773,13 +2767,7 @@
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "arcgis-runtime-samples-macos";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
