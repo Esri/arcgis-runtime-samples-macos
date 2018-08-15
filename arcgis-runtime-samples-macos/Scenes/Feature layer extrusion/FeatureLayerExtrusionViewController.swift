@@ -87,7 +87,7 @@ class FeatureLayerExtrusionViewController: NSViewController {
         if let statistic = Statistic(rawValue: sender.selectedSegment) {
             renderer.sceneProperties?.extrusionExpression = statistic.extrusionExpression
         } else {
-            preconditionFailure()
+            assertionFailure("Selected segment does not correspond to a statistic")
         }
     }
 }
