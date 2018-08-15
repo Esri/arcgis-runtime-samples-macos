@@ -22,7 +22,7 @@ class ChangeSublayerRendererVC: NSViewController {
     @IBOutlet private var resetButton:NSButton!
     
     //map image layer
-    private var mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+    private var mapImageLayer = AGSArcGISMapImageLayer(url: .censusMapService)
     
     private var originalRenderer:AGSRenderer?
     
