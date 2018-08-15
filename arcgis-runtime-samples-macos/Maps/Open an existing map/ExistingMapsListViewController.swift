@@ -16,35 +16,36 @@
 
 import Cocoa
 
-protocol ExistingMapsListDelegate:class {
-    func existingMapsListViewController(_:ExistingMapsListViewController, didSelectItemAtIndex index:Int)
+protocol ExistingMapsListViewControllerDelegate: class {
+    func existingMapsListViewController(_:ExistingMapsListViewController, didSelectItemAt index: Int)
 }
 
 class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+    var existingMaps = [ExistingMap]() {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
+    weak var delegate: ExistingMapsListViewControllerDelegate?
     
-    private var titles = ["Housing with Mortgages", "USA Tapestry Segmentation", "Geology of United States"]
-    private var imageNames = ["OpenExistingMapThumbnail1", "OpenExistingMapThumbnail2", "OpenExistingMapThumbnail3"]
-    
-    @IBOutlet private var tableView:NSTableView!
-    
-    weak var delegate:ExistingMapsListDelegate?
+    @IBOutlet private var tableView: NSTableView!
     
     //MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 3
+        return existingMaps.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MapCell"), owner: self)
-        
+        let existingMap = existingMaps[row]
+        let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MapCell"), owner: self)
         
         if let titleLabel = cellView?.viewWithTag(11) as? NSTextField {
-            titleLabel.stringValue = self.titles[row]
+            titleLabel.stringValue = existingMap.title
         }
         
         if let imageView = cellView?.viewWithTag(10) as? NSImageView {
-            imageView.image = NSImage(named: NSImage.Name(rawValue: self.imageNames[row]))
+            imageView.image = existingMap.image
         }
         
         return cellView
@@ -53,7 +54,7 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
     //MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        self.delegate?.existingMapsListViewController(self, didSelectItemAtIndex: self.tableView.selectedRow)
-        self.dismiss(nil)
+        delegate?.existingMapsListViewController(self, didSelectItemAt: tableView.selectedRow)
+        dismiss(nil)
     }
 }

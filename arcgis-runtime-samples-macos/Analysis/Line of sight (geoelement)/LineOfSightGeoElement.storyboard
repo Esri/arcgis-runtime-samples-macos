@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ywQ-be-XN7">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -9,7 +10,7 @@
         <!--Line Of Sight Geo Element View Controller-->
         <scene sceneID="DEu-FT-JXv">
             <objects>
-                <viewController id="ywQ-be-XN7" customClass="LineOfSightGeoElementViewController" customModule="arcgis_runtime_samples_macos" sceneMemberID="viewController">
+                <viewController id="ywQ-be-XN7" customClass="LineOfSightGeoElementViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="9tC-LT-Dhv">
                         <rect key="frame" x="0.0" y="0.0" width="525" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
