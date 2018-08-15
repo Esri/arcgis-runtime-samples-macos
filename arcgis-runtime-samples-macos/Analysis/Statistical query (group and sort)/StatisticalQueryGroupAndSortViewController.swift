@@ -44,7 +44,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         super.viewDidLoad()
         
         // Initialize feature table
-        serviceFeatureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3")!)
+        serviceFeatureTable = AGSServiceFeatureTable(url: .censusMapServiceStatesLayer)
         
         // Load feature table
         serviceFeatureTable?.load(completion: { [weak self] (error) in

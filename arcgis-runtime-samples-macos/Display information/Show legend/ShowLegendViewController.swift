@@ -39,7 +39,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.map.operationalLayers.add(tiledLayer)
         
         //create a map image layer using a url
-        self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: .censusMapService)
         //add the image layer to the map
         self.map.operationalLayers.add(self.mapImageLayer)
         
