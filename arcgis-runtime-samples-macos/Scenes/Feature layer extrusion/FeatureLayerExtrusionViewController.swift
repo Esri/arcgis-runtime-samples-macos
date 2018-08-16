@@ -59,11 +59,12 @@ class FeatureLayerExtrusionViewController: NSViewController {
 
         sceneView.scene = scene
         
-        // Set the initial view.
-        let initialLocation = AGSPoint(x: -98.585522, y: 70, spatialReference: sceneView.spatialReference)
-        let orbitCamera = AGSOrbitLocationCameraController(targetLocation: initialLocation, distance: 15_000_000)
-        orbitCamera.cameraPitchOffset = 75.0
-        sceneView.cameraController = orbitCamera
+        // Set the scene view's viewpoint.
+        let distance = 12_940_924.0
+        let point = AGSPoint(x: -99.659448, y: 20.513652, z: distance, spatialReference: .wgs84())
+        let camera = AGSCamera(lookAt: point, distance: 0, heading: 0, pitch: 15, roll: 0)
+        let viewpoint = AGSViewpoint(center: point, scale: distance, camera: camera)
+        sceneView.setViewpoint(viewpoint)
     }
     
     enum Statistic: Int {
