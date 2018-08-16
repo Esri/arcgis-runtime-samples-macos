@@ -17,6 +17,16 @@
 import struct Foundation.URL
 
 extension URL {
+    // Feature Services
+    
+    static let geologyFeatureService = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Energy/Geology/FeatureServer")!
+    /// The url of the Fault layer of the Geology Feature Service.
+    static let geologyFeatureServiceFaultLayer = geologyFeatureService.appendingPathComponent("0")
+    /// The url of the Contacts layer of the Geology Feature Service.
+    static let geologyFeatureServiceContactsLayer = geologyFeatureService.appendingPathComponent("8")
+    /// The url of the Outcrop layer of the Geology Feature Service.
+    static let geologyFeatureServiceOutcropLayer = geologyFeatureService.appendingPathComponent("9")
+    
     // Image Services
     
     /// The url of the Terrain 3D ArcGIS REST Service.

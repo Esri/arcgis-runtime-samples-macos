@@ -354,9 +354,12 @@
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
+		4CDDE5D92126296C00E3E244 /* FeatureLayerRenderingModeMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */; };
 		4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
 		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
+		4CE837F52125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */; };
+		4CE837F72125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */; };
 		4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; };
 		4CF02586211893C100806810 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
@@ -540,6 +543,7 @@
 				3E69DE441CFE2826001F65F7 /* CalloutViewController.swift in CopyFiles */,
 				3E7C0E341CF8FD6000200B6E /* DisplayMapViewController.swift in CopyFiles */,
 				94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */,
+				4CDDE5D92126296C00E3E244 /* FeatureLayerRenderingModeMapViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +809,8 @@
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
 		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
+		4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureLayerRenderingModeMapViewController.swift; sourceTree = "<group>"; };
+		4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeMap.storyboard; sourceTree = "<group>"; };
 		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
 		94557F6120EAA0B90003644A /* CutGeometryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutGeometryViewController.swift; sourceTree = "<group>"; };
 		94557F6320EAA0CD0003644A /* CutGeometry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CutGeometry.storyboard; sourceTree = "<group>"; };
@@ -1429,6 +1435,7 @@
 		3E8724761BC70857006386C1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4CE837F32125D32300BB96DB /* Feature layer rendering mode (map) */,
 				3E8A25C31D36FC4400D14F08 /* Feature layer (feature service) */,
 				3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */,
 				D9ED2DAB1FD7618E0043BFE1 /* Feature layer (geopackage) */,
@@ -2072,6 +2079,15 @@
 			path = "Scene layer selection";
 			sourceTree = "<group>";
 		};
+		4CE837F32125D32300BB96DB /* Feature layer rendering mode (map) */ = {
+			isa = PBXGroup;
+			children = (
+				4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */,
+				4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */,
+			);
+			path = "Feature layer rendering mode (map)";
+			sourceTree = "<group>";
+		};
 		4CF025822118931500806810 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2438,6 +2454,7 @@
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
 				10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
+				4CE837F72125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
 				3E7C0E3A1CF90F0000200B6E /* default.css in Resources */,
 				D97B7EA51FDAEA8200E1239D /* Subdivisions.prj in Resources */,
@@ -2547,6 +2564,7 @@
 				3E69DE461CFE2DEC001F65F7 /* WindowController.swift in Sources */,
 				2182C98B1FDB1100003E3A0F /* StatisticalQueryViewController.swift in Sources */,
 				21EA2F511FD8AE4000F39E9E /* RasterFunctionServiceViewController.swift in Sources */,
+				4CE837F52125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift in Sources */,
 				3E496ED01DD14FE2004C921C /* MapPackagesListVC.swift in Sources */,
 				3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */,
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
