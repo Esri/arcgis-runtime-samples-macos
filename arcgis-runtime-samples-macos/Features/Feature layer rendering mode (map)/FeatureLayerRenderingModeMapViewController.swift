@@ -111,8 +111,7 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
         // Set the viewpoint of the map views.
         let point = AGSPoint(x: -118.45, y: 34.395, spatialReference: .wgs84())
         let viewpoint = AGSViewpoint(center: point, scale: scaleRange.lowerBound, rotation: 90)
-        setViewpoint(viewpoint, of: staticMapView, animated: animated)
-        setViewpoint(viewpoint, of: dynamicMapView, animated: animated) { [weak self] (finished) in
+        setViewpoints(to: viewpoint, animated: animated) { [weak self] (finished) in
             guard finished else { return }
             self?.zoomState = .zoomedIn
         }
@@ -127,8 +126,7 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
         // Set the viewpoint of the map views.
         let point = AGSPoint(x: -118.37, y: 34.46, spatialReference: .wgs84())
         let viewpoint = AGSViewpoint(center: point, scale: scaleRange.upperBound, rotation: 0)
-        setViewpoint(viewpoint, of: staticMapView, animated: animated)
-        setViewpoint(viewpoint, of: dynamicMapView, animated: animated) { [weak self] (finished) in
+        setViewpoints(to: viewpoint, animated: animated) { [weak self] (finished) in
             guard finished else { return }
             self?.zoomState = .zoomedOut
         }
@@ -136,6 +134,32 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
         zoomButton.title = "Zoom In"
         // Update the zoom state.
         zoomState = .zoomingOut
+    }
+    
+    /// Sets the viewpoint of both map views to the given viewpoint.
+    ///
+    /// - Parameters:
+    ///   - viewpoint: The viewpoint to be set.
+    ///   - animated: Specify `true` if the viewpoint change should be animated.
+    ///   - completion: A closure to execute after the animation has finished on
+    ///   both map views.
+    func setViewpoints(to viewpoint: AGSViewpoint, animated: Bool, completion: @escaping (Bool) -> Void) {
+        var staticAnimationFinished = false
+        var dynamicAnimationFinished = false
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        dispatchGroup.enter()
+        setViewpoint(viewpoint, of: staticMapView, animated: animated) { (finished) in
+            staticAnimationFinished = finished
+            dispatchGroup.leave()
+        }
+        setViewpoint(viewpoint, of: dynamicMapView, animated: animated) { (finished) in
+            dynamicAnimationFinished = finished
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) {
+            completion(staticAnimationFinished && dynamicAnimationFinished)
+        }
     }
     
     /// Changes the viewpoint of the given map view.
@@ -146,15 +170,15 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
     ///   - animated: Specify `true` if the viewpoint change should be animated.
     ///   - completion: A closure to execute after the animation has finished.
     func setViewpoint(_ viewpoint: AGSViewpoint, of mapView: AGSMapView, animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        let duration: TimeInterval
         if animated {
             // Determine the duration based on how close the map view's current
             // scale is to the target scale.
             let deltaScale = abs(viewpoint.targetScale - mapView.mapScale)
-            let duration: TimeInterval = 5 * deltaScale / (scaleRange.upperBound - scaleRange.lowerBound)
-            mapView.setViewpoint(viewpoint, duration: duration, completion: completion)
+            duration = 5 * deltaScale / (scaleRange.upperBound - scaleRange.lowerBound)
         } else {
-            mapView.setViewpoint(viewpoint)
-            completion?(true)
+            duration = 0
         }
+        mapView.setViewpoint(viewpoint, duration: duration, completion: completion)
     }
 }
