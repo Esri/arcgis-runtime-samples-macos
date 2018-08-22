@@ -138,11 +138,10 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
         zoomState = .zoomingOut
     }
     
-    /// Changes the viewpoint of the given mapview.
+    /// Changes the viewpoint of the given map view.
     ///
     /// - Parameters:
     ///   - viewpoint: The viewpoint to be set.
-    ///   set.
     ///   - mapView: The mapview whose viewpoint should be set.
     ///   - animated: Specify `true` if the viewpoint change should be animated.
     ///   - completion: A closure to execute after the animation has finished.
