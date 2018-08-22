@@ -110,8 +110,7 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
     func zoomIn(animated: Bool) {
         // Set the viewpoint of the map views.
         let point = AGSPoint(x: -118.45, y: 34.395, spatialReference: .wgs84())
-        let scale = scaleRange.lowerBound
-        let viewpoint = AGSViewpoint(center: point, scale: scale, rotation: 90)
+        let viewpoint = AGSViewpoint(center: point, scale: scaleRange.lowerBound, rotation: 90)
         setViewpoint(viewpoint, of: staticMapView, animated: animated)
         setViewpoint(viewpoint, of: dynamicMapView, animated: animated) { [weak self] (finished) in
             guard finished else { return }
