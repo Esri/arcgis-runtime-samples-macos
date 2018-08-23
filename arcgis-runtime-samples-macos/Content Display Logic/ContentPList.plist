@@ -565,6 +565,18 @@
 		<string>Features</string>
 		<key>children</key>
 		<array>
+            <dict>
+                <key>displayName</key>
+                <string>Feature layer rendering mode (map)</string>
+                <key>storyboardName</key>
+                <string>FeatureLayerRenderingModeMap</string>
+                <key>descriptionText</key>
+                <string>Control the rendering mode of feature layers.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>FeatureLayerRenderingModeMapViewController</string>
+                </array>
+            </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Feature layer (feature service)</string>
