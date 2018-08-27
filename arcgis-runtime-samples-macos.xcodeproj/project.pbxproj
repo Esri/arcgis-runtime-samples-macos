@@ -351,6 +351,9 @@
 		4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
 		4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */; };
 		4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
+		4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
+		4CBF1B142130871000CE1567 /* DistanceCompositeSymbol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */; };
+		4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
@@ -544,6 +547,7 @@
 				3E7C0E341CF8FD6000200B6E /* DisplayMapViewController.swift in CopyFiles */,
 				94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */,
 				4CDDE5D92126296C00E3E244 /* FeatureLayerRenderingModeMapViewController.swift in CopyFiles */,
+				4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +809,8 @@
 		4C844C0D20FE53DE008FBCF8 /* ExistingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingMap.swift; sourceTree = "<group>"; };
 		4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryMapImageSublayerViewController.swift; sourceTree = "<group>"; };
 		4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueryMapImageSublayer.storyboard; sourceTree = "<group>"; };
+		4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCompositeSymbolViewController.swift; sourceTree = "<group>"; };
+		4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceCompositeSymbol.storyboard; sourceTree = "<group>"; };
 		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
@@ -1219,6 +1225,7 @@
 				3E8DB5701D2B457300D48BC6 /* Scene layer (URL) */,
 				3E8D54FE1D55138500E628D9 /* Scene properties expressions */,
 				3EA733FD1EC0CCBE00356885 /* Animate 3D symbols */,
+				4CBF1B102130853F00CE1567 /* Distance composite symbol */,
 				10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */,
 				4CE3B22920E2ACE000D4A06A /* Scene layer selection */,
 			);
@@ -2051,6 +2058,15 @@
 			path = "Query a map image sublayer";
 			sourceTree = "<group>";
 		};
+		4CBF1B102130853F00CE1567 /* Distance composite symbol */ = {
+			isa = PBXGroup;
+			children = (
+				4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */,
+				4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */,
+			);
+			path = "Distance composite symbol";
+			sourceTree = "<group>";
+		};
 		4CD4A8D620C9A64C007B8D6B /* Distance measurement analysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -2321,6 +2337,7 @@
 				3E01038C1E29A7250013AEEF /* FeatureLayerDefinitionExpression.storyboard in Resources */,
 				D971AC4420EEDDF10062DA69 /* SymbolizeShapefile.storyboard in Resources */,
 				3ECCFE261BCC2F9A00CE256D /* ChangeViewpoint.storyboard in Resources */,
+				4CBF1B142130871000CE1567 /* DistanceCompositeSymbol.storyboard in Resources */,
 				3E53C6E91D1B55880054B5C8 /* SceneSymbols.storyboard in Resources */,
 				123F095B1FD2AA1A000760FE /* WMTSLayer.storyboard in Resources */,
 				3E8724741BC6D9CD006386C1 /* DisplayMap.storyboard in Resources */,
@@ -2570,6 +2587,7 @@
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
 				D97B7E741FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift in Sources */,
 				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
+				4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				D98916D41FE22B10004310CB /* GPKGLayerTableCell.swift in Sources */,
 				4C240F8120D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift in Sources */,
