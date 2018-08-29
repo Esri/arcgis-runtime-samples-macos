@@ -565,6 +565,18 @@
 		<string>Features</string>
 		<key>children</key>
 		<array>
+            <dict>
+                <key>displayName</key>
+                <string>Feature layer rendering mode (map)</string>
+                <key>storyboardName</key>
+                <string>FeatureLayerRenderingModeMap</string>
+                <key>descriptionText</key>
+                <string>Control the rendering mode of feature layers.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>FeatureLayerRenderingModeMapViewController</string>
+                </array>
+            </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Feature layer (feature service)</string>
@@ -1322,6 +1334,18 @@
 					<string>Animate3DSymbolsVC</string>
 				</array>
 			</dict>
+            <dict>
+                <key>displayName</key>
+                <string>Distance composite symbol</string>
+                <key>storyboardName</key>
+                <string>DistanceCompositeSymbol</string>
+                <key>descriptionText</key>
+                <string>Demonstrates how to create a graphic using a distance composite scene symbol. Distance composite scene symbols can render different symbols depending on the distance between the camera and the graphic.</string>
+                <key>sourceFileNames</key>
+                <array>
+                    <string>DistanceCompositeSymbolViewController</string>
+                </array>
+            </dict>
 			<dict>
 				<key>displayName</key>
 				<string>Terrain exaggeration</string>
