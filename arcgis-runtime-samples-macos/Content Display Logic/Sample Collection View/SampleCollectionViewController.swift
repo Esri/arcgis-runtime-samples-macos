@@ -34,7 +34,7 @@ class CollectionViewItem: NSCollectionViewItem {
     
 }
 
-protocol SampleCollectionViewControllerDelegate: class {
+protocol SampleCollectionViewControllerDelegate: AnyObject {
     func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Node)
 }
 

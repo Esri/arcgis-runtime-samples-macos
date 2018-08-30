@@ -14,7 +14,7 @@
 
 import ArcGIS
 
-protocol GPKGLayerTableCellDelegate: class {
+protocol GPKGLayerTableCellDelegate: AnyObject {
     func removeLayerFromMap(cell:GPKGLayerTableCell)
 }
 

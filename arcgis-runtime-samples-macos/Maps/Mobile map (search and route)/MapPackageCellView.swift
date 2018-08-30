@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-protocol MapPackageCellDelegate:class {
+protocol MapPackageCellDelegate: AnyObject {
     
     func mapPackageCellView(_ mapPackageCellView:MapPackageCellView, didSelectMap map:AGSMap)
 }

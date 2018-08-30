@@ -16,7 +16,7 @@
 
 import Cocoa
 
-protocol SuggestionsVCDelegate: class {
+protocol SuggestionsVCDelegate: AnyObject {
     
     func suggestionsViewController(_ suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String)
 }

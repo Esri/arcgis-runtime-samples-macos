@@ -16,7 +16,7 @@
 
 import Cocoa
 
-protocol SaveMapVCDelegate:class {
+protocol SaveMapVCDelegate: AnyObject {
     
     func saveMapViewController(_ saveMapViewController:SaveMapViewController, didInitiateSaveWithTitle title:String, tags:[String], itemDescription:String?)
     
