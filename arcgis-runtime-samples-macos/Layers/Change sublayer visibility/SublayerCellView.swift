@@ -16,7 +16,7 @@
 
 import Cocoa
 
-protocol SublayerCellViewDelegate:class {
+protocol SublayerCellViewDelegate: AnyObject {
     func sublayerCellView(_ sublayerCellView:SublayerCellView, didToggleVisibility visible:Bool)
 }
 

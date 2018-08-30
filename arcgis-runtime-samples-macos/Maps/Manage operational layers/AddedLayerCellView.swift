@@ -16,7 +16,7 @@
 
 import Cocoa
 
-protocol AddedLayerCellViewDelegate:class {
+protocol AddedLayerCellViewDelegate: AnyObject {
     
     func addedLayerCellViewWantsToDelete(_ addedLayerCellView:AddedLayerCellView)
 }

@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-protocol MapPackagesListVCDelegate: class {
+protocol MapPackagesListVCDelegate: AnyObject {
     
     func mapPackagesListVC(_ mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?)
 }
