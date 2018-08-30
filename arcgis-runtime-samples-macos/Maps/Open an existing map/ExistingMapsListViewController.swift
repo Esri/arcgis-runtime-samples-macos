@@ -16,7 +16,7 @@
 
 import Cocoa
 
-protocol ExistingMapsListViewControllerDelegate: class {
+protocol ExistingMapsListViewControllerDelegate: AnyObject {
     func existingMapsListViewController(_:ExistingMapsListViewController, didSelectItemAt index: Int)
 }
 
