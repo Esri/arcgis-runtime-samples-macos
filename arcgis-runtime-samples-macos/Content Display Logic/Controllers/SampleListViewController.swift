@@ -16,7 +16,7 @@
 
 import AppKit
 
-protocol SampleListViewControllerDelegate: class {
+protocol SampleListViewControllerDelegate: AnyObject {
     func sampleListViewController(_ controller: SampleListViewController, didSelect node: Node)
 }
 
