@@ -16,7 +16,7 @@
 
 import Cocoa
 
-class SampleCollectionSectionHeaderView: NSView {
+class SampleCollectionSectionHeaderView: NSView, NSCollectionViewSectionHeaderView {
     @IBOutlet var label: NSTextField!
     
     override func updateLayer() {
