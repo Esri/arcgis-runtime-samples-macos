@@ -14,12 +14,12 @@
 // limitations under the License.
 //
 
-import Foundation
+import Cocoa
 
-class Node: NSObject {
-    var displayName = ""
-    var descriptionText = ""
-    var storyboardName = ""
-    var childNodes = [Node]()  //if empty, then root node
-    var sourceFileNames = [String]()
+class SampleCollectionSectionHeaderView: NSView, NSCollectionViewSectionHeaderView {
+    @IBOutlet var label: NSTextField!
+    
+    override func updateLayer() {
+        layer?.backgroundColor = NSColor.headerColor.cgColor
+    }
 }

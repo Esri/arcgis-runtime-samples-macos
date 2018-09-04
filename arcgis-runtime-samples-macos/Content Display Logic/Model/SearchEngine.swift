@@ -15,9 +15,6 @@
 import Cocoa
 
 class SearchEngine: NSObject {
-    
-    static private let singleton = SearchEngine()
-    
     private var indexArray:[String]!
     private var wordsDictionary:[String: [String]]!
     private var isLoading = false
@@ -26,10 +23,6 @@ class SearchEngine: NSObject {
         super.init()
         
         self.commonInit()
-    }
-    
-    static func sharedInstance() -> SearchEngine {
-        return singleton
     }
     
     private func commonInit() {

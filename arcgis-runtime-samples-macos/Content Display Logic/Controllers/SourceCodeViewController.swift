@@ -21,16 +21,18 @@ class SourceCodeViewController: NSViewController {
     @IBOutlet var popUpButton: NSPopUpButton!
     @IBOutlet var webView: WKWebView!
     
-    var fileNames:[String]! {
-        didSet {
-            //load the source code
-            if self.fileNames != nil && self.fileNames.count > 0 {
-                self.loadHTMLPage(self.fileNames[0])
-            }
-            
-            //populate popUpButton
-            self.popUpButton.addItems(withTitles: self.fileNames)
+    var fileNames = [String]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //load the source code
+        if let fileName = fileNames.first {
+            loadHTMLPage(fileName)
         }
+        
+        //populate popUpButton
+        popUpButton.addItems(withTitles: fileNames)
     }
     
     //MARK: - HTML logic
@@ -38,7 +40,7 @@ class SourceCodeViewController: NSViewController {
     func loadHTMLPage(_ filename:String) {
         if let content = self.contentOfFile(filename) {
             let htmlString = self.htmlStringForContent(content)
-            webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
+            webView?.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
         }
     }
     
