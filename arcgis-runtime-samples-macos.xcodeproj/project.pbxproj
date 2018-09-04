@@ -362,14 +362,14 @@
 		4CE3B22B20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
 		4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */; };
 		4CE3B22E20E2ADCE00D4A06A /* SceneLayerSelectionViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */; };
-		4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0258021151F9C00806810 /* SampleViewController.swift */; };
-		4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */; };
-		4CF92E952118D9FF009A62C6 /* SampleCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF92E942118D9FF009A62C6 /* SampleCollectionHeaderView.swift */; };
-		4CF92E972118DABE009A62C6 /* SampleCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E962118DABE009A62C6 /* SampleCollectionHeaderView.xib */; };
 		4CE837F52125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */; };
 		4CE837F72125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */; };
+		4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0258021151F9C00806810 /* SampleViewController.swift */; };
 		4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; };
 		4CF02586211893C100806810 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */; };
+		4CF92E952118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */; };
+		4CF92E972118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */; };
 		94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
 		94557F6420EAA0CD0003644A /* CutGeometry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94557F6320EAA0CD0003644A /* CutGeometry.storyboard */; };
 		94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
@@ -821,13 +821,13 @@
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
 		4CE3B22C20E2AD2D00D4A06A /* SceneLayerSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SceneLayerSelection.storyboard; sourceTree = "<group>"; };
-		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
-		4CF92E942118D9FF009A62C6 /* SampleCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionHeaderView.swift; sourceTree = "<group>"; };
-		4CF92E962118DABE009A62C6 /* SampleCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionHeaderView.xib; sourceTree = "<group>"; };
 		4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureLayerRenderingModeMapViewController.swift; sourceTree = "<group>"; };
 		4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeMap.storyboard; sourceTree = "<group>"; };
+		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
+		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
+		4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
+		4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionSectionHeaderView.xib; sourceTree = "<group>"; };
 		94557F6120EAA0B90003644A /* CutGeometryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutGeometryViewController.swift; sourceTree = "<group>"; };
 		94557F6320EAA0CD0003644A /* CutGeometry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CutGeometry.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -2106,18 +2106,6 @@
 			path = "Scene layer selection";
 			sourceTree = "<group>";
 		};
-		4CF92E912118CF37009A62C6 /* Sample Collection View */ = {
-			isa = PBXGroup;
-			children = (
-				3E69DE4E1CFF7F48001F65F7 /* SampleCollectionViewController.swift */,
-				4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */,
-				4CF92E942118D9FF009A62C6 /* SampleCollectionHeaderView.swift */,
-				4CF92E962118DABE009A62C6 /* SampleCollectionHeaderView.xib */,
-				3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */,
-			);
-			path = "Sample Collection View";
-            sourceTree = "<group>";
-        };
 		4CE837F32125D32300BB96DB /* Feature layer rendering mode (map) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2133,6 +2121,18 @@
 				4CF025832118933E00806810 /* ArcGIS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CF92E912118CF37009A62C6 /* Sample Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				3E69DE4E1CFF7F48001F65F7 /* SampleCollectionViewController.swift */,
+				4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */,
+				4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */,
+				4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */,
+				3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */,
+			);
+			path = "Sample Collection View";
 			sourceTree = "<group>";
 		};
 		94557F6020EAA08D0003644A /* Cut geometry */ = {
@@ -2475,7 +2475,7 @@
 				3EFDE0B61E31287B00CBCD92 /* Shasta_Elevation.tif in Resources */,
 				3E8D55001D5513D300E628D9 /* ScenePropertiesExpressions.storyboard in Resources */,
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
-				4CF92E972118DABE009A62C6 /* SampleCollectionHeaderView.xib in Resources */,
+				4CF92E972118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib in Resources */,
 				3EFDE0BD1E31287B00CBCD92 /* ShastaBW.tfw in Resources */,
 				3EBA25511D30206400AB0703 /* SimpleRenderer.storyboard in Resources */,
 				4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */,
@@ -2613,7 +2613,7 @@
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
 				D97B7E741FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift in Sources */,
 				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
-				4CF92E952118D9FF009A62C6 /* SampleCollectionHeaderView.swift in Sources */,
+				4CF92E952118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift in Sources */,
 				4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */,
 				3E496ECF1DD14FE2004C921C /* MapPackageCellView.swift in Sources */,
 				D98916D41FE22B10004310CB /* GPKGLayerTableCell.swift in Sources */,
