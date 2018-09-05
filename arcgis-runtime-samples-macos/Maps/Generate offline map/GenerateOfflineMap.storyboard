@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="grZ-q4-GUm">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <scenes>
+        <!--Generate Offline Map View Controller-->
+        <scene sceneID="HiF-LQ-Ovn">
+            <objects>
+                <viewController id="grZ-q4-GUm" customClass="GenerateOfflineMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eyb-5H-N8F">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="357"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1bp-W4-cHD" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="122" width="450" height="235"/>
+                            </customView>
+                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPh-Qo-CeX">
+                                <rect key="frame" x="45" y="146" width="360" height="187"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-52-eC5">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="122"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zo0-tC-T31">
+                                        <rect key="frame" x="0.0" y="53" width="450" height="69"/>
+                                        <subviews>
+                                            <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-4y-qxF">
+                                                <rect key="frame" x="16" y="15" width="332" height="20"/>
+                                            </progressIndicator>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-xZ-t1U">
+                                                <rect key="frame" x="14" y="36" width="37" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="naJ-zx-h1J">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-Os-6Ha">
+                                                <rect key="frame" x="358" y="17" width="82" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zVb-Su-LqC">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="cancelAction:" target="grZ-q4-GUm" id="zEZ-3T-BJC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="leading" secondItem="Zo0-tC-T31" secondAttribute="leading" constant="16" id="Bqt-oC-eze"/>
+                                            <constraint firstItem="FF4-4y-qxF" firstAttribute="top" secondItem="qMT-xZ-t1U" secondAttribute="bottom" constant="2" id="M7H-Ha-ytp"/>
+                                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="top" secondItem="Zo0-tC-T31" secondAttribute="top" constant="16" id="PbF-yC-xdF"/>
+                                            <constraint firstAttribute="trailing" secondItem="pQf-Os-6Ha" secondAttribute="trailing" constant="16" id="SDf-jG-MUC"/>
+                                            <constraint firstAttribute="bottom" secondItem="FF4-4y-qxF" secondAttribute="bottom" constant="16" id="YHJ-g1-o7k"/>
+                                            <constraint firstItem="FF4-4y-qxF" firstAttribute="leading" secondItem="qMT-xZ-t1U" secondAttribute="leading" id="f62-Ph-Iz4"/>
+                                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="leading" secondItem="FF4-4y-qxF" secondAttribute="trailing" constant="16" id="hT5-DB-dRZ"/>
+                                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="centerY" secondItem="Zo0-tC-T31" secondAttribute="centerY" id="imp-Bt-or8"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ozd-Mu-MIH">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="53"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hwK-Ar-8zZ">
+                                                <rect key="frame" x="140" y="9" width="170" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Generate Offline Map" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vpF-iO-OKK">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="action" target="grZ-q4-GUm" id="iWw-kl-bpF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hwK-Ar-8zZ" firstAttribute="top" secondItem="ozd-Mu-MIH" secondAttribute="top" constant="16" id="0rr-Do-MBZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="hwK-Ar-8zZ" secondAttribute="bottom" constant="16" id="ZxJ-xe-2aC"/>
+                                            <constraint firstItem="hwK-Ar-8zZ" firstAttribute="centerX" secondItem="ozd-Mu-MIH" secondAttribute="centerX" id="yeb-Oc-XoQ"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Zo0-tC-T31" secondAttribute="trailing" id="OR0-NM-J59"/>
+                                    <constraint firstItem="ozd-Mu-MIH" firstAttribute="leading" secondItem="fYU-52-eC5" secondAttribute="leading" id="Vne-nT-8g4"/>
+                                    <constraint firstAttribute="trailing" secondItem="ozd-Mu-MIH" secondAttribute="trailing" id="cOh-YV-U0D"/>
+                                    <constraint firstItem="Zo0-tC-T31" firstAttribute="leading" secondItem="fYU-52-eC5" secondAttribute="leading" id="jNH-b2-LWQ"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="top" secondItem="eyb-5H-N8F" secondAttribute="top" id="0YH-LE-RQy"/>
+                            <constraint firstAttribute="trailing" secondItem="fYU-52-eC5" secondAttribute="trailing" id="8w7-GH-ATY"/>
+                            <constraint firstItem="nPh-Qo-CeX" firstAttribute="centerY" secondItem="1bp-W4-cHD" secondAttribute="centerY" id="Es4-8O-3Sm"/>
+                            <constraint firstAttribute="trailing" secondItem="1bp-W4-cHD" secondAttribute="trailing" id="IY4-0Q-CBi"/>
+                            <constraint firstItem="nPh-Qo-CeX" firstAttribute="width" secondItem="1bp-W4-cHD" secondAttribute="width" multiplier="0.8" id="KH1-Gg-Nen"/>
+                            <constraint firstItem="fYU-52-eC5" firstAttribute="top" secondItem="1bp-W4-cHD" secondAttribute="bottom" id="Z7a-vn-yPe"/>
+                            <constraint firstAttribute="bottom" secondItem="fYU-52-eC5" secondAttribute="bottom" id="aDk-b2-LGk"/>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="leading" secondItem="eyb-5H-N8F" secondAttribute="leading" id="bkI-td-HuT"/>
+                            <constraint firstItem="nPh-Qo-CeX" firstAttribute="centerX" secondItem="1bp-W4-cHD" secondAttribute="centerX" id="c1W-at-zc3"/>
+                            <constraint firstItem="nPh-Qo-CeX" firstAttribute="height" secondItem="1bp-W4-cHD" secondAttribute="height" multiplier="0.8" id="da9-ce-s08"/>
+                            <constraint firstItem="fYU-52-eC5" firstAttribute="leading" secondItem="eyb-5H-N8F" secondAttribute="leading" id="w2K-Wf-02q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="pQf-Os-6Ha" id="SuG-Cd-8Zf"/>
+                        <outlet property="extentView" destination="nPh-Qo-CeX" id="npH-8Z-XqI"/>
+                        <outlet property="generateButton" destination="hwK-Ar-8zZ" id="oKV-k4-DSy"/>
+                        <outlet property="generateButtonParentView" destination="ozd-Mu-MIH" id="YAQ-T4-F5f"/>
+                        <outlet property="mapView" destination="1bp-W4-cHD" id="xae-xr-UOX"/>
+                        <outlet property="progressLabel" destination="qMT-xZ-t1U" id="z1B-1m-peg"/>
+                        <outlet property="progressParentView" destination="Zo0-tC-T31" id="wsn-AM-n3R"/>
+                        <outlet property="progressView" destination="FF4-4y-qxF" id="nkH-i6-cri"/>
+                    </connections>
+                </viewController>
+                <customObject id="Leb-q1-OUq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="427.5"/>
+        </scene>
+    </scenes>
+</document>
