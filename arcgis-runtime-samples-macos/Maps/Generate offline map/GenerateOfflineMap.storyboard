@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="122" width="450" height="235"/>
                             </customView>
                             <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPh-Qo-CeX">
-                                <rect key="frame" x="45" y="146" width="360" height="187"/>
+                                <rect key="frame" x="45" y="145" width="360" height="189"/>
                             </customView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-52-eC5">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="122"/>
@@ -49,7 +49,7 @@ Gw
 </string>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="cancelAction:" target="grZ-q4-GUm" id="zEZ-3T-BJC"/>
+                                                    <action selector="cancelAction:" target="grZ-q4-GUm" id="B1z-Yw-uK7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -74,7 +74,7 @@ Gw
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="action" target="grZ-q4-GUm" id="iWw-kl-bpF"/>
+                                                    <action selector="generateOfflineMapAction:" target="grZ-q4-GUm" id="iWw-kl-bpF"/>
                                                 </connections>
                                             </button>
                                         </subviews>

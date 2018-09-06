@@ -1,5 +1,5 @@
 //
-// Copyright 2016 Esri.
+// Copyright 2018 Esri.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,19 +19,19 @@ import ArcGIS
 
 class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManagerDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var extentView:NSView!
-    @IBOutlet var generateButton:NSButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var extentView: NSView!
+    @IBOutlet var generateButton: NSButton!
     @IBOutlet var generateButtonParentView: NSView!
-    @IBOutlet var progressView:NSProgressIndicator!
-    @IBOutlet var progressLabel:NSTextField!
-    @IBOutlet var progressParentView:NSView!
-    @IBOutlet var cancelButton:NSButton!
+    @IBOutlet var progressView: NSProgressIndicator!
+    @IBOutlet var progressLabel: NSTextField!
+    @IBOutlet var progressParentView: NSView!
+    @IBOutlet var cancelButton: NSButton!
     
-    private var portalItem:AGSPortalItem!
-    private var parameters:AGSGenerateOfflineMapParameters!
-    private var offlineMapTask:AGSOfflineMapTask!
-    private var generateOfflineMapJob:AGSGenerateOfflineMapJob!
+    private var portalItem: AGSPortalItem?
+    private var parameters: AGSGenerateOfflineMapParameters?
+    private var offlineMapTask: AGSOfflineMapTask?
+    private var generateOfflineMapJob: AGSGenerateOfflineMapJob?
     private var shouldShowAlert = true
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         //show the login alert if this is the first time appearing
         if shouldShowAlert {
             shouldShowAlert = false
-            showAlert()
+            showLoginQueryAlert()
         }
     }
     
@@ -62,7 +62,8 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         let portal = AGSPortal.arcGISOnline(withLoginRequired: true)
         
         //portal item for web map
-        portalItem = AGSPortalItem(portal: portal, itemID: "acc027394bc84c2fb04d1ed317aac674")
+        let portalItem = AGSPortalItem(portal: portal, itemID: "acc027394bc84c2fb04d1ed317aac674")
+        self.portalItem = portalItem
         
         //map from portal item
         let map = AGSMap(item: portalItem)
@@ -70,25 +71,26 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         //assign map to the map view
         mapView.map = map
         
-        //disable the bar button item until the map loads
+        //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
             
             guard let strongSelf = self else{
                 return
             }
             
-            guard error == nil else {
-                
-                //show error
-                if let window = strongSelf.view.window{
-                    let alert = NSAlert(error: error!)
+            if let error = error{
+                //if not user cancelled
+                if (error as NSError).code != NSUserCancelledError,
+                    let window = strongSelf.view.window{
+                    let alert = NSAlert(error: error)
+                    //display error as alert
                     alert.beginSheetModal(for: window)
                 }
-                return
             }
-            
-            strongSelf.title = strongSelf.mapView.map?.item?.title
-            strongSelf.generateButton.isEnabled = true
+            else{
+                strongSelf.title = strongSelf.mapView.map?.item?.title
+                strongSelf.generateButton.isEnabled = true
+            }
         }
         
         //instantiate offline map task
@@ -99,43 +101,17 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         extentView.layer?.borderWidth = 3
     }
     
-    private func defaultParameters() {
-        
-        //default parameters for offline map task
-        offlineMapTask?.defaultGenerateOfflineMapParameters(withAreaOfInterest: frameToExtent()) { [weak self] (parameters: AGSGenerateOfflineMapParameters?, error: Error?) in
-            
-            guard error == nil else {
-                
-                //show error
-                if let window = self?.view.window{
-                    let alert = NSAlert(error: error!)
-                    alert.beginSheetModal(for: window)
-                }
-                return
-            }
-            
-            guard let parameters = parameters else {
-                return
-            }
-            
-            //will need the parameters for creating the job later
-            self?.parameters = parameters
-            
-            //take map offline
-            self?.takeMapOffline()
-        }
-    }
-    
     private func takeMapOffline() {
         
-        //create a unique name for the geodatabase based on current timestamp
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let fullPath = "\(path)/\(dateFormatter.string(from: Date())).geodatabase"
-        
-        generateOfflineMapJob = offlineMapTask.generateOfflineMapJob(with: parameters, downloadDirectory: URL(string: fullPath)!)
+        guard let offlineMapTask = offlineMapTask,
+            let parameters = parameters else{
+                return
+        }
+
+        let downloadDirectory = getNewOfflineGeodatabaseURL()
+        let generateOfflineMapJob = offlineMapTask.generateOfflineMapJob(with: parameters,
+                                                                         downloadDirectory: downloadDirectory)
+        self.generateOfflineMapJob = generateOfflineMapJob
         
         //add observer for progress
         generateOfflineMapJob.progress.addObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted), options: .new, context: nil)
@@ -152,15 +128,18 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
             }
             
             //remove KVO observer
-            strongSelf.generateOfflineMapJob.progress.removeObserver(strongSelf, forKeyPath: #keyPath(Progress.fractionCompleted))
+            strongSelf.generateOfflineMapJob?.progress.removeObserver(strongSelf, forKeyPath: #keyPath(Progress.fractionCompleted))
             
             if let error = error {
                 //if not user cancelled
-                if (error as NSError).code != NSUserCancelledError {
+                if (error as NSError).code != NSUserCancelledError,
+                    let window = strongSelf.view.window{
                     let alert = NSAlert(error: error)
-                    alert.beginSheetModal(for: strongSelf.view.window!)
+                    //display error as alert
+                    alert.beginSheetModal(for: window)
                 }
-            } else if let result = result {
+            }
+            else if let result = result {
                 strongSelf.offlineMapGenerationDidSucceed(with: result)
             }
         }
@@ -172,11 +151,11 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     func offlineMapGenerationDidSucceed(with result: AGSGenerateOfflineMapResult) {
         // Show any layer or table errors to the user.
         if let layerErrors = result.layerErrors as? [AGSLayer: Error],
-            let tableLayers = result.tableErrors as? [AGSFeatureTable: Error],
-            !(layerErrors.isEmpty && tableLayers.isEmpty) {
+            let tableErrors = result.tableErrors as? [AGSFeatureTable: Error],
+            !(layerErrors.isEmpty && tableErrors.isEmpty) {
             
             let errorMessages = layerErrors.map { "\($0.key.name): \($0.value.localizedDescription)" } +
-                tableLayers.map { "\($0.key.displayName): \($0.value.localizedDescription)" }
+                tableErrors.map { "\($0.key.displayName): \($0.value.localizedDescription)" }
             let alert = NSAlert()
             alert.messageText = "Offline Map Generated with Errors"
             alert.informativeText = "The following error(s) occurred while generating the offline map:\n\n\(errorMessages.joined(separator: "\n"))"
@@ -192,15 +171,15 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        DispatchQueue.main.async { [weak self] in
+        if keyPath == "fractionCompleted" {
             
-            guard let strongSelf = self else {
-                return
-            }
-            
-            if keyPath == "fractionCompleted" {
-                
-                let progress = strongSelf.generateOfflineMapJob.progress
+            //run UI updates on the main thread
+            DispatchQueue.main.async { [weak self] in
+                    
+                guard let strongSelf = self,
+                     let progress = strongSelf.generateOfflineMapJob?.progress else {
+                    return
+                }
                 
                 //update progress label
                 strongSelf.progressLabel.stringValue = progress.localizedDescription
@@ -213,20 +192,46 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     
     //MARK: - Actions
     
-    @IBAction func action(_ button:NSButton) {
-        defaultParameters()
+    @IBAction func generateOfflineMapAction(_ button:NSButton) {
         
-        //disable bar button item
+        //disable the offline map button
         generateButton.isEnabled = false
         
         //hide the extent view
         extentView.isHidden = true
+        
+        //get the area outlined by the extent view
+        let areaOfInterest = extentViewFrameToEnvelope()
+        
+        //build the default parameters for the offline map task
+        offlineMapTask?.defaultGenerateOfflineMapParameters(withAreaOfInterest: areaOfInterest) { [weak self] (parameters: AGSGenerateOfflineMapParameters?, error: Error?) in
+            
+            guard let strongSelf = self else{
+                return
+            }
+            
+            if let error = error {
+                
+                if let window = strongSelf.view.window{
+                    let alert = NSAlert(error: error)
+                    //display error as alert
+                    alert.beginSheetModal(for: window)
+                }
+            }
+            else{
+                //save the parameters to use later
+                strongSelf.parameters = parameters
+                
+                //take map offline now that we have the parameters
+                strongSelf.takeMapOffline()
+            }
+        }
     }
     
     @IBAction func cancelAction(_ button:NSButton) {
         
         //cancel generate offline map job
-        generateOfflineMapJob.progress.cancel()
+        generateOfflineMapJob?.progress.cancel()
         
         //reset and hide the progress UI
         progressParentView.isHidden = true
@@ -243,9 +248,9 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     
     //MARK: - Helper methods
     
-    private func showAlert() {
+    private func showLoginQueryAlert() {
         let alert = NSAlert()
-        alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would like to continue?"
+        alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would you like to continue?"
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
         alert.beginSheetModal(for: view.window!) {[weak self] (response) in
@@ -255,7 +260,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         }
     }
     
-    func frameToExtent() -> AGSEnvelope {
+    private func extentViewFrameToEnvelope() -> AGSEnvelope {
         let frame = mapView.convert(extentView.frame, from: view)
         
         let minPoint = mapView.screen(toLocation: frame.origin)
@@ -264,18 +269,28 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         return extent
     }
     
+    private func getNewOfflineGeodatabaseURL()->URL{
+        //create a unique name for the geodatabase based on current timestamp
+        let formattedDate = ISO8601DateFormatter().string(from: Date())
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let fullPath = "\(path)/\(formattedDate).geodatabase"
+        let fullPathURL = URL(string: fullPath)!
+        return fullPathURL
+    }
+    
     deinit {
         
-        guard let progress = generateOfflineMapJob?.progress else {
+        guard let generateOfflineMapJob = generateOfflineMapJob else {
             return
         }
+        let progress = generateOfflineMapJob.progress
         
         let isCompleted = (progress.totalUnitCount == progress.completedUnitCount)
         let isCancelled = progress.isCancelled
         
         if !isCancelled && !isCompleted {
             //remove observer
-            generateOfflineMapJob?.progress.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
+            generateOfflineMapJob.progress.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
         }
     }
 }
