@@ -17,7 +17,12 @@
 import Cocoa
 import ArcGIS
 
-class OfflineMapProgressViewController:NSViewController{
+protocol OfflineMapProgressViewControllerDelegate: AnyObject {
+    
+    func progressViewControllerDidCancel(_ progressViewController:OfflineMapProgressViewController)
+}
+
+class OfflineMapProgressViewController: NSViewController {
     
     @IBOutlet var progressView: NSProgressIndicator!
     @IBOutlet var progressLabel: NSTextField!
@@ -54,7 +59,7 @@ class OfflineMapProgressViewController:NSViewController{
                 }
                 
                 //update progress label
-                strongSelf.progressLabel.stringValue = progress.localizedDescription
+                strongSelf.progressLabel.stringValue = "Generating Offline Map: "+progress.localizedDescription
                 
                 //update progress view
                 strongSelf.progressView.doubleValue = progress.fractionCompleted

@@ -17,11 +17,6 @@
 import Cocoa
 import ArcGIS
 
-protocol OfflineMapProgressViewControllerDelegate: AnyObject {
-    
-    func progressViewControllerDidCancel(_ progressViewController:OfflineMapProgressViewController)
-}
-
 class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManagerDelegate {
 
     @IBOutlet var mapView: AGSMapView!
@@ -158,9 +153,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     private func closeProgressSheet(){
         
         //find and dismiss the view controller
-        if let progressViewController = presentedViewControllers?.first(where: { (controller) -> Bool in
-            return controller is OfflineMapProgressViewController
-        }){
+        if let progressViewController = presentedViewControllers?.first(where: { $0 is OfflineMapProgressViewController }){
             dismissViewController(progressViewController)
         }
     }
