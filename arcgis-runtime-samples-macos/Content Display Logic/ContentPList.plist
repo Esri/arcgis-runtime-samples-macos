@@ -286,6 +286,7 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>GenerateOfflineMapViewController</string>
+					<string>OfflineMapProgressViewController</string>
 				</array>
 			</dict>
 			<dict>

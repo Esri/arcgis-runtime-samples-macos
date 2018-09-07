@@ -17,16 +17,17 @@
 import Cocoa
 import ArcGIS
 
+protocol OfflineMapProgressViewControllerDelegate: AnyObject {
+    
+    func progressViewControllerDidCancel(_ progressViewController:OfflineMapProgressViewController)
+}
+
 class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManagerDelegate {
 
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var extentView: NSView!
     @IBOutlet var generateButton: NSButton!
     @IBOutlet var generateButtonParentView: NSView!
-    @IBOutlet var progressView: NSProgressIndicator!
-    @IBOutlet var progressLabel: NSTextField!
-    @IBOutlet var progressParentView: NSView!
-    @IBOutlet var cancelButton: NSButton!
     
     private var portalItem: AGSPortalItem?
     private var parameters: AGSGenerateOfflineMapParameters?
@@ -42,8 +43,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         AGSAuthenticationManager.shared().oAuthConfigurations.add(config)
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
         
-        //hide the progress UI initially
-        progressParentView.isHidden = true
     }
     
     override func viewDidAppear() {
@@ -113,12 +112,8 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                                                                          downloadDirectory: downloadDirectory)
         self.generateOfflineMapJob = generateOfflineMapJob
         
-        //add observer for progress
-        generateOfflineMapJob.progress.addObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted), options: .new, context: nil)
-        
-        //unhide the progress parent view
-        progressParentView.isHidden = false
-        generateButtonParentView.isHidden = true
+        //show the progress sheet
+        showProgressSheet(for: generateOfflineMapJob.progress)
         
         //start the job
         generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
@@ -127,8 +122,8 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                 return
             }
             
-            //remove KVO observer
-            strongSelf.generateOfflineMapJob?.progress.removeObserver(strongSelf, forKeyPath: #keyPath(Progress.fractionCompleted))
+            //close the progress sheet since the job is no longer active
+            strongSelf.closeProgressSheet()
             
             if let error = error {
                 //if not user cancelled
@@ -145,6 +140,31 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         }
     }
     
+    private func showProgressSheet(for progress: Progress){
+        
+        //locate and instantiate the view controller
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("GenerateOfflineMap"), bundle: nil)
+        let id = NSStoryboard.SceneIdentifier("OfflineMapProgressViewController")
+        let viewController = storyboard.instantiateController(withIdentifier: id) as! OfflineMapProgressViewController
+        
+        //setup the progress view controller
+        viewController.progress = progress
+        viewController.delegate = self
+        
+        //display the progress sheet
+        presentViewControllerAsSheet(viewController)
+    }
+    
+    private func closeProgressSheet(){
+        
+        //find and dismiss the view controller
+        if let progressViewController = presentedViewControllers?.first(where: { (controller) -> Bool in
+            return controller is OfflineMapProgressViewController
+        }){
+            dismissViewController(progressViewController)
+        }
+    }
+
     /// Called when the generate offline map job finishes successfully.
     ///
     /// - Parameter result: The result of the generate offline map job.
@@ -162,40 +182,17 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
             alert.beginSheetModal(for: view.window!)
         }
         
-        //disable cancel button
-        cancelButton.isEnabled = false
-        
         //assign offline map to map view
         mapView.map = result.offlineMap
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == #keyPath(Progress.fractionCompleted) {
-            
-            //run UI updates on the main thread
-            DispatchQueue.main.async { [weak self] in
-                    
-                guard let strongSelf = self,
-                     let progress = strongSelf.generateOfflineMapJob?.progress else {
-                    return
-                }
-                
-                //update progress label
-                strongSelf.progressLabel.stringValue = progress.localizedDescription
-                
-                //update progress view
-                strongSelf.progressView.doubleValue = progress.fractionCompleted
-            }
-        }
     }
     
     //MARK: - Actions
     
     @IBAction func generateOfflineMapAction(_ button:NSButton) {
         
-        //disable the offline map button
+        //hide and disable the offline map button
         generateButton.isEnabled = false
+        generateButtonParentView.isHidden = true
         
         //hide the extent view
         extentView.isHidden = true
@@ -226,24 +223,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                 strongSelf.takeMapOffline()
             }
         }
-    }
-    
-    @IBAction func cancelAction(_ button:NSButton) {
-        
-        //cancel generate offline map job
-        generateOfflineMapJob?.progress.cancel()
-        
-        //reset and hide the progress UI
-        progressParentView.isHidden = true
-        progressView.doubleValue = 0
-        progressLabel.stringValue = ""
-        
-        //unhide and enable the offline map button
-        generateButtonParentView.isHidden = false
-        generateButton.isEnabled = true
-        
-        //unhide the extent view
-        extentView.isHidden = false
     }
     
     //MARK: - Helper methods
@@ -285,18 +264,20 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         return documentDirectoryURL.appendingPathComponent("\(formattedDate).geodatabase")
     }
     
-    deinit {
+}
+
+extension GenerateOfflineMapViewController: OfflineMapProgressViewControllerDelegate {
+    
+    func progressViewControllerDidCancel(_ progressViewController: OfflineMapProgressViewController) {
         
-        guard let progress = generateOfflineMapJob?.progress else {
-            return
-        }
+        //cancel generate offline map job
+        generateOfflineMapJob?.progress.cancel()
         
-        let isCompleted = (progress.totalUnitCount == progress.completedUnitCount)
-        let isCancelled = progress.isCancelled
+        //unhide and enable the offline map button
+        generateButtonParentView.isHidden = false
+        generateButton.isEnabled = true
         
-        if !isCancelled && !isCompleted {
-            //remove observer
-            progress.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
-        }
+        //unhide the extent view
+        extentView.isHidden = false
     }
 }
