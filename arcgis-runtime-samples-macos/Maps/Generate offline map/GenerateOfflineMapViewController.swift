@@ -171,7 +171,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        if keyPath == "fractionCompleted" {
+        if keyPath == #keyPath(Progress.fractionCompleted) {
             
             //run UI updates on the main thread
             DispatchQueue.main.async { [weak self] in
@@ -261,36 +261,42 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     }
     
     private func extentViewFrameToEnvelope() -> AGSEnvelope {
+        
         let frame = mapView.convert(extentView.frame, from: view)
         
+        //the lower-left corner
         let minPoint = mapView.screen(toLocation: frame.origin)
-        let maxPoint = mapView.screen(toLocation: CGPoint(x: frame.origin.x+frame.width, y: frame.origin.y+frame.height))
-        let extent = AGSEnvelope(min: minPoint, max: maxPoint)
-        return extent
+        
+        //the upper-right corner
+        let maxPoint = mapView.screen(toLocation: CGPoint(x: frame.maxX, y: frame.maxY))
+        
+        //return the envenlope covering the entire extent frame
+        return AGSEnvelope(min: minPoint, max: maxPoint)
     }
     
     private func getNewOfflineGeodatabaseURL()->URL{
+       
+        //get a suitable directory to place files
+        let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
         //create a unique name for the geodatabase based on current timestamp
         let formattedDate = ISO8601DateFormatter().string(from: Date())
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let fullPath = "\(path)/\(formattedDate).geodatabase"
-        let fullPathURL = URL(string: fullPath)!
-        return fullPathURL
+        
+        return documentDirectoryURL.appendingPathComponent("\(formattedDate).geodatabase")
     }
     
     deinit {
         
-        guard let generateOfflineMapJob = generateOfflineMapJob else {
+        guard let progress = generateOfflineMapJob?.progress else {
             return
         }
-        let progress = generateOfflineMapJob.progress
         
         let isCompleted = (progress.totalUnitCount == progress.completedUnitCount)
         let isCancelled = progress.isCancelled
         
         if !isCancelled && !isCompleted {
             //remove observer
-            generateOfflineMapJob.progress.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
+            progress.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
         }
     }
 }
