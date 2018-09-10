@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E163f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="GaY-gy-OlK">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="GaY-gy-OlK">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="hlS-Ma-PKg" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="569" height="470"/>
                                 <subviews>
-                                    <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Nbs-2l-WPO">
+                                    <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Nbs-2l-WPO">
                                         <rect key="frame" x="299" y="50" width="250" height="400"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="SPl-FX-jdC">
@@ -26,7 +26,7 @@
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="rGA-2R-25h">
                                                         <rect key="frame" x="0.0" y="160" width="250" height="40"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-wF-MM3">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-wF-MM3">
                                                                 <rect key="frame" x="8" y="12" width="234" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Added layers" id="Uyb-vB-3wm">
                                                                     <font key="font" metaFont="systemBold"/>
@@ -42,7 +42,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="qTu-hl-r9X"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                 <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
@@ -80,7 +80,7 @@
                                                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="2RZ-dZ-iqL">
                                                                                             <rect key="frame" x="2" y="0.0" width="241" height="30"/>
                                                                                             <subviews>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-1i-VfF">
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-1i-VfF">
                                                                                                     <rect key="frame" x="3" y="7" width="203" height="17"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="3pv-Od-x9h">
                                                                                                         <font key="font" metaFont="system"/>
@@ -110,7 +110,7 @@
                                                                                                 <constraint firstItem="ICa-tX-dpm" firstAttribute="leading" secondItem="9CE-1i-VfF" secondAttribute="trailing" constant="2" id="xLQ-Rv-CsH"/>
                                                                                             </constraints>
                                                                                             <userDefinedRuntimeAttributes>
-                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                                     <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
@@ -162,7 +162,7 @@
                                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ncb-ht-k68">
                                                         <rect key="frame" x="0.0" y="160" width="250" height="40"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-oQ-GfH">
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-oQ-GfH">
                                                                 <rect key="frame" x="8" y="12" width="234" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Removed layers" id="M8Q-WZ-3Zk">
                                                                     <font key="font" metaFont="systemBold"/>
@@ -178,7 +178,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="xSA-nb-BRB"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                 <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
@@ -216,7 +216,7 @@
                                                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="YQ1-xo-J0q">
                                                                                             <rect key="frame" x="2" y="0.0" width="241" height="24"/>
                                                                                             <subviews>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="R58-TE-6bV">
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R58-TE-6bV">
                                                                                                     <rect key="frame" x="3" y="4" width="208" height="17"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="gms-Cd-ciS">
                                                                                                         <font key="font" metaFont="system"/>
@@ -224,7 +224,7 @@
                                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                     </textFieldCell>
                                                                                                 </textField>
-                                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QAN-vJ-kBQ">
+                                                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAN-vJ-kBQ">
                                                                                                     <rect key="frame" x="217" y="0.0" width="21" height="24"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="+" id="m6V-70-qOp">
                                                                                                         <font key="font" metaFont="system" size="20"/>
@@ -242,7 +242,7 @@
                                                                                                 <constraint firstAttribute="trailing" secondItem="QAN-vJ-kBQ" secondAttribute="trailing" constant="5" id="tZD-vK-3l0"/>
                                                                                             </constraints>
                                                                                             <userDefinedRuntimeAttributes>
-                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                                     <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                                                                 </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
@@ -328,6 +328,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Discard" width="44" height="44"/>
+        <image name="Discard" width="22" height="22"/>
     </resources>
 </document>

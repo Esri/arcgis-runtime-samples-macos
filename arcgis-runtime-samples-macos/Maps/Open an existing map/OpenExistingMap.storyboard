@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="FQC-id-YCW">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="FQC-id-YCW">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Open Existing Map View Controller-->
         <scene sceneID="j9q-BV-3ED">
             <objects>
-                <viewController id="FQC-id-YCW" customClass="OpenExistingMapViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FQC-id-YCW" customClass="OpenExistingMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="eQe-as-79J">
                         <rect key="frame" x="0.0" y="0.0" width="583" height="464"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -48,7 +49,7 @@
         <!--Choose a map-->
         <scene sceneID="eA3-LC-fj8">
             <objects>
-                <viewController title="Choose a map" id="HlT-w5-QSh" customClass="ExistingMapsListViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choose a map" id="HlT-w5-QSh" customClass="ExistingMapsListViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="dw9-bW-KDI">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="320"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -114,7 +115,7 @@
                                                                         <constraint firstItem="Gdc-uH-ApA" firstAttribute="leading" secondItem="fpE-vU-gRh" secondAttribute="leading" constant="8" id="vn9-4s-8cv"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
@@ -191,6 +192,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HomeIcon" width="60" height="60"/>
+        <image name="HomeIcon" width="30" height="30"/>
     </resources>
 </document>

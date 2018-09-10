@@ -82,8 +82,8 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
         viewItem.thumbnailView.image = NSImage(named: NSImage.Name(sampleNode.displayName))
         
         //stylize
-        viewItem.view.backgroundColor = .white
         viewItem.view.wantsLayer = true
+        viewItem.view.layer?.backgroundColor = NSColor.white.cgColor
         viewItem.view.layer?.borderColor = NSColor.primaryBlue.cgColor
         viewItem.view.layer?.cornerRadius = 10
         viewItem.view.layer?.borderWidth = 1
