@@ -52,10 +52,6 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //parks feature layer (origin feature layer)
         self.parksFeatureLayer = AGSFeatureLayer(featureTable: self.parksFeatureTable)
         
-        //change selection width for feature layer
-        self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = .yellow
-        
         //add feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
         
@@ -72,6 +68,9 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         
         //assign map to map view
         self.mapView.map = map
+        
+        //change selection color
+        mapView.selectionProperties.color = .yellow
         
         //set touch delegate
         self.mapView.touchDelegate = self

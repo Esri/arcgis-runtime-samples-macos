@@ -105,11 +105,11 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         // Add polygon, polyline and point graphics to graphics overlay
         graphicsOverlay.graphics.addObjects(from: [polygonGraphic, polylineGraphic, pointGraphic])
         
-        // Set selection color of graphics overlay
-        graphicsOverlay.selectionColor = .yellow
-        
         // Add graphics overlay to mapView
         mapView.graphicsOverlays.add(graphicsOverlay)
+        
+        // Set selection color
+        mapView.selectionProperties.color = .yellow
         
         // Set viewpoint to the point graphic geometry
         if let point = pointGraphic.geometry as? AGSPoint {
