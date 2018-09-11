@@ -56,11 +56,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //feature layer for parks
         self.parksFeatureLayer = AGSFeatureLayer(featureTable: self.parksFeatureTable)
-        
-        //change selection width for feature layer
-        self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = .yellow
-        
+
         //add parks feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
         
@@ -77,6 +73,9 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //assign map to the map view
         self.mapView.map = map
+        
+        //change selection color
+        mapView.selectionProperties.color = .yellow
         
         //add constraint for visual effect view wrt the attribution label on map view
         self.visualEffectView.bottomAnchor.constraint(equalTo: self.mapView.attributionTopAnchor, constant: -20).isActive = true
