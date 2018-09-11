@@ -9,15 +9,14 @@
 		<array>
 			<dict>
 				<key>displayName</key>
-				<string>Open an existing map</string>
+				<string>Open map (URL)</string>
 				<key>storyboardName</key>
-				<string>OpenExistingMap</string>
+				<string>OpenMapURL</string>
 				<key>descriptionText</key>
-				<string>This sample shows you how to open an existing map using its url</string>
+				<string>This sample shows you how to open a map using its url</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>OpenExistingMapViewController</string>
-					<string>ExistingMapsListViewController</string>
+					<string>OpenMapURLViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -91,15 +90,14 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Open an existing map</string>
+				<string>Open map (URL)</string>
 				<key>storyboardName</key>
-				<string>OpenExistingMap</string>
+				<string>OpenMapURL</string>
 				<key>descriptionText</key>
-				<string>This sample shows you how to open an existing map using its url</string>
+				<string>This sample shows you how to open a map using its url</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>OpenExistingMapViewController</string>
-					<string>ExistingMapsListViewController</string>
+					<string>OpenMapURLViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -565,18 +563,18 @@
 		<string>Features</string>
 		<key>children</key>
 		<array>
-            <dict>
-                <key>displayName</key>
-                <string>Feature layer rendering mode (map)</string>
-                <key>storyboardName</key>
-                <string>FeatureLayerRenderingModeMap</string>
-                <key>descriptionText</key>
-                <string>Control the rendering mode of feature layers.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>FeatureLayerRenderingModeMapViewController</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer rendering mode (map)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerRenderingModeMap</string>
+				<key>descriptionText</key>
+				<string>Control the rendering mode of feature layers.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerRenderingModeMapViewController</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Feature layer (feature service)</string>
@@ -1039,7 +1037,7 @@
 				<key>storyboardName</key>
 				<string>ListTransformations</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to use the transformation catalog to get a list of available datum transformations that can be used to project a geometry between two different spatial references, and how to use one of the transformations to perform the geometry engine's "project" operation.</string>
+				<string>This sample demonstrates how to use the transformation catalog to get a list of available datum transformations that can be used to project a geometry between two different spatial references, and how to use one of the transformations to perform the geometry engine&apos;s &quot;project&quot; operation.</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>ListTransformationsViewController</string>
@@ -1334,18 +1332,18 @@
 					<string>Animate3DSymbolsVC</string>
 				</array>
 			</dict>
-            <dict>
-                <key>displayName</key>
-                <string>Distance composite symbol</string>
-                <key>storyboardName</key>
-                <string>DistanceCompositeSymbol</string>
-                <key>descriptionText</key>
-                <string>Demonstrates how to create a graphic using a distance composite scene symbol. Distance composite scene symbols can render different symbols depending on the distance between the camera and the graphic.</string>
-                <key>sourceFileNames</key>
-                <array>
-                    <string>DistanceCompositeSymbolViewController</string>
-                </array>
-            </dict>
+			<dict>
+				<key>displayName</key>
+				<string>Distance composite symbol</string>
+				<key>storyboardName</key>
+				<string>DistanceCompositeSymbol</string>
+				<key>descriptionText</key>
+				<string>Demonstrates how to create a graphic using a distance composite scene symbol. Distance composite scene symbols can render different symbols depending on the distance between the camera and the graphic.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DistanceCompositeSymbolViewController</string>
+				</array>
+			</dict>
 			<dict>
 				<key>displayName</key>
 				<string>Terrain exaggeration</string>
