@@ -16,7 +16,7 @@
 
 import AppKit
 
-struct ExistingMap {
+struct MapAtURL {
     var title: String
     var image: NSImage
     var url: URL

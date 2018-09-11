@@ -1,6 +1,6 @@
-# Open an existing map
+# Open a map from a URL
 
-This sample demonstrates how to open an existing web map on your Mac.
+This sample demonstrates how to open a web map from a URL on your Mac.
 
 ## How to use the sample
 

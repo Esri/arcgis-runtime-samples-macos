@@ -16,28 +16,28 @@
 
 import Cocoa
 
-protocol ExistingMapsListViewControllerDelegate: AnyObject {
-    func existingMapsListViewController(_:ExistingMapsListViewController, didSelectItemAt index: Int)
+protocol MapURLListViewControllerDelegate: AnyObject {
+    func mapURLListViewController(_:MapURLListViewController, didSelectItemAt index: Int)
 }
 
-class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-    var existingMaps = [ExistingMap]() {
+class MapURLListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+    var maps = [MapAtURL]() {
         didSet {
             tableView?.reloadData()
         }
     }
-    weak var delegate: ExistingMapsListViewControllerDelegate?
+    weak var delegate: MapURLListViewControllerDelegate?
     
     @IBOutlet private var tableView: NSTableView!
     
     //MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return existingMaps.count
+        return maps.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let existingMap = existingMaps[row]
+        let existingMap = maps[row]
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MapCell"), owner: self)
         
         if let titleLabel = cellView?.viewWithTag(11) as? NSTextField {
@@ -54,7 +54,7 @@ class ExistingMapsListViewController: NSViewController, NSTableViewDataSource, N
     //MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        delegate?.existingMapsListViewController(self, didSelectItemAt: tableView.selectedRow)
+        delegate?.mapURLListViewController(self, didSelectItemAt: tableView.selectedRow)
         dismiss(nil)
     }
 }
