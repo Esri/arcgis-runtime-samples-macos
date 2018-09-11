@@ -19,43 +19,49 @@ import ArcGIS
 
 class OpenMapURLViewController: NSViewController {
     
-    struct MapAtURL {
-        var title: String
-        var image: NSImage
-        var url: URL
-    }
-    
-    let mapModels = [
-        MapAtURL(title: "Housing with Mortgages", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail1"), url: URL(string: "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977")!),
-        MapAtURL(title: "USA Tapestry Segmentation", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail2"), url: URL(string: "https://www.arcgis.com/home/item.html?id=01f052c8995e4b9e889d73c3e210ebe3")!),
-        MapAtURL(title: "Geology of United States", image: #imageLiteral(resourceName: "OpenExistingMapThumbnail3"), url: URL(string: "https://www.arcgis.com/home/item.html?id=92ad152b9da94dee89b9e387dfe21acd")!)
-    ]
-    
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet weak var mapListPopUp: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set the initial map
-        mapView.map = AGSMap(url: mapModels.first!.url)
+        let mapMenuItems:[NSMenuItem] = [
+            NSMenuItem(title: "Housing with Mortgages",
+                       image: #imageLiteral(resourceName: "OpenExistingMapThumbnail1"),
+                       representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977")!),
+            NSMenuItem(title: "USA Tapestry Segmentation",
+                       image: #imageLiteral(resourceName: "OpenExistingMapThumbnail2"),
+                       representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=01f052c8995e4b9e889d73c3e210ebe3")!),
+            NSMenuItem(title: "Geology of United States",
+                       image: #imageLiteral(resourceName: "OpenExistingMapThumbnail3"),
+                       representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=92ad152b9da94dee89b9e387dfe21acd")!)
+        ]
         
         // load the map info into the popup button menu
-        for mapModel in mapModels{
-            let menuItem = NSMenuItem()
-            menuItem.title = mapModel.title
-            menuItem.image = mapModel.image
-            menuItem.representedObject = mapModel.url
+        for menuItem in mapMenuItems{
             mapListPopUp.menu?.addItem(menuItem)
         }
+        
+        // set the initial map
+        let mapUrl = mapMenuItems.first!.representedObject as! URL
+        mapView.map = AGSMap(url: mapUrl)
     }
     
     @IBAction func mapListPopUpAction(_ sender: NSPopUpButton) {
         
         // get the map URL from the menu item and load the map
-        if let url = sender.selectedItem?.representedObject as? URL{
-            mapView.map = AGSMap(url: url)
+        if let mapUrl = sender.selectedItem?.representedObject as? URL{
+            mapView.map = AGSMap(url: mapUrl)
         }
     }
     
+}
+
+private extension NSMenuItem {
+    convenience init(title: String, image: NSImage, representedObject: Any) {
+        self.init()
+        self.title = title
+        self.image = image
+        self.representedObject = representedObject
+    }
 }
