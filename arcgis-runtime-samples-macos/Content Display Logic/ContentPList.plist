@@ -17,7 +17,6 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>OpenMapURLViewController</string>
-					<string>MapURLListViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -99,7 +98,6 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>OpenMapURLViewController</string>
-					<string>MapURLListViewController</string>
 				</array>
 			</dict>
 			<dict>

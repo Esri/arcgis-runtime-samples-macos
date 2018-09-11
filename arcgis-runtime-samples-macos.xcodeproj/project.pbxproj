@@ -145,7 +145,6 @@
 		3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */; };
 		3E5E09481EF8449100FF3454 /* FindServiceAreaInteractiveVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */; };
 		3E69DE301CFE2826001F65F7 /* OpenMapURLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8724901BC710DA006386C1 /* OpenMapURLViewController.swift */; };
-		3E69DE311CFE2826001F65F7 /* MapURLListViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE351BCC6FD300CE256D /* MapURLListViewController.swift */; };
 		3E69DE321CFE2826001F65F7 /* ChangeBasemapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE021BC86A6D00CE256D /* ChangeBasemapViewController.swift */; };
 		3E69DE331CFE2826001F65F7 /* SetInitialMapAreaViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE0B1BC86D1100CE256D /* SetInitialMapAreaViewController.swift */; };
 		3E69DE341CFE2826001F65F7 /* SetInitialMapLocationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3ECCFE101BC86E4800CE256D /* SetInitialMapLocationViewController.swift */; };
@@ -265,7 +264,6 @@
 		3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE2E1BCC320400CE256D /* MapRotationViewController.swift */; };
 		3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE311BCC4FC900CE256D /* ShowMagnifierViewController.swift */; };
 		3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCFE331BCC4FFC00CE256D /* ShowMagnifier.storyboard */; };
-		3ECCFE361BCC6FD300CE256D /* MapURLListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE351BCC6FD300CE256D /* MapURLListViewController.swift */; };
 		3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */; };
 		3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD0F721BB0CCD6007105A1 /* Node.swift */; };
 		3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */; };
@@ -348,7 +346,6 @@
 		4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C73C5D920C049F300D6D00B /* OpenScene.storyboard */; };
 		4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
 		4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8130D62100F29C00FD4892 /* SampleListViewController.swift */; };
-		4C844C0E20FE53DE008FBCF8 /* MapAtURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C844C0D20FE53DE008FBCF8 /* MapAtURL.swift */; };
 		4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
 		4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */; };
 		4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
@@ -529,7 +526,6 @@
 				3E865A451D088E9900368F32 /* DisplaySceneViewController.swift in CopyFiles */,
 				3E865A461D088E9900368F32 /* ExtrudeGraphicsViewController.swift in CopyFiles */,
 				3E69DE301CFE2826001F65F7 /* OpenMapURLViewController.swift in CopyFiles */,
-				3E69DE311CFE2826001F65F7 /* MapURLListViewController.swift in CopyFiles */,
 				3E69DE321CFE2826001F65F7 /* ChangeBasemapViewController.swift in CopyFiles */,
 				3E69DE331CFE2826001F65F7 /* SetInitialMapAreaViewController.swift in CopyFiles */,
 				3E69DE341CFE2826001F65F7 /* SetInitialMapLocationViewController.swift in CopyFiles */,
@@ -751,7 +747,6 @@
 		3ECCFE2E1BCC320400CE256D /* MapRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRotationViewController.swift; sourceTree = "<group>"; };
 		3ECCFE311BCC4FC900CE256D /* ShowMagnifierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMagnifierViewController.swift; sourceTree = "<group>"; };
 		3ECCFE331BCC4FFC00CE256D /* ShowMagnifier.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowMagnifier.storyboard; sourceTree = "<group>"; };
-		3ECCFE351BCC6FD300CE256D /* MapURLListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapURLListViewController.swift; sourceTree = "<group>"; };
 		3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ContentPList.plist; sourceTree = "<group>"; };
 		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindRouteViewController.swift; sourceTree = "<group>"; };
@@ -812,7 +807,6 @@
 		4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
 		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
 		4C8130D62100F29C00FD4892 /* SampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListViewController.swift; sourceTree = "<group>"; };
-		4C844C0D20FE53DE008FBCF8 /* MapAtURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAtURL.swift; sourceTree = "<group>"; };
 		4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryMapImageSublayerViewController.swift; sourceTree = "<group>"; };
 		4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueryMapImageSublayer.storyboard; sourceTree = "<group>"; };
 		4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCompositeSymbolViewController.swift; sourceTree = "<group>"; };
@@ -1524,8 +1518,6 @@
 			children = (
 				3E87248E1BC710A6006386C1 /* OpenMapURL.storyboard */,
 				3E8724901BC710DA006386C1 /* OpenMapURLViewController.swift */,
-				3ECCFE351BCC6FD300CE256D /* MapURLListViewController.swift */,
-				4C844C0D20FE53DE008FBCF8 /* MapAtURL.swift */,
 			);
 			path = "Open map (URL)";
 			sourceTree = "<group>";
@@ -2598,7 +2590,6 @@
 				3EFDE09E1E31271700CBCD92 /* BlendRendererViewController.swift in Sources */,
 				4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */,
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
-				3ECCFE361BCC6FD300CE256D /* MapURLListViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* SampleCollectionViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,
 				3E29C9EE1DC7C55200E5571F /* DeleteFeaturesViewController.swift in Sources */,
@@ -2636,7 +2627,6 @@
 				4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */,
 				3E049A2D1CED12FC0031ADA9 /* GOIdentifyViewController.swift in Sources */,
 				3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */,
-				4C844C0E20FE53DE008FBCF8 /* MapAtURL.swift in Sources */,
 				3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */,
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				21D961C01FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in Sources */,

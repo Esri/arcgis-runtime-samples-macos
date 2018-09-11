@@ -4,7 +4,7 @@ This sample demonstrates how to open a web map from a URL on your Mac.
 
 ## How to use the sample
 
-The sample opens with a web map displayed by default. You can tap on the `Maps` button to see a list of other web maps. On selection the web map opens up in the map view.
+The sample opens with a web map displayed by default. You can select other web maps from the popup button. On selection, the web map opens up in the map view.
 
 ![](image1.png)
 
