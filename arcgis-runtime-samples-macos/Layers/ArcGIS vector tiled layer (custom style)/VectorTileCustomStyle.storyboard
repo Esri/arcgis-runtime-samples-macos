@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="UlC-gb-S7g">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="UlC-gb-S7g">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Vector Tile Custom StyleVC-->
         <scene sceneID="PRb-S1-2F3">
             <objects>
-                <viewController id="UlC-gb-S7g" customClass="VectorTileCustomStyleVC" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UlC-gb-S7g" customClass="VectorTileCustomStyleVC" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wDB-48-rAm">
                         <rect key="frame" x="0.0" y="0.0" width="505" height="397"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,7 +48,7 @@
         <!--Select a feature template-->
         <scene sceneID="8aO-Lb-pwY">
             <objects>
-                <viewController title="Choose a map" id="Egx-f3-9ly" userLabel="Select a feature template" customClass="VectorStylesViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choose a map" id="Egx-f3-9ly" userLabel="Select a feature template" customClass="VectorStylesViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="It3-iX-iav">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="320"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,7 +92,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="U3P-yC-JDi">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.81176470590000005" green="0.81176470590000005" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -99,7 +100,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="vsY-gX-qFI">
                                                                                     <rect key="frame" x="15" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -138,7 +139,7 @@
                                                                         <constraint firstItem="UN7-6t-gUs" firstAttribute="leading" secondItem="Jrj-ud-AyN" secondAttribute="trailing" constant="10" id="zBX-P6-dbe"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
@@ -164,7 +165,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="TDC-76-7ue">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.0" green="0.40000000000000002" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -172,7 +173,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="gLH-P6-eo7">
                                                                                     <rect key="frame" x="15" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.46666666670000001" green="0.73333333329999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -211,7 +212,7 @@
                                                                         <constraint firstItem="JE7-Sj-6Hr" firstAttribute="leading" secondItem="brt-fC-BlN" secondAttribute="leading" constant="10" id="yCF-mg-tXo"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
@@ -237,7 +238,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="7ia-GR-ciU">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.82352941180000006" green="0.87450980389999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -245,7 +246,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Fc7-Nk-pNg">
                                                                                     <rect key="frame" x="15" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.55294117649999996" green="0.0" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -284,7 +285,7 @@
                                                                         <constraint firstItem="8bT-k9-8Wt" firstAttribute="leading" secondItem="HCy-ja-pmC" secondAttribute="trailing" constant="10" id="t0g-K2-pZI"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
@@ -310,7 +311,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZVQ-7b-QZK">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.25882352939999997" green="0.70588235290000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -318,7 +319,7 @@
                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="UDH-7J-Jy8">
                                                                                     <rect key="frame" x="15" y="0.0" width="15" height="30"/>
                                                                                     <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                                             <color key="value" red="0.72941176470000002" green="0.0" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
@@ -357,7 +358,7 @@
                                                                         <constraint firstItem="B7u-Qa-Pjy" firstAttribute="leading" secondItem="Cey-xf-XTU" secondAttribute="trailing" constant="10" id="vJh-Tg-iyk"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
                                                                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>

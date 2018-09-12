@@ -51,6 +51,6 @@ class SampleViewController: NSTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .windowBackgroundColor
+        view.layerBackgroundColor = .windowBackgroundColor
     }
 }
