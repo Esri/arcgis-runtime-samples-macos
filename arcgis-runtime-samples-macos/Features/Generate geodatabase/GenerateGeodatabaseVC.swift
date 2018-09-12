@@ -133,7 +133,7 @@ class GenerateGeodatabaseVC: NSViewController {
                         self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                     }
                     else {
-                        self?.generatedGeodatabase = object as! AGSGeodatabase
+                        self?.generatedGeodatabase = object as? AGSGeodatabase
                         self?.displayLayersFromGeodatabase()
                     }
                 }
