@@ -377,6 +377,11 @@
 		97F8BF171FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		97F8BF181FDA6FB400A65B2E /* RasterLayerUsingServiceVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
+		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
+		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
+		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
+		C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
+		C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
 		D952E0162107D7AC00424FF3 /* dolmus_back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */; };
 		D952E0172107D7AC00424FF3 /* dolmus.3ds in Resources */ = {isa = PBXBuildFile; fileRef = D952E0122107D7AC00424FF3 /* dolmus.3ds */; };
 		D952E0182107D7AC00424FF3 /* tire_tread.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0132107D7AC00424FF3 /* tire_tread.jpeg */; };
@@ -550,6 +555,8 @@
 				94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */,
 				4CDDE5D92126296C00E3E244 /* FeatureLayerRenderingModeMapViewController.swift in CopyFiles */,
 				4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */,
+				C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */,
+				C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +837,9 @@
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
+		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
+		C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapProgressViewController.swift; sourceTree = "<group>"; };
 		D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dolmus_back.jpeg; sourceTree = "<group>"; };
 		D952E0122107D7AC00424FF3 /* dolmus.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = dolmus.3ds; sourceTree = "<group>"; };
 		D952E0132107D7AC00424FF3 /* tire_tread.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tire_tread.jpeg; sourceTree = "<group>"; };
@@ -1404,6 +1414,7 @@
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
+				C7E79ADC213F3B4800C24A02 /* Generate offline map */,
 				D959FE3D1FDC771400B507CB /* Read a geopackage */,
 			);
 			path = Maps;
@@ -2165,6 +2176,16 @@
 			path = "Raster layer (geopackage)";
 			sourceTree = "<group>";
 		};
+		C7E79ADC213F3B4800C24A02 /* Generate offline map */ = {
+			isa = PBXGroup;
+			children = (
+				C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */,
+				C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */,
+				C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */,
+			);
+			path = "Generate offline map";
+			sourceTree = "<group>";
+		};
 		D952E0102107D78000424FF3 /* taxi */ = {
 			isa = PBXGroup;
 			children = (
@@ -2504,6 +2525,7 @@
 				3E7C0E3A1CF90F0000200B6E /* default.css in Resources */,
 				D97B7EA51FDAEA8200E1239D /* Subdivisions.prj in Resources */,
 				3EFDE0BB1E31287B00CBCD92 /* Shasta.tif.aux.xml in Resources */,
+				C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */,
 				3E87247F1BC70BA3006386C1 /* TiledLayerURL.storyboard in Resources */,
 				3E0662561F031F2C007666DF /* ChangeSublayerRenderer.storyboard in Resources */,
 				3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */,
@@ -2569,7 +2591,9 @@
 				3E7823651DCD54CE0011B304 /* VectorStylesViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
+				C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */,
 				4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */,
+				C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */,
 				12FDB3A020EAD6BC00EE7127 /* GeodesicOperationsViewController.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
 				3EFDE0E61E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift in Sources */,
