@@ -50,8 +50,8 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         self.window?.titlebarAppearsTransparent = true
         self.window?.backgroundColor = .primaryBlue
         
-        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as! NSWindowController
-        self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController
+        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as? NSWindowController
+        self.suggestionsViewController = self.suggestionsWindowController.contentViewController as? SuggestionsViewController
         self.suggestionsViewController.delegate = self
         
         //progress indicator

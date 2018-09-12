@@ -234,7 +234,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             controller.routeParameters = self.routeParameters
         }
         else if id.rawValue == "DirectionsListSegue" {
-            self.directionsListViewController = segue.destinationController as! DirectionsListViewController
+            self.directionsListViewController = segue.destinationController as? DirectionsListViewController
             self.directionsListViewController.delegate = self
         }
     }

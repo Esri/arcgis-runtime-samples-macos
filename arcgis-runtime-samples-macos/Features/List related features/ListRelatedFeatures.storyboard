@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Dhi-R5-rjJ">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Dhi-R5-rjJ">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-U4-KXN" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="506" height="412"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="362" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="obz-6J-MGG">
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="362" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="obz-6J-MGG">
                                 <rect key="frame" x="236" y="30" width="250" height="362"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="uo3-8N-6R4">

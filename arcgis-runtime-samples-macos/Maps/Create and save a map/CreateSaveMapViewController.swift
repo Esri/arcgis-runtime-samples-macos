@@ -85,7 +85,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
             controller.delegate = self
         }
         else if id.rawValue == "SaveMapVCSegue" {
-            self.saveMapVC = segue.destinationController as! SaveMapViewController
+            self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }
     }
