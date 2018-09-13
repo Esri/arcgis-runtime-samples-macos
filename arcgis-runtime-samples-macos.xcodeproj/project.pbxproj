@@ -101,7 +101,6 @@
 		3E09CC741D39A474005D2757 /* MapLoadedViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8A25C11D36F9F500D14F08 /* MapLoadedViewController.swift */; };
 		3E09CC771D39A4FC005D2757 /* LA_Trails.geodatabase in Resources */ = {isa = PBXBuildFile; fileRef = 3E09CC761D39A4FC005D2757 /* LA_Trails.geodatabase */; };
 		3E09CC781D39A536005D2757 /* FeatureLayerGDBViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E8A25C51D36FCB300D14F08 /* FeatureLayerGDBViewController.swift */; };
-		3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1C57531D7A20A900C2E0BB /* CustomSegmentedCell.swift */; };
 		3E26EE2A1EBB9EEA002CFEB6 /* ListRelatedFeaturesVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EEB2B9E1EBB8CC200B52513 /* ListRelatedFeaturesVC.swift */; };
 		3E29C9E71DC7C20800E5571F /* AddFeaturesFS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C9E51DC7C20800E5571F /* AddFeaturesFS.storyboard */; };
 		3E29C9E81DC7C20800E5571F /* AddFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */; };
@@ -641,7 +640,6 @@
 		3E0662541F031F2C007666DF /* ChangeSublayerRenderer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeSublayerRenderer.storyboard; sourceTree = "<group>"; };
 		3E0662551F031F2C007666DF /* ChangeSublayerRendererVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSublayerRendererVC.swift; sourceTree = "<group>"; };
 		3E09CC761D39A4FC005D2757 /* LA_Trails.geodatabase */ = {isa = PBXFileReference; lastKnownFileType = file; path = LA_Trails.geodatabase; sourceTree = "<group>"; };
-		3E1C57531D7A20A900C2E0BB /* CustomSegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedCell.swift; sourceTree = "<group>"; };
 		3E29C9E51DC7C20800E5571F /* AddFeaturesFS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddFeaturesFS.storyboard; sourceTree = "<group>"; };
 		3E29C9E61DC7C20800E5571F /* AddFeaturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeaturesViewController.swift; sourceTree = "<group>"; };
 		3E29C9EB1DC7C55200E5571F /* DeleteFeaturesFS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteFeaturesFS.storyboard; sourceTree = "<group>"; };
@@ -1823,7 +1821,6 @@
 				3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */,
 				3E049A201CEA93200031ADA9 /* BridgingHeader.h */,
 				3EC1AE721BAC8DA100E32B1D /* Main.storyboard */,
-				3E1C57531D7A20A900C2E0BB /* CustomSegmentedCell.swift */,
 			);
 			path = "Content Display Logic";
 			sourceTree = "<group>";
@@ -2610,7 +2607,6 @@
 				3EFDE0E41E3288C900CBCD92 /* HotspotsViewController.swift in Sources */,
 				3E0103801E29961A0013AEEF /* SublayerCellView.swift in Sources */,
 				3E8A25B81D36F69400D14F08 /* CreateGeometriesViewController.swift in Sources */,
-				3E1C57541D7A20A900C2E0BB /* CustomSegmentedCell.swift in Sources */,
 				166E8FA51EE6314A00C57C46 /* RasterLayerViewController.swift in Sources */,
 				3EEB2BA01EBB8CC200B52513 /* ListRelatedFeaturesVC.swift in Sources */,
 				3EFDE07E1E2FED2C00CBCD92 /* FeatureLayerSelectionVC.swift in Sources */,
