@@ -99,7 +99,7 @@ class DistanceMeasurementAnalysisViewController: NSViewController, AGSGeoViewTou
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        performSegue(withIdentifier: .init("showDistancePanel"), sender: self)
+        performSegue(withIdentifier: "showDistancePanel", sender: self)
     }
     
     override func viewWillDisappear() {

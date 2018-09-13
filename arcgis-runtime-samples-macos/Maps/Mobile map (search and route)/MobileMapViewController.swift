@@ -82,7 +82,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "EmbedSegue" else {
+        guard let id = segue.identifier, id == "EmbedSegue" else {
             return
         }
         let controller = segue.destinationController as! MapPackagesListVC
@@ -90,8 +90,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     }
     
     private func symbolForStopGraphic(isIndexRequired: Bool, index: Int?) -> AGSSymbol {
-        
-        let markerImage = NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!
+        let markerImage = #imageLiteral(resourceName: "BlueMarker")
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
         markerSymbol.offsetY = markerImage.size.height/2
         markerSymbol.leaderOffsetY = markerSymbol.offsetY

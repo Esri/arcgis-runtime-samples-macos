@@ -64,27 +64,27 @@ class GraphicDrawOrderVC: NSViewController {
         self.graphics = [AGSGraphic]()
         
         //blue marker
-        var geometry = AGSPoint(x: x, y: y, spatialReference: AGSSpatialReference.webMercator())
-        var symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "BlueMarker"))!)
-        var graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
+        var geometry = AGSPoint(x: x, y: y, spatialReference: .webMercator())
+        var symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "BlueMarker"))
+        var graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //red marker
-        geometry = AGSPoint(x: x+delta, y: y, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "RedMarker2"))!)
-        graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
+        geometry = AGSPoint(x: x+delta, y: y, spatialReference: .webMercator())
+        symbol = AGSPictureMarkerSymbol(image: NSImage(named: "RedMarker2")!)
+        graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //green marker
-        geometry = AGSPoint(x: x, y: y+delta, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "GreenMarker"))!)
-        graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
+        geometry = AGSPoint(x: x, y: y+delta, spatialReference: .webMercator())
+        symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "GreenMarker"))
+        graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //Violet marker
-        geometry = AGSPoint(x: x+delta, y: y+delta, spatialReference: AGSSpatialReference.webMercator())
-        symbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "VioletMarker"))!)
-        graphic = AGSGraphic(geometry: geometry, symbol: symbol, attributes: nil)
+        geometry = AGSPoint(x: x+delta, y: y+delta, spatialReference: .webMercator())
+        symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "VioletMarker"))
+        graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //add the graphics to the overlay

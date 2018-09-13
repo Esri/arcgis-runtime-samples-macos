@@ -34,7 +34,7 @@ class AspectFillImageView: NSView {
     
     func commonInit() {
         self.layer = CALayer()
-        self.layer?.contentsGravity = kCAGravityResizeAspectFill
+        self.layer?.contentsGravity = .resizeAspectFill
         self.layer?.contents = image
         self.wantsLayer = true
     }

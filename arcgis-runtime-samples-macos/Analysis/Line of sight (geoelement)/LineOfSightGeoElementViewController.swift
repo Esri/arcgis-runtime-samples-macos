@@ -219,7 +219,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         let timer = Timer(timeInterval: 0.12, repeats: true) { [weak self] _ in
             self?.performAnimationFrame()
         }
-        RunLoop.main.add(timer, forMode: .commonModes)
+        RunLoop.main.add(timer, forMode: .common)
         animationTimer = timer
     }
 

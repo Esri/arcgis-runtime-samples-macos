@@ -48,7 +48,7 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     
     init(samples: [Node]) {
         self.samples = samples
-        super.init(nibName: NSNib.Name("SampleCollectionViewController"), bundle: nil)
+        super.init(nibName: "SampleCollectionViewController", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(NSNib(nibNamed: NSNib.Name("SampleCollectionSectionHeaderView"), bundle: nil), forSupplementaryViewOfKind: .sectionHeader, withIdentifier: .headerView)
+        collectionView.register(NSNib(nibNamed: "SampleCollectionSectionHeaderView", bundle: nil), forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: .headerView)
         collectionViewLayout.sectionHeadersPinToVisibleBounds = true
     }
     
@@ -79,7 +79,7 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
         let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("CollectionViewItem"), for: indexPath) as! CollectionViewItem
         viewItem.titleTextField.stringValue = sampleNode.displayName
         viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
-        viewItem.thumbnailView.image = NSImage(named: NSImage.Name(sampleNode.displayName))
+        viewItem.thumbnailView.image = NSImage(named: sampleNode.displayName)
         
         //stylize
         viewItem.view.wantsLayer = true

@@ -147,14 +147,14 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         viewController.delegate = self
         
         //display the progress sheet
-        presentViewControllerAsSheet(viewController)
+        presentAsSheet(viewController)
     }
     
     private func closeProgressSheet(){
         
         //find and dismiss the view controller
         if let progressViewController = presentedViewControllers?.first(where: { $0 is OfflineMapProgressViewController }){
-            dismissViewController(progressViewController)
+            dismiss(progressViewController)
         }
     }
 
