@@ -80,11 +80,11 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         guard let id = segue.identifier else {
             return
         }
-        if id.rawValue == "OptionsVCSegue" {
+        if id == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
         }
-        else if id.rawValue == "SaveMapVCSegue" {
+        else if id == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }

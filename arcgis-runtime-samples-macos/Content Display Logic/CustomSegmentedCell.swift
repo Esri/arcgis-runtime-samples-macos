@@ -115,9 +115,11 @@ class CustomSegmentedCell: NSSegmentedCell {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         
-        let attributes = [ NSAttributedStringKey.font : font,
-                           NSAttributedStringKey.foregroundColor : textColor,
-                           NSAttributedStringKey.paragraphStyle : style ] as [NSAttributedStringKey : Any]
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: textColor,
+            .paragraphStyle: style
+        ]
         
         let text = NSAttributedString(string: self.label(forSegment: segment)!, attributes: attributes)
         return text

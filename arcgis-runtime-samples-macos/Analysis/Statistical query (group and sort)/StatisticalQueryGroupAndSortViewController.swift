@@ -59,8 +59,11 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             let tableName = self?.serviceFeatureTable?.tableName
             let title = "Statistics: \(tableName ?? "")"
             let style = NSMutableParagraphStyle()
-            style.alignment = NSTextAlignment.center
-            let attributes = [NSAttributedStringKey.underlineStyle: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSAttributedStringKey.paragraphStyle: style]
+            style.alignment = .center
+            let attributes: [NSAttributedString.Key: Any] = [
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .paragraphStyle: style
+            ]
             let attributedTitle = NSAttributedString(string: title, attributes: attributes)
             self?.titleLabel.attributedStringValue = attributedTitle
             
@@ -100,8 +103,11 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         
         // Attributes of string
         let style = NSMutableParagraphStyle()
-        style.alignment = NSTextAlignment.center
-        let attributes = [NSAttributedStringKey.underlineStyle: NSNumber(value:NSUnderlineStyle.styleSingle.rawValue), NSAttributedStringKey.paragraphStyle: style]
+        style.alignment = .center
+        let attributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .paragraphStyle: style
+        ]
         
         // Set parameters label
         let parametersLabelString = "Query Statistic Parameters"

@@ -64,14 +64,14 @@ class FindRouteViewController: NSViewController {
     func addStops() {
         
         //start symbol
-        let startSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopA"))!)
+        let startSymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "StopA"))
         startSymbol.offsetY = 22
         
         //start stop graphic
         let startStopGraphic = AGSGraphic(geometry: self.stop1Geometry, symbol: startSymbol, attributes: nil)
         
         //end symbol
-        let endSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopB"))!)
+        let endSymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "StopB"))
         endSymbol.offsetY = 22
         
         //end stop graphic
@@ -179,7 +179,7 @@ class FindRouteViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "DirectionsSegue" else {
+        guard let id = segue.identifier, id == "DirectionsSegue" else {
             return
         }
         let controller = segue.destinationController as! DirectionsViewController

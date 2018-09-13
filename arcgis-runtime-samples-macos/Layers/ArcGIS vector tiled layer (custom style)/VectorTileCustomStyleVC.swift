@@ -47,7 +47,7 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "VectorStylesSegue" else {
+        guard let id = segue.identifier, id == "VectorStylesSegue" else {
             return
         }
         let controller = segue.destinationController as! VectorStylesViewController
@@ -59,7 +59,7 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
     func vectorStylesViewController(_ vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID: String) {
         
         //dismiss sheet
-        self.dismissViewController(vectorStylesViewController)
+        self.dismiss(vectorStylesViewController)
         
         //show newly selected vector layer
         self.showSelectedItem(itemID)
@@ -68,7 +68,7 @@ class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
     func vectorStylesViewControllerDidCancel(_ vectorStylesViewController: VectorStylesViewController) {
         
         //dismiss sheet
-        self.dismissViewController(vectorStylesViewController)
+        self.dismiss(vectorStylesViewController)
     }
     
 }

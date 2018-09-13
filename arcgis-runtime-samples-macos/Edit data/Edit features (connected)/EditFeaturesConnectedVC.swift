@@ -267,13 +267,13 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.isAddingNewFeature = false
         
         //hide sheet
-        self.dismissViewController(featureTemplatePickerVC)
+        self.dismiss(featureTemplatePickerVC)
     }
     
     //MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "FeatureTemplateSegue" else {
+        guard let id = segue.identifier, id == "FeatureTemplateSegue" else {
             return
         }
         let controller = segue.destinationController as! FeatureTemplatePickerVC
