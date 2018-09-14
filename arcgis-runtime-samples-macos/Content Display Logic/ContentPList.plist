@@ -390,7 +390,6 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>VectorTileCustomStyleVC</string>
-					<string>VectorStylesViewController</string>
 				</array>
 			</dict>
 			<dict>
