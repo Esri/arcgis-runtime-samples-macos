@@ -672,9 +672,9 @@
                                 <toolbarItem implicitItemIdentifier="643CC669-7FBF-4E90-9C64-D504404B7AA4" label="" paletteLabel="" sizingBehavior="auto" id="EM3-m8-0vq" userLabel="Toolbar Item - Search Field">
                                     <nil key="toolTip"/>
                                     <searchField key="view" toolTip="Search Sample" wantsLayer="YES" verticalHuggingPriority="750" id="Mv2-JN-rDN">
-                                        <rect key="frame" x="0.0" y="14" width="400" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="250" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" placeholderString=" Search samples" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" sendsWholeSearchString="YES" id="bIR-56-t8z">
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" placeholderString=" Search" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" sendsWholeSearchString="YES" id="bIR-56-t8z">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -705,11 +705,25 @@
                                         </contentFilters>
                                     </progressIndicator>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="202CDAD7-3A2A-4D75-9C0A-AFDE60E71A55" label="" paletteLabel="" sizingBehavior="auto" id="sRu-fy-9k2">
+                                    <nil key="toolTip"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dNV-XY-eT4">
+                                        <rect key="frame" x="0.0" y="14" width="201" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Native ArcGIS Runtime Samples" id="HEp-ai-Sq0">
+                                            <font key="font" metaFont="titleBar"/>
+                                            <color key="textColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="exl-JJ-tks"/>
-                                <toolbarItem reference="EM3-m8-0vq"/>
                                 <toolbarItem reference="exl-JJ-tks"/>
+                                <toolbarItem reference="sRu-fy-9k2"/>
+                                <toolbarItem reference="exl-JJ-tks"/>
+                                <toolbarItem reference="EM3-m8-0vq"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
