@@ -63,7 +63,6 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //tolerance level
         let toleranceInPoints: Double = 12
-        
         //use tolerance to compute the envelope for query
         let toleranceInMapUnits = toleranceInPoints * mapView.unitsPerPoint
         let envelope = AGSEnvelope(xMin: mapPoint.x - toleranceInMapUnits,
@@ -77,7 +76,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         queryParams.geometry = envelope
         
         //select features
-        featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult:AGSFeatureQueryResult?, error:Error?) -> Void in
+        featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
