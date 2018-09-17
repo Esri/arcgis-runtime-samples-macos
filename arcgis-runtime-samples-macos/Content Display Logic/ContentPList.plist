@@ -276,6 +276,19 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Generate offline map</string>
+				<key>storyboardName</key>
+				<string>GenerateOfflineMap</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to generate an offline map for web map in ArcGIS Portal. The sample requires login to take AGOL Basemap offline.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>GenerateOfflineMapViewController</string>
+					<string>OfflineMapProgressViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Read a geopackage</string>
 				<key>storyboardName</key>
 				<string>ReadGeopackage</string>

@@ -50,8 +50,8 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         self.window?.titlebarAppearsTransparent = true
         self.window?.backgroundColor = .primaryBlue
         
-        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as! NSWindowController
-        self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController
+        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: "SuggestionsWindowController") as? NSWindowController
+        self.suggestionsViewController = self.suggestionsWindowController.contentViewController as? SuggestionsViewController
         self.suggestionsViewController.delegate = self
         
         //progress indicator
@@ -70,7 +70,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
     
     //MARK: - NSSearchFieldDelegate
     
-    override func controlTextDidChange(_ notification: Notification) {
+    func controlTextDidChange(_ notification: Notification) {
         if let sender = notification.object as? NSSearchField , sender == self.searchField {
             if let suggestions = searchEngine.suggestionsForString(searchField.stringValue) , suggestions.count > 0 {
                 self.showSuggestionsWindow(suggestions)
@@ -80,7 +80,7 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         }
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         self.hideSuggestionsWindow()
     }
     

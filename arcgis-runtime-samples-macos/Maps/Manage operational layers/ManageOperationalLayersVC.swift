@@ -116,7 +116,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         
-        let pasteboard = info.draggingPasteboard()
+        let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
         if(rowData != nil) {

@@ -94,7 +94,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
     
     //MARK: - NSTextFieldDelegate
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         if let searchField = obj.object as? NSSearchField {
             
             //if field has some value then query

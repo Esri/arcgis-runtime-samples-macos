@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="hce-ud-MQ3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="hce-ud-MQ3">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Hillshade RendererVC-->
@@ -16,14 +17,14 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="9gP-Qo-aYd" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="HHc-wm-5b2">
-                                <rect key="frame" x="130" y="85" width="300" height="195"/>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="HHc-wm-5b2">
+                                <rect key="frame" x="130" y="87" width="300" height="193"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="cEW-gk-XOg">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="195"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="193"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="acq-pE-LDU">
-                                                <rect key="frame" x="18" y="122" width="59" height="17"/>
+                                                <rect key="frame" x="18" y="120" width="59" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="BAC-3Q-GsG"/>
                                                 </constraints>
@@ -71,7 +72,7 @@
                                                 </popUpButtonCell>
                                             </popUpButton>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kAh-kV-Swd">
-                                                <rect key="frame" x="58" y="158" width="185" height="17"/>
+                                                <rect key="frame" x="58" y="156" width="185" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hillshade Renderer Settings" id="COb-r6-GHC">
                                                     <font key="font" metaFont="systemBold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -89,21 +90,21 @@
                                                 </connections>
                                             </button>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FJ5-Gt-BLO">
-                                                <rect key="frame" x="78" y="120" width="171" height="20"/>
+                                                <rect key="frame" x="78" y="119" width="171" height="19"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="90" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="JT4-oH-24d"/>
                                                 <connections>
                                                     <action selector="altitudeSliderAction:" target="hce-ud-MQ3" id="WUx-HQ-JSk"/>
                                                 </connections>
                                             </slider>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oqi-Ha-KmC">
-                                                <rect key="frame" x="78" y="92" width="171" height="20"/>
+                                                <rect key="frame" x="78" y="92" width="171" height="19"/>
                                                 <sliderCell key="cell" state="on" alignment="left" maxValue="359" doubleValue="315" tickMarkPosition="above" sliderType="linear" id="5dr-ck-KH9"/>
                                                 <connections>
                                                     <action selector="azimuthSliderAction:" target="hce-ud-MQ3" id="qLA-0x-LxU"/>
                                                 </connections>
                                             </slider>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x0n-xt-dIS">
-                                                <rect key="frame" x="253" y="122" width="29" height="17"/>
+                                                <rect key="frame" x="253" y="120" width="29" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="tKT-g5-OyA"/>
                                                 </constraints>

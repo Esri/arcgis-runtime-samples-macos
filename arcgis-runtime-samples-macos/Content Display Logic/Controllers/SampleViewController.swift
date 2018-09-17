@@ -24,21 +24,21 @@ class SampleViewController: NSTabViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        let sampleStoryboard = NSStoryboard(name: NSStoryboard.Name(sample.storyboardName), bundle: nil)
+        let sampleStoryboard = NSStoryboard(name: sample.storyboardName, bundle: nil)
         let sampleViewController = sampleStoryboard.instantiateInitialController() as! NSViewController
         let sampleTabViewItem = NSTabViewItem(viewController: sampleViewController)
         sampleTabViewItem.label = "Live Sample"
         addTabViewItem(sampleTabViewItem)
         
-        let mainStoryboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let mainStoryboard = NSStoryboard(name: "Main", bundle: nil)
         
-        let sourceCodeViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("SourceCodeViewController")) as! SourceCodeViewController
+        let sourceCodeViewController = mainStoryboard.instantiateController(withIdentifier: "SourceCodeViewController") as! SourceCodeViewController
         sourceCodeViewController.fileNames = sample.sourceFileNames
         let sourceCodeTabViewItem = NSTabViewItem(viewController: sourceCodeViewController)
         sourceCodeTabViewItem.label = "Source Code"
         addTabViewItem(sourceCodeTabViewItem)
         
-        let readmeViewController = mainStoryboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ReadmeViewController")) as! ReadmeViewController
+        let readmeViewController = mainStoryboard.instantiateController(withIdentifier: "ReadmeViewController") as! ReadmeViewController
         readmeViewController.folderName = sample.displayName
         let readmeTabViewItem = NSTabViewItem(viewController: readmeViewController)
         readmeTabViewItem.label = "Description"
