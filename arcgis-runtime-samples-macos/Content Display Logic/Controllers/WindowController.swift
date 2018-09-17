@@ -45,10 +45,6 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         super.windowDidLoad()
     
         self.window?.delegate = self
-        self.window?.isMovableByWindowBackground = false
-        self.window?.titleVisibility = .hidden
-        self.window?.titlebarAppearsTransparent = true
-        self.window?.backgroundColor = .primaryBlue
         
         self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: "SuggestionsWindowController") as? NSWindowController
         self.suggestionsViewController = self.suggestionsWindowController.contentViewController as? SuggestionsViewController
@@ -122,10 +118,12 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
             let mainWindow = NSApplication.shared.mainWindow!
             
             //frame calculations
-            let originX = mainWindow.frame.origin.x + mainWindow.frame.width - self.searchField.frame.width - 6
-            let originY:CGFloat = mainWindow.frame.origin.y + mainWindow.frame.height - self.searchField.frame.height - suggestionsWindow.frame.height - 10
+            
+            let originX = mainWindow.frame.origin.x + mainWindow.contentView!.convert(searchField.bounds.origin, from: searchField).x
+            
+            let originY:CGFloat = mainWindow.frame.maxY - searchField.frame.height - suggestionsWindow.frame.height - 10
             let frameOrigin = NSPoint(x: originX, y: originY)
-            let frameSize = NSSize(width: self.searchField.frame.width, height: suggestionsWindow.frame.height)
+            let frameSize = NSSize(width: searchField.frame.width, height: suggestionsWindow.frame.height)
             
             //set frame
             suggestionsWindow.setFrame(NSRect(origin: frameOrigin, size: frameSize), display: true)

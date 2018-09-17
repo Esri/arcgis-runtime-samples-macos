@@ -49,9 +49,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         self.map.operationalLayers.add(featureLayer)
         
-        //feature layer selection settings
-        self.featureLayer.selectionWidth = 4
-        
         //initialize sketch editor and assign to map view
         self.sketchEditor = AGSSketchEditor()
         self.mapView.sketchEditor = self.sketchEditor
