@@ -23,7 +23,8 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     
     private var map:AGSMap?
     private var featureLayer:AGSFeatureLayer?
-    private var activeQuery:AGSCancelable?
+    // the query is retained internally by the SDK so use a weak reference
+    private weak var activeSelectionQuery:AGSCancelable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +59,9 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
-        //cancel previous query if exists
-        if let activeQuery = activeQuery{
-            activeQuery.cancel()
+        //cancel the active query if it hasn't been completed yet
+        if let activeSelectionQuery = activeSelectionQuery{
+            activeSelectionQuery.cancel()
         }
         
         guard let map = map,
@@ -82,15 +83,14 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         let queryParams = AGSQueryParameters()
         queryParams.geometry = envelope
         
-        //select features
-        activeQuery = featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) -> Void in
+        //run the selection query
+        activeSelectionQuery = featureLayer.selectFeatures(withQuery: queryParams, mode: .new) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
             if let result = queryResult {
                 print("\(result.featureEnumerator().allObjects.count) feature(s) selected")
             }
-            self?.activeQuery = nil
         }
     }
     
