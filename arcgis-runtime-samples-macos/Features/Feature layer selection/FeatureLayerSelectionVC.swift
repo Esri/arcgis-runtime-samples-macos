@@ -23,7 +23,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     
     private var map:AGSMap?
     private var featureLayer:AGSFeatureLayer?
-    private let featureServiceURL = URL(string: "https://services1.arcgis.com/4yjifSiIG17X0gW4/arcgis/rest/services/GDP_per_capita_1960_2016/FeatureServer/0")!
+    private var activeQuery:AGSCancelable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         //assign map to the map view
         mapView.map = map
         mapView.touchDelegate = self
+        
+        let featureServiceURL = URL(string: "https://services1.arcgis.com/4yjifSiIG17X0gW4/arcgis/rest/services/GDP_per_capita_1960_2016/FeatureServer/0")!
         
         //create feature table using a url
         let featureTable = AGSServiceFeatureTable(url: featureServiceURL)
@@ -55,6 +57,11 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     //MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+        
+        //cancel previous query if exists
+        if let activeQuery = activeQuery{
+            activeQuery.cancel()
+        }
         
         guard let map = map,
             let featureLayer = featureLayer else{
@@ -76,13 +83,14 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
         queryParams.geometry = envelope
         
         //select features
-        featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) -> Void in
+        activeQuery = featureLayer.selectFeatures(withQuery: queryParams, mode: AGSSelectionMode.new) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) -> Void in
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
             if let result = queryResult {
                 print("\(result.featureEnumerator().allObjects.count) feature(s) selected")
             }
+            self?.activeQuery = nil
         }
     }
     
