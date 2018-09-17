@@ -49,9 +49,6 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //create a feature layer using the service feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
-        //feature layer selection settings
-        self.featureLayer.selectionWidth = 5
-        
         //add the feature layer to the operational layers on map
         map.operationalLayers.add(featureLayer)
     }
