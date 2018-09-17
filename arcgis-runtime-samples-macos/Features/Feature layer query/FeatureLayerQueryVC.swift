@@ -40,9 +40,6 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
-        //feature layer selection settings
-        self.featureLayer.selectionWidth = 4
-        
         //set a new renderer
         let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: .black, width: 1)
         let fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor.yellow.withAlphaComponent(0.5), outline: lineSymbol)
