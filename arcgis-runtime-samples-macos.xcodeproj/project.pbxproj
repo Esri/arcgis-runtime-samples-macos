@@ -264,7 +264,6 @@
 		3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCFE311BCC4FC900CE256D /* ShowMagnifierViewController.swift */; };
 		3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECCFE331BCC4FFC00CE256D /* ShowMagnifier.storyboard */; };
 		3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */; };
-		3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD0F721BB0CCD6007105A1 /* Node.swift */; };
 		3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */; };
 		3EDC84161F1974F7002DBCF2 /* FindRoute.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */; };
 		3EDC84181F19886E002DBCF2 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */; };
@@ -341,9 +340,14 @@
 		4C240F7F20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C240F7E20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard */; };
 		4C240F8120D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C240F8020D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift */; };
 		4C240F8220D328ED00ACA9B8 /* StyleWebMapServiceLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C240F8020D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift */; };
+		4C553BD321515B8C006E899C /* SampleListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C553BD221515B8C006E899C /* SampleListViewControllerTests.swift */; };
 		4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
 		4C73C5DA20C049F300D6D00B /* OpenScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C73C5D920C049F300D6D00B /* OpenScene.storyboard */; };
 		4C73C5DD20C05AC900D6D00B /* OpenSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */; };
+		4C80B8DE21501DAF00840A94 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80B8DD21501DAF00840A94 /* Sample.swift */; };
+		4C80B8E021501DC600840A94 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80B8DF21501DC600840A94 /* Category.swift */; };
+		4C80B8F021501F8500840A94 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80B8EF21501F8500840A94 /* SampleTests.swift */; };
+		4C80B8F22150237B00840A94 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80B8F12150237B00840A94 /* CategoryTests.swift */; };
 		4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8130D62100F29C00FD4892 /* SampleListViewController.swift */; };
 		4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
 		4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */; };
@@ -429,6 +433,16 @@
 		E4CD1FF121011F8200E211CF /* ListTransformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4CD1FF021011F8200E211CF /* ListTransformations.storyboard */; };
 		E4CD1FF221012B2600E211CF /* ListTransformationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = E4CD1FEE21011F6D00E211CF /* ListTransformationsViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C80B8EA21501F5D00840A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EC1AE611BAC8DA100E32B1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EC1AE681BAC8DA100E32B1D;
+			remoteInfo = "arcgis-runtime-samples-macos";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3E7C0E331CF8FD5100200B6E /* CopyFiles */ = {
@@ -754,7 +768,6 @@
 		3ECCFE311BCC4FC900CE256D /* ShowMagnifierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMagnifierViewController.swift; sourceTree = "<group>"; };
 		3ECCFE331BCC4FFC00CE256D /* ShowMagnifier.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowMagnifier.storyboard; sourceTree = "<group>"; };
 		3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ContentPList.plist; sourceTree = "<group>"; };
-		3ECD0F721BB0CCD6007105A1 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3EDC84131F196C9A002DBCF2 /* FindRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindRouteViewController.swift; sourceTree = "<group>"; };
 		3EDC84151F1974F7002DBCF2 /* FindRoute.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindRoute.storyboard; sourceTree = "<group>"; };
 		3EDC84171F19886E002DBCF2 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
@@ -810,8 +823,15 @@
 		4C2244B820C9DF93005E6DEE /* DistancePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancePanel.swift; sourceTree = "<group>"; };
 		4C240F7E20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StyleWebMapServiceLayer.storyboard; sourceTree = "<group>"; };
 		4C240F8020D328BB00ACA9B8 /* StyleWebMapServiceLayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleWebMapServiceLayerViewController.swift; sourceTree = "<group>"; };
+		4C553BD221515B8C006E899C /* SampleListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListViewControllerTests.swift; sourceTree = "<group>"; };
 		4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
 		4C73C5D920C049F300D6D00B /* OpenScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenScene.storyboard; sourceTree = "<group>"; };
+		4C80B8DD21501DAF00840A94 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		4C80B8DF21501DC600840A94 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4C80B8E521501F5C00840A94 /* arcgis-runtime-samples-macosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "arcgis-runtime-samples-macosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C80B8E921501F5D00840A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C80B8EF21501F8500840A94 /* SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
+		4C80B8F12150237B00840A94 /* CategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		4C8130D62100F29C00FD4892 /* SampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListViewController.swift; sourceTree = "<group>"; };
 		4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryMapImageSublayerViewController.swift; sourceTree = "<group>"; };
 		4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueryMapImageSublayer.storyboard; sourceTree = "<group>"; };
@@ -885,6 +905,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C80B8E221501F5C00840A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1700,6 +1727,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC1AE6B1BAC8DA100E32B1D /* macOSSampleViewer */,
+				4C80B8E621501F5D00840A94 /* arcgis-runtime-samples-macosTests */,
 				4CF025822118931500806810 /* Frameworks */,
 				3EC1AE6A1BAC8DA100E32B1D /* Products */,
 			);
@@ -1709,6 +1737,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */,
+				4C80B8E521501F5C00840A94 /* arcgis-runtime-samples-macosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1828,7 +1857,8 @@
 		3ECD0F711BB0CCD6007105A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3ECD0F721BB0CCD6007105A1 /* Node.swift */,
+				4C80B8DF21501DC600840A94 /* Category.swift */,
+				4C80B8DD21501DAF00840A94 /* Sample.swift */,
 				3E69DE4A1CFE43EA001F65F7 /* SearchEngine.swift */,
 			);
 			path = Model;
@@ -2060,6 +2090,17 @@
 				4C73C5D520C0456500D6D00B /* OpenSceneViewController.swift */,
 			);
 			path = "Open a scene (portal item)";
+			sourceTree = "<group>";
+		};
+		4C80B8E621501F5D00840A94 /* arcgis-runtime-samples-macosTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C80B8E921501F5D00840A94 /* Info.plist */,
+				4C80B8F12150237B00840A94 /* CategoryTests.swift */,
+				4C80B8EF21501F8500840A94 /* SampleTests.swift */,
+				4C553BD221515B8C006E899C /* SampleListViewControllerTests.swift */,
+			);
+			path = "arcgis-runtime-samples-macosTests";
 			sourceTree = "<group>";
 		};
 		4C914BB520D9C4AD00779991 /* Query a map image sublayer */ = {
@@ -2338,18 +2379,44 @@
 			productReference = 3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C80B8EC21501F5D00840A94 /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macosTests" */;
+			buildPhases = (
+				4C80B8E121501F5C00840A94 /* Sources */,
+				4C80B8E221501F5C00840A94 /* Frameworks */,
+				4C80B8E321501F5C00840A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C80B8EB21501F5D00840A94 /* PBXTargetDependency */,
+			);
+			name = "arcgis-runtime-samples-macosTests";
+			productName = "arcgis-runtime-samples-macosTests";
+			productReference = 4C80B8E521501F5C00840A94 /* arcgis-runtime-samples-macosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3EC1AE611BAC8DA100E32B1D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Esri;
 				TargetAttributes = {
 					3EC1AE681BAC8DA100E32B1D = {
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Manual;
+					};
+					4C80B8E421501F5C00840A94 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3EC1AE681BAC8DA100E32B1D;
 					};
 				};
 			};
@@ -2367,6 +2434,7 @@
 			projectRoot = "";
 			targets = (
 				3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */,
+				4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2545,6 +2613,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C80B8E321501F5C00840A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -2623,6 +2698,7 @@
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* SampleCollectionViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,
+				4C80B8DE21501DAF00840A94 /* Sample.swift in Sources */,
 				3E29C9EE1DC7C55200E5571F /* DeleteFeaturesViewController.swift in Sources */,
 				3E8724841BC70CED006386C1 /* FeatureLayerFeatureServiceViewController.swift in Sources */,
 				3ECCFE1B1BC86F5A00CE256D /* SetMapsSRViewController.swift in Sources */,
@@ -2646,9 +2722,9 @@
 				3E8724721BC6D971006386C1 /* DisplayMapViewController.swift in Sources */,
 				3E04AB331DCAA7DE00B4E2FB /* SketchOnMapViewController.swift in Sources */,
 				3E496ED31DD14FE2004C921C /* MobileMapViewItem.swift in Sources */,
+				4C80B8E021501DC600840A94 /* Category.swift in Sources */,
 				3E01035E1E28579C0013AEEF /* ManageBookmarksViewController.swift in Sources */,
 				3EA734011EC0CCBE00356885 /* Animate3DSymbolsVC.swift in Sources */,
-				3ECD0F731BB0CCD6007105A1 /* Node.swift in Sources */,
 				3E87247C1BC70B41006386C1 /* TiledLayerURLViewController.swift in Sources */,
 				97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */,
 				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
@@ -2705,7 +2781,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4C80B8E121501F5C00840A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C80B8F021501F8500840A94 /* SampleTests.swift in Sources */,
+				4C80B8F22150237B00840A94 /* CategoryTests.swift in Sources */,
+				4C553BD321515B8C006E899C /* SampleListViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C80B8EB21501F5D00840A94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */;
+			targetProxy = 4C80B8EA21501F5D00840A94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3EC1AE721BAC8DA100E32B1D /* Main.storyboard */ = {
@@ -2863,6 +2957,62 @@
 			};
 			name = Release;
 		};
+		4C80B8ED21501F5D00840A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "arcgis-runtime-samples-macosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arcgis-runtime-samples-macos.app/Contents/MacOS/arcgis-runtime-samples-macos";
+			};
+			name = Debug;
+		};
+		4C80B8EE21501F5D00840A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "arcgis-runtime-samples-macosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arcgis-runtime-samples-macos.app/Contents/MacOS/arcgis-runtime-samples-macos";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2880,6 +3030,15 @@
 			buildConfigurations = (
 				3EC1AE791BAC8DA100E32B1D /* Debug */,
 				3EC1AE7A1BAC8DA100E32B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C80B8EC21501F5D00840A94 /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C80B8ED21501F5D00840A94 /* Debug */,
+				4C80B8EE21501F5D00840A94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

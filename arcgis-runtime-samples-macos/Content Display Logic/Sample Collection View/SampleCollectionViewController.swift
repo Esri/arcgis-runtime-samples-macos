@@ -35,7 +35,7 @@ class CollectionViewItem: NSCollectionViewItem {
 }
 
 protocol SampleCollectionViewControllerDelegate: AnyObject {
-    func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Node)
+    func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Sample)
 }
 
 class SampleCollectionViewController: NSViewController, NSCollectionViewDataSource, NSCollectionViewDelegate {
@@ -44,10 +44,10 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     
     weak var delegate: SampleCollectionViewControllerDelegate?
     
-    let samples: [Node]
+    let samples: [Sample]
     
-    init(samples: [Node]) {
-        self.samples = samples
+    init<S: Sequence>(samples: S) where S.Element == Sample {
+        self.samples = Array(samples)
         super.init(nibName: "SampleCollectionViewController", bundle: nil)
     }
     
@@ -74,12 +74,12 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
-        let sampleNode = samples[indexPath.item]
+        let sample = samples[indexPath.item]
         
         let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("CollectionViewItem"), for: indexPath) as! CollectionViewItem
-        viewItem.titleTextField.stringValue = sampleNode.displayName
-        viewItem.descriptionTextField.stringValue = sampleNode.descriptionText
-        viewItem.thumbnailView.image = NSImage(named: sampleNode.displayName)
+        viewItem.titleTextField.stringValue = sample.name
+        viewItem.descriptionTextField.stringValue = sample.description
+        viewItem.thumbnailView.image = NSImage(named: sample.name)
         
         //stylize
         viewItem.view.wantsLayer = true

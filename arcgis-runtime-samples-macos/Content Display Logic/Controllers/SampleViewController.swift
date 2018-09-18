@@ -17,9 +17,9 @@
 import AppKit
 
 class SampleViewController: NSTabViewController {
-    let sample: Node
+    let sample: Sample
     
-    init(sample: Node) {
+    init(sample: Sample) {
         self.sample = sample
         
         super.init(nibName: nil, bundle: nil)
@@ -33,13 +33,13 @@ class SampleViewController: NSTabViewController {
         let mainStoryboard = NSStoryboard(name: "Main", bundle: nil)
         
         let sourceCodeViewController = mainStoryboard.instantiateController(withIdentifier: "SourceCodeViewController") as! SourceCodeViewController
-        sourceCodeViewController.fileNames = sample.sourceFileNames
+        sourceCodeViewController.fileNames = sample.sourceFilenames
         let sourceCodeTabViewItem = NSTabViewItem(viewController: sourceCodeViewController)
         sourceCodeTabViewItem.label = "Source Code"
         addTabViewItem(sourceCodeTabViewItem)
         
         let readmeViewController = mainStoryboard.instantiateController(withIdentifier: "ReadmeViewController") as! ReadmeViewController
-        readmeViewController.folderName = sample.displayName
+        readmeViewController.folderName = sample.name
         let readmeTabViewItem = NSTabViewItem(viewController: readmeViewController)
         readmeTabViewItem.label = "Description"
         addTabViewItem(readmeTabViewItem)

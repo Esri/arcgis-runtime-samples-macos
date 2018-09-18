@@ -787,7 +787,7 @@
         <scene sceneID="HIn-br-Bhk">
             <objects>
                 <customObject id="Jmg-je-ifp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="q3y-cs-u7c" customClass="SampleListViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SampleListViewController" id="q3y-cs-u7c" customClass="SampleListViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jxo-Bn-Tx6">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
