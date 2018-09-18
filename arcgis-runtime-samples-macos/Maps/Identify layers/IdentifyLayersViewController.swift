@@ -75,12 +75,12 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     private func identifyLayers(at screenPoint: CGPoint) {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)

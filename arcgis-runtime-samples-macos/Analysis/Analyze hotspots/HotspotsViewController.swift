@@ -77,7 +77,7 @@ class HotspotsViewController: NSViewController {
         self.geoprocessingJob = self.geoprocessingTask.geoprocessingJob(with: params)
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //start job
         self.geoprocessingJob.start(statusHandler: { (status: AGSJobStatus) in
@@ -85,7 +85,7 @@ class HotspotsViewController: NSViewController {
         }) { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             //enable apply button
             self?.applyButton.isEnabled = true

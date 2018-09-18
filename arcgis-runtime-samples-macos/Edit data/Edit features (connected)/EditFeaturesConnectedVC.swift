@@ -59,12 +59,12 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     func applyEdits() {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result:[AGSFeatureEditResult]?, error:Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
@@ -83,12 +83,12 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         }
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while identifying features :: \(error.localizedDescription)")

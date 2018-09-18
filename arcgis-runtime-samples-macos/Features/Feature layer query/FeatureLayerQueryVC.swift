@@ -59,7 +59,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         }
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         let queryParams = AGSQueryParameters()
         queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(state.uppercased())%'"
@@ -67,7 +67,7 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         self.featureTable.queryFeatures(with: queryParams) { [weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 //show error

@@ -686,23 +686,11 @@
                                         </connections>
                                     </searchField>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="C41AB23B-0874-4E64-8AB4-0F6B53F7643D" label="" paletteLabel="" tag="-1" id="LRI-le-gnh">
+                                <toolbarItem implicitItemIdentifier="0DB37989-C4DA-4360-BB81-F400173A4A68" label="" paletteLabel="" tag="-1" sizingBehavior="auto" id="U3V-1E-r9n">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="16" height="16"/>
-                                    <size key="maxSize" width="32" height="32"/>
-                                    <progressIndicator key="view" hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="hep-iw-wZ1">
+                                    <progressIndicator key="view" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="eUx-FW-oJk">
                                         <rect key="frame" x="0.0" y="14" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <contentFilters>
-                                            <ciFilter name="CIColorControls">
-                                                <configuration>
-                                                    <real key="inputBrightness" value="1"/>
-                                                    <real key="inputContrast" value="1"/>
-                                                    <null key="inputImage"/>
-                                                    <real key="inputSaturation" value="1"/>
-                                                </configuration>
-                                            </ciFilter>
-                                        </contentFilters>
                                     </progressIndicator>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="202CDAD7-3A2A-4D75-9C0A-AFDE60E71A55" label="" paletteLabel="" sizingBehavior="auto" id="sRu-fy-9k2">
@@ -719,7 +707,7 @@
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="yOd-Gb-sxP"/>
+                                <toolbarItem reference="U3V-1E-r9n"/>
                                 <toolbarItem reference="yOd-Gb-sxP"/>
                                 <toolbarItem reference="yOd-Gb-sxP"/>
                                 <toolbarItem reference="yOd-Gb-sxP"/>
@@ -735,7 +723,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="progressIndicator" destination="hep-iw-wZ1" id="Wt8-IP-QV4"/>
+                        <outlet property="progressIndicator" destination="eUx-FW-oJk" id="Qm6-qt-xpl"/>
                         <outlet property="searchField" destination="Mv2-JN-rDN" id="b4z-so-mW6"/>
                         <segue destination="5Rb-wc-9vd" kind="relationship" relationship="window.shadowedContentViewController" id="yCm-lG-J0c"/>
                     </connections>
