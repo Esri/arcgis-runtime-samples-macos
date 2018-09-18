@@ -86,14 +86,18 @@ class VectorTileCustomStyleVC: NSViewController {
             setBasemap(item: item)
         }
     }
+    
+    /// A model for the items in the vectors styles popup menu
+    struct VectorStyleItem {
+        var itemId: String
+        var label: String
+        var color1: NSColor
+        var color2: NSColor
+    }
+    
 }
 
-/// A model for the items in the vectors styles popup menu
-private struct VectorStyleItem {
-    var itemId: String
-    var label: String
-    var color1: NSColor
-    var color2: NSColor
+extension VectorTileCustomStyleVC.VectorStyleItem {
     
     var itemURL: URL{
         return URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemId)")!
@@ -121,4 +125,5 @@ private struct VectorStyleItem {
         view.cacheDisplay(in: view.bounds, to: imageRep)
         return NSImage(cgImage: imageRep.cgImage!, size: imageRep.size)
     }
+    
 }
