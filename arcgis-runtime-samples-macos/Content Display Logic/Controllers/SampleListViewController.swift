@@ -42,8 +42,8 @@ class SampleListViewController: NSViewController {
     /// - Parameter category: The category to select.
     func select(_ category: Category) {
         guard isViewLoaded else { return }
-        guard let boxedCategory = boxedCategories[category] else { return }
-        let index = outlineView.row(forItem: boxedCategory)
+        guard let categoryItem = categoryItems[category] else { return }
+        let index = outlineView.row(forItem: categoryItem)
         outlineView.selectRowIndexes([index], byExtendingSelection: false)
     }
     
@@ -52,8 +52,8 @@ class SampleListViewController: NSViewController {
     var selectedCategory: Category? {
         guard isViewLoaded else { return nil }
         let selectedRow = outlineView.selectedRow
-        if selectedRow != -1, let selectedBox = outlineView.item(atRow: selectedRow) as? Box<Category> {
-            return selectedBox.value
+        if selectedRow != -1, let selectedItem = outlineView.item(atRow: selectedRow) as? CategoryItem {
+            return selectedItem.value
         } else {
             return nil
         }
@@ -65,31 +65,17 @@ class SampleListViewController: NSViewController {
     /// - Parameter sample: The sample to select.
     func select(_ sample: Sample) {
         guard isViewLoaded else { return }
-        guard let boxedSample = boxedSamples[sample] else { return }
-
-        let row = outlineView.row(forItem: boxedSample)
-        // Is the sample's category expanded?
-        if row != -1 {
-            // Yes. We just need to select it if it isn't already.
-            if !outlineView.isRowSelected(row) {
-                outlineView.selectRowIndexes([row], byExtendingSelection: false)
-            }
+        guard let sampleItem = sampleItems[sample] else { return }
+        
+        let categoryToExpand: Category
+        if let category = selectedCategory, category.samples.contains(sample) {
+            categoryToExpand = category
         } else {
-            // No. We need to expand the category before selecting it.
-            let categoryToExpand: Category
-            if let category = selectedCategory, category.samples.contains(sample) {
-                categoryToExpand = category
-            } else {
-                // This is a major hack. If the selected category isn't the
-                // sample's category, assume that the sample was a selected
-                // search result. In that case, we want to skip the "Featured"
-                // category to get the sample's actual category.
-                categoryToExpand = categories.dropFirst().first(where: { $0.samples.contains(sample) })!
-            }
-            outlineView.expandItem(boxedCategories[categoryToExpand]!)
-            let index = outlineView.row(forItem: boxedSample)
-            outlineView.selectRowIndexes([index], byExtendingSelection: false)
+            categoryToExpand = categories.first(where: { $0.samples.contains(sample) })!
         }
+        outlineView.expandItem(categoryItems[categoryToExpand]!)
+        let index = outlineView.row(forItem: sampleItem)
+        outlineView.selectRowIndexes([index], byExtendingSelection: false)
     }
     
     /// The sample currently selected in the list or `nil` if no sample is
@@ -97,11 +83,16 @@ class SampleListViewController: NSViewController {
     var selectedSample: Sample? {
         guard isViewLoaded else { return nil }
         let selectedRow = outlineView.selectedRow
-        if selectedRow != -1, let selectedBox = outlineView.item(atRow: selectedRow) as? Box<Sample> {
-            return selectedBox.value
+        if selectedRow != -1, let selectedItem = outlineView.item(atRow: selectedRow) as? SampleItem {
+            return selectedItem.value
         } else {
             return nil
         }
+    }
+    
+    func expand(_ category: Category) {
+        guard let categoryItem = categoryItems[category] else { return }
+        outlineView?.expandItem(categoryItem)
     }
     
     /// Indicates whether the given category is expanded.
@@ -110,44 +101,20 @@ class SampleListViewController: NSViewController {
     /// - Returns: `true` if the category is expanded, otherwise `false`.
     func isExpanded(_ category: Category) -> Bool {
         guard isViewLoaded else { return false }
-        guard let boxedCategory = boxedCategories[category] else { return false }
-        return outlineView.isItemExpanded(boxedCategory)
+        guard let categoryItem = categoryItems[category] else { return false }
+        return outlineView.isItemExpanded(categoryItem)
     }
     
     @IBOutlet private weak var outlineView: NSOutlineView!
     
-    private func categoriesDidChange() {
-        // Box categories and samples.
-        var boxedCategories = [Category: Box<Category>]()
-        var boxedSamples = [Sample: Box<Sample>]()
-        for category in categories {
-            boxedCategories[category] = Box(value: category)
-            for sample in category.samples {
-                boxedSamples[sample] = Box(value: sample)
-            }
-        }
-        self.boxedCategories = boxedCategories
-        self.boxedSamples = boxedSamples
-        // Reload the outline view (if it exists).
-        guard isViewLoaded else { return }
-        outlineView.reloadData()
-        // Select the first category.
-        select(categories.first!)
-    }
-    
-    // Why manually box categories and samples? Good question.
-    // While Swift would box them automatically, it would box into a new
-    // instance each time. Because NSOutlineView compares items by their memory
-    // address, two boxed instances of the same value would never be equal.
-    // By boxing ourselves, we ensure that item comparison actually works.
-    //
-    // Why not make Category and Sample reference types? Another good question.
-    // There are a number of reasons, but one reason is because they don't need
-    // to be reference types anywhere else. Using value types is only
-    // problematic for this class, so I've chosen to solve the problem inside of
-    // this class. -Philip
-    
-    private class Box<T> {
+    /// An item displayed in an outline view.
+    ///
+    /// `NSOutlineView` compares items based on identity. That means that two
+    /// identical instances of a Swift value type passed to `NSOutlineView` will
+    /// never compare as equal. Use this class to create wrapped instances of
+    /// Swift value types that you can pass to `NSOutlineView` and compare to
+    /// items returned by `NSOutlineView` methods.
+    private class OutlineViewItem<T> {
         let value: T
         
         init(value: T) {
@@ -155,37 +122,57 @@ class SampleListViewController: NSViewController {
         }
     }
     
-    private var boxedCategories = [Category: Box<Category>]()
-    private var boxedSamples = [Sample: Box<Sample>]()
+    /// An `OutlineViewItem` that wraps an instace of `Category`.
+    private typealias CategoryItem = OutlineViewItem<Category>
+    /// An `OutlineViewItem` that wraps an instace of `Sample`.
+    private typealias SampleItem = OutlineViewItem<Sample>
+    
+    /// The category items used to populate the outline view.
+    private var categoryItems = [Category: CategoryItem]()
+    /// The sample items used to populate the outline view.
+    private var sampleItems = [Sample: SampleItem]()
+    
+    private func categoriesDidChange() {
+        // Wrap categories and samples.
+        let lazyCategories = categories.lazy
+        categoryItems = Dictionary(uniqueKeysWithValues: lazyCategories.map { ($0, CategoryItem(value: $0)) })
+        let allSamples = Set(lazyCategories.flatMap { $0.samples })
+        sampleItems = Dictionary(uniqueKeysWithValues: allSamples.lazy.map { ($0, SampleItem(value: $0)) })
+        // Reload the outline view (if it exists).
+        guard isViewLoaded else { return }
+        outlineView.reloadData()
+        // Select the first category.
+        select(categories.first!)
+    }
 }
 
 extension SampleListViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let boxedCategory = item as? Box<Category> {
-            return boxedCategory.value.samples.count
+        if let categoryItem = item as? CategoryItem {
+            return categoryItem.value.samples.count
         } else {
             return categories.count
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return item is Box<Category>
+        return item is CategoryItem
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if let boxedCategory = item as? Box<Category> {
-            return boxedSamples[boxedCategory.value.samples[index]]!
+        if let categoryItem = item as? CategoryItem {
+            return sampleItems[categoryItem.value.samples[index]]!
         } else {
-            return boxedCategories[categories[index]]!
+            return categoryItems[categories[index]]!
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         switch item {
-        case let boxedCategory as Box<Category>:
-            return boxedCategory.value.name
-        case let boxedSample as Box<Sample>:
-            return boxedSample.value.name
+        case let categoryItem as CategoryItem:
+            return categoryItem.value.name
+        case let sampleItem as SampleItem:
+            return sampleItem.value.name
         default:
             fatalError()
         }
