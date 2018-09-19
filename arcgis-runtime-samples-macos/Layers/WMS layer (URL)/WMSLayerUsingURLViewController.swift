@@ -37,7 +37,7 @@ class WMSLayerUsingURLViewController: NSViewController {
         //initialize the WMS layer with the service URL and uniquely identifying WMS layer names
         let wmsLayer = AGSWMSLayer(url: wmsServiceURL, layerNames: wmsServiceLayerNames)
         
-        NSApp.mainWindow?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //load the WMS layer
         wmsLayer.load {[weak self] (error) in
@@ -46,7 +46,7 @@ class WMSLayerUsingURLViewController: NSViewController {
                 return
             }
             
-            self.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self.showAlert(messageText: "Error loading WMS layer:", informativeText: error.localizedDescription)
