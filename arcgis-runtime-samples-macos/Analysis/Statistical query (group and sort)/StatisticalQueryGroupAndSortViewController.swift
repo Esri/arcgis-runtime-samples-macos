@@ -43,8 +43,10 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let serviceURL = URL(string: "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/Counties_Obesity_Inactivity_Diabetes_2013/FeatureServer/0")!
+        
         // Initialize feature table
-        serviceFeatureTable = AGSServiceFeatureTable(url: .censusMapServiceStatesLayer)
+        serviceFeatureTable = AGSServiceFeatureTable(url: serviceURL)
         
         // Load feature table
         serviceFeatureTable?.load(completion: { [weak self] (error) in
