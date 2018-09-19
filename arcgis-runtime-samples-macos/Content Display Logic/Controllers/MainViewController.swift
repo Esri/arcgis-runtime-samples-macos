@@ -17,6 +17,7 @@
 import AppKit
 
 class MainViewController: NSSplitViewController {
+    
     var categories = [Category]() {
         didSet {
             sampleListViewController.categories = categories
@@ -38,16 +39,30 @@ class MainViewController: NSSplitViewController {
     /// Shows the given category in the right split view item.
     ///
     /// - Parameter category: A category.
-    func show(_ category: Category) {
-        let sampleCollectionViewController = SampleCollectionViewController(samples: category.samples)
+    func showCollection(for category: Category) {
+        showCollection(for: category.samples)
+    }
+    
+    /// Shows a collection view with the samples in the right split view item.
+    ///
+    /// - Parameter samples: The samples to display.
+    func showCollection(for samples: [Sample]) {
+        let sampleCollectionViewController = SampleCollectionViewController(samples: samples)
         sampleCollectionViewController.delegate = self
         showDetailViewController(sampleCollectionViewController)
+    }
+    
+    
+    /// Shows a collection view with all the samples in the app.
+    func showCollectionForAllSamples() {
+        let allSamples = categories.flatMap({ $0.samples })
+        showCollection(for: allSamples)
     }
     
     /// Shows the given sample in the right split view item.
     ///
     /// - Parameter sample: A sample.
-    func show(_ sample: Sample) {
+    func show(sample: Sample) {
         let sampleViewController = SampleViewController(sample: sample)
         showDetailViewController(sampleViewController)
     }
@@ -72,9 +87,9 @@ extension MainViewController /* NSSplitViewDelegate */ {
 extension MainViewController: SampleListViewControllerDelegate {
     func sampleListViewControllerSelectionDidChange(_ controller: SampleListViewController) {
         if let category = controller.selectedCategory {
-            show(category)
+            showCollection(for: category)
         } else if let sample = controller.selectedSample {
-            show(sample)
+            show(sample: sample)
         }
     }
 }

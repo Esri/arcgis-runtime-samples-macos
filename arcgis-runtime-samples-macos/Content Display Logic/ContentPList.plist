@@ -4,63 +4,6 @@
 <array>
 	<dict>
 		<key>displayName</key>
-		<string>Featured</string>
-		<key>children</key>
-		<array>
-			<dict>
-				<key>displayName</key>
-				<string>Open map (URL)</string>
-				<key>storyboardName</key>
-				<string>OpenMapURL</string>
-				<key>descriptionText</key>
-				<string>This sample shows you how to open a map using its url</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>OpenMapURLViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Create and save a map</string>
-				<key>storyboardName</key>
-				<string>CreateSaveMap</string>
-				<key>descriptionText</key>
-				<string>With the new APIs you get to author a map on you mobile device. You can create a map by adding a basemap and one or more operational layers and save it to your portal</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>CreateSaveMapViewController</string>
-					<string>CreateOptionsViewController</string>
-					<string>SaveMapViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>ArcGIS vector tiled layer (URL)</string>
-				<key>storyboardName</key>
-				<string>VectorTileLayer</string>
-				<key>descriptionText</key>
-				<string>You can now add vector tile layers</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>VectorTileLayerViewController</string>
-				</array>
-			</dict>
-			<dict>
-				<key>displayName</key>
-				<string>Display a scene</string>
-				<key>storyboardName</key>
-				<string>DisplayScene</string>
-				<key>descriptionText</key>
-				<string>The sample shows you how to display a scene with elevation data</string>
-				<key>sourceFileNames</key>
-				<array>
-					<string>DisplaySceneViewController</string>
-				</array>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>displayName</key>
 		<string>Maps</string>
 		<key>children</key>
 		<array>
