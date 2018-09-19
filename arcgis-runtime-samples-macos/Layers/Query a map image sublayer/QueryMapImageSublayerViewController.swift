@@ -65,15 +65,10 @@ class QueryMapImageSublayerViewController: NSViewController {
         enableControlsIfNeeded()
     }
     
-    enum SublayerKey: Int {
+    enum SublayerKey: Int, CaseIterable {
         case cities = 0
         case states = 2
         case counties = 3
-        
-        /// A set of all values of this type.
-        static var allCases: Set<SublayerKey> {
-            return [.cities, .states, .counties]
-        }
     }
     
     /// The sublayers of the map image layer.
