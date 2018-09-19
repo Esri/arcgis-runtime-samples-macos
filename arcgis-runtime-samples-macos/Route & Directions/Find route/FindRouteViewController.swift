@@ -96,12 +96,12 @@ class FindRouteViewController: NSViewController {
     func getDefaultParameters() {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.routeTask.defaultRouteParameters { [weak self] (parameters, error) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
@@ -130,7 +130,7 @@ class FindRouteViewController: NSViewController {
         }
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //set parameters to return directions
         routeParameters.returnDirections = true
@@ -151,7 +151,7 @@ class FindRouteViewController: NSViewController {
         self.routeTask.solveRoute(with: routeParameters) { [weak self] (routeResult, error) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard let strongSelf = self else {
                 return

@@ -16,19 +16,17 @@
 
 import Cocoa
 
-extension NSWindow {
+extension NSApplication {
     //MARK: - Progres indicator
     
     func showProgressIndicator() {
-        if let controller = self.windowController as? WindowController {
-            controller.showProgressIndicator()
-        }
+        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        controller?.showProgressIndicator()
     }
     
     func hideProgressIndicator() {
-        if let controller = self.windowController as? WindowController {
-            controller.hideProgressIndicator()
-        }
+        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        controller?.hideProgressIndicator()
     }
 }
 
@@ -50,18 +48,16 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         self.suggestionsViewController = self.suggestionsWindowController.contentViewController as? SuggestionsViewController
         self.suggestionsViewController.delegate = self
         
-        //progress indicator
-        self.progressIndicator.startAnimation(nil)
     }
     
     //MARK: - Progres indicator
     
     func showProgressIndicator() {
-        self.progressIndicator.isHidden = false
+        progressIndicator.startAnimation(nil)
     }
 
     func hideProgressIndicator() {
-        self.progressIndicator.isHidden = true
+        progressIndicator.stopAnimation(nil)
     }
     
     //MARK: - NSSearchFieldDelegate

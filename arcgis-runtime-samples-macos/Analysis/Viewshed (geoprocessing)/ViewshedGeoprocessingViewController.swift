@@ -86,13 +86,13 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         newFeature.geometry = point
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //add the new feature to the feature collection table
         featureCollectionTable.add(newFeature) { [weak self] (error: Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
@@ -117,7 +117,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         self.geoprocessingJob = self.geoprocessingTask.geoprocessingJob(with: params)
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //start the job
         self.geoprocessingJob.start(statusHandler: { (status: AGSJobStatus) in
@@ -127,7 +127,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         }, completion: { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 if (error! as NSError).code != NSUserCancelledError {

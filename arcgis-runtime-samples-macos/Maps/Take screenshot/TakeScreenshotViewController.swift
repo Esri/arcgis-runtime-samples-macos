@@ -55,13 +55,13 @@ class TakeScreenshotViewController: NSViewController {
         self.hideOverlayParentView()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //the method on map view we can use to get the screenshot image
         self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)

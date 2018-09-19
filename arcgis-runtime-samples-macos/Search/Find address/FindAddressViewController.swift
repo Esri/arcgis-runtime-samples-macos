@@ -59,14 +59,14 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.mapView.callout.dismiss()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //perform geocode with input text
         locatorTask.geocode(withSearchText: text, parameters: geocodeParameters) { [weak self] (results: [AGSGeocodeResult]?, error: Error?) -> Void in
             guard let strongSelf = self else { return }
             
             //hide progress indicator
-            strongSelf.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 strongSelf.showAlert("Error", informativeText: error.localizedDescription)
@@ -117,13 +117,13 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.mapView.callout.dismiss()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //identify graphics at the tapped location
         self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (result: AGSIdentifyGraphicsOverlayResult) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = result.error {
                 

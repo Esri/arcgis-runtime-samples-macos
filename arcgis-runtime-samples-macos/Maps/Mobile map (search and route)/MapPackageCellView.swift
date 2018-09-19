@@ -41,12 +41,12 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     func loadMapPackage() {
         
         //show progress indicator
-        self.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.mapPackage.load { [weak self] (error:Error?) in
             
             //hide progress indicator
-            self?.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 //error
