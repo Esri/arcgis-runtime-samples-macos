@@ -1,4 +1,3 @@
-//
 // Copyright 2016 Esri.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,14 +11,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-//
 
-import Foundation
+struct Category: Hashable {
+    var name: String
+    var samples: [Sample]
+}
 
-class Node: NSObject {
-    var displayName = ""
-    var descriptionText = ""
-    var storyboardName = ""
-    var childNodes = [Node]()  //if empty, then root node
-    var sourceFileNames = [String]()
+extension Category: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case name = "displayName"
+        case samples = "children"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        samples = try values.decode([Sample].self, forKey: .samples)
+    }
 }

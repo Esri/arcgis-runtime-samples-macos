@@ -16,80 +16,171 @@
 
 import AppKit
 
+/// The protocol you implement to respond as the user interacts with the
+/// document browser.
 protocol SampleListViewControllerDelegate: AnyObject {
-    func sampleListViewController(_ controller: SampleListViewController, didSelect node: Node)
+    /// Called in response to the sample list selection changing.
+    ///
+    /// - Parameter controller: The current sample list.
+    func sampleListViewControllerSelectionDidChange(_ controller: SampleListViewController)
 }
 
+/// A view controller that manages an interface for displaying a list of samples
+/// by category.
 class SampleListViewController: NSViewController {
-    var nodes = [Node]() {
+    /// The delegate of the view controller.
+    weak var delegate: SampleListViewControllerDelegate?
+    /// The categories displayed by the view controller.
+    var categories = [Category]() {
         didSet {
-            guard isViewLoaded else { return }
-            outlineView.reloadData()
-            select(nodes.first!)
+            categoriesDidChange()
         }
     }
-    weak var delegate: SampleListViewControllerDelegate?
     
-    @IBOutlet weak var outlineView: NSOutlineView!
-    
-    func select(_ node: Node) {
-        // Expand the parent (if there is one).
-        if let parentNode = parent(for: node) {
-            outlineView.expandItem(parentNode)
-        }
-        // Select the new item.
-        let index = outlineView.row(forItem: node)
+    /// Selects the given category in the list.
+    ///
+    /// - Parameter category: The category to select.
+    func select(_ category: Category) {
+        guard isViewLoaded else { return }
+        guard let categoryItem = categoryItems[category] else { return }
+        let index = outlineView.row(forItem: categoryItem)
         outlineView.selectRowIndexes([index], byExtendingSelection: false)
     }
     
-    /// Returns the parent of a given node.
-    ///
-    /// - Parameter node: The node whose parent should be found.
-    /// - Returns: The node's parent or `nil` if the node does not have a parent.
-    func parent(for node: Node) -> Node? {
+    /// The category currently selected in the list or `nil` if no category
+    /// is selected.
+    var selectedCategory: Category? {
+        guard isViewLoaded else { return nil }
         let selectedRow = outlineView.selectedRow
-        if selectedRow != -1, let selectedNode = outlineView.item(atRow: selectedRow) as? Node, selectedNode.childNodes.contains(node) {
-            return selectedNode
+        if selectedRow != -1, let selectedItem = outlineView.item(atRow: selectedRow) as? CategoryItem {
+            return selectedItem.value
         } else {
-            // This is a major hack. If the parent node is not the selected
-            // node, assume that the node was a selected search result. In that
-            // case, we want to skip the "Featured" category and return the
-            // sample's actual category.
-            return nodes.dropFirst().first(where: { $0.childNodes.contains(node) })
+            return nil
         }
+    }
+    
+    /// Selects the given sample in the list. This will expand the sample's
+    /// category if it isn't already.
+    ///
+    /// - Parameter sample: The sample to select.
+    func select(_ sample: Sample) {
+        guard isViewLoaded else { return }
+        guard let sampleItem = sampleItems[sample] else { return }
+        
+        let categoryToExpand: Category
+        if let category = selectedCategory, category.samples.contains(sample) {
+            categoryToExpand = category
+        } else {
+            categoryToExpand = categories.first(where: { $0.samples.contains(sample) })!
+        }
+        outlineView.expandItem(categoryItems[categoryToExpand]!)
+        let index = outlineView.row(forItem: sampleItem)
+        outlineView.selectRowIndexes([index], byExtendingSelection: false)
+    }
+    
+    /// The sample currently selected in the list or `nil` if no sample is
+    /// selected.
+    var selectedSample: Sample? {
+        guard isViewLoaded else { return nil }
+        let selectedRow = outlineView.selectedRow
+        if selectedRow != -1, let selectedItem = outlineView.item(atRow: selectedRow) as? SampleItem {
+            return selectedItem.value
+        } else {
+            return nil
+        }
+    }
+    
+    func expand(_ category: Category) {
+        guard let categoryItem = categoryItems[category] else { return }
+        outlineView?.expandItem(categoryItem)
+    }
+    
+    /// Indicates whether the given category is expanded.
+    ///
+    /// - Parameter category: A category in the list.
+    /// - Returns: `true` if the category is expanded, otherwise `false`.
+    func isExpanded(_ category: Category) -> Bool {
+        guard isViewLoaded else { return false }
+        guard let categoryItem = categoryItems[category] else { return false }
+        return outlineView.isItemExpanded(categoryItem)
+    }
+    
+    @IBOutlet private weak var outlineView: NSOutlineView!
+    
+    /// An item displayed in an outline view.
+    ///
+    /// `NSOutlineView` compares items based on identity. That means that two
+    /// identical instances of a Swift value type passed to `NSOutlineView` will
+    /// never compare as equal. Use this class to create wrapped instances of
+    /// Swift value types that you can pass to `NSOutlineView` and compare to
+    /// items returned by `NSOutlineView` methods.
+    private class OutlineViewItem<T> {
+        let value: T
+        
+        init(value: T) {
+            self.value = value
+        }
+    }
+    
+    /// An `OutlineViewItem` that wraps an instace of `Category`.
+    private typealias CategoryItem = OutlineViewItem<Category>
+    /// An `OutlineViewItem` that wraps an instace of `Sample`.
+    private typealias SampleItem = OutlineViewItem<Sample>
+    
+    /// The category items used to populate the outline view.
+    private var categoryItems = [Category: CategoryItem]()
+    /// The sample items used to populate the outline view.
+    private var sampleItems = [Sample: SampleItem]()
+    
+    private func categoriesDidChange() {
+        // Wrap categories and samples.
+        let lazyCategories = categories.lazy
+        categoryItems = Dictionary(uniqueKeysWithValues: lazyCategories.map { ($0, CategoryItem(value: $0)) })
+        let allSamples = Set(lazyCategories.flatMap { $0.samples })
+        sampleItems = Dictionary(uniqueKeysWithValues: allSamples.lazy.map { ($0, SampleItem(value: $0)) })
+        // Reload the outline view (if it exists).
+        guard isViewLoaded else { return }
+        outlineView.reloadData()
+        // Select the first category.
+        select(categories.first!)
     }
 }
 
 extension SampleListViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let node = item as? Node {
-            return node.childNodes.count
+        if let categoryItem = item as? CategoryItem {
+            return categoryItem.value.samples.count
         } else {
-            return nodes.count
+            return categories.count
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        let node = item as! Node
-        return !node.childNodes.isEmpty
+        return item is CategoryItem
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if let node = item as? Node {
-            return node.childNodes[index]
+        if let categoryItem = item as? CategoryItem {
+            return sampleItems[categoryItem.value.samples[index]]!
         } else {
-            return nodes[index]
+            return categoryItems[categories[index]]!
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
-        return (item as! Node).displayName
+        switch item {
+        case let categoryItem as CategoryItem:
+            return categoryItem.value.name
+        case let sampleItem as SampleItem:
+            return sampleItem.value.name
+        default:
+            fatalError()
+        }
     }
 }
 
 extension SampleListViewController: NSOutlineViewDelegate {
     func outlineViewSelectionDidChange(_ notification: Notification) {
-        guard let node = self.outlineView.item(atRow: outlineView.selectedRow) as? Node else { return }
-        delegate?.sampleListViewController(self, didSelect: node)
+        delegate?.sampleListViewControllerSelectionDidChange(self)
     }
 }

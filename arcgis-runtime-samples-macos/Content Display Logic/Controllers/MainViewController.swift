@@ -17,44 +17,48 @@
 import AppKit
 
 class MainViewController: NSSplitViewController {
-    let nodes: [Node]
-    
-    required init?(coder: NSCoder) {
-        let path = Bundle.main.path(forResource: "ContentPList", ofType: "plist")
-        let content = NSArray(contentsOfFile: path!)
-        nodes = (content as! [[String: Any]]).map { Node(dictionary: $0) }
-        
-        super.init(coder: coder)
+    var categories = [Category]() {
+        didSet {
+            sampleListViewController.categories = categories
+        }
     }
     
     @IBOutlet weak var sampleListSplitViewItem: NSSplitViewItem!
     
+    var sampleListViewController: SampleListViewController! {
+        return sampleListSplitViewItem.viewController as? SampleListViewController
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let sampleListViewController = sampleListSplitViewItem.viewController as! SampleListViewController
         sampleListViewController.delegate = self
-        sampleListViewController.nodes = nodes
     }
     
-    /// Shows the given node in the right split view item. If the node does not
-    /// have any child nodes and has a storyboard name, it is assumed to be a
-    /// sample and is displayed in a sample view controller. Otherwise it's
-    /// children are displayed in a sample collection view controller.
+    /// Shows the given category in the right split view item.
     ///
-    /// - Parameter node: A node.
-    func show(_ node: Node) {
+    /// - Parameter category: A category.
+    func show(_ category: Category) {
+        let sampleCollectionViewController = SampleCollectionViewController(samples: category.samples)
+        sampleCollectionViewController.delegate = self
+        showDetailViewController(sampleCollectionViewController)
+    }
+    
+    /// Shows the given sample in the right split view item.
+    ///
+    /// - Parameter sample: A sample.
+    func show(_ sample: Sample) {
+        let sampleViewController = SampleViewController(sample: sample)
+        showDetailViewController(sampleViewController)
+    }
+    
+    /// Presents the given view controller in a secondary (or detail) context.
+    ///
+    /// - Parameter viewController: A view controller.
+    func showDetailViewController(_ viewController: NSViewController) {
         let oldSplitViewItem = splitViewItems.last!
-        let newSplitViewItem: NSSplitViewItem
-        if node.childNodes.isEmpty && !node.storyboardName.isEmpty {
-            let sampleViewController = SampleViewController(sample: node)
-            newSplitViewItem = NSSplitViewItem(viewController: sampleViewController)
-        } else {
-            let sampleCollectionViewController = SampleCollectionViewController(samples: node.childNodes)
-            sampleCollectionViewController.delegate = self
-            newSplitViewItem = NSSplitViewItem(viewController: sampleCollectionViewController)
-        }
         removeSplitViewItem(oldSplitViewItem)
+        let newSplitViewItem = NSSplitViewItem(viewController: viewController)
         addSplitViewItem(newSplitViewItem)
     }
 }
@@ -66,35 +70,18 @@ extension MainViewController /* NSSplitViewDelegate */ {
 }
 
 extension MainViewController: SampleListViewControllerDelegate {
-    func sampleListViewController(_ controller: SampleListViewController, didSelect node: Node) {
-        show(node)
+    func sampleListViewControllerSelectionDidChange(_ controller: SampleListViewController) {
+        if let category = controller.selectedCategory {
+            show(category)
+        } else if let sample = controller.selectedSample {
+            show(sample)
+        }
     }
 }
 
 extension MainViewController: SampleCollectionViewControllerDelegate {
-    func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Node) {
+    func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Sample) {
         let sampleListViewController = sampleListSplitViewItem.viewController as! SampleListViewController
         sampleListViewController.select(sample)
-    }
-}
-
-extension Node {
-    convenience init(dictionary: [String: Any]) {
-        self.init()
-        if let displayName = dictionary["displayName"] as? String {
-            self.displayName = displayName
-        }
-        if let descriptionText = dictionary["descriptionText"] as? String {
-            self.descriptionText = descriptionText
-        }
-        if let storyboardName = dictionary["storyboardName"] as? String {
-            self.storyboardName = storyboardName
-        }
-        if let children = dictionary["children"] as? [[String: Any]] {
-            childNodes = children.map { Node(dictionary: $0) }
-        }
-        if let sourceFileNames = dictionary["sourceFileNames"] as? [String] {
-            self.sourceFileNames = sourceFileNames
-        }
     }
 }

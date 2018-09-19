@@ -90,12 +90,14 @@ class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDeleg
         
         let mainViewController = contentViewController as! MainViewController
         
-        let node = Node()
+        let samples: [Sample]
         if let searchResults = searchEngine.searchForString(searchString) {
             let names = Set(searchResults)
-            node.childNodes = mainViewController.nodes.dropFirst().flatMap { $0.childNodes.filter { names.contains($0.displayName) } }
+            samples = mainViewController.categories.dropFirst().flatMap { $0.samples.filter { names.contains($0.name) } }
+        } else {
+            samples = []
         }
-        mainViewController.show(node)
+        mainViewController.show(Category(name: "", samples: samples))
     }
     
     //MARK: Suggestions window controller
