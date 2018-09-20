@@ -17,7 +17,7 @@ Use the popup button to select a KML data source. The contents of the KML source
 
 ## About the data
 
-The sample displays three different KML file, each from a different source:
+The sample displays three different KML files, each from a different source:
 
 * **URL**: a map of the significant weather outlook in the U.S. produced by NOAA/NWS. It uses KML network links to always show the latest data.
 * **Local File**: a map of U.S. state capitals [from ArcGIS Online](https://arcgisruntime.maps.arcgis.com/home/item.html?id=324e4742820e46cfbe5029ff2c32cb1f) included in the app bundle. It doesn't define an icon, so the default pushpin is used for the points.

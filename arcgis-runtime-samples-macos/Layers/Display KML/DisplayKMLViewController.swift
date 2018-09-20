@@ -1,10 +1,16 @@
+// Copyright 2018 Esri.
 //
-//  DisplayKMLViewController.swift
-//  arcgis-runtime-samples-macos
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-//  Created by Quincy Morgan on 9/19/18.
-//  Copyright © 2018 Esri. All rights reserved.
+//   http://www.apache.org/licenses/LICENSE-2.0
 //
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 import AppKit
 import ArcGIS
@@ -43,14 +49,11 @@ class DisplayKMLViewController: NSViewController{
         // feedback and progress indication
         kmlLayer.load {[weak self] (error) in
             
-            // If another layer started loading before this one finished, don't proceed
-            guard self?.loadingLayer == kmlLayer else{
-                return
-            }
-                
             NSApp.hideProgressIndicator()
             
-            guard let self = self else{
+            guard let self = self,
+                 // If another layer started loading before this one finished, don't proceed
+                self.loadingLayer == kmlLayer else{
                 return
             }
             
@@ -59,8 +62,7 @@ class DisplayKMLViewController: NSViewController{
             
             if let error = error {
                 // Display the error if one occurred
-                let alert = NSAlert(error: error)
-                alert.beginSheetModal(for: self.view.window!)
+                NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
         }
         
@@ -69,7 +71,7 @@ class DisplayKMLViewController: NSViewController{
     //MARK: - Actions
     
     @IBAction func changeSourceToURL(_ sender: Any) {
-        // A KML file at a remote URL
+        // A URL of a remote KML file
         let kmlDatasetURL = URL(string: "https://www.wpc.ncep.noaa.gov/kml/noaa_chart/WPC_Day1_SigWx.kml")!
         let kmlDataset = AGSKMLDataset(url: kmlDatasetURL)
          /// A KML layer created from a remote KML file
