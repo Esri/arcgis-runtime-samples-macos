@@ -30,7 +30,7 @@ class SampleTests: XCTestCase {
                     <string>BlendRenderer</string>
                     <key>descriptionText</key>
                     <string>The sample shows you how to use blend renderer with raster layer</string>
-                    <key>sourceFilenames</key>
+                    <key>sourceFileNames</key>
                     <array>
                         <string>BlendRendererViewController</string>
                     </array>

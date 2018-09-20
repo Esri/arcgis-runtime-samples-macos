@@ -28,7 +28,7 @@ extension Sample: Decodable {
         case name = "displayName"
         case description = "descriptionText"
         case storyboardName = "storyboardName"
-        case sourceFilenames = "sourceFilenames"
+        case sourceFilenames = "sourceFileNames"
     }
     
     init(from decoder: Decoder) throws {
