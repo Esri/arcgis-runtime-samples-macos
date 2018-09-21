@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="656" height="592"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-rV-tiC">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-rV-tiC">
                                 <rect key="frame" x="355" y="259" width="281" height="313"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="tmk-nm-TUB">
