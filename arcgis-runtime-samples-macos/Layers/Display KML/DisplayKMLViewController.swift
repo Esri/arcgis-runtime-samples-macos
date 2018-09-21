@@ -35,14 +35,14 @@ class DisplayKMLViewController: NSViewController{
     }
     
     private func display(kmlLayer: AGSKMLLayer){
-        /// Keep a weak reference to the layer being loaded
+        // Keep a weak reference to the layer being loaded
         loadingLayer = kmlLayer
         
         NSApp.showProgressIndicator()
         
         // Clear the existing layers from the map
         mapView.map?.operationalLayers.removeAllObjects()
-        // Add the loaded KML layer to the map
+        // Add the KML layer to the map
         mapView.map?.operationalLayers.add(kmlLayer)
         
         // This load call is not required, but it allows for error
@@ -74,7 +74,7 @@ class DisplayKMLViewController: NSViewController{
         // A URL of a remote KML file
         let kmlDatasetURL = URL(string: "https://www.wpc.ncep.noaa.gov/kml/noaa_chart/WPC_Day1_SigWx.kml")!
         let kmlDataset = AGSKMLDataset(url: kmlDatasetURL)
-         /// A KML layer created from a remote KML file
+        /// A KML layer created from a remote KML file
         let kmlLayer = AGSKMLLayer(kmlDataset: kmlDataset)
         display(kmlLayer: kmlLayer)
     }
