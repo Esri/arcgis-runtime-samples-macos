@@ -71,10 +71,11 @@ extension WindowController: NSSearchFieldDelegate{
         let query = searchField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         if !query.isEmpty{
             let matchingSamples = searchEngine.sortedSamples(matching: query)
-            mainViewController.showCollection(for: matchingSamples)
+            let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
+            mainViewController.showCategory(searchResultsCategory)
         }
         else{
-            mainViewController.showCollectionForAllSamples()
+            mainViewController.showCategoryForAllSamples()
         }
     }
     

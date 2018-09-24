@@ -39,30 +39,24 @@ class MainViewController: NSSplitViewController {
     /// Shows the given category in the right split view item.
     ///
     /// - Parameter category: A category.
-    func showCollection(for category: Category) {
-        showCollection(for: category.samples)
-    }
-    
-    /// Shows a collection view with the samples in the right split view item.
-    ///
-    /// - Parameter samples: The samples to display.
-    func showCollection(for samples: [Sample]) {
+    func showCategory(_ category: Category) {
+       let samples = category.samples
         let sampleCollectionViewController = SampleCollectionViewController(samples: samples)
         sampleCollectionViewController.delegate = self
         showDetailViewController(sampleCollectionViewController)
     }
     
-    
     /// Shows a collection view with all the samples in the app.
-    func showCollectionForAllSamples() {
+    func showCategoryForAllSamples() {
         let allSamples = categories.flatMap({ $0.samples })
-        showCollection(for: allSamples)
+        let category = Category(name: "All Samples", samples: allSamples)
+        showCategory(category)
     }
     
     /// Shows the given sample in the right split view item.
     ///
     /// - Parameter sample: A sample.
-    func show(sample: Sample) {
+    func showSample(_ sample: Sample) {
         let sampleViewController = SampleViewController(sample: sample)
         showDetailViewController(sampleViewController)
     }
@@ -87,9 +81,9 @@ extension MainViewController /* NSSplitViewDelegate */ {
 extension MainViewController: SampleListViewControllerDelegate {
     func sampleListViewControllerSelectionDidChange(_ controller: SampleListViewController) {
         if let category = controller.selectedCategory {
-            showCollection(for: category)
+            showCategory(category)
         } else if let sample = controller.selectedSample {
-            show(sample: sample)
+            showSample(sample)
         }
     }
 }
