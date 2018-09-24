@@ -93,7 +93,7 @@ class ListKMLContentsViewController: NSViewController {
     /// Sets the viewpoint of the scene to the extent of the node, if it has one
     func setSceneViewpoint(on node: AGSKMLNode){
         if let extent = node.extent,
-            // some nodes do not include a geography so check that the extent isn't empty
+            // some nodes do not include a geometry, so check that the extent isn't empty
             !extent.isEmpty {
            
             let viewpoint = AGSViewpoint(targetExtent: extent)
