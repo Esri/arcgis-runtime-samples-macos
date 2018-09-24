@@ -71,7 +71,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="pQf-Os-6Ha" id="SuG-Cd-8Zf"/>
                         <outlet property="extentView" destination="nPh-Qo-CeX" id="npH-8Z-XqI"/>
                         <outlet property="generateButton" destination="hwK-Ar-8zZ" id="oKV-k4-DSy"/>
                         <outlet property="generateButtonParentView" destination="ozd-Mu-MIH" id="YAQ-T4-F5f"/>
@@ -92,6 +91,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="455"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="13t-56-asS">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="455"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="455" id="w0A-1y-Zu2"/>
+                                    <constraint firstAttribute="width" constant="440" id="xc5-dl-QI7"/>
+                                </constraints>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="23" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-Jh-DFl">
+                                <rect key="frame" x="125" y="20" width="191" height="21"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="94W-Px-rac">
+                                        <rect key="frame" x="-6" y="-7" width="96" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LNR-K6-LJW">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="cancelButtonAction:" target="6YE-G8-xMt" id="KR9-Id-D45"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1V-9O-yka">
+                                        <rect key="frame" x="101" y="-7" width="96" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Start Job" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bx6-vK-AvA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="startJobButtonAction:" target="6YE-G8-xMt" id="Hla-DS-4am"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="94W-Px-rac" firstAttribute="width" secondItem="L1V-9O-yka" secondAttribute="width" id="QzK-Ao-LCF"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="26h-vo-9bJ">
                                 <rect key="frame" x="12" y="51" width="417" height="376"/>
                                 <font key="font" metaFont="system"/>
@@ -412,16 +457,6 @@
                                     <gridCell row="UVV-gN-Fdm" column="XZa-78-NIt" id="j2f-P2-J49"/>
                                 </gridCells>
                             </gridView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1V-9O-yka">
-                                <rect key="frame" x="172" y="13" width="96" height="32"/>
-                                <buttonCell key="cell" type="push" title="Start Job" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bx6-vK-AvA">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="startJobButtonAction:" target="6YE-G8-xMt" id="Hla-DS-4am"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-Ck-Os1">
                                 <rect key="frame" x="17" y="421" width="129" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Override Parameters" id="nJg-Wd-sZ7">
@@ -430,28 +465,21 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="13t-56-asS">
-                                <rect key="frame" x="0.0" y="0.0" width="440" height="455"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="455" id="w0A-1y-Zu2"/>
-                                    <constraint firstAttribute="width" constant="440" id="xc5-dl-QI7"/>
-                                </constraints>
-                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="BIY-RX-gPn" firstAttribute="bottom" secondItem="26h-vo-9bJ" secondAttribute="bottom" constant="-20" id="Mcy-w1-b3S"/>
                             <constraint firstAttribute="bottom" secondItem="13t-56-asS" secondAttribute="bottom" id="RPP-9h-Lri"/>
-                            <constraint firstAttribute="bottom" secondItem="L1V-9O-yka" secondAttribute="bottom" constant="20" id="RwE-nj-fYv"/>
+                            <constraint firstAttribute="bottom" secondItem="yY3-Jh-DFl" secondAttribute="bottom" constant="20" id="Vmt-Mg-YHI"/>
                             <constraint firstItem="BIY-RX-gPn" firstAttribute="centerX" secondItem="MXS-Sa-9wV" secondAttribute="centerX" id="YjL-BQ-lrI"/>
-                            <constraint firstItem="L1V-9O-yka" firstAttribute="centerX" secondItem="MXS-Sa-9wV" secondAttribute="centerX" id="hJT-8H-pPR"/>
                             <constraint firstItem="BIY-RX-gPn" firstAttribute="trailing" secondItem="26h-vo-9bJ" secondAttribute="trailing" constant="-10" id="hdh-Jb-jPq"/>
-                            <constraint firstItem="L1V-9O-yka" firstAttribute="top" secondItem="26h-vo-9bJ" secondAttribute="bottom" constant="20" id="kKG-RR-aRX"/>
                             <constraint firstItem="13t-56-asS" firstAttribute="top" secondItem="MXS-Sa-9wV" secondAttribute="top" id="kPj-RC-hdO"/>
                             <constraint firstItem="26h-vo-9bJ" firstAttribute="top" secondItem="KYa-Ck-Os1" secondAttribute="bottom" id="mEK-9m-x54"/>
                             <constraint firstAttribute="trailing" secondItem="13t-56-asS" secondAttribute="trailing" id="nCh-mK-gtk"/>
                             <constraint firstItem="BIY-RX-gPn" firstAttribute="leading" secondItem="26h-vo-9bJ" secondAttribute="leading" constant="10" id="nbb-tE-Kmr"/>
+                            <constraint firstItem="yY3-Jh-DFl" firstAttribute="centerX" secondItem="MXS-Sa-9wV" secondAttribute="centerX" id="o5A-ix-hXw"/>
                             <constraint firstItem="BIY-RX-gPn" firstAttribute="top" secondItem="26h-vo-9bJ" secondAttribute="top" constant="20" id="sCx-Ko-u4k"/>
                             <constraint firstItem="13t-56-asS" firstAttribute="leading" secondItem="MXS-Sa-9wV" secondAttribute="leading" id="scs-76-d7F"/>
+                            <constraint firstItem="yY3-Jh-DFl" firstAttribute="top" secondItem="26h-vo-9bJ" secondAttribute="bottom" constant="20" id="vjo-nq-5v1"/>
                             <constraint firstItem="KYa-Ck-Os1" firstAttribute="leading" secondItem="26h-vo-9bJ" secondAttribute="leading" id="yql-gV-ow5"/>
                         </constraints>
                     </view>
@@ -466,7 +494,7 @@
                 <customObject id="sO6-QQ-4gi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="8Nh-Rh-Z5J"/>
             </objects>
-            <point key="canvasLocation" x="819" y="451"/>
+            <point key="canvasLocation" x="819" y="450.5"/>
         </scene>
         <!--Offline Map Overrides Progress View Controller-->
         <scene sceneID="oEb-j7-oeq">
@@ -514,7 +542,6 @@ Gw
                         </constraints>
                     </customView>
                     <connections>
-                        <outlet property="cancelButton" destination="pQf-Os-6Ha" id="EPe-0I-Su1"/>
                         <outlet property="progressLabel" destination="qMT-xZ-t1U" id="7d0-IE-m8n"/>
                         <outlet property="progressView" destination="FF4-4y-qxF" id="q0u-zT-3vp"/>
                     </connections>

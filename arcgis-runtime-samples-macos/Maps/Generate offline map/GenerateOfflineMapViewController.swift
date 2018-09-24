@@ -19,10 +19,10 @@ import ArcGIS
 
 class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManagerDelegate {
 
-    @IBOutlet var mapView: AGSMapView!
-    @IBOutlet var extentView: NSView!
-    @IBOutlet var generateButton: NSButton!
-    @IBOutlet var generateButtonParentView: NSView!
+    @IBOutlet weak var mapView: AGSMapView!
+    @IBOutlet weak var extentView: NSView!
+    @IBOutlet weak var generateButton: NSButton!
+    @IBOutlet weak var generateButtonParentView: NSView!
     
     private var portalItem: AGSPortalItem?
     private var offlineMapTask: AGSOfflineMapTask?

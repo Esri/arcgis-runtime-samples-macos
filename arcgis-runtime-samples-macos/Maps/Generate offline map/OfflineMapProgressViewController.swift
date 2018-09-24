@@ -24,21 +24,42 @@ protocol OfflineMapProgressViewControllerDelegate: AnyObject {
 
 class OfflineMapProgressViewController: NSViewController {
     
-    @IBOutlet var progressView: NSProgressIndicator!
-    @IBOutlet var progressLabel: NSTextField!
-    @IBOutlet var cancelButton: NSButton!
+    @IBOutlet weak var progressView: NSProgressIndicator?
+    @IBOutlet weak var progressLabel: NSTextField?
     
     weak var delegate:OfflineMapProgressViewControllerDelegate?
+     
+    private var progressObservation: NSKeyValueObservation?
     
     //the progress object that will be used to update the UI
     var progress: Progress?{
         didSet{
-            //remove observer if an old value exists
-            oldValue?.removeObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted))
-            
             //add observer to track progress
-            progress?.addObserver(self, forKeyPath: #keyPath(Progress.fractionCompleted), options: .new, context: nil)
+            progressObservation = progress?.observe(\.fractionCompleted, changeHandler: {[weak self] (progress, change) in
+                DispatchQueue.main.async {
+                    self?.updateProgressUI()
+                }
+            })
+            updateProgressUI()
         }
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        updateProgressUI()
+    }
+    
+    func updateProgressUI(){
+        
+        guard let progress = progress else {
+            return
+        }
+        
+        //update progress label
+        progressLabel?.stringValue = "Generating Offline Map: "+progress.localizedDescription
+        
+        //update progress view
+        progressView?.doubleValue = progress.fractionCompleted
     }
     
     @IBAction func cancelAction(_ button:NSButton) {
@@ -46,29 +67,8 @@ class OfflineMapProgressViewController: NSViewController {
         delegate?.progressViewControllerDidCancel(self)
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == #keyPath(Progress.fractionCompleted) {
-            
-            //run UI updates on the main thread
-            DispatchQueue.main.async { [weak self] in
-                
-                guard let strongSelf = self,
-                    let progress = strongSelf.progress else {
-                        return
-                }
-                
-                //update progress label
-                strongSelf.progressLabel.stringValue = "Generating Offline Map: "+progress.localizedDescription
-                
-                //update progress view
-                strongSelf.progressView.doubleValue = progress.fractionCompleted
-            }
-        }
-    }
-    
     deinit {
-        //set progress to nil to trigger removal of observer
-        progress = nil
+        //remove observation
+        progressObservation = nil
     }
 }

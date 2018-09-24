@@ -19,10 +19,10 @@ import ArcGIS
 
 class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthenticationManagerDelegate {
 
-    @IBOutlet var mapView: AGSMapView!
-    @IBOutlet var extentView: NSView!
-    @IBOutlet var generateButton: NSButton!
-    @IBOutlet var generateButtonParentView: NSView!
+    @IBOutlet weak var mapView: AGSMapView!
+    @IBOutlet weak var extentView: NSView!
+    @IBOutlet weak var generateButton: NSButton!
+    @IBOutlet weak var generateButtonParentView: NSView!
     
     private var portalItem: AGSPortalItem?
     private var offlineMapTask: AGSOfflineMapTask?
@@ -168,11 +168,29 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         paramController.parameterOverrides = parameterOverrides
         paramController.map = mapView.map
         // set the completion handler
-        paramController.startJobHandler = {[weak self] () in
+        paramController.startJobHandler = {[weak self] (paramController) in
+            
+            guard let self = self else {
+                return
+            }
+            
             // close the parameters UI
-            self?.dismiss(paramController)
+            self.dismiss(paramController)
             // initiate the job
-            self?.takeMapOffline()
+            self.takeMapOffline()
+        }
+        paramController.cancelHandler = {[weak self] (paramController) in
+            
+            guard let self = self else {
+                return
+            }
+            
+            // close the parameters UI
+            self.dismiss(paramController)
+            //unhide and enable the offline map button
+            self.generateButtonParentView.isHidden = false
+            //unhide the extent view
+            self.extentView.isHidden = false
         }
         //display the parameters sheet
         presentAsSheet(paramController)
@@ -210,7 +228,6 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         }
         
         //hide and disable the offline map button
-        generateButton.isEnabled = false
         generateButtonParentView.isHidden = true
         
         //hide the extent view
@@ -314,8 +331,6 @@ extension GenerateOfflineMapOverridesViewController: OfflineMapOverridesProgress
         
         //unhide and enable the offline map button
         generateButtonParentView.isHidden = false
-        generateButton.isEnabled = true
-        
         //unhide the extent view
         extentView.isHidden = false
     }

@@ -37,7 +37,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     /// The min scale level for the output. Note that lower values are zoomed further out,
     /// i.e. 0 has the least detail, but one tile covers the entire Earth.
     /// Bound to the UI in the storyboard.
-    @objc dynamic var basemapMinScaleLevel: NSNumber! = 0{
+    @objc dynamic var basemapMinScaleLevel: NSNumber = 0 {
         didSet{
             // ensure that the min is not set greater than that max
             if basemapMinScaleLevel.doubleValue > basemapMaxScaleLevel.doubleValue{
@@ -51,7 +51,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     /// The max scale level for the output. Note that higher values are zoomed further in,
     /// i.e. 23 has the most detail, but each tile covers a tiny area.
     /// Bound to the UI in the storyboard.
-    @objc dynamic var basemapMaxScaleLevel: NSNumber! = 23{
+    @objc dynamic var basemapMaxScaleLevel: NSNumber = 23 {
         didSet{
             // ensure that the max is not set less than that min
             if basemapMaxScaleLevel.doubleValue < basemapMinScaleLevel.doubleValue{
@@ -64,23 +64,31 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     
     /// The extra padding added to the extent rect to fetch a larger area, in meters.
     /// Bound to the UI in the storyboard.
-    @objc dynamic var basemapExtentBuffer: NSNumber! = 0
+    @objc dynamic var basemapExtentBuffer: NSNumber = 0
     
     /// The minimum flow rate by which to filter features in the Hydrants layer, in gallons per minute.
     /// Bound to the UI in the storyboard.
-    @objc dynamic var minHydrantFlowRate: NSNumber! = 0
+    @objc dynamic var minHydrantFlowRate: NSNumber = 0
     
+    //MARK: - cancelling
+    
+    /// The completion handler to run if the user clicks cancel
+    var cancelHandler: ((OfflineMapParameterOverridesViewController)->())?
+    
+    @IBAction func cancelButtonAction(_ sender: NSButton) {
+        cancelHandler?(self)
+    }
     
     //MARK: - completion
     
     /// The completion handler to run once the user is done setting the parameters.
-    var startJobHandler: (()->())?
+    var startJobHandler: ((OfflineMapParameterOverridesViewController)->())?
     
     @IBAction func startJobButtonAction(_ sender: NSButton) {
         // Update the parameters based on the user's input
         setParameterOverridesFromUI()
         // Run the handler callback now that the parameters have been updated
-        startJobHandler?()
+        startJobHandler?(self)
     }
     
     /// Updates the `AGSGenerateOfflineMapParameterOverrides` object with the user-set values.
@@ -97,42 +105,50 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     
     private func restrictBasemapScaleLevelRange() {
         
-         if let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
-            /// The user-set min scale value
-            let basemapMinScaleLevel = basemapMinScaleLevel?.intValue,
-            /// The user-set max scale value
-            let basemapMaxScaleLevel = basemapMaxScaleLevel?.intValue,
+        /// The user-set min scale value
+        let minScale = self.basemapMinScaleLevel.intValue
+        /// The user-set max scale value
+        let maxScale = self.basemapMaxScaleLevel.intValue
+        
+        guard let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
             // Ensure that the lower bound of the range is not greater than the upper bound
-            basemapMinScaleLevel <= basemapMaxScaleLevel{
-            
-            let scaleLevelRange = basemapMinScaleLevel...basemapMaxScaleLevel
-            let scaleLevelIDs = Array(scaleLevelRange) as [NSNumber]
-            // Override the default level IDs
-            tileCacheParameters.levelIDs = scaleLevelIDs
+            minScale <= maxScale else {
+            return
         }
+            
+        let scaleLevelRange = minScale...maxScale
+        let scaleLevelIDs = Array(scaleLevelRange) as [NSNumber]
+        // Override the default level IDs
+        tileCacheParameters.levelIDs = scaleLevelIDs
     }
     
     private func bufferBasemapAreaOfInterest() {
-        if let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
-            /// The user-set distance value
-            let basemapExtentBufferDistance = basemapExtentBuffer?.doubleValue,
+        
+        guard let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
             /// The area initially specified for download when the default parameters object was created
-            let areaOfInterest = tileCacheParameters.areaOfInterest {
-            // Assuming the distance is positive, expand the downloaded area by the given amount
-            let bufferedArea = AGSGeometryEngine.bufferGeometry(areaOfInterest, byDistance: basemapExtentBufferDistance)
-            // Override the default area of interest
-            tileCacheParameters.areaOfInterest = bufferedArea
+            let areaOfInterest = tileCacheParameters.areaOfInterest else{
+            return
         }
+            
+        /// The user-set distance value
+        let basemapExtentBufferDistance = basemapExtentBuffer.doubleValue
+        
+        // Assuming the distance is positive, expand the downloaded area by the given amount
+        let bufferedArea = AGSGeometryEngine.bufferGeometry(areaOfInterest, byDistance: basemapExtentBufferDistance)
+        // Override the default area of interest
+        tileCacheParameters.areaOfInterest = bufferedArea
     }
     
     //MARK: - Layer adjustment
     
     private func addHydrantFilter(){
-        if let minFlowRate = minHydrantFlowRate?.doubleValue{
-            for option in getGenerateGeodatabaseParametersLayerOptions(forLayerNamed: "Hydrant") {
-                // Set the SQL where clause for this layer's options, filtering features based on the FLOW field values
-                option.whereClause = "FLOW >= \(minFlowRate)"
-            }
+        
+        /// The user-set min flow rate value
+        let minFlowRate = minHydrantFlowRate.doubleValue
+        
+        for option in getGenerateGeodatabaseParametersLayerOptions(forLayerNamed: "Hydrant") {
+            // Set the SQL where clause for this layer's options, filtering features based on the FLOW field values
+            option.whereClause = "FLOW >= \(minFlowRate)"
         }
     }
     
@@ -143,9 +159,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
                 let serviceLayerID = serviceLayerID(for: layer),
                 let parameters = getGenerateGeodatabaseParameters(forLayer: layer){
                 // Remove the options for this layer from the parameters
-                parameters.layerOptions.removeAll(where: { (option) -> Bool in
-                    return option.layerID == serviceLayerID
-                })
+                parameters.layerOptions.removeAll { return $0.layerID == serviceLayerID }
             }
         }
         
