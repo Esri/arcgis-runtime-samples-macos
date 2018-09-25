@@ -53,7 +53,7 @@ class OfflineMapProgressViewController: NSViewController {
     
     func observeProgress(){
         //observe progress
-        progressObservation = progress?.observe(\.fractionCompleted,  options: .initial, changeHandler: {[weak self] (progress, change) in
+        progressObservation = progress?.observe(\.fractionCompleted,  options: .initial, changeHandler: {[weak self] (_, _) in
             DispatchQueue.main.async {
                 self?.updateProgressUI()
             }
