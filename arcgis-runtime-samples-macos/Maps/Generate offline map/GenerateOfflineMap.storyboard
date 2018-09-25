@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="grZ-q4-GUm">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="grZ-q4-GUm">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Generate Offline Map View Controller-->
@@ -73,7 +71,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="pQf-Os-6Ha" id="SuG-Cd-8Zf"/>
                         <outlet property="extentView" destination="nPh-Qo-CeX" id="npH-8Z-XqI"/>
                         <outlet property="generateButton" destination="hwK-Ar-8zZ" id="oKV-k4-DSy"/>
                         <outlet property="generateButtonParentView" destination="ozd-Mu-MIH" id="YAQ-T4-F5f"/>
@@ -132,7 +129,6 @@ Gw
                         </constraints>
                     </customView>
                     <connections>
-                        <outlet property="cancelButton" destination="pQf-Os-6Ha" id="EPe-0I-Su1"/>
                         <outlet property="progressLabel" destination="qMT-xZ-t1U" id="7d0-IE-m8n"/>
                         <outlet property="progressView" destination="FF4-4y-qxF" id="q0u-zT-3vp"/>
                     </connections>
