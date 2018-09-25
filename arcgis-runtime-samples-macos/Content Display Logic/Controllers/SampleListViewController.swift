@@ -37,6 +37,10 @@ class SampleListViewController: NSViewController {
         }
     }
     
+    func deselectAllOutlineViewCells(){
+        outlineView.deselectAll(nil)
+    }
+    
     /// Selects the given category in the list.
     ///
     /// - Parameter category: The category to select.

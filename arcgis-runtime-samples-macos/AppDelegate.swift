@@ -47,7 +47,10 @@ class AppDelegate: NSObject {
 extension AppDelegate: NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Decode and populate Categories.
-        mainViewController.categories = decodeCategories(at: contentPlistURL)
+        let categories = decodeCategories(at: contentPlistURL)
+        mainViewController.categories = categories
+        let allSamples = categories.flatMap({ $0.samples })
+        mainWindowController.loadSearchEngine(samples: allSamples)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
