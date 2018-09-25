@@ -384,9 +384,6 @@
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
 		C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
-		C79F51D92155A622001B41EA /* ListKMLContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79F51D72155A622001B41EA /* ListKMLContents.storyboard */; };
-		C79F51DA2155A622001B41EA /* ListKMLContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
-		C79F51DC2155A84F001B41EA /* esri_test_data.kmz in Resources */ = {isa = PBXBuildFile; fileRef = C79F51DB2155A84F001B41EA /* esri_test_data.kmz */; };
 		C7586C852153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */; };
 		C7586C862153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */; };
 		C7586C872153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */; };
@@ -394,6 +391,9 @@
 		C7586C892153F8D8005A4F11 /* OfflineMapOverridesProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */; };
 		C76725E12154128B00B738AB /* OfflineMapParameterOverridesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */; };
 		C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */; };
+		C79F51D92155A622001B41EA /* ListKMLContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79F51D72155A622001B41EA /* ListKMLContents.storyboard */; };
+		C79F51DA2155A622001B41EA /* ListKMLContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
+		C79F51DC2155A84F001B41EA /* esri_test_data.kmz in Resources */ = {isa = PBXBuildFile; fileRef = C79F51DB2155A84F001B41EA /* esri_test_data.kmz */; };
 		D952E0162107D7AC00424FF3 /* dolmus_back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */; };
 		D952E0172107D7AC00424FF3 /* dolmus.3ds in Resources */ = {isa = PBXBuildFile; fileRef = D952E0122107D7AC00424FF3 /* dolmus.3ds */; };
 		D952E0182107D7AC00424FF3 /* tire_tread.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0132107D7AC00424FF3 /* tire_tread.jpeg */; };
@@ -869,13 +869,13 @@
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapProgressViewController.swift; sourceTree = "<group>"; };
-		C79F51D72155A622001B41EA /* ListKMLContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListKMLContents.storyboard; sourceTree = "<group>"; };
-		C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListKMLContentsViewController.swift; sourceTree = "<group>"; };
-		C79F51DB2155A84F001B41EA /* esri_test_data.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = esri_test_data.kmz; sourceTree = "<group>"; };
 		C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMapOverrides.storyboard; sourceTree = "<group>"; };
 		C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineMapOverridesProgressViewController.swift; sourceTree = "<group>"; };
 		C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapOverridesViewController.swift; sourceTree = "<group>"; };
 		C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapParameterOverridesViewController.swift; sourceTree = "<group>"; };
+		C79F51D72155A622001B41EA /* ListKMLContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListKMLContents.storyboard; sourceTree = "<group>"; };
+		C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListKMLContentsViewController.swift; sourceTree = "<group>"; };
+		C79F51DB2155A84F001B41EA /* esri_test_data.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = esri_test_data.kmz; sourceTree = "<group>"; };
 		D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dolmus_back.jpeg; sourceTree = "<group>"; };
 		D952E0122107D7AC00424FF3 /* dolmus.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = dolmus.3ds; sourceTree = "<group>"; };
 		D952E0132107D7AC00424FF3 /* tire_tread.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tire_tread.jpeg; sourceTree = "<group>"; };
@@ -1157,6 +1157,7 @@
 				D97B7E751FDAEA3600E1239D /* Shapefiles */,
 				3E01036E1E298D300013AEEF /* Tile packages */,
 				3EFDE0951E303B0600CBCD92 /* Rasters */,
+				C7E1609B215AD8B40073A4F6 /* KML */,
 			);
 			path = "Shared resources";
 			sourceTree = "<group>";
@@ -2233,16 +2234,6 @@
 			path = "Raster layer (geopackage)";
 			sourceTree = "<group>";
 		};
-		C79F51D62155A354001B41EA /* List KML contents */ = {
-			isa = PBXGroup;
-			children = (
-				C79F51D72155A622001B41EA /* ListKMLContents.storyboard */,
-				C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */,
-				C79F51DB2155A84F001B41EA /* esri_test_data.kmz */,
-			);
-			path = "List KML contents";
-			sourceTree = "<group>";
-		};
 		C7586C812153F6DD005A4F11 /* Generate offline map (overrides) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2252,6 +2243,23 @@
 				C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */,
 			);
 			path = "Generate offline map (overrides)";
+			sourceTree = "<group>";
+		};
+		C79F51D62155A354001B41EA /* List KML contents */ = {
+			isa = PBXGroup;
+			children = (
+				C79F51D72155A622001B41EA /* ListKMLContents.storyboard */,
+				C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */,
+			);
+			path = "List KML contents";
+			sourceTree = "<group>";
+		};
+		C7E1609B215AD8B40073A4F6 /* KML */ = {
+			isa = PBXGroup;
+			children = (
+				C79F51DB2155A84F001B41EA /* esri_test_data.kmz */,
+			);
+			path = KML;
 			sourceTree = "<group>";
 		};
 		C7E79ADC213F3B4800C24A02 /* Generate offline map */ = {
