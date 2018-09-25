@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +13,9 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="38"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="uNO-vc-xR3">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="38"/>
+                </visualEffectView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-rb-fEM">
                     <rect key="frame" x="18" y="10" width="444" height="18"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of samples" id="YQh-1m-Vea">
@@ -23,9 +27,13 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Q7z-rb-fEM" secondAttribute="bottom" constant="10" id="59g-AC-XD8"/>
+                <constraint firstItem="uNO-vc-xR3" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="7Vx-wy-Qpt"/>
                 <constraint firstItem="Q7z-rb-fEM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="G8u-Dl-vmM"/>
                 <constraint firstItem="Q7z-rb-fEM" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="GWB-1m-gxr"/>
                 <constraint firstAttribute="trailing" secondItem="Q7z-rb-fEM" secondAttribute="trailing" constant="20" id="WIi-RF-7Yi"/>
+                <constraint firstAttribute="trailing" secondItem="uNO-vc-xR3" secondAttribute="trailing" id="u3f-21-h5I"/>
+                <constraint firstAttribute="bottom" secondItem="uNO-vc-xR3" secondAttribute="bottom" id="uBh-bY-PMx"/>
+                <constraint firstItem="uNO-vc-xR3" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="xI4-fg-tXX"/>
             </constraints>
             <connections>
                 <outlet property="label" destination="Q7z-rb-fEM" id="Jrf-7q-v2S"/>

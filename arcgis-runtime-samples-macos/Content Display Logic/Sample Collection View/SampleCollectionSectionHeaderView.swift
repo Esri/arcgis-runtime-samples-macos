@@ -18,8 +18,4 @@ import Cocoa
 
 class SampleCollectionSectionHeaderView: NSView, NSCollectionViewSectionHeaderView {
     @IBOutlet var label: NSTextField!
-    
-    override func updateLayer() {
-        layer?.backgroundColor = NSColor.headerColor.cgColor
-    }
 }
