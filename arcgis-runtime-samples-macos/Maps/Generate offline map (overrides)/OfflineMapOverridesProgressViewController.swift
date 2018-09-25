@@ -17,18 +17,18 @@
 import Cocoa
 import ArcGIS
 
-protocol OfflineMapProgressViewControllerDelegate: AnyObject {
+protocol OfflineMapOverridesProgressViewControllerDelegate: AnyObject {
     
-    func progressViewControllerDidCancel(_ progressViewController:OfflineMapProgressViewController)
+    func progressViewControllerDidCancel(_ progressViewController:OfflineMapOverridesProgressViewController)
 }
 
-class OfflineMapProgressViewController: NSViewController {
+class OfflineMapOverridesProgressViewController: NSViewController {
     
     @IBOutlet weak var progressView: NSProgressIndicator?
     @IBOutlet weak var progressLabel: NSTextField?
     
-    weak var delegate:OfflineMapProgressViewControllerDelegate?
-     
+    weak var delegate:OfflineMapOverridesProgressViewControllerDelegate?
+    
     private var progressObservation: NSKeyValueObservation?
     
     ///The progress object used to update the UI
