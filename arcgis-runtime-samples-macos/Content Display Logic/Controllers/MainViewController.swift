@@ -85,6 +85,9 @@ extension MainViewController: SampleListViewControllerDelegate {
         } else if let sample = controller.selectedSample {
             showSample(sample)
         }
+        else {
+            showCategoryForAllSamples()
+        }
     }
 }
 
