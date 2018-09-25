@@ -1157,6 +1157,7 @@
 				D97B7E751FDAEA3600E1239D /* Shapefiles */,
 				3E01036E1E298D300013AEEF /* Tile packages */,
 				3EFDE0951E303B0600CBCD92 /* Rasters */,
+				C7E1609A215AD7B90073A4F6 /* KML */,
 			);
 			path = "Shared resources";
 			sourceTree = "<group>";
@@ -2238,7 +2239,6 @@
 			children = (
 				C74AA5302152CA3D009047AF /* DisplayKML.storyboard */,
 				C74AA52E2152C96B009047AF /* DisplayKMLViewController.swift */,
-				C74AA5332152D333009047AF /* US_State_Capitals.kml */,
 			);
 			path = "Display KML";
 			sourceTree = "<group>";
@@ -2252,6 +2252,14 @@
 				C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */,
 			);
 			path = "Generate offline map (overrides)";
+			sourceTree = "<group>";
+		};
+		C7E1609A215AD7B90073A4F6 /* KML */ = {
+			isa = PBXGroup;
+			children = (
+				C74AA5332152D333009047AF /* US_State_Capitals.kml */,
+			);
+			path = KML;
 			sourceTree = "<group>";
 		};
 		C7E79ADC213F3B4800C24A02 /* Generate offline map */ = {
