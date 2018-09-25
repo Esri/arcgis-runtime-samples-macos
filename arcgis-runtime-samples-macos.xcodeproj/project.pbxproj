@@ -165,8 +165,7 @@
 		3E69DE441CFE2826001F65F7 /* CalloutViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E049A331CED132F0031ADA9 /* CalloutViewController.swift */; };
 		3E69DE461CFE2DEC001F65F7 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE451CFE2DEC001F65F7 /* WindowController.swift */; };
 		3E69DE481CFE34A3001F65F7 /* ReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE471CFE34A3001F65F7 /* ReadmeViewController.swift */; };
-		3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE4A1CFE43EA001F65F7 /* SearchEngine.swift */; };
-		3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE4C1CFE48D5001F65F7 /* SuggestionsViewController.swift */; };
+		3E69DE4B1CFE43EA001F65F7 /* SampleSearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE4A1CFE43EA001F65F7 /* SampleSearchEngine.swift */; };
 		3E69DE4F1CFF7F48001F65F7 /* SampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69DE4E1CFF7F48001F65F7 /* SampleCollectionViewController.swift */; };
 		3E69DE541CFF8D5F001F65F7 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */; };
 		3E78235E1DCD52D20011B304 /* IdentifyLayers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E78235C1DCD52D20011B304 /* IdentifyLayers.storyboard */; };
@@ -692,8 +691,7 @@
 		3E5E09451EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindServiceAreaInteractiveVC.swift; sourceTree = "<group>"; };
 		3E69DE451CFE2DEC001F65F7 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		3E69DE471CFE34A3001F65F7 /* ReadmeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadmeViewController.swift; sourceTree = "<group>"; };
-		3E69DE4A1CFE43EA001F65F7 /* SearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
-		3E69DE4C1CFE48D5001F65F7 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
+		3E69DE4A1CFE43EA001F65F7 /* SampleSearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleSearchEngine.swift; sourceTree = "<group>"; };
 		3E69DE4E1CFF7F48001F65F7 /* SampleCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewController.swift; sourceTree = "<group>"; };
 		3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		3E78235C1DCD52D20011B304 /* IdentifyLayers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IdentifyLayers.storyboard; sourceTree = "<group>"; };
@@ -1156,13 +1154,12 @@
 		3E049A231CED0C760031ADA9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */,
-				3E7C0E311CF8F4FE00200B6E /* SourceCodeViewController.swift */,
 				3E69DE451CFE2DEC001F65F7 /* WindowController.swift */,
-				3E69DE471CFE34A3001F65F7 /* ReadmeViewController.swift */,
-				3E69DE4C1CFE48D5001F65F7 /* SuggestionsViewController.swift */,
+				3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */,
 				4C8130D62100F29C00FD4892 /* SampleListViewController.swift */,
 				4CF0258021151F9C00806810 /* SampleViewController.swift */,
+				3E7C0E311CF8F4FE00200B6E /* SourceCodeViewController.swift */,
+				3E69DE471CFE34A3001F65F7 /* ReadmeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1869,7 +1866,7 @@
 			children = (
 				4C80B8DF21501DC600840A94 /* Category.swift */,
 				4C80B8DD21501DAF00840A94 /* Sample.swift */,
-				3E69DE4A1CFE43EA001F65F7 /* SearchEngine.swift */,
+				3E69DE4A1CFE43EA001F65F7 /* SampleSearchEngine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2710,7 +2707,6 @@
 				3EFDE0D91E31850900CBCD92 /* FeatureCollectionLayerQueryVC.swift in Sources */,
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
 				1271FB9F1FE300E200536F60 /* LineOfSightLocationViewController.swift in Sources */,
-				3E69DE4D1CFE48D5001F65F7 /* SuggestionsViewController.swift in Sources */,
 				3EFDE0A81E31279700CBCD92 /* RGBRendererViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3E0662571F031F2C007666DF /* ChangeSublayerRendererVC.swift in Sources */,
@@ -2787,7 +2783,7 @@
 				D971AC4320EEDDE90062DA69 /* SymbolizeShapefileViewController.swift in Sources */,
 				3ECCFE2F1BCC320400CE256D /* MapRotationViewController.swift in Sources */,
 				97F8BF171FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift in Sources */,
-				3E69DE4B1CFE43EA001F65F7 /* SearchEngine.swift in Sources */,
+				3E69DE4B1CFE43EA001F65F7 /* SampleSearchEngine.swift in Sources */,
 				3E0103871E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift in Sources */,
 				3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */,
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
