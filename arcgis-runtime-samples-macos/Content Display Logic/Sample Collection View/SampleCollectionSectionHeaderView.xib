@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="38"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="uNO-vc-xR3">
+                <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="uNO-vc-xR3">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="38"/>
                 </visualEffectView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-rb-fEM">
