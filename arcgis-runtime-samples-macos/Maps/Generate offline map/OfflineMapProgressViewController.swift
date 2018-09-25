@@ -31,21 +31,33 @@ class OfflineMapProgressViewController: NSViewController {
      
     private var progressObservation: NSKeyValueObservation?
     
-    //the progress object that will be used to update the UI
+    ///The progress object used to update the UI
     var progress: Progress?{
         didSet{
-            //add observer to track progress
-            progressObservation = progress?.observe(\.fractionCompleted, changeHandler: {[weak self] (progress, change) in
-                DispatchQueue.main.async {
-                    self?.updateProgressUI()
-                }
-            })
-            updateProgressUI()
+            //observe here in case the view appears before progress is set
+            observeProgress()
         }
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
+        //observe here in case progress is set before the view is loaded
+        observeProgress()
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        //remove observation
+        progressObservation = nil
+    }
+    
+    func observeProgress(){
+        //observe progress
+        progressObservation = progress?.observe(\.fractionCompleted, changeHandler: {[weak self] (progress, change) in
+            DispatchQueue.main.async {
+                self?.updateProgressUI()
+            }
+        })
         updateProgressUI()
     }
     
@@ -56,7 +68,7 @@ class OfflineMapProgressViewController: NSViewController {
         }
         
         //update progress label
-        progressLabel?.stringValue = "Generating Offline Map: "+progress.localizedDescription
+        progressLabel?.stringValue = "Generating Offline Map With Overrides: \(progress.localizedDescription!)"
         
         //update progress view
         progressView?.doubleValue = progress.fractionCompleted
@@ -65,10 +77,5 @@ class OfflineMapProgressViewController: NSViewController {
     @IBAction func cancelAction(_ button:NSButton) {
         // notify the delegate that cancel was pressed
         delegate?.progressViewControllerDidCancel(self)
-    }
-    
-    deinit {
-        //remove observation
-        progressObservation = nil
     }
 }
