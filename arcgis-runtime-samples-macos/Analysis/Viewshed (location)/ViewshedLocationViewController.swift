@@ -21,8 +21,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
 
     @IBOutlet weak var sceneView: AGSSceneView!
     
-    @IBOutlet weak var setObserverInstruction: NSView!
-    @IBOutlet weak var updateObserverInstruction: NSView!
+    @IBOutlet weak var instructionLabel: NSTextField!
     
     @IBOutlet weak var viewshedSettingsView: NSVisualEffectView!
     @IBOutlet weak var viewshedSettingsTextField: NSTextField!
@@ -50,15 +49,15 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     
     private var canMoveViewshed:Bool = false {
         didSet {
-            if canMoveViewshed {
-                updateObserverInstruction.isHidden = false
-                setObserverInstruction.isHidden = true
-            }
+            guard canMoveViewshed != oldValue else { return }
+            updateInstructionLabel()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateInstructionLabel()
         
         // settings
         frustumOutlineSegmentedControl.setSelected(false, forSegment: 0)
@@ -106,6 +105,16 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         obstructedAreaColorWell.color = AGSViewshed.obstructedColor().withAlphaComponent(1)
         visibleAreaColorWell.color = AGSViewshed.visibleColor().withAlphaComponent(1)
         frustrumOutlineColorWell.color = AGSViewshed.frustumOutlineColor().withAlphaComponent(1)
+    }
+    
+    func updateInstructionLabel() {
+        let instruction: String
+        if canMoveViewshed {
+            instruction = "Click-and-drag to move the viewshed"
+        } else {
+            instruction = "Click on the map to add observer location"
+        }
+        instructionLabel.stringValue = instruction
     }
     
     // MARK: - AGSGeoViewTouchDelegate
