@@ -31,8 +31,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QCK-8n-AwU" firstAttribute="top" secondItem="lrg-R8-ISS" secondAttribute="top" constant="8" id="HMw-qk-pLi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QCK-8n-AwU" secondAttribute="trailing" constant="8" id="d5M-fW-8aY"/>
                                     <constraint firstAttribute="bottom" secondItem="QCK-8n-AwU" secondAttribute="bottom" constant="8" id="jbg-uf-74x"/>
                                     <constraint firstItem="QCK-8n-AwU" firstAttribute="centerX" secondItem="lrg-R8-ISS" secondAttribute="centerX" id="rcc-Sb-vpp"/>
+                                    <constraint firstItem="QCK-8n-AwU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lrg-R8-ISS" secondAttribute="leading" constant="8" id="yzg-et-bKw"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
