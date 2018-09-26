@@ -67,7 +67,7 @@ class OfflineMapProgressViewController: NSViewController {
         }
         
         //update progress label
-        progressLabel?.stringValue = "Generating Offline Map With Overrides: \(progress.localizedDescription!)"
+        progressLabel?.stringValue = "Generating Offline Map: \(progress.localizedDescription!)"
         
         //update progress view
         progressView?.doubleValue = progress.fractionCompleted
