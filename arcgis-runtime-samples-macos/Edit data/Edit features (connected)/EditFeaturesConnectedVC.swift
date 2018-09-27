@@ -132,6 +132,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.popupsVC.delegate = self
         
         //sizing
+        self.popupsVC.view.appearance = NSAppearance(named: .aqua)
         self.popupsVC.view.frame = self.containerView.bounds
         self.popupsVC.view.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
         self.containerView.addSubview(self.popupsVC.view)
