@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,24 +17,35 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-Fg-Hvg" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lW7-NO-G6Y">
-                                <rect key="frame" x="374" y="252" width="62" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cut" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eVz-kU-eQV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cutGeometryWithPolyline:" target="snF-ms-OmO" id="lBQ-LW-tMw"/>
-                                </connections>
-                            </button>
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-Qw-eQ4">
+                                <rect key="frame" x="0.0" y="263" width="450" height="37"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lW7-NO-G6Y">
+                                        <rect key="frame" x="386" y="1" width="62" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Cut" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eVz-kU-eQV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="cutGeometryWithPolyline:" target="snF-ms-OmO" id="lBQ-LW-tMw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lW7-NO-G6Y" secondAttribute="bottom" constant="8" id="5LP-cC-TCO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lW7-NO-G6Y" secondAttribute="trailing" constant="8" id="CN3-Ly-ZlH"/>
+                                    <constraint firstItem="lW7-NO-G6Y" firstAttribute="top" secondItem="zBf-Qw-eQ4" secondAttribute="top" constant="8" id="mq4-Qg-dMi"/>
+                                </constraints>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="1M4-tR-pfz"/>
                             <constraint firstAttribute="trailing" secondItem="aoQ-Fg-Hvg" secondAttribute="trailing" id="7Hh-ib-wcJ"/>
+                            <constraint firstItem="zBf-Qw-eQ4" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="8Qv-2B-oHB"/>
                             <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="N8A-bk-Tfs"/>
-                            <constraint firstAttribute="trailing" secondItem="lW7-NO-G6Y" secondAttribute="trailing" constant="20" id="Y8N-02-lxo"/>
+                            <constraint firstItem="zBf-Qw-eQ4" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="ZHZ-y9-k1C"/>
+                            <constraint firstAttribute="trailing" secondItem="zBf-Qw-eQ4" secondAttribute="trailing" id="ZQg-V6-ejH"/>
                             <constraint firstAttribute="bottom" secondItem="aoQ-Fg-Hvg" secondAttribute="bottom" id="edp-fc-R8Q"/>
-                            <constraint firstItem="lW7-NO-G6Y" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" constant="20" id="sA1-gk-4Tf"/>
                         </constraints>
                     </view>
                     <connections>
