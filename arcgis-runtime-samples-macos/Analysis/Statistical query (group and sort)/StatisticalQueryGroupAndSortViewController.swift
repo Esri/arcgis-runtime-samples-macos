@@ -16,7 +16,7 @@
 import Cocoa
 import ArcGIS
 
-class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
+class StatisticalQueryGroupAndSortViewController: NSViewController {
     
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var parametersLabel: NSTextField!
@@ -28,6 +28,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     @IBOutlet private weak var groupByFieldsTableView: NSTableView!
     @IBOutlet private weak var orderByFieldsTableView: NSTableView!
     @IBOutlet private weak var statisticQueryResultsOutlineView: NSOutlineView!
+    @IBOutlet private weak var addStatisticsDefinitionButton: NSButton!
     @IBOutlet private weak var removeStatisticDefinitionButton: NSButton!
     @IBOutlet private weak var getStatisticsButton: NSButton!
 
@@ -124,6 +125,13 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
     
     // MARK: - Actions
     
+    @IBAction func comboBoxAction(_ sender: NSComboBox) {
+        // Both a field name and statistic type must be specified in order to add a definition
+        let canAddDefinition = fieldNamesComboBox.indexOfSelectedItem >= 0 && statisticTypeComboBox.indexOfSelectedItem >= 0
+        // Set the enabled state of the add button
+        addStatisticsDefinitionButton.isEnabled = canAddDefinition
+    }
+    
     @IBAction func addStatisticDefinitionAction(_ sender: Any) {
         //
         // Get the selected values
@@ -146,11 +154,8 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
             // Reload table
             statisticDefinitionsTableView.reloadData()
         }
-        
-        // Enable remove button
-        if statisticDefinitions.count > 0 {
-            removeStatisticDefinitionButton.isEnabled = true
-        }
+        // Enable the removal button if needed
+        setRemoveStatisticButtonEnabledState()
     }
     
     @IBAction func removeStatisticDefinitionAction(_ sender: Any) {
@@ -161,16 +166,16 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         statisticDefinitionsTableView.removeRows(at: selectedIndexes, withAnimation: NSTableView.AnimationOptions.effectFade)
         statisticDefinitionsTableView.endUpdates()
         
-        // Remove selected statistic definitions
-        selectedIndexes.forEach { (index) in
-            statisticDefinitions.remove(at: index)
+        // Find and remove the selected statistic definitions
+        let selectedDefinitions = Set(selectedIndexes.map { (index) -> AGSStatisticDefinition in
+            return statisticDefinitions[index]
+        })
+        statisticDefinitions.removeAll { (definition) -> Bool in
+            selectedDefinitions.contains(definition)
         }
-        
-        // Disable remove button if there is no
-        // statistic definitions
-        if statisticDefinitions.count == 0 {
-            removeStatisticDefinitionButton.isEnabled = false
-        }
+
+        // Disable the removal button if needed
+        setRemoveStatisticButtonEnabledState()
     }
     
     @IBAction private func getStatisticsAction(_ sender: Any) {
@@ -238,7 +243,34 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         statisticTypeComboBox.selectItem(at: 0)
     }
     
-    // MARK: - NSTableViewDataSource
+    // MARK: - Helper Methods
+    
+    private func showAlert(messageText:String, informativeText:String) {
+        if let window = view.window {
+            let alert = NSAlert()
+            alert.messageText = messageText
+            alert.informativeText = informativeText
+            alert.beginSheetModal(for: window)
+        }
+    }
+    
+    private func stringFor(sortOrder: AGSSortOrder) -> String {
+        switch sortOrder {
+        case .ascending:
+            return "Ascending"
+        case .descending:
+            return "Descending"
+        }
+    }
+    
+    private func setRemoveStatisticButtonEnabledState(){
+        // Only allow definition removal if there is a selected definition
+        removeStatisticDefinitionButton.isEnabled = !statisticDefinitionsTableView.selectedRowIndexes.isEmpty
+    }
+    
+}
+
+extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == statisticDefinitionsTableView {
@@ -349,8 +381,19 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         }
         return nil
     }
+}
+
+extension StatisticalQueryGroupAndSortViewController: NSTableViewDelegate {
     
-    // MARK: - NSOutlineViewDataSource
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if notification.object as? NSTableView == statisticDefinitionsTableView {
+            // Enable or disable the removal button as needed
+            setRemoveStatisticButtonEnabledState()
+        }
+    }
+}
+
+extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let statisticRecord = item as? AGSStatisticRecord {
@@ -402,25 +445,4 @@ class StatisticalQueryGroupAndSortViewController: NSViewController, NSTableViewD
         }
         return cellView
     }
-    
-    // MARK: - Helper Methods
-    
-    private func showAlert(messageText:String, informativeText:String) {
-        if let window = view.window {
-            let alert = NSAlert()
-            alert.messageText = messageText
-            alert.informativeText = informativeText
-            alert.beginSheetModal(for: window)
-        }
-    }
-    
-    private func stringFor(sortOrder: AGSSortOrder) -> String {
-        switch sortOrder {
-        case .ascending:
-            return "Ascending"
-        case .descending:
-            return "Descending"
-        }
-    }
 }
-
