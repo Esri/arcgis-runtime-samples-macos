@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="lGr-1u-PuO" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="510" height="386"/>
                             </customView>
-                            <visualEffectView hidden="YES" wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-D5-6yT">
+                            <visualEffectView hidden="YES" wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="7n8-D5-6yT">
                                 <rect key="frame" x="250" y="30" width="250" height="350"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="wga-op-kw2">
@@ -41,11 +41,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="dpU-56-ajO" secondAttribute="trailing" constant="10" id="liN-j1-W4w"/>
                                                     <constraint firstAttribute="height" constant="30" id="rWN-ZA-3bn"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                        <color key="value" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </customView>
                                             <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woQ-4g-RSI">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="320"/>
@@ -149,11 +144,11 @@
                                                         </outlineView>
                                                     </subviews>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="WH6-dy-xIS">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="WH6-dy-xIS">
                                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="CX2-44-jOd">
+                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="CX2-44-jOd">
                                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
