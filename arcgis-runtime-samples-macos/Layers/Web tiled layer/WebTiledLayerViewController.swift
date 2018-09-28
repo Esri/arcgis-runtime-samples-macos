@@ -45,7 +45,7 @@ class WebTiledLayerViewController: NSViewController {
     private func webTiledLayer(for index:Int) -> AGSWebTiledLayer {
         
         //url template for web tiled layer
-        var urlTemplate:String
+        let urlTemplate: String
         
         switch index {
         case 0:
