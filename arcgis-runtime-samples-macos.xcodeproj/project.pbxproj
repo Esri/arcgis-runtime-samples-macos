@@ -380,6 +380,9 @@
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
+		C743A8F5215A9A240081B756 /* DisplayKMLNetworkLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */; };
+		C743A8F6215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743A8F4215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift */; };
+		C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C743A8F4215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift */; };
 		C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
 		C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
 		C7586C852153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */; };
@@ -455,6 +458,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
 				C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */,
 				C7586C892153F8D8005A4F11 /* OfflineMapOverridesProgressViewController.swift in CopyFiles */,
@@ -861,6 +865,8 @@
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
+		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
+		C743A8F4215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayKMLNetworkLinksViewController.swift; sourceTree = "<group>"; };
 		C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapProgressViewController.swift; sourceTree = "<group>"; };
 		C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMapOverrides.storyboard; sourceTree = "<group>"; };
 		C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineMapOverridesProgressViewController.swift; sourceTree = "<group>"; };
@@ -1485,6 +1491,7 @@
 				4C64B92320D32829007D41A2 /* Style WMS layers */,
 				4C914BB520D9C4AD00779991 /* Query a map image sublayer */,
 				D971AC4020EEDD950062DA69 /* Symbolize shapefile */,
+				C743A8F2215A99DB0081B756 /* Display KML network links */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -2221,6 +2228,15 @@
 			path = "Raster layer (geopackage)";
 			sourceTree = "<group>";
 		};
+		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
+			isa = PBXGroup;
+			children = (
+				C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */,
+				C743A8F4215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift */,
+			);
+			path = "Display KML network links";
+			sourceTree = "<group>";
+		};
 		C7586C812153F6DD005A4F11 /* Generate offline map (overrides) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2520,6 +2536,7 @@
 				3E87248F1BC710A6006386C1 /* OpenMapURL.storyboard in Resources */,
 				3E01036C1E298B530013AEEF /* LocalTiledLayer.storyboard in Resources */,
 				3E0103711E298D300013AEEF /* SanFrancisco.tpk in Resources */,
+				C743A8F5215A9A240081B756 /* DisplayKMLNetworkLinks.storyboard in Resources */,
 				D971AC5820EEDFDB0062DA69 /* Public_Art.sbx in Resources */,
 				3EA7340A1EC0CCF400356885 /* Snowdon.csv in Resources */,
 				D952E0192107D7AC00424FF3 /* dolmus_side.jpeg in Resources */,
@@ -2674,6 +2691,7 @@
 				3E049A351CED132F0031ADA9 /* GraphicsWithSymbolsViewController.swift in Sources */,
 				4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */,
 				E48008E91FE44B3A0064809E /* ViewshedGeoElementViewController.swift in Sources */,
+				C743A8F6215A9A240081B756 /* DisplayKMLNetworkLinksViewController.swift in Sources */,
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
