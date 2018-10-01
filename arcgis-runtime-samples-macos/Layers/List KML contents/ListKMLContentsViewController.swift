@@ -87,14 +87,13 @@ class ListKMLContentsViewController: NSViewController {
     
     /// Returns all the child nodes of this node
     private func childNodes(of node: AGSKMLNode) -> [AGSKMLNode] {
-        var children = [AGSKMLNode]()
         if let container = node as? AGSKMLContainer {
-            children.append(contentsOf: container.childNodes)
+            return container.childNodes
         }
-        if let networkLink = node as? AGSKMLNetworkLink {
-            children.append(contentsOf: networkLink.childNodes)
+        else if let networkLink = node as? AGSKMLNetworkLink {
+            return networkLink.childNodes
         }
-        return children
+        return []
     }
     
     //MARK: - Viewpoint
