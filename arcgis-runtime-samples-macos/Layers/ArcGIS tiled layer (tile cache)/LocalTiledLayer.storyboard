@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YbI-rg-IEQ" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-2E-CO1">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="fBq-2E-CO1">
                                 <rect key="frame" x="180" y="30" width="250" height="250"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="NwI-FT-hnO">
@@ -28,7 +28,7 @@
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select a tile package to open" id="b91-s2-NMp">
                                                     <font key="font" metaFont="systemBold"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -38,11 +38,6 @@
                                             <constraint firstItem="PoL-lP-0aA" firstAttribute="centerY" secondItem="NwI-FT-hnO" secondAttribute="centerY" id="ACL-HD-hcP"/>
                                             <constraint firstItem="PoL-lP-0aA" firstAttribute="leading" secondItem="NwI-FT-hnO" secondAttribute="leading" constant="10" id="nFT-ds-UvG"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                <color key="value" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </customView>
                                     <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJG-4Y-M23">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="210"/>
@@ -102,11 +97,11 @@
                                                 </tableView>
                                             </subviews>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="dqS-31-TdA">
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="dqS-31-TdA">
                                             <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="FPP-ev-Llj">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="FPP-ev-Llj">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
