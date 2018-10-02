@@ -41,6 +41,8 @@ class ListKMLContentsViewController: NSViewController {
         
         // create the dataset from the local kml/kmz file with the given name
         let kmlDataset = AGSKMLDataset(name: "esri_test_data")
+        self.kmlDataset = kmlDataset
+        
         // create a layer to display the dataset
         let kmlLayer = AGSKMLLayer(kmlDataset: kmlDataset)
        
@@ -64,11 +66,9 @@ class ListKMLContentsViewController: NSViewController {
             
             // some nodes are not visible by default so ensure that all of them are
             self.makeNodesVisible(kmlDataset.rootNodes)
-            
-            // make the dataset accesible now that the data is loaded
-            self.kmlDataset = kmlDataset
-            // populate the outline view now that the dataset is accessible
-            self.outlineView.reloadData()
+
+            // populate the outline view now that the dataset is loaded
+            self.outlineView.dataSource = self
             
             // expand all items in the outline
             self.outlineView.expandItem(nil, expandChildren: true)
@@ -210,20 +210,15 @@ extension ListKMLContentsViewController: NSOutlineViewDataSource {
         if let node = item as? AGSKMLNode {
             return childNodes(of: node).count
         }
-        else if let kmlDataset = kmlDataset {
-            return kmlDataset.rootNodes.count
-        }
-        return 0
+        // kmlDataset will never be nil since the data source is set after the data is successfully loaded
+        return kmlDataset!.rootNodes.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let node = item as? AGSKMLNode {
             return childNodes(of: node)[index]
         }
-        else if let kmlDataset = kmlDataset {
-            return kmlDataset.rootNodes[index]
-        }
-        return NSNull()
+        return kmlDataset!.rootNodes[index]
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
