@@ -527,6 +527,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Display KML</string>
+				<key>storyboardName</key>
+				<string>DisplayKML</string>
+				<key>descriptionText</key>
+				<string>Show a KML file from a URL, local file, or portal item</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DisplayKMLViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Display KML network links</string>
 				<key>storyboardName</key>
 				<string>DisplayKMLNetworkLinks</string>
