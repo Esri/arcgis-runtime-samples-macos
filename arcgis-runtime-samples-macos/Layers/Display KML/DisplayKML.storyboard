@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="UlC-gb-S7g">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DisplayKML View Controller-->
+        <scene sceneID="PRb-S1-2F3">
+            <objects>
+                <viewController id="UlC-gb-S7g" customClass="DisplayKMLViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="wDB-48-rAm">
+                        <rect key="frame" x="0.0" y="0.0" width="505" height="397"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="2AP-y1-DIs" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="51" width="505" height="346"/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Jfv-HX-QzU">
+                                <rect key="frame" x="146" y="15" width="213" height="21"/>
+                                <subviews>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7LL-qV-lof">
+                                        <rect key="frame" x="113" y="-3" width="103" height="26"/>
+                                        <popUpButtonCell key="cell" type="push" title="URL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="WRZ-tk-Rpm" id="gdK-f9-NkA">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="g3f-db-l2N">
+                                                <items>
+                                                    <menuItem title="URL" id="WRZ-tk-Rpm">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="changeSourceToURL:" target="UlC-gb-S7g" id="fpa-QQ-4gy"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Local File" id="b79-g0-DMK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="changeSourceToLocalFile:" target="UlC-gb-S7g" id="cpM-2O-dvz"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Portal Item" id="bMc-o0-vQe">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="changeSourceToPortalItem:" target="UlC-gb-S7g" id="w50-uD-jEO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                    </popUpButton>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OaQ-84-6PO">
+                                        <rect key="frame" x="-2" y="3" width="113" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="KML Data Source:" id="NRf-tY-UHB">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7LL-qV-lof" firstAttribute="leading" secondItem="OaQ-84-6PO" secondAttribute="trailing" constant="6" id="1Ji-64-HRV"/>
+                                    <constraint firstItem="7LL-qV-lof" firstAttribute="firstBaseline" secondItem="OaQ-84-6PO" secondAttribute="firstBaseline" id="6ZA-pt-FKH"/>
+                                    <constraint firstAttribute="trailing" secondItem="7LL-qV-lof" secondAttribute="trailing" id="Cn6-jJ-zP2"/>
+                                    <constraint firstItem="7LL-qV-lof" firstAttribute="top" secondItem="Jfv-HX-QzU" secondAttribute="top" id="W09-q1-7Sf"/>
+                                    <constraint firstItem="OaQ-84-6PO" firstAttribute="leading" secondItem="Jfv-HX-QzU" secondAttribute="leading" id="gNw-3G-p9G"/>
+                                    <constraint firstAttribute="bottom" secondItem="7LL-qV-lof" secondAttribute="bottom" id="krS-fq-jXQ"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2AP-y1-DIs" secondAttribute="trailing" id="1Fw-R4-Ec8"/>
+                            <constraint firstItem="2AP-y1-DIs" firstAttribute="top" secondItem="wDB-48-rAm" secondAttribute="top" id="4ev-4s-EdF"/>
+                            <constraint firstAttribute="bottom" secondItem="Jfv-HX-QzU" secondAttribute="bottom" constant="15" id="JhO-ln-YKk"/>
+                            <constraint firstItem="Jfv-HX-QzU" firstAttribute="top" secondItem="2AP-y1-DIs" secondAttribute="bottom" constant="15" id="NEK-oY-dad"/>
+                            <constraint firstItem="Jfv-HX-QzU" firstAttribute="centerX" secondItem="wDB-48-rAm" secondAttribute="centerX" id="Z79-TH-HNI"/>
+                            <constraint firstItem="2AP-y1-DIs" firstAttribute="leading" secondItem="wDB-48-rAm" secondAttribute="leading" id="guc-up-W2M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="2AP-y1-DIs" id="noB-CO-bEJ"/>
+                    </connections>
+                </viewController>
+                <customObject id="FhP-z3-0kb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713.5" y="206.5"/>
+        </scene>
+    </scenes>
+</document>
