@@ -17,7 +17,7 @@
                             <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZe-TP-J5V">
                                 <rect key="frame" x="0.0" y="0.0" width="501" height="329"/>
                                 <subviews>
-                                    <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="9OG-9G-xtX">
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="9OG-9G-xtX">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="329"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <clipView key="contentView" drawsBackground="NO" id="34D-RQ-oUw">
@@ -72,6 +72,10 @@
                                             </subviews>
                                             <nil key="backgroundColor"/>
                                         </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="oSq-AV-QOX"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="vhk-L3-6ks"/>
+                                        </constraints>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="yRj-9Z-Bqh">
                                             <rect key="frame" x="0.0" y="313" width="143" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
