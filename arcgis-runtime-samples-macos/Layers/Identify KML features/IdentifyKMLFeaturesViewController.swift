@@ -68,11 +68,12 @@ extension IdentifyKMLFeaturesViewController: AGSGeoViewTouchDelegate {
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         geoView.callout.dismiss()
         geoView.identifyLayer(forecastLayer, screenPoint: screenPoint, tolerance: 15, returnPopupsOnly: false) { [weak self] (result) in
+            guard let self = self else { return }
             if let error = result.error {
                 print("Error identifying layer: \(error)")
             } else if let placemarkIndex = result.geoElements.firstIndex(where: { $0 is AGSKMLPlacemark }) {
                 let placemark = result.geoElements[placemarkIndex] as! AGSKMLPlacemark
-                self?.showCallout(for: placemark, at: mapPoint)
+                self.showCallout(for: placemark, at: mapPoint)
             }
         }
     }
