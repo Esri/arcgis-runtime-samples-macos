@@ -539,6 +539,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>List KML contents</string>
+				<key>storyboardName</key>
+				<string>ListKMLContents</string>
+				<key>descriptionText</key>
+				<string>List the contents of a KML file.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ListKMLContentsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Display KML network links</string>
 				<key>storyboardName</key>
 				<string>DisplayKMLNetworkLinks</string>
