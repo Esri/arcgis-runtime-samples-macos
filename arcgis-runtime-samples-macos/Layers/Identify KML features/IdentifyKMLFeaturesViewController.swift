@@ -42,7 +42,7 @@ class IdentifyKMLFeaturesViewController: NSViewController {
         mapView.map = map
     }
     
-    func showCallout(for placemark: AGSKMLPlacemark, at point: AGSPoint) {
+    private func showCallout(for placemark: AGSKMLPlacemark, at point: AGSPoint) {
         guard let data = placemark.balloonContent.data(using: .utf8) else { return }
         do {
             // We can't use an attributed string like we can on iOS, but it is
