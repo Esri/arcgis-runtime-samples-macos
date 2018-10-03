@@ -246,6 +246,19 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Download preplanned map</string>
+				<key>storyboardName</key>
+				<string>DownloadPreplannedMap</string>
+				<key>descriptionText</key>
+				<string>List and download preplanned map areas from a webmap.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DownloadPreplannedMapViewController</string>
+					<string>DownloadPreplannedMapProgressViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Read a geopackage</string>
 				<key>storyboardName</key>
 				<string>ReadGeopackage</string>
