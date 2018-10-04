@@ -349,6 +349,7 @@
 		4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
 		4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */; };
 		4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
+		4CB1707221668F480038535D /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1707121668F480038535D /* CollectionViewItem.swift */; };
 		4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
 		4CBF1B142130871000CE1567 /* DistanceCompositeSymbol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */; };
 		4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
@@ -858,6 +859,7 @@
 		4C8130D62100F29C00FD4892 /* SampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListViewController.swift; sourceTree = "<group>"; };
 		4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryMapImageSublayerViewController.swift; sourceTree = "<group>"; };
 		4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueryMapImageSublayer.storyboard; sourceTree = "<group>"; };
+		4CB1707121668F480038535D /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCompositeSymbolViewController.swift; sourceTree = "<group>"; };
 		4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceCompositeSymbol.storyboard; sourceTree = "<group>"; };
 		4CD278BA214340AC0033EC4B /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
@@ -2225,6 +2227,7 @@
 				4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */,
 				4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */,
 				4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */,
+				4CB1707121668F480038535D /* CollectionViewItem.swift */,
 				3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */,
 			);
 			path = "Sample Collection View";
@@ -2846,6 +2849,7 @@
 				97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */,
 				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
 				3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */,
+				4CB1707221668F480038535D /* CollectionViewItem.swift in Sources */,
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
 				4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */,
