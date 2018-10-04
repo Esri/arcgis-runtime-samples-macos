@@ -368,6 +368,10 @@
 		4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */; };
 		4CF92E952118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */; };
 		4CF92E972118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */; };
+		4CF944CD216434010083CB84 /* IdentifyKMLFeatures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF944CC216434010083CB84 /* IdentifyKMLFeatures.storyboard */; };
+		4CF944CF2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF944CE2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift */; };
+		4CF944D2216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF944D1216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift */; };
+		4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CF944CE2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift */; };
 		94557F6220EAA0B90003644A /* CutGeometryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
 		94557F6420EAA0CD0003644A /* CutGeometry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94557F6320EAA0CD0003644A /* CutGeometry.storyboard */; };
 		94557F6520EAA6390003644A /* CutGeometryViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94557F6120EAA0B90003644A /* CutGeometryViewController.swift */; };
@@ -590,6 +594,7 @@
 				C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */,
 				C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */,
 				C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */,
+				4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,6 +872,9 @@
 		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
 		4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionSectionHeaderView.xib; sourceTree = "<group>"; };
+		4CF944CC216434010083CB84 /* IdentifyKMLFeatures.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IdentifyKMLFeatures.storyboard; sourceTree = "<group>"; };
+		4CF944CE2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyKMLFeaturesViewController.swift; sourceTree = "<group>"; };
+		4CF944D1216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyKMLFeaturesViewControllerTests.swift; sourceTree = "<group>"; };
 		94557F6120EAA0B90003644A /* CutGeometryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutGeometryViewController.swift; sourceTree = "<group>"; };
 		94557F6320EAA0CD0003644A /* CutGeometry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CutGeometry.storyboard; sourceTree = "<group>"; };
 		97F8BF101FDA6E4700A65B2E /* RasterLayerUsingService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerUsingService.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingService.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1508,6 +1516,7 @@
 				4C64B92320D32829007D41A2 /* Style WMS layers */,
 				4C914BB520D9C4AD00779991 /* Query a map image sublayer */,
 				D971AC4020EEDD950062DA69 /* Symbolize shapefile */,
+				4CF944CB216433D20083CB84 /* Identify KML features */,
 				C74AA52D2152C932009047AF /* Display KML */,
 				C79F51D62155A354001B41EA /* List KML contents */,
 				C743A8F2215A99DB0081B756 /* Display KML network links */,
@@ -2132,6 +2141,7 @@
 				4C80B8F12150237B00840A94 /* CategoryTests.swift */,
 				4C80B8EF21501F8500840A94 /* SampleTests.swift */,
 				4C553BD221515B8C006E899C /* SampleListViewControllerTests.swift */,
+				4CF944D02164349B0083CB84 /* Sample Tests */,
 			);
 			path = "arcgis-runtime-samples-macosTests";
 			sourceTree = "<group>";
@@ -2218,6 +2228,23 @@
 				3E69DE521CFF8D5F001F65F7 /* CollectionViewItem.xib */,
 			);
 			path = "Sample Collection View";
+			sourceTree = "<group>";
+		};
+		4CF944CB216433D20083CB84 /* Identify KML features */ = {
+			isa = PBXGroup;
+			children = (
+				4CF944CC216434010083CB84 /* IdentifyKMLFeatures.storyboard */,
+				4CF944CE2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift */,
+			);
+			path = "Identify KML features";
+			sourceTree = "<group>";
+		};
+		4CF944D02164349B0083CB84 /* Sample Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4CF944D1216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift */,
+			);
+			path = "Sample Tests";
 			sourceTree = "<group>";
 		};
 		94557F6020EAA08D0003644A /* Cut geometry */ = {
@@ -2605,6 +2632,7 @@
 				3EFDE0D81E31850900CBCD92 /* FeatureCollectionLayerQuery.storyboard in Resources */,
 				E48008EF1FE4506F0064809E /* tank1.jpg in Resources */,
 				10859BB41FE1A1B000F6E552 /* FeatureLayerExtrusion.storyboard in Resources */,
+				4CF944CD216434010083CB84 /* IdentifyKMLFeatures.storyboard in Resources */,
 				3E049A271CED11A50031ADA9 /* MILUsingURL.storyboard in Resources */,
 				3EA734081EC0CCF400356885 /* Hawaii.csv in Resources */,
 				3ECCFE341BCC4FFC00CE256D /* ShowMagnifier.storyboard in Resources */,
@@ -2733,6 +2761,7 @@
 				3EFDE0861E30100800CBCD92 /* ShowLegendViewController.swift in Sources */,
 				3E496EF11DD39DF4004C921C /* DirectionsListViewController.swift in Sources */,
 				3E495C4B1D076C170021CD95 /* DisplaySceneViewController.swift in Sources */,
+				4CF944CF2164341A0083CB84 /* IdentifyKMLFeaturesViewController.swift in Sources */,
 				3ECCFE041BC86A6D00CE256D /* ChangeBasemapViewController.swift in Sources */,
 				D98916D51FE22B10004310CB /* ReadGeopackageViewController.swift in Sources */,
 				3E049A371CED132F0031ADA9 /* CalloutViewController.swift in Sources */,
@@ -2875,6 +2904,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF944D2216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift in Sources */,
 				4C80B8F021501F8500840A94 /* SampleTests.swift in Sources */,
 				4C80B8F22150237B00840A94 /* CategoryTests.swift in Sources */,
 				4C553BD321515B8C006E899C /* SampleListViewControllerTests.swift in Sources */,
@@ -3061,6 +3091,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Dynamic";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "arcgis-runtime-samples-macosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -3090,6 +3121,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/SDKs/ArcGIS/macOS/Frameworks/Dynamic";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "arcgis-runtime-samples-macosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
