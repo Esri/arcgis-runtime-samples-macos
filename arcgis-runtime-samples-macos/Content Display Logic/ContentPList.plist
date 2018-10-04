@@ -573,6 +573,18 @@
 					<string>DisplayKMLNetworkLinksViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>OpenStreetMap layer</string>
+				<key>storyboardName</key>
+				<string>OpenStreetMapLayer</string>
+				<key>descriptionText</key>
+				<string>Display a map with an OpenStreetMap basemap.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenStreetMapLayerViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
