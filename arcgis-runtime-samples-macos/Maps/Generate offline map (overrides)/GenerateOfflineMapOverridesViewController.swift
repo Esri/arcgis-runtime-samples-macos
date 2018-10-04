@@ -312,12 +312,12 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
     private func getNewOfflineGeodatabaseURL()->URL{
        
         //get a suitable directory to place files
-        let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let directoryURL = FileManager.default.temporaryDirectory
         
         //create a unique name for the geodatabase based on current timestamp
         let formattedDate = ISO8601DateFormatter().string(from: Date())
         
-        return documentDirectoryURL.appendingPathComponent("\(formattedDate).geodatabase")
+        return directoryURL.appendingPathComponent("offline-map-overrides-\(formattedDate).geodatabase")
     }
     
 }

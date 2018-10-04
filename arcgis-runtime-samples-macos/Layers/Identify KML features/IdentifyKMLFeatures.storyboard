@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="vc6-25-Z6o">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Touch Delegate-->
+        <scene sceneID="4cI-WW-gII">
+            <objects>
+                <viewController id="vc6-25-Z6o" customClass="IdentifyKMLFeaturesViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="v8S-eu-5s7">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="fv5-bQ-78D" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <connections>
+                                    <outlet property="touchDelegate" destination="vc6-25-Z6o" id="AH3-sG-4MQ"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fv5-bQ-78D" secondAttribute="trailing" id="JBP-B4-vwk"/>
+                            <constraint firstItem="fv5-bQ-78D" firstAttribute="leading" secondItem="v8S-eu-5s7" secondAttribute="leading" id="U2v-H4-MYm"/>
+                            <constraint firstItem="fv5-bQ-78D" firstAttribute="top" secondItem="v8S-eu-5s7" secondAttribute="top" id="b72-sG-hbX"/>
+                            <constraint firstAttribute="bottom" secondItem="fv5-bQ-78D" secondAttribute="bottom" id="qIN-sE-oqc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="fv5-bQ-78D" id="8X3-rf-bez"/>
+                    </connections>
+                </viewController>
+                <customObject id="yNu-hN-q9z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="-92"/>
+        </scene>
+    </scenes>
+</document>

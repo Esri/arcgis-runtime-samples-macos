@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-U4-KXN" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="506" height="412"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="362" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="obz-6J-MGG">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="362" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="obz-6J-MGG">
                                 <rect key="frame" x="236" y="30" width="250" height="362"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="uo3-8N-6R4">
@@ -27,8 +27,8 @@
                                                 <rect key="frame" x="18" y="10" width="214" height="19"/>
                                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Origin feature" id="JBv-VE-fJv">
                                                     <font key="font" metaFont="systemSemibold" size="15"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -39,11 +39,6 @@
                                             <constraint firstAttribute="bottom" secondItem="r1T-E9-QyE" secondAttribute="bottom" constant="10" id="uhj-IN-Wyp"/>
                                             <constraint firstItem="r1T-E9-QyE" firstAttribute="centerY" secondItem="uo3-8N-6R4" secondAttribute="centerY" id="yJi-Lr-eNY"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </customView>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWQ-rB-WcA">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="296"/>
@@ -100,11 +95,11 @@
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="YgW-sR-rK6">
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YgW-sR-rK6">
                                             <rect key="frame" x="1" y="355" width="248" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fie-Ss-uIo">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="fie-Ss-uIo">
                                             <rect key="frame" x="234" y="0.0" width="16" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
