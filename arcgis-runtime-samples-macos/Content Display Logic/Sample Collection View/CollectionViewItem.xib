@@ -39,6 +39,9 @@
                         <constraint firstItem="bgd-JF-5gf" firstAttribute="centerY" secondItem="HpY-Ba-N5r" secondAttribute="centerY" id="Stx-b6-rVD"/>
                         <constraint firstAttribute="trailing" secondItem="bgd-JF-5gf" secondAttribute="trailing" constant="8" id="VWr-a7-3La"/>
                     </constraints>
+                    <connections>
+                        <outlet property="textField" destination="bgd-JF-5gf" id="8cu-48-F67"/>
+                    </connections>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="u6D-GU-6ke">
                     <rect key="frame" x="0.0" y="0.0" width="356" height="100"/>
