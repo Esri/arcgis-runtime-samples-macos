@@ -16,24 +16,6 @@
 
 import Cocoa
 
-class CollectionViewItem: NSCollectionViewItem {
- 
-    @IBOutlet var titleTextField: NSTextField!
-    @IBOutlet var descriptionTextField: NSTextField!
-    @IBOutlet var thumbnailView: NSImageView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        thumbnailView.wantsLayer = true
-        thumbnailView.layer?.borderColor = NSColor.lightGray.cgColor
-        thumbnailView.layer?.borderWidth = 1
-        thumbnailView.layer?.cornerRadius = 5
-        
-    }
-    
-}
-
 protocol SampleCollectionViewControllerDelegate: AnyObject {
     func sampleCollectionViewController(_ controller: SampleCollectionViewController, didSelect sample: Sample)
 }
@@ -80,13 +62,6 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
         viewItem.titleTextField.stringValue = sample.name
         viewItem.descriptionTextField.stringValue = sample.description
         viewItem.thumbnailView.image = NSImage(named: sample.name)
-        
-        //stylize
-        viewItem.view.wantsLayer = true
-        viewItem.view.layer?.backgroundColor = NSColor.white.cgColor
-        viewItem.view.layer?.borderColor = NSColor.primaryBlue.cgColor
-        viewItem.view.layer?.cornerRadius = 10
-        viewItem.view.layer?.borderWidth = 1
         
         return viewItem
     }
