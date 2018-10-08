@@ -64,6 +64,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
 
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
+        /// The IDs of the layers we want included in the download.
+        let layerIDsToDownload: Set<Int> = [0,1]
         
         /// The sync task used to download the geodatabase now and upload it later.
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)
@@ -82,9 +84,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             }
             // minimze the geodatabase size by excluding attachments
             parameters.returnAttachments = false
-            
-            /// The IDs of the layers we want included in the download.
-            let layerIDsToDownload: Set<Int> = [0,1]
+           
             // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
             parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
             

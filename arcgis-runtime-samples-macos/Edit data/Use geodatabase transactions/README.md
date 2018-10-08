@@ -1,17 +1,77 @@
-# Add features (feature service)
+# Use geodatabase transactions
 
-This sample demonstrates how to add features to the feature layer using a feature service.
-
-## How to use the sample
-
-Click on a location in the map view to add a feature at that location
+This sample demonstrates how to download a geodatabase from a feature service, add features with or without transactions, and sync the geodatabase back to the service.
 
 ![](image1.png)
 
+## How to use the sample
+
+1. Upon opening, the sample automatically downloads the geodatabase from the feature service. A progress bar indicates the status.
+2. Once downloaded, an area of the SaveTheBay dataset it shown in the map view.
+3. Click the Enter Group button to start a geodatabase transaction.
+4. Click on the map to add features.
+5. Use the popup button to select what type of feature is added when clicking.
+6. Click Reset to rollback your changes or Save to commit them. Both of these options end the transaction.
+7. Uncheck the Required box to allow changes outside transactions.
+8. Click Synchronize to upload your added features to the feature service. The remote data is reset daily.
+
 ## How it works
 
-The sample uses the `geoView(_:didTapAtScreenPoint:mapPoint:)` method on `AGSGeoViewTouchDelegate` to get the tapped point. Creates a new feature using `createFeature(attributes:geometry:)` method on `AGSServiceFeatureTable`. Adds the new feature to the feature table using `add(_:completion:)` method and applies the edit to the service using the `applyEdits(completion:)` method.
+These steps focus on the tasks specific to this sample. Please see other samples for discussion on API not covered here.
+
+#### Creating the local geodatabase from the feature service
+
+1. In `viewDidLoad`, a `AGSGeodatabaseSyncTask` is created using the URL of a feature server that allows read/write synchroniztion.
+2. `defaultGenerateGeodatabaseParameters` is called on the `AGSGeodatabaseSyncTask` object to retrieve the parameters suitable for downloading the geodatabase. The same `AGSEnvelope` used to set the viewpoint of the `AGSMapView` is passed in as the extent.
+3. The parameters are configured to include only the required data by filtering the `layerOptions` and setting `returnAttachments`.
+4. `generateJob` is called on the `AGSGeodatabaseSyncTask` object, passing in the configured parameters and the local URL for the geodatabase. This returns a `AGSGenerateGeodatabaseJob` object.
+5. `start` is called on the `AGSGenerateGeodatabaseJob` object and a progress indicator is shown.
+6. On successful completion, a `AGSGeodatabase` object is returned.
+
+#### Displaying layers from the geodatabase
+
+1. `load` is called on the `AGSGeodatabase` object to ensure that its feature tables can be accessed.
+2. The `AGSGeodatabaseFeatureTable` objects from the `geodatabaseFeatureTables` property of the `AGSGeodatabase` are looped through.
+3. An `AGSFeatureLayer` is created for each `AGSGeodatabaseFeatureTable` using `init(featureTable: AGSFeatureTable)` and added to the `operationalLayer` array of the `AGSMap` displayed in the `AGSMapView`.
+
+#### Using transactions
+
+1. When the user clicks the Enter Group button, `beginTransaction()` is called on the `AGSGeodatabase`.
+2. The user can add features by clicking on the map. See the "Add features (feature service)" sample for instructions on adding features to a feature table.
+3. If the user clicks the Reset button, `rollbackTransaction()` is called on the `AGSGeodatabase` and the added features are automatically removed.
+4. If the user clicks the Save button, `commitTransaction()` is called on the `AGSGeodatabase` and the added features are kept.
+5. The `inTransaction` property of the `AGSGeodatabase` is read throughout the workflow to enable or disable certain actions and buttons for the user.
+
+#### Synchronizing the geodatabase
+
+1. When the user clicks the Synchronize button, `defaultSyncGeodatabaseParameters` is called on the `AGSGeodatabaseSyncTask` object to retrieve the parameters suitable for syncing the geodatabase.
+3. `syncJob` is called on the `AGSGeodatabaseSyncTask` object, passing in the parameters and the `AGSGeodatabase` object. This returns a `AGSSyncGeodatabaseJob` object.
+4. `start` is called on the `AGSSyncGeodatabaseJob` object and a progress indicator is shown.
+5. On successful completion, the user's changes will have been written to the server. Closing and reopenning the sample will redownload the data, including the user's changes.
 
 
+## Relevant API
 
+- `AGSGeodatabase`
+    - `inTransaction`
+    - `beginTransaction`
+    - `rollbackTransaction`
+    - `commitTransaction`
+    - `geodatabaseFeatureTable`
+- `AGSGeodatabaseSyncTask`
+    - `defaultGenerateGeodatabaseParameters`
+    - `generateJob`
+    - `defaultSyncGeodatabaseParameters`
+    - `syncJob`
+- `AGSGenerateGeodatabaseParameters`
+    - `returnAttachments`
+    - `layerOptions`
+- `AGSGenerateGeodatabaseJob`
+- `AGSSyncGeodatabaseParameters` 
+- `AGSSyncGeodatabaseJob`
+- `AGSGeodatabaseFeatureTable`
+    - `createFeature`
+    - `typeIDField`
+    - `field(forName fieldName: String) -> AGSField?`
+- `AGSFeatureLayer`
 
