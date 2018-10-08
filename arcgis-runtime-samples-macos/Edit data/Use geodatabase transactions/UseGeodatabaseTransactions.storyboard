@@ -11,21 +11,22 @@
             <objects>
                 <viewController id="9rv-fj-56X" customClass="UseGeodatabaseTransactionsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LeQ-na-ZHK">
-                        <rect key="frame" x="0.0" y="0.0" width="549" height="334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="561" height="334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-LO-6OV" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="158" width="549" height="176"/>
+                                <rect key="frame" x="0.0" y="158" width="561" height="176"/>
                             </customView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="egH-cH-PVj">
-                                <rect key="frame" x="48" y="5" width="454" height="117"/>
+                                <rect key="frame" x="54" y="5" width="454" height="117"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="440" id="fJ6-3D-LfY"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="ntL-eI-wUb"/>
                                 </constraints>
                                 <font key="font" metaFont="system"/>
                             </tabView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-eF-W0B">
-                                <rect key="frame" x="63" y="79" width="94" height="17"/>
+                                <rect key="frame" x="69" y="79" width="94" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Grouped Edits" id="JWj-6C-qog">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -33,7 +34,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="h69-xf-7xE">
-                                <rect key="frame" x="59" y="18" width="114" height="32"/>
+                                <rect key="frame" x="65" y="18" width="114" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="f52-ke-gbn"/>
                                 </constraints>
@@ -46,7 +47,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-VF-c7U">
-                                <rect key="frame" x="410" y="78" width="77" height="18"/>
+                                <rect key="frame" x="416" y="78" width="77" height="18"/>
                                 <buttonCell key="cell" type="check" title="Required" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="xgj-FI-wGa">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -55,16 +56,16 @@
                                     <action selector="requiredCheckboxAction:" target="9rv-fj-56X" id="N3i-aX-jhN"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-cP-jG2">
-                                <rect key="frame" x="63" y="56" width="332" height="17"/>
-                                <textFieldCell key="cell" title="Use transactions to handle multiple changes together." id="Pxy-eZ-4h3">
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-cP-jG2">
+                                <rect key="frame" x="69" y="56" width="424" height="17"/>
+                                <textFieldCell key="cell" title="Use transactions to group multiple changes together." id="Pxy-eZ-4h3">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-qo-goq">
-                                <rect key="frame" x="265" y="18" width="114" height="32"/>
+                                <rect key="frame" x="271" y="18" width="114" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="toS-nh-QFn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -74,7 +75,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-sX-sxD">
-                                <rect key="frame" x="377" y="18" width="114" height="32"/>
+                                <rect key="frame" x="383" y="18" width="114" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="dpW-He-PMf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -84,7 +85,7 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-gq-jjA">
-                                <rect key="frame" x="55" y="122" width="440" height="21"/>
+                                <rect key="frame" x="61" y="122" width="440" height="21"/>
                                 <subviews>
                                     <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IK1-Ad-7uE">
                                         <rect key="frame" x="127" y="-3" width="204" height="25"/>
@@ -104,12 +105,12 @@
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wB4-6u-oNp">
                                         <rect key="frame" x="332" y="-7" width="114" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Sync Edits" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="REA-Ae-AlL">
+                                        <buttonCell key="cell" type="push" title="Synchronize" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="REA-Ae-AlL">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="syncEditsAction:" target="9rv-fj-56X" id="TDm-q5-Og1"/>
+                                            <action selector="synchronizeAction:" target="9rv-fj-56X" id="Wv6-Y2-I77"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -151,6 +152,7 @@
                             <constraint firstItem="ZhD-gq-jjA" firstAttribute="top" secondItem="Hfn-LO-6OV" secondAttribute="bottom" constant="15" id="kGG-LM-VMU"/>
                             <constraint firstItem="qAD-cP-jG2" firstAttribute="top" secondItem="9ol-eF-W0B" secondAttribute="bottom" constant="6" id="mfV-pi-v1c"/>
                             <constraint firstAttribute="trailing" secondItem="Hfn-LO-6OV" secondAttribute="trailing" id="oKZ-iY-8tt"/>
+                            <constraint firstItem="qAD-cP-jG2" firstAttribute="trailing" secondItem="YaT-VF-c7U" secondAttribute="trailing" id="uKH-jL-oGI"/>
                             <constraint firstItem="h69-xf-7xE" firstAttribute="firstBaseline" secondItem="g4g-sX-sxD" secondAttribute="firstBaseline" id="vLf-hm-DAM"/>
                         </constraints>
                     </view>
@@ -160,13 +162,13 @@
                         <outlet property="mapView" destination="Hfn-LO-6OV" id="HEG-7K-aD5"/>
                         <outlet property="rollbackTransactionButton" destination="cLN-qo-goq" id="Tt6-M8-mHp"/>
                         <outlet property="startTransactionButton" destination="h69-xf-7xE" id="q5J-TD-8M6"/>
-                        <outlet property="syncEditsButton" destination="wB4-6u-oNp" id="ezx-PH-FNz"/>
+                        <outlet property="synchronizeButton" destination="wB4-6u-oNp" id="ezx-PH-FNz"/>
                         <outlet property="transactionsRequiredCheckbox" destination="YaT-VF-c7U" id="ve0-An-4sP"/>
                     </connections>
                 </viewController>
                 <customObject id="heI-Ky-tgb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196.5" y="206"/>
+            <point key="canvasLocation" x="242.5" y="206"/>
         </scene>
         <!--Geodatabase Transactions Progress View Controller-->
         <scene sceneID="jHg-vI-R3A">
@@ -220,7 +222,7 @@ Gw
                 </viewController>
                 <customObject id="006-nt-EQj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="74"/>
+            <point key="canvasLocation" x="796" y="74"/>
         </scene>
     </scenes>
 </document>

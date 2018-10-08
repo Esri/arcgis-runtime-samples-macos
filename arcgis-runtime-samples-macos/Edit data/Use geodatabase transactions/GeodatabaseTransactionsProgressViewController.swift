@@ -24,6 +24,8 @@ class GeodatabaseTransactionsProgressViewController: NSViewController {
     
     private var progressObservation: NSKeyValueObservation?
     
+    var statusLabel: String = ""
+    
     ///The progress object used to update the UI
     var progress: Progress?{
         didSet{
@@ -59,8 +61,13 @@ class GeodatabaseTransactionsProgressViewController: NSViewController {
             return
         }
         
+        var statusLabel = self.statusLabel
+        if !statusLabel.isEmpty {
+            statusLabel += ": "
+        }
+        
         //update progress label
-        progressLabel?.stringValue = "Downloading Geodatabase: \(progress.localizedDescription!)"
+        progressLabel?.stringValue = "\(statusLabel)\(progress.localizedDescription!)"
         
         //update progress view
         progressView?.doubleValue = progress.fractionCompleted
