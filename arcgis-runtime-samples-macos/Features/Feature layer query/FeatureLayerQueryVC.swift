@@ -78,7 +78,7 @@ class FeatureLayerQueryVC: NSViewController {
         let queryParams = AGSQueryParameters()
         queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(searchTerm.uppercased())%'"
         
-        featureTable.queryFeatures(with: queryParams) { [weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
+        featureTable.queryFeatures(with: queryParams) { [weak self] (result:AGSFeatureQueryResult?, error:Error?) in
             
             // hide progress indicator
             NSApp.hideProgressIndicator()
