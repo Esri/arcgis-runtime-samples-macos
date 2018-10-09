@@ -330,7 +330,6 @@
 		3EFDE0EC1E32D66300CBCD92 /* SpatialOperations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */; };
 		3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
 		3EFDE0EE1E3673D300CBCD92 /* SpatialOperationsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */; };
-		4C2244AF20C9B0F6005E6DEE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244AE20C9B0F6005E6DEE /* URL.swift */; };
 		4C2244B720C9CB57005E6DEE /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
 		4C2244B920C9DF93005E6DEE /* DistancePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2244B820C9DF93005E6DEE /* DistancePanel.swift */; };
 		4C2244BA20CB0299005E6DEE /* DistanceViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */; };
@@ -853,7 +852,6 @@
 		3EFDE0E21E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewshedGeoprocessingViewController.swift; sourceTree = "<group>"; };
 		3EFDE0EA1E32D66300CBCD92 /* SpatialOperations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpatialOperations.storyboard; sourceTree = "<group>"; };
 		3EFDE0EB1E32D66300CBCD92 /* SpatialOperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialOperationsViewController.swift; sourceTree = "<group>"; };
-		4C2244AE20C9B0F6005E6DEE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
 		4C2244B820C9DF93005E6DEE /* DistancePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistancePanel.swift; sourceTree = "<group>"; };
 		4C240F7E20D328A500ACA9B8 /* StyleWebMapServiceLayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StyleWebMapServiceLayer.storyboard; sourceTree = "<group>"; };
@@ -2128,14 +2126,6 @@
 			path = "Spatial operations";
 			sourceTree = "<group>";
 		};
-		4C2244B020C9C37D005E6DEE /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				4C2244AE20C9B0F6005E6DEE /* URL.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		4C64B92320D32829007D41A2 /* Style WMS layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2206,7 +2196,6 @@
 		4CD4A8DC20C9B07D007B8D6B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4C2244B020C9C37D005E6DEE /* Foundation */,
 				4CD278B92143408A0033EC4B /* AppKit */,
 			);
 			path = Extensions;
@@ -2900,7 +2889,6 @@
 				3EDC84141F196C9A002DBCF2 /* FindRouteViewController.swift in Sources */,
 				3EE3854D1DD3ACF600B13E3C /* FindAddressViewController.swift in Sources */,
 				21D961C01FF59B4B00FF1CFB /* StatisticalQueryGroupAndSortViewController.swift in Sources */,
-				4C2244AF20C9B0F6005E6DEE /* URL.swift in Sources */,
 				3E53C6EA1D1B55880054B5C8 /* SceneSymbolsViewController.swift in Sources */,
 				D9ED2DAF1FD761CB0043BFE1 /* FeatureLayerGPKGViewController.swift in Sources */,
 				10859BB51FE1A1B000F6E552 /* FeatureLayerExtrusionViewController.swift in Sources */,

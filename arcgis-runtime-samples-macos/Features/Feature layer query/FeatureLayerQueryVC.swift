@@ -35,8 +35,10 @@ class FeatureLayerQueryVC: NSViewController, NSTextFieldDelegate {
         //assign map to the map view
         self.mapView.map = self.map
         
+        /// The url of a map service layer containing sample census data of United States counties.
+        let censusMapServiceCountiesLayerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2")!
         //create feature table using a url
-        self.featureTable = AGSServiceFeatureTable(url: URL.unitedStatesMapService.appendingPathComponent("2"))
+        self.featureTable = AGSServiceFeatureTable(url: censusMapServiceCountiesLayerURL)
         //create feature layer using this feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
