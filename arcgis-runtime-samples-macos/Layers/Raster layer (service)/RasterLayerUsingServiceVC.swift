@@ -31,7 +31,7 @@ class RasterLayerUsingServiceVC: NSViewController {
         mapView.map = map
         
         // set the viewpoint to the Golden Gate of the San Francisco Bay
-        let center = AGSPoint(x: -13643095.660131, y: 4550009.846004, spatialReference: .webMercator())
+        let center = AGSPoint(x: -13643000, y: 4550000, spatialReference: .webMercator())
         mapView.setViewpointCenter(center, scale: 100000)
         
         /// The URL of an image service containing a bathymetric attributed grid.
