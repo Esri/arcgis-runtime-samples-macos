@@ -20,12 +20,6 @@ import ArcGIS
 /// A view controller that manages the interface of the Feature Layer Rendering
 /// Mode (Map) sample.
 class FeatureLayerRenderingModeMapViewController: NSViewController {
-    /// The URLs of the the feature service layers for this sample.
-    let featureServiceLayerURLs: [URL] = [
-        .geologyFeatureServiceFaultLayer,
-        .geologyFeatureServiceContactsLayer,
-        .geologyFeatureServiceOutcropLayer
-    ]
     
     /// The map displayed in the static map view.
     let staticMap = AGSMap()
@@ -34,6 +28,21 @@ class FeatureLayerRenderingModeMapViewController: NSViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        let geologyFeatureService = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Energy/Geology/FeatureServer")!
+        /// The url of the Fault layer of the Geology Feature Service.
+        let geologyFeatureServiceFaultLayerURL = geologyFeatureService.appendingPathComponent("0")
+        /// The url of the Contacts layer of the Geology Feature Service.
+        let geologyFeatureServiceContactsLayerURL = geologyFeatureService.appendingPathComponent("8")
+        /// The url of the Outcrop layer of the Geology Feature Service.
+        let geologyFeatureServiceOutcropLayerURL = geologyFeatureService.appendingPathComponent("9")
+        
+        /// The URLs of the the feature service layers for this sample.
+        let featureServiceLayerURLs: [URL] = [
+            geologyFeatureServiceFaultLayerURL,
+            geologyFeatureServiceContactsLayerURL,
+            geologyFeatureServiceOutcropLayerURL
+        ]
         
         // Create the static feature layers and add them to the static map.
         let staticFeatureLayers = featureServiceLayerURLs.map { makeFeatureService(url: $0, renderingMode: .static) }
