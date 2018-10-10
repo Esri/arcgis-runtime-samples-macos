@@ -832,7 +832,7 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>UseGeodatabaseTransactionsViewController</string>
-					<string>GeodatabaseTransactionsProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 		</array>

@@ -1,5 +1,5 @@
 //
-// Copyright 2016 Esri.
+// Copyright 2018 Esri.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     /// A strong reference to the download or upload job to keep it from going out of scope.
     private var activeJob: AGSJob?
     /// The local URL to where we can save the geodatabase.
-    private var localGeodatabaseURL: URL = {
+    private let localGeodatabaseURL: URL = {
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory
         //create a unique name for the geodatabase based on current timestamp
@@ -58,9 +58,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         let viewpoint = AGSViewpoint(targetExtent: areaOfInterest)
         // set the map's viewpoint so that it will show the data
         mapView.setViewpoint(viewpoint)
-        
-        // set self as the map view's touch delegate in order to receive touch events
-        mapView.touchDelegate = self
 
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
@@ -75,20 +72,18 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             guard let self = self else {
                 return
             }
-            guard error == nil else {
-                NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                return
+            if let error = error {
+                NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
-            guard let parameters = parameters else {
-                return
+            else if let parameters = parameters {
+                // minimze the geodatabase size by excluding attachments
+                parameters.returnAttachments = false
+               
+                // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
+                parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
+                
+                self.startGeodatabaseDownload(parameters: parameters)
             }
-            // minimze the geodatabase size by excluding attachments
-            parameters.returnAttachments = false
-           
-            // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
-            parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
-            
-            self.startGeodatabaseDownload(parameters: parameters)
         }
         
     }
@@ -107,7 +102,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = generateGeodatabaseJob
         
         // open the progress sheet
-        showProgressViewController(progress: generateGeodatabaseJob.progress, statusLabel: "Downloading Geodatabase")
+        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel:  "Downloading Geodatabase")
+        presentAsSheet(progressViewController)
         
         // start the download
         generateGeodatabaseJob.start(statusHandler: { (status) in
@@ -118,36 +114,34 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             }
             
             // close the progress sheet
-            self.closeProgressViewController()
+            self.dismiss(progressViewController)
             self.activeJob = nil
             
-            guard error == nil else {
+            if let error = error {
                 // don't show an alert if the user clicked Cancel
-                if (error! as NSError).code != NSUserCancelledError {
-                    NSAlert(error: error!).beginSheetModal(for: self.view.window!)
+                if (error as NSError).code != NSUserCancelledError {
+                    NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
-                return
             }
-            
-            guard let geodatabase = geodatabase else {
-                return
-            }
-            
-            self.geodatabase = geodatabase
-            
-            // enable the controls now that we have a geodatabase
-            self.manageControlEnabledStates()
-            
-            // load the geodatabase to ensure the feature tables are available
-            geodatabase.load {[weak self] (error) in
-                guard let self = self else {
-                    return
+            else if let geodatabase = geodatabase {
+                self.geodatabase = geodatabase
+                
+                // enable the controls now that we have a geodatabase
+                self.manageControlEnabledStates()
+                
+                // load the geodatabase to ensure the feature tables are available
+                geodatabase.load {[weak self] (error) in
+                    guard let self = self else {
+                        return
+                    }
+                    if let error = error {
+                        NSAlert(error: error).beginSheetModal(for: self.view.window!)
+                    }
+                    else {
+                        self.loadFeatureTables()
+                    }
+                    
                 }
-                guard error == nil else {
-                    NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                    return
-                }
-                self.loadFeatureTables()
             }
         })
     }
@@ -170,12 +164,12 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 guard let self = self else {
                     return
                 }
-                guard error == nil else {
-                    NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                    return
+                if let error = error {
+                    NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
-            
-                self.loadPopUpMenuItems(for: featureTable)
+                else {
+                    self.loadPopUpMenuItems(for: featureTable)
+                }
             }
         }
     }
@@ -200,9 +194,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             guard let self = self else {
                 return
             }
-            guard error == nil else {
-                NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                return
+            if let error = error {
+                NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
         }
     }
@@ -222,7 +215,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = syncGeodatabaseJob
         
         // open the progress sheet
-        showProgressViewController(progress: syncGeodatabaseJob.progress, statusLabel: "Syncing Geodatabase")
+        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel:  "Syncing Geodatabase")
+        presentAsSheet(progressViewController)
         
         // start the upload
         syncGeodatabaseJob.start(statusHandler: { (status) in
@@ -234,15 +228,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             }
             
             // close the progress sheet
-            self.closeProgressViewController()
+            self.dismiss(progressViewController)
             self.activeJob = nil
             
-            guard error == nil else {
+            if let error = error,
                 // don't show an alert if the user clicked Cancel
-                if (error! as NSError).code != NSUserCancelledError {
-                    NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                }
-                return
+                (error as NSError).code != NSUserCancelledError {
+                NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
         }
     }
@@ -351,39 +343,20 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             guard let self = self else {
                 return
             }
-            guard error == nil else {
-                NSAlert(error: error!).beginSheetModal(for: self.view.window!)
-                return
+            if let error = error {
+                NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
-            guard let parameters = parameters else {
-                return
+            else if let parameters = parameters {
+            
+                // you can alter the parameters here if you need change the sync settings
+            
+                self.startGeodatabaseSync(parameters: parameters)
             }
-            
-            // the parameters could optionally be altered here
-            
-            self.startGeodatabaseSync(parameters: parameters)
         })
     }
     
     @IBAction func requiredCheckboxAction(_ sender: NSButton) {
         manageControlEnabledStates()
-    }
-
-    //MARK: - Progress UI
-    
-    private func showProgressViewController(progress: Progress, statusLabel: String){
-        let progressViewController = storyboard!.instantiateController(withIdentifier: "GeodatabaseTransactionsProgressViewController") as! GeodatabaseTransactionsProgressViewController
-        progressViewController.statusLabel = statusLabel
-        progressViewController.progress = progress
-        progressViewController.cancelHandler = { (progressViewController) in
-            progressViewController.progress?.cancel()
-        }
-        presentAsSheet(progressViewController)
-    }
-    private func closeProgressViewController(){
-        if let progressController = presentedViewControllers?.first(where: { $0 is GeodatabaseTransactionsProgressViewController }) as? GeodatabaseTransactionsProgressViewController{
-            dismiss(progressController)
-        }
     }
     
     //MARK: - UI Helpers
@@ -417,6 +390,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
 }
 
+// the view controller is set as the touchDelegate of the map view in the storyboard
 extension UseGeodatabaseTransactionsViewController: AGSGeoViewTouchDelegate {
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {

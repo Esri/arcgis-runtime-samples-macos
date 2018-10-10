@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Use Geodatabase Transactions View Controller-->
+        <!--Touch Delegate-->
         <scene sceneID="bAj-hu-lot">
             <objects>
                 <viewController id="9rv-fj-56X" customClass="UseGeodatabaseTransactionsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,6 +16,9 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-LO-6OV" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="158" width="561" height="176"/>
+                                <connections>
+                                    <outlet property="touchDelegate" destination="9rv-fj-56X" id="MD3-ee-icE"/>
+                                </connections>
                             </customView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="egH-cH-PVj">
                                 <rect key="frame" x="54" y="5" width="454" height="117"/>
@@ -169,60 +172,6 @@
                 <customObject id="heI-Ky-tgb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242.5" y="206"/>
-        </scene>
-        <!--Geodatabase Transactions Progress View Controller-->
-        <scene sceneID="jHg-vI-R3A">
-            <objects>
-                <viewController storyboardIdentifier="GeodatabaseTransactionsProgressViewController" id="Xwp-3I-CrY" customClass="GeodatabaseTransactionsProgressViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="Qhr-pN-4JT">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="69"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="tnH-aG-2LU">
-                                <rect key="frame" x="16" y="15" width="332" height="20"/>
-                            </progressIndicator>
-                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-PC-AYL">
-                                <rect key="frame" x="14" y="36" width="336" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="HV5-01-alh">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2Ls-q6-8PL">
-                                <rect key="frame" x="358" y="17" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Isg-d9-0ha">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cancelAction:" target="Xwp-3I-CrY" id="Wco-FP-nZW"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="tnH-aG-2LU" secondAttribute="bottom" constant="16" id="3yA-PZ-Esw"/>
-                            <constraint firstItem="tnH-aG-2LU" firstAttribute="trailing" secondItem="5Ms-PC-AYL" secondAttribute="trailing" id="KEI-oU-ocY"/>
-                            <constraint firstItem="tnH-aG-2LU" firstAttribute="top" secondItem="5Ms-PC-AYL" secondAttribute="bottom" constant="2" id="XGd-Pu-lR7"/>
-                            <constraint firstItem="5Ms-PC-AYL" firstAttribute="top" secondItem="Qhr-pN-4JT" secondAttribute="top" constant="16" id="c1M-xG-5kl"/>
-                            <constraint firstItem="tnH-aG-2LU" firstAttribute="leading" secondItem="5Ms-PC-AYL" secondAttribute="leading" id="dPp-FR-KXx"/>
-                            <constraint firstAttribute="trailing" secondItem="2Ls-q6-8PL" secondAttribute="trailing" constant="16" id="e1I-ND-e57"/>
-                            <constraint firstItem="2Ls-q6-8PL" firstAttribute="leading" secondItem="tnH-aG-2LU" secondAttribute="trailing" constant="16" id="eJf-tW-PmW"/>
-                            <constraint firstItem="2Ls-q6-8PL" firstAttribute="centerY" secondItem="Qhr-pN-4JT" secondAttribute="centerY" id="ha6-wf-YUg"/>
-                            <constraint firstItem="5Ms-PC-AYL" firstAttribute="leading" secondItem="Qhr-pN-4JT" secondAttribute="leading" constant="16" id="tkF-sm-gcb"/>
-                        </constraints>
-                    </customView>
-                    <connections>
-                        <outlet property="progressLabel" destination="5Ms-PC-AYL" id="vbz-uq-TWz"/>
-                        <outlet property="progressView" destination="tnH-aG-2LU" id="dqT-JH-Met"/>
-                    </connections>
-                </viewController>
-                <customObject id="006-nt-EQj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="796" y="74"/>
         </scene>
     </scenes>
 </document>
