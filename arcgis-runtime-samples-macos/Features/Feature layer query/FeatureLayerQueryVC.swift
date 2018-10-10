@@ -56,7 +56,7 @@ class FeatureLayerQueryVC: NSViewController {
         map.operationalLayers.add(featureLayer)
         
         // center the layer
-        mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 5e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7)
+        mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 5e6, spatialReference: .webMercator()), scale: 9e7)
     }
     
     private func selectFeaturesForSearchTerm(_ searchTerm:String) {
