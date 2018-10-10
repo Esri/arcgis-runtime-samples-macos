@@ -4,7 +4,7 @@ This sample demonstrates how to query a feature layer via feature table.
 
 ## How to use the sample
 
-The sample provides a search bar, where you can input the name of a US State. When you hit enter the sample performs a query on the feature table and based on the result either highlights the state geometry or provides an error.
+The sample provides a search bar where you can input the name of a US State. When you hit enter, the sample performs a query on the feature table and highlights the matching states.
 
 ![](image1.png)
 
