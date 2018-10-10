@@ -15,83 +15,105 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-LO-6OV" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="158" width="561" height="176"/>
+                                <rect key="frame" x="0.0" y="165" width="561" height="169"/>
                                 <connections>
                                     <outlet property="touchDelegate" destination="9rv-fj-56X" id="MD3-ee-icE"/>
                                 </connections>
                             </customView>
-                            <tabView translatesAutoresizingMaskIntoConstraints="NO" id="egH-cH-PVj">
-                                <rect key="frame" x="54" y="5" width="454" height="117"/>
+                            <box translatesAutoresizingMaskIntoConstraints="NO" id="qig-MW-b1h">
+                                <rect key="frame" x="53" y="11" width="456" height="118"/>
+                                <view key="contentView" id="oAN-WP-riv">
+                                    <rect key="frame" x="3" y="3" width="450" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-eF-W0B">
+                                            <rect key="frame" x="8" y="73" width="94" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Grouped Edits" id="JWj-6C-qog">
+                                                <font key="font" metaFont="systemSemibold" size="13"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-VF-c7U">
+                                            <rect key="frame" x="365" y="72" width="77" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Required" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="xgj-FI-wGa">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="requiredCheckboxAction:" target="9rv-fj-56X" id="N3i-aX-jhN"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-cP-jG2">
+                                            <rect key="frame" x="8" y="46" width="434" height="17"/>
+                                            <textFieldCell key="cell" title="Use transactions to group multiple changes together." id="Pxy-eZ-4h3">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-qo-goq">
+                                            <rect key="frame" x="220" y="3" width="114" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="toS-nh-QFn">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="rollbackTransactionAction:" target="9rv-fj-56X" id="syO-rn-yUI"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-sX-sxD">
+                                            <rect key="frame" x="332" y="3" width="114" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="dpW-He-PMf">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="commitTransactionAction:" target="9rv-fj-56X" id="5kM-eU-acP"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="h69-xf-7xE">
+                                            <rect key="frame" x="4" y="3" width="114" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="102" id="f52-ke-gbn"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="push" title="Enter Group" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="aky-e4-kOW">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="beginTransactionAction:" target="9rv-fj-56X" id="Ubr-qL-6H4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="leading" secondItem="9ol-eF-W0B" secondAttribute="leading" id="1Vf-ia-9SD"/>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="width" secondItem="cLN-qo-goq" secondAttribute="width" id="C9L-jX-dYg"/>
+                                        <constraint firstItem="YaT-VF-c7U" firstAttribute="firstBaseline" secondItem="9ol-eF-W0B" secondAttribute="firstBaseline" id="EzI-iV-jkc"/>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="width" secondItem="g4g-sX-sxD" secondAttribute="width" id="FpR-0y-vcf"/>
+                                        <constraint firstAttribute="trailing" secondItem="YaT-VF-c7U" secondAttribute="trailing" constant="10" id="HwP-fb-QKx"/>
+                                        <constraint firstItem="YaT-VF-c7U" firstAttribute="trailing" secondItem="g4g-sX-sxD" secondAttribute="trailing" id="RTw-pG-vEQ"/>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="centerY" secondItem="g4g-sX-sxD" secondAttribute="centerY" id="bj4-PW-bNd"/>
+                                        <constraint firstItem="qAD-cP-jG2" firstAttribute="leading" secondItem="9ol-eF-W0B" secondAttribute="leading" id="cGX-xW-iwz"/>
+                                        <constraint firstItem="qAD-cP-jG2" firstAttribute="trailing" secondItem="YaT-VF-c7U" secondAttribute="trailing" id="dax-aV-NPe"/>
+                                        <constraint firstItem="9ol-eF-W0B" firstAttribute="leading" secondItem="oAN-WP-riv" secondAttribute="leading" constant="10" id="dk0-uM-HgI"/>
+                                        <constraint firstItem="g4g-sX-sxD" firstAttribute="leading" secondItem="cLN-qo-goq" secondAttribute="trailing" constant="10" id="emx-tx-LkH"/>
+                                        <constraint firstItem="qAD-cP-jG2" firstAttribute="top" secondItem="9ol-eF-W0B" secondAttribute="bottom" constant="10" id="mZl-uy-u46"/>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="centerY" secondItem="cLN-qo-goq" secondAttribute="centerY" id="q3e-8I-ynz"/>
+                                        <constraint firstItem="h69-xf-7xE" firstAttribute="top" secondItem="qAD-cP-jG2" secondAttribute="bottom" constant="15" id="qY7-zz-7Lw"/>
+                                        <constraint firstItem="9ol-eF-W0B" firstAttribute="top" secondItem="oAN-WP-riv" secondAttribute="top" constant="10" id="r9K-EL-LWs"/>
+                                        <constraint firstAttribute="bottom" secondItem="h69-xf-7xE" secondAttribute="bottom" constant="10" id="t73-y0-tlv"/>
+                                    </constraints>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="440" id="fJ6-3D-LfY"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="ntL-eI-wUb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="450" id="CWg-Cg-YLJ"/>
                                 </constraints>
-                                <font key="font" metaFont="system"/>
-                            </tabView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-eF-W0B">
-                                <rect key="frame" x="69" y="79" width="94" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Grouped Edits" id="JWj-6C-qog">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="h69-xf-7xE">
-                                <rect key="frame" x="65" y="18" width="114" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="f52-ke-gbn"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="Enter Group" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="aky-e4-kOW">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="beginTransactionAction:" target="9rv-fj-56X" id="Ubr-qL-6H4"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-VF-c7U">
-                                <rect key="frame" x="416" y="78" width="77" height="18"/>
-                                <buttonCell key="cell" type="check" title="Required" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="xgj-FI-wGa">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="requiredCheckboxAction:" target="9rv-fj-56X" id="N3i-aX-jhN"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-cP-jG2">
-                                <rect key="frame" x="69" y="56" width="424" height="17"/>
-                                <textFieldCell key="cell" title="Use transactions to group multiple changes together." id="Pxy-eZ-4h3">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-qo-goq">
-                                <rect key="frame" x="271" y="18" width="114" height="32"/>
-                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="toS-nh-QFn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="rollbackTransactionAction:" target="9rv-fj-56X" id="syO-rn-yUI"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-sX-sxD">
-                                <rect key="frame" x="383" y="18" width="114" height="32"/>
-                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="dpW-He-PMf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="commitTransactionAction:" target="9rv-fj-56X" id="5kM-eU-acP"/>
-                                </connections>
-                            </button>
+                            </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-gq-jjA">
-                                <rect key="frame" x="61" y="122" width="440" height="21"/>
+                                <rect key="frame" x="56" y="129" width="450" height="21"/>
                                 <subviews>
                                     <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IK1-Ad-7uE">
-                                        <rect key="frame" x="127" y="-3" width="204" height="25"/>
+                                        <rect key="frame" x="127" y="-3" width="213" height="25"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="UL1-1Q-8M0">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
@@ -107,7 +129,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wB4-6u-oNp">
-                                        <rect key="frame" x="332" y="-7" width="114" height="32"/>
+                                        <rect key="frame" x="341" y="-7" width="115" height="32"/>
                                         <buttonCell key="cell" type="push" title="Synchronize" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="REA-Ae-AlL">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -130,33 +152,16 @@
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="firstBaseline" secondItem="cLN-qo-goq" secondAttribute="firstBaseline" id="0xq-Xa-ktu"/>
-                            <constraint firstItem="9ol-eF-W0B" firstAttribute="leading" secondItem="egH-cH-PVj" secondAttribute="leading" constant="10" id="37a-GC-BGj"/>
-                            <constraint firstItem="9ol-eF-W0B" firstAttribute="leading" secondItem="h69-xf-7xE" secondAttribute="leading" id="69H-QV-scp"/>
-                            <constraint firstItem="9ol-eF-W0B" firstAttribute="firstBaseline" secondItem="YaT-VF-c7U" secondAttribute="firstBaseline" id="9e7-U5-Q58"/>
                             <constraint firstItem="Hfn-LO-6OV" firstAttribute="leading" secondItem="LeQ-na-ZHK" secondAttribute="leading" id="B6q-7J-BHj"/>
-                            <constraint firstAttribute="bottom" secondItem="egH-cH-PVj" secondAttribute="bottom" constant="15" id="BMH-we-cDh"/>
-                            <constraint firstItem="egH-cH-PVj" firstAttribute="top" secondItem="ZhD-gq-jjA" secondAttribute="bottom" constant="6" id="BiH-vn-467"/>
-                            <constraint firstItem="egH-cH-PVj" firstAttribute="width" secondItem="ZhD-gq-jjA" secondAttribute="width" id="Evu-dN-KZf"/>
                             <constraint firstItem="Hfn-LO-6OV" firstAttribute="top" secondItem="LeQ-na-ZHK" secondAttribute="top" id="Hy7-QR-1kF"/>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="width" secondItem="g4g-sX-sxD" secondAttribute="width" id="KBm-bx-gln"/>
-                            <constraint firstItem="9ol-eF-W0B" firstAttribute="top" secondItem="egH-cH-PVj" secondAttribute="top" constant="20" id="Oax-bJ-kw5"/>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="bottom" secondItem="egH-cH-PVj" secondAttribute="bottom" constant="-10" id="Ora-Fd-GEr"/>
-                            <constraint firstItem="wB4-6u-oNp" firstAttribute="width" secondItem="h69-xf-7xE" secondAttribute="width" id="QHi-UZ-AlX"/>
-                            <constraint firstItem="9ol-eF-W0B" firstAttribute="leading" secondItem="qAD-cP-jG2" secondAttribute="leading" id="TmP-ux-zxj"/>
-                            <constraint firstItem="YaT-VF-c7U" firstAttribute="trailing" secondItem="egH-cH-PVj" secondAttribute="trailing" constant="-10" id="UlN-4O-H3o"/>
-                            <constraint firstItem="egH-cH-PVj" firstAttribute="centerX" secondItem="LeQ-na-ZHK" secondAttribute="centerX" id="YcM-ik-skK"/>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="top" secondItem="qAD-cP-jG2" secondAttribute="bottom" constant="10" id="aWk-e8-vSI"/>
+                            <constraint firstItem="qig-MW-b1h" firstAttribute="top" secondItem="ZhD-gq-jjA" secondAttribute="bottom" id="HzA-M3-a1F"/>
+                            <constraint firstAttribute="bottom" secondItem="qig-MW-b1h" secondAttribute="bottom" constant="15" id="IIk-EU-CuG"/>
+                            <constraint firstItem="qig-MW-b1h" firstAttribute="width" secondItem="ZhD-gq-jjA" secondAttribute="width" id="RkG-Nv-Cts"/>
                             <constraint firstItem="ZhD-gq-jjA" firstAttribute="centerX" secondItem="LeQ-na-ZHK" secondAttribute="centerX" id="fUO-1U-NJx"/>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="width" secondItem="cLN-qo-goq" secondAttribute="width" id="fl3-0Z-POz"/>
                             <constraint firstItem="ZhD-gq-jjA" firstAttribute="centerX" secondItem="LeQ-na-ZHK" secondAttribute="centerX" id="hGa-wF-Wrc"/>
-                            <constraint firstItem="g4g-sX-sxD" firstAttribute="leading" secondItem="cLN-qo-goq" secondAttribute="trailing" constant="10" id="icV-lC-tfu"/>
-                            <constraint firstItem="YaT-VF-c7U" firstAttribute="trailing" secondItem="g4g-sX-sxD" secondAttribute="trailing" id="j9n-Sw-qem"/>
                             <constraint firstItem="ZhD-gq-jjA" firstAttribute="top" secondItem="Hfn-LO-6OV" secondAttribute="bottom" constant="15" id="kGG-LM-VMU"/>
-                            <constraint firstItem="qAD-cP-jG2" firstAttribute="top" secondItem="9ol-eF-W0B" secondAttribute="bottom" constant="6" id="mfV-pi-v1c"/>
+                            <constraint firstItem="qig-MW-b1h" firstAttribute="centerX" secondItem="LeQ-na-ZHK" secondAttribute="centerX" id="lUy-Cf-pxm"/>
                             <constraint firstAttribute="trailing" secondItem="Hfn-LO-6OV" secondAttribute="trailing" id="oKZ-iY-8tt"/>
-                            <constraint firstItem="qAD-cP-jG2" firstAttribute="trailing" secondItem="YaT-VF-c7U" secondAttribute="trailing" id="uKH-jL-oGI"/>
-                            <constraint firstItem="h69-xf-7xE" firstAttribute="firstBaseline" secondItem="g4g-sX-sxD" secondAttribute="firstBaseline" id="vLf-hm-DAM"/>
                         </constraints>
                     </view>
                     <connections>
