@@ -106,9 +106,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         presentAsSheet(progressViewController)
         
         // start the download
-        generateGeodatabaseJob.start(statusHandler: { (status) in
-            // no need handle the status
-        }, completion: {[weak self] (geodatabase, error) in
+        generateGeodatabaseJob.start(statusHandler: nil) {[weak self] (geodatabase, error) in
             guard let self = self else {
                 return
             }
@@ -143,7 +141,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                     
                 }
             }
-        })
+        }
     }
     
     private func loadFeatureTables(){
@@ -219,9 +217,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         presentAsSheet(progressViewController)
         
         // start the upload
-        syncGeodatabaseJob.start(statusHandler: { (status) in
-            // no need handle the status
-        }) {[weak self] (results, error) in
+        syncGeodatabaseJob.start(statusHandler: nil) {[weak self] (results, error) in
             
             guard let self = self else {
                 return

@@ -14,8 +14,7 @@
 // limitations under the License.
 //
 
-import Cocoa
-import ArcGIS
+import AppKit
 
 class ProgressViewController: NSViewController {
     
@@ -29,14 +28,11 @@ class ProgressViewController: NSViewController {
     /// The text to display alongside the completion percentage.
     private let operationLabel: String
     
-    init(progress: Progress, operationLabel: String? = nil){
+    init(progress: Progress, operationLabel: String = ""){
         self.progress = progress
         
-        var operationLabel = operationLabel ?? ""
-        if !operationLabel.isEmpty {
-            operationLabel += ": "
-        }
-        self.operationLabel = operationLabel
+        let suffix = !operationLabel.isEmpty ? ": " : ""
+        self.operationLabel = "\(operationLabel)\(suffix)"
         
         super.init(nibName: "ProgressView", bundle: nil)
     }
