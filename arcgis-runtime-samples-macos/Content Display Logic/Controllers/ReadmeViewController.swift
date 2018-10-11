@@ -65,3 +65,17 @@ class ReadmeViewController: NSViewController {
         self.webView.loadHTMLString(string, baseURL: URL(fileURLWithPath: Bundle.main.bundlePath))
     }
 }
+
+extension ReadmeViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        switch navigationAction.navigationType {
+        case .linkActivated:
+            if let url = navigationAction.request.url {
+                NSWorkspace.shared.open(url)
+            }
+            decisionHandler(.cancel)
+        default:
+            decisionHandler(.allow)
+        }
+    }
+}
