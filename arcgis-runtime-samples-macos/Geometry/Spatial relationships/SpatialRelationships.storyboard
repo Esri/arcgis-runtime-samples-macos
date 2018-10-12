@@ -24,7 +24,7 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="MqB-d5-vca" customClass="AGSMapView">
                                                 <rect key="frame" x="0.0" y="0.0" width="649" height="761"/>
                                             </customView>
-                                            <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="yVu-kd-BYF">
+                                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="yVu-kd-BYF">
                                                 <rect key="frame" x="0.0" y="739" width="649" height="22"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-5c-ABk">
