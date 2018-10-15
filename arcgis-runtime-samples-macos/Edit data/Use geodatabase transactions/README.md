@@ -7,7 +7,7 @@ This sample demonstrates how to download a geodatabase from a feature service, a
 ## How to use the sample
 
 1. Upon opening, the sample automatically downloads the geodatabase from the feature service. A progress bar indicates the status.
-2. Once downloaded, an area of the SaveTheBay dataset it shown in the map view.
+2. Once downloaded, an area of the [SaveTheBay dataset](https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer) is shown in the map view.
 3. Click the Enter Group button to start a geodatabase transaction.
 4. Click on the map to add features.
 5. Use the popup button to select what type of feature is added when clicking.

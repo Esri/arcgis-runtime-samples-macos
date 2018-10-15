@@ -46,19 +46,18 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// The area covering the data we want to show.
+        let areaOfInterest = AGSEnvelope(center: AGSPoint(x: -95.220, y: 29.070, spatialReference: .wgs84()),
+                                         width: 0.22,
+                                         height: 0.22)
+        
         // instantiate map with a basemap
         let map = AGSMap(basemap: .streetsVector())
+        // set the map's viewpoint so that it will show the data
+        map.initialViewpoint = AGSViewpoint(targetExtent: areaOfInterest)
         // assign the map to the map view
         mapView.map = map
-        
-        /// The area covering the data we want to show.
-        let areaOfInterest = AGSEnvelope(center: AGSPoint(x: -95.220, y: 29.115, spatialReference: .wgs84()),
-                                         width: 0.25,
-                                         height: 0.25)
-        let viewpoint = AGSViewpoint(targetExtent: areaOfInterest)
-        // set the map's viewpoint so that it will show the data
-        mapView.setViewpoint(viewpoint)
-
+       
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
         /// The IDs of the layers we want included in the download.
