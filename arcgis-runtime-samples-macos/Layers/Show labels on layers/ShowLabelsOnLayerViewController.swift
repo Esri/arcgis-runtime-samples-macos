@@ -61,7 +61,7 @@ class ShowLabelsOnLayerViewController: NSViewController {
         // The JSON syntax reference for AGSLabelDefinition.fromJSON(_:) can be found here:
         // https://developers.arcgis.com/web-map-specification/objects/labelingInfo/
         
-        /// The styling
+        /// The styling for the label.
         let textSymbol = AGSTextSymbol()
         textSymbol.size = 12
         textSymbol.haloColor = .white
