@@ -139,7 +139,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
-            if tableView == tableView2 {
+            if tableView == tableView2, tableView.selectedRow != -1 {
                 //add layer to the operational layers
                 let layer = self.removedLayers[tableView.selectedRow]
                 self.removedLayers.remove(at: tableView.selectedRow)
