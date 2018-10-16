@@ -822,6 +822,19 @@
 					<string>FeatureTemplatePickerVC</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Use geodatabase transactions</string>
+				<key>storyboardName</key>
+				<string>UseGeodatabaseTransactions</string>
+				<key>descriptionText</key>
+				<string>Group geodatabase edits into transactions.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>UseGeodatabaseTransactionsViewController</string>
+					<string>ProgressViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
