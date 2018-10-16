@@ -778,7 +778,7 @@
 		3EBA25681D34491C00AB0703 /* SimpleMarkerSymbol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleMarkerSymbol.storyboard; sourceTree = "<group>"; };
 		3EBA256B1D344AA600AB0703 /* PictureMarkerSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PictureMarkerSymbols.storyboard; sourceTree = "<group>"; };
 		3EBA256D1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureMarkerSymbolsViewController.swift; sourceTree = "<group>"; };
-		3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "arcgis-runtime-samples-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArcGIS Runtime SDK Samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1798,7 +1798,7 @@
 		3EC1AE6A1BAC8DA100E32B1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */,
+				3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */,
 				4C80B8E521501F5C00840A94 /* arcgis-runtime-samples-macosTests.xctest */,
 			);
 			name = Products;
@@ -2506,9 +2506,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */ = {
+		3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macos" */;
+			buildConfigurationList = 3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "ArcGIS Runtime SDK Samples" */;
 			buildPhases = (
 				3EC1AE651BAC8DA100E32B1D /* Sources */,
 				3EC1AE661BAC8DA100E32B1D /* Frameworks */,
@@ -2521,9 +2521,9 @@
 			);
 			dependencies = (
 			);
-			name = "arcgis-runtime-samples-macos";
+			name = "ArcGIS Runtime SDK Samples";
 			productName = OSXSampleViewer;
-			productReference = 3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */;
+			productReference = 3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */ = {
@@ -2580,7 +2580,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */,
+				3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */,
 				4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */,
 			);
 		};
@@ -2962,7 +2962,7 @@
 /* Begin PBXTargetDependency section */
 		4C80B8EB21501F5D00840A94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */;
+			target = 3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */;
 			targetProxy = 4C80B8EA21501F5D00840A94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3096,7 +3096,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
-				PRODUCT_NAME = "arcgis-runtime-samples-macos";
+				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
 				SWIFT_VERSION = 4.2;
 			};
@@ -3117,7 +3117,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
-				PRODUCT_NAME = "arcgis-runtime-samples-macos";
+				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
 				SWIFT_VERSION = 4.2;
 			};
@@ -3193,7 +3193,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macos" */ = {
+		3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "ArcGIS Runtime SDK Samples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC1AE791BAC8DA100E32B1D /* Debug */,
