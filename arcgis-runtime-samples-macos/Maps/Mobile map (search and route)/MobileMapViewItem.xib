@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MobileMapViewItem" customModule="arcgis_runtime_samples_macos" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="3fu-88-tof" id="vMz-rG-zz7"/>
                 <outlet property="label" destination="Iv9-0v-SYL" id="SgA-Mh-ndc"/>
                 <outlet property="routeImageView" destination="YFl-Zg-UUl" id="hsG-pS-HpS"/>
                 <outlet property="searchImageView" destination="VQk-xM-1Bc" id="7Gd-aO-8PF"/>
-                <outlet property="thumbnailView" destination="0rS-NR-KGH" id="3Ba-ni-MAZ"/>
+                <outlet property="selectionView" destination="NlA-2n-k7z" id="meP-4l-dhc"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -21,66 +22,63 @@
             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NlA-2n-k7z">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                    <subviews>
+                        <visualEffectView wantsLayer="YES" fixedFrame="YES" blendingMode="withinWindow" material="selection" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="cii-vC-4sT">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </visualEffectView>
+                    </subviews>
+                </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iv9-0v-SYL">
                     <rect key="frame" x="-2" y="8" width="124" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="N1s-5M-zNF">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="0rS-NR-KGH" customClass="AspectFillImageView" customModule="arcgis_runtime_samples_macos" customModuleProvider="target">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3fu-88-tof">
                     <rect key="frame" x="5" y="30" width="110" height="85"/>
-                    <subviews>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-xM-1Bc">
-                            <rect key="frame" x="89" y="64" width="20" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="Jki-kl-Anr"/>
-                                <constraint firstAttribute="width" constant="20" id="fI2-fh-06p"/>
-                            </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PinOutline" id="VDG-05-eKL"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                    <color key="value" white="1" alpha="0.75185096149999997" colorSpace="calibratedWhite"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFl-Zg-UUl">
-                            <rect key="frame" x="1" y="64" width="20" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="819-gx-MQ0"/>
-                                <constraint firstAttribute="width" constant="20" id="dhi-Qe-KbO"/>
-                            </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DirectionsList" id="NDa-p2-LwB"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                    <color key="value" white="1" alpha="0.75185096149999997" colorSpace="calibratedWhite"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
-                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="VQk-xM-1Bc" secondAttribute="trailing" constant="1" id="Io8-5P-KPN"/>
-                        <constraint firstItem="YFl-Zg-UUl" firstAttribute="leading" secondItem="0rS-NR-KGH" secondAttribute="leading" constant="1" id="JcU-1K-dFY"/>
-                        <constraint firstAttribute="width" constant="110" id="UrV-jm-50m"/>
-                        <constraint firstAttribute="height" constant="85" id="Woz-FS-JgJ"/>
-                        <constraint firstItem="VQk-xM-1Bc" firstAttribute="top" secondItem="0rS-NR-KGH" secondAttribute="top" constant="1" id="aEV-wO-n2V"/>
-                        <constraint firstItem="YFl-Zg-UUl" firstAttribute="top" secondItem="0rS-NR-KGH" secondAttribute="top" constant="1" id="kNg-rw-AaN"/>
+                        <constraint firstAttribute="height" constant="85" id="lQL-uZ-OVd"/>
+                        <constraint firstAttribute="width" constant="110" id="x62-Ej-P46"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                            <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customView>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="T7r-zi-3v9"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFl-Zg-UUl">
+                    <rect key="frame" x="6" y="94" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="819-gx-MQ0"/>
+                        <constraint firstAttribute="width" constant="20" id="dhi-Qe-KbO"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="DirectionsList" id="NDa-p2-LwB"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-xM-1Bc">
+                    <rect key="frame" x="94" y="94" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Jki-kl-Anr"/>
+                        <constraint firstAttribute="width" constant="20" id="fI2-fh-06p"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PinOutline" id="VDG-05-eKL"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="0rS-NR-KGH" secondAttribute="trailing" constant="5" id="JhJ-8B-YUo"/>
+                <constraint firstItem="3fu-88-tof" firstAttribute="trailing" secondItem="VQk-xM-1Bc" secondAttribute="trailing" constant="1" id="3UE-85-sZB"/>
+                <constraint firstAttribute="trailing" secondItem="3fu-88-tof" secondAttribute="trailing" constant="5" id="5l0-hB-iFw"/>
+                <constraint firstItem="NlA-2n-k7z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="9U1-xI-5hS"/>
+                <constraint firstItem="3fu-88-tof" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="DX9-0P-H7n"/>
                 <constraint firstAttribute="trailing" secondItem="Iv9-0v-SYL" secondAttribute="trailing" id="JxD-zx-1Hz"/>
                 <constraint firstItem="Iv9-0v-SYL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="KPE-F6-jpR"/>
-                <constraint firstItem="0rS-NR-KGH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="kH6-IB-l1Z"/>
+                <constraint firstItem="VQk-xM-1Bc" firstAttribute="top" secondItem="3fu-88-tof" secondAttribute="top" constant="1" id="Mfv-LN-6PY"/>
+                <constraint firstItem="NlA-2n-k7z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Q9W-Ci-eRI"/>
+                <constraint firstItem="3fu-88-tof" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="RzV-nO-1zh"/>
+                <constraint firstItem="YFl-Zg-UUl" firstAttribute="leading" secondItem="3fu-88-tof" secondAttribute="leading" constant="1" id="Tja-kF-6Im"/>
+                <constraint firstAttribute="bottom" secondItem="NlA-2n-k7z" secondAttribute="bottom" id="YPT-1e-cfU"/>
+                <constraint firstItem="YFl-Zg-UUl" firstAttribute="top" secondItem="3fu-88-tof" secondAttribute="top" constant="1" id="g6O-pP-a5U"/>
+                <constraint firstAttribute="trailing" secondItem="NlA-2n-k7z" secondAttribute="trailing" id="hjB-al-d0r"/>
                 <constraint firstAttribute="bottom" secondItem="Iv9-0v-SYL" secondAttribute="bottom" constant="8" id="oMD-b3-785"/>
-                <constraint firstItem="0rS-NR-KGH" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="tCL-qR-Oz2"/>
             </constraints>
             <point key="canvasLocation" x="-21" y="111"/>
         </customView>
