@@ -44,19 +44,17 @@ class ShowLabelsOnLayerViewController: NSViewController {
         map.operationalLayers.add(featureLayer)
         
         // create label definitions for the two groups
-        let demDefinition = createLabelDefinition(party: "Democrat", color: .blue)!
-        let repDefinition = createLabelDefinition(party: "Republican", color: .red)!
+        let demDefinition = makeLabelDefinition(party: "Democrat", color: .blue)!
+        let repDefinition = makeLabelDefinition(party: "Republican", color: .red)!
 
         // add the label definitions to the layer
-        for labelDefinition in [demDefinition, repDefinition] {
-           featureLayer.labelDefinitions.add(labelDefinition)
-        }
+        featureLayer.labelDefinitions.addObjects(from: [demDefinition, repDefinition])
         // turn on labelling
         featureLayer.labelsEnabled = true
     }
     
     /// Creates a label definition for the given PARTY field value and color.
-    private func createLabelDefinition(party: String, color: NSColor) -> AGSLabelDefinition? {
+    private func makeLabelDefinition(party: String, color: NSColor) -> AGSLabelDefinition? {
         
         // The JSON syntax reference for AGSLabelDefinition.fromJSON(_:) can be found here:
         // https://developers.arcgis.com/web-map-specification/objects/labelingInfo/
