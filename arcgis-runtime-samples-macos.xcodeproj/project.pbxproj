@@ -352,7 +352,6 @@
 		4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
 		4CBF1B142130871000CE1567 /* DistanceCompositeSymbol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */; };
 		4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
-		4CD278BB214340AC0033EC4B /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD278BA214340AC0033EC4B /* NSView.swift */; };
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
@@ -872,7 +871,6 @@
 		4CB1707121668F480038535D /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCompositeSymbolViewController.swift; sourceTree = "<group>"; };
 		4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceCompositeSymbol.storyboard; sourceTree = "<group>"; };
-		4CD278BA214340AC0033EC4B /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
@@ -1817,7 +1815,6 @@
 				3E496EEB1DD39DF4004C921C /* Route & Directions */,
 				3EFDE0DC1E3288C900CBCD92 /* Analysis */,
 				3E495C401D062E940021CD95 /* Scenes */,
-				4CD4A8DC20C9B07D007B8D6B /* Extensions */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
 				3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */,
@@ -2177,14 +2174,6 @@
 			path = "Distance composite symbol";
 			sourceTree = "<group>";
 		};
-		4CD278B92143408A0033EC4B /* AppKit */ = {
-			isa = PBXGroup;
-			children = (
-				4CD278BA214340AC0033EC4B /* NSView.swift */,
-			);
-			path = AppKit;
-			sourceTree = "<group>";
-		};
 		4CD4A8D620C9A64C007B8D6B /* Distance measurement analysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -2194,14 +2183,6 @@
 				4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */,
 			);
 			path = "Distance measurement analysis";
-			sourceTree = "<group>";
-		};
-		4CD4A8DC20C9B07D007B8D6B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4CD278B92143408A0033EC4B /* AppKit */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4CE3B22920E2ACE000D4A06A /* Scene layer selection */ = {
@@ -2894,7 +2875,6 @@
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
 				4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */,
-				4CD278BB214340AC0033EC4B /* NSView.swift in Sources */,
 				3E049A2D1CED12FC0031ADA9 /* GOIdentifyViewController.swift in Sources */,
 				C793B5EF2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift in Sources */,
 				3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */,

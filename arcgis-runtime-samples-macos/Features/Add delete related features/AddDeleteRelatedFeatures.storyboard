@@ -17,7 +17,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uso-xJ-JCw" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="542" height="420"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="380" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Lq5-Ti-f7A">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="380" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Lq5-Ti-f7A">
                                 <rect key="frame" x="272" y="20" width="250" height="380"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="LW7-0a-jmL">
@@ -28,7 +28,7 @@
                                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Origin Feature" id="X21-no-OAF">
                                                     <font key="font" metaFont="systemSemibold" size="15"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -39,11 +39,6 @@
                                             <constraint firstAttribute="bottom" secondItem="M86-ZV-jzz" secondAttribute="bottom" constant="10" id="UCy-Dd-Y2N"/>
                                             <constraint firstItem="M86-ZV-jzz" firstAttribute="leading" secondItem="LW7-0a-jmL" secondAttribute="leading" constant="5" id="xrJ-do-MhK"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </customView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-Ji-CoE">
                                         <rect key="frame" x="3" y="316" width="186" height="17"/>
@@ -63,16 +58,11 @@
                                             <action selector="addActionWithSender:" target="KkA-c8-4zN" id="gTS-zV-4jM"/>
                                         </connections>
                                     </button>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="pAm-HK-TsJ">
+                                    <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pAm-HK-TsJ" customClass="HairlineView" customModule="arcgis_runtime_samples_macos" customModuleProvider="target">
                                         <rect key="frame" x="5" y="308" width="240" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="yHq-hZ-u8x"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                <color key="value" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </customView>
                                     <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0w-dO-YcZ">
                                         <rect key="frame" x="15" y="0.0" width="235" height="308"/>
@@ -128,11 +118,11 @@
                                                 </tableView>
                                             </subviews>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="mEJ-B8-tsU">
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="mEJ-B8-tsU">
                                             <rect key="frame" x="0.0" y="292" width="230" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="3Te-iQ-YYR">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="3Te-iQ-YYR">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
