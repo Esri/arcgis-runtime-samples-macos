@@ -34,9 +34,7 @@ class CollectionViewItem: NSCollectionViewItem {
 class CollectionViewItemHeaderView: NSView {
     @IBOutlet var textField: NSTextField! {
         didSet {
-            if #available(OSX 10.14, *) {
-                textField.appearance = NSAppearance(named: .darkAqua)
-            }
+            textField.cell?.backgroundStyle = .emphasized
         }
     }
     

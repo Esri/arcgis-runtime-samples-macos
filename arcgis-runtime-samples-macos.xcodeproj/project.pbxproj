@@ -381,6 +381,8 @@
 		97F8BF171FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		97F8BF181FDA6FB400A65B2E /* RasterLayerUsingServiceVC.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */; };
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
+		C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
+		C7052B1E216E9130002F077F /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7052B1D216E9130002F077F /* ProgressView.xib */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
@@ -410,6 +412,10 @@
 		C79F51D92155A622001B41EA /* ListKMLContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79F51D72155A622001B41EA /* ListKMLContents.storyboard */; };
 		C79F51DA2155A622001B41EA /* ListKMLContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
 		C79F51DC2155A84F001B41EA /* esri_test_data.kmz in Resources */ = {isa = PBXBuildFile; fileRef = C79F51DB2155A84F001B41EA /* esri_test_data.kmz */; };
+		C7D22F862167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D22F842167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard */; };
+		C7D22F872167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */; };
+		C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */; };
+		C7D22F8A2167D35200C39D5C /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
 		D952E0162107D7AC00424FF3 /* dolmus_back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */; };
 		D952E0172107D7AC00424FF3 /* dolmus.3ds in Resources */ = {isa = PBXBuildFile; fileRef = D952E0122107D7AC00424FF3 /* dolmus.3ds */; };
 		D952E0182107D7AC00424FF3 /* tire_tread.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0132107D7AC00424FF3 /* tire_tread.jpeg */; };
@@ -478,6 +484,8 @@
 			files = (
 				C764E0FE2171471E00A82795 /* ShowLabelsOnLayerViewController.swift in CopyFiles */,
 				C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */,
+				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
+				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
 				C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */,
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
@@ -889,6 +897,7 @@
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
+		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
@@ -908,6 +917,9 @@
 		C79F51D72155A622001B41EA /* ListKMLContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListKMLContents.storyboard; sourceTree = "<group>"; };
 		C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListKMLContentsViewController.swift; sourceTree = "<group>"; };
 		C79F51DB2155A84F001B41EA /* esri_test_data.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = esri_test_data.kmz; sourceTree = "<group>"; };
+		C7D22F842167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UseGeodatabaseTransactions.storyboard; sourceTree = "<group>"; };
+		C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseGeodatabaseTransactionsViewController.swift; sourceTree = "<group>"; };
+		C7D22F892167D35200C39D5C /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dolmus_back.jpeg; sourceTree = "<group>"; };
 		D952E0122107D7AC00424FF3 /* dolmus.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = dolmus.3ds; sourceTree = "<group>"; };
 		D952E0132107D7AC00424FF3 /* tire_tread.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tire_tread.jpeg; sourceTree = "<group>"; };
@@ -1585,6 +1597,7 @@
 				3E29C9E41DC7C20800E5571F /* Add features (feature service) */,
 				3E29C9EA1DC7C55200E5571F /* Delete features (feature service) */,
 				3E84EE401DCA4ADE006731B5 /* Edit features (connected) */,
+				C7D22F832167BBFA00C39D5C /* Use geodatabase transactions */,
 			);
 			path = "Edit data";
 			sourceTree = "<group>";
@@ -1903,6 +1916,7 @@
 				3E049A231CED0C760031ADA9 /* Controllers */,
 				3ECD0F711BB0CCD6007105A1 /* Model */,
 				4CF92E912118CF37009A62C6 /* Sample Collection View */,
+				C7052B1F216E96BA002F077F /* Progress View */,
 				3ECD0F6F1BB0CC6F007105A1 /* ContentPList.plist */,
 				3E049A201CEA93200031ADA9 /* BridgingHeader.h */,
 				3EC1AE721BAC8DA100E32B1D /* Main.storyboard */,
@@ -2280,6 +2294,15 @@
 			path = "Raster layer (geopackage)";
 			sourceTree = "<group>";
 		};
+		C7052B1F216E96BA002F077F /* Progress View */ = {
+			isa = PBXGroup;
+			children = (
+				C7052B1D216E9130002F077F /* ProgressView.xib */,
+				C7D22F892167D35200C39D5C /* ProgressViewController.swift */,
+			);
+			path = "Progress View";
+			sourceTree = "<group>";
+		};
 		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
 			isa = PBXGroup;
 			children = (
@@ -2334,6 +2357,15 @@
 				C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */,
 			);
 			path = "List KML contents";
+			sourceTree = "<group>";
+		};
+		C7D22F832167BBFA00C39D5C /* Use geodatabase transactions */ = {
+			isa = PBXGroup;
+			children = (
+				C7D22F842167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard */,
+				C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */,
+			);
+			path = "Use geodatabase transactions";
 			sourceTree = "<group>";
 		};
 		C7E1609B215AD8B40073A4F6 /* KML */ = {
@@ -2640,6 +2672,7 @@
 				D952E0192107D7AC00424FF3 /* dolmus_side.jpeg in Resources */,
 				3EDC84161F1974F7002DBCF2 /* FindRoute.storyboard in Resources */,
 				3EFDE0BC1E31287B00CBCD92 /* Shasta.tif.ovr in Resources */,
+				C7052B1E216E9130002F077F /* ProgressView.xib in Resources */,
 				D97B7E731FDAE98C00E1239D /* FeatureLayerShapefile.storyboard in Resources */,
 				D952E0182107D7AC00424FF3 /* tire_tread.jpeg in Resources */,
 				D97B7E9E1FDAEA8100E1239D /* Subdivisions.sbn in Resources */,
@@ -2667,6 +2700,7 @@
 				3E7C0E3D1CF90F0000200B6E /* xcode.css in Resources */,
 				3E53C7381D1D9CED0054B5C8 /* SurfacePlacements.storyboard in Resources */,
 				4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */,
+				C7D22F862167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard in Resources */,
 				3E496EE71DD29BF0004C921C /* Camera Shutter.caf in Resources */,
 				3ECCFE2A1BCC30F500CE256D /* HighwayJson.txt in Resources */,
 				E4CD1FF121011F8200E211CF /* ListTransformations.storyboard in Resources */,
@@ -2837,6 +2871,7 @@
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
 				3EFDE09E1E31271700CBCD92 /* BlendRendererViewController.swift in Sources */,
 				4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */,
+				C7D22F872167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift in Sources */,
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* SampleCollectionViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,
@@ -2913,6 +2948,7 @@
 				3E69DE4B1CFE43EA001F65F7 /* SampleSearchEngine.swift in Sources */,
 				3E0103871E29A0850013AEEF /* ChangeFeatureLayerRendererVC.swift in Sources */,
 				3EFDE0ED1E32D66300CBCD92 /* SpatialOperationsViewController.swift in Sources */,
+				C7D22F8A2167D35200C39D5C /* ProgressViewController.swift in Sources */,
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
 				3E8A25C21D36F9F500D14F08 /* MapLoadedViewController.swift in Sources */,
 				E4CD1FEF21011F6D00E211CF /* ListTransformationsViewController.swift in Sources */,
