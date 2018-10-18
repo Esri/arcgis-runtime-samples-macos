@@ -47,64 +47,59 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         let serviceURL = URL(string: "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/Counties_Obesity_Inactivity_Diabetes_2013/FeatureServer/0")!
         
         // Initialize feature table
-        serviceFeatureTable = AGSServiceFeatureTable(url: serviceURL)
+        let serviceFeatureTable = AGSServiceFeatureTable(url: serviceURL)
+        self.serviceFeatureTable = serviceFeatureTable
         
         // Load feature table
-        serviceFeatureTable?.load(completion: { [weak self] (error) in
+        serviceFeatureTable.load(completion: { [weak self] (error) in
             
-            guard let self = self else {
-                return
-            }
-            
-            //
             // If there an error, display it
-            guard error == nil else {
-                self.showAlert(messageText: "Error", informativeText: "Error while loading feature table :: \(String(describing: error?.localizedDescription))")
-                return
+            if let error = error {
+                self?.showAlert(messageText: "Error", informativeText: "Error while loading feature table: \(error.localizedDescription)")
             }
-            
-            // Set title
-            let tableName = self.serviceFeatureTable?.tableName
-            let title = "Statistics: \(tableName ?? "")"
-            let style = NSMutableParagraphStyle()
-            style.alignment = .center
-            let attributes: [NSAttributedString.Key: Any] = [
-                .underlineStyle: NSUnderlineStyle.single.rawValue,
-                .paragraphStyle: style
-            ]
-            let attributedTitle = NSAttributedString(string: title, attributes: attributes)
-            self.titleLabel.attributedStringValue = attributedTitle
-            
-            var numericFieldNames = [String]()
-            
-            // Get field names
-            if let fields = self.serviceFeatureTable?.fields {
-                for field in fields {
-                    if field.type != .OID && field.type != .globalID {
-                        self.fieldNames.append(field.name)
-                    }
-                    if field.type == .double ||
-                        field.type == .float ||
-                        field.type == .int32 ||
-                        field.type == .int16 {
-                        numericFieldNames.append(field.name)
-                    }
-                }
+            else {
+                self?.didLoadServiceFeatureTable(serviceFeatureTable)
             }
-
-            // Reload combo box
-            self.fieldNamesComboBox.addItems(withObjectValues: numericFieldNames)
-            
-            // Reload table"
-            self.groupByFieldsTableView.reloadData()
         })
         
         // Setup UI Controls
         setupUI()
     }
     
+    private func didLoadServiceFeatureTable(_ serviceFeatureTable: AGSServiceFeatureTable) {
+        
+        // Set title
+        let title = "Statistics: \(serviceFeatureTable.tableName)"
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        let attributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .paragraphStyle: style
+        ]
+        let attributedTitle = NSAttributedString(string: title, attributes: attributes)
+        titleLabel.attributedStringValue = attributedTitle
+        
+        var numericFieldNames = [String]()
+        for field in serviceFeatureTable.fields {
+            if field.type != .OID,
+                field.type != .globalID {
+                fieldNames.append(field.name)
+            }
+            if field.type == .double ||
+                field.type == .float ||
+                field.type == .int32 ||
+                field.type == .int16 {
+                numericFieldNames.append(field.name)
+            }
+        }
+        // Load the combo box
+        fieldNamesComboBox.addItems(withObjectValues: numericFieldNames)
+        
+        // Reload table"
+        groupByFieldsTableView.reloadData()
+    }
+    
     private func setupUI() {
-        //
         // Add border and corner radius
         splitView.wantsLayer = true
         splitView.layer?.cornerRadius = 10
@@ -125,12 +120,12 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         // Set parameters label
         let parametersLabelString = "Query Statistic Parameters"
         let attributedParametersString = NSAttributedString(string: parametersLabelString, attributes: attributes)
-        self.parametersLabel.attributedStringValue = attributedParametersString
+        parametersLabel.attributedStringValue = attributedParametersString
         
         // Set results label
         let resultsLabelString = "Query Statistic Results"
         let attributedResultsString = NSAttributedString(string: resultsLabelString, attributes: attributes)
-        self.resultsLabel.attributedStringValue = attributedResultsString
+        resultsLabel.attributedStringValue = attributedResultsString
     }
     
     // MARK: - Actions
@@ -143,7 +138,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     }
     
     @IBAction func addStatisticDefinitionAction(_ sender: Any) {
-        //
         // Get the selected values
         guard let statisticType = AGSStatisticType(rawValue: statisticTypeComboBox.indexOfSelectedItem) else {
             print("Could not determine AGSStatisticType from UI: \(statisticTypeComboBox.indexOfSelectedItem)")
@@ -156,7 +150,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Add only if it does not exist
         if filteredStatisticDefinitions.isEmpty {
-            //
             // Add statistic definition
             let statisticDefinition = AGSStatisticDefinition(onFieldName: fieldName, statisticType: statisticType, outputAlias: nil)
             statisticDefinitions.append(statisticDefinition)
@@ -169,7 +162,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     }
     
     @IBAction func removeStatisticDefinitionAction(_ sender: Any) {
-        //
         // Get selected rows and remove them.
         let selectedIndexes = statisticDefinitionsTableView.selectedRowIndexes
         statisticDefinitionsTableView.beginUpdates()
@@ -189,12 +181,15 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     }
     
     @IBAction private func getStatisticsAction(_ sender: Any) {
-        //
         // There should be at least one statistic
         // definition added to execute the query
-        guard statisticDefinitions.count > 0,
-            selectedGroupByFieldNames.count > 0 else {
+        guard !statisticDefinitions.isEmpty,
+            !selectedGroupByFieldNames.isEmpty else {
             self.showAlert(messageText: "Error", informativeText: "There sould be at least one statistic definition and one group by field to execute the query.")
+            return
+        }
+        
+        guard let serviceFeatureTable = serviceFeatureTable else {
             return
         }
         
@@ -211,34 +206,35 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         statisticsQueryParameters.orderByFields = selectedOrderByFields
         
         // Execute the statistical query with parameters
-        serviceFeatureTable?.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
-            //
-            // Enable the button
-            defer {
-                self?.getStatisticsButton.isEnabled = true
-            }
+        serviceFeatureTable.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
             
-            // If there an error, display it
-            guard error == nil else {
-                self?.showAlert(messageText: "Error", informativeText: "Error while executing statistics query: \(error!.localizedDescription)")
+            guard let self = self else {
                 return
             }
             
+            // Enable the button
+            defer {
+                self.getStatisticsButton.isEnabled = true
+            }
             
-            if let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects,
-                statisticRecords.count > 0 {
+            // If there an error, display it
+            if let error = error {
+                self.showAlert(messageText: "Error", informativeText: "Error while executing statistics query: \(error.localizedDescription)")
+                return
+            }
+            else if let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects,
+                !statisticRecords.isEmpty {
                 //
                 // Store results to show in the outline view
-                self?.statisticRecords = statisticRecords
+                self.statisticRecords = statisticRecords
                 
                 // Reload outline view data
-                self?.statisticQueryResultsOutlineView.reloadData()
+                self.statisticQueryResultsOutlineView.reloadData()
             }
         })
     }
     
     @IBAction func resetAction(_ sender: Any) {
-        //
         // Reset all collections and reload tables
         statisticDefinitions.removeAll()
         statisticDefinitionsTableView.reloadData()
@@ -301,7 +297,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
         if tableView == groupByFieldsTableView {
             let fieldName = fieldNames[row]
             if let buttonState = object as? Int, buttonState == 1 {
-                //
                 // Add field to the selected group by fields
                 selectedGroupByFieldNames.append(fieldName)
                 
@@ -310,7 +305,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
                 orderByFields.append(orderBy)
             }
             else {
-                //
                 // Remove field from selected group by fields
                 if let index = selectedGroupByFieldNames.index(of: fieldName) {
                     selectedGroupByFieldNames.remove(at: index)
@@ -345,7 +339,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
                     selectedOrderByFields.append(orderByField)
                 }
                 else {
-                    //
                     // Remove field from selected order by fields
                     if let index = selectedOrderByFields.index(of: orderByField) {
                         selectedOrderByFields.remove(at: index)
