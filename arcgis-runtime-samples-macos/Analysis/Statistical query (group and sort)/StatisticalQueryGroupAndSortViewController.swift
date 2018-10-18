@@ -51,15 +51,20 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Load feature table
         serviceFeatureTable?.load(completion: { [weak self] (error) in
+            
+            guard let self = self else {
+                return
+            }
+            
             //
             // If there an error, display it
             guard error == nil else {
-                self?.showAlert(messageText: "Error", informativeText: "Error while loading feature table :: \(String(describing: error?.localizedDescription))")
+                self.showAlert(messageText: "Error", informativeText: "Error while loading feature table :: \(String(describing: error?.localizedDescription))")
                 return
             }
             
             // Set title
-            let tableName = self?.serviceFeatureTable?.tableName
+            let tableName = self.serviceFeatureTable?.tableName
             let title = "Statistics: \(tableName ?? "")"
             let style = NSMutableParagraphStyle()
             style.alignment = .center
@@ -68,24 +73,30 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
                 .paragraphStyle: style
             ]
             let attributedTitle = NSAttributedString(string: title, attributes: attributes)
-            self?.titleLabel.attributedStringValue = attributedTitle
+            self.titleLabel.attributedStringValue = attributedTitle
+            
+            var numericFieldNames = [String]()
             
             // Get field names
-            if let fields = self?.serviceFeatureTable?.fields {
+            if let fields = self.serviceFeatureTable?.fields {
                 for field in fields {
                     if field.type != .OID && field.type != .globalID {
-                        self?.fieldNames.append(field.name)
+                        self.fieldNames.append(field.name)
+                    }
+                    if field.type == .double ||
+                        field.type == .float ||
+                        field.type == .int32 ||
+                        field.type == .int16 {
+                        numericFieldNames.append(field.name)
                     }
                 }
             }
 
             // Reload combo box
-            if let fieldNames = self?.fieldNames {
-                self?.fieldNamesComboBox.addItems(withObjectValues: fieldNames)
-            }
+            self.fieldNamesComboBox.addItems(withObjectValues: numericFieldNames)
             
             // Reload table"
-            self?.groupByFieldsTableView.reloadData()
+            self.groupByFieldsTableView.reloadData()
         })
         
         // Setup UI Controls
@@ -100,8 +111,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         splitView.layer?.borderWidth = 2
         splitView.layer?.borderColor = NSColor.primaryBlue.cgColor
         
-        // Set values for combo boxs
-        fieldNamesComboBox.addItems(withObjectValues: fieldNames)
+        // Set values for combo box
         statisticTypeComboBox.addItems(withObjectValues: statisticTypes)
         
         // Attributes of string
@@ -139,7 +149,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
             print("Could not determine AGSStatisticType from UI: \(statisticTypeComboBox.indexOfSelectedItem)")
             return
         }
-        let fieldName = fieldNames[fieldNamesComboBox.indexOfSelectedItem]
+        let fieldName = fieldNamesComboBox.objectValues[fieldNamesComboBox.indexOfSelectedItem] as! String
         
         // Check whether same statistic definition is already added or not.
         let filteredStatisticDefinitions = statisticDefinitions.filter { $0.onFieldName == fieldName && $0.statisticType == statisticType }
@@ -182,7 +192,8 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         //
         // There should be at least one statistic
         // definition added to execute the query
-        if statisticDefinitions.count == 0 || selectedGroupByFieldNames.count == 0 {
+        guard statisticDefinitions.count > 0,
+            selectedGroupByFieldNames.count > 0 else {
             self.showAlert(messageText: "Error", informativeText: "There sould be at least one statistic definition and one group by field to execute the query.")
             return
         }
@@ -209,12 +220,13 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
             
             // If there an error, display it
             guard error == nil else {
-                self?.showAlert(messageText: "Error", informativeText: "Error while executing statistics query :: \(String(describing: error?.localizedDescription))")
+                self?.showAlert(messageText: "Error", informativeText: "Error while executing statistics query: \(error!.localizedDescription)")
                 return
             }
             
-            let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects
-            if let statisticRecords = statisticRecords, statisticRecords.count > 0 {
+            
+            if let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects,
+                statisticRecords.count > 0 {
                 //
                 // Store results to show in the outline view
                 self?.statisticRecords = statisticRecords
@@ -424,8 +436,13 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
         }
     }
     
+}
+
+extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDelegate {
+    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        guard let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "StatisticRecordCellView"), owner: self) as? NSTableCellView else {
+        
+        guard let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("StatisticRecordCellView"), owner: self) as? NSTableCellView else {
             return nil
         }
         
