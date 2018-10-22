@@ -29,8 +29,8 @@ class DisplayLayerViewStateViewController: NSViewController /*, UITableViewDataS
         let tiledLayer = AGSArcGISTiledLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer")!)
         
         let imageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
-        imageLayer.minScale = 40000000
-        imageLayer.maxScale = 2000000
+        imageLayer.minScale = 40_000_000
+        imageLayer.maxScale = 2_000_000
         
         let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer/0")!)
         let featurelayer = AGSFeatureLayer(featureTable: featureTable)
@@ -45,7 +45,7 @@ class DisplayLayerViewStateViewController: NSViewController /*, UITableViewDataS
         super.viewDidLoad()
         
         mapView.map = makeMap()
-        mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -11e6, y: 45e5, spatialReference: .webMercator()), scale: 5e7))
+        mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -11_000_000, y: 4_500_000, spatialReference: .webMercator()), scale: 50_000_000))
     }
     
     override func viewDidAppear() {
