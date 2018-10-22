@@ -22,7 +22,11 @@ class ChangeSublayerRendererVC: NSViewController {
     @IBOutlet private var resetButton:NSButton!
     
     //map image layer
-    private var mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+    private var mapImageLayer: AGSArcGISMapImageLayer = {
+        /// The url of a map service containing sample census data of the United States.
+        let censusMapServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!
+        return AGSArcGISMapImageLayer(url: censusMapServiceURL)
+    }()
     
     private var originalRenderer:AGSRenderer?
     
@@ -30,7 +34,7 @@ class ChangeSublayerRendererVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.streets())
+        let map = AGSMap(basemap: .streets())
         
         //add map image layer to the map
         map.operationalLayers.add(self.mapImageLayer)

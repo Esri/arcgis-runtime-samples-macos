@@ -25,7 +25,7 @@ class ViewshedCameraViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize the scene with an imagery basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         
         //assign the scene to the scene view
         self.sceneView.scene = scene
@@ -34,14 +34,18 @@ class ViewshedCameraViewController: NSViewController {
         let camera = AGSCamera(location: AGSPoint(x: -4.49492, y: 48.3808, z: 48.2511, spatialReference: AGSSpatialReference.wgs84()), heading: 344.488, pitch: 74.1212, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
+        /// The url of the image service for elevation in Brest, France.
+        let brestElevationServiceURL = URL(string: "https://scene.arcgis.com/arcgis/rest/services/BREST_DTM_1M/ImageServer")!
         //initialize the elevation source with the elevation service URL
-        let elevationSrc = AGSArcGISTiledElevationSource(url: .brestElevationService)
+        let elevationSrc = AGSArcGISTiledElevationSource(url: brestElevationServiceURL)
         
         //add the elevation source to the base surface of the scene
         scene.baseSurface?.elevationSources.append(elevationSrc)
         
+        /// The url of the scene service for buildings in Brest, France.
+        let brestBuildingsServiceURL = URL(string: "https://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Buildings_Brest/SceneServer/layers/0")!
         //initialize the scene layer with the scene layer URL and add it to the scene
-        let buldings = AGSArcGISSceneLayer(url: .brestBuildingsService)
+        let buldings = AGSArcGISSceneLayer(url: brestBuildingsServiceURL)
         scene.operationalLayers.add(buldings)
         
         //create a viewshed from the camera with minimum and maximum distance (in meters) from the observer (camera) at which visibility will be evaluated

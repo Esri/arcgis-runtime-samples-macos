@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="0Rv-bB-2rW">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DisplayKML Network Links View Controller-->
+        <scene sceneID="NNv-5h-uoz">
+            <objects>
+                <viewController id="0Rv-bB-2rW" customClass="DisplayKMLNetworkLinksViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="RYI-8m-sXW">
+                        <rect key="frame" x="0.0" y="0.0" width="313" height="326"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <splitView dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-if-IW1">
+                                <rect key="frame" x="0.0" y="0.0" width="313" height="326"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="YYr-6u-UV5" customClass="AGSSceneView">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="226"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
+                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="VaF-vN-fCd">
+                                        <rect key="frame" x="0.0" y="227" width="313" height="99"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="eKR-Wf-UEt">
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="99"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textView importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="EYK-mv-W7f">
+                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="99"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <size key="minSize" width="313" height="99"/>
+                                                    <size key="maxSize" width="10000000" height="10000000"/>
+                                                    <attributedString key="textStorage">
+                                                        <fragment content="Messages">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                </textView>
+                                            </subviews>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3c2-Vu-XDW"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="403-zH-8of"/>
+                                        </constraints>
+                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="rHH-4O-jNA">
+                                            <rect key="frame" x="297" y="0.0" width="16" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ZeW-if-IW1" firstAttribute="leading" secondItem="RYI-8m-sXW" secondAttribute="leading" id="m5u-Vn-bzk"/>
+                            <constraint firstItem="ZeW-if-IW1" firstAttribute="top" secondItem="RYI-8m-sXW" secondAttribute="top" id="oXB-XA-YEZ"/>
+                            <constraint firstAttribute="bottom" secondItem="ZeW-if-IW1" secondAttribute="bottom" id="wrG-U1-kxX"/>
+                            <constraint firstAttribute="trailing" secondItem="ZeW-if-IW1" secondAttribute="trailing" id="zij-X3-Ktx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="YYr-6u-UV5" id="d0R-U7-gfq"/>
+                        <outlet property="textView" destination="EYK-mv-W7f" id="lQd-rV-4oQ"/>
+                    </connections>
+                </viewController>
+                <customObject id="58c-09-OpM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93.5" y="93"/>
+        </scene>
+    </scenes>
+</document>

@@ -96,14 +96,14 @@ class GenerateGeodatabaseVC: NSViewController {
         self.generateButton.isEnabled = false
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //generate default param to contain all layers in the service
         self.syncTask.defaultGenerateGeodatabaseParameters(withExtent: self.frameToExtent()) { [weak self] (params: AGSGenerateGeodatabaseParameters?, error: Error?) in
             if let params = params, let weakSelf = self {
                 
                 //hide progress indicator
-                self?.view.window?.hideProgressIndicator()
+                NSApp.hideProgressIndicator()
                 
                 //don't include attachments to minimze the geodatabae size
                 params.returnAttachments = false
@@ -119,7 +119,7 @@ class GenerateGeodatabaseVC: NSViewController {
                 weakSelf.generateJob = weakSelf.syncTask.generateJob(with: params, downloadFileURL: URL(string: fullPath)!)
                 
                 //show progress indicator
-                self?.view.window?.showProgressIndicator()
+                NSApp.showProgressIndicator()
                 
                 //kick off the job
                 weakSelf.generateJob.start(statusHandler: { (status: AGSJobStatus) -> Void in
@@ -127,13 +127,13 @@ class GenerateGeodatabaseVC: NSViewController {
                 }) { [weak self] (object: AnyObject?, error: Error?) -> Void in
                     
                     //hide progress indicator
-                    self?.view.window?.hideProgressIndicator()
+                    NSApp.hideProgressIndicator()
                     
                     if let error = error {
                         self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                     }
                     else {
-                        self?.generatedGeodatabase = object as! AGSGeodatabase
+                        self?.generatedGeodatabase = object as? AGSGeodatabase
                         self?.displayLayersFromGeodatabase()
                     }
                 }

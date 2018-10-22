@@ -25,7 +25,7 @@ class DisplaySceneViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize scene with topographic basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         //assign scene to the scene view
         self.sceneView.scene = scene
         
@@ -33,9 +33,12 @@ class DisplaySceneViewController: NSViewController {
         let camera = AGSCamera(latitude: 45.74, longitude: 6.88, altitude: 4500, heading: 10, pitch: 70, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
+        /// The url of the Terrain 3D ArcGIS REST Service.
+        let worldElevationServiceURL = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
+        
         // add base surface for elevation data
         let surface = AGSSurface()
-        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
+        let elevationSource = AGSArcGISTiledElevationSource(url: worldElevationServiceURL)
         surface.elevationSources.append(elevationSource)
         scene.baseSurface = surface
     }

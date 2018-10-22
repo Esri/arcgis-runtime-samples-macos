@@ -32,14 +32,16 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         super.viewDidLoad()
         
         //initialize the map
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //create tiled layer
         let tiledLayer = AGSArcGISTiledLayer(url: URL(string: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer")!)
         self.map.operationalLayers.add(tiledLayer)
         
+        /// The url of a map service containing sample census data of the United States.
+        let censusMapServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!
         //create a map image layer using a url
-        self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: censusMapServiceURL)
         //add the image layer to the map
         self.map.operationalLayers.add(self.mapImageLayer)
         
@@ -71,12 +73,12 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 orderArray.append(layer)
                 
                 //show progress indicator
-                view.window?.showProgressIndicator()
+                NSApp.showProgressIndicator()
                 
                 layer.fetchLegendInfos { [weak self] (legendInfos: [AGSLegendInfo]?, error: Error?) -> Void in
                     guard let strongSelf = self else { return }
                     //hide progress indicator
-                    strongSelf.view.window?.hideProgressIndicator()
+                    NSApp.hideProgressIndicator()
                     
                     if let error = error {
                         print(error)

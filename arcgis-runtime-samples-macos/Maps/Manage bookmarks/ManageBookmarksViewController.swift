@@ -29,7 +29,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         super.viewDidLoad()
         
         //initialize map using imagery with labels basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        self.map = AGSMap(basemap: .imageryWithLabels())
         
         //assign map to the mapView
         self.mapView.map = self.map
@@ -147,7 +147,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
     
     //MARK: - NSTextFieldDelegate
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         //enable OK button on alert when textfield gets input
         let textField = obj.object as! NSTextField
         if textField.stringValue.isEmpty {

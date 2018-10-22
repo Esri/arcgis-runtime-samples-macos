@@ -17,59 +17,113 @@
 import Cocoa
 import ArcGIS
 
-class VectorTileCustomStyleVC: NSViewController, VectorStylesVCDelegate {
+class VectorTileCustomStyleVC: NSViewController {
 
     @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var collectionView:NSCollectionView!
+    @IBOutlet weak var stylesPopUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //default vector tiled layer
-        let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=1349bfa0ed08485d8a92c442a3850b06")!)
+        // The styles to display in the popup menu
+        let vectorStyleItems: [VectorStyleItem] = [
+            VectorStyleItem(itemId: "1349bfa0ed08485d8a92c442a3850b06",
+                            label: "Dark / Light Gray",
+                            color1: #colorLiteral(red: 0.8117647059, green: 0.8117647059, blue: 0.831372549, alpha: 1),
+                            color2: #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)),
+            VectorStyleItem(itemId: "bd8ac41667014d98b933e97713ba8377",
+                            label: "Navy / Green",
+                            color1: #colorLiteral(red: 0, green: 0.4, blue: 0.6666666667, alpha: 1),
+                            color2: #colorLiteral(red: 0.4666666667, green: 0.7333333333, blue: 0, alpha: 1)),
+            VectorStyleItem(itemId: "02f85ec376084c508b9c8e5a311724fa",
+                            label: "Yellow / Purple",
+                            color1: #colorLiteral(red: 0.8235294118, green: 0.8745098039, blue: 0, alpha: 1),
+                            color2: #colorLiteral(red: 0.5529411765, green: 0, blue: 0.8745098039, alpha: 1)),
+            VectorStyleItem(itemId: "1bf0cc4a4380468fbbff107e100f65a5",
+                            label: "Blue / Red",
+                            color1: #colorLiteral(red: 0.2588235294, green: 0.7058823529, blue: 0.9490196078, alpha: 1),
+                            color2: #colorLiteral(red: 0.7294117647, green: 0, blue: 0.1607843137, alpha: 1))
+        ]
         
-        //initialize map with vector tiled layer as the basemap
-        let map = AGSMap(basemap: AGSBasemap(baseLayer: vectorTiledLayer))
+        // populate the popup button's menu with the style items
+        for vectorStyleItem in vectorStyleItems{
+            let menuItem = NSMenuItem()
+            menuItem.title = vectorStyleItem.label
+            menuItem.image = vectorStyleItem.thumbnailImage
+            menuItem.representedObject = vectorStyleItem
+            stylesPopUpButton.menu?.addItem(menuItem)
+        }
         
-        //initial viewpoint
+        //initialize a map
+        let map = AGSMap()
+        
+        //set the map's initial viewpoint
         let centerPoint = AGSPoint(x: 1990591.559979, y: 794036.007991, spatialReference: AGSSpatialReference(wkid: 3857))
         map.initialViewpoint = AGSViewpoint(center: centerPoint, scale: 88659253.829259947)
         
-        //assign map to map view
-        self.mapView.map = map
+        //assign the map to map view
+        mapView.map = map
+        
+        //load the inital vector style basemap
+        setBasemap(item: vectorStyleItems.first!)
     }
     
-    private func showSelectedItem(_ itemID: String) {
-        let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemID)")!)
-        self.mapView.map?.basemap = AGSBasemap(baseLayer: vectorTiledLayer)
+    private func setBasemap(item: VectorStyleItem) {
+        
+        // create a vector tiled layer from the item's URL
+        let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: item.itemURL)
+        
+        //create a basemap from the layer
+        let basemap = AGSBasemap(baseLayer: vectorTiledLayer)
+        
+        // assign the basemap to the displayed map
+        mapView.map?.basemap = basemap
     }
     
-    //MARK: - Navigation
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "VectorStylesSegue" else {
-            return
+    @IBAction func stylesPopUpButtonAction(_ sender: NSPopUpButton) {
+        if let item = sender.selectedItem?.representedObject as? VectorStyleItem{
+            // set the basemap for the selected item
+            setBasemap(item: item)
         }
-        let controller = segue.destinationController as! VectorStylesViewController
-        controller.delegate = self
     }
     
-    //MARK: - VectorStylesVCDelegate
-    
-    func vectorStylesViewController(_ vectorStylesViewController: VectorStylesViewController, didSelectItemWithID itemID: String) {
-        
-        //dismiss sheet
-        self.dismissViewController(vectorStylesViewController)
-        
-        //show newly selected vector layer
-        self.showSelectedItem(itemID)
-    }
-
-    func vectorStylesViewControllerDidCancel(_ vectorStylesViewController: VectorStylesViewController) {
-        
-        //dismiss sheet
-        self.dismissViewController(vectorStylesViewController)
+    /// A model for the items in the vectors styles popup menu
+    struct VectorStyleItem {
+        var itemId: String
+        var label: String
+        var color1: NSColor
+        var color2: NSColor
     }
     
 }
 
+extension VectorTileCustomStyleVC.VectorStyleItem {
+    
+    var itemURL: URL{
+        return URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemId)")!
+    }
+    
+    /// Image for the popup menu, generated from the style's colors
+    var thumbnailImage: NSImage{
+        
+        // a reasonable size for a menu item image
+        let size = CGSize(width: 28, height: 16)
+        
+        // setup a view with the first color
+        let view = NSView(frame: CGRect(origin: .zero, size: size))
+        view.wantsLayer = true
+        view.layer?.backgroundColor = color1.cgColor
+        
+        // create and add a layer for the second color
+        let color2Layer = CALayer()
+        color2Layer.backgroundColor = color2.cgColor
+        view.layer?.addSublayer(color2Layer)
+        color2Layer.frame = CGRect(x: size.width/2, y: 0, width: size.width/2, height: size.height)
+        
+        // create and return an image based on the view
+        let imageRep = view.bitmapImageRepForCachingDisplay(in: view.bounds)!
+        view.cacheDisplay(in: view.bounds, to: imageRep)
+        return NSImage(cgImage: imageRep.cgImage!, size: imageRep.size)
+    }
+    
+}

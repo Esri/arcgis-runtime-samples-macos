@@ -41,7 +41,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.terrainWithLabels())
+        let map = AGSMap(basemap: .terrainWithLabels())
         
         //center for initial viewpoint
         let center = AGSPoint(x: -13041154, y: 3858170, spatialReference: AGSSpatialReference.webMercator())
@@ -63,7 +63,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         self.getDefaultParameters()
         
         //facility picture marker symbol
-        let facilitySymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "Facility"))!)
+        let facilitySymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "Facility"))
         
         //offset symbol in Y to align image properly
         facilitySymbol.offsetY = 21

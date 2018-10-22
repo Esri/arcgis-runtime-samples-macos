@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-protocol DirectionsListVCDelegate:class {
+protocol DirectionsListVCDelegate: AnyObject {
     
     func directionsListViewController(_ directionsListViewController:DirectionsListViewController, didSelectDirectionManuever directionManeuver:AGSDirectionManeuver)
     

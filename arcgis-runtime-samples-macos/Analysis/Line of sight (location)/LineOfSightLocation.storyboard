@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ywQ-be-XN7">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ywQ-be-XN7">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Line Of Sight Location View Controller-->
@@ -19,48 +17,54 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="8MP-JI-Mun" customClass="AGSSceneView">
                                 <rect key="frame" x="0.0" y="0.0" width="493" height="300"/>
                             </customView>
-                            <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-7y-DaB" userLabel="Instructions View">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-Vk-6y1">
                                 <rect key="frame" x="0.0" y="242" width="493" height="58"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-MF-y8z">
-                                        <rect key="frame" x="104" y="33" width="286" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to set the observer location" id="s2v-Bz-vGh">
-                                            <font key="font" metaFont="systemMedium" size="13"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlg-Bx-Ye6">
-                                        <rect key="frame" x="103" y="8" width="288" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Move the cursor to set the line of sight target" id="72c-E1-ikZ">
-                                            <font key="font" metaFont="systemMedium" size="13"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                    <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-7y-DaB" userLabel="Instructions View">
+                                        <rect key="frame" x="0.0" y="0.0" width="493" height="58"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tvL-MF-y8z">
+                                                <rect key="frame" x="104" y="33" width="286" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to set the observer location" id="s2v-Bz-vGh">
+                                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlg-Bx-Ye6">
+                                                <rect key="frame" x="103" y="8" width="288" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Move the cursor to set the line of sight target" id="72c-E1-ikZ">
+                                                    <font key="font" metaFont="systemMedium" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="8" bottom="8"/>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
-                                <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="8" bottom="8"/>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" white="1" alpha="0.90485873287671237" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="DeL-7y-DaB" firstAttribute="top" secondItem="dQP-Vk-6y1" secondAttribute="top" id="2nN-h6-7XF"/>
+                                    <constraint firstItem="DeL-7y-DaB" firstAttribute="leading" secondItem="dQP-Vk-6y1" secondAttribute="leading" id="7e4-lr-FT8"/>
+                                    <constraint firstAttribute="bottom" secondItem="DeL-7y-DaB" secondAttribute="bottom" id="Ryn-eA-A5f"/>
+                                    <constraint firstAttribute="trailing" secondItem="DeL-7y-DaB" secondAttribute="trailing" id="W1L-sk-loF"/>
+                                </constraints>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DeL-7y-DaB" secondAttribute="trailing" id="8tj-25-Zgb"/>
+                            <constraint firstItem="dQP-Vk-6y1" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="6D8-1W-iae"/>
+                            <constraint firstAttribute="trailing" secondItem="dQP-Vk-6y1" secondAttribute="trailing" id="7Bu-gv-I4a"/>
                             <constraint firstItem="8MP-JI-Mun" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="Eck-T3-e8b"/>
-                            <constraint firstItem="DeL-7y-DaB" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="SER-W4-Wzc"/>
                             <constraint firstItem="8MP-JI-Mun" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="T3a-IT-kBV"/>
-                            <constraint firstItem="DeL-7y-DaB" firstAttribute="leading" secondItem="9tC-LT-Dhv" secondAttribute="leading" id="Zj5-bZ-0Bh"/>
+                            <constraint firstItem="dQP-Vk-6y1" firstAttribute="top" secondItem="9tC-LT-Dhv" secondAttribute="top" id="Zon-6p-Fae"/>
                             <constraint firstAttribute="trailing" secondItem="8MP-JI-Mun" secondAttribute="trailing" id="fCB-dE-114"/>
                             <constraint firstAttribute="bottom" secondItem="8MP-JI-Mun" secondAttribute="bottom" id="fqd-lM-gGN"/>
                         </constraints>

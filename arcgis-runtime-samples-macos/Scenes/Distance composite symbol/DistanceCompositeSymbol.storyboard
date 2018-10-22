@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Uk9-CD-CyU">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Distance Composite Symbol View Controller-->
+        <scene sceneID="UyF-Da-6Lh">
+            <objects>
+                <viewController id="Uk9-CD-CyU" customClass="DistanceCompositeSymbolViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="2vd-8b-86t">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oAa-sx-BIb" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="oAa-sx-BIb" firstAttribute="top" secondItem="2vd-8b-86t" secondAttribute="top" id="746-xA-MPK"/>
+                            <constraint firstItem="oAa-sx-BIb" firstAttribute="leading" secondItem="2vd-8b-86t" secondAttribute="leading" id="HwD-Qy-td2"/>
+                            <constraint firstAttribute="trailing" secondItem="oAa-sx-BIb" secondAttribute="trailing" id="TdP-kG-pf8"/>
+                            <constraint firstAttribute="bottom" secondItem="oAa-sx-BIb" secondAttribute="bottom" id="uHB-If-XES"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="oAa-sx-BIb" id="tYJ-1u-9l6"/>
+                    </connections>
+                </viewController>
+                <customObject id="cxO-LU-Rca" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="144"/>
+        </scene>
+    </scenes>
+</document>

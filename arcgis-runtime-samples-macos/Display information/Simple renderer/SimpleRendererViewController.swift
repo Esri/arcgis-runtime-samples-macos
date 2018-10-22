@@ -26,7 +26,7 @@ class SimpleRendererViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        let map = AGSMap(basemap: .imageryWithLabels())
         
         //assign map to the map view
         self.mapView.map = map

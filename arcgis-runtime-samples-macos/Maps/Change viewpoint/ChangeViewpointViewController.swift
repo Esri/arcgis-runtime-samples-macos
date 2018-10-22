@@ -31,7 +31,7 @@ class ChangeViewpointViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize the map with imagery basemap
-        self.map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        self.map = AGSMap(basemap: .imageryWithLabels())
         
         //assign the map to the mapview
         self.mapView.map = self.map
@@ -42,7 +42,7 @@ class ChangeViewpointViewController: NSViewController {
         self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: AGSSpatialReference.wgs84())
         
         if let griffithParkGeometry = self.geometryFromTextFile(filename: "GriffithParkJson") {
-            self.griffithParkGeometry = griffithParkGeometry as! AGSPolygon
+            self.griffithParkGeometry = griffithParkGeometry as? AGSPolygon
             let griffithParkSymbol = AGSSimpleFillSymbol(style: AGSSimpleFillSymbolStyle.solid, color: NSColor(red: 0, green: 0.5, blue: 0, alpha: 0.7), outline: nil)
             let griffithParkGraphic = AGSGraphic(geometry: griffithParkGeometry, symbol: griffithParkSymbol, attributes: nil)
             graphicsOverlay.graphics.add(griffithParkGraphic)

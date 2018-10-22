@@ -38,7 +38,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.terrainWithLabels())
+        let map = AGSMap(basemap: .terrainWithLabels())
         
         //initial viewpoint
         let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: AGSSpatialReference(wkid: 3857))
@@ -51,10 +51,6 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         
         //parks feature layer (origin feature layer)
         self.parksFeatureLayer = AGSFeatureLayer(featureTable: self.parksFeatureTable)
-        
-        //change selection width for feature layer
-        self.parksFeatureLayer.selectionWidth = 4
-        self.parksFeatureLayer.selectionColor = .yellow
         
         //add feature layer to the map
         map.operationalLayers.add(self.parksFeatureLayer)
@@ -72,6 +68,9 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         
         //assign map to map view
         self.mapView.map = map
+        
+        //change selection color
+        mapView.selectionProperties.color = .yellow
         
         //set touch delegate
         self.mapView.touchDelegate = self
@@ -92,7 +91,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         }
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //keep for later use
         self.relationshipInfo = relationshipInfo
@@ -107,7 +106,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 
@@ -136,7 +135,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     private func addRelatedFeature() {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //get related table using relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
@@ -151,7 +150,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         relatedTable.add(feature) { [weak self] (error) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 
@@ -168,7 +167,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     private func deleteRelatedFeature(_ feature: AGSFeature) {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //get related table using relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
@@ -177,7 +176,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         relatedTable.delete(feature) { [weak self] (error) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 
@@ -194,7 +193,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     private func applyEdits() {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //get the related table using the relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
@@ -202,7 +201,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         relatedTable.applyEdits { [weak self] (results:[AGSFeatureEditResult]?, error:Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 //show error
@@ -234,13 +233,13 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         self.featureTextField.stringValue = ""
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //identify feature at tapped location
         self.identifyCancelable = self.mapView.identifyLayer(self.parksFeatureLayer, screenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false) { [weak self] (result: AGSIdentifyLayerResult) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard result.error == nil else {
                 

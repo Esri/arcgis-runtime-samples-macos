@@ -35,7 +35,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
         
         //initialize map to imagery basemap for the blur background
-        let map = AGSMap(basemap: AGSBasemap.imagery())
+        let map = AGSMap(basemap: .imagery())
         
         //assign the map to the map view
         self.mapView.map = map
@@ -80,12 +80,12 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         guard let id = segue.identifier else {
             return
         }
-        if id.rawValue == "OptionsVCSegue" {
+        if id == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
         }
-        else if id.rawValue == "SaveMapVCSegue" {
-            self.saveMapVC = segue.destinationController as! SaveMapViewController
+        else if id == "SaveMapVCSegue" {
+            self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }
     }

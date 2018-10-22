@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-protocol MapPackageCellDelegate:class {
+protocol MapPackageCellDelegate: AnyObject {
     
     func mapPackageCellView(_ mapPackageCellView:MapPackageCellView, didSelectMap map:AGSMap)
 }
@@ -41,12 +41,12 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     func loadMapPackage() {
         
         //show progress indicator
-        self.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.mapPackage.load { [weak self] (error:Error?) in
             
             //hide progress indicator
-            self?.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 //error
@@ -78,13 +78,13 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         item.label.stringValue = "Map \(indexPath.item + 1)"
         
         //thumbnail
-        item.thumbnailView.image = map.item?.thumbnail?.image
+        item.imageView?.image = map.item?.thumbnail?.image
         
         //search image view
         item.searchImageView.isHidden = (self.mapPackage.locatorTask == nil)
         
         //route image view
-        item.routeImageView.isHidden = (map.transportationNetworks.count == 0)
+        item.routeImageView.isHidden = map.transportationNetworks.isEmpty
         
         return item
     }

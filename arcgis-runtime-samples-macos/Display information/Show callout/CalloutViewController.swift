@@ -26,7 +26,7 @@ class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //assign map to the map view
         self.mapView.map = self.map

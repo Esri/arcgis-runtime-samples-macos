@@ -16,146 +16,67 @@
 
 import Cocoa
 
-extension NSWindow {
+extension NSApplication {
     //MARK: - Progres indicator
     
     func showProgressIndicator() {
-        if let controller = self.windowController as? WindowController {
-            controller.showProgressIndicator()
-        }
+        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        controller?.showProgressIndicator()
     }
     
     func hideProgressIndicator() {
-        if let controller = self.windowController as? WindowController {
-            controller.hideProgressIndicator()
-        }
+        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        controller?.hideProgressIndicator()
     }
 }
 
-class WindowController: NSWindowController, NSSearchFieldDelegate, NSWindowDelegate, SuggestionsVCDelegate {
-
-    @IBOutlet var searchField:NSSearchField!
+class WindowController: NSWindowController {
+    
+    private var searchEngine: SampleSearchEngine?
+    
     @IBOutlet private var progressIndicator:NSProgressIndicator!
     
-    private var suggestionsWindowController: NSWindowController!
-    private var suggestionsViewController: SuggestionsViewController!
-    
-    override func windowDidLoad() {
-        super.windowDidLoad()
-    
-        self.window?.delegate = self
-        self.window?.isMovableByWindowBackground = false
-        self.window?.titleVisibility = .hidden
-        self.window?.titlebarAppearsTransparent = true
-        self.window?.backgroundColor = .primaryBlue
-        
-        self.suggestionsWindowController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SuggestionsWindowController")) as! NSWindowController
-        self.suggestionsViewController = self.suggestionsWindowController.contentViewController as! SuggestionsViewController
-        self.suggestionsViewController.delegate = self
-        
-        //progress indicator
-        self.progressIndicator.startAnimation(nil)
+    func loadSearchEngine(samples: [Sample]){
+        searchEngine = SampleSearchEngine(samples: samples)
     }
     
-    //MARK: - Progres indicator
+    //MARK: - Progress indicator
     
     func showProgressIndicator() {
-        self.progressIndicator.isHidden = false
+        progressIndicator.startAnimation(nil)
     }
 
     func hideProgressIndicator() {
-        self.progressIndicator.isHidden = true
+        progressIndicator.stopAnimation(nil)
     }
     
-    //MARK: - NSSearchFieldDelegate
-    
-    override func controlTextDidChange(_ notification: Notification) {
-        if let sender = notification.object as? NSSearchField , sender == self.searchField {
-            if let suggestions = SearchEngine.sharedInstance().suggestionsForString(self.searchField.stringValue) , suggestions.count > 0 {
-            
-                self.showSuggestionsWindow(suggestions)
-            }
-            else {
-                self.hideSuggestionsWindow()
-            }
-        }
-    }
-    
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        self.hideSuggestionsWindow()
-    }
-    
-    //MARK: - Actions
-    
-    @IBAction func searchAction(_ sender: NSSearchField) {
-        if !sender.stringValue.isEmpty {
-            self.searchSamples(sender.stringValue)
-        }
-    }
-    
-    private func searchSamples(_ searchString: String) {
-        //hide segment control
-        (self.contentViewController as! MainViewController).toggleSegmentedControl(.Off)
-        
-        //hide suggestions window
-        self.hideSuggestionsWindow()
-        
-        let mainVC = self.contentViewController as! MainViewController
-        mainVC.searchSamplesForString(searchString)
-    }
-    
-    //MARK: Suggestions window controller
-    
-    func showSuggestionsWindow(_ suggestions: [String]) {
+}
 
-        //assign the suggestions to the view controller
-        self.suggestionsViewController.suggestions = suggestions
-        
-        //If the window is not visible
-        //show the window
-        let suggestionsWindow = self.suggestionsWindowController.window!
-        
-        if !suggestionsWindow.isVisible {
-            
-            let mainWindow = NSApplication.shared.mainWindow!
-            
-            //frame calculations
-            let originX = mainWindow.frame.origin.x + mainWindow.frame.width - self.searchField.frame.width - 6
-            let originY:CGFloat = mainWindow.frame.origin.y + mainWindow.frame.height - self.searchField.frame.height - suggestionsWindow.frame.height - 10
-            let frameOrigin = NSPoint(x: originX, y: originY)
-            let frameSize = NSSize(width: self.searchField.frame.width, height: suggestionsWindow.frame.height)
-            
-            //set frame
-            suggestionsWindow.setFrame(NSRect(origin: frameOrigin, size: frameSize), display: true)
-            
-            //add window as child window
-            mainWindow.addChildWindow(suggestionsWindow, ordered: .above)
+extension WindowController: NSSearchFieldDelegate{
     
-            self.suggestionsWindowController.window?.makeKeyAndOrderFront(self)
+    func controlTextDidBeginEditing(_ obj: Notification) {
+        if let mainViewController = contentViewController as? MainViewController{
+            // Remove the selection in the outline since it doesn't correspond to the search results
+            mainViewController.sampleListViewController.deselectAllOutlineViewCells()
         }
     }
     
-    func hideSuggestionsWindow() {
-        if let window = self.suggestionsWindowController?.window , window.isVisible {
-            window.orderOut(self)
+    func controlTextDidChange(_ notification: Notification) {
+        guard let searchEngine = searchEngine,
+            let searchField = notification.object as? NSSearchField,
+            let mainViewController = contentViewController as? MainViewController else{
+            return
+        }
+            
+        let query = searchField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !query.isEmpty{
+            let matchingSamples = searchEngine.sortedSamples(matching: query)
+            let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
+            mainViewController.showCategory(searchResultsCategory)
+        }
+        else{
+            mainViewController.showCategoryForAllSamples()
         }
     }
     
-    //MARK: - NSWindowDelegate
-
-    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        
-        //hide suggestion window instead of updating the window frame
-        self.hideSuggestionsWindow()
-        
-        return frameSize
-    }
-    
-    //MARK: - SuggestionsVCDelegate
-    
-    func suggestionsViewController(_ suggestionsViewController: SuggestionsViewController, didSelectSuggestion suggestion: String) {
-        
-        self.searchField.stringValue = suggestion
-        self.searchSamples(suggestion)
-    }
 }

@@ -27,7 +27,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //call the method to add a graphics to the map view
         //will be using this graphic to test identify
@@ -72,12 +72,12 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         let tolerance:Double = 4
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: tolerance, returnPopupsOnly: false) { (result: AGSIdentifyGraphicsOverlayResult) in
             
             //hide progress indicator
-            self.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = result.error {
                 print("error while identifying :: \(error.localizedDescription)")

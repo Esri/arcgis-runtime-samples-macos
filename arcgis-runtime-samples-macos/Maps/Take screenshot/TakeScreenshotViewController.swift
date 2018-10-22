@@ -31,7 +31,7 @@ class TakeScreenshotViewController: NSViewController {
         super.viewDidLoad()
         
         //instantiate map with imagegry basemap
-        self.map = AGSMap(basemap: AGSBasemap.imagery())
+        self.map = AGSMap(basemap: .imagery())
         
         //assign the map to the map view
         self.mapView.map = self.map
@@ -55,13 +55,13 @@ class TakeScreenshotViewController: NSViewController {
         self.hideOverlayParentView()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //the method on map view we can use to get the screenshot image
         self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert("Error", informativeText: error.localizedDescription)
@@ -122,5 +122,28 @@ class TakeScreenshotViewController: NSViewController {
         alert.messageText = messageText
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
+    }
+}
+
+class AspectFillImageView: NSView {
+    @IBOutlet var image: NSImage! {
+        didSet {
+            self.layer?.contents = image
+        }
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func commonInit() {
+        self.layer = CALayer()
+        self.layer?.contentsGravity = .resizeAspectFill
+        self.layer?.contents = image
+        self.wantsLayer = true
     }
 }

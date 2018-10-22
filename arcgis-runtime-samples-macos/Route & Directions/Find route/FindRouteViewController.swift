@@ -47,7 +47,7 @@ class FindRouteViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with topographic basemap
-        let map = AGSMap(basemap: AGSBasemap.navigationVector())
+        let map = AGSMap(basemap: .navigationVector())
         self.mapView.map = map
         
         //add graphicsOverlays to the map view
@@ -64,14 +64,14 @@ class FindRouteViewController: NSViewController {
     func addStops() {
         
         //start symbol
-        let startSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopA"))!)
+        let startSymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "StopA"))
         startSymbol.offsetY = 22
         
         //start stop graphic
         let startStopGraphic = AGSGraphic(geometry: self.stop1Geometry, symbol: startSymbol, attributes: nil)
         
         //end symbol
-        let endSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: "StopB"))!)
+        let endSymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "StopB"))
         endSymbol.offsetY = 22
         
         //end stop graphic
@@ -96,12 +96,12 @@ class FindRouteViewController: NSViewController {
     func getDefaultParameters() {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.routeTask.defaultRouteParameters { [weak self] (parameters, error) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard error == nil else {
                 self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
@@ -130,7 +130,7 @@ class FindRouteViewController: NSViewController {
         }
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //set parameters to return directions
         routeParameters.returnDirections = true
@@ -151,7 +151,7 @@ class FindRouteViewController: NSViewController {
         self.routeTask.solveRoute(with: routeParameters) { [weak self] (routeResult, error) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             guard let strongSelf = self else {
                 return
@@ -179,7 +179,7 @@ class FindRouteViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id.rawValue == "DirectionsSegue" else {
+        guard let id = segue.identifier, id == "DirectionsSegue" else {
             return
         }
         let controller = segue.destinationController as! DirectionsViewController

@@ -52,13 +52,15 @@ class Animate3DSymbolsVC: NSViewController {
         super.viewDidLoad()
         
         //initalize scene with imagery basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         
         //assign scene to scene view
         self.sceneView.scene = scene
         
+        /// The url of the Terrain 3D ArcGIS REST Service.
+        let worldElevationServiceURL = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
         //elevation source
-        let elevationSource = AGSArcGISTiledElevationSource(url: .worldElevationService)
+        let elevationSource = AGSArcGISTiledElevationSource(url: worldElevationServiceURL)
         
         //surface
         let surface = AGSSurface()
@@ -201,7 +203,7 @@ class Animate3DSymbolsVC: NSViewController {
         
         //new timer
         self.animationTimer = Timer(timeInterval: duration, target: self, selector: #selector(animate), userInfo: nil, repeats: true)
-        RunLoop.main.add(self.animationTimer, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(self.animationTimer, forMode: .common)
     }
     
     

@@ -30,7 +30,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //create an instance of a map
-        self.map = AGSMap(basemap: AGSBasemap.topographic())
+        self.map = AGSMap(basemap: .topographic())
         
         //map image layer
         self.mapImageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/SampleWorldCities/MapServer")!)
@@ -75,12 +75,12 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     private func identifyLayers(at screenPoint: CGPoint) {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)

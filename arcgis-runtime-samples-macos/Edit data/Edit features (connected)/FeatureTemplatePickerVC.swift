@@ -23,7 +23,7 @@ class FeatureTemplateInfo {
     var featureLayer:AGSFeatureLayer!
 }
 
-protocol FeatureTemplatePickerVCDelegate:class {
+protocol FeatureTemplatePickerVCDelegate: AnyObject {
     
     func featureTemplatePickerVC(_ featureTemplatePickerVC:FeatureTemplatePickerVC, didSelectFeatureTemplate template:AGSFeatureTemplate, forFeatureLayer featureLayer:AGSFeatureLayer)
     

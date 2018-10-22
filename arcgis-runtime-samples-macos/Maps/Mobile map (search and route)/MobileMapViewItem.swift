@@ -14,49 +14,18 @@
 // limitations under the License.
 //
 
-import Cocoa
-
-class AspectFillImageView: NSView {
-    
-    @IBOutlet var image:NSImage! {
-        didSet {
-            self.layer?.contents = image
-        }
-    }
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    func commonInit() {
-        self.layer = CALayer()
-        self.layer?.contentsGravity = kCAGravityResizeAspectFill
-        self.layer?.contents = image
-        self.wantsLayer = true
-    }
-}
+import AppKit
 
 class MobileMapViewItem: NSCollectionViewItem {
-
-    @IBOutlet var thumbnailView:AspectFillImageView!
-    @IBOutlet var searchImageView:NSImageView!
-    @IBOutlet var routeImageView:NSImageView!
-    @IBOutlet var label:NSTextField!
+    @IBOutlet var selectionView: NSView!
+    @IBOutlet var searchImageView: NSImageView!
+    @IBOutlet var routeImageView: NSImageView!
+    @IBOutlet var label: NSTextField!
     
     override var isSelected: Bool {
         didSet {
-            if isSelected {
-                self.view.layer?.backgroundColor = NSColor.secondaryBlue.cgColor
-                self.label.textColor = .white
-            }
-            else {
-                self.view.layer?.backgroundColor = NSColor.clear.cgColor
-                self.label.textColor = .black
-            }
+            selectionView.isHidden = !isSelected
+            label.cell?.backgroundStyle = isSelected ? .emphasized : .normal
         }
     }
     
@@ -67,10 +36,6 @@ class MobileMapViewItem: NSCollectionViewItem {
         self.view.wantsLayer = true
         self.view.layer?.borderColor = NSColor.gray.cgColor
         self.view.layer?.borderWidth = 1
-        
-        //thumbnailView border
-        self.thumbnailView.layer?.borderColor = NSColor.lightGray.cgColor
-        self.thumbnailView.layer?.borderWidth = 1
     }
     
 }

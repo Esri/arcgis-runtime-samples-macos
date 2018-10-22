@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-protocol CreateOptionsVCDelegate:class {
+protocol CreateOptionsVCDelegate: AnyObject {
     func createOptionsViewController(_ createOptionsViewController:CreateOptionsViewController, didSelectBasemap basemap:AGSBasemap, layers:[AGSLayer]?)
 }
 
@@ -26,7 +26,7 @@ class CreateOptionsViewController: NSViewController {
     private var selectedLayersIndexes = [Int]()
     private var selectedBasemapIndex:Int!
     
-    private var basemaps = [AGSBasemap.streets(), AGSBasemap.imagery(), AGSBasemap.topographic(), AGSBasemap.oceans()]
+    private var basemaps: [AGSBasemap] = [.streets(), .imagery(), .topographic(), .oceans()]
     
     private var layers = [AGSLayer]()
     

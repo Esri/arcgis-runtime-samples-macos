@@ -21,8 +21,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
 
     @IBOutlet weak var sceneView: AGSSceneView!
     
-    @IBOutlet weak var setObserverInstruction: NSView!
-    @IBOutlet weak var updateObserverInstruction: NSView!
+    @IBOutlet weak var instructionLabel: NSTextField!
     
     @IBOutlet weak var viewshedSettingsView: NSVisualEffectView!
     @IBOutlet weak var viewshedSettingsTextField: NSTextField!
@@ -50,22 +49,22 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     
     private var canMoveViewshed:Bool = false {
         didSet {
-            if canMoveViewshed {
-                updateObserverInstruction.isHidden = false
-                setObserverInstruction.isHidden = true
-            }
+            guard canMoveViewshed != oldValue else { return }
+            updateInstructionLabel()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateInstructionLabel()
+        
         // settings
         frustumOutlineSegmentedControl.setSelected(false, forSegment: 0)
         frustumOutlineSegmentedControl.setSelected(true, forSegment: 1)
         
         // initialize the scene with an imagery basemap
-        let scene = AGSScene(basemap: AGSBasemap.imagery())
+        let scene = AGSScene(basemap: .imagery())
         
         // assign the scene to the scene view
         sceneView.scene = scene
@@ -74,12 +73,16 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         let camera = AGSCamera(lookAt: AGSPoint(x: -4.50, y: 48.4, z: 100.0, spatialReference: AGSSpatialReference.wgs84()), distance: 200, heading: 20, pitch: 70, roll: 0)
         sceneView.setViewpointCamera(camera)
         
+        /// The url of the image service for elevation in Brest, France.
+        let brestElevationServiceURL = URL(string: "https://scene.arcgis.com/arcgis/rest/services/BREST_DTM_1M/ImageServer")!
         // initialize the elevation source with the service URL and add it to the base surface of the scene
-        let elevationSrc = AGSArcGISTiledElevationSource(url: .brestElevationService)
+        let elevationSrc = AGSArcGISTiledElevationSource(url: brestElevationServiceURL)
         scene.baseSurface?.elevationSources.append(elevationSrc)
         
+        /// The url of the scene service for buildings in Brest, France.
+        let brestBuildingsServiceURL = URL(string: "https://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Buildings_Brest/SceneServer/layers/0")!
         // initialize the scene layer with the scene layer URL and add it to the scene
-        let buildings = AGSArcGISSceneLayer(url: .brestBuildingsService)
+        let buildings = AGSArcGISSceneLayer(url: brestBuildingsServiceURL)
         scene.operationalLayers.add(buildings)
         
         // initialize a viewshed analysis object with arbitrary location (the location will be defined by the user), heading, pitch, view angles, and distance range (in meters) from which visibility is calculated from the observer location
@@ -106,6 +109,16 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         obstructedAreaColorWell.color = AGSViewshed.obstructedColor().withAlphaComponent(1)
         visibleAreaColorWell.color = AGSViewshed.visibleColor().withAlphaComponent(1)
         frustrumOutlineColorWell.color = AGSViewshed.frustumOutlineColor().withAlphaComponent(1)
+    }
+    
+    func updateInstructionLabel() {
+        let instruction: String
+        if canMoveViewshed {
+            instruction = "Click-and-drag to move the viewshed"
+        } else {
+            instruction = "Click on the map to add observer location"
+        }
+        instructionLabel.stringValue = instruction
     }
     
     // MARK: - AGSGeoViewTouchDelegate

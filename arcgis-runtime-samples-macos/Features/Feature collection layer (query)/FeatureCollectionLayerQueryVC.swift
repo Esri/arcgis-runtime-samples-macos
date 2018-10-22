@@ -27,7 +27,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.oceans())
+        let map = AGSMap(basemap: .oceans())
         
         //assign map to the map view
         self.mapView.map = map
@@ -42,13 +42,13 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         queryParams.whereClause = "1=1"
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //query feature from the table
         self.featureTable.queryFeatures(with: queryParams) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) in
         
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 print(error)

@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="I8p-wR-rpb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="I8p-wR-rpb">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Create Save Map View Controller-->
         <scene sceneID="w2o-5Z-Tqu">
             <objects>
-                <viewController id="I8p-wR-rpb" customClass="CreateSaveMapViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I8p-wR-rpb" customClass="CreateSaveMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LDR-kc-u4U">
                         <rect key="frame" x="0.0" y="0.0" width="583" height="464"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,16 +82,16 @@
         <!--Create Options View Controller-->
         <scene sceneID="YNA-bj-yBn">
             <objects>
-                <viewController id="W2D-dH-t5r" customClass="CreateOptionsViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W2D-dH-t5r" customClass="CreateOptionsViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="scm-RS-uha">
                         <rect key="frame" x="0.0" y="0.0" width="482" height="347"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-6q-BMB">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-6q-BMB">
                                 <rect key="frame" x="0.0" y="0.0" width="482" height="347"/>
                                 <subviews>
                                     <view translatesAutoresizingMaskIntoConstraints="NO" id="Ira-Io-0KV">
-                                        <rect key="frame" x="91" y="23" width="300" height="300"/>
+                                        <rect key="frame" x="91" y="24" width="300" height="300"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-ig-dMe">
                                                 <rect key="frame" x="18" y="260" width="264" height="30"/>
@@ -234,9 +235,6 @@
                                             <constraint firstAttribute="trailing" secondItem="nmY-Gi-IFE" secondAttribute="trailing" constant="20" id="zAT-Ue-gD3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.60265625" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
@@ -264,16 +262,16 @@
         <!--Save Map View Controller-->
         <scene sceneID="4a4-7u-RLi">
             <objects>
-                <viewController id="ox8-4r-688" customClass="SaveMapViewController" customModule="arcgis_runtime_samples_osx" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ox8-4r-688" customClass="SaveMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="4Ay-r6-Vez">
                         <rect key="frame" x="0.0" y="0.0" width="479" height="383"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-qh-xmj">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-qh-xmj">
                                 <rect key="frame" x="0.0" y="0.0" width="479" height="383"/>
                                 <subviews>
                                     <view translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-PR-mmj">
-                                        <rect key="frame" x="89" y="41" width="300" height="300"/>
+                                        <rect key="frame" x="90" y="42" width="300" height="300"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9UR-ge-VKH">
                                                 <rect key="frame" x="18" y="265" width="264" height="25"/>
@@ -293,7 +291,7 @@
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CTZ-kZ-b69">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
@@ -318,7 +316,7 @@
                                                 </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="sQT-Nh-Wnl">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
@@ -343,7 +341,7 @@
                                                 </constraints>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="qTM-Ow-oYg">
                                                     <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
@@ -402,11 +400,6 @@ Gw
                                             <constraint firstAttribute="height" constant="300" id="vc8-zG-EC7"/>
                                             <constraint firstItem="NFV-0t-hgr" firstAttribute="top" secondItem="9UR-ge-VKH" secondAttribute="bottom" constant="8" id="wfV-i9-79g"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.6033539013" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>

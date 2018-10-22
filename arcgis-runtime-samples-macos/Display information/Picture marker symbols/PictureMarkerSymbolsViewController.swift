@@ -25,7 +25,7 @@ class PictureMarkerSymbolsViewController: NSViewController {
         super.viewDidLoad()
         
         //initialize map with basemap
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         //initial envelope
         let center = AGSPoint(x: -225166.5, y: 6551249, spatialReference: AGSSpatialReference.webMercator())
@@ -68,7 +68,7 @@ class PictureMarkerSymbolsViewController: NSViewController {
         let imageName = "PinBlueStar"
         
         //create pin symbol using the image
-        let pinSymbol = AGSPictureMarkerSymbol(image: NSImage(named: NSImage.Name(rawValue: imageName))!)
+        let pinSymbol = AGSPictureMarkerSymbol(image: NSImage(named: imageName)!)
         
         //change offsets, so the symbol aligns properly to the point
         pinSymbol.offsetY = pinSymbol.image!.size.height/2

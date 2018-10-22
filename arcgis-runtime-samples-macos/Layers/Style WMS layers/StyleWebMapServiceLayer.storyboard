@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,27 +17,38 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="EJD-Bj-JQr" customClass="AGSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
-                                <rect key="frame" x="299" y="14" width="137" height="24"/>
-                                <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Style 1" selected="YES"/>
-                                        <segment label="Style 2" tag="1"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="changeStyle:" target="4at-8Q-tJz" id="UOp-4e-oyr"/>
-                                </connections>
-                            </segmentedControl>
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="2Eu-zj-ikC">
+                                <rect key="frame" x="0.0" y="263" width="450" height="37"/>
+                                <subviews>
+                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
+                                        <rect key="frame" x="307" y="6" width="137" height="24"/>
+                                        <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="Style 1" selected="YES"/>
+                                                <segment label="Style 2" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="changeStyle:" target="4at-8Q-tJz" id="UOp-4e-oyr"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TKX-jE-LhD" secondAttribute="bottom" constant="8" id="EV3-a4-hrs"/>
+                                    <constraint firstAttribute="trailing" secondItem="TKX-jE-LhD" secondAttribute="trailing" constant="8" id="b76-GC-410"/>
+                                    <constraint firstItem="TKX-jE-LhD" firstAttribute="top" secondItem="2Eu-zj-ikC" secondAttribute="top" constant="8" id="hPK-EO-jdW"/>
+                                </constraints>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EJD-Bj-JQr" secondAttribute="trailing" id="3fW-d0-uc0"/>
-                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="bottom" secondItem="TKX-jE-LhD" secondAttribute="bottom" constant="16" placeholder="YES" id="GS9-GW-5Og"/>
                             <constraint firstAttribute="bottom" secondItem="EJD-Bj-JQr" secondAttribute="bottom" id="HKu-x8-AWU"/>
                             <constraint firstItem="EJD-Bj-JQr" firstAttribute="top" secondItem="EYk-Ia-i1s" secondAttribute="top" id="MZx-6I-MEg"/>
+                            <constraint firstItem="2Eu-zj-ikC" firstAttribute="leading" secondItem="EYk-Ia-i1s" secondAttribute="leading" id="ODl-AX-hJe"/>
+                            <constraint firstAttribute="trailing" secondItem="2Eu-zj-ikC" secondAttribute="trailing" id="Wqe-ex-SaK"/>
                             <constraint firstItem="EJD-Bj-JQr" firstAttribute="leading" secondItem="EYk-Ia-i1s" secondAttribute="leading" id="cdz-E8-NIP"/>
-                            <constraint firstItem="EJD-Bj-JQr" firstAttribute="trailing" secondItem="TKX-jE-LhD" secondAttribute="trailing" constant="16" id="m6Z-ct-TY7"/>
+                            <constraint firstItem="2Eu-zj-ikC" firstAttribute="top" secondItem="EYk-Ia-i1s" secondAttribute="top" id="k9S-Um-fEz"/>
                         </constraints>
                     </view>
                     <connections>

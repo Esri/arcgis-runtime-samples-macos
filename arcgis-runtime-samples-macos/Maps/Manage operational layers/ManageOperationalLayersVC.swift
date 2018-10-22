@@ -28,7 +28,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let map = AGSMap(basemap: AGSBasemap.topographic())
+        let map = AGSMap(basemap: .topographic())
         
         let imageLayer = AGSArcGISMapImageLayer(url: URL(string: "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer")!)
         map.operationalLayers.add(imageLayer)
@@ -116,7 +116,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         
-        let pasteboard = info.draggingPasteboard()
+        let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
         if(rowData != nil) {
@@ -139,7 +139,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
-            if tableView == tableView2 {
+            if tableView == tableView2, tableView.selectedRow != -1 {
                 //add layer to the operational layers
                 let layer = self.removedLayers[tableView.selectedRow]
                 self.removedLayers.remove(at: tableView.selectedRow)

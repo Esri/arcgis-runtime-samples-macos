@@ -35,7 +35,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         super.viewDidLoad()
         
         //instantiate map with a basemap
-        let map = AGSMap(basemap: AGSBasemap.streets())
+        let map = AGSMap(basemap: .streets())
         //set initial viewpoint
         map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: AGSSpatialReference.webMercator()), scale: 2e6)
         
@@ -49,20 +49,17 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //create a feature layer using the service feature table
         self.featureLayer = AGSFeatureLayer(featureTable: self.featureTable)
         
-        //feature layer selection settings
-        self.featureLayer.selectionWidth = 5
-        
         //add the feature layer to the operational layers on map
         map.operationalLayers.add(featureLayer)
     }
     
     func deleteFeature(_ feature:AGSFeature) {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.featureTable.delete(feature) { [weak self] (error: Error?) -> Void in
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while deleting feature : \(error.localizedDescription)")
@@ -76,12 +73,12 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
     
     func applyEdits() {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
@@ -105,12 +102,12 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         self.mapView.callout.dismiss()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)

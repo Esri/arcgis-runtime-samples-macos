@@ -33,7 +33,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         super.viewDidLoad()
         
         //instantiate a map with an imagery with labels basemap
-        let map = AGSMap(basemap: AGSBasemap.imageryWithLabels())
+        let map = AGSMap(basemap: .imageryWithLabels())
         self.mapView.map = map
         self.mapView.touchDelegate = self
         
@@ -51,17 +51,6 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
     }
     
-    //method that returns a graphic object for the specified point and attributes
-    //also sets the leader offset and offset
-    private func graphic(for point: AGSPoint, attributes: [String: AnyObject]?) -> AGSGraphic {
-        let markerImage = NSImage(named: NSImage.Name(rawValue: "RedMarker"))!
-        let symbol = AGSPictureMarkerSymbol(image: markerImage)
-        symbol.leaderOffsetY = markerImage.size.height/2
-        symbol.offsetY = markerImage.size.height/2
-        let graphic = AGSGraphic(geometry: point, symbol: symbol, attributes: attributes)
-        return graphic
-    }
-    
     private func geocodeSearchText(_ text:String) {
         //clear already existing graphics
         self.graphicsOverlay.graphics.removeAllObjects()
@@ -70,30 +59,33 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.mapView.callout.dismiss()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //perform geocode with input text
-        self.locatorTask.geocode(withSearchText: text, parameters: self.geocodeParameters) { [weak self] (results:[AGSGeocodeResult]?, error:Error?) -> Void in
+        locatorTask.geocode(withSearchText: text, parameters: geocodeParameters) { [weak self] (results: [AGSGeocodeResult]?, error: Error?) -> Void in
+            guard let strongSelf = self else { return }
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
-                self?.showAlert("Error", informativeText: error.localizedDescription)
-            }
-            else {
-                if let results = results , results.count > 0 {
+                strongSelf.showAlert("Error", informativeText: error.localizedDescription)
+            } else {
+                if let result = results?.first {
                     //create a graphic for the first result and add to the graphics overlay
-                    let graphic = self?.graphic(for: results[0].displayLocation!, attributes: results[0].attributes as [String : AnyObject]?)
-                    self?.graphicsOverlay.graphics.add(graphic!)
+                    let markerImage = #imageLiteral(resourceName: "RedMarker")
+                    let symbol = AGSPictureMarkerSymbol(image: markerImage)
+                    symbol.leaderOffsetY = markerImage.size.height / 2
+                    symbol.offsetY = markerImage.size.height / 2
+                    let graphic = AGSGraphic(geometry: result.displayLocation!, symbol: symbol, attributes: result.attributes)
+                    strongSelf.graphicsOverlay.graphics.add(graphic)
                     //zoom to the extent of the result
-                    if let extent = results[0].extent {
-                        self?.mapView.setViewpointGeometry(extent, completion: nil)
+                    if let extent = result.extent {
+                        strongSelf.mapView.setViewpointGeometry(extent)
                     }
-                }
-                else {
+                } else {
                     //provide feedback in case of failure
-                    self?.showAlert("Error", informativeText: "No results found")
+                    strongSelf.showAlert("Error", informativeText: "No results found")
                 }
             }
         }
@@ -125,13 +117,13 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.mapView.callout.dismiss()
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //identify graphics at the tapped location
         self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (result: AGSIdentifyGraphicsOverlayResult) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = result.error {
                 

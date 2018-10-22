@@ -17,14 +17,40 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+class AppDelegate: NSObject {
+    var mainWindowController: WindowController {
+        return NSApplication.shared.windows.first!.windowController as! WindowController
     }
+    var mainViewController: MainViewController {
+        return mainWindowController.contentViewController as! MainViewController
+    }
+    
+    /// The URL of the content plist file inside the bundle.
+    private var contentPlistURL: URL {
+        return Bundle.main.url(forResource: "ContentPList", withExtension: "plist")!
+    }
+    
+    /// Decodes an array of categories from the plist at the given URL.
+    ///
+    /// - Parameter url: The url of a plist that defines categories.
+    /// - Returns: An array of categories.
+    private func decodeCategories(at url: URL) -> [Category] {
+        do {
+            let data = try Data(contentsOf: url)
+            return try PropertyListDecoder().decode([Category].self, from: data)
+        } catch {
+            fatalError("Error decoding categories at \(url): \(error)")
+        }
+    }
+}
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+extension AppDelegate: NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Decode and populate Categories.
+        let categories = decodeCategories(at: contentPlistURL)
+        mainViewController.categories = categories
+        let allSamples = categories.flatMap({ $0.samples })
+        mainWindowController.loadSearchEngine(samples: allSamples)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

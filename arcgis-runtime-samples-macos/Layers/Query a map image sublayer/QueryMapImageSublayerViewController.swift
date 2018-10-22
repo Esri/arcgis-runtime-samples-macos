@@ -29,8 +29,10 @@ class QueryMapImageSublayerViewController: NSViewController {
         let center = AGSPoint(x: -12716000.00, y: 4170400.00, spatialReference: .webMercator())
         map.initialViewpoint = AGSViewpoint(center: center, scale: 6000000)
         
+        /// The url of a map service containing sample data of the United States.
+        let unitedStatesMapServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer")!
         // Create an image layer and add it to the map.
-        let mapImageLayer = AGSArcGISMapImageLayer(url: .unitedStatesMapService)
+        let mapImageLayer = AGSArcGISMapImageLayer(url: unitedStatesMapServiceURL)
         map.operationalLayers.add(mapImageLayer)
         
         // Create the graphics overlay.
@@ -65,15 +67,10 @@ class QueryMapImageSublayerViewController: NSViewController {
         enableControlsIfNeeded()
     }
     
-    enum SublayerKey: Int {
+    enum SublayerKey: Int, CaseIterable {
         case cities = 0
         case states = 2
         case counties = 3
-        
-        /// A set of all values of this type.
-        static var allCases: Set<SublayerKey> {
-            return [.cities, .states, .counties]
-        }
     }
     
     /// The sublayers of the map image layer.

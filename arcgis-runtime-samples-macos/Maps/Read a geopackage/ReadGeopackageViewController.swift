@@ -162,7 +162,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         
-        let pasteboard = info.draggingPasteboard()
+        let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
         
         if(rowData != nil) {
@@ -210,7 +210,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
-            if tableView == layersNotInMapTableView {
+            if tableView == layersNotInMapTableView, tableView.selectedRow != -1 {
                 // Clicked to add a layer to the map.
                 let layer = layersNotInMap[tableView.selectedRow]
                 mapView.map?.operationalLayers.add(layer)

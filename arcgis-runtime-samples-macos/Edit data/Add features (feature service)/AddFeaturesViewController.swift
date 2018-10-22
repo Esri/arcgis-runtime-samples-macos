@@ -29,7 +29,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         super.viewDidLoad()
         
         //instantiate map with a basemap
-        let map = AGSMap(basemap: AGSBasemap.streets())
+        let map = AGSMap(basemap: .streets())
         //set initial viewpoint
         map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: AGSSpatialReference.webMercator()), scale: 2e6)
         
@@ -49,7 +49,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     func addFeature(at point:AGSPoint) {
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         //normalize geometry
         let normalizedGeometry = AGSGeometryEngine.normalizeCentralMeridian(of: point)!
@@ -63,7 +63,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.featureTable.add(feature) { [weak self] (error: Error?) -> Void in
             
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while adding feature :: \(error.localizedDescription)")
@@ -78,11 +78,11 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     func applyEdits() {
         
         //show progress indicator
-        self.view.window?.showProgressIndicator()
+        NSApp.showProgressIndicator()
         
         self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
             //hide progress indicator
-            self?.view.window?.hideProgressIndicator()
+            NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")

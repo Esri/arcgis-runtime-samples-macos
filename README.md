@@ -1,4 +1,4 @@
-# arcgis-runtime-samples-macos
+# ArcGIS Runtime SDK for macOS Samples 
 This is a set of samples for demonstrating the capabilities of the [ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/).
 The samples use ArcGIS Online basemaps and services.  Learn more [here](http://www.arcgis.com/about/).
 
@@ -19,9 +19,9 @@ The samples use ArcGIS Online basemaps and services.  Learn more [here](http://w
 2. Build and run the project to create a single app containing all of the samples.
 
 ## Requirements
-* [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/) 100.3.0 (or higher)
-* Xcode 9.0 (or higher)
-* macOS SDK 10.13 (or higher)
+* [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/) 100.4.0 (or higher)
+* Xcode 10.0 (or higher)
+* macOS SDK 10.14 (or higher)
 
 ## Additional Resources
 

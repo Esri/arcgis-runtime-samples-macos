@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="FQC-id-YCW">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Open Map URL View Controller-->
+        <scene sceneID="j9q-BV-3ED">
+            <objects>
+                <viewController id="FQC-id-YCW" customClass="OpenMapURLViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eQe-as-79J">
+                        <rect key="frame" x="0.0" y="0.0" width="583" height="464"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="BEO-la-DSt" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="51" width="583" height="413"/>
+                            </customView>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-bB-uag">
+                                <rect key="frame" x="274" y="12" width="37" height="26"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YXW-24-pLz">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="9go-jD-3es"/>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="mapListPopUpAction:" target="FQC-id-YCW" id="Tfl-Eg-sFs"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Pub-bB-uag" secondAttribute="bottom" constant="15" id="0lB-7V-Kw4"/>
+                            <constraint firstItem="Pub-bB-uag" firstAttribute="top" secondItem="BEO-la-DSt" secondAttribute="bottom" constant="15" id="4xA-Ak-Qva"/>
+                            <constraint firstItem="BEO-la-DSt" firstAttribute="top" secondItem="eQe-as-79J" secondAttribute="top" id="62U-ui-zzD"/>
+                            <constraint firstItem="BEO-la-DSt" firstAttribute="leading" secondItem="eQe-as-79J" secondAttribute="leading" id="LXs-kq-t4E"/>
+                            <constraint firstAttribute="trailing" secondItem="BEO-la-DSt" secondAttribute="trailing" id="NR1-Hv-XbS"/>
+                            <constraint firstItem="Pub-bB-uag" firstAttribute="centerX" secondItem="eQe-as-79J" secondAttribute="centerX" id="t8o-iL-Xlx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapListPopUp" destination="Pub-bB-uag" id="H3O-Fg-QnP"/>
+                        <outlet property="mapView" destination="BEO-la-DSt" id="vvx-PK-6Iv"/>
+                    </connections>
+                </viewController>
+                <customObject id="S2i-0E-rhx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.5" y="449"/>
+        </scene>
+    </scenes>
+</document>
