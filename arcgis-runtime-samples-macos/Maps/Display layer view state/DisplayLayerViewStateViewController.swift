@@ -19,7 +19,7 @@ import ArcGIS
 
 /// A view controller that manages the interface of the Display Layer View State
 /// sample.
-class DisplayLayerViewStateViewController: NSViewController /*, UITableViewDataSource, UITableViewDelegate */ {
+class DisplayLayerViewStateViewController: NSViewController {
     /// The map view managed by the view controller.
     @IBOutlet weak var mapView: AGSMapView!
     
