@@ -210,7 +210,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
-            if tableView == layersNotInMapTableView {
+            if tableView == layersNotInMapTableView, tableView.selectedRow != -1 {
                 // Clicked to add a layer to the map.
                 let layer = layersNotInMap[tableView.selectedRow]
                 mapView.map?.operationalLayers.add(layer)
