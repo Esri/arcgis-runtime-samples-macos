@@ -178,7 +178,7 @@ extension NSImage {
         
         //crop image
         let croppedCGImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil)!.cropping(to: rect)!
-        let croppedImage = NSImage(cgImage: croppedCGImage, size: NSZeroSize)
+        let croppedImage = NSImage(cgImage: croppedCGImage, size: .zero)
         
         return croppedImage
     }

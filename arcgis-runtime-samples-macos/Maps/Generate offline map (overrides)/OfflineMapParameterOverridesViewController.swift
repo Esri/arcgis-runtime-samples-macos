@@ -73,7 +73,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     //MARK: - cancelling
     
     /// The completion handler to run if the user clicks cancel
-    var cancelHandler: ((OfflineMapParameterOverridesViewController)->())?
+    var cancelHandler: ((OfflineMapParameterOverridesViewController) -> Void)?
     
     @IBAction func cancelButtonAction(_ sender: NSButton) {
         cancelHandler?(self)
@@ -82,7 +82,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     //MARK: - completion
     
     /// The completion handler to run once the user is done setting the parameters.
-    var startJobHandler: ((OfflineMapParameterOverridesViewController)->())?
+    var startJobHandler: ((OfflineMapParameterOverridesViewController) -> Void)?
     
     @IBAction func startJobButtonAction(_ sender: NSButton) {
         // Update the parameters based on the user's input

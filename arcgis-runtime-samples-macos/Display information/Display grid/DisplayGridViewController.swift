@@ -73,24 +73,24 @@ class DisplayGridViewController: NSViewController {
     
     @IBAction func gridTypeAction(_ sender:NSPopUpButton) {
         switch sender.indexOfSelectedItem {
-            case 0:
-                mapView.grid = AGSLatitudeLongitudeGrid()
-                labelFormatButton.isEnabled = true
-                labelUnitButton.isEnabled = false
-            case 1:
-                mapView.grid = AGSMGRSGrid()
-                labelFormatButton.isEnabled = false
-                labelUnitButton.isEnabled = true
-            case 2:
-                 mapView.grid = AGSUTMGrid()
-                 labelFormatButton.isEnabled = false
-                 labelUnitButton.isEnabled = false
-            case 3:
-                mapView.grid = AGSUSNGGrid()
-                labelFormatButton.isEnabled = false
-                labelUnitButton.isEnabled = true
-            default:
-                break
+        case 0:
+            mapView.grid = AGSLatitudeLongitudeGrid()
+            labelFormatButton.isEnabled = true
+            labelUnitButton.isEnabled = false
+        case 1:
+            mapView.grid = AGSMGRSGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = true
+        case 2:
+            mapView.grid = AGSUTMGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = false
+        case 3:
+            mapView.grid = AGSUSNGGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = true
+        default:
+            break
         }
         
         // Apply other settings to selected grid

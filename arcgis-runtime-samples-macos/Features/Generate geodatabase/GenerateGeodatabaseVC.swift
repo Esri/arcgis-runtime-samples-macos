@@ -183,7 +183,6 @@ class GenerateGeodatabaseVC: NSViewController {
                     print(error.localizedDescription)
                 }
                 else {
-                    //TODO: Show alert
                     self?.showAlert(messageText: "Info", informativeText: "Geodatabase unregistered since we wont be editing it in this sample")
                 }
             }

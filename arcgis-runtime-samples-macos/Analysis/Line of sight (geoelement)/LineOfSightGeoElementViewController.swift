@@ -15,8 +15,8 @@
 import Cocoa
 import ArcGIS
 
-fileprivate let observerZMin = 20.0
-fileprivate let observerZMax = 1500.0
+private let observerZMin = 20.0
+private let observerZMax = 1500.0
 
 class LineOfSightGeoElementViewController: NSViewController {
     
@@ -268,7 +268,7 @@ class LineOfSightGeoElementViewController: NSViewController {
     }
 }
 
-fileprivate func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, progress: Double) -> (AGSPoint, Double) {
+private func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, progress: Double) -> (AGSPoint, Double) {
     // Use the geometry engine to calculate the heading between point 1 and 2
     let geResult = AGSGeometryEngine.geodeticDistanceBetweenPoint1(firstPoint, point2: secondPoint,
                                                                    distanceUnit: .meters(),
