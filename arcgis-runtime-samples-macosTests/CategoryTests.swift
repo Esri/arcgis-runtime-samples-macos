@@ -15,7 +15,7 @@
 //
 
 import XCTest
-@testable import arcgis_runtime_samples_macos
+@testable import ArcGIS_Runtime_SDK_Samples
 
 class CategoryTests: XCTestCase {
     func testInitFromDecoder() {
@@ -48,7 +48,7 @@ class CategoryTests: XCTestCase {
             </dict>
             </plist>
         """.data(using: .utf8)!
-        let expectedCategory = arcgis_runtime_samples_macos.Category(
+        let expectedCategory = ArcGIS_Runtime_SDK_Samples.Category(
             name: "Maps",
             samples: [
                 Sample(
@@ -65,6 +65,6 @@ class CategoryTests: XCTestCase {
                 )
             ]
         )
-        XCTAssertEqual(try PropertyListDecoder().decode(arcgis_runtime_samples_macos.Category.self, from: sampleData), expectedCategory)
+        XCTAssertEqual(try PropertyListDecoder().decode(ArcGIS_Runtime_SDK_Samples.Category.self, from: sampleData), expectedCategory)
     }
 }

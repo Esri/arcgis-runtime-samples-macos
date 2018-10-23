@@ -16,7 +16,7 @@
 
 import XCTest
 import ArcGIS
-@testable import arcgis_runtime_samples_macos
+@testable import ArcGIS_Runtime_SDK_Samples
 
 class DisplayLayerViewStateViewControllerTests: XCTestCase {
     func makeViewController() -> DisplayLayerViewStateViewController {
