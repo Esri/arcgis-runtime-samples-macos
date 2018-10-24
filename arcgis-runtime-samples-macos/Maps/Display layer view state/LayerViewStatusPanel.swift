@@ -15,23 +15,10 @@
 //
 
 import AppKit
+import ArcGIS
 
-extension NSView {
-    /// The background color of the view's layer or `nil` if the view is not
-    /// backed by a layer.
-    ///
-    /// Setting this property implicitly sets `wantsLayer` to `true`.
-    @IBInspectable var layerBackgroundColor: NSColor? {
-        get {
-            if let colorRef = layer?.backgroundColor {
-                return NSColor(cgColor: colorRef)
-            } else {
-                return nil
-            }
-        }
-        set {
-            wantsLayer = true
-            layer?.backgroundColor = newValue?.cgColor
-        }
+class LayerViewStatusPanel: NSPanel {
+    override var canBecomeKey: Bool {
+        return false
     }
 }

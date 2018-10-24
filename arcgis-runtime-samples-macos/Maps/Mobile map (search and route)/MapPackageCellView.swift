@@ -78,13 +78,13 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         item.label.stringValue = "Map \(indexPath.item + 1)"
         
         //thumbnail
-        item.thumbnailView.image = map.item?.thumbnail?.image
+        item.imageView?.image = map.item?.thumbnail?.image
         
         //search image view
         item.searchImageView.isHidden = (self.mapPackage.locatorTask == nil)
         
         //route image view
-        item.routeImageView.isHidden = (map.transportationNetworks.count == 0)
+        item.routeImageView.isHidden = map.transportationNetworks.isEmpty
         
         return item
     }

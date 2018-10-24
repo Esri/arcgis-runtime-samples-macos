@@ -348,11 +348,15 @@
 		4C914BB720D9C50400779991 /* QueryMapImageSublayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
 		4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */; };
 		4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */; };
+		4CA8381C216C027A00698E11 /* DisplayLayerViewState.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA8381B216C027A00698E11 /* DisplayLayerViewState.storyboard */; };
+		4CA8381E216C029E00698E11 /* DisplayLayerViewStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8381D216C029E00698E11 /* DisplayLayerViewStateViewController.swift */; };
+		4CA8381F216C049000698E11 /* DisplayLayerViewStateViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CA8381D216C029E00698E11 /* DisplayLayerViewStateViewController.swift */; };
+		4CA83821216C05CB00698E11 /* LayerViewStatusPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA83820216C05CB00698E11 /* LayerViewStatusPanel.swift */; };
+		4CA83823216C0D2A00698E11 /* LayerViewStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA83822216C0D2A00698E11 /* LayerViewStatusViewController.swift */; };
 		4CB1707221668F480038535D /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1707121668F480038535D /* CollectionViewItem.swift */; };
 		4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
 		4CBF1B142130871000CE1567 /* DistanceCompositeSymbol.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */; };
 		4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */; };
-		4CD278BB214340AC0033EC4B /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD278BA214340AC0033EC4B /* NSView.swift */; };
 		4CD4A8D820C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */; };
 		4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
 		4CD4A8DB20C9A962007B8D6B /* DistanceMeasurementAnalysisViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */; };
@@ -365,6 +369,8 @@
 		4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0258021151F9C00806810 /* SampleViewController.swift */; };
 		4CF025842118933E00806810 /* ArcGIS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; };
 		4CF02586211893C100806810 /* ArcGIS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF025832118933E00806810 /* ArcGIS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CF5C19821791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5C19721791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift */; };
+		4CF5C19921791530001FB88C /* LayerViewStatusViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CA83822216C0D2A00698E11 /* LayerViewStatusViewController.swift */; };
 		4CF92E902118BB97009A62C6 /* SampleCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */; };
 		4CF92E952118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */; };
 		4CF92E972118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */; };
@@ -611,6 +617,8 @@
 				C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */,
 				C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */,
 				4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */,
+				4CA8381F216C049000698E11 /* DisplayLayerViewStateViewController.swift in CopyFiles */,
+				4CF5C19921791530001FB88C /* LayerViewStatusViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,7 +790,7 @@
 		3EBA25681D34491C00AB0703 /* SimpleMarkerSymbol.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleMarkerSymbol.storyboard; sourceTree = "<group>"; };
 		3EBA256B1D344AA600AB0703 /* PictureMarkerSymbols.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PictureMarkerSymbols.storyboard; sourceTree = "<group>"; };
 		3EBA256D1D344ADF00AB0703 /* PictureMarkerSymbolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureMarkerSymbolsViewController.swift; sourceTree = "<group>"; };
-		3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "arcgis-runtime-samples-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArcGIS Runtime SDK Samples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC1AE6E1BAC8DA100E32B1D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3EC1AE701BAC8DA100E32B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -873,10 +881,13 @@
 		4C8130D62100F29C00FD4892 /* SampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListViewController.swift; sourceTree = "<group>"; };
 		4C914BB620D9C50400779991 /* QueryMapImageSublayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryMapImageSublayerViewController.swift; sourceTree = "<group>"; };
 		4C914BB820DAA4DC00779991 /* QueryMapImageSublayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueryMapImageSublayer.storyboard; sourceTree = "<group>"; };
+		4CA8381B216C027A00698E11 /* DisplayLayerViewState.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayLayerViewState.storyboard; sourceTree = "<group>"; };
+		4CA8381D216C029E00698E11 /* DisplayLayerViewStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayerViewStateViewController.swift; sourceTree = "<group>"; };
+		4CA83820216C05CB00698E11 /* LayerViewStatusPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerViewStatusPanel.swift; sourceTree = "<group>"; };
+		4CA83822216C0D2A00698E11 /* LayerViewStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerViewStatusViewController.swift; sourceTree = "<group>"; };
 		4CB1707121668F480038535D /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCompositeSymbolViewController.swift; sourceTree = "<group>"; };
 		4CBF1B132130871000CE1567 /* DistanceCompositeSymbol.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceCompositeSymbol.storyboard; sourceTree = "<group>"; };
-		4CD278BA214340AC0033EC4B /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		4CD4A8D720C9A681007B8D6B /* DistanceMeasurementAnalysis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceMeasurementAnalysis.storyboard; sourceTree = "<group>"; };
 		4CD4A8D920C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasurementAnalysisViewController.swift; sourceTree = "<group>"; };
 		4CE3B22A20E2AD2000D4A06A /* SceneLayerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLayerSelectionViewController.swift; sourceTree = "<group>"; };
@@ -885,6 +896,7 @@
 		4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeMap.storyboard; sourceTree = "<group>"; };
 		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
+		4CF5C19721791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayerViewStateViewControllerTests.swift; sourceTree = "<group>"; };
 		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
 		4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		4CF92E962118DABE009A62C6 /* SampleCollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -1493,6 +1505,7 @@
 				3E0103601E29671E0013AEEF /* Manage operational layers */,
 				3E01035A1E28579C0013AEEF /* Manage bookmarks */,
 				3ECCFE1D1BC87ABD00CE256D /* Display drawing status */,
+				4CA8381A216C023300698E11 /* Display layer view state */,
 				3ECCFE221BCC2E7E00CE256D /* Change viewpoint */,
 				3ECCFE2B1BCC31B600CE256D /* Map rotation */,
 				3ECCFE301BCC4F9100CE256D /* Show magnifier */,
@@ -1805,7 +1818,7 @@
 		3EC1AE6A1BAC8DA100E32B1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */,
+				3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */,
 				4C80B8E521501F5C00840A94 /* arcgis-runtime-samples-macosTests.xctest */,
 			);
 			name = Products;
@@ -1824,7 +1837,6 @@
 				3E496EEB1DD39DF4004C921C /* Route & Directions */,
 				3EFDE0DC1E3288C900CBCD92 /* Analysis */,
 				3E495C401D062E940021CD95 /* Scenes */,
-				4CD4A8DC20C9B07D007B8D6B /* Extensions */,
 				3E049A131CEA92730031ADA9 /* Shared resources */,
 				3ECD0F6E1BB0CC6F007105A1 /* Content Display Logic */,
 				3EC1AE6C1BAC8DA100E32B1D /* AppDelegate.swift */,
@@ -2175,6 +2187,17 @@
 			path = "Query a map image sublayer";
 			sourceTree = "<group>";
 		};
+		4CA8381A216C023300698E11 /* Display layer view state */ = {
+			isa = PBXGroup;
+			children = (
+				4CA8381B216C027A00698E11 /* DisplayLayerViewState.storyboard */,
+				4CA8381D216C029E00698E11 /* DisplayLayerViewStateViewController.swift */,
+				4CA83820216C05CB00698E11 /* LayerViewStatusPanel.swift */,
+				4CA83822216C0D2A00698E11 /* LayerViewStatusViewController.swift */,
+			);
+			path = "Display layer view state";
+			sourceTree = "<group>";
+		};
 		4CBF1B102130853F00CE1567 /* Distance composite symbol */ = {
 			isa = PBXGroup;
 			children = (
@@ -2182,14 +2205,6 @@
 				4CBF1B112130856C00CE1567 /* DistanceCompositeSymbolViewController.swift */,
 			);
 			path = "Distance composite symbol";
-			sourceTree = "<group>";
-		};
-		4CD278B92143408A0033EC4B /* AppKit */ = {
-			isa = PBXGroup;
-			children = (
-				4CD278BA214340AC0033EC4B /* NSView.swift */,
-			);
-			path = AppKit;
 			sourceTree = "<group>";
 		};
 		4CD4A8D620C9A64C007B8D6B /* Distance measurement analysis */ = {
@@ -2201,14 +2216,6 @@
 				4C2244B620C9CB57005E6DEE /* DistanceViewController.swift */,
 			);
 			path = "Distance measurement analysis";
-			sourceTree = "<group>";
-		};
-		4CD4A8DC20C9B07D007B8D6B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4CD278B92143408A0033EC4B /* AppKit */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4CE3B22920E2ACE000D4A06A /* Scene layer selection */ = {
@@ -2262,6 +2269,7 @@
 		4CF944D02164349B0083CB84 /* Sample Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4CF5C19721791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift */,
 				4CF944D1216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift */,
 			);
 			path = "Sample Tests";
@@ -2522,9 +2530,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */ = {
+		3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macos" */;
+			buildConfigurationList = 3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "ArcGIS Runtime SDK Samples" */;
 			buildPhases = (
 				3EC1AE651BAC8DA100E32B1D /* Sources */,
 				3EC1AE661BAC8DA100E32B1D /* Frameworks */,
@@ -2537,9 +2545,9 @@
 			);
 			dependencies = (
 			);
-			name = "arcgis-runtime-samples-macos";
+			name = "ArcGIS Runtime SDK Samples";
 			productName = OSXSampleViewer;
-			productReference = 3EC1AE691BAC8DA100E32B1D /* arcgis-runtime-samples-macos.app */;
+			productReference = 3EC1AE691BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */ = {
@@ -2596,7 +2604,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */,
+				3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */,
 				4C80B8E421501F5C00840A94 /* arcgis-runtime-samples-macosTests */,
 			);
 		};
@@ -2744,6 +2752,7 @@
 				3EFDE0E51E3288C900CBCD92 /* ViewshedGeoprocessing.storyboard in Resources */,
 				C74AA5312152CA3D009047AF /* DisplayKML.storyboard in Resources */,
 				3ECD0F701BB0CC6F007105A1 /* ContentPList.plist in Resources */,
+				4CA8381C216C027A00698E11 /* DisplayLayerViewState.storyboard in Resources */,
 				3E495C451D0635E80021CD95 /* ExtrudeGraphics.storyboard in Resources */,
 				E48008E71FE44B1C0064809E /* ViewshedGeoElement.storyboard in Resources */,
 				123F09611FD2AA9A000760FE /* WMSLayerUsingURL.storyboard in Resources */,
@@ -2839,6 +2848,7 @@
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
+				4CA83823216C0D2A00698E11 /* LayerViewStatusViewController.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */,
 				4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */,
@@ -2869,6 +2879,7 @@
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3E0662571F031F2C007666DF /* ChangeSublayerRendererVC.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
+				4CA8381E216C029E00698E11 /* DisplayLayerViewStateViewController.swift in Sources */,
 				3EFDE09E1E31271700CBCD92 /* BlendRendererViewController.swift in Sources */,
 				4CD4A8DA20C9A6B2007B8D6B /* DistanceMeasurementAnalysisViewController.swift in Sources */,
 				C7D22F872167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift in Sources */,
@@ -2898,6 +2909,7 @@
 				3EBA254F1D30204700AB0703 /* SimpleRendererViewController.swift in Sources */,
 				3E69DE481CFE34A3001F65F7 /* ReadmeViewController.swift in Sources */,
 				3E8724721BC6D971006386C1 /* DisplayMapViewController.swift in Sources */,
+				4CA83821216C05CB00698E11 /* LayerViewStatusPanel.swift in Sources */,
 				3E04AB331DCAA7DE00B4E2FB /* SketchOnMapViewController.swift in Sources */,
 				3E496ED31DD14FE2004C921C /* MobileMapViewItem.swift in Sources */,
 				4C80B8E021501DC600840A94 /* Category.swift in Sources */,
@@ -2912,7 +2924,6 @@
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
 				4C8130D72100F29C00FD4892 /* SampleListViewController.swift in Sources */,
-				4CD278BB214340AC0033EC4B /* NSView.swift in Sources */,
 				3E049A2D1CED12FC0031ADA9 /* GOIdentifyViewController.swift in Sources */,
 				C793B5EF2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift in Sources */,
 				3E8D55021D58D85400E628D9 /* ScenePropertiesExpressions.swift in Sources */,
@@ -2971,6 +2982,7 @@
 				4CF944D2216434C10083CB84 /* IdentifyKMLFeaturesViewControllerTests.swift in Sources */,
 				4C80B8F021501F8500840A94 /* SampleTests.swift in Sources */,
 				4C80B8F22150237B00840A94 /* CategoryTests.swift in Sources */,
+				4CF5C19821791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift in Sources */,
 				4C553BD321515B8C006E899C /* SampleListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2980,7 +2992,7 @@
 /* Begin PBXTargetDependency section */
 		4C80B8EB21501F5D00840A94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3EC1AE681BAC8DA100E32B1D /* arcgis-runtime-samples-macos */;
+			target = 3EC1AE681BAC8DA100E32B1D /* ArcGIS Runtime SDK Samples */;
 			targetProxy = 4C80B8EA21501F5D00840A94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3114,7 +3126,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
-				PRODUCT_NAME = "arcgis-runtime-samples-macos";
+				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
 				SWIFT_VERSION = 4.2;
 			};
@@ -3135,7 +3147,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
-				PRODUCT_NAME = "arcgis-runtime-samples-macos";
+				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";
 				SWIFT_OBJC_BRIDGING_HEADER = "arcgis-runtime-samples-macos/Content Display Logic/BridgingHeader.h";
 				SWIFT_VERSION = 4.2;
 			};
@@ -3167,7 +3179,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arcgis-runtime-samples-macos.app/Contents/MacOS/arcgis-runtime-samples-macos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArcGIS Runtime SDK Samples.app/Contents/MacOS/ArcGIS Runtime SDK Samples";
 			};
 			name = Debug;
 		};
@@ -3195,7 +3207,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arcgis-runtime-samples-macos.app/Contents/MacOS/arcgis-runtime-samples-macos";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArcGIS Runtime SDK Samples.app/Contents/MacOS/ArcGIS Runtime SDK Samples";
 			};
 			name = Release;
 		};
@@ -3211,7 +3223,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "arcgis-runtime-samples-macos" */ = {
+		3EC1AE781BAC8DA100E32B1D /* Build configuration list for PBXNativeTarget "ArcGIS Runtime SDK Samples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC1AE791BAC8DA100E32B1D /* Debug */,

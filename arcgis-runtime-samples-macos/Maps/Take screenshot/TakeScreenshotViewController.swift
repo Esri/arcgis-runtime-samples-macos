@@ -124,3 +124,26 @@ class TakeScreenshotViewController: NSViewController {
         alert.beginSheetModal(for: self.view.window!)
     }
 }
+
+class AspectFillImageView: NSView {
+    @IBOutlet var image: NSImage! {
+        didSet {
+            self.layer?.contents = image
+        }
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func commonInit() {
+        self.layer = CALayer()
+        self.layer?.contentsGravity = .resizeAspectFill
+        self.layer?.contents = image
+        self.wantsLayer = true
+    }
+}

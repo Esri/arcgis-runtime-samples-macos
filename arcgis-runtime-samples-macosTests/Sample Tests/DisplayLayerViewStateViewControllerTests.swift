@@ -18,9 +18,9 @@ import XCTest
 import ArcGIS
 @testable import ArcGIS_Runtime_SDK_Samples
 
-class IdentifyKMLFeaturesViewControllerTests: XCTestCase {
-    func makeViewController() -> IdentifyKMLFeaturesViewController {
-        return NSStoryboard(name: "IdentifyKMLFeatures", bundle: nil).instantiateInitialController() as! IdentifyKMLFeaturesViewController
+class DisplayLayerViewStateViewControllerTests: XCTestCase {
+    func makeViewController() -> DisplayLayerViewStateViewController {
+        return NSStoryboard(name: "DisplayLayerViewState", bundle: nil).instantiateInitialController() as! DisplayLayerViewStateViewController
     }
     
     func testLoadingView() {
@@ -31,8 +31,8 @@ class IdentifyKMLFeaturesViewControllerTests: XCTestCase {
         
         if let mapView = viewController.mapView {
             XCTAssertNotNil(mapView.map)
-            XCTAssertEqual(mapView.map?.basemap.name, AGSBasemap.darkGrayCanvasVector().name)
-            XCTAssertTrue(mapView.touchDelegate === viewController)
+            XCTAssertEqual(mapView.map?.basemap.name, "")
+            XCTAssertEqual(mapView.map?.operationalLayers.count, 3)
         } else {
             XCTFail("mapView is nil")
         }

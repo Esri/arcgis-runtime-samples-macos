@@ -130,6 +130,19 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Display layer view state</string>
+				<key>storyboardName</key>
+				<string>DisplayLayerViewState</string>
+				<key>descriptionText</key>
+				<string>Demonstrates how to get view status for layers in a map.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DisplayLayerViewStateViewController</string>
+					<string>LayerViewStatusViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Change viewpoint</string>
 				<key>storyboardName</key>
 				<string>ChangeViewpoint</string>
