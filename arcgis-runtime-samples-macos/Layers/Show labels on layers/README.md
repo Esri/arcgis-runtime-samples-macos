@@ -1,6 +1,6 @@
-# Show labels on layer
+# Show labels on layers
 
-This sample demonstrates how to show labels on a feature layer.
+This sample demonstrates how to show labels on feature layers.
 
 ![](image1.png)
 

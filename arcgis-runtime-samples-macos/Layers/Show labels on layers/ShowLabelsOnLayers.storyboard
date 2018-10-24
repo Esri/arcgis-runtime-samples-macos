@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show Labels On Layer View Controller-->
+        <!--Show Labels On Layers View Controller-->
         <scene sceneID="Vdb-xF-hrh">
             <objects>
-                <viewController id="M4i-2l-bDH" customClass="ShowLabelsOnLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4i-2l-bDH" customClass="ShowLabelsOnLayersViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="7ow-AV-5BH">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -17,7 +17,7 @@
 import Cocoa
 import ArcGIS
 
-class ShowLabelsOnLayerViewController: NSViewController {
+class ShowLabelsOnLayersViewController: NSViewController {
     
     @IBOutlet private weak var mapView:AGSMapView!
     

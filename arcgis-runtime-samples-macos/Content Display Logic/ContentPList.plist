@@ -463,14 +463,14 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
-				<string>Show labels on layer</string>
+				<string>Show labels on layers</string>
 				<key>storyboardName</key>
-				<string>ShowLabelsOnLayer</string>
+				<string>ShowLabelsOnLayers</string>
 				<key>descriptionText</key>
-				<string>Show labels on a feature layer using JSON label definitions.</string>
+				<string>Show labels on feature layers using JSON label definitions.</string>
 				<key>sourceFileNames</key>
 				<array>
-					<string>ShowLabelsOnLayerViewController</string>
+					<string>ShowLabelsOnLayersViewController</string>
 				</array>
 			</dict>
 			<dict>
