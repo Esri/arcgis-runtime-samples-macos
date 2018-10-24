@@ -311,18 +311,10 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
                 }
                 
                 // Remove field from the order by fields
-                for (i,orderByField) in orderByFields.enumerated().reversed() {
-                    if orderByField.fieldName == fieldName {
-                        orderByFields.remove(at: i)
-                    }
-                }
+                orderByFields.removeAll { $0.fieldName == fieldName }
                 
                 // Remove field from the selected order by fields
-                for (i,selectedOrderByField) in selectedOrderByFields.enumerated().reversed() {
-                    if selectedOrderByField.fieldName == fieldName {
-                        selectedOrderByFields.remove(at: i)
-                    }
-                }
+                selectedOrderByFields.removeAll { $0.fieldName == fieldName }
             }
             
             // Reload order by fields table
