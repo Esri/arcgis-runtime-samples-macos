@@ -240,7 +240,7 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>GenerateOfflineMapViewController</string>
-					<string>OfflineMapProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -254,7 +254,7 @@
 				<array>
 					<string>GenerateOfflineMapOverridesViewController</string>
 					<string>OfflineMapParameterOverridesViewController</string>
-					<string>OfflineMapOverridesProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>

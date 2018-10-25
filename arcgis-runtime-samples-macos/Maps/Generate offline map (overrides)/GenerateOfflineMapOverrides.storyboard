@@ -9,7 +9,7 @@
         <!--Generate Offline Map Overrides View Controller-->
         <scene sceneID="HiF-LQ-Ovn">
             <objects>
-                <viewController id="grZ-q4-GUm" customClass="GenerateOfflineMapOverridesViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="grZ-q4-GUm" customClass="GenerateOfflineMapOverridesViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="eyb-5H-N8F">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="357"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,8 +75,6 @@
                         <outlet property="generateButton" destination="hwK-Ar-8zZ" id="oKV-k4-DSy"/>
                         <outlet property="generateButtonParentView" destination="ozd-Mu-MIH" id="YAQ-T4-F5f"/>
                         <outlet property="mapView" destination="1bp-W4-cHD" id="xae-xr-UOX"/>
-                        <outlet property="progressLabel" destination="qMT-xZ-t1U" id="z1B-1m-peg"/>
-                        <outlet property="progressView" destination="FF4-4y-qxF" id="nkH-i6-cri"/>
                     </connections>
                 </viewController>
                 <customObject id="Leb-q1-OUq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -86,7 +84,7 @@
         <!--Offline Map Parameter Overrides View Controller-->
         <scene sceneID="jqG-v1-uCL">
             <objects>
-                <viewController storyboardIdentifier="OfflineMapParameterOverridesViewController" id="6YE-G8-xMt" customClass="OfflineMapParameterOverridesViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OfflineMapParameterOverridesViewController" id="6YE-G8-xMt" customClass="OfflineMapParameterOverridesViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="MXS-Sa-9wV">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="455"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -503,60 +501,6 @@ Gw
                 <userDefaultsController representsSharedInstance="YES" id="8Nh-Rh-Z5J"/>
             </objects>
             <point key="canvasLocation" x="819" y="450.5"/>
-        </scene>
-        <!--Offline Map Overrides Progress View Controller-->
-        <scene sceneID="oEb-j7-oeq">
-            <objects>
-                <viewController storyboardIdentifier="OfflineMapOverridesProgressViewController" id="2Iu-rv-mAx" customClass="OfflineMapOverridesProgressViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" id="Zo0-tC-T31">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="69"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-4y-qxF">
-                                <rect key="frame" x="16" y="15" width="332" height="20"/>
-                            </progressIndicator>
-                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-xZ-t1U">
-                                <rect key="frame" x="14" y="36" width="336" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="naJ-zx-h1J">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-Os-6Ha">
-                                <rect key="frame" x="358" y="17" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zVb-Su-LqC">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cancelAction:" target="2Iu-rv-mAx" id="a6M-dg-dz9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="leading" secondItem="Zo0-tC-T31" secondAttribute="leading" constant="16" id="Bqt-oC-eze"/>
-                            <constraint firstItem="FF4-4y-qxF" firstAttribute="top" secondItem="qMT-xZ-t1U" secondAttribute="bottom" constant="2" id="M7H-Ha-ytp"/>
-                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="top" secondItem="Zo0-tC-T31" secondAttribute="top" constant="16" id="PbF-yC-xdF"/>
-                            <constraint firstAttribute="trailing" secondItem="pQf-Os-6Ha" secondAttribute="trailing" constant="16" id="SDf-jG-MUC"/>
-                            <constraint firstItem="FF4-4y-qxF" firstAttribute="trailing" secondItem="qMT-xZ-t1U" secondAttribute="trailing" id="Y0h-y1-fOt"/>
-                            <constraint firstAttribute="bottom" secondItem="FF4-4y-qxF" secondAttribute="bottom" constant="16" id="YHJ-g1-o7k"/>
-                            <constraint firstItem="FF4-4y-qxF" firstAttribute="leading" secondItem="qMT-xZ-t1U" secondAttribute="leading" id="f62-Ph-Iz4"/>
-                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="leading" secondItem="FF4-4y-qxF" secondAttribute="trailing" constant="16" id="hT5-DB-dRZ"/>
-                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="centerY" secondItem="Zo0-tC-T31" secondAttribute="centerY" id="imp-Bt-or8"/>
-                        </constraints>
-                    </customView>
-                    <connections>
-                        <outlet property="progressLabel" destination="qMT-xZ-t1U" id="7d0-IE-m8n"/>
-                        <outlet property="progressView" destination="FF4-4y-qxF" id="q0u-zT-3vp"/>
-                    </connections>
-                </viewController>
-                <customObject id="nDM-Xc-pCv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1376" y="284"/>
         </scene>
     </scenes>
 </document>
