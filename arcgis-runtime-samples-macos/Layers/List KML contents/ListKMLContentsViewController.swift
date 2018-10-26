@@ -96,6 +96,25 @@ class ListKMLContentsViewController: NSViewController {
         return []
     }
     
+    /// Returns a label `String` for the type of the `node` based on the `class`.
+    /// For example, a `node` with `class` `AGSKMLScreenOverlay` returns "Screen Overlay".
+    private func typeLabel(for node: AGSKMLNode) -> String {
+        var classNameString = "\(type(of: node))"
+        classNameString.removeFirst(6) // remove "AGSKML" prefix
+        // map the string to an array of strings, adding a space before capitals
+        let subStrings = classNameString.map { (char) -> String in
+            let charString = String(char)
+            if char != classNameString.first,
+                charString.uppercased() == charString {
+                // add a space before capital letters
+                return " \(charString)"
+            }
+            return charString
+        }
+        // rejoin and return the formatted string
+        return subStrings.joined()
+    }
+    
     //MARK: - Viewpoint
     
     /// Sets the viewpoint of the scene to that of the node, if available.
@@ -231,8 +250,8 @@ extension ListKMLContentsViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("KMLNodeCellView"), owner: outlineView) as! NSTableCellView
         if let node = item as? AGSKMLNode{
-            // Use the node's name and class for the label
-            let label = "\(node.name) - \(type(of:node))"
+            // Use the node's name and type for the label
+            let label = "\(node.name) - \(typeLabel(for: node))"
             cellView.textField?.stringValue = label
         }
         return cellView
