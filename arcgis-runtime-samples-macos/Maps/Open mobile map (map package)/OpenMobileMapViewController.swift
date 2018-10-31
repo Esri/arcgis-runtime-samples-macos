@@ -1,5 +1,5 @@
 //
-// Copyright 2016 Esri.
+// Copyright 2018 Esri.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,36 +14,30 @@
 // limitations under the License.
 //
 
-import Cocoa
+import AppKit
 import ArcGIS
 
 class OpenMobileMapViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private weak var mapView:AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //initialize map package
+        // initialize a map package using the name of a local .mmpk file
         let mapPackage = AGSMobileMapPackage(name: "Yellowstone")
         
-        //load map package
+        // load the map package asynchronously
         mapPackage.load { [weak self] (error: Error?) in
             guard let self = self else {
                 return
             }
-
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
-            else if !mapPackage.maps.isEmpty {
-                //assign the first map from the map package to the map view
-                self.mapView.map = mapPackage.maps[0]
-            }
             else {
-                let alert = NSAlert()
-                alert.messageText = "No mobile maps found in the map package."
-                alert.beginSheetModal(for: self.view.window!)
+                // assign the first map from the map package to the map view
+                self.mapView.map = mapPackage.maps.first
             }
         }
     }
