@@ -389,6 +389,9 @@
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
 		C7052B1E216E9130002F077F /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7052B1D216E9130002F077F /* ProgressView.xib */; };
+		C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */; };
+		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
+		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
@@ -484,6 +487,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */,
 				C764E0FE2171471E00A82795 /* ShowLabelsOnLayersViewController.swift in CopyFiles */,
 				C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */,
 				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
@@ -904,6 +908,8 @@
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
+		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
@@ -1504,6 +1510,7 @@
 				3E496EE01DD29B5D004C921C /* Take screenshot */,
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
+				C7197AE8218A26DA00838D31 /* Open mobile map (map package) */,
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
 				C7E79ADC213F3B4800C24A02 /* Generate offline map */,
 				C7586C812153F6DD005A4F11 /* Generate offline map (overrides) */,
@@ -2303,6 +2310,15 @@
 			path = "Progress View";
 			sourceTree = "<group>";
 		};
+		C7197AE8218A26DA00838D31 /* Open mobile map (map package) */ = {
+			isa = PBXGroup;
+			children = (
+				C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */,
+				C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */,
+			);
+			path = "Open mobile map (map package)";
+			sourceTree = "<group>";
+		};
 		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
 			isa = PBXGroup;
 			children = (
@@ -2757,6 +2773,7 @@
 				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
 				10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */,
+				C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				4CE837F72125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
@@ -2841,6 +2858,7 @@
 				4CA83823216C0D2A00698E11 /* LayerViewStatusViewController.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */,
+				C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */,
 				4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */,
 				12FDB3A020EAD6BC00EE7127 /* GeodesicOperationsViewController.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,

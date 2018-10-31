@@ -217,6 +217,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Open mobile map (map package)</string>
+				<key>storyboardName</key>
+				<string>OpenMobileMap</string>
+				<key>descriptionText</key>
+				<string>Open a mobile map from a mobile map package.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenMobileMapViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Mobile map (search and route)</string>
 				<key>storyboardName</key>
 				<string>MobileMapSearchRoute</string>
