@@ -55,7 +55,7 @@ class ShowLabelsOnLayersViewController: NSViewController {
             featureLayer.labelDefinitions.addObjects(from: [demDefinition, repDefinition])
         }
         catch {
-            NSAlert(error: error).beginSheetModal(for: self.view.window!)
+            NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
     
