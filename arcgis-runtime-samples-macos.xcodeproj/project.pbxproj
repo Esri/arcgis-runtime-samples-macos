@@ -889,7 +889,7 @@
 		4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureLayerRenderingModeMapViewController.swift; sourceTree = "<group>"; };
 		4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeMap.storyboard; sourceTree = "<group>"; };
 		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
+		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = $HOME/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<group>"; };
 		4CF5C19721791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayerViewStateViewControllerTests.swift; sourceTree = "<group>"; };
 		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
 		4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
