@@ -87,6 +87,9 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         }
         let controller = segue.destinationController as! MapPackagesListVC
         controller.delegate = self
+        controller.mapPackages = Bundle.main
+            .urls(forResourcesWithExtension: "mmpk", subdirectory: nil)?
+            .map(AGSMobileMapPackage.init(fileURL:)) ?? []
     }
     
     private func symbolForStopGraphic(isIndexRequired: Bool, index: Int?) -> AGSSymbol {
