@@ -60,12 +60,16 @@ class LineOfSightGeoElementViewController: NSViewController {
         // initialize the scene with an imagery basemap
         scene = AGSScene(basemap: .imageryWithLabels())
 
+        /// The url of the Terrain 3D ArcGIS REST Service.
+        let worldElevationServiceURL = URL(string: "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer")!
         // initialize the elevation source and add it to the base surface of the scene
-        let elevationSrc = AGSArcGISTiledElevationSource(url: .worldElevationService)
+        let elevationSrc = AGSArcGISTiledElevationSource(url: worldElevationServiceURL)
         scene.baseSurface?.elevationSources.append(elevationSrc)
 
+        /// The url of the scene service for buildings in New York, US.
+        let newYorkBuildingsServiceURL = URL(string: "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/New_York_LoD2_3D_Buildings/SceneServer/layers/0")!
         // add some buildings to the scene
-        let sceneLayer = AGSArcGISSceneLayer(url: .newYorkBuildingsService)
+        let sceneLayer = AGSArcGISSceneLayer(url: newYorkBuildingsServiceURL)
         scene.operationalLayers.add(sceneLayer)
 
         // initialize a graphics overlay

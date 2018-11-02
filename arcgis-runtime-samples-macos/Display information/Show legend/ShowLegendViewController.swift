@@ -38,8 +38,10 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         let tiledLayer = AGSArcGISTiledLayer(url: URL(string: "https://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer")!)
         self.map.operationalLayers.add(tiledLayer)
         
+        /// The url of a map service containing sample census data of the United States.
+        let censusMapServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer")!
         //create a map image layer using a url
-        self.mapImageLayer = AGSArcGISMapImageLayer(url: .censusMapService)
+        self.mapImageLayer = AGSArcGISMapImageLayer(url: censusMapServiceURL)
         //add the image layer to the map
         self.map.operationalLayers.add(self.mapImageLayer)
         

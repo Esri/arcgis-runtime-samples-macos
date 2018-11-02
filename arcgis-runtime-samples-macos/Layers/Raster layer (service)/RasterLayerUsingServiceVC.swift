@@ -17,54 +17,32 @@
 import Cocoa
 import ArcGIS
 
-class RasterLayerUsingServiceVC : NSViewController {
+class RasterLayerUsingServiceVC: NSViewController {
     
     @IBOutlet weak var mapView: AGSMapView!
-    
-    private var map:AGSMap!
-    
-    private var rasterLayer: AGSRasterLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //create an image service raster from an online raster service
-        let imageServiceRaster = AGSImageServiceRaster(url: URL(string:"https://sampleserver6.arcgisonline.com/arcgis/rest/services/NLCDLandCover2001/ImageServer")!)
+        // initialize a map with dark canvas vector basemap
+        let map = AGSMap(basemap: .darkGrayCanvasVector())
         
+        // assign the map to the map view
+        mapView.map = map
+        
+        // set the viewpoint to the Golden Gate of the San Francisco Bay
+        let center = AGSPoint(x: -13643000, y: 4550000, spatialReference: .webMercator())
+        mapView.setViewpointCenter(center, scale: 100000)
+        
+        /// The URL of an image service containing a bathymetric attributed grid.
+        let imageServiceURL = URL(string: "https://gis.ngdc.noaa.gov/arcgis/rest/services/bag_hillshades/ImageServer")!
+        // create an image service raster from an online raster service
+        let imageServiceRaster = AGSImageServiceRaster(url: imageServiceURL)
         // create a raster layer
-        self.rasterLayer = AGSRasterLayer(raster: imageServiceRaster)
+        let rasterLayer = AGSRasterLayer(raster: imageServiceRaster)
         
-        //initialize a map with dark canvas vector basemap
-        self.map = AGSMap(basemap: .darkGrayCanvasVector())
-        
-        //add raster layer as an operational layer to the map
-        self.map.operationalLayers.add(self.rasterLayer)
-        
-        //assign the map to the map view
-        self.mapView.map = self.map
-        
-        //set map view's viewpoint to the raster layer's full extent
-        self.rasterLayer.load { [weak self] (error) in
-            
-            guard error == nil else {
-                self?.showAlert(messageText: "Error", informativeText: "Error while loading raster layer :: \(error!.localizedDescription)")
-                return
-            }
-            
-            if let center = self?.rasterLayer.fullExtent?.center {
-                self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 50000000))
-            }
-        }
-        
-    }
-    
-    //MARK: - Helper methods
-    
-    private func showAlert(messageText:String, informativeText:String) {
-        let alert = NSAlert()
-        alert.messageText = messageText
-        alert.informativeText = informativeText
-        alert.beginSheetModal(for: self.view.window!)
+        // add raster layer as an operational layer to the map
+        map.operationalLayers.add(rasterLayer)
     }
     
 }

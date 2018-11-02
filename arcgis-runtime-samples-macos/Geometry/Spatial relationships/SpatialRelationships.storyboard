@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ivc-kw-2ny">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ivc-kw-2ny">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,26 +24,38 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="MqB-d5-vca" customClass="AGSMapView">
                                                 <rect key="frame" x="0.0" y="0.0" width="649" height="761"/>
                                             </customView>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-5c-ABk">
-                                                <rect key="frame" x="0.0" y="738" width="649" height="22"/>
+                                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="yVu-kd-BYF">
+                                                <rect key="frame" x="0.0" y="739" width="649" height="22"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CVW-5c-ABk">
+                                                        <rect key="frame" x="198" y="0.0" width="253" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="ZkV-6t-FmL"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to select the graphic" id="c9L-gU-1zo">
+                                                            <font key="font" metaFont="system" size="14"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="ZkV-6t-FmL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CVW-5c-ABk" secondAttribute="bottom" id="6er-KT-2Kj"/>
+                                                    <constraint firstItem="CVW-5c-ABk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yVu-kd-BYF" secondAttribute="leading" constant="20" symbolic="YES" id="H1i-xm-ezB"/>
+                                                    <constraint firstItem="CVW-5c-ABk" firstAttribute="centerX" secondItem="yVu-kd-BYF" secondAttribute="centerX" id="Hzr-uW-XlI"/>
+                                                    <constraint firstItem="CVW-5c-ABk" firstAttribute="top" secondItem="yVu-kd-BYF" secondAttribute="top" id="Ija-3v-sd8"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CVW-5c-ABk" secondAttribute="trailing" constant="20" symbolic="YES" id="OF3-G6-O4b"/>
                                                 </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Click on the map to select the graphic" drawsBackground="YES" id="c9L-gU-1zo">
-                                                    <font key="font" metaFont="system" size="14"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
+                                            </visualEffectView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="leading" secondItem="IEg-pp-nRE" secondAttribute="leading" id="0dL-kz-Qwe"/>
+                                            <constraint firstItem="yVu-kd-BYF" firstAttribute="leading" secondItem="IEg-pp-nRE" secondAttribute="leading" id="37S-bw-7j9"/>
+                                            <constraint firstAttribute="trailing" secondItem="MqB-d5-vca" secondAttribute="trailing" id="5ev-tR-LCk"/>
                                             <constraint firstAttribute="bottom" secondItem="MqB-d5-vca" secondAttribute="bottom" id="6ar-hl-l6J"/>
-                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" constant="1" id="HcA-RV-Rr3"/>
-                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="leading" secondItem="MqB-d5-vca" secondAttribute="leading" id="d12-bG-NJq"/>
-                                            <constraint firstAttribute="trailing" secondItem="CVW-5c-ABk" secondAttribute="trailing" id="hnZ-Iz-hZq"/>
+                                            <constraint firstItem="yVu-kd-BYF" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" id="CTy-8e-rDP"/>
+                                            <constraint firstItem="MqB-d5-vca" firstAttribute="leading" secondItem="IEg-pp-nRE" secondAttribute="leading" id="JYK-HN-sE3"/>
+                                            <constraint firstAttribute="trailing" secondItem="yVu-kd-BYF" secondAttribute="trailing" id="SiQ-hm-sAX"/>
                                             <constraint firstItem="MqB-d5-vca" firstAttribute="top" secondItem="IEg-pp-nRE" secondAttribute="top" id="iIh-pc-Oj2"/>
-                                            <constraint firstItem="CVW-5c-ABk" firstAttribute="trailing" secondItem="MqB-d5-vca" secondAttribute="trailing" id="rdD-2t-qKg"/>
                                         </constraints>
                                     </customView>
                                     <customView id="es1-zt-8L8">
@@ -63,7 +75,7 @@
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                             <tableColumns>
-                                                                <tableColumn identifier="" width="271" minWidth="40" maxWidth="1000" id="WA6-x0-qUy">
+                                                                <tableColumn width="271" minWidth="40" maxWidth="1000" id="WA6-x0-qUy">
                                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Relationships Result">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -108,11 +120,11 @@
                                                         </outlineView>
                                                     </subviews>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pn9-3h-IBi">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="pn9-3h-IBi">
                                                     <rect key="frame" x="0.0" y="745" width="274" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="LRN-Lj-7fn">
+                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="LRN-Lj-7fn">
                                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>

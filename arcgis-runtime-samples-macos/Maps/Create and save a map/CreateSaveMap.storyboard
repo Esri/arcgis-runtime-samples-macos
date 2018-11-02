@@ -87,11 +87,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="482" height="347"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-6q-BMB">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-6q-BMB">
                                 <rect key="frame" x="0.0" y="0.0" width="482" height="347"/>
                                 <subviews>
                                     <view translatesAutoresizingMaskIntoConstraints="NO" id="Ira-Io-0KV">
-                                        <rect key="frame" x="91" y="23" width="300" height="300"/>
+                                        <rect key="frame" x="91" y="24" width="300" height="300"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-ig-dMe">
                                                 <rect key="frame" x="18" y="260" width="264" height="30"/>
@@ -235,9 +235,6 @@
                                             <constraint firstAttribute="trailing" secondItem="nmY-Gi-IFE" secondAttribute="trailing" constant="20" id="zAT-Ue-gD3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.60265625" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
@@ -270,11 +267,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="479" height="383"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-qh-xmj">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantDark" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="c4h-qh-xmj">
                                 <rect key="frame" x="0.0" y="0.0" width="479" height="383"/>
                                 <subviews>
                                     <view translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-PR-mmj">
-                                        <rect key="frame" x="89" y="41" width="300" height="300"/>
+                                        <rect key="frame" x="90" y="42" width="300" height="300"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9UR-ge-VKH">
                                                 <rect key="frame" x="18" y="265" width="264" height="25"/>
@@ -403,11 +400,6 @@ Gw
                                             <constraint firstAttribute="height" constant="300" id="vc8-zG-EC7"/>
                                             <constraint firstItem="NFV-0t-hgr" firstAttribute="top" secondItem="9UR-ge-VKH" secondAttribute="bottom" constant="8" id="wfV-i9-79g"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layerBackgroundColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.6033539013" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>

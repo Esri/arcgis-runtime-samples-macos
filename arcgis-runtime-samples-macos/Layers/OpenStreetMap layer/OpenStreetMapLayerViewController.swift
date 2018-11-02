@@ -1,5 +1,5 @@
 //
-// Copyright © 2018 Esri.
+// Copyright 2018 Esri.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,23 +15,19 @@
 //
 
 import AppKit
+import ArcGIS
 
-extension NSView {
-    /// The background color of the view's layer or `nil` if the view is not
-    /// backed by a layer.
-    ///
-    /// Setting this property implicitly sets `wantsLayer` to `true`.
-    @IBInspectable var layerBackgroundColor: NSColor? {
-        get {
-            if let colorRef = layer?.backgroundColor {
-                return NSColor(cgColor: colorRef)
-            } else {
-                return nil
-            }
-        }
-        set {
-            wantsLayer = true
-            layer?.backgroundColor = newValue?.cgColor
-        }
+class OpenStreetMapLayerViewController: NSViewController {
+    
+    @IBOutlet private weak var mapView:AGSMapView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //initialize map with an OpenStreetMap basemap
+        let map = AGSMap(basemapType: .openStreetMap, latitude: 34.056295, longitude: -117.195800, levelOfDetail: 10)
+        //assign the map to the map view
+        mapView.map = map
     }
+    
 }

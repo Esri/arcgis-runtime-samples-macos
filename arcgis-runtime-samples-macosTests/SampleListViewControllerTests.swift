@@ -15,7 +15,7 @@
 //
 
 import XCTest
-@testable import arcgis_runtime_samples_macos
+@testable import ArcGIS_Runtime_SDK_Samples
 
 private let sample1 = Sample(name: "Sample 1", description: "", storyboardName: "", sourceFilenames: [])
 private let sample2 = Sample(name: "Sample 2", description: "", storyboardName: "", sourceFilenames: [])
@@ -24,9 +24,9 @@ private let sample4 = Sample(name: "Sample 4", description: "", storyboardName: 
 private let sample5 = Sample(name: "Sample 5", description: "", storyboardName: "", sourceFilenames: [])
 private let sample6 = Sample(name: "Sample 6", description: "", storyboardName: "", sourceFilenames: [])
 
-private let category1 = arcgis_runtime_samples_macos.Category(name: "Category 1", samples: [sample1, sample2])
-private let category2 = arcgis_runtime_samples_macos.Category(name: "Category 2", samples: [sample3])
-private let category3 = arcgis_runtime_samples_macos.Category(name: "Category 3", samples: [sample4, sample5, sample6])
+private let category1 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 1", samples: [sample1, sample2])
+private let category2 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 2", samples: [sample3])
+private let category3 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 3", samples: [sample4, sample5, sample6])
 
 class SampleListViewControllerTests: XCTestCase {
     func testInit() {

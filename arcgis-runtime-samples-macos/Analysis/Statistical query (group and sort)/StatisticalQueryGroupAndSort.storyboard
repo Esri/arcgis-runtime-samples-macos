@@ -9,7 +9,7 @@
         <!--Statistical Query Group And Sort View Controller-->
         <scene sceneID="lzj-XD-der">
             <objects>
-                <viewController id="6ur-GU-Bgj" customClass="StatisticalQueryGroupAndSortViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6ur-GU-Bgj" customClass="StatisticalQueryGroupAndSortViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wcZ-0Y-tRS">
                         <rect key="frame" x="0.0" y="0.0" width="934" height="761"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -409,6 +409,7 @@
                                                             </tableColumns>
                                                             <connections>
                                                                 <outlet property="dataSource" destination="6ur-GU-Bgj" id="k7i-Nd-8Vs"/>
+                                                                <outlet property="delegate" destination="6ur-GU-Bgj" id="vcv-rO-879"/>
                                                             </connections>
                                                         </outlineView>
                                                     </subviews>

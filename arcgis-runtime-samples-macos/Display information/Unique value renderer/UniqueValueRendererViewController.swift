@@ -28,8 +28,10 @@ class UniqueValueRendererViewController: NSViewController {
         //instantiate map with basemap
         let map = AGSMap(basemap: .topographic())
         
+        /// The url of the States layer of the Census Map Service.
+        let censusMapServiceStatesLayerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3")!
         //create feature layer
-        let featureTable = AGSServiceFeatureTable(url: .censusMapServiceStatesLayer)
+        let featureTable = AGSServiceFeatureTable(url: censusMapServiceStatesLayerURL)
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         
         //add the layer to the map as operational layer
