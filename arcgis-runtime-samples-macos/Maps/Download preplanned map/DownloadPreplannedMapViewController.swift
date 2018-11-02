@@ -146,17 +146,18 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         self.downloadPreplannedMapJob = downloadPreplannedMapJob
         
         //show the progress sheet
-        showProgressSheet(for: downloadPreplannedMapJob.progress)
+        let progressController = ProgressViewController(progress: downloadPreplannedMapJob.progress, operationLabel: "Downloading Preplanned Map Area")
+        presentAsSheet(progressController)
         
         //start the job
         downloadPreplannedMapJob.start(statusHandler: nil) { [weak self] (result:AGSDownloadPreplannedOfflineMapResult?, error:Error?) in
             
+            //close the progress sheet since the job is no longer active
+            progressController.dismiss(self)
+            
             guard let self = self else {
                 return
             }
-            
-            //close the progress sheet since the job is no longer active
-            self.closeProgressSheet()
             
             if let error = error {
                 //if not user cancelled
@@ -203,27 +204,6 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         mapView.map = result.offlineMap
         
         removeDownloadsButton.isEnabled = true
-    }
-    
-    
-    //MARK: - Progress sheet
-    
-    private func showProgressSheet(for progress: Progress){
-        
-        //locate and instantiate the view controller
-        let viewController = storyboard!.instantiateController(withIdentifier: "DownloadPreplannedMapProgressViewController") as! DownloadPreplannedMapProgressViewController
-        //setup the progress view controller
-        viewController.progress = progress
-        //display the progress sheet
-        presentAsSheet(viewController)
-    }
-    
-    private func closeProgressSheet(){
-        
-        //find and dismiss the view controller
-        if let progressViewController = presentedViewControllers?.first(where: { $0 is DownloadPreplannedMapProgressViewController }){
-            dismiss(progressViewController)
-        }
     }
 
     //MARK: - Actions

@@ -389,15 +389,13 @@
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
 		C7052B1E216E9130002F077F /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7052B1D216E9130002F077F /* ProgressView.xib */; };
+		C70905DC215EBFDE00689C24 /* DownloadPreplannedMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */; };
+		C70905DE215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
+		C70905DF215EC58A00689C24 /* DownloadPreplannedMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
 		C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */; };
 		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
-		C70905DC215EBFDE00689C24 /* DownloadPreplannedMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */; };
-		C70905DD215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70905DA215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift */; };
-		C70905DE215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
-		C70905DF215EC58A00689C24 /* DownloadPreplannedMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
-		C70905E0215EC58C00689C24 /* DownloadPreplannedMapProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C70905DA215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
@@ -499,7 +497,6 @@
 				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
 				C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */,
 				C70905DF215EC58A00689C24 /* DownloadPreplannedMapViewController.swift in CopyFiles */,
-				C70905E0215EC58C00689C24 /* DownloadPreplannedMapProgressViewController.swift in CopyFiles */,
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
 				C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */,
@@ -914,10 +911,9 @@
 		97F8BF111FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerUsingServiceVC.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (service)/RasterLayerUsingServiceVC.swift"; sourceTree = SOURCE_ROOT; };
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
-		C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadPreplannedMap.storyboard; sourceTree = "<group>"; };
-		C70905DA215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreplannedMapProgressViewController.swift; sourceTree = "<group>"; };
-		C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreplannedMapViewController.swift; sourceTree = "<group>"; };
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadPreplannedMap.storyboard; sourceTree = "<group>"; };
+		C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreplannedMapViewController.swift; sourceTree = "<group>"; };
 		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
 		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
@@ -2312,16 +2308,6 @@
 			path = "Raster layer (geopackage)";
 			sourceTree = "<group>";
 		};
-		C70905D8215EBE5600689C24 /* Download preplanned map */ = {
-			isa = PBXGroup;
-			children = (
-				C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */,
-				C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */,
-				C70905DA215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift */,
-			);
-			path = "Download preplanned map";
-			sourceTree = "<group>";
-		};
 		C7052B1F216E96BA002F077F /* Progress View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2329,6 +2315,15 @@
 				C7D22F892167D35200C39D5C /* ProgressViewController.swift */,
 			);
 			path = "Progress View";
+			sourceTree = "<group>";
+		};
+		C70905D8215EBE5600689C24 /* Download preplanned map */ = {
+			isa = PBXGroup;
+			children = (
+				C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */,
+				C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */,
+			);
+			path = "Download preplanned map";
 			sourceTree = "<group>";
 		};
 		C7197AE8218A26DA00838D31 /* Open mobile map (map package) */ = {
@@ -2872,7 +2867,6 @@
 				3EBA25671D3448F800AB0703 /* SimpleMarkerSymbolViewController.swift in Sources */,
 				C74AA52F2152C96B009047AF /* DisplayKMLViewController.swift in Sources */,
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
-				C70905DD215EBFDE00689C24 /* DownloadPreplannedMapProgressViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
