@@ -216,7 +216,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         presentAsSheet(progressViewController)
         
         // start the upload
-        syncGeodatabaseJob.start(statusHandler: nil) {[weak self] (results, error) in
+        syncGeodatabaseJob.start(statusHandler: nil) { [weak self] (_, error) in
             
             guard let self = self else {
                 return

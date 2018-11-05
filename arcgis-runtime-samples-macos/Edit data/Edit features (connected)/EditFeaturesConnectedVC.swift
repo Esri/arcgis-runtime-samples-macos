@@ -61,7 +61,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result:[AGSFeatureEditResult]?, error:Error?) -> Void in
+        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (_: [AGSFeatureEditResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()

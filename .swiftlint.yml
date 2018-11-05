@@ -21,6 +21,5 @@ disabled_rules: # rule identifiers to exclude from running
   - trailing_semicolon
   - trailing_whitespace
   - type_name
-  - unused_closure_parameter
   - unused_optional_binding
   - vertical_whitespace

@@ -48,7 +48,7 @@ class SampleSearchEngine {
             tagger.enumerateTags(in: range,
                                  scheme: NSLinguisticTagScheme.lexicalClass,
                                  options: [.omitWhitespace, .omitPunctuation],
-                                 using: { (tag:NSLinguisticTag?, tokenRange:NSRange, sentenceRange:NSRange, _) -> Void in
+                                 using: { (tag: NSLinguisticTag?, tokenRange: NSRange, _: NSRange, _) in
                                     
                                     guard let tag = tag else {
                                         return

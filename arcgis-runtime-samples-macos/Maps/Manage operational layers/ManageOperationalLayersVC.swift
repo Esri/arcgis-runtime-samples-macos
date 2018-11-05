@@ -39,9 +39,9 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         self.mapView.map = map
         self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 2e7))
         
-        self.mapView.map?.load(completion: { [weak self] (error:Error?) in
+        self.mapView.map?.load { [weak self] (_: Error?) in
             self?.tableView1.reloadData()
-        })
+        }
         
         self.tableView1.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: "hey")])
         
