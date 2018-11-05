@@ -126,4 +126,3 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         self.dismiss(nil)
     }
 }
-

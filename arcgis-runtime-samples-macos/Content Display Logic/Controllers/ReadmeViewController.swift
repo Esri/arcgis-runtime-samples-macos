@@ -34,7 +34,7 @@ class ReadmeViewController: NSViewController {
                 //remove the images
                 let pattern = "!\\[.*\\]\\(.*\\)"
                 if let regex = try? NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive) {
-                    let newContent = regex.stringByReplacingMatches(in: content, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, content.count), withTemplate: "")
+                    let newContent = regex.stringByReplacingMatches(in: content, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: content.count), withTemplate: "")
                     self.displayHTML(newContent)
                 }
             }

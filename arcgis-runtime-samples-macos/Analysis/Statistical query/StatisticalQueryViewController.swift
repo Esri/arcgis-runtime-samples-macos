@@ -111,4 +111,3 @@ class StatisticalQueryViewController: NSViewController {
         alert.beginSheetModal(for: self.view.window!)
     }
 }
-
