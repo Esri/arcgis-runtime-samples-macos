@@ -389,6 +389,9 @@
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
 		C7052B1E216E9130002F077F /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7052B1D216E9130002F077F /* ProgressView.xib */; };
+		C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */; };
+		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
+		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
@@ -400,13 +403,12 @@
 		C74AA5312152CA3D009047AF /* DisplayKML.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74AA5302152CA3D009047AF /* DisplayKML.storyboard */; };
 		C74AA5342152D334009047AF /* US_State_Capitals.kml in Resources */ = {isa = PBXBuildFile; fileRef = C74AA5332152D333009047AF /* US_State_Capitals.kml */; };
 		C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C74AA52E2152C96B009047AF /* DisplayKMLViewController.swift */; };
-		C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
-		C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */; };
 		C7586C852153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */; };
-		C7586C862153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */; };
 		C7586C872153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */; };
 		C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */; };
-		C7586C892153F8D8005A4F11 /* OfflineMapOverridesProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */; };
+		C764E0FC2171438C00A82795 /* ShowLabelsOnLayers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C764E0F82171438C00A82795 /* ShowLabelsOnLayers.storyboard */; };
+		C764E0FD2171438C00A82795 /* ShowLabelsOnLayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E0F92171438C00A82795 /* ShowLabelsOnLayersViewController.swift */; };
+		C764E0FE2171471E00A82795 /* ShowLabelsOnLayersViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C764E0F92171438C00A82795 /* ShowLabelsOnLayersViewController.swift */; };
 		C76725E12154128B00B738AB /* OfflineMapParameterOverridesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */; };
 		C793B5EF2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */; };
 		C793B5F02166BF27000A7A10 /* OpenStreetMapLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */; };
@@ -485,6 +487,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */,
+				C764E0FE2171471E00A82795 /* ShowLabelsOnLayersViewController.swift in CopyFiles */,
 				C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */,
 				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
 				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
@@ -492,7 +496,6 @@
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
 				C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */,
-				C7586C892153F8D8005A4F11 /* OfflineMapOverridesProgressViewController.swift in CopyFiles */,
 				4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */,
 				E4CD1FF221012B2600E211CF /* ListTransformationsViewController.swift in CopyFiles */,
 				215E23E1210248E0001DE092 /* SpatialRelationshipsViewController.swift in CopyFiles */,
@@ -610,7 +613,6 @@
 				4CDDE5D92126296C00E3E244 /* FeatureLayerRenderingModeMapViewController.swift in CopyFiles */,
 				4CBF1B352134422500CE1567 /* DistanceCompositeSymbolViewController.swift in CopyFiles */,
 				C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */,
-				C753F9A32142F43400BF14EE /* OfflineMapProgressViewController.swift in CopyFiles */,
 				C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */,
 				4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */,
 				4CA8381F216C049000698E11 /* DisplayLayerViewStateViewController.swift in CopyFiles */,
@@ -891,7 +893,7 @@
 		4CE837F42125D34600BB96DB /* FeatureLayerRenderingModeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureLayerRenderingModeMapViewController.swift; sourceTree = "<group>"; };
 		4CE837F62125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeMap.storyboard; sourceTree = "<group>"; };
 		4CF0258021151F9C00806810 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = "~/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework"; sourceTree = "<group>"; };
+		4CF025832118933E00806810 /* ArcGIS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArcGIS.framework; path = $HOME/Library/SDKs/ArcGIS/macOS/Frameworks/Dynamic/ArcGIS.framework; sourceTree = "<group>"; };
 		4CF5C19721791296001FB88C /* DisplayLayerViewStateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayerViewStateViewControllerTests.swift; sourceTree = "<group>"; };
 		4CF92E8F2118BB97009A62C6 /* SampleCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewController.xib; sourceTree = "<group>"; };
 		4CF92E942118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -906,6 +908,8 @@
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
+		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
@@ -913,10 +917,10 @@
 		C74AA52E2152C96B009047AF /* DisplayKMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayKMLViewController.swift; sourceTree = "<group>"; };
 		C74AA5302152CA3D009047AF /* DisplayKML.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKML.storyboard; sourceTree = "<group>"; };
 		C74AA5332152D333009047AF /* US_State_Capitals.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = US_State_Capitals.kml; sourceTree = "<group>"; };
-		C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapProgressViewController.swift; sourceTree = "<group>"; };
 		C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMapOverrides.storyboard; sourceTree = "<group>"; };
-		C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineMapOverridesProgressViewController.swift; sourceTree = "<group>"; };
 		C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapOverridesViewController.swift; sourceTree = "<group>"; };
+		C764E0F82171438C00A82795 /* ShowLabelsOnLayers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowLabelsOnLayers.storyboard; sourceTree = "<group>"; };
+		C764E0F92171438C00A82795 /* ShowLabelsOnLayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLabelsOnLayersViewController.swift; sourceTree = "<group>"; };
 		C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapParameterOverridesViewController.swift; sourceTree = "<group>"; };
 		C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenStreetMapLayerViewController.swift; sourceTree = "<group>"; };
 		C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenStreetMapLayer.storyboard; sourceTree = "<group>"; };
@@ -1506,6 +1510,7 @@
 				3E496EE01DD29B5D004C921C /* Take screenshot */,
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
+				C7197AE8218A26DA00838D31 /* Open mobile map (map package) */,
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
 				C7E79ADC213F3B4800C24A02 /* Generate offline map */,
 				C7586C812153F6DD005A4F11 /* Generate offline map (overrides) */,
@@ -1542,6 +1547,7 @@
 				3EFDE09A1E31271700CBCD92 /* Blend renderer */,
 				3EFDE0A41E31279700CBCD92 /* RGB renderer */,
 				3EFDE09F1E31279000CBCD92 /* Stretch renderer */,
+				C764E0F5217142D200A82795 /* Show labels on layers */,
 				123F09581FD2AA19000760FE /* WMTS layer */,
 				123F095E1FD2AA9A000760FE /* WMS layer (URL) */,
 				4C64B92320D32829007D41A2 /* Style WMS layers */,
@@ -2304,6 +2310,15 @@
 			path = "Progress View";
 			sourceTree = "<group>";
 		};
+		C7197AE8218A26DA00838D31 /* Open mobile map (map package) */ = {
+			isa = PBXGroup;
+			children = (
+				C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */,
+				C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */,
+			);
+			path = "Open mobile map (map package)";
+			sourceTree = "<group>";
+		};
 		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
 			isa = PBXGroup;
 			children = (
@@ -2328,9 +2343,17 @@
 				C7586C822153F731005A4F11 /* GenerateOfflineMapOverrides.storyboard */,
 				C7586C842153F731005A4F11 /* GenerateOfflineMapOverridesViewController.swift */,
 				C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */,
-				C7586C832153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift */,
 			);
 			path = "Generate offline map (overrides)";
+			sourceTree = "<group>";
+		};
+		C764E0F5217142D200A82795 /* Show labels on layers */ = {
+			isa = PBXGroup;
+			children = (
+				C764E0F82171438C00A82795 /* ShowLabelsOnLayers.storyboard */,
+				C764E0F92171438C00A82795 /* ShowLabelsOnLayersViewController.swift */,
+			);
+			path = "Show labels on layers";
 			sourceTree = "<group>";
 		};
 		C793B5EC2166BEEA000A7A10 /* OpenStreetMap layer */ = {
@@ -2374,7 +2397,6 @@
 			children = (
 				C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */,
 				C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */,
-				C753F9A12142E4DB00BF14EE /* OfflineMapProgressViewController.swift */,
 			);
 			path = "Generate offline map";
 			sourceTree = "<group>";
@@ -2673,6 +2695,7 @@
 				D952E01A2107D7AC00424FF3 /* dolmus_front.jpeg in Resources */,
 				3E8A25C81D37038000D14F08 /* FeatureLayerGDB.storyboard in Resources */,
 				3E913DC41CE660BD000375C8 /* CreateSaveMap.storyboard in Resources */,
+				C764E0FC2171438C00A82795 /* ShowLabelsOnLayers.storyboard in Resources */,
 				3EA734101EC0CD2D00356885 /* Bristol.png in Resources */,
 				3EA734091EC0CCF400356885 /* Pyrenees.csv in Resources */,
 				D97B7E971FDAEA8100E1239D /* Subdivisions.shp in Resources */,
@@ -2751,6 +2774,7 @@
 				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
 				10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */,
+				C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */,
 				3E049A361CED132F0031ADA9 /* Callout.storyboard in Resources */,
 				4CE837F72125D37400BB96DB /* FeatureLayerRenderingModeMap.storyboard in Resources */,
 				3E04AB3F1DCBEA7400B4E2FB /* FeatureLayerQuery.storyboard in Resources */,
@@ -2853,8 +2877,8 @@
 				4CA83823216C0D2A00698E11 /* LayerViewStatusViewController.swift in Sources */,
 				3E496EF31DD39DF4004C921C /* RouteAroundBarriersVC.swift in Sources */,
 				C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */,
+				C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */,
 				4CF0258121151F9C00806810 /* SampleViewController.swift in Sources */,
-				C753F9A22142E4DB00BF14EE /* OfflineMapProgressViewController.swift in Sources */,
 				12FDB3A020EAD6BC00EE7127 /* GeodesicOperationsViewController.swift in Sources */,
 				3ECCFE121BC86E4800CE256D /* SetInitialMapLocationViewController.swift in Sources */,
 				3EFDE0E61E3288C900CBCD92 /* ViewshedGeoprocessingViewController.swift in Sources */,
@@ -2919,6 +2943,7 @@
 				3EA734011EC0CCBE00356885 /* Animate3DSymbolsVC.swift in Sources */,
 				3E87247C1BC70B41006386C1 /* TiledLayerURLViewController.swift in Sources */,
 				97F8BF131FDA6E4800A65B2E /* RasterLayerUsingServiceVC.swift in Sources */,
+				C764E0FD2171438C00A82795 /* ShowLabelsOnLayersViewController.swift in Sources */,
 				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
 				3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */,
 				4CB1707221668F480038535D /* CollectionViewItem.swift in Sources */,
@@ -2964,7 +2989,6 @@
 				3E0103641E29671E0013AEEF /* AddedLayerCellView.swift in Sources */,
 				3E8A25C21D36F9F500D14F08 /* MapLoadedViewController.swift in Sources */,
 				E4CD1FEF21011F6D00E211CF /* ListTransformationsViewController.swift in Sources */,
-				C7586C862153F731005A4F11 /* OfflineMapOverridesProgressViewController.swift in Sources */,
 				3E049A281CED11A50031ADA9 /* MILUsingURLViewController.swift in Sources */,
 				4C2244B720C9CB57005E6DEE /* DistanceViewController.swift in Sources */,
 				3E0103661E29671E0013AEEF /* ManageOperationalLayersVC.swift in Sources */,
@@ -3057,7 +3081,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -3105,7 +3129,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -3124,7 +3148,7 @@
 				);
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";
@@ -3145,7 +3169,7 @@
 				);
 				INFOPLIST_FILE = "arcgis-runtime-samples-macos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-runtime-samples-macos";
 				PRODUCT_NAME = "ArcGIS Runtime SDK Samples";

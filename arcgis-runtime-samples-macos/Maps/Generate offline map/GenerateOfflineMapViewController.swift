@@ -107,8 +107,9 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                                                                          downloadDirectory: downloadDirectory)
         self.generateOfflineMapJob = generateOfflineMapJob
         
-        //show the progress sheet
-        showProgressSheet(for: generateOfflineMapJob.progress)
+        // open the progress sheet
+        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel:  "Generating Offline Map")
+        presentAsSheet(progressViewController)
         
         //start the job
         generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
@@ -118,7 +119,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
             }
             
             //close the progress sheet since the job is no longer active
-            self.closeProgressSheet()
+            self.dismiss(progressViewController)
             
             if let error = error {
                 //if not user cancelled
@@ -127,6 +128,13 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
+                
+                //unhide and enable the offline map button
+                self.generateButtonParentView.isHidden = false
+                self.generateButton.isEnabled = true
+                
+                //unhide the extent view
+                self.extentView.isHidden = false
             }
             else if let result = result {
                 self.offlineMapGenerationDidSucceed(with: result)
@@ -153,32 +161,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         
         //assign offline map to map view
         mapView.map = result.offlineMap
-    }
-    
-    
-    //MARK: - Progress sheet
-    
-    private func showProgressSheet(for progress: Progress){
-        
-        //locate and instantiate the view controller
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("GenerateOfflineMap"), bundle: nil)
-        let id = NSStoryboard.SceneIdentifier("OfflineMapProgressViewController")
-        let viewController = storyboard.instantiateController(withIdentifier: id) as! OfflineMapProgressViewController
-        
-        //setup the progress view controller
-        viewController.progress = progress
-        viewController.delegate = self
-        
-        //display the progress sheet
-        presentAsSheet(viewController)
-    }
-    
-    private func closeProgressSheet(){
-        
-        //find and dismiss the view controller
-        if let progressViewController = presentedViewControllers?.first(where: { $0 is OfflineMapProgressViewController }){
-            dismiss(progressViewController)
-        }
     }
 
     //MARK: - Actions
@@ -255,20 +237,4 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         return directoryURL.appendingPathComponent("offline-map-\(formattedDate).geodatabase")
     }
     
-}
-
-extension GenerateOfflineMapViewController: OfflineMapProgressViewControllerDelegate {
-    
-    func progressViewControllerDidCancel(_ progressViewController: OfflineMapProgressViewController) {
-        
-        //cancel generate offline map job
-        generateOfflineMapJob?.progress.cancel()
-        
-        //unhide and enable the offline map button
-        generateButtonParentView.isHidden = false
-        generateButton.isEnabled = true
-        
-        //unhide the extent view
-        extentView.isHidden = false
-    }
 }

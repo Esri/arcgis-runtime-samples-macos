@@ -217,6 +217,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Open mobile map (map package)</string>
+				<key>storyboardName</key>
+				<string>OpenMobileMap</string>
+				<key>descriptionText</key>
+				<string>Open a mobile map from a mobile map package.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenMobileMapViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Mobile map (search and route)</string>
 				<key>storyboardName</key>
 				<string>MobileMapSearchRoute</string>
@@ -240,7 +252,7 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>GenerateOfflineMapViewController</string>
-					<string>OfflineMapProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -254,7 +266,7 @@
 				<array>
 					<string>GenerateOfflineMapOverridesViewController</string>
 					<string>OfflineMapParameterOverridesViewController</string>
-					<string>OfflineMapOverridesProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -472,6 +484,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>StretchRendererViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Show labels on layers</string>
+				<key>storyboardName</key>
+				<string>ShowLabelsOnLayers</string>
+				<key>descriptionText</key>
+				<string>Show labels on feature layers using JSON label definitions.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ShowLabelsOnLayersViewController</string>
 				</array>
 			</dict>
 			<dict>
