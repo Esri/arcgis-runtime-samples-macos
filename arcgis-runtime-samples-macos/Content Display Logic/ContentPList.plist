@@ -179,6 +179,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Display device location</string>
+				<key>storyboardName</key>
+				<string>DisplayDeviceLocation</string>
+				<key>descriptionText</key>
+				<string>Show the device&apos;s location on a map view.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DisplayDeviceLocationViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Take screenshot</string>
 				<key>storyboardName</key>
 				<string>TakeScreenshot</string>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="grZ-q4-GUm">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Display Device Location View Controller-->
+        <scene sceneID="HiF-LQ-Ovn">
+            <objects>
+                <viewController id="grZ-q4-GUm" customClass="DisplayDeviceLocationViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eyb-5H-N8F">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1bp-W4-cHD" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="53" width="450" height="247"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="36" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRc-lC-bzJ">
+                                <rect key="frame" x="23" y="16" width="404" height="21"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="354-z0-4zT">
+                                        <rect key="frame" x="-2" y="1" width="111" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Show Location" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zlI-pU-ddC">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showLocationButtonAction:" target="grZ-q4-GUm" id="aWW-Au-P1a"/>
+                                        </connections>
+                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEq-H7-tug">
+                                        <rect key="frame" x="143" y="0.0" width="261" height="21"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cly-sE-TsG">
+                                                <rect key="frame" x="-2" y="2" width="103" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Auto-Pan Mode:" id="hBG-Tr-BrU">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-BA-1un">
+                                                <rect key="frame" x="101" y="-3" width="163" height="25"/>
+                                                <popUpButtonCell key="cell" type="push" title="Off" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="7qf-aV-WF9" id="nXZ-mH-ICb">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="1hN-UZ-4GZ">
+                                                        <items>
+                                                            <menuItem title="Off" state="on" id="7qf-aV-WF9"/>
+                                                            <menuItem title="Re-Center" id="Nqk-iv-f72"/>
+                                                            <menuItem title="Navigation" id="a16-6a-YJF"/>
+                                                            <menuItem title="Compass Navigation" id="EeL-ae-6qE"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="autoPanModePopupAction:" target="grZ-q4-GUm" id="BlW-wS-Uy5"/>
+                                                </connections>
+                                            </popUpButton>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cly-sE-TsG" firstAttribute="firstBaseline" secondItem="3ir-BA-1un" secondAttribute="firstBaseline" id="Dqc-n7-TAT"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="354-z0-4zT" firstAttribute="firstBaseline" secondItem="cly-sE-TsG" secondAttribute="firstBaseline" id="wBC-zt-w9n"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="top" secondItem="eyb-5H-N8F" secondAttribute="top" id="0YH-LE-RQy"/>
+                            <constraint firstItem="NRc-lC-bzJ" firstAttribute="top" secondItem="1bp-W4-cHD" secondAttribute="bottom" constant="16" id="GvY-Ta-Fjh"/>
+                            <constraint firstAttribute="bottom" secondItem="NRc-lC-bzJ" secondAttribute="bottom" constant="16" id="HrF-Qf-3Nq"/>
+                            <constraint firstAttribute="trailing" secondItem="1bp-W4-cHD" secondAttribute="trailing" id="IY4-0Q-CBi"/>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="leading" secondItem="eyb-5H-N8F" secondAttribute="leading" id="bkI-td-HuT"/>
+                            <constraint firstItem="NRc-lC-bzJ" firstAttribute="centerX" secondItem="eyb-5H-N8F" secondAttribute="centerX" id="f27-nW-m73"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="1bp-W4-cHD" id="C9E-Lj-d8k"/>
+                    </connections>
+                </viewController>
+                <customObject id="Leb-q1-OUq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="362"/>
+        </scene>
+    </scenes>
+</document>
