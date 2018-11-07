@@ -20,36 +20,40 @@ import ArcGIS
 class MapLoadedViewController: NSViewController {
     /// The map displayed in the map view.
     let map = AGSMap(basemap: .imageryWithLabels())
+    private var loadStatusObservation: NSKeyValueObservation?
     
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var bannerLabel:NSTextField!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var bannerLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //assign map to map view
-        self.mapView.map = self.map
+        // Assign map to map view.
+        mapView.map = map
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        //register as an observer for loadStatus property on map
-        map.addObserver(self, forKeyPath: #keyPath(AGSMap.loadStatus), options: .initial, context: nil)
+        
+        // The sample uses Key-Value Observing to register and receive
+        // observations on the loadStatus property of the AGSMap. The banner
+        // label will be updated everytime the status changes.
+        
+        // Register as an observer for loadStatus property on map.
+        loadStatusObservation = map.observe(\.loadStatus, options: .initial) { [weak self] (_, _) in
+            // Update the banner label on main thread.
+            DispatchQueue.main.async { self?.updateBannerLabel() }
+        }
     }
     
-    //The sample uses Key-Value Observing to register and receive observations on the loadStatus
-    //property of the AGSMap. The banner label will be updated everytime the status changes
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        //update the banner label on main thread
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.bannerLabel.stringValue = "Load status: \(strongSelf.map.loadStatus.title)"
-        }
+    func updateBannerLabel() {
+        guard isViewLoaded else { return }
+        bannerLabel.stringValue = "Load status: \(map.loadStatus.title)"
     }
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
-        map.removeObserver(self, forKeyPath: #keyPath(AGSMap.loadStatus))
+        loadStatusObservation = nil
     }
 }
 
