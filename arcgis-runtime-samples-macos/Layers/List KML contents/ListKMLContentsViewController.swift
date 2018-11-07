@@ -52,11 +52,11 @@ class ListKMLContentsViewController: NSViewController {
         // load the dataset asynchronously so we can list its contents
         kmlDataset.load {[weak self] (error) in
             
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
-            guard error == nil else{
+            guard error == nil else {
                 if let window = self.view.window {
                     // display the error as an alert
                     NSAlert(error: error!).beginSheetModal(for: window)
@@ -78,8 +78,8 @@ class ListKMLContentsViewController: NSViewController {
     }
     
     /// Sets `isVisible` to `true` for these nodes and their descendants
-    private func makeNodesVisible(_ nodes: [AGSKMLNode]){
-        for node in nodes{
+    private func makeNodesVisible(_ nodes: [AGSKMLNode]) {
+        for node in nodes {
             node.isVisible = true
             makeNodesVisible(childNodes(of: node))
         }
@@ -125,7 +125,7 @@ class ListKMLContentsViewController: NSViewController {
     //MARK: - Viewpoint
     
     /// Sets the viewpoint of the scene to that of the node, if available.
-    private func setSceneViewpoint(for node: AGSKMLNode){
+    private func setSceneViewpoint(for node: AGSKMLNode) {
         if let nodeViewpoint = viewpoint(for: node),
             !nodeViewpoint.targetGeometry.isEmpty {
             sceneView.setViewpoint(nodeViewpoint)
@@ -144,7 +144,7 @@ class ListKMLContentsViewController: NSViewController {
         // we want to return the elevation synchronously, so run the task in the background and wait
         DispatchQueue.global(qos: .userInteractive).async {
             surface.elevation(for: point, completion: { (elevation, error) in
-                if error == nil{
+                if error == nil {
                     surfaceElevation = elevation
                 }
                 group.leave()
@@ -162,10 +162,10 @@ class ListKMLContentsViewController: NSViewController {
             // Convert the KML viewpoint to a viewpoint for the scene.
             // The KML viewpoint may not correspond to the node's geometry.
             
-            switch kmlViewpoint.type{
+            switch kmlViewpoint.type {
             case .lookAt:
                 var lookAtPoint = kmlViewpoint.location
-                if kmlViewpoint.altitudeMode != .absolute{
+                if kmlViewpoint.altitudeMode != .absolute {
                     // if the elevation is relative, account for the surface's elevation
                     let elevation = sceneSurfaceElevation(for: lookAtPoint) ?? 0
                     lookAtPoint = AGSPoint(x: lookAtPoint.x, y: lookAtPoint.y, z: lookAtPoint.z + elevation, spatialReference: lookAtPoint.spatialReference)
@@ -248,7 +248,7 @@ extension ListKMLContentsViewController: NSOutlineViewDataSource {
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let node = item as? AGSKMLNode{
+        if let node = item as? AGSKMLNode {
             return !childNodes(of: node).isEmpty
         }
         return false
@@ -256,7 +256,7 @@ extension ListKMLContentsViewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("KMLNodeCellView"), owner: outlineView) as! NSTableCellView
-        if let node = item as? AGSKMLNode{
+        if let node = item as? AGSKMLNode {
             // Use the node's name and type for the label
             let label = "\(node.name) - \(typeLabel(for: node))"
             cellView.textField?.stringValue = label

@@ -29,7 +29,7 @@ class ProgressViewController: NSViewController {
     /// The text to display alongside the completion percentage.
     private let operationLabel: String
     
-    init(progress: Progress, operationLabel: String = ""){
+    init(progress: Progress, operationLabel: String = "") {
         self.progress = progress
         
         let suffix = !operationLabel.isEmpty ? ": " : ""
@@ -58,7 +58,7 @@ class ProgressViewController: NSViewController {
         progressObservation = nil
     }
     
-    private func updateProgressUI(){
+    private func updateProgressUI() {
         // update progress label
         progressLabelField?.stringValue = "\(operationLabel)\(progress.localizedDescription!)"
         // update progress indicator

@@ -42,7 +42,7 @@ class WMSLayerUsingURLViewController: NSViewController {
         //load the WMS layer
         wmsLayer.load {[weak self] (error) in
             
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             

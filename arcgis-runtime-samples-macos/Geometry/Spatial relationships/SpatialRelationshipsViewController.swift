@@ -219,7 +219,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         if AGSGeometryEngine.geometry(geometry1, disjointTo: geometry2) { relationships.append("Disjoint") }
         if AGSGeometryEngine.geometry(geometry1, intersects: geometry2) { relationships.append("Intersects") }
         if AGSGeometryEngine.geometry(geometry1, overlapsGeometry: geometry2) { relationships.append("Overlaps") }
-        if AGSGeometryEngine.geometry(geometry1, touchesGeometry: geometry2)  { relationships.append("Touches") }
+        if AGSGeometryEngine.geometry(geometry1, touchesGeometry: geometry2) { relationships.append("Touches") }
         if AGSGeometryEngine.geometry(geometry1, within: geometry2) { relationships.append("Within") }
         return relationships
     }
@@ -237,7 +237,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         //
         // Set number of children of an item
-        if item == nil  {
+        if item == nil {
             return relationshipsResults.count
         }
         else if item as? [String] == pointRelationships {
@@ -255,7 +255,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         //
         // Set children of an item
-        if item == nil  {
+        if item == nil {
             return relationshipsResults[index]
         }
         else if item as? [String] == pointRelationships {

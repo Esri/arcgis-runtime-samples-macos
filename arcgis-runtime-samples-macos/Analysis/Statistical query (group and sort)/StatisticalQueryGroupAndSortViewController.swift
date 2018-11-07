@@ -271,7 +271,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         }
     }
     
-    private func setRemoveStatisticButtonEnabledState(){
+    private func setRemoveStatisticButtonEnabledState() {
         // Only allow definition removal if there is a selected definition
         removeStatisticDefinitionButton.isEnabled = !statisticDefinitionsTableView.selectedRowIndexes.isEmpty
     }

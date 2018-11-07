@@ -51,7 +51,7 @@ class TimeBasedQueryVC: NSViewController {
         
     }
     
-    func populateFeaturesWithQuery(){
+    func populateFeaturesWithQuery() {
         
         //create query parameters
         let queryParams = AGSQueryParameters()

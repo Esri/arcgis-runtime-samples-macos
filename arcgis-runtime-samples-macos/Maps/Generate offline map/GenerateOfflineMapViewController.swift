@@ -67,20 +67,20 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
             
-            guard let strongSelf = self else{
+            guard let strongSelf = self else {
                 return
             }
             
-            if let error = error{
+            if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = strongSelf.view.window{
+                    let window = strongSelf.view.window {
                     let alert = NSAlert(error: error)
                     //display error as alert
                     alert.beginSheetModal(for: window)
                 }
             }
-            else{
+            else {
                 strongSelf.title = strongSelf.mapView.map?.item?.title
                 strongSelf.generateButton.isEnabled = true
             }
@@ -98,7 +98,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     
     private func takeMapOffline(parameters: AGSGenerateOfflineMapParameters) {
         
-        guard let offlineMapTask = offlineMapTask else{
+        guard let offlineMapTask = offlineMapTask else {
                 return
         }
 
@@ -124,7 +124,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
             if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
@@ -206,7 +206,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
         alert.beginSheetModal(for: view.window!) {[weak self] (response) in
-            if response == .alertFirstButtonReturn{
+            if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
         }
@@ -226,7 +226,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         return AGSEnvelope(min: minPoint, max: maxPoint)
     }
     
-    private func getNewOfflineGeodatabaseURL()->URL{
+    private func getNewOfflineGeodatabaseURL() -> URL {
        
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory

@@ -79,7 +79,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 parameters.returnAttachments = false
                
                 // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
-                parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
+                parameters.layerOptions = parameters.layerOptions.filter { layerIDsToDownload.contains($0.layerID) }
                 
                 self.startGeodatabaseDownload(parameters: parameters)
             }
@@ -89,7 +89,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
     //MARK: - Geodatabase
     
-    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters){
+    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters) {
         
         guard let geodatabaseSyncTask = geodatabaseSyncTask else {
             return
@@ -143,7 +143,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
     }
     
-    private func loadFeatureTables(){
+    private func loadFeatureTables() {
         guard let geodatabase = geodatabase else {
             return
         }
@@ -198,7 +198,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Starts synchronizing changes with the online feature service, uploading any changes made by the user.
-    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters){
+    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters) {
         
         guard let geodatabase = geodatabase,
             !geodatabase.inTransaction,
@@ -244,7 +244,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Adds items to the popup menu for the feature types in the given table.
-    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable){
+    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable) {
 
         let typeFieldName = featureTable.typeIDField
         guard let domain = featureTable.field(forName: typeFieldName)?.domain as? AGSCodedValueDomain else {
@@ -269,7 +269,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
         // only run this once
         if featureTable.serviceLayerID == 0,
-            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }){
+            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }) {
             // the default selection is a disabled field name so we need to set it to an actual feature type
             featureTypePopUp.select(enabledItem)
         }
