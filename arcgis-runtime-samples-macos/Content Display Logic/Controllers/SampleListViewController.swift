@@ -37,7 +37,7 @@ class SampleListViewController: NSViewController {
         }
     }
     
-    func deselectAllOutlineViewCells(){
+    func deselectAllOutlineViewCells() {
         outlineView.deselectAll(nil)
     }
     

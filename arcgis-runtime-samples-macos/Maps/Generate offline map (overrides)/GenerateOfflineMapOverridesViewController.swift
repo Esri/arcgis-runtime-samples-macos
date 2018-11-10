@@ -69,19 +69,19 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
             
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
-            if let error = error{
+            if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
             }
-            else{
+            else {
                 self.title = self.mapView.map?.item?.title
                 self.generateButton.isEnabled = true
             }
@@ -101,7 +101,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         
         guard let offlineMapTask = offlineMapTask,
             let parameters = parameters,
-            let parameterOverrides = parameterOverrides else{
+            let parameterOverrides = parameterOverrides else {
             return
         }
 
@@ -129,7 +129,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
             if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
@@ -168,7 +168,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
     
     //MARK: - Parameter overrides sheet
     
-    func openParameterOverridesSheet(){
+    func openParameterOverridesSheet() {
         //instantiate the view controller
         let paramController = storyboard!.instantiateController(withIdentifier: "OfflineMapParameterOverridesViewController") as! OfflineMapParameterOverridesViewController
         paramController.parameterOverrides = parameterOverrides
@@ -206,7 +206,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
     
     @IBAction func generateOfflineMapAction(_ button:NSButton) {
         
-        guard let offlineMapTask = offlineMapTask else{
+        guard let offlineMapTask = offlineMapTask else {
             return
         }
         
@@ -222,7 +222,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         //build the default parameters for the offline map task
         offlineMapTask.defaultGenerateOfflineMapParameters(withAreaOfInterest: areaOfInterest) { [weak self] (parameters: AGSGenerateOfflineMapParameters?, error: Error?) in
             
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
@@ -238,11 +238,11 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                 //build the parameter overrides object to be configured by the user
                 offlineMapTask.generateOfflineMapParameterOverrides(with: parameters, completion: {[weak self] (parameterOverrides, error) in
                     
-                    guard let self = self else{
+                    guard let self = self else {
                         return
                     }
                     
-                    guard error == nil else{
+                    guard error == nil else {
                         if let window = self.view.window {
                             //display error as alert
                             NSAlert(error: error!).beginSheetModal(for: window)
@@ -250,7 +250,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                         return
                     }
                     
-                    guard let parameterOverrides = parameterOverrides else{
+                    guard let parameterOverrides = parameterOverrides else {
                         return
                     }
                     self.parameterOverrides = parameterOverrides
@@ -272,7 +272,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
         alert.beginSheetModal(for: view.window!) {[weak self] (response) in
-            if response == .alertFirstButtonReturn{
+            if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
         }
@@ -292,7 +292,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         return AGSEnvelope(min: minPoint, max: maxPoint)
     }
     
-    private func getNewOfflineGeodatabaseURL()->URL{
+    private func getNewOfflineGeodatabaseURL() -> URL {
        
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory

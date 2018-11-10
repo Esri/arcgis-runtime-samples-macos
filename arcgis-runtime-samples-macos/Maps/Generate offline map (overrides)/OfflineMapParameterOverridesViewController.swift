@@ -38,9 +38,9 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     /// i.e. 0 has the least detail, but one tile covers the entire Earth.
     /// Bound to the UI in the storyboard.
     @objc dynamic var basemapMinScaleLevel: NSNumber = 0 {
-        didSet{
+        didSet {
             // ensure that the min is not set greater than that max
-            if basemapMinScaleLevel.doubleValue > basemapMaxScaleLevel.doubleValue{
+            if basemapMinScaleLevel.doubleValue > basemapMaxScaleLevel.doubleValue {
                 basemapMinScaleLevel = basemapMaxScaleLevel
                 // manually set slider value to prevent incorrect display
                 minScaleSlider.doubleValue = basemapMinScaleLevel.doubleValue
@@ -52,9 +52,9 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     /// i.e. 23 has the most detail, but each tile covers a tiny area.
     /// Bound to the UI in the storyboard.
     @objc dynamic var basemapMaxScaleLevel: NSNumber = 23 {
-        didSet{
+        didSet {
             // ensure that the max is not set less than that min
-            if basemapMaxScaleLevel.doubleValue < basemapMinScaleLevel.doubleValue{
+            if basemapMaxScaleLevel.doubleValue < basemapMinScaleLevel.doubleValue {
                 basemapMaxScaleLevel = basemapMinScaleLevel
                 // manually set slider value to prevent incorrect display
                 maxScaleSlider.doubleValue = basemapMaxScaleLevel.doubleValue
@@ -92,7 +92,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     }
     
     /// Updates the `AGSGenerateOfflineMapParameterOverrides` object with the user-set values.
-    private func setParameterOverridesFromUI(){
+    private func setParameterOverridesFromUI() {
         
         restrictBasemapScaleLevelRange()
         bufferBasemapAreaOfInterest()
@@ -126,7 +126,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         
         guard let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
             /// The area initially specified for download when the default parameters object was created
-            let areaOfInterest = tileCacheParameters.areaOfInterest else{
+            let areaOfInterest = tileCacheParameters.areaOfInterest else {
             return
         }
             
@@ -141,7 +141,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     
     //MARK: - Layer adjustment
     
-    private func addHydrantFilter(){
+    private func addHydrantFilter() {
         
         /// The user-set min flow rate value
         let minFlowRate = minHydrantFlowRate.doubleValue
@@ -152,32 +152,32 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         }
     }
     
-    private func evaluateLayerVisiblity(){
+    private func evaluateLayerVisiblity() {
         
         func excludeLayerFromDownload(named name: String) {
             if let layer = operationalMapLayer(named: name),
                 let serviceLayerID = serviceLayerID(for: layer),
-                let parameters = getGenerateGeodatabaseParameters(forLayer: layer){
+                let parameters = getGenerateGeodatabaseParameters(forLayer: layer) {
                 // Remove the options for this layer from the parameters
                 parameters.layerOptions.removeAll { return $0.layerID == serviceLayerID }
             }
         }
         
         // If the box is unchecked
-        if systemValvesCheckbox.state == .off{
+        if systemValvesCheckbox.state == .off {
             excludeLayerFromDownload(named: "System Valve")
         }
-        if serviceConnectionsCheckbox.state == .off{
+        if serviceConnectionsCheckbox.state == .off {
             excludeLayerFromDownload(named: "Service Connection")
         }
         
     }
     
-    private func evaluatePipeLayersExtentCropping(){
+    private func evaluatePipeLayersExtentCropping() {
         // If the box is unchecked
-        if waterPipesCheckbox.state == .off{
+        if waterPipesCheckbox.state == .off {
             // Two layers contain pipes, so loop through both
-            for pipeLayerName in ["Main", "Lateral"]{
+            for pipeLayerName in ["Main", "Lateral"] {
                 for option in getGenerateGeodatabaseParametersLayerOptions(forLayerNamed: pipeLayerName) {
                     // Turn off the geometry extent evaluation so that the entire layer is downloaded
                     option.useGeometry = false
@@ -190,7 +190,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     
     /// Retrieves the basemap's parameters from the `exportTileCacheParameters` dictionary.
     private func getExportTileCacheParametersForBasemapLayer() -> AGSExportTileCacheParameters? {
-        if let basemapLayer = map?.basemap.baseLayers.firstObject as? AGSLayer{
+        if let basemapLayer = map?.basemap.baseLayers.firstObject as? AGSLayer {
             let key = AGSOfflineMapParametersKey(layer: basemapLayer)
             return parameterOverrides?.exportTileCacheParameters[key]
         }
@@ -226,10 +226,10 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         return parameterOverrides?.generateGeodatabaseParameters[key]
     }
     /// Retrieves the layer's options from the layer's parameter in the `generateGeodatabaseParameters` dictionary.
-    private func getGenerateGeodatabaseParametersLayerOptions(forLayerNamed name: String) -> [AGSGenerateLayerOption]{
+    private func getGenerateGeodatabaseParametersLayerOptions(forLayerNamed name: String) -> [AGSGenerateLayerOption] {
         if let layer = operationalMapLayer(named: name),
             let serviceLayerID = serviceLayerID(for: layer),
-            let parameters = getGenerateGeodatabaseParameters(forLayer: layer){
+            let parameters = getGenerateGeodatabaseParameters(forLayer: layer) {
             // The layers options may correspond to multiple layers, so filter based on the ID of the target layer.
             return parameters.layerOptions.filter { (option) -> Bool in
                 return option.layerID == serviceLayerID

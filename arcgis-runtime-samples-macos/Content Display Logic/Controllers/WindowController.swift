@@ -36,7 +36,7 @@ class WindowController: NSWindowController {
     
     @IBOutlet private var progressIndicator:NSProgressIndicator!
     
-    func loadSearchEngine(samples: [Sample]){
+    func loadSearchEngine(samples: [Sample]) {
         searchEngine = SampleSearchEngine(samples: samples)
     }
     
@@ -52,10 +52,10 @@ class WindowController: NSWindowController {
     
 }
 
-extension WindowController: NSSearchFieldDelegate{
+extension WindowController: NSSearchFieldDelegate {
     
     func controlTextDidBeginEditing(_ obj: Notification) {
-        if let mainViewController = contentViewController as? MainViewController{
+        if let mainViewController = contentViewController as? MainViewController {
             // Remove the selection in the outline since it doesn't correspond to the search results
             mainViewController.sampleListViewController.deselectAllOutlineViewCells()
         }
@@ -64,17 +64,17 @@ extension WindowController: NSSearchFieldDelegate{
     func controlTextDidChange(_ notification: Notification) {
         guard let searchEngine = searchEngine,
             let searchField = notification.object as? NSSearchField,
-            let mainViewController = contentViewController as? MainViewController else{
+            let mainViewController = contentViewController as? MainViewController else {
             return
         }
             
         let query = searchField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !query.isEmpty{
+        if !query.isEmpty {
             let matchingSamples = searchEngine.sortedSamples(matching: query)
             let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
             mainViewController.showCategory(searchResultsCategory)
         }
-        else{
+        else {
             mainViewController.showCategoryForAllSamples()
         }
     }

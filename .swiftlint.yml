@@ -13,7 +13,6 @@ disabled_rules: # rule identifiers to exclude from running
   - line_length
   - mark
   - multiple_closures_with_trailing_closure
-  - opening_brace
   - redundant_discardable_let
   - return_arrow_whitespace
   - statement_position

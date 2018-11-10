@@ -139,7 +139,7 @@ class GenerateGeodatabaseVC: NSViewController {
                     }
                 }
             }
-            else{
+            else {
                 self?.showAlert(messageText: "Error", informativeText: "Could not generate default parameters: \(error!)")
             }
         }

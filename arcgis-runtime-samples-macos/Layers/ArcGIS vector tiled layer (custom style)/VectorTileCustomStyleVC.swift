@@ -46,7 +46,7 @@ class VectorTileCustomStyleVC: NSViewController {
         ]
         
         // populate the popup button's menu with the style items
-        for vectorStyleItem in vectorStyleItems{
+        for vectorStyleItem in vectorStyleItems {
             let menuItem = NSMenuItem()
             menuItem.title = vectorStyleItem.label
             menuItem.image = vectorStyleItem.thumbnailImage
@@ -81,7 +81,7 @@ class VectorTileCustomStyleVC: NSViewController {
     }
     
     @IBAction func stylesPopUpButtonAction(_ sender: NSPopUpButton) {
-        if let item = sender.selectedItem?.representedObject as? VectorStyleItem{
+        if let item = sender.selectedItem?.representedObject as? VectorStyleItem {
             // set the basemap for the selected item
             setBasemap(item: item)
         }
@@ -99,12 +99,12 @@ class VectorTileCustomStyleVC: NSViewController {
 
 extension VectorTileCustomStyleVC.VectorStyleItem {
     
-    var itemURL: URL{
+    var itemURL: URL {
         return URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemId)")!
     }
     
     /// Image for the popup menu, generated from the style's colors
-    var thumbnailImage: NSImage{
+    var thumbnailImage: NSImage {
         
         // a reasonable size for a menu item image
         let size = CGSize(width: 28, height: 16)

@@ -15,7 +15,7 @@
 import AppKit
 import ArcGIS
 
-class DisplayKMLViewController: NSViewController{
+class DisplayKMLViewController: NSViewController {
     
     @IBOutlet weak var mapView: AGSMapView!
     
@@ -34,7 +34,7 @@ class DisplayKMLViewController: NSViewController{
         changeSourceToURL(self)
     }
     
-    private func display(kmlLayer: AGSKMLLayer){
+    private func display(kmlLayer: AGSKMLLayer) {
         // Keep a weak reference to the layer being loaded
         loadingLayer = kmlLayer
         
@@ -53,7 +53,7 @@ class DisplayKMLViewController: NSViewController{
             
             guard let self = self,
                  // If another layer started loading before this one finished, don't proceed
-                self.loadingLayer == kmlLayer else{
+                self.loadingLayer == kmlLayer else {
                 return
             }
             
