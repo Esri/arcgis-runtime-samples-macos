@@ -19,11 +19,11 @@ import ArcGIS
 
 class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
-    private var featureTable:AGSServiceFeatureTable!
-    private var featureLayer:AGSFeatureLayer!
-    private var lastQuery:AGSCancelable!
+    private var featureTable: AGSServiceFeatureTable!
+    private var featureLayer: AGSFeatureLayer!
+    private var lastQuery: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         map.operationalLayers.add(featureLayer)
     }
     
-    func addFeature(at point:AGSPoint) {
+    func addFeature(at point: AGSPoint) {
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -55,7 +55,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         let normalizedGeometry = AGSGeometryEngine.normalizeCentralMeridian(of: point)!
         
         //attributes for the new feature
-        let featureAttributes = ["typdamage" : "Minor", "primcause" : "Earthquake"]
+        let featureAttributes = ["typdamage": "Minor", "primcause": "Earthquake"]
         //create a new feature
         let feature = self.featureTable.createFeature(attributes: featureAttributes, geometry: normalizedGeometry)
         
@@ -105,7 +105,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

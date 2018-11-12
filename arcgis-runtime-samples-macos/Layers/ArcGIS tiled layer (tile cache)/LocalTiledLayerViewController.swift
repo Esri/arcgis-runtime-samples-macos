@@ -19,10 +19,10 @@ import ArcGIS
 
 class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView: NSTableView!
     
-    private var bundleTPKPaths:[String]!
+    private var bundleTPKPaths: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         self.tableView.reloadData()
     }
     
-    func extractName(fromPath path:String) -> String {
+    func extractName(fromPath path: String) -> String {
         return URL(fileURLWithPath: path).lastPathComponent
     }
     

@@ -19,11 +19,11 @@ import ArcGIS
 
 class DrawingStatusViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var activityIndicatorView:NSView!
-    @IBOutlet private var progressIndicator:NSProgressIndicator!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var activityIndicatorView: NSView!
+    @IBOutlet private var progressIndicator: NSProgressIndicator!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     /// The observation of the map view's draw status.
     private var drawStatusObservation: NSKeyValueObservation?
     

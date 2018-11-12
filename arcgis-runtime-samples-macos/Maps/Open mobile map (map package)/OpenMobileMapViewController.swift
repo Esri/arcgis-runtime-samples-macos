@@ -19,7 +19,7 @@ import ArcGIS
 
 class OpenMobileMapViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

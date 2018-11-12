@@ -26,7 +26,7 @@ class ReadmeViewController: NSViewController {
         fetchFileContent(folderName)
     }
     
-    func fetchFileContent(_ folderName:String) {
+    func fetchFileContent(_ folderName: String) {
         
         if let path = Bundle.main.path(forResource: "README", ofType: "md", inDirectory: folderName) {
             //read the content of the file
@@ -41,7 +41,7 @@ class ReadmeViewController: NSViewController {
         }
     }
     
-    func displayHTML(_ readmeContent:String) {
+    func displayHTML(_ readmeContent: String) {
         let cssPath = Bundle.main.path(forResource: "style", ofType: "css") ?? ""
         let string = """
             <!doctype html>

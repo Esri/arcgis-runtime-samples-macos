@@ -19,13 +19,13 @@ import ArcGIS
 
 class ChangeViewpointViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var segmentedControl:NSSegmentedControl!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var segmentedControl: NSSegmentedControl!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var griffithParkGeometry:AGSPolygon!
-    private var londonCoordinate:AGSPoint!
+    private var griffithParkGeometry: AGSPolygon!
+    private var londonCoordinate: AGSPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class ChangeViewpointViewController: NSViewController {
         self.mapView.graphicsOverlays.add(graphicsOverlay)
     }
     
-    func geometryFromTextFile(filename:String) -> AGSGeometry? {
+    func geometryFromTextFile(filename: String) -> AGSGeometry? {
         if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
             if let jsonString = try? String(contentsOfFile: filepath, encoding: String.Encoding.utf8) {
                 let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)
@@ -65,7 +65,7 @@ class ChangeViewpointViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction private func valueChanged(_ control:NSSegmentedControl) {
+    @IBAction private func valueChanged(_ control: NSSegmentedControl) {
         switch control.selectedSegment {
         case 0:
             self.mapView.setViewpointGeometry(self.griffithParkGeometry, padding: 50, completion: nil)

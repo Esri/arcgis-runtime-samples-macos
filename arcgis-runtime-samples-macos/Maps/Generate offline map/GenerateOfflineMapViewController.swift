@@ -108,11 +108,11 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         self.generateOfflineMapJob = generateOfflineMapJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel:  "Generating Offline Map")
+        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel: "Generating Offline Map")
         presentAsSheet(progressViewController)
         
         //start the job
-        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
+        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result: AGSGenerateOfflineMapResult?, error: Error?) in
             
             guard let self = self else {
                 return
@@ -165,7 +165,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
 
     //MARK: - Actions
     
-    @IBAction func generateOfflineMapAction(_ button:NSButton) {
+    @IBAction func generateOfflineMapAction(_ button: NSButton) {
         
         //hide and disable the offline map button
         generateButton.isEnabled = false

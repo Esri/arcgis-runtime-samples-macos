@@ -20,7 +20,7 @@ import ArcGIS
 class SpatialOperationsViewController: NSViewController {
 
     @IBOutlet var mapView: AGSMapView!
-    @IBOutlet var visualEffectView:NSVisualEffectView!
+    @IBOutlet var visualEffectView: NSVisualEffectView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
     private var polygon1, polygon2: AGSPolygonBuilder!
@@ -139,7 +139,7 @@ class SpatialOperationsViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func radioButtonAction(_ sender:NSButton) {
+    @IBAction func radioButtonAction(_ sender: NSButton) {
         //In case of None, remove the result graphic if present
         if sender.tag == 0 {
             if self.resultGraphic != nil {

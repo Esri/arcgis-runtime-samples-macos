@@ -19,7 +19,7 @@ import ArcGIS
 
 class DisplayMapViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

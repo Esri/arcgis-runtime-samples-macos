@@ -65,7 +65,7 @@ class ProgressViewController: NSViewController {
         progressIndicator?.doubleValue = progress.fractionCompleted
     }
     
-    @IBAction func cancelAction(_ button:NSButton) {
+    @IBAction func cancelAction(_ button: NSButton) {
         // cancel the progress
         progress.cancel()
     }

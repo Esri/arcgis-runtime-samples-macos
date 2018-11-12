@@ -19,8 +19,8 @@ import ArcGIS
 
 class SetInitialMapAreaViewController: NSViewController {
 
-    @IBOutlet weak var mapView:AGSMapView!
-    var map:AGSMap!
+    @IBOutlet weak var mapView: AGSMapView!
+    var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,9 +21,9 @@ class TimeBasedQueryVC: NSViewController {
     
     @IBOutlet var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var featureTable:AGSServiceFeatureTable!
+    private var featureTable: AGSServiceFeatureTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class TimeBasedQueryVC: NSViewController {
         queryParams.timeExtent = timeExtent
         
         //populate features based on query parameters
-        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) {[weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
+        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) {[weak self] (result: AGSFeatureQueryResult?, error: Error?) -> Void in
             
             guard error == nil else {
                 //show error
@@ -84,7 +84,7 @@ class TimeBasedQueryVC: NSViewController {
     }
     
     //MARK: - Helper methods
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

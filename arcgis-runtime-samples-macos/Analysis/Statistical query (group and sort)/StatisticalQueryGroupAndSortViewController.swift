@@ -253,7 +253,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     
     // MARK: - Helper Methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         if let window = view.window {
             let alert = NSAlert()
             alert.messageText = messageText
