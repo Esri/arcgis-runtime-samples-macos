@@ -14,7 +14,6 @@ disabled_rules: # rule identifiers to exclude from running
   - mark
   - multiple_closures_with_trailing_closure
   - redundant_discardable_let
-  - return_arrow_whitespace
   - statement_position
   - syntactic_sugar
   - trailing_semicolon
