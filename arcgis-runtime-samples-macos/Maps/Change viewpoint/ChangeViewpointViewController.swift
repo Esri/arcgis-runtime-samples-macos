@@ -77,7 +77,7 @@ class ChangeViewpointViewController: NSViewController {
             let currentCenter = self.mapView.visibleArea!.extent.center
             self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: targetScale), duration: 5, curve: AGSAnimationCurve.easeInOutSine, completion: { (finishedWithoutInterruption) -> Void in
                 if finishedWithoutInterruption {
-                    self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: currentScale), duration: 5, curve: AGSAnimationCurve.easeInOutSine, completion:  nil);
+                    self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: currentScale), duration: 5, curve: .easeInOutSine)
                 }
             })
         default:
