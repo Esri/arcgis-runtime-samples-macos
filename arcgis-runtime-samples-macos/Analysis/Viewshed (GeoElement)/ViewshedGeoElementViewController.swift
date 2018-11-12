@@ -93,7 +93,7 @@ class ViewshedGeoElementViewController: NSViewController, AGSGeoViewTouchDelegat
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         // set the new waypoint
-        waypoint = mapPoint;
+        waypoint = mapPoint
         
         // start a timer to animate towards the waypoint
         timer = Timer.scheduledTimer(timeInterval: 0.1,

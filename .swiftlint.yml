@@ -16,7 +16,6 @@ disabled_rules: # rule identifiers to exclude from running
   - redundant_discardable_let
   - statement_position
   - syntactic_sugar
-  - trailing_semicolon
   - trailing_whitespace
   - type_name
   - unused_closure_parameter
