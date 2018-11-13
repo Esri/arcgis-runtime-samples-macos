@@ -73,7 +73,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.toggleDirectionsList(on: false, animated: false)
     }
     
-    //MARK: - Route logic
+    // MARK: - Route logic
     
     func getDefaultParameters() {
         
@@ -176,7 +176,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         return AGSSimpleFillSymbol(style: .diagonalCross, color: .red, outline: nil)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //normalize geometry
@@ -202,7 +202,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func clearAction(_ sender: NSButton) {
         if segmentedControl.selectedSegment == 0 {
@@ -223,7 +223,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier else {
@@ -239,7 +239,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    //MARK: - DirectionsListVCDelegate
+    // MARK: - DirectionsListVCDelegate
     
     func directionsListViewControllerDidDeleteRoute(_ directionsListViewController: DirectionsListViewController) {
         self.generatedRoute = nil
@@ -259,7 +259,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.mapView.setViewpointGeometry(directionManeuver.geometry!.extent, padding: 100, completion: nil)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

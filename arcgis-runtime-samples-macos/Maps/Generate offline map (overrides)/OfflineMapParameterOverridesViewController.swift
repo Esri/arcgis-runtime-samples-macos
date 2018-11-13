@@ -22,7 +22,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     var parameterOverrides: AGSGenerateOfflineMapParameterOverrides?
     var map: AGSMap?
     
-    //MARK: - outlets
+    // MARK: - outlets
 
     @IBOutlet weak var systemValvesCheckbox: NSButton!
     @IBOutlet weak var serviceConnectionsCheckbox: NSButton!
@@ -32,7 +32,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     @IBOutlet weak var minScaleSlider: NSSlider!
     @IBOutlet weak var maxScaleSlider: NSSlider!
     
-    //MARK: - bound values
+    // MARK: - bound values
     
     /// The min scale level for the output. Note that lower values are zoomed further out,
     /// i.e. 0 has the least detail, but one tile covers the entire Earth.
@@ -70,7 +70,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     /// Bound to the UI in the storyboard.
     @objc dynamic var minHydrantFlowRate: NSNumber = 0
     
-    //MARK: - cancelling
+    // MARK: - cancelling
     
     /// The completion handler to run if the user clicks cancel
     var cancelHandler: ((OfflineMapParameterOverridesViewController) -> Void)?
@@ -79,7 +79,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         cancelHandler?(self)
     }
     
-    //MARK: - completion
+    // MARK: - completion
     
     /// The completion handler to run once the user is done setting the parameters.
     var startJobHandler: ((OfflineMapParameterOverridesViewController) -> Void)?
@@ -101,7 +101,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         evaluatePipeLayersExtentCropping()
     }
     
-    //MARK: - Basemap adjustment
+    // MARK: - Basemap adjustment
     
     private func restrictBasemapScaleLevelRange() {
         
@@ -139,7 +139,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         tileCacheParameters.areaOfInterest = bufferedArea
     }
     
-    //MARK: - Layer adjustment
+    // MARK: - Layer adjustment
     
     private func addHydrantFilter() {
         
@@ -186,7 +186,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         }
     }
     
-    //MARK: - Basemap helpers
+    // MARK: - Basemap helpers
     
     /// Retrieves the basemap's parameters from the `exportTileCacheParameters` dictionary.
     private func getExportTileCacheParametersForBasemapLayer() -> AGSExportTileCacheParameters? {
@@ -197,7 +197,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         return nil
     }
     
-    //MARK: - Layer helpers
+    // MARK: - Layer helpers
     
     /// Retrieves the operational layer in the map with the given name, if it exists.
     private func operationalMapLayer(named name: String) -> AGSLayer? {
@@ -217,7 +217,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         return nil
     }
     
-    //MARK: - AGSGenerateGeodatabaseParameters helpers
+    // MARK: - AGSGenerateGeodatabaseParameters helpers
     
     /// Retrieves this layer's parameters from the `generateGeodatabaseParameters` dictionary.
     private func getGenerateGeodatabaseParameters(forLayer layer: AGSLayer) -> AGSGenerateGeodatabaseParameters? {

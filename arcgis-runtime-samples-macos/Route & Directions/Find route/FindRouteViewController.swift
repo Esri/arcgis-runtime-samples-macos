@@ -90,7 +90,7 @@ class FindRouteViewController: NSViewController {
         return compositeSymbol
     }
     
-    //MARK: - Route logic
+    // MARK: - Route logic
     
     //method to get the default parameters for the route task
     func getDefaultParameters() {
@@ -187,7 +187,7 @@ class FindRouteViewController: NSViewController {
         controller.preferredContentSize = CGSize(width: 300, height: 300)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

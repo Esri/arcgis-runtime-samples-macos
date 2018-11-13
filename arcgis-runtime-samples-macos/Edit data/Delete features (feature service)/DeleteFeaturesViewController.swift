@@ -91,7 +91,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         if let lastQuery = self.lastQuery {
@@ -127,14 +127,14 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func deleteAction(_ button: AnyObject) {
         //confirmation
         self.showConfirmationAlert()
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

@@ -54,7 +54,6 @@ class ReadGeopackageViewController: NSViewController {
             return !layersInMap.contains(layer)
         })
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +101,7 @@ class ReadGeopackageViewController: NSViewController {
 }
 
 extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelegate, GPKGLayerTableCellDelegate {
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         // Return how many layers to show in each table
@@ -204,9 +203,8 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         // And redraw the table view to reflect the move.
         layersInMapTableView.reloadData()
     }
-
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
@@ -222,7 +220,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    //MARK: - GPKGLayerTableCellDelegate
+    // MARK: - GPKGLayerTableCellDelegate
     
     func removeLayerFromMap(cell: GPKGLayerTableCell) {
         // The trash can was clicked in a cell for a layer that's on the map.

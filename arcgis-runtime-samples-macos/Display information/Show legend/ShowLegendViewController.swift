@@ -99,7 +99,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    //MARK: - NSOutlineViewDataSource
+    // MARK: - NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil { //root
@@ -143,7 +143,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         return (item is AGSLayerContent)
     }
     
-    //MARK: - NSOutlineViewDelegate
+    // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
@@ -162,7 +162,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    //MARK: - Helper functions
+    // MARK: - Helper functions
     
     func geometryTypeForSymbol(_ symbol: AGSSymbol) -> AGSGeometryType {
         if symbol is AGSFillSymbol {

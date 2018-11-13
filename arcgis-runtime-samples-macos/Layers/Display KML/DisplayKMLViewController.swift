@@ -68,7 +68,7 @@ class DisplayKMLViewController: NSViewController {
         
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func changeSourceToURL(_ sender: Any) {
         // A URL of a remote KML file

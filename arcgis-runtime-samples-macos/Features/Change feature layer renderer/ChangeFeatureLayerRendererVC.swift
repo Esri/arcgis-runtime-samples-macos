@@ -46,7 +46,7 @@ class ChangeFeatureLayerRendererVC: NSViewController {
         self.map.operationalLayers.add(self.featureLayer)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func applyRenderer(_ sender: NSButton) {
         //create a symbol to be used in the renderer

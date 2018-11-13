@@ -53,7 +53,7 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
         }
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.route?.directionManeuvers.count ?? 0
@@ -69,14 +69,14 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
         return view
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let directionManeuver = self.route.directionManeuvers[self.tableView.selectedRow]
         self.delegate?.directionsListViewController(self, didSelectDirectionManuever: directionManeuver)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func deleteRouteAction(_ sender: NSButton) {
         self.delegate?.directionsListViewControllerDidDeleteRoute(self)

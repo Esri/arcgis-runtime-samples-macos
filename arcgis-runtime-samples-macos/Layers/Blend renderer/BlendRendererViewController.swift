@@ -61,8 +61,6 @@ class BlendRendererViewController: NSViewController {
         return renderer
     }
     
-    
-    
     func selectedSlope() -> AGSSlopeType {
         switch self.slopeType.indexOfSelectedItem {
         case 0:
@@ -89,7 +87,7 @@ class BlendRendererViewController: NSViewController {
         }
     }
     
-    //MARK: -
+    // MARK: -
     
     func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType, colorRampType: AGSPresetColorRampType) {
         
@@ -116,7 +114,7 @@ class BlendRendererViewController: NSViewController {
         self.rasterLayer.renderer = blendRenderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func applyAction(_ sender: NSButton) {
         let altitude = self.altitudeSlider.doubleValue

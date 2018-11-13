@@ -61,7 +61,7 @@ class ChangeViewpointViewController: NSViewController {
         return nil
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func valueChanged(_ control: NSSegmentedControl) {
         switch control.selectedSegment {

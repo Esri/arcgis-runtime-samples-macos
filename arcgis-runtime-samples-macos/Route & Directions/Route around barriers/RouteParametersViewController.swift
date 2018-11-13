@@ -48,7 +48,7 @@ class RouteParametersViewController: NSViewController {
         self.preservceFirstStopButton.isEnabled = enable
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func switchValueChanged(_ sender: NSButton) {
         if sender == self.findBestSequenceButton {

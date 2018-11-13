@@ -91,7 +91,7 @@ class GraphicDrawOrderVC: NSViewController {
         self.graphicsOverlay.graphics.addObjects(from: self.graphics)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func buttonAction(_ sender: NSButton) {
         //increment draw index by 1 and assign as the zIndex for the respective graphic

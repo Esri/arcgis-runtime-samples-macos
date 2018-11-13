@@ -82,7 +82,7 @@ class GenerateGeodatabaseVC: NSViewController {
         return extent
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func generateAction(_ sender: NSButton) {
         
@@ -185,7 +185,7 @@ class GenerateGeodatabaseVC: NSViewController {
         })
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

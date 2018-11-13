@@ -63,7 +63,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         }
     }
     
-    //MARK: - NSCollectionViewDataSource
+    // MARK: - NSCollectionViewDataSource
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.mapPackage?.maps.count ?? 0
@@ -89,7 +89,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         return item
     }
     
-    //MARK: - NSCollectionViewDelegate
+    // MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         let indexPath = indexPaths.first!
@@ -98,8 +98,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         self.delegate?.mapPackageCellView(self, didSelectMap: map)
     }
     
-    
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

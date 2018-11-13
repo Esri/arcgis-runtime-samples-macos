@@ -17,7 +17,7 @@
 import Cocoa
 
 extension NSApplication {
-    //MARK: - Progres indicator
+    // MARK: - Progres indicator
     
     func showProgressIndicator() {
         let controller = windows.compactMap { return $0.windowController as? WindowController }.first
@@ -40,7 +40,7 @@ class WindowController: NSWindowController {
         searchEngine = SampleSearchEngine(samples: samples)
     }
     
-    //MARK: - Progress indicator
+    // MARK: - Progress indicator
     
     func showProgressIndicator() {
         progressIndicator.startAnimation(nil)

@@ -83,5 +83,4 @@ class PictureMarkerSymbolsViewController: NSViewController {
         self.graphicsOverlay.graphics.add(graphic)
     }
     
-    
 }

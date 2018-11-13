@@ -50,7 +50,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         return URL(fileURLWithPath: path).lastPathComponent
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.bundleTPKPaths?.count ?? 0
@@ -65,7 +65,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = self.tableView.selectedRow

@@ -118,7 +118,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         setupTransformsList()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return datumTransformations.count
@@ -157,7 +157,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard let mapViewSR = mapView.spatialReference else { return }

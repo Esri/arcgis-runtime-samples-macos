@@ -71,8 +71,7 @@ class LineOfSightLocationViewController: NSViewController, AGSGeoViewTouchDelega
         AGSLineOfSight.setLineWidth(2.0)
     }
     
-    
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         // user tapped to place Line of Sight observer. Create Line of Sight analysis if need be

@@ -68,7 +68,7 @@ class HillshadeRendererVC: NSViewController {
         self.rasterLayer.renderer = renderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func applyAction(_ sender: NSButton) {
         let altitude = self.altitudeSlider.doubleValue

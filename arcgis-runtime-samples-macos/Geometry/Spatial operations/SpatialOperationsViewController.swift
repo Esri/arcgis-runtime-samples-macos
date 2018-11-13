@@ -137,7 +137,7 @@ class SpatialOperationsViewController: NSViewController {
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func radioButtonAction(_ sender: NSButton) {
         //In case of None, remove the result graphic if present

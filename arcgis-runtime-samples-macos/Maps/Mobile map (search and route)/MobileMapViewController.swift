@@ -70,7 +70,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.mapView.callout.dismiss()
     }
     
-    //MARK: - MapPackagesListVCDelegate
+    // MARK: - MapPackagesListVCDelegate
     
     func mapPackagesListVC(_ mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?) {
         
@@ -79,7 +79,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.mapView.map = map
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier, id == "EmbedSegue" else {
@@ -135,7 +135,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.mapView.callout.show(for: graphic, tapLocation: point, animated: animated)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         if self.routeTask == nil && self.locatorTask == nil {
@@ -189,7 +189,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         }
     }
     
-    //MARK: - Locator
+    // MARK: - Locator
     
     private func reverseGeocode(_ point: AGSPoint, withGraphic graphic: AGSGraphic) {
         if self.locatorTask == nil {
@@ -233,7 +233,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         }
     }
     
-    //MARK: - Route
+    // MARK: - Route
     
     private func setupRouteTask() {
         //clear previous assignments
@@ -324,7 +324,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         return stops
     }
     
-    //MARK: - actions
+    // MARK: - actions
     
     @IBAction private func trashAction(_ sender: NSButton) {
         //remove all markers
@@ -335,7 +335,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.mapView.callout.dismiss()
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
@@ -344,7 +344,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         alert.beginSheetModal(for: self.view.window!)
     }
 }
-
 
 //extension for extracting the right attributes if available
 extension AGSGeocodeResult {
@@ -360,7 +359,6 @@ extension AGSGeocodeResult {
         let city = attributes?["City"] as? String
         let region = attributes?["Region"] as? String
         let neighborhood = attributes?["Neighborhood"] as? String
-        
         
         if addr != nil && city != nil && region != nil {
             return "\(addr!), \(city!), \(region!)"

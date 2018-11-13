@@ -37,7 +37,7 @@ class TakeScreenshotViewController: NSViewController {
         self.mapView.map = self.map
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     //hide the screenshot overlay view
     func hideOverlayParentView() {
@@ -77,7 +77,7 @@ class TakeScreenshotViewController: NSViewController {
         self.hideOverlayParentView()
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     //imitate the white flash screen when the user taps on the screenshot button
     private func imitateFlashAndPreview(image: NSImage) {
@@ -91,14 +91,14 @@ class TakeScreenshotViewController: NSViewController {
             context.duration = 0.3
             flashView.animator().alphaValue = 0
     
-        }) { [weak self] in
+        }, completionHandler: { [weak self] in
             //On completion play the shutter sound
             self?.playShutterSound()
             flashView.removeFromSuperview()
             //show the screenshot on screen
             self?.overlayImageView.image = image
             self?.showOverlayParentView()
-        }
+        })
     }
     
     //to play the shutter sound once the screenshot is taken

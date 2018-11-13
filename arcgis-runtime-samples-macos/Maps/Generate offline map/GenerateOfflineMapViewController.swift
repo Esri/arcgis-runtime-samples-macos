@@ -94,7 +94,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         extentView.layer?.borderWidth = 3
     }
     
-    //MARK: - offline map generation
+    // MARK: - offline map generation
     
     private func takeMapOffline(parameters: AGSGenerateOfflineMapParameters) {
         
@@ -163,7 +163,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         mapView.map = result.offlineMap
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func generateOfflineMapAction(_ button: NSButton) {
         
@@ -198,7 +198,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showLoginQueryAlert() {
         let alert = NSAlert()

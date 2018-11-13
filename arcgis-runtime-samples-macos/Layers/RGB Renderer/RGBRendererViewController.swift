@@ -66,7 +66,7 @@ class RGBRendererViewController: NSViewController {
         self.textField2c.isHidden = !on
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {

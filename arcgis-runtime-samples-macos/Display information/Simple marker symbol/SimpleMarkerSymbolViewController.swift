@@ -55,5 +55,4 @@ class SimpleMarkerSymbolViewController: NSViewController {
         self.graphicsOverlay.graphics.add(graphic)
     }
     
-    
 }

@@ -81,7 +81,7 @@ class CreateOptionsViewController: NSViewController {
         self.delegate?.createOptionsViewController(self, didSelectBasemap: basemap, layers: layers.count > 0 ? layers : nil)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(withText text: String) {
         let alert = NSAlert()

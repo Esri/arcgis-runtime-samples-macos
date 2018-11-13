@@ -91,7 +91,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         }
     }
     
-    //MARK: - Callout
+    // MARK: - Callout
     
     //method shows the callout for the specified graphic,
     //populates the title and detail of the callout with specific attributes
@@ -110,7 +110,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.mapView.callout.show(for: graphic, tapLocation: point, animated: true)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //dismiss the callout
@@ -136,7 +136,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func searchAction(_ sender: NSSearchField) {
         //geocode if field not empty
@@ -162,7 +162,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.geocodeSearchText(searchString)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(_ messageText: String, informativeText: String) {
         let alert = NSAlert()
