@@ -39,7 +39,7 @@ class VectorTileLayerViewController: NSViewController {
         self.mapView.map = map
 
         //center on Miami, Fl
-        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: AGSSpatialReference.wgs84()), scale: 150000, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: .wgs84()), scale: 150000)
 
     }
     

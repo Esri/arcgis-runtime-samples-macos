@@ -45,7 +45,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     func addGraphicsOverlay() {
         //polygon graphic
-        let polygonGeometry = AGSPolygonBuilder(spatialReference: AGSSpatialReference.webMercator())
+        let polygonGeometry = AGSPolygonBuilder(spatialReference: .webMercator())
         polygonGeometry.addPointWith(x: -20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: -20e5)

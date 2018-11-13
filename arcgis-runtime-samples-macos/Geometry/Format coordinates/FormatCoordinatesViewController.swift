@@ -42,7 +42,7 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         self.mapView.touchDelegate = self
         
         //initial point
-        let point = AGSPoint(x: 0, y: 0, spatialReference: AGSSpatialReference.webMercator())
+        let point = AGSPoint(x: 0, y: 0, spatialReference: .webMercator())
         
         //add initial graphic
         self.displayGraphicAtPoint(point)

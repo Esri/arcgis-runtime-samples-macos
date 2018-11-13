@@ -101,7 +101,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.planeModelSymbol.anchorPosition = .center
         
         //arbitrary geometry for time being, the geometry will update with animation
-        let point = AGSPoint(x: 0, y: 0, z: 0, spatialReference: AGSSpatialReference.wgs84())
+        let point = AGSPoint(x: 0, y: 0, z: 0, spatialReference: .wgs84())
         
         //create graphic for the model
         self.planeModelGraphic = AGSGraphic()
@@ -176,7 +176,7 @@ class Animate3DSymbolsVC: NSViewController {
                     
                     //load position, heading, pitch and roll for each frame
                     let frame = Frame()
-                    frame.position = AGSPoint(x: Double(details[0])!, y: Double(details[1])!, z: Double(details[2])!, spatialReference: AGSSpatialReference.wgs84())
+                    frame.position = AGSPoint(x: Double(details[0])!, y: Double(details[1])!, z: Double(details[2])!, spatialReference: .wgs84())
                     frame.heading = Double(details[3])!
                     frame.pitch = Double(details[4])!
                     frame.roll = Double(details[5])!

@@ -52,7 +52,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.reverseGeocodeParameters.maxResults = 1
         self.reverseGeocodeParameters.resultAttributeNames.append(contentsOf: ["*"])
         
-        self.mapView.map = AGSMap(spatialReference: AGSSpatialReference.webMercator())
+        self.mapView.map = AGSMap(spatialReference: .webMercator())
         
         //touch delegate
         self.mapView.touchDelegate = self

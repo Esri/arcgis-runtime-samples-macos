@@ -38,7 +38,7 @@ class GraphicsWithRendererViewController: NSViewController {
     
     func addGraphicsOverlay() {
         //point graphic
-        let pointGeometry = AGSPoint(x: 40e5, y: 40e5, spatialReference: AGSSpatialReference.webMercator())
+        let pointGeometry = AGSPoint(x: 40e5, y: 40e5, spatialReference: .webMercator())
         let pointSymbol = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.diamond, color: .red, size: 10)
         let pointGraphic = AGSGraphic(geometry: pointGeometry, symbol: nil, attributes: nil)
         
@@ -56,7 +56,7 @@ class GraphicsWithRendererViewController: NSViewController {
         
         
         //line graphic
-        let lineGeometry = AGSPolylineBuilder(spatialReference: AGSSpatialReference.webMercator())
+        let lineGeometry = AGSPolylineBuilder(spatialReference: .webMercator())
         lineGeometry.addPointWith(x: -10e5, y: 40e5)
         lineGeometry.addPointWith(x: 20e5, y: 50e5)
     
@@ -77,7 +77,7 @@ class GraphicsWithRendererViewController: NSViewController {
         
         
         //polygon graphic
-        let polygonGeometry = AGSPolygonBuilder(spatialReference: AGSSpatialReference.webMercator())
+        let polygonGeometry = AGSPolygonBuilder(spatialReference: .webMercator())
         polygonGeometry.addPointWith(x: -20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: -20e5)

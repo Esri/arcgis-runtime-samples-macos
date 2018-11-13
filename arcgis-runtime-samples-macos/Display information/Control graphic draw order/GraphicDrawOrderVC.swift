@@ -46,7 +46,7 @@ class GraphicDrawOrderVC: NSViewController {
         let mapScale: Double = 53500
         
         //initial viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13148960, y: 4000040, spatialReference: AGSSpatialReference.webMercator()), scale: mapScale, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13148960, y: 4000040, spatialReference: .webMercator()), scale: mapScale)
         
         //restricting map scale to preserve the graphics overlapping
         self.map.minScale = mapScale
