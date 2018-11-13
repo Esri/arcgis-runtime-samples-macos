@@ -61,7 +61,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
         /// The IDs of the layers we want included in the download.
-        let layerIDsToDownload: Set<Int> = [0,1]
+        let layerIDsToDownload: Set<Int> = [0, 1]
         
         /// The sync task used to download the geodatabase now and upload it later.
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)

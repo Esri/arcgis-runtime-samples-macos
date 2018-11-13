@@ -84,7 +84,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
             }
             else {
-                if let featureEditResults = featureEditResults , featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
+                if let featureEditResults = featureEditResults, featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
                     print("Edits applied successfully")
                 }
             }

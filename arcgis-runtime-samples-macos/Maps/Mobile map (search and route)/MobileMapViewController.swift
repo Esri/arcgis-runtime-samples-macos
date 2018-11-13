@@ -216,7 +216,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
             else {
                 //assign the label property of result as an attributes to the graphic
                 //and show the callout
-                if let results = results , results.count > 0 {
+                if let results = results, results.count > 0 {
                     
                     graphic.attributes["Match_addr"] = results.first!.formattedAddressString
                     self?.showCallout(for: graphic, at: point, animated: false, offset: false)
