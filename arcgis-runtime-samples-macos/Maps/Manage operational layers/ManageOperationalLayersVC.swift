@@ -37,7 +37,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         map.operationalLayers.add(tiledLayer)
         
         self.mapView.map = map
-        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 2e7))
+        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: .webMercator()), scale: 2e7))
         
         self.mapView.map?.load(completion: { [weak self] (error:Error?) in
             self?.tableView1.reloadData()
