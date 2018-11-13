@@ -120,7 +120,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
         if(rowData != nil) {
-            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>,
+            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet],
             indexSet = dataArray[0]
             
             let movingFromIndex = indexSet.first

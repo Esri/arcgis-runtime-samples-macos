@@ -167,7 +167,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         
         if(rowData != nil) {
             // A row for a layer in the map was dragged and dropped. Let's re-order the map layers to match.
-            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>
+            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet]
             
             if let movingFromIndex = dataArray.first?.first {
                 self.moveLayer(from: movingFromIndex, to: row)
