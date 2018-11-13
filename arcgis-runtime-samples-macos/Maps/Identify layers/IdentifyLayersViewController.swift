@@ -21,10 +21,10 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     @IBOutlet var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var featureLayer:AGSFeatureLayer!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
+    private var featureLayer: AGSFeatureLayer!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,7 +151,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //helper method to show results to the user
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

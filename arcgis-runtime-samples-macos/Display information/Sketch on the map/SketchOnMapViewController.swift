@@ -19,14 +19,14 @@ import ArcGIS
 
 class SketchOnMapViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var geometrySegmentedControl:NSSegmentedControl!
-    @IBOutlet private weak var undoButton:NSButton!
-    @IBOutlet private weak var redoButton:NSButton!
-    @IBOutlet private weak var clearButton:NSButton!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var geometrySegmentedControl: NSSegmentedControl!
+    @IBOutlet private weak var undoButton: NSButton!
+    @IBOutlet private weak var redoButton: NSButton!
+    @IBOutlet private weak var clearButton: NSButton!
     
-    private var map:AGSMap!
-    private var sketchEditor:AGSSketchEditor!
+    private var map: AGSMap!
+    private var sketchEditor: AGSSketchEditor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class SketchOnMapViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func geometryValueChanged(_ segmentedControl:NSSegmentedControl) {
+    @IBAction func geometryValueChanged(_ segmentedControl: NSSegmentedControl) {
         switch segmentedControl.selectedSegment {
         case 0://point
             self.sketchEditor.start(with: nil, creationMode: .point)

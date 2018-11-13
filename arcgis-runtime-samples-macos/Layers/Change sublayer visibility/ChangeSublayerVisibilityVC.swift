@@ -19,11 +19,11 @@ import ArcGIS
 
 class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, SublayerCellViewDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView: NSTableView!
     
-    private var map:AGSMap!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
+    private var map: AGSMap!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()

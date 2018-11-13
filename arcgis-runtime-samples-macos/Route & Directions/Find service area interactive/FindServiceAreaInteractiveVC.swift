@@ -19,23 +19,23 @@ import ArcGIS
 
 class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var segmentedControl:NSSegmentedControl!
-    @IBOutlet private var serviceAreaButton:NSButton!
-    @IBOutlet private var firstTimeBreakSlider:NSSlider!
-    @IBOutlet private var secondTimeBreakSlider:NSSlider!
-    @IBOutlet private var firstTimeBreakLabel:NSTextField!
-    @IBOutlet private var secondTimeBreakLabel:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var segmentedControl: NSSegmentedControl!
+    @IBOutlet private var serviceAreaButton: NSButton!
+    @IBOutlet private var firstTimeBreakSlider: NSSlider!
+    @IBOutlet private var secondTimeBreakSlider: NSSlider!
+    @IBOutlet private var firstTimeBreakLabel: NSTextField!
+    @IBOutlet private var secondTimeBreakLabel: NSTextField!
     
     private var facilitiesGraphicsOverlay = AGSGraphicsOverlay()
     private var barriersGraphicsOverlay = AGSGraphicsOverlay()
     private var serviceAreaGraphicsOverlay = AGSGraphicsOverlay()
-    private var barrierGraphic:AGSGraphic!
-    private var serviceAreaTask:AGSServiceAreaTask!
-    private var serviceAreaParameters:AGSServiceAreaParameters!
+    private var barrierGraphic: AGSGraphic!
+    private var serviceAreaTask: AGSServiceAreaTask!
+    private var serviceAreaParameters: AGSServiceAreaParameters!
     
-    var firstTimeBreak:Int = 3
-    var secondTimeBreak:Int = 8
+    var firstTimeBreak: Int = 3
+    var secondTimeBreak: Int = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,10 +99,10 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    private func serviceAreaSymbol(for index:Int) -> AGSSymbol {
+    private func serviceAreaSymbol(for index: Int) -> AGSSymbol {
         
         //fill symbol for service area
-        var fillSymbol:AGSSimpleFillSymbol
+        var fillSymbol: AGSSimpleFillSymbol
         
         if index == 0 {
             let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor(red: 0.4, green: 0.4, blue: 0, alpha: 0.3), width: 2)
@@ -118,7 +118,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Actions
     
-    @IBAction private func serviceArea(_ sender:NSButton) {
+    @IBAction private func serviceArea(_ sender: NSButton) {
         
         //remove previously added service areas
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
@@ -188,7 +188,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    @IBAction private func clearAction(_ sender:NSButton) {
+    @IBAction private func clearAction(_ sender: NSButton) {
         
         //remove all existing graphics in service area and facilities graphics overlays
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
@@ -196,7 +196,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         self.barriersGraphicsOverlay.graphics.removeAllObjects()
     }
     
-    @IBAction private func sliderValueChanged(_ sender:NSSlider) {
+    @IBAction private func sliderValueChanged(_ sender: NSSlider) {
         
         if sender == self.firstTimeBreakSlider {
             
@@ -231,7 +231,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

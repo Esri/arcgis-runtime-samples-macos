@@ -19,9 +19,9 @@ import ArcGIS
 
 class GraphicsWithSymbolsViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    private var map:AGSMap!
-    private var graphicsOverlay:AGSGraphicsOverlay!
+    @IBOutlet private weak var mapView: AGSMapView!
+    private var map: AGSMap!
+    private var graphicsOverlay: AGSGraphicsOverlay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         addText(to: graphicsOverlay)
     }
     
-    private func addBuoyPoints(to graphicsOverlay:AGSGraphicsOverlay) {
+    private func addBuoyPoints(to graphicsOverlay: AGSGraphicsOverlay) {
         
         //define the buoy locations
         let wgs84 = AGSSpatialReference.wgs84()
@@ -75,7 +75,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
 
     }
     
-    private func addText(to graphicsOverlay:AGSGraphicsOverlay) {
+    private func addText(to graphicsOverlay: AGSGraphicsOverlay) {
         let wgs84 = AGSSpatialReference.wgs84()
         let bassLocation = AGSPoint(x: -2.640631, y: 56.078083, spatialReference: wgs84)
         let craigleithLocation = AGSPoint(x: -2.720324, y: 56.073569, spatialReference: wgs84)
@@ -94,7 +94,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         graphicsOverlay.graphics.add(craigleithGraphic)
     }
     
-    private func addBoatTrip(to graphicsOverlay:AGSGraphicsOverlay) {
+    private func addBoatTrip(to graphicsOverlay: AGSGraphicsOverlay) {
         //boat trip geometry
         let boatRoute = self.boatTripGeometry()
         
@@ -110,7 +110,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         graphicsOverlay.graphics.add(boatTripGraphic)
     }
     
-    private func addNestingGround(to graphicsOverlay:AGSGraphicsOverlay) {
+    private func addNestingGround(to graphicsOverlay: AGSGraphicsOverlay) {
         //nesting ground geometry
         let nestingGround = self.nestingGroundGeometry()
         

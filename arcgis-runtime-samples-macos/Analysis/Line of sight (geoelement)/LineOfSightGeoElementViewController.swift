@@ -263,7 +263,7 @@ class LineOfSightGeoElementViewController: NSViewController {
         return formatter
     }()
 
-    private func getFormattedString(z value:Double) -> String {
+    private func getFormattedString(z value: Double) -> String {
         return zValuesFormatter.string(from: Measurement<UnitLength>(value: value, unit: .meters))
     }
 }

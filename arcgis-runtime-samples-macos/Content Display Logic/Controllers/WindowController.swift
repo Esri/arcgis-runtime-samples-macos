@@ -34,7 +34,7 @@ class WindowController: NSWindowController {
     
     private var searchEngine: SampleSearchEngine?
     
-    @IBOutlet private var progressIndicator:NSProgressIndicator!
+    @IBOutlet private var progressIndicator: NSProgressIndicator!
     
     func loadSearchEngine(samples: [Sample]) {
         searchEngine = SampleSearchEngine(samples: samples)

@@ -19,13 +19,13 @@ import ArcGIS
 
 class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var outlineView:NSOutlineView!
-    @IBOutlet private var legendView:NSVisualEffectView!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var outlineView: NSOutlineView!
+    @IBOutlet private var legendView: NSVisualEffectView!
     
-    private var map:AGSMap!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
-    var legendInfosDict = [String:[AGSLegendInfo]]()
+    private var map: AGSMap!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
+    var legendInfosDict = [String: [AGSLegendInfo]]()
     private var orderArray = [AGSLayerContent]()
     
     override func viewDidLoad() {
@@ -164,7 +164,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     
     //MARK: - Helper functions
     
-    func geometryTypeForSymbol(_ symbol:AGSSymbol) -> AGSGeometryType {
+    func geometryTypeForSymbol(_ symbol: AGSSymbol) -> AGSGeometryType {
         if symbol is AGSFillSymbol {
             return AGSGeometryType.polygon
         }
@@ -180,7 +180,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         return String(UInt(bitPattern: ObjectIdentifier(obj)))
     }
     
-    func nameForLayerContent(_ layerContent:AGSLayerContent) -> String {
+    func nameForLayerContent(_ layerContent: AGSLayerContent) -> String {
         if let layer = layerContent as? AGSLayer {
             return layer.name
         }

@@ -47,7 +47,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     private var viewshed: AGSLocationViewshed!
     private var analysisOverlay: AGSAnalysisOverlay!
     
-    private var canMoveViewshed:Bool = false {
+    private var canMoveViewshed: Bool = false {
         didSet {
             guard canMoveViewshed != oldValue else { return }
             updateInstructionLabel()
@@ -179,7 +179,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         AGSViewshed.setFrustumOutlineColor(sender.color)
     }
     
-    @IBAction private func sliderValueChanged(_ sender:NSSlider) {
+    @IBAction private func sliderValueChanged(_ sender: NSSlider) {
         if sender == headingSlider {
             headingLabel.stringValue = "\(sender.integerValue)"
             viewshed.heading = sender.doubleValue

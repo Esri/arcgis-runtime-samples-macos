@@ -19,21 +19,21 @@ import ArcGIS
 
 class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var outlineView:NSOutlineView!
-    @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectView:NSVisualEffectView!
-    @IBOutlet private var featureTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var outlineView: NSOutlineView!
+    @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectView: NSVisualEffectView!
+    @IBOutlet private var featureTextField: NSTextField!
     
-    private var parksFeatureLayer:AGSFeatureLayer!
-    private var parksFeatureTable:AGSServiceFeatureTable!
-    private var preservesFeatureTable:AGSServiceFeatureTable!
-    private var speciesFeatureTable:AGSServiceFeatureTable!
-    private var identifyCancelable:AGSCancelable!
-    private var selectedPark:AGSArcGISFeature!
+    private var parksFeatureLayer: AGSFeatureLayer!
+    private var parksFeatureTable: AGSServiceFeatureTable!
+    private var preservesFeatureTable: AGSServiceFeatureTable!
+    private var speciesFeatureTable: AGSServiceFeatureTable!
+    private var identifyCancelable: AGSCancelable!
+    private var selectedPark: AGSArcGISFeature!
     
-    private var results:[AGSRelatedFeatureQueryResult]!
+    private var results: [AGSRelatedFeatureQueryResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +95,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.featureTextField.stringValue = ""
         
         //query for related features
-        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
+        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -236,7 +236,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     //MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(on:Bool, animated:Bool) {
+    private func toggleVisualEffectView(on: Bool, animated: Bool) {
         
         if animated {
          
@@ -250,7 +250,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

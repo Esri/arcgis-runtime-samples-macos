@@ -19,20 +19,20 @@ import ArcGIS
 
 class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate, NSTableViewDataSource, NSTableViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var tableView:NSTableView!
-    @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectView:NSVisualEffectView!
-    @IBOutlet private var featureTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var tableView: NSTableView!
+    @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectView: NSVisualEffectView!
+    @IBOutlet private var featureTextField: NSTextField!
     
-    private var parksFeatureTable:AGSServiceFeatureTable!
-    private var speciesFeatureTable:AGSServiceFeatureTable!
-    private var parksFeatureLayer:AGSFeatureLayer!
-    private var relatedFeatures:[AGSFeature]!
-    private var relationshipInfo:AGSRelationshipInfo!
-    private var selectedPark:AGSArcGISFeature!
-    private var identifyCancelable:AGSCancelable!
+    private var parksFeatureTable: AGSServiceFeatureTable!
+    private var speciesFeatureTable: AGSServiceFeatureTable!
+    private var parksFeatureLayer: AGSFeatureLayer!
+    private var relatedFeatures: [AGSFeature]!
+    private var relationshipInfo: AGSRelationshipInfo!
+    private var selectedPark: AGSArcGISFeature!
+    private var identifyCancelable: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +103,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         parameters.orderByFields = [AGSOrderBy(fieldName: "OBJECTID", sortOrder: .descending)]
         
         //query for species related to the selected park
-        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
+        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -141,7 +141,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
         
         //new related feature (specie)
-        let feature = relatedTable.createFeature(attributes: ["Scientific_name" : "New specie"], geometry: nil) as! AGSArcGISFeature
+        let feature = relatedTable.createFeature(attributes: ["Scientific_name": "New specie"], geometry: nil) as! AGSArcGISFeature
         
         //relate new feature to origin feature
         feature.relate(to: self.selectedPark)
@@ -198,7 +198,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //get the related table using the relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
         
-        relatedTable.applyEdits { [weak self] (results:[AGSFeatureEditResult]?, error:Error?) in
+        relatedTable.applyEdits { [weak self] (results: [AGSFeatureEditResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -305,7 +305,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     
     //MARK: - Actions
     
-    @IBAction private func addAction(sender:NSButton) {
+    @IBAction private func addAction(sender: NSButton) {
         
         self.addRelatedFeature()
     }
@@ -328,7 +328,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

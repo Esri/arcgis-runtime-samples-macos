@@ -97,7 +97,7 @@ class ViewshedGeoElementViewController: NSViewController, AGSGeoViewTouchDelegat
         
         // start a timer to animate towards the waypoint
         timer = Timer.scheduledTimer(timeInterval: 0.1,
-                                     target:self as Any,
+                                     target: self as Any,
                                      selector: #selector(animate),
                                      userInfo: nil,
                                      repeats: true)

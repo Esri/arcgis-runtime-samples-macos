@@ -44,7 +44,7 @@ class ProgressViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         // observe progress
-        progressObservation = progress.observe(\.fractionCompleted,  options: .initial, changeHandler: {[weak self] (_, _) in
+        progressObservation = progress.observe(\.fractionCompleted, options: .initial, changeHandler: {[weak self] (_, _) in
             // run UI updates on the main thread
             DispatchQueue.main.async {
                 self?.updateProgressUI()
@@ -65,7 +65,7 @@ class ProgressViewController: NSViewController {
         progressIndicator?.doubleValue = progress.fractionCompleted
     }
     
-    @IBAction func cancelAction(_ button:NSButton) {
+    @IBAction func cancelAction(_ button: NSButton) {
         // cancel the progress
         progress.cancel()
     }

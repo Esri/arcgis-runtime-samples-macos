@@ -25,7 +25,7 @@ class OpenMapURLViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapMenuItems:[NSMenuItem] = [
+        let mapMenuItems: [NSMenuItem] = [
             NSMenuItem(title: "Housing with Mortgages",
                        image: #imageLiteral(resourceName: "OpenExistingMapThumbnail1"),
                        representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977")!),

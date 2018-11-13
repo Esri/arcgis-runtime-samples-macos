@@ -24,7 +24,7 @@ protocol MapPackagesListVCDelegate: AnyObject {
 
 class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MapPackageCellDelegate {
 
-    @IBOutlet private var tableView:NSTableView!
+    @IBOutlet private var tableView: NSTableView!
     
     var mapPackages = [AGSMobileMapPackage]() {
         didSet {
@@ -34,7 +34,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     }
     private var selectedRow = -1
     
-    weak var delegate:MapPackagesListVCDelegate?
+    weak var delegate: MapPackagesListVCDelegate?
     
     //MARK: - NSTableViewDataSource
     

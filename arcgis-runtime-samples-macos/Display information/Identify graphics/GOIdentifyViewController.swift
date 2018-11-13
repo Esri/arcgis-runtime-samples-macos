@@ -19,9 +19,9 @@ import ArcGIS
 
 class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    private var map:AGSMap!
-    private var graphicsOverlay:AGSGraphicsOverlay!
+    @IBOutlet private weak var mapView: AGSMapView!
+    private var map: AGSMap!
+    private var graphicsOverlay: AGSGraphicsOverlay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         //use the following method to identify graphics in a specific graphics overlay
         //otherwise if you need to identify on all the graphics overlay present in the map view
         //use `identifyGraphicsOverlaysAtScreenCoordinate:tolerance:maximumGraphics:completion:` method provided on map view
-        let tolerance:Double = 4
+        let tolerance: Double = 4
         
         //show progress indicator
         NSApp.showProgressIndicator()

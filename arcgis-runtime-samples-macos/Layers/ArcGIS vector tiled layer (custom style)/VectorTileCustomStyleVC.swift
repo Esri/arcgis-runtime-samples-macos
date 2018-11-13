@@ -19,7 +19,7 @@ import ArcGIS
 
 class VectorTileCustomStyleVC: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     @IBOutlet weak var stylesPopUpButton: NSPopUpButton!
     
     override func viewDidLoad() {

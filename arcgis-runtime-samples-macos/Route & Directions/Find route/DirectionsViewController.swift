@@ -18,10 +18,10 @@ import ArcGIS
 
 class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var tableView: NSTableView!
     
     //provide route with direction maneuvers
-    var route:AGSRoute?
+    var route: AGSRoute?
     
     //MARK: - NSTableViewDataSource
     

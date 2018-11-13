@@ -225,7 +225,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     }
     
     // Show error
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

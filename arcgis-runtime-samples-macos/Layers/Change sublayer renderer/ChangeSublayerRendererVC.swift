@@ -17,9 +17,9 @@ import ArcGIS
 
 class ChangeSublayerRendererVC: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var applyRendererButton:NSButton!
-    @IBOutlet private var resetButton:NSButton!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var applyRendererButton: NSButton!
+    @IBOutlet private var resetButton: NSButton!
     
     //map image layer
     private var mapImageLayer: AGSArcGISMapImageLayer = {
@@ -28,7 +28,7 @@ class ChangeSublayerRendererVC: NSViewController {
         return AGSArcGISMapImageLayer(url: censusMapServiceURL)
     }()
     
-    private var originalRenderer:AGSRenderer?
+    private var originalRenderer: AGSRenderer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class ChangeSublayerRendererVC: NSViewController {
         map.operationalLayers.add(self.mapImageLayer)
         
         //initial viewpoint
-        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference:AGSSpatialReference.webMercator())
+        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference: AGSSpatialReference.webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(targetExtent: envelope)

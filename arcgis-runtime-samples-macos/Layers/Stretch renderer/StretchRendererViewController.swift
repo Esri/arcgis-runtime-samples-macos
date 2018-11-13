@@ -19,14 +19,14 @@ import ArcGIS
 
 class StretchRendererViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var stretchType:NSPopUpButton!
-    @IBOutlet var label1:NSTextField!
-    @IBOutlet var label2:NSTextField!
-    @IBOutlet var textField1:NSTextField!
-    @IBOutlet var textField2:NSTextField!
-    @IBOutlet var textField2TopConstraint:NSLayoutConstraint!
-    @IBOutlet var textField2HeightConstraint:NSLayoutConstraint!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var stretchType: NSPopUpButton!
+    @IBOutlet var label1: NSTextField!
+    @IBOutlet var label2: NSTextField!
+    @IBOutlet var textField1: NSTextField!
+    @IBOutlet var textField2: NSTextField!
+    @IBOutlet var textField2TopConstraint: NSLayoutConstraint!
+    @IBOutlet var textField2HeightConstraint: NSLayoutConstraint!
     
     private var raster: AGSRaster!
     private var rasterLayer: AGSRasterLayer!
@@ -57,7 +57,7 @@ class StretchRendererViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func popUpButtonAction(_ sender:NSPopUpButton) {
+    @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {
         case 0:
             self.label1.stringValue = "Min value"
@@ -78,8 +78,8 @@ class StretchRendererViewController: NSViewController {
         }
     }
     
-    @IBAction func applyAction(_ sender:NSButton) {
-        var stretchParams:AGSStretchParameters
+    @IBAction func applyAction(_ sender: NSButton) {
+        var stretchParams: AGSStretchParameters
         
         switch self.stretchType.indexOfSelectedItem {
         case 0:

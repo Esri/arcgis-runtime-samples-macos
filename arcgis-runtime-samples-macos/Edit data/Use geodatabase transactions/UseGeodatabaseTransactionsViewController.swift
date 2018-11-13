@@ -19,7 +19,7 @@ import ArcGIS
 
 class UseGeodatabaseTransactionsViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
     @IBOutlet weak var featureTypePopUp: NSPopUpButton!
     @IBOutlet weak var startTransactionButton: NSButton!
@@ -61,7 +61,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
         /// The IDs of the layers we want included in the download.
-        let layerIDsToDownload: Set<Int> = [0,1]
+        let layerIDsToDownload: Set<Int> = [0, 1]
         
         /// The sync task used to download the geodatabase now and upload it later.
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)
@@ -101,7 +101,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = generateGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel:  "Downloading Geodatabase")
+        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel: "Downloading Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the download
@@ -172,7 +172,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Creates a feature with the given parameters in the local geodatabase.
-    private func addFeature(at point:AGSPoint, featureTableID: Int, attributes: [String: Any]) {
+    private func addFeature(at point: AGSPoint, featureTableID: Int, attributes: [String: Any]) {
         
         guard let geodatabase = geodatabase,
             let featureTable = geodatabase.geodatabaseFeatureTable(byServiceLayerID: featureTableID) else {
@@ -212,7 +212,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = syncGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel:  "Syncing Geodatabase")
+        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel: "Syncing Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the upload
