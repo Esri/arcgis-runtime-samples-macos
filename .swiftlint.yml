@@ -5,7 +5,6 @@ custom_rules:
     message: "Use AGSSpatialReference.webMercator() instead."
 
 disabled_rules: # rule identifiers to exclude from running
-  - cyclomatic_complexity
   - file_length
   - for_where
   - force_cast
