@@ -29,10 +29,10 @@ class FindRouteViewController: NSViewController {
     var stopGraphicsOverlay = AGSGraphicsOverlay()
     var routeGraphicsOverlay = AGSGraphicsOverlay()
     
-    var stop1Geometry:AGSPoint {
+    var stop1Geometry: AGSPoint {
         return AGSPoint(x: -13041171.537945, y: 3860988.271378, spatialReference: .webMercator())
     }
-    var stop2Geometry:AGSPoint {
+    var stop2Geometry: AGSPoint {
         return AGSPoint(x: -13041693.562570, y: 3856006.859684, spatialReference: .webMercator())
     }
     
