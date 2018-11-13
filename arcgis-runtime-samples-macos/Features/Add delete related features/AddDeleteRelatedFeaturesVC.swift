@@ -115,7 +115,8 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 return
             }
             
-            if let results = results, results.count > 0 {
+            if let results = results,
+                !results.isEmpty {
                 
                 //Displaying information on selected park using the field UNIT_NAME, name of the park
                 self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
@@ -248,7 +249,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 return
             }
             
-            if result.geoElements.count > 0 {
+            if !result.geoElements.isEmpty {
                 
                 //will use the first feature
                 let feature = result.geoElements[0] as! AGSArcGISFeature

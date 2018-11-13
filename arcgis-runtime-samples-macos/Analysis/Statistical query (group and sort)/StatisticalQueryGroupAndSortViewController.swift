@@ -414,7 +414,7 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let statisticRecord = item as? AGSStatisticRecord {
-            return statisticRecord.statistics.keys.count > 0
+            return !statisticRecord.statistics.keys.isEmpty
         }
         else {
             return false

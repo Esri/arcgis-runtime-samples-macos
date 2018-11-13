@@ -103,7 +103,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
                     popups.append(popup)
                 }
                 
-                if popups.count > 0 {
+                if !popups.isEmpty {
                     //show popups view controller
                     self?.showPopupsViewController(with: popups)
                 }

@@ -106,7 +106,8 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
-                if let results = results, results.count > 0 {
+                if let results = results,
+                    !results.isEmpty {
                     
                     //store results to show in the outline view
                     self?.results = results
@@ -155,7 +156,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     self?.selectedPark = nil
                 }
                 
-                if result.geoElements.count > 0 {
+                if !result.geoElements.isEmpty {
                     
                     //Will pick the first feature
                     let feature = result.geoElements[0] as! AGSArcGISFeature
@@ -201,7 +202,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let result = item as? AGSRelatedFeatureQueryResult {
-            return result.featureEnumerator().allObjects.count > 0
+            return !result.featureEnumerator().allObjects.isEmpty
         }
         else {
             return false

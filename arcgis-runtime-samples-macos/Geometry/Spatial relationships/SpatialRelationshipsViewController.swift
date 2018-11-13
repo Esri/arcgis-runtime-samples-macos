@@ -273,13 +273,16 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         //
         // Item should be expandable if result array has elements
-        if item as? [String] == pointRelationships && pointRelationships.count > 0 {
+        if item as? [String] == pointRelationships,
+            !pointRelationships.isEmpty {
             return true
         }
-        else if item as? [String] == polylineRelationships && polylineRelationships.count > 0 {
+        else if item as? [String] == polylineRelationships,
+            !polylineRelationships.isEmpty {
             return true
         }
-        else if item as? [String] == polygonRelationships && polygonRelationships.count > 0 {
+        else if item as? [String] == polygonRelationships,
+            !polygonRelationships.isEmpty {
             return true
         }
         return false

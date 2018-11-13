@@ -161,7 +161,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
-                if result.graphics.count == 0 {
+                if result.graphics.isEmpty {
                     //add a graphic
                     var graphic: AGSGraphic
                     
@@ -216,7 +216,8 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
             else {
                 //assign the label property of result as an attributes to the graphic
                 //and show the callout
-                if let results = results, results.count > 0 {
+                if let results = results,
+                    !results.isEmpty {
                     
                     graphic.attributes["Match_addr"] = results.first!.formattedAddressString
                     self?.showCallout(for: graphic, at: point, animated: false, offset: false)
@@ -240,7 +241,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         self.routeTask = nil
         
         //if map contains network data
-        if self.map.transportationNetworks.count > 0 {
+        if !map.transportationNetworks.isEmpty {
             
             self.routeTask = AGSRouteTask(dataset: self.map.transportationNetworks[0])
             
