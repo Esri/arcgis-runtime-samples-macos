@@ -260,7 +260,8 @@ class LineOfSightGeoElementViewController: NSViewController {
 
 private func interpolatedPoint(firstPoint: AGSPoint, secondPoint: AGSPoint, progress: Double) -> (AGSPoint, Double) {
     // Use the geometry engine to calculate the heading between point 1 and 2
-    let geResult = AGSGeometryEngine.geodeticDistanceBetweenPoint1(firstPoint, point2: secondPoint,
+    let geResult = AGSGeometryEngine.geodeticDistanceBetweenPoint1(firstPoint,
+                                                                   point2: secondPoint,
                                                                    distanceUnit: .meters(),
                                                                    azimuthUnit: .degrees(),
                                                                    curveType: .geodesic)

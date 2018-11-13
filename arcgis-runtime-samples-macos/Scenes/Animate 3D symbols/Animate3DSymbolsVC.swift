@@ -241,7 +241,8 @@ class Animate3DSymbolsVC: NSViewController {
         RunLoop.main.add(self.animationTimer, forMode: .common)
     }
     
-    @objc func animate() {
+    @objc
+    func animate() {
         
         //validations
         if self.frames == nil || self.planeModelSymbol == nil {
