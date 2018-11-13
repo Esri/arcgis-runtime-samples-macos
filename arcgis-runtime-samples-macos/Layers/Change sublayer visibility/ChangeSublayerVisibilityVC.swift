@@ -50,7 +50,7 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
         self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         let rows = self.mapImageLayer?.mapImageSublayers.count ?? 0
@@ -68,7 +68,7 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
         return cellView
     }
     
-    //MARK: - SublayerCellViewDelegate
+    // MARK: - SublayerCellViewDelegate
     
     func sublayerCellView(_ sublayerCellView: SublayerCellView, didToggleVisibility visible: Bool) {
         let index = sublayerCellView.index

@@ -55,7 +55,7 @@ class StretchRendererViewController: NSViewController {
         self.label2.isHidden = true
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {

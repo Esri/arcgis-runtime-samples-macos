@@ -116,7 +116,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         return fillSymbol
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func serviceArea(_ sender: NSButton) {
         
@@ -141,7 +141,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             facilities.append(facility)
         }
         self.serviceAreaParameters.setFacilities(facilities)
-        
         
         //add barriers
         var barriers = [AGSPolygonBarrier]()
@@ -210,7 +209,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
@@ -229,7 +228,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

@@ -74,7 +74,7 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         self.graphicsOverlay.graphics.add(graphic)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     //user can change any of the string and update the location by tapping return
     @IBAction private func textFieldAction(_ textField: NSTextField) {
@@ -102,7 +102,7 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         

@@ -65,7 +65,6 @@ class ExtrudeGraphicsViewController: NSViewController {
         self.addGraphics()
     }
     
-    
     private func addGraphics() {
         //starting point
         let x = self.cameraStartingPoint.x - 0.03
@@ -99,6 +98,5 @@ class ExtrudeGraphicsViewController: NSViewController {
         graphic.attributes.setValue(rand, forKey: "height")
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
     
 }

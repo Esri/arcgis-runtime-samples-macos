@@ -59,7 +59,7 @@ class WMTSLayerViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

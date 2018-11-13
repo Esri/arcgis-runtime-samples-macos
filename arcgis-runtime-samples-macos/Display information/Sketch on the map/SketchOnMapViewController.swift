@@ -55,7 +55,7 @@ class SketchOnMapViewController: NSViewController {
         self.clearButton.isEnabled = self.sketchEditor.geometry != nil && !self.sketchEditor.geometry!.isEmpty
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func geometryValueChanged(_ segmentedControl: NSSegmentedControl) {
         switch segmentedControl.selectedSegment {

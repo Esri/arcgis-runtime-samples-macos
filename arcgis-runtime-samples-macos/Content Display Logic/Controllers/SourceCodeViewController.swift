@@ -35,7 +35,7 @@ class SourceCodeViewController: NSViewController {
         popUpButton.addItems(withTitles: fileNames)
     }
     
-    //MARK: - HTML logic
+    // MARK: - HTML logic
     
     func loadHTMLPage(_ filename: String) {
         if let content = self.contentOfFile(filename) {
@@ -75,7 +75,7 @@ class SourceCodeViewController: NSViewController {
         return stringForHTML
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func popUpButtonAction(_ sender: AnyObject) {
         let filename = popUpButton.titleOfSelectedItem!

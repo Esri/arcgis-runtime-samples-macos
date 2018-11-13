@@ -36,7 +36,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     
     weak var delegate: MapPackagesListVCDelegate?
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return mapPackages.count
@@ -62,7 +62,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
         }
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if self.selectedRow != -1 {
@@ -80,7 +80,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
         self.selectedRow = self.tableView.selectedRow
     }
     
-    //MARK: - MapPackageCellDelegate
+    // MARK: - MapPackageCellDelegate
     
     func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
         

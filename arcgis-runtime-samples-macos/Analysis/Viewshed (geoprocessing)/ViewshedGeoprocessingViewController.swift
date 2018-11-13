@@ -147,7 +147,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         })
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //add a graphic in graphics overlay for the tapped point
@@ -157,7 +157,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         self.calculateViewshed(at: mapPoint)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

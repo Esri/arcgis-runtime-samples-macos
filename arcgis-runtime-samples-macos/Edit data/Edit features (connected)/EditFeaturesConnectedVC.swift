@@ -75,7 +75,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         if let lastQuery = self.lastQuery {
@@ -115,7 +115,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         }
     }
     
-    //MARK: - Show/hide popups view controller
+    // MARK: - Show/hide popups view controller
     
     private func showPopupsViewController(with popups: [AGSPopup]) {
         
@@ -158,7 +158,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.popupsVC = nil
     }
     
-    //MARK: -  AGSPopupsViewContollerDelegate methods
+    // MARK: - AGSPopupsViewContollerDelegate methods
     
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, sketchEditorFor popup: AGSPopup) -> AGSSketchEditor? {
         
@@ -234,7 +234,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.mapView.sketchEditor?.clearGeometry()
     }
     
-    //MARK: - FeatureTemplatePickerVCDelegate
+    // MARK: - FeatureTemplatePickerVCDelegate
     
     func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer) {
         
@@ -267,7 +267,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.dismiss(featureTemplatePickerVC)
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier, id == "FeatureTemplateSegue" else {
@@ -281,7 +281,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.isAddingNewFeature = true
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

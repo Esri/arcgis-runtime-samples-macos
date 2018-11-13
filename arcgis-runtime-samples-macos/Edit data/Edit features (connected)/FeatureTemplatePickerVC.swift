@@ -82,7 +82,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         self.delegate?.featureTemplatePickerVCDidCancel(self)
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.infos.count
@@ -113,7 +113,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         

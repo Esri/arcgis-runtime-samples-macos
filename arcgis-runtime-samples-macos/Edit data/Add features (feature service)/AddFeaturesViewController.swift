@@ -95,7 +95,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
@@ -103,7 +103,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.addFeature(at: mapPoint)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()

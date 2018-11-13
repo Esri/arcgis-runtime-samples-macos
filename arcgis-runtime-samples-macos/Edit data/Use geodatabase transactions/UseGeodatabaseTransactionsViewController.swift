@@ -87,7 +87,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
     }
     
-    //MARK: - Geodatabase
+    // MARK: - Geodatabase
     
     private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters) {
         
@@ -234,7 +234,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
     }
     
-    //MARK: - Popup menu
+    // MARK: - Popup menu
     
     /// A model for the represented object of the popup menu items.
     private struct FeatureMenuItemModel {
@@ -275,7 +275,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
 
     @IBAction func beginTransactionAction(_ sender: NSButton) {
         guard let geodatabase = geodatabase,
@@ -354,7 +354,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         manageControlEnabledStates()
     }
     
-    //MARK: - UI Helpers
+    // MARK: - UI Helpers
     
     /// Enables or disables the UI controls based on the state of the workflow.
     private func manageControlEnabledStates() {

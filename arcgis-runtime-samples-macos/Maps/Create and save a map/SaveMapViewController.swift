@@ -34,7 +34,6 @@ class SaveMapViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     func resetInputFields() {

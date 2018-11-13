@@ -57,7 +57,7 @@ class ViewshedCameraViewController: NSViewController {
         sceneView.analysisOverlays.add(analysisOverlay)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func updateFromCamera(_ sender: Any) {
         //update the viewshed with the current camera

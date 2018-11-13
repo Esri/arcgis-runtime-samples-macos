@@ -93,7 +93,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.tableView.reloadData()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.map?.bookmarks.count ?? 0
@@ -110,7 +110,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let index = self.tableView.selectedRow
@@ -118,7 +118,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.mapView.setViewpoint(bookmark.viewpoint!)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func addAction(_ sender: NSButton) {
         
@@ -145,7 +145,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         }
     }
     
-    //MARK: - NSTextFieldDelegate
+    // MARK: - NSTextFieldDelegate
     
     func controlTextDidChange(_ obj: Notification) {
         //enable OK button on alert when textfield gets input

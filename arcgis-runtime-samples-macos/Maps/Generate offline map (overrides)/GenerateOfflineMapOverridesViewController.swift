@@ -95,7 +95,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         extentView.layer?.borderWidth = 3
     }
     
-    //MARK: - offline map generation
+    // MARK: - offline map generation
     
     private func takeMapOffline() {
         
@@ -166,7 +166,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         mapView.map = result.offlineMap
     }
     
-    //MARK: - Parameter overrides sheet
+    // MARK: - Parameter overrides sheet
     
     func openParameterOverridesSheet() {
         //instantiate the view controller
@@ -202,7 +202,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         presentAsSheet(paramController)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func generateOfflineMapAction(_ button: NSButton) {
         
@@ -264,7 +264,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
   
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showLoginQueryAlert() {
         let alert = NSAlert()

@@ -205,7 +205,6 @@ class Animate3DSymbolsVC: NSViewController {
         RunLoop.main.add(self.animationTimer, forMode: .common)
     }
     
-    
     @objc func animate() {
         
         //validations
@@ -279,7 +278,7 @@ class Animate3DSymbolsVC: NSViewController {
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func changeMissionAction(_ sender: NSPopUpButton) {
         

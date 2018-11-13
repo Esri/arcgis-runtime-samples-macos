@@ -46,7 +46,7 @@ class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.mapView.callout.show(at: point, screenOffset: CGPoint.zero, rotateOffsetWithMap: false, animated: false)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     //show callout when user does long press on map
     func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {

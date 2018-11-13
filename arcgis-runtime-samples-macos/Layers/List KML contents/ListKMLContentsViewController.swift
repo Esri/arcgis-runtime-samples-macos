@@ -122,7 +122,7 @@ class ListKMLContentsViewController: NSViewController {
         }
     }
     
-    //MARK: - Viewpoint
+    // MARK: - Viewpoint
     
     /// Sets the viewpoint of the scene to that of the node, if available.
     private func setSceneViewpoint(for node: AGSKMLNode) {

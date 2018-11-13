@@ -23,14 +23,14 @@ class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTable
     //provide route with direction maneuvers
     var route: AGSRoute?
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         //return self.route?.directionManeuvers.count ?? 0
         return 12
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         

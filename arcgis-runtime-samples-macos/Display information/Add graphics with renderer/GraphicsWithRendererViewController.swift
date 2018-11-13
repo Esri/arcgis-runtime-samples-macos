@@ -54,7 +54,6 @@ class GraphicsWithRendererViewController: NSViewController {
         //add the overlay to the map view
         self.mapView.graphicsOverlays.add(pointGraphicOverlay)
         
-        
         //line graphic
         let lineGeometry = AGSPolylineBuilder(spatialReference: AGSSpatialReference.webMercator())
         lineGeometry.addPointWith(x: -10e5, y: 40e5)
@@ -74,7 +73,6 @@ class GraphicsWithRendererViewController: NSViewController {
         
         //add the overlay to the map view
         self.mapView.graphicsOverlays.add(lineGraphicOverlay)
-        
         
         //polygon graphic
         let polygonGeometry = AGSPolygonBuilder(spatialReference: AGSSpatialReference.webMercator())

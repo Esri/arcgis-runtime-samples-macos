@@ -59,7 +59,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         self.tableView1.reloadData()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == self.tableView1 {
@@ -71,7 +71,6 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         
         if tableView == self.tableView1 {
             let layer = self.mapView.map!.operationalLayers.reversed()[row]
@@ -135,7 +134,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
@@ -150,7 +149,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    //MARK: - AddedLayerCellViewDelegate
+    // MARK: - AddedLayerCellViewDelegate
     
     func addedLayerCellViewWantsToDelete(_ addedLayerCellView: AddedLayerCellView) {
         //remove layer and add to removed layers list
