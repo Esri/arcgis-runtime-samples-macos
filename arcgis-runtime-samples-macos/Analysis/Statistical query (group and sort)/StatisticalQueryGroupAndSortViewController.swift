@@ -170,7 +170,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Find and remove the selected statistic definitions
         let selectedDefinitions = Set(selectedIndexes.map { (index) -> AGSStatisticDefinition in
-            return statisticDefinitions[index]
+            statisticDefinitions[index]
         })
         statisticDefinitions.removeAll { (definition) -> Bool in
             selectedDefinitions.contains(definition)

@@ -50,9 +50,9 @@ class ReadGeopackageViewController: NSViewController {
             return allLayers
         }
         
-        return allLayers.filter({ layer -> Bool in
-            return !layersInMap.contains(layer)
-        })
+        return allLayers.filter { layer -> Bool in
+            !layersInMap.contains(layer)
+        }
     }
 
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class ReadGeopackageViewController: NSViewController {
 
             // Create feature layers for each feature table in the geopackage.
             let featureLayers = self?.geoPackage?.geoPackageFeatureTables.map({ featureTable -> AGSLayer in
-                return AGSFeatureLayer(featureTable: featureTable)
+                AGSFeatureLayer(featureTable: featureTable)
             }) ?? []
             
             // Create raster layers for each raster in the geopackage.

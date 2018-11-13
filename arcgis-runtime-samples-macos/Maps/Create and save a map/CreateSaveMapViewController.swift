@@ -170,8 +170,8 @@ extension NSImage {
     
     func croppedImage(of size: CGSize) -> NSImage {
         //calculate rect based on input size
-        let originX = (self.size.width - size.width)/2
-        let originY = (self.size.height - size.height)/2
+        let originX = (self.size.width - size.width) / 2
+        let originY = (self.size.height - size.height) / 2
         
         let rect = CGRect(x: originX, y: originY, width: size.width, height: size.height)
         

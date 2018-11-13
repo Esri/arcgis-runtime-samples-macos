@@ -113,7 +113,7 @@ class SampleSearchEngine {
         
         // all samples that match the term in their name or description
         var matchingSamples = samples.filter { (sample) -> Bool in
-            return sample.name.lowercased().contains(lowercasedQuery) ||
+            sample.name.lowercased().contains(lowercasedQuery) ||
                 sample.description.lowercased().contains(lowercasedQuery)
         }
         // sort matches by relevance
@@ -162,7 +162,7 @@ class SampleSearchEngine {
     private func samplesForDisplayNames(_ names: [String]) -> [Sample] {
         // preserve order
         return names.compactMap { (name) -> Sample? in
-            return samples.first(where: { (sample) -> Bool in
+            samples.first(where: { (sample) -> Bool in
                 sample.name == name
             })
         }
