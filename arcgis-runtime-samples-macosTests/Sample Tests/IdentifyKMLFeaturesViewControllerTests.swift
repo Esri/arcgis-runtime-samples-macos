@@ -27,7 +27,7 @@ class IdentifyKMLFeaturesViewControllerTests: XCTestCase {
         let viewController = makeViewController()
         
         // Load the view.
-        let _ = viewController.view
+        _ = viewController.view
         
         if let mapView = viewController.mapView {
             XCTAssertNotNil(mapView.map)
