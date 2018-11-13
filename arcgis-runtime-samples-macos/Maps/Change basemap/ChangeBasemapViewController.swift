@@ -22,44 +22,31 @@ class ChangeBasemapViewController: NSViewController {
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var mapsList: NSPopUpButton!
     
-    var map: AGSMap!
+    private let basemaps: [AGSBasemap] = [
+        .streets(),
+        .streetsVector(),
+        .streetsNightVector(),
+        .imagery(),
+        .imageryWithLabels(),
+        .imageryWithLabelsVector(),
+        .darkGrayCanvasVector(),
+        .lightGrayCanvas(),
+        .lightGrayCanvasVector(),
+        .navigationVector(),
+        .openStreetMap()
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //initialize the map with topographic basemap
-        self.map = AGSMap(basemap: .streets())
-        
+        //initialize the map with the initial basemap
+        let map = AGSMap(basemap: basemaps.first!)
         //assign the map to the map view
-        self.mapView.map = map
-        
+        mapView.map = map
     }
     
     @IBAction func changeBasemapsAction(_ sender: NSPopUpButton) {
-        switch sender.indexOfSelectedItem {
-        case 0:
-            self.map.basemap = .streets()
-        case 1:
-            self.map.basemap = .streetsVector()
-        case 2:
-            self.map.basemap = .streetsNightVector()
-        case 3:
-            self.map.basemap = .imagery()
-        case 4:
-            self.map.basemap = .imageryWithLabels()
-        case 5:
-            self.map.basemap = .imageryWithLabelsVector()
-        case 6:
-            self.map.basemap = .darkGrayCanvasVector()
-        case 7:
-            self.map.basemap = .lightGrayCanvas()
-        case 8:
-            self.map.basemap = .lightGrayCanvasVector()
-        case 9:
-            self.map.basemap = .navigationVector()
-        default:
-            self.map.basemap = .openStreetMap()
-        }
+        mapView.map?.basemap = basemaps[sender.indexOfSelectedItem]
     }
     
 }
