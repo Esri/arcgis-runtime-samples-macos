@@ -103,7 +103,8 @@ class ViewshedGeoElementViewController: NSViewController, AGSGeoViewTouchDelegat
                                      repeats: true)
     }
     
-    @objc func animate() {
+    @objc
+    func animate() {
         guard let waypoint = waypoint,
             let location = tank.geometry as? AGSPoint else { return }
         

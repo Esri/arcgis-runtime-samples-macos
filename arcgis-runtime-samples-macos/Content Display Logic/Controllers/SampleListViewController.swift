@@ -178,7 +178,7 @@ extension SampleListViewController: NSOutlineViewDataSource {
         case let sampleItem as SampleItem:
             return sampleItem.value.name
         default:
-            fatalError()
+            return nil
         }
     }
 }
