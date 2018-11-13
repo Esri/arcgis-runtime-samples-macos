@@ -29,11 +29,11 @@ class FindRouteViewController: NSViewController {
     var stopGraphicsOverlay = AGSGraphicsOverlay()
     var routeGraphicsOverlay = AGSGraphicsOverlay()
     
-    var stop1Geometry: AGSPoint {
-        return AGSPoint(x: -13041171.537945, y: 3860988.271378, spatialReference: AGSSpatialReference(wkid: 3857))
+    var stop1Geometry:AGSPoint {
+        return AGSPoint(x: -13041171.537945, y: 3860988.271378, spatialReference: .webMercator())
     }
-    var stop2Geometry: AGSPoint {
-        return AGSPoint(x: -13041693.562570, y: 3856006.859684, spatialReference: AGSSpatialReference(wkid: 3857))
+    var stop2Geometry:AGSPoint {
+        return AGSPoint(x: -13041693.562570, y: 3856006.859684, spatialReference: .webMercator())
     }
     
     var generatedRoute: AGSRoute? {
@@ -54,7 +54,7 @@ class FindRouteViewController: NSViewController {
         self.mapView.graphicsOverlays.addObjects(from: [routeGraphicsOverlay, stopGraphicsOverlay])
         
         //zoom to viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13041154.715252, y: 3858170.236806, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 9e4, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13041154.715252, y: 3858170.236806, spatialReference: .webMercator()), scale: 9e4)
         
         //get default parameters
         self.getDefaultParameters()

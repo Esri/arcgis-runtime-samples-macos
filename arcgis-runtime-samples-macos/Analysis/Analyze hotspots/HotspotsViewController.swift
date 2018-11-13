@@ -36,7 +36,7 @@ class HotspotsViewController: NSViewController {
         let map = AGSMap(basemap: .topographic())
         
         //center for initial viewpoint
-        let center = AGSPoint(x: -13671170.647485, y: 5693633.356735, spatialReference: AGSSpatialReference(wkid: 3857))
+        let center = AGSPoint(x: -13671170.647485, y: 5693633.356735, spatialReference: .webMercator())
         
         //set initial viewpoint
         map.initialViewpoint = AGSViewpoint(center: center, scale: 57779)

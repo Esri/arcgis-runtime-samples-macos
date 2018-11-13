@@ -33,7 +33,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
         self.mapView.map = self.map
         
         //initial viewpoint
-        let center = AGSPoint(x: -298677.539785, y: 7572649.837256, spatialReference: AGSSpatialReference(wkid: 3857))
+        let center = AGSPoint(x: -298677.539785, y: 7572649.837256, spatialReference: .webMercator())
         self.map.initialViewpoint = AGSViewpoint(center: center, scale: 45000)
         
         let graphicsOverlay = AGSGraphicsOverlay()
