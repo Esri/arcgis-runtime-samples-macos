@@ -136,31 +136,42 @@ class Animate3DSymbolsVC: NSViewController {
         //set the camera controller on scene view
         self.sceneView.cameraController = self.orbitGeoElementCameraController
         
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         //add observers to update the sliders
-        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .new) {[weak self] (controller, change) in
-            DispatchQueue.main.async { [weak self] in
+        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
                 let distance = Int(controller.cameraDistance)
                 self?.distanceSlider.integerValue = distance
                 //update label
                 self?.distanceLabel.stringValue = "\(distance)"
             }
         }
-        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .new) {[weak self] (controller, change) in
-            DispatchQueue.main.async { [weak self] in
+        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
                 let cameraHeadingOffset = Int(controller.cameraHeadingOffset)
                 self?.headingOffsetSlider.integerValue = cameraHeadingOffset
                 //update label
                 self?.headingOffsetLabel.stringValue = "\(cameraHeadingOffset)°"
             }
         }
-        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .new) {[weak self] (controller, change) in
-            DispatchQueue.main.async { [weak self] in
+        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
                 let cameraPitchOffset = Int(controller.cameraPitchOffset)
                 self?.pitchOffsetSlider.integerValue = cameraPitchOffset
                 //update label
                 self?.pitchOffsetLabel.stringValue = "\(cameraPitchOffset)°"
             }
         }
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        cameraDistanceObservation = nil
+        cameraHeadingOffsetObservation = nil
+        cameraPitchOffsetObservation = nil
     }
     
     private func populatePopUpButton() {
