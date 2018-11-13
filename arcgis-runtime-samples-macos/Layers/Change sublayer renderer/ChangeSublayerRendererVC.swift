@@ -40,7 +40,7 @@ class ChangeSublayerRendererVC: NSViewController {
         map.operationalLayers.add(self.mapImageLayer)
         
         //initial viewpoint
-        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference: AGSSpatialReference.webMercator())
+        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference: .webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(targetExtent: envelope)

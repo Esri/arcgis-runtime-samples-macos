@@ -39,7 +39,7 @@ class ChangeViewpointViewController: NSViewController {
         //create a graphicsOverlay to show the graphics
         let graphicsOverlay = AGSGraphicsOverlay()
         
-        self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: AGSSpatialReference.wgs84())
+        self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: .wgs84())
         
         if let griffithParkGeometry = self.geometryFromTextFile(filename: "GriffithParkJson") {
             self.griffithParkGeometry = griffithParkGeometry as? AGSPolygon

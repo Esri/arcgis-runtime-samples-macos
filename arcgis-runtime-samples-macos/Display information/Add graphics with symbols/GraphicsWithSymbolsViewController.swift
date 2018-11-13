@@ -55,11 +55,10 @@ class GraphicsWithSymbolsViewController: NSViewController {
     private func addBuoyPoints(to graphicsOverlay: AGSGraphicsOverlay) {
         
         //define the buoy locations
-        let wgs84 = AGSSpatialReference.wgs84()
-        let buoy1Loc = AGSPoint(x: -2.712642647560347, y: 56.062812566811544, spatialReference: wgs84)
-        let buoy2Loc = AGSPoint(x: -2.6908416959572303, y: 56.06444173689877, spatialReference: wgs84)
-        let buoy3Loc = AGSPoint(x: -2.6697273884990937, y: 56.064250073402874, spatialReference: wgs84)
-        let buoy4Loc = AGSPoint(x: -2.6395150461199726, y: 56.06127916736989, spatialReference: wgs84)
+        let buoy1Loc = AGSPoint(x: -2.712642647560347, y: 56.062812566811544, spatialReference: .wgs84())
+        let buoy2Loc = AGSPoint(x: -2.6908416959572303, y: 56.06444173689877, spatialReference: .wgs84())
+        let buoy3Loc = AGSPoint(x: -2.6697273884990937, y: 56.064250073402874, spatialReference: .wgs84())
+        let buoy4Loc = AGSPoint(x: -2.6395150461199726, y: 56.06127916736989, spatialReference: .wgs84())
         
         //create a marker symbol
         let buoyMarker = AGSSimpleMarkerSymbol(style: AGSSimpleMarkerSymbolStyle.circle, color: .red, size: 10)
@@ -129,7 +128,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
     
     private func boatTripGeometry() -> AGSPolyline {
         //create a polyline
-        let boatRoute = AGSPolylineBuilder(spatialReference: AGSSpatialReference.wgs84())
+        let boatRoute = AGSPolylineBuilder(spatialReference: .wgs84())
         
         //add positions to the point collection
         boatRoute.addPointWith(x: -2.7184791227926772, y: 56.06147084563517)
@@ -196,7 +195,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
     
     private func nestingGroundGeometry() -> AGSPolygon {
         //create a polygon
-        let nestingGround = AGSPolygonBuilder(spatialReference: AGSSpatialReference.wgs84())
+        let nestingGround = AGSPolygonBuilder(spatialReference: .wgs84())
         
         //add points to the point collection
         nestingGround.addPointWith(x: -2.643077012566659, y: 56.077125346044475)
