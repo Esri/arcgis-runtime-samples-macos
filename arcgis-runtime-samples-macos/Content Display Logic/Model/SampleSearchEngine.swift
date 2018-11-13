@@ -54,7 +54,7 @@ class SampleSearchEngine {
                                         return
                                     }
                                     
-                                    if  [NSLinguisticTag.noun,.verb,.adjective,.otherWord].contains(tag) {
+                                    if  [NSLinguisticTag.noun, .verb, .adjective, .otherWord].contains(tag) {
                                         let word = ((string as NSString).substring(with: tokenRange) as String).lowercased()
                                         
                                         //trivial comparisons
