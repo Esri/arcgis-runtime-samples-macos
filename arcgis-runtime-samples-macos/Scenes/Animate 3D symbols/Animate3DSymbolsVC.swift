@@ -18,35 +18,35 @@ import ArcGIS
 
 class Animate3DSymbolsVC: NSViewController {
 
-    @IBOutlet var sceneView:AGSSceneView!
-    @IBOutlet var popUpButton:NSPopUpButton!
-    @IBOutlet var speedSlider:NSSlider!
-    @IBOutlet var progressIndicator:NSProgressIndicator!
-    @IBOutlet var playButton:NSButton!
+    @IBOutlet var sceneView: AGSSceneView!
+    @IBOutlet var popUpButton: NSPopUpButton!
+    @IBOutlet var speedSlider: NSSlider!
+    @IBOutlet var progressIndicator: NSProgressIndicator!
+    @IBOutlet var playButton: NSButton!
     
-    @IBOutlet var headingOffsetSlider:NSSlider!
-    @IBOutlet var pitchOffsetSlider:NSSlider!
-    @IBOutlet var distanceSlider:NSSlider!
-    @IBOutlet var distanceLabel:NSTextField!
-    @IBOutlet var headingOffsetLabel:NSTextField!
-    @IBOutlet var pitchOffsetLabel:NSTextField!
-    @IBOutlet var autoHeadingEnabledButton:NSButton!
-    @IBOutlet var autoPitchEnabledButton:NSButton!
-    @IBOutlet var autoRollEnabledButton:NSButton!
+    @IBOutlet var headingOffsetSlider: NSSlider!
+    @IBOutlet var pitchOffsetSlider: NSSlider!
+    @IBOutlet var distanceSlider: NSSlider!
+    @IBOutlet var distanceLabel: NSTextField!
+    @IBOutlet var headingOffsetLabel: NSTextField!
+    @IBOutlet var pitchOffsetLabel: NSTextField!
+    @IBOutlet var autoHeadingEnabledButton: NSButton!
+    @IBOutlet var autoPitchEnabledButton: NSButton!
+    @IBOutlet var autoRollEnabledButton: NSButton!
     
-    @IBOutlet var altitiudeLabel:NSTextField!
-    @IBOutlet var headingLabel:NSTextField!
-    @IBOutlet var pitchLabel:NSTextField!
-    @IBOutlet var rollLabel:NSTextField!
+    @IBOutlet var altitiudeLabel: NSTextField!
+    @IBOutlet var headingLabel: NSTextField!
+    @IBOutlet var pitchLabel: NSTextField!
+    @IBOutlet var rollLabel: NSTextField!
     
     private var sceneGraphicsOverlay = AGSGraphicsOverlay()
-    private var frames:[Frame]!
-    private var fileNames:[String]!
-    private var planeModelSymbol:AGSModelSceneSymbol!
-    private var planeModelGraphic:AGSGraphic!
+    private var frames: [Frame]!
+    private var fileNames: [String]!
+    private var planeModelSymbol: AGSModelSceneSymbol!
+    private var planeModelGraphic: AGSGraphic!
     private var currentFrameIndex = 0
-    private var animationTimer:Timer!
-    private var orbitGeoElementCameraController:AGSOrbitGeoElementCameraController!
+    private var animationTimer: Timer!
+    private var orbitGeoElementCameraController: AGSOrbitGeoElementCameraController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,7 +251,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.currentFrameIndex += 1
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         
         DispatchQueue.main.async { [weak self] in
         
@@ -282,7 +282,7 @@ class Animate3DSymbolsVC: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func changeMissionAction(_ sender:NSPopUpButton) {
+    @IBAction func changeMissionAction(_ sender: NSPopUpButton) {
         
         //invalidate timer
         self.animationTimer?.invalidate()
@@ -307,7 +307,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.animate()
     }
     
-    @IBAction func distanceValueChanged(_ sender:NSSlider) {
+    @IBAction func distanceValueChanged(_ sender: NSSlider) {
         
         //update property
         self.orbitGeoElementCameraController.cameraDistance = sender.doubleValue
@@ -316,7 +316,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.distanceLabel.stringValue = "\(sender.integerValue)"
     }
     
-    @IBAction func headingOffsetValueChanged(_ sender:NSSlider) {
+    @IBAction func headingOffsetValueChanged(_ sender: NSSlider) {
         
         //update property
         self.orbitGeoElementCameraController.cameraHeadingOffset = sender.doubleValue
@@ -325,7 +325,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.headingOffsetLabel.stringValue = "\(sender.integerValue)º"
     }
     
-    @IBAction func pitchOffsetValueChanged(_ sender:NSSlider) {
+    @IBAction func pitchOffsetValueChanged(_ sender: NSSlider) {
         
         //update property
         self.orbitGeoElementCameraController.cameraPitchOffset = sender.doubleValue
@@ -334,25 +334,25 @@ class Animate3DSymbolsVC: NSViewController {
         self.pitchOffsetLabel.stringValue = "\(sender.integerValue)º"
     }
     
-    @IBAction func autoHeadingEnabledAction(_ sender:NSButton) {
+    @IBAction func autoHeadingEnabledAction(_ sender: NSButton) {
         
         //update property
         self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func autoPitchEnabledAction(_ sender:NSButton) {
+    @IBAction func autoPitchEnabledAction(_ sender: NSButton) {
         
         //update property
         self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func autoRollEnabledAction(_ sender:NSButton) {
+    @IBAction func autoRollEnabledAction(_ sender: NSButton) {
         
         //update property
         self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func speedValueChanged(_ sender:NSSlider) {
+    @IBAction func speedValueChanged(_ sender: NSSlider) {
         
         //if the animation is playing, invalidate the timer and 
         //start the animation for the speed to take effect
@@ -367,7 +367,7 @@ class Animate3DSymbolsVC: NSViewController {
         }
     }
     
-    @IBAction func playAction(_ sender:NSButton) {
+    @IBAction func playAction(_ sender: NSButton) {
         
         //if the button is now in on state then start animation
         //else stop animation by invalidating the timer

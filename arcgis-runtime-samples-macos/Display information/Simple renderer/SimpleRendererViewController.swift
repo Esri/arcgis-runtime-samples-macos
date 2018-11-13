@@ -18,7 +18,7 @@ import ArcGIS
 
 class SimpleRendererViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     var graphicsOverlay = AGSGraphicsOverlay()
     

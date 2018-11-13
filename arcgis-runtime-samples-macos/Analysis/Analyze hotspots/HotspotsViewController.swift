@@ -19,9 +19,9 @@ import ArcGIS
 
 class HotspotsViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var datePicker:NSDatePicker!
-    @IBOutlet var applyButton:NSButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var datePicker: NSDatePicker!
+    @IBOutlet var applyButton: NSButton!
     
     private var geoprocessingTask: AGSGeoprocessingTask!
     private var geoprocessingJob: AGSGeoprocessingJob!
@@ -117,7 +117,7 @@ class HotspotsViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func applyAction(_ sender:NSButton) {
+    @IBAction func applyAction(_ sender: NSButton) {
         
         //validate input
         let timeInterval = self.datePicker.timeInterval
@@ -138,7 +138,7 @@ class HotspotsViewController: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

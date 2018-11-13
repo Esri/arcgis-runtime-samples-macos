@@ -19,13 +19,13 @@ import ArcGIS
 
 class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTextFieldDelegate {
     
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var button:NSButton!
-    @IBOutlet private var searchField:NSSearchField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var button: NSButton!
+    @IBOutlet private var searchField: NSSearchField!
     
-    private var locatorTask:AGSLocatorTask!
-    private var geocodeParameters:AGSGeocodeParameters!
-    private var graphicsOverlay:AGSGraphicsOverlay!
+    private var locatorTask: AGSLocatorTask!
+    private var geocodeParameters: AGSGeocodeParameters!
+    private var graphicsOverlay: AGSGraphicsOverlay!
     
     private let locatorURL = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
     
@@ -51,7 +51,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
     }
     
-    private func geocodeSearchText(_ text:String) {
+    private func geocodeSearchText(_ text: String) {
         //clear already existing graphics
         self.graphicsOverlay.graphics.removeAllObjects()
         
@@ -96,7 +96,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     //method shows the callout for the specified graphic,
     //populates the title and detail of the callout with specific attributes
     //hides the accessory button
-    private func showCallout(for graphic:AGSGraphic, at point:AGSPoint) {
+    private func showCallout(for graphic: AGSGraphic, at point: AGSPoint) {
         let addressType = graphic.attributes["Addr_type"] as! String
         self.mapView.callout.title = graphic.attributes["Match_addr"] as? String ?? ""
         
@@ -138,7 +138,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     
     //MARK: - Actions
     
-    @IBAction func searchAction(_ sender:NSSearchField) {
+    @IBAction func searchAction(_ sender: NSSearchField) {
         //geocode if field not empty
         if !sender.stringValue.isEmpty {
             self.geocodeSearchText(sender.stringValue)
@@ -152,7 +152,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         }
     }
     
-    @IBAction func searchTemplateAction(_ sender:NSMenuItem) {
+    @IBAction func searchTemplateAction(_ sender: NSMenuItem) {
         let searchString = sender.title
         
         //set the search string on searchField
@@ -164,7 +164,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(_ messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

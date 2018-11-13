@@ -19,12 +19,12 @@ import ArcGIS
 
 class MapRotationViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var slider:NSSlider!
-    @IBOutlet private weak var rotationLabel:NSTextField!
-    @IBOutlet private weak var compassButton:NSButton!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var slider: NSSlider!
+    @IBOutlet private weak var rotationLabel: NSTextField!
+    @IBOutlet private weak var compassButton: NSButton!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,14 +72,14 @@ class MapRotationViewController: NSViewController {
     //MARK: - Actions
     
     //rotate the map view based on the value of the slider
-    @IBAction private func sliderValueChanged(_ slider:NSSlider) {
+    @IBAction private func sliderValueChanged(_ slider: NSSlider) {
         if let viewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale) {
             let rotatedViewpoint = AGSViewpoint(center: viewpoint.targetGeometry as! AGSPoint, scale: viewpoint.targetScale, rotation: Double(slider.stringValue)!)
             self.mapView.setViewpoint(rotatedViewpoint)
         }
     }
     
-    @IBAction private func compassAction(_ sender:AnyObject) {
+    @IBAction private func compassAction(_ sender: AnyObject) {
         self.compassButton.layer?.setAffineTransform(CGAffineTransform.identity)
         self.mapView.setViewpointRotation(0, completion: nil)
     }

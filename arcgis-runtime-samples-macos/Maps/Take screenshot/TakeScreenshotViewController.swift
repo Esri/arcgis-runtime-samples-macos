@@ -19,13 +19,13 @@ import ArcGIS
 
 class TakeScreenshotViewController: NSViewController {
     
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var overlayParentView:NSVisualEffectView!
-    @IBOutlet private weak var overlayImageView:AspectFillImageView!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var overlayParentView: NSVisualEffectView!
+    @IBOutlet private weak var overlayImageView: AspectFillImageView!
     
-    var map:AGSMap!
+    var map: AGSMap!
     
-    var shutterSound:SystemSoundID = 0
+    var shutterSound: SystemSoundID = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class TakeScreenshotViewController: NSViewController {
         NSApp.showProgressIndicator()
         
         //the method on map view we can use to get the screenshot image
-        self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
+        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -73,14 +73,14 @@ class TakeScreenshotViewController: NSViewController {
         }
     }
     
-    @IBAction private func closeAction(_ sender:NSButton) {
+    @IBAction private func closeAction(_ sender: NSButton) {
         self.hideOverlayParentView()
     }
     
     //MARK: - Helper methods
     
     //imitate the white flash screen when the user taps on the screenshot button
-    private func imitateFlashAndPreview(image:NSImage) {
+    private func imitateFlashAndPreview(image: NSImage) {
         let flashView = NSView(frame: self.mapView.bounds)
         flashView.wantsLayer = true
         flashView.layer?.backgroundColor = NSColor.white.cgColor
@@ -117,7 +117,7 @@ class TakeScreenshotViewController: NSViewController {
         AudioServicesDisposeSystemSoundID(self.shutterSound)
     }
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(_ messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

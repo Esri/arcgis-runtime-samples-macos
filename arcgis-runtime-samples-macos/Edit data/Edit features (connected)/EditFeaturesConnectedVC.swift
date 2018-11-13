@@ -19,22 +19,22 @@ import ArcGIS
 
 class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPopupsViewControllerDelegate, FeatureTemplatePickerVCDelegate {
     
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var containerView:NSView!
-    @IBOutlet private var containerViewLeadingConstraint:NSLayoutConstraint!
-    @IBOutlet private var addFeatureButton:NSButton!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var containerView: NSView!
+    @IBOutlet private var containerViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var addFeatureButton: NSButton!
     
-    private var map:AGSMap!
-    private var sketchEditor:AGSSketchEditor!
-    private var featureLayer:AGSFeatureLayer!
-    private var popupsVC:AGSPopupsViewController!
+    private var map: AGSMap!
+    private var sketchEditor: AGSSketchEditor!
+    private var featureLayer: AGSFeatureLayer!
+    private var popupsVC: AGSPopupsViewController!
     private var isAddingNewFeature = false {
         didSet {
             self.addFeatureButton?.isEnabled = !isAddingNewFeature
         }
     }
     
-    private var lastQuery:AGSCancelable!
+    private var lastQuery: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result:[AGSFeatureEditResult]?, error:Error?) -> Void in
+        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result: [AGSFeatureEditResult]?, error: Error?) -> Void in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -283,7 +283,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

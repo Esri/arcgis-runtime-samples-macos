@@ -113,11 +113,11 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         self.generateOfflineMapJob = generateOfflineMapJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel:  "Generating Offline Map w/ Overrides")
+        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel: "Generating Offline Map w/ Overrides")
         presentAsSheet(progressViewController)
         
         //start the job
-        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
+        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result: AGSGenerateOfflineMapResult?, error: Error?) in
             
             guard let self = self else {
                 return
@@ -204,7 +204,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
     
     //MARK: - Actions
     
-    @IBAction func generateOfflineMapAction(_ button:NSButton) {
+    @IBAction func generateOfflineMapAction(_ button: NSButton) {
         
         guard let offlineMapTask = offlineMapTask else {
             return

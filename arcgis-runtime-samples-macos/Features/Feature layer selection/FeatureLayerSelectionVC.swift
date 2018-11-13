@@ -19,12 +19,12 @@ import ArcGIS
 
 class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap?
-    private var featureLayer:AGSFeatureLayer?
+    private var map: AGSMap?
+    private var featureLayer: AGSFeatureLayer?
     // the query is retained internally by the SDK so use a weak reference
-    private weak var activeSelectionQuery:AGSCancelable?
+    private weak var activeSelectionQuery: AGSCancelable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +96,7 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     
     //MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(_ messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

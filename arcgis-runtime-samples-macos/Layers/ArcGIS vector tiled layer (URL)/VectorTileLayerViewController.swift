@@ -19,7 +19,7 @@ import ArcGIS
 
 class VectorTileLayerViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     private var midCenturyURLString = "https://www.arcgis.com/home/item.html?id=7675d44bb1e4428aa2c30a9b68f97822"
     private var coloredPencilURLString = "https://www.arcgis.com/home/item.html?id=4cf7e1fb9f254dcda9c8fbadb15cf0f8"
@@ -43,8 +43,8 @@ class VectorTileLayerViewController: NSViewController {
 
     }
     
-    @IBAction func segmentedControlChanged(_ sender:NSSegmentedControl) {
-        var urlString:String
+    @IBAction func segmentedControlChanged(_ sender: NSSegmentedControl) {
+        var urlString: String
         switch sender.selectedSegment {
         case 0:
             urlString = midCenturyURLString

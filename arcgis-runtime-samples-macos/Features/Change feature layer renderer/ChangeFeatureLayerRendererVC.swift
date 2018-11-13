@@ -19,10 +19,10 @@ import ArcGIS
 
 class ChangeFeatureLayerRendererVC: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
-    private var map:AGSMap!
-    private var featureLayer:AGSFeatureLayer!
+    private var map: AGSMap!
+    private var featureLayer: AGSFeatureLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class ChangeFeatureLayerRendererVC: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction private func applyRenderer(_ sender:NSButton) {
+    @IBAction private func applyRenderer(_ sender: NSButton) {
         //create a symbol to be used in the renderer
         let symbol = AGSSimpleLineSymbol(style: AGSSimpleLineSymbolStyle.solid, color: .blue, width: 2)
         //create a new renderer using the symbol just created
@@ -58,7 +58,7 @@ class ChangeFeatureLayerRendererVC: NSViewController {
         self.featureLayer.renderer = renderer
     }
     
-    @IBAction private func resetRenderer(_ sender:NSButton) {
+    @IBAction private func resetRenderer(_ sender: NSButton) {
         //reset the renderer to default
         self.featureLayer.resetRenderer()
     }

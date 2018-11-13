@@ -19,10 +19,10 @@ import ArcGIS
 
 class FeatureLayerDefinitionExpressionVC: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap!
-    private var featureLayer:AGSFeatureLayer!
+    private var map: AGSMap!
+    private var featureLayer: AGSFeatureLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +46,12 @@ class FeatureLayerDefinitionExpressionVC: NSViewController {
         self.map.operationalLayers.add(self.featureLayer)
     }
     
-    @IBAction func applyDefinitionExpression(_ sender:NSButton) {
+    @IBAction func applyDefinitionExpression(_ sender: NSButton) {
         //adding definition expression to show specific features only
         self.featureLayer.definitionExpression = "req_Type = 'Tree Maintenance or Damage'"
     }
     
-    @IBAction func resetDefinitionExpression(_ sender:NSButton) {
+    @IBAction func resetDefinitionExpression(_ sender: NSButton) {
         //reset definition expression
         self.featureLayer.definitionExpression = ""
     }

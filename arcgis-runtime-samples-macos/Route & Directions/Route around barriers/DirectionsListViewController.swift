@@ -19,20 +19,20 @@ import ArcGIS
 
 protocol DirectionsListVCDelegate: AnyObject {
     
-    func directionsListViewController(_ directionsListViewController:DirectionsListViewController, didSelectDirectionManuever directionManeuver:AGSDirectionManeuver)
+    func directionsListViewController(_ directionsListViewController: DirectionsListViewController, didSelectDirectionManuever directionManeuver: AGSDirectionManeuver)
     
-    func directionsListViewControllerDidDeleteRoute(_ directionsListViewController:DirectionsListViewController)
+    func directionsListViewControllerDidDeleteRoute(_ directionsListViewController: DirectionsListViewController)
 }
 
 class DirectionsListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    @IBOutlet var tableView:NSTableView!
-    @IBOutlet var milesLabel:NSTextField!
-    @IBOutlet var minutesLabel:NSTextField!
+    @IBOutlet var tableView: NSTableView!
+    @IBOutlet var milesLabel: NSTextField!
+    @IBOutlet var minutesLabel: NSTextField!
     
-    weak var delegate:DirectionsListVCDelegate?
+    weak var delegate: DirectionsListVCDelegate?
     
-    var route:AGSRoute! {
+    var route: AGSRoute! {
         didSet {
             self.tableView?.reloadData()
             self.updateLabels()
@@ -78,7 +78,7 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
     
     //MARK: - Actions
     
-    @IBAction func deleteRouteAction(_ sender:NSButton) {
+    @IBAction func deleteRouteAction(_ sender: NSButton) {
         self.delegate?.directionsListViewControllerDidDeleteRoute(self)
     }
 }

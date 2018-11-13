@@ -18,13 +18,13 @@ import Cocoa
 import ArcGIS
 
 protocol CreateOptionsVCDelegate: AnyObject {
-    func createOptionsViewController(_ createOptionsViewController:CreateOptionsViewController, didSelectBasemap basemap:AGSBasemap, layers:[AGSLayer]?)
+    func createOptionsViewController(_ createOptionsViewController: CreateOptionsViewController, didSelectBasemap basemap: AGSBasemap, layers: [AGSLayer]?)
 }
 
 class CreateOptionsViewController: NSViewController {
     
     private var selectedLayersIndexes = [Int]()
-    private var selectedBasemapIndex:Int!
+    private var selectedBasemapIndex: Int!
     
     private var basemaps: [AGSBasemap] = [.streets(), .imagery(), .topographic(), .oceans()]
     
@@ -33,7 +33,7 @@ class CreateOptionsViewController: NSViewController {
     private var layerURLs = ["https://sampleserver5.arcgisonline.com/arcgis/rest/services/Elevation/WorldElevations/MapServer",
                              "https://sampleserver5.arcgisonline.com/arcgis/rest/services/Census/MapServer"]
  
-    weak var delegate:CreateOptionsVCDelegate?
+    weak var delegate: CreateOptionsVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,7 @@ class CreateOptionsViewController: NSViewController {
     
     //MARK: - Helper methods
     
-    private func showAlert(withText text:String) {
+    private func showAlert(withText text: String) {
         let alert = NSAlert()
         alert.messageText = "Info"
         alert.informativeText = text

@@ -18,8 +18,8 @@ class FeatureLayerShapefileViewController: NSViewController {
 
     @IBOutlet weak var mapView: AGSMapView!
 
-    var map:AGSMap
-    var featureLayer:AGSFeatureLayer
+    var map: AGSMap
+    var featureLayer: AGSFeatureLayer
 
     required init?(coder aDecoder: NSCoder) {
         // Instantiate a map using a basemap.
@@ -47,7 +47,7 @@ class FeatureLayerShapefileViewController: NSViewController {
         zoom(mapView: mapView, to: featureLayer)
     }
 
-    func zoom(mapView:AGSMapView, to featureLayer:AGSFeatureLayer) {
+    func zoom(mapView: AGSMapView, to featureLayer: AGSFeatureLayer) {
         // Ensure the feature layer's metadata is loaded.
         featureLayer.load { error in
             guard error == nil else {

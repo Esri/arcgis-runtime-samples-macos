@@ -18,23 +18,23 @@ import Cocoa
 import ArcGIS
 
 class FeatureTemplateInfo {
-    var featureType:AGSFeatureType!
-    var featureTemplate:AGSFeatureTemplate!
-    var featureLayer:AGSFeatureLayer!
+    var featureType: AGSFeatureType!
+    var featureTemplate: AGSFeatureTemplate!
+    var featureLayer: AGSFeatureLayer!
 }
 
 protocol FeatureTemplatePickerVCDelegate: AnyObject {
     
-    func featureTemplatePickerVC(_ featureTemplatePickerVC:FeatureTemplatePickerVC, didSelectFeatureTemplate template:AGSFeatureTemplate, forFeatureLayer featureLayer:AGSFeatureLayer)
+    func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer)
     
-    func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC:FeatureTemplatePickerVC)
+    func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC: FeatureTemplatePickerVC)
 }
 
 class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     var infos = [FeatureTemplateInfo]()
     @IBOutlet weak var featureTemplateTableView: NSTableView!
-    weak var delegate:FeatureTemplatePickerVCDelegate?
+    weak var delegate: FeatureTemplatePickerVCDelegate?
     var featureLayer: AGSFeatureLayer!
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         self.addTemplatesFromLayer(self.featureLayer)
     }
     
-    func addTemplatesFromLayer(_ featureLayer:AGSFeatureLayer) {
+    func addTemplatesFromLayer(_ featureLayer: AGSFeatureLayer) {
         
         let featureTable = featureLayer.featureTable as! AGSServiceFeatureTable
         //if layer contains only templates (no feature types)

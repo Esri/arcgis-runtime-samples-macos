@@ -19,12 +19,12 @@ import ArcGIS
 
 class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, SaveMapVCDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var optionsContainerView:NSView!
-    @IBOutlet var saveMapContainerView:NSView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var optionsContainerView: NSView!
+    @IBOutlet var saveMapContainerView: NSView!
     
-    private var portal:AGSPortal!
-    private var saveMapVC:SaveMapViewController!
+    private var portal: AGSPortal!
+    private var saveMapVC: SaveMapViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Save map
     
-    private func saveMap(_ title:String, tags:[String], itemDescription:String?, thumbnail:NSImage?) {
+    private func saveMap(_ title: String, tags: [String], itemDescription: String?, thumbnail: NSImage?) {
         self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) -> Void in
             
             if let error = error {
@@ -64,13 +64,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Show/hide options view controller
     
-    private func toggleOptionsVC(on:Bool) {
+    private func toggleOptionsVC(on: Bool) {
         self.optionsContainerView.isHidden = !on
     }
     
     //MARK: - Show/hide save map view controller
     
-    private func toggleSaveMapVC(on:Bool) {
+    private func toggleSaveMapVC(on: Bool) {
         self.saveMapContainerView.isHidden = !on
     }
     
@@ -119,14 +119,14 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         //set the initial viewpoint from map view
         self.mapView.map?.initialViewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale)
         
-        self.mapView.exportImage { [weak self] (image:NSImage?, error:Error?) -> Void in
+        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
                 //crop the image from the center
                 //also to cut on the size
-                let croppedImage:NSImage? = image?.croppedImage(of: CGSize(width: 200, height: 200))
+                let croppedImage: NSImage? = image?.croppedImage(of: CGSize(width: 200, height: 200))
                 
                 self?.saveMap(title, tags: tags, itemDescription: itemDescription, thumbnail: croppedImage)
             }
@@ -159,7 +159,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
@@ -169,7 +169,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
 
 extension NSImage {
     
-    func croppedImage(of size:CGSize) -> NSImage {
+    func croppedImage(of size: CGSize) -> NSImage {
         //calculate rect based on input size
         let originX = (self.size.width - size.width)/2
         let originY = (self.size.height - size.height)/2

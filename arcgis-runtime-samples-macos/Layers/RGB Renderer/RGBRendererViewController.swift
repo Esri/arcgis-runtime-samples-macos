@@ -19,18 +19,18 @@ import ArcGIS
 
 class RGBRendererViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var stretchType:NSPopUpButton!
-    @IBOutlet var label1:NSTextField!
-    @IBOutlet var label2:NSTextField!
-    @IBOutlet var textField1a:NSTextField!
-    @IBOutlet var textField1b:NSTextField!
-    @IBOutlet var textField1c:NSTextField!
-    @IBOutlet var textField2a:NSTextField!
-    @IBOutlet var textField2b:NSTextField!
-    @IBOutlet var textField2c:NSTextField!
-    @IBOutlet var textField2TopConstraint:NSLayoutConstraint!
-    @IBOutlet var textField2HeightConstraint:NSLayoutConstraint!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var stretchType: NSPopUpButton!
+    @IBOutlet var label1: NSTextField!
+    @IBOutlet var label2: NSTextField!
+    @IBOutlet var textField1a: NSTextField!
+    @IBOutlet var textField1b: NSTextField!
+    @IBOutlet var textField1c: NSTextField!
+    @IBOutlet var textField2a: NSTextField!
+    @IBOutlet var textField2b: NSTextField!
+    @IBOutlet var textField2c: NSTextField!
+    @IBOutlet var textField2TopConstraint: NSLayoutConstraint!
+    @IBOutlet var textField2HeightConstraint: NSLayoutConstraint!
     
     private var raster: AGSRaster!
     private var rasterLayer: AGSRasterLayer!
@@ -59,7 +59,7 @@ class RGBRendererViewController: NSViewController {
         self.label2.isHidden = true
     }
     
-    func toggleExtraTextFields(_ on:Bool) {
+    func toggleExtraTextFields(_ on: Bool) {
         self.textField1b.isHidden = !on
         self.textField1c.isHidden = !on
         self.textField2b.isHidden = !on
@@ -68,7 +68,7 @@ class RGBRendererViewController: NSViewController {
     
     //MARK: - Actions
     
-    @IBAction func popUpButtonAction(_ sender:NSPopUpButton) {
+    @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {
         case 0:
             self.label1.stringValue = "Min value"
@@ -96,8 +96,8 @@ class RGBRendererViewController: NSViewController {
         }
     }
     
-    @IBAction func applyAction(_ sender:NSButton) {
-        var stretchParams:AGSStretchParameters
+    @IBAction func applyAction(_ sender: NSButton) {
+        var stretchParams: AGSStretchParameters
     
         switch self.stretchType.indexOfSelectedItem {
         case 0:

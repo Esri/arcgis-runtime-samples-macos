@@ -19,13 +19,13 @@ import ArcGIS
 
 class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var deleteButton:NSButton!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var deleteButton: NSButton!
     
-    private var featureTable:AGSServiceFeatureTable!
-    private var featureLayer:AGSFeatureLayer!
-    private var lastQuery:AGSCancelable!
-    private var selectedFeature:AGSFeature! {
+    private var featureTable: AGSServiceFeatureTable!
+    private var featureLayer: AGSFeatureLayer!
+    private var lastQuery: AGSCancelable!
+    private var selectedFeature: AGSFeature! {
         didSet {
             self.deleteButton.isEnabled = (selectedFeature != nil)
         }
@@ -53,7 +53,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         map.operationalLayers.add(featureLayer)
     }
     
-    func deleteFeature(_ feature:AGSFeature) {
+    func deleteFeature(_ feature: AGSFeature) {
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -136,7 +136,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
     
     //MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

@@ -22,7 +22,7 @@ class ChangeBasemapViewController: NSViewController {
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var mapsList: NSPopUpButton!
     
-    var map:AGSMap!
+    var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
