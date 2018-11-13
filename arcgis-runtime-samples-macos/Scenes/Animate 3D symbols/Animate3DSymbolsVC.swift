@@ -112,6 +112,10 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneGraphicsOverlay.graphics.add(self.planeModelGraphic)
     }
     
+    private var cameraDistanceObservation: NSKeyValueObservation?
+    private var cameraHeadingOffsetObservation: NSKeyValueObservation?
+    private var cameraPitchOffsetObservation: NSKeyValueObservation?
+    
     private func setupCamera() {
         
         //AGSOrbitGeoElementCameraController to follow plane graphic
@@ -133,9 +137,30 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneView.cameraController = self.orbitGeoElementCameraController
         
         //add observers to update the sliders
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraDistance", options: .new, context: nil)
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraHeadingOffset", options: .new, context: nil)
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraPitchOffset", options: .new, context: nil)
+        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .new) { (controller, change) in
+            DispatchQueue.main.async { [weak self] in
+                let distance = Int(controller.cameraDistance)
+                self?.distanceSlider.integerValue = distance
+                //update label
+                self?.distanceLabel.stringValue = "\(distance)"
+            }
+        }
+        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .new) { (controller, change) in
+            DispatchQueue.main.async { [weak self] in
+                let cameraHeadingOffset = Int(controller.cameraHeadingOffset)
+                self?.headingOffsetSlider.integerValue = cameraHeadingOffset
+                //update label
+                self?.headingOffsetLabel.stringValue = "\(cameraHeadingOffset)°"
+            }
+        }
+        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .new) { (controller, change) in
+            DispatchQueue.main.async { [weak self] in
+                let cameraPitchOffset = Int(controller.cameraPitchOffset)
+                self?.pitchOffsetSlider.integerValue = cameraPitchOffset
+                //update label
+                self?.pitchOffsetLabel.stringValue = "\(cameraPitchOffset)°"
+            }
+        }
     }
     
     private func populatePopUpButton() {
@@ -241,41 +266,12 @@ class Animate3DSymbolsVC: NSViewController {
         
         //update labels
         self.altitiudeLabel.stringValue = "\(Int(frame.position.z))"
-        self.headingLabel.stringValue = "\(Int(frame.heading))º"
-        self.pitchLabel.stringValue = "\(Int(frame.pitch))º"
-        self.rollLabel.stringValue = "\(Int(frame.roll))º"
+        self.headingLabel.stringValue = "\(Int(frame.heading))°"
+        self.pitchLabel.stringValue = "\(Int(frame.pitch))°"
+        self.rollLabel.stringValue = "\(Int(frame.roll))°"
         
         //increment current frame index
         self.currentFrameIndex += 1
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        
-        DispatchQueue.main.async { [weak self] in
-        
-            guard let weakSelf = self else {
-                return
-            }
-            
-            if keyPath == "cameraDistance" {
-                weakSelf.distanceSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraDistance)
-                
-                //update label
-                weakSelf.distanceLabel.stringValue = "\(weakSelf.distanceSlider.integerValue)"
-            }
-            else if keyPath == "cameraHeadingOffset" {
-                weakSelf.headingOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraHeadingOffset)
-                
-                //update label
-                weakSelf.headingOffsetLabel.stringValue = "\(weakSelf.headingOffsetSlider.integerValue)º"
-            }
-            else if keyPath == "cameraPitchOffset" {
-                weakSelf.pitchOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraPitchOffset)
-                
-                //update label
-                weakSelf.pitchOffsetLabel.stringValue = "\(weakSelf.pitchOffsetSlider.integerValue)º"
-            }
-        }
     }
     
     // MARK: - Actions
@@ -320,7 +316,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.cameraHeadingOffset = sender.doubleValue
         
         //update label
-        self.headingOffsetLabel.stringValue = "\(sender.integerValue)º"
+        self.headingOffsetLabel.stringValue = "\(sender.integerValue)°"
     }
     
     @IBAction func pitchOffsetValueChanged(_ sender: NSSlider) {
@@ -329,7 +325,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.orbitGeoElementCameraController.cameraPitchOffset = sender.doubleValue
         
         //update label
-        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)º"
+        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)°"
     }
     
     @IBAction func autoHeadingEnabledAction(_ sender: NSButton) {
@@ -376,13 +372,7 @@ class Animate3DSymbolsVC: NSViewController {
             self.animationTimer?.invalidate()
         }
     }
-    
-    deinit {
-        //remove observers
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraDistance")
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraHeadingOffset")
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraPitchOffset")
-    }
+
 }
 
 class Frame {
