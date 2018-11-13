@@ -137,7 +137,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneView.cameraController = self.orbitGeoElementCameraController
         
         //add observers to update the sliders
-        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .new) { (controller, change) in
+        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .new) {[weak self] (controller, change) in
             DispatchQueue.main.async { [weak self] in
                 let distance = Int(controller.cameraDistance)
                 self?.distanceSlider.integerValue = distance
@@ -145,7 +145,7 @@ class Animate3DSymbolsVC: NSViewController {
                 self?.distanceLabel.stringValue = "\(distance)"
             }
         }
-        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .new) { (controller, change) in
+        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .new) {[weak self] (controller, change) in
             DispatchQueue.main.async { [weak self] in
                 let cameraHeadingOffset = Int(controller.cameraHeadingOffset)
                 self?.headingOffsetSlider.integerValue = cameraHeadingOffset
@@ -153,7 +153,7 @@ class Animate3DSymbolsVC: NSViewController {
                 self?.headingOffsetLabel.stringValue = "\(cameraHeadingOffset)°"
             }
         }
-        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .new) { (controller, change) in
+        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .new) {[weak self] (controller, change) in
             DispatchQueue.main.async { [weak self] in
                 let cameraPitchOffset = Int(controller.cameraPitchOffset)
                 self?.pitchOffsetSlider.integerValue = cameraPitchOffset
