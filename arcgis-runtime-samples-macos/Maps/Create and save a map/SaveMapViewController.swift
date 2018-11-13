@@ -31,11 +31,6 @@ class SaveMapViewController: NSViewController {
     
     weak var delegate: SaveMapVCDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     func resetInputFields() {
         self.titleTextField.stringValue = ""
         self.tagsTextField.stringValue = ""
