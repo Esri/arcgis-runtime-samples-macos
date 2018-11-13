@@ -67,7 +67,7 @@ class FeatureLayerQueryVC: NSViewController {
         }
         
         // deselect all selected features
-        if selectedFeatures.count > 0 {
+        if !selectedFeatures.isEmpty {
             featureLayer.unselectFeatures(selectedFeatures)
             selectedFeatures.removeAll()
         }
@@ -92,7 +92,7 @@ class FeatureLayerQueryVC: NSViewController {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
             else if let features = result?.featureEnumerator().allObjects {
-                if features.count > 0 {
+                if !features.isEmpty {
                     // display the selection
                     featureLayer.select(features)
                     

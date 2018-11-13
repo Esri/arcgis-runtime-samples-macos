@@ -48,7 +48,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         
         let featureTable = featureLayer.featureTable as! AGSServiceFeatureTable
         //if layer contains only templates (no feature types)
-        if featureTable.featureTemplates.count > 0 {
+        if !featureTable.featureTemplates.isEmpty {
             //for each template
             for template in featureTable.featureTemplates {
                 let info = FeatureTemplateInfo()

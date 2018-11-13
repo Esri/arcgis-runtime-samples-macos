@@ -84,7 +84,8 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
             }
             else {
-                if let featureEditResults = featureEditResults, featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
+                if let featureEditResults = featureEditResults,
+                    featureEditResults.first?.completedWithErrors == false {
                     print("Edits applied successfully")
                 }
             }
@@ -118,7 +119,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
                 self?.featureLayer.clearSelection()
                 self?.selectedFeature = nil
                 
-                if features.count > 0 {
+                if !features.isEmpty {
                     self?.featureLayer.select(features[0])
                     //update selected feature
                     self?.selectedFeature = features[0]

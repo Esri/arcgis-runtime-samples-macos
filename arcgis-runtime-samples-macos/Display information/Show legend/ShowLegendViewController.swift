@@ -107,7 +107,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
         else {
             if let layerContent = item as? AGSLayerContent {
-                if layerContent.subLayerContents.count > 0 {
+                if !layerContent.subLayerContents.isEmpty {
                     return layerContent.subLayerContents.count
                 }
                 else {

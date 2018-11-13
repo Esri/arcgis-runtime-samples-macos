@@ -123,10 +123,11 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         //remove previously added service areas
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
         
+        let facilitiesGraphics = facilitiesGraphicsOverlay.graphics as! [AGSGraphic]
+        
         //check if at least a single facility is added
-        if self.facilitiesGraphicsOverlay.graphics.count == 0 {
-            
-            self.showAlert(messageText: "Error", informativeText: "At least one facility is required")
+        guard !facilitiesGraphics.isEmpty else {
+            showAlert(messageText: "Error", informativeText: "At least one facility is required")
             return
         }
         
@@ -134,7 +135,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         var facilities = [AGSServiceAreaFacility]()
         
         //for each graphic in facilities graphicsOverlay add a facility to the parameters
-        for graphic in self.facilitiesGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
+        for graphic in facilitiesGraphics {
             
             let point = graphic.geometry as! AGSPoint
             let facility = AGSServiceAreaFacility(point: point)
@@ -146,7 +147,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         var barriers = [AGSPolygonBarrier]()
         
         //for each graphic in barrier graphicsOverlay add a barrier to the parameters
-        for graphic in self.barriersGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
+        for graphic in self.barriersGraphicsOverlay.graphics as! [AGSGraphic] {
             
             let polygon = graphic.geometry as! AGSPolygon
             let barrier = AGSPolygonBarrier(polygon: polygon)

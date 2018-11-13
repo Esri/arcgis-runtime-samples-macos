@@ -138,7 +138,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
             //check if the result has any sublayer results
             //if yes then add those result objects in the tempResults
             //array after the current result
-            if identifyResult.sublayerResults.count > 0 {
+            if !identifyResult.sublayerResults.isEmpty {
                 tempResults.insert(contentsOf: identifyResult.sublayerResults, at: index + 1)
             }
             

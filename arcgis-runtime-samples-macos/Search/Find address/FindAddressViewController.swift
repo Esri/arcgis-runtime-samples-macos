@@ -129,7 +129,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
                 
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             }
-            else if result.graphics.count > 0 {
+            else if !result.graphics.isEmpty {
                 //show callout for the graphic
                 self?.showCallout(for: result.graphics[0], at: mapPoint)
             }

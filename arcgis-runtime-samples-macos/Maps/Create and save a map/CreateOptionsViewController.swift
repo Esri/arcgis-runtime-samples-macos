@@ -78,7 +78,7 @@ class CreateOptionsViewController: NSViewController {
             layers.append(layer)
         }
         
-        self.delegate?.createOptionsViewController(self, didSelectBasemap: basemap, layers: layers.count > 0 ? layers : nil)
+        self.delegate?.createOptionsViewController(self, didSelectBasemap: basemap, layers: !layers.isEmpty ? layers : nil)
     }
     
     // MARK: - Helper methods
