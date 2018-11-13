@@ -6,7 +6,6 @@ custom_rules:
 
 disabled_rules: # rule identifiers to exclude from running
   - block_based_kvo
-  - control_statement
   - cyclomatic_complexity
   - file_length
   - for_where
@@ -21,5 +20,4 @@ disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
   - type_name
   - unused_closure_parameter
-  - unused_optional_binding
   - vertical_whitespace

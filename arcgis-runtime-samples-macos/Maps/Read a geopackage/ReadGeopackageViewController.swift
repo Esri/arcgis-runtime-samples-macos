@@ -165,7 +165,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
         
-        if(rowData != nil) {
+        if rowData != nil {
             // A row for a layer in the map was dragged and dropped. Let's re-order the map layers to match.
             let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet]
             
