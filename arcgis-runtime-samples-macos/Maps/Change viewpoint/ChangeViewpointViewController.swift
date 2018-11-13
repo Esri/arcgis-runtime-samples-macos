@@ -51,15 +51,13 @@ class ChangeViewpointViewController: NSViewController {
     }
     
     func geometryFromTextFile(filename: String) -> AGSGeometry? {
-        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
-            if let jsonString = try? String(contentsOfFile: filepath, encoding: String.Encoding.utf8) {
-                let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)
-                let dictionary = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions())) as! [AnyHashable: Any]
-                let geometry = try? AGSGeometry.fromJSON(dictionary)
-                return geometry as? AGSGeometry
-            }
+        if let fileURL = Bundle.main.url(forResource: filename, withExtension: "txt"),
+            let data = try? Data(contentsOf: fileURL),
+            let jsonObject = try? JSONSerialization.jsonObject(with: data),
+            let geometry = try? AGSGeometry.fromJSON(jsonObject) {
+
+            return geometry as? AGSGeometry
         }
-        
         return nil
     }
     

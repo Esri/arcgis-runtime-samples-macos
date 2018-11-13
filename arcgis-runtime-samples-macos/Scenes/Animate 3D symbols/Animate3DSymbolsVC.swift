@@ -140,13 +140,12 @@ class Animate3DSymbolsVC: NSViewController {
     
     private func populatePopUpButton() {
         
-        if self.fileNames == nil {
+        if fileNames == nil,
+            let resourcePath = Bundle.main.resourcePath,
+            let content = try? FileManager.default.contentsOfDirectory(atPath: resourcePath) {
             
             //fetch csv file names in the bundle
-            let resourcePath = Bundle.main.resourcePath!
-            let fileManager = FileManager.default
-            let content = try! fileManager.contentsOfDirectory(atPath: resourcePath)
-            self.fileNames = content.filter({ $0.lowercased().hasSuffix(".csv") })
+            fileNames = content.filter { $0.lowercased().hasSuffix(".csv") }
         }
         
         //remove existing values

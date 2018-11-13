@@ -50,7 +50,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     func moveLayer(_ layer: AGSLayer, from: Int, to: Int) {
         self.mapView.map?.operationalLayers.removeObject(at: from)
         
-        if(to > self.mapView.map!.operationalLayers.count - 1) {
+        if to > mapView.map!.operationalLayers.count - 1 {
             self.mapView.map?.operationalLayers.add(layer)
         }
         else {
@@ -119,7 +119,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
-        if(rowData != nil) {
+        if rowData != nil {
             var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet],
             indexSet = dataArray[0]
             

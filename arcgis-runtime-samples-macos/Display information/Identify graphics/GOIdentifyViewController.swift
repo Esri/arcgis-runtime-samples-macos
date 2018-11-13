@@ -85,7 +85,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
             else {
                 //if a graphics is found then show an alert
                 if result.graphics.count > 0 {
-                    if let _ = self.view.window {
+                    if self.view.window != nil {
                         let alert = NSAlert()
                         alert.informativeText = "Tapped graphic."
                         alert.runModal()
