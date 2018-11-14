@@ -15,13 +15,13 @@
 import ArcGIS
 
 protocol GPKGLayerTableCellDelegate: AnyObject {
-    func removeLayerFromMap(cell:GPKGLayerTableCell)
+    func removeLayerFromMap(cell: GPKGLayerTableCell)
 }
 
 class GPKGLayerTableCell: NSTableCellView {
-    weak var delegate:GPKGLayerTableCellDelegate?
+    weak var delegate: GPKGLayerTableCellDelegate?
     
-    var agsLayer:AGSLayer? {
+    var agsLayer: AGSLayer? {
         didSet {
             textField?.stringValue = agsLayer?.name ?? ""
         }

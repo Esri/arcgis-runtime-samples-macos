@@ -19,7 +19,7 @@ import ArcGIS
 
 class UseGeodatabaseTransactionsViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
     @IBOutlet weak var featureTypePopUp: NSPopUpButton!
     @IBOutlet weak var startTransactionButton: NSButton!
@@ -61,7 +61,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
         /// The IDs of the layers we want included in the download.
-        let layerIDsToDownload: Set<Int> = [0,1]
+        let layerIDsToDownload: Set<Int> = [0, 1]
         
         /// The sync task used to download the geodatabase now and upload it later.
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)
@@ -79,7 +79,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 parameters.returnAttachments = false
                
                 // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
-                parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
+                parameters.layerOptions = parameters.layerOptions.filter { layerIDsToDownload.contains($0.layerID) }
                 
                 self.startGeodatabaseDownload(parameters: parameters)
             }
@@ -87,9 +87,9 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
     }
     
-    //MARK: - Geodatabase
+    // MARK: - Geodatabase
     
-    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters){
+    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters) {
         
         guard let geodatabaseSyncTask = geodatabaseSyncTask else {
             return
@@ -101,7 +101,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = generateGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel:  "Downloading Geodatabase")
+        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel: "Downloading Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the download
@@ -143,7 +143,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
     }
     
-    private func loadFeatureTables(){
+    private func loadFeatureTables() {
         guard let geodatabase = geodatabase else {
             return
         }
@@ -172,7 +172,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Creates a feature with the given parameters in the local geodatabase.
-    private func addFeature(at point:AGSPoint, featureTableID: Int, attributes: [String: Any]) {
+    private func addFeature(at point: AGSPoint, featureTableID: Int, attributes: [String: Any]) {
         
         guard let geodatabase = geodatabase,
             let featureTable = geodatabase.geodatabaseFeatureTable(byServiceLayerID: featureTableID) else {
@@ -198,7 +198,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Starts synchronizing changes with the online feature service, uploading any changes made by the user.
-    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters){
+    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters) {
         
         guard let geodatabase = geodatabase,
             !geodatabase.inTransaction,
@@ -212,7 +212,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = syncGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel:  "Syncing Geodatabase")
+        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel: "Syncing Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the upload
@@ -234,7 +234,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
     }
     
-    //MARK: - Popup menu
+    // MARK: - Popup menu
     
     /// A model for the represented object of the popup menu items.
     private struct FeatureMenuItemModel {
@@ -244,7 +244,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Adds items to the popup menu for the feature types in the given table.
-    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable){
+    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable) {
 
         let typeFieldName = featureTable.typeIDField
         guard let domain = featureTable.field(forName: typeFieldName)?.domain as? AGSCodedValueDomain else {
@@ -269,13 +269,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
         // only run this once
         if featureTable.serviceLayerID == 0,
-            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }){
+            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }) {
             // the default selection is a disabled field name so we need to set it to an actual feature type
             featureTypePopUp.select(enabledItem)
         }
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
 
     @IBAction func beginTransactionAction(_ sender: NSButton) {
         guard let geodatabase = geodatabase,
@@ -354,7 +354,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         manageControlEnabledStates()
     }
     
-    //MARK: - UI Helpers
+    // MARK: - UI Helpers
     
     /// Enables or disables the UI controls based on the state of the workflow.
     private func manageControlEnabledStates() {

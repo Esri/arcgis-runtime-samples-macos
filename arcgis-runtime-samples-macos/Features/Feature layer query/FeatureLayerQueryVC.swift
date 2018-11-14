@@ -19,10 +19,10 @@ import ArcGIS
 
 class FeatureLayerQueryVC: NSViewController {
     
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var featureTable:AGSServiceFeatureTable?
-    private var featureLayer:AGSFeatureLayer?
+    private var featureTable: AGSServiceFeatureTable?
+    private var featureLayer: AGSFeatureLayer?
     
     private var selectedFeatures = [AGSFeature]()
     
@@ -59,7 +59,7 @@ class FeatureLayerQueryVC: NSViewController {
         mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 5e6, spatialReference: .webMercator()), scale: 9e7)
     }
     
-    private func selectFeaturesForSearchTerm(_ searchTerm:String) {
+    private func selectFeaturesForSearchTerm(_ searchTerm: String) {
         
         guard let featureLayer = featureLayer,
             let featureTable = featureTable else {
@@ -67,7 +67,7 @@ class FeatureLayerQueryVC: NSViewController {
         }
         
         // deselect all selected features
-        if selectedFeatures.count > 0 {
+        if !selectedFeatures.isEmpty {
             featureLayer.unselectFeatures(selectedFeatures)
             selectedFeatures.removeAll()
         }
@@ -78,7 +78,7 @@ class FeatureLayerQueryVC: NSViewController {
         let queryParams = AGSQueryParameters()
         queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(searchTerm.uppercased())%'"
         
-        featureTable.queryFeatures(with: queryParams) { [weak self] (result:AGSFeatureQueryResult?, error:Error?) in
+        featureTable.queryFeatures(with: queryParams) { [weak self] (result: AGSFeatureQueryResult?, error: Error?) in
             
             // hide progress indicator
             NSApp.hideProgressIndicator()
@@ -92,7 +92,7 @@ class FeatureLayerQueryVC: NSViewController {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
             else if let features = result?.featureEnumerator().allObjects {
-                if features.count > 0 {
+                if !features.isEmpty {
                     // display the selection
                     featureLayer.select(features)
                     

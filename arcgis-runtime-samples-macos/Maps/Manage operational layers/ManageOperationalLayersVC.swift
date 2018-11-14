@@ -19,9 +19,9 @@ import ArcGIS
 
 class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, AddedLayerCellViewDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView1:NSTableView!
-    @IBOutlet var tableView2:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView1: NSTableView!
+    @IBOutlet var tableView2: NSTableView!
     
     private var removedLayers = [AGSLayer]()
     
@@ -37,9 +37,9 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         map.operationalLayers.add(tiledLayer)
         
         self.mapView.map = map
-        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 2e7))
+        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -133e5, y: 45e5, spatialReference: .webMercator()), scale: 2e7))
         
-        self.mapView.map?.load(completion: { [weak self] (error:Error?) in
+        self.mapView.map?.load(completion: { [weak self] (error: Error?) in
             self?.tableView1.reloadData()
         })
         
@@ -50,7 +50,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     func moveLayer(_ layer: AGSLayer, from: Int, to: Int) {
         self.mapView.map?.operationalLayers.removeObject(at: from)
         
-        if(to > self.mapView.map!.operationalLayers.count - 1) {
+        if to > mapView.map!.operationalLayers.count - 1 {
             self.mapView.map?.operationalLayers.add(layer)
         }
         else {
@@ -59,7 +59,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         self.tableView1.reloadData()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == self.tableView1 {
@@ -71,7 +71,6 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         
         if tableView == self.tableView1 {
             let layer = self.mapView.map!.operationalLayers.reversed()[row]
@@ -94,8 +93,8 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         if tableView == tableView1 {
             
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
-            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "hey")], owner:self)
-            pboard.setData(data, forType:NSPasteboard.PasteboardType(rawValue: "hey"))
+            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "hey")], owner: self)
+            pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: "hey"))
             
             return true
         }
@@ -119,8 +118,8 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
         
-        if(rowData != nil) {
-            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>,
+        if rowData != nil {
+            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet],
             indexSet = dataArray[0]
             
             let movingFromIndex = indexSet.first
@@ -135,7 +134,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
@@ -150,7 +149,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
     }
     
-    //MARK: - AddedLayerCellViewDelegate
+    // MARK: - AddedLayerCellViewDelegate
     
     func addedLayerCellViewWantsToDelete(_ addedLayerCellView: AddedLayerCellView) {
         //remove layer and add to removed layers list

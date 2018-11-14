@@ -18,23 +18,23 @@ import Cocoa
 import ArcGIS
 
 class FeatureTemplateInfo {
-    var featureType:AGSFeatureType!
-    var featureTemplate:AGSFeatureTemplate!
-    var featureLayer:AGSFeatureLayer!
+    var featureType: AGSFeatureType!
+    var featureTemplate: AGSFeatureTemplate!
+    var featureLayer: AGSFeatureLayer!
 }
 
 protocol FeatureTemplatePickerVCDelegate: AnyObject {
     
-    func featureTemplatePickerVC(_ featureTemplatePickerVC:FeatureTemplatePickerVC, didSelectFeatureTemplate template:AGSFeatureTemplate, forFeatureLayer featureLayer:AGSFeatureLayer)
+    func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer)
     
-    func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC:FeatureTemplatePickerVC)
+    func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC: FeatureTemplatePickerVC)
 }
 
 class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     var infos = [FeatureTemplateInfo]()
     @IBOutlet weak var featureTemplateTableView: NSTableView!
-    weak var delegate:FeatureTemplatePickerVCDelegate?
+    weak var delegate: FeatureTemplatePickerVCDelegate?
     var featureLayer: AGSFeatureLayer!
     
     override func viewDidLoad() {
@@ -44,11 +44,11 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         self.addTemplatesFromLayer(self.featureLayer)
     }
     
-    func addTemplatesFromLayer(_ featureLayer:AGSFeatureLayer) {
+    func addTemplatesFromLayer(_ featureLayer: AGSFeatureLayer) {
         
         let featureTable = featureLayer.featureTable as! AGSServiceFeatureTable
         //if layer contains only templates (no feature types)
-        if featureTable.featureTemplates.count > 0 {
+        if !featureTable.featureTemplates.isEmpty {
             //for each template
             for template in featureTable.featureTemplates {
                 let info = FeatureTemplateInfo()
@@ -61,7 +61,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
             }
         }
             //otherwise if layer contains feature types
-        else  {
+        else {
             //for each type
             for type in featureTable.featureTypes {
                 //for each temple in type
@@ -82,7 +82,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         self.delegate?.featureTemplatePickerVCDidCancel(self)
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.infos.count
@@ -113,7 +113,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         

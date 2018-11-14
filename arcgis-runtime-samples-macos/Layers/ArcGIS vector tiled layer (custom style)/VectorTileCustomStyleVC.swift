@@ -19,7 +19,7 @@ import ArcGIS
 
 class VectorTileCustomStyleVC: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     @IBOutlet weak var stylesPopUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class VectorTileCustomStyleVC: NSViewController {
         ]
         
         // populate the popup button's menu with the style items
-        for vectorStyleItem in vectorStyleItems{
+        for vectorStyleItem in vectorStyleItems {
             let menuItem = NSMenuItem()
             menuItem.title = vectorStyleItem.label
             menuItem.image = vectorStyleItem.thumbnailImage
@@ -58,7 +58,7 @@ class VectorTileCustomStyleVC: NSViewController {
         let map = AGSMap()
         
         //set the map's initial viewpoint
-        let centerPoint = AGSPoint(x: 1990591.559979, y: 794036.007991, spatialReference: AGSSpatialReference(wkid: 3857))
+        let centerPoint = AGSPoint(x: 1990591.559979, y: 794036.007991, spatialReference: .webMercator())
         map.initialViewpoint = AGSViewpoint(center: centerPoint, scale: 88659253.829259947)
         
         //assign the map to map view
@@ -81,7 +81,7 @@ class VectorTileCustomStyleVC: NSViewController {
     }
     
     @IBAction func stylesPopUpButtonAction(_ sender: NSPopUpButton) {
-        if let item = sender.selectedItem?.representedObject as? VectorStyleItem{
+        if let item = sender.selectedItem?.representedObject as? VectorStyleItem {
             // set the basemap for the selected item
             setBasemap(item: item)
         }
@@ -99,12 +99,12 @@ class VectorTileCustomStyleVC: NSViewController {
 
 extension VectorTileCustomStyleVC.VectorStyleItem {
     
-    var itemURL: URL{
+    var itemURL: URL {
         return URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemId)")!
     }
     
     /// Image for the popup menu, generated from the style's colors
-    var thumbnailImage: NSImage{
+    var thumbnailImage: NSImage {
         
         // a reasonable size for a menu item image
         let size = CGSize(width: 28, height: 16)

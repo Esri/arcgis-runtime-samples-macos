@@ -19,13 +19,13 @@ import ArcGIS
 
 class ExtrudeGraphicsViewController: NSViewController {
 
-    @IBOutlet var sceneView:AGSSceneView!
+    @IBOutlet var sceneView: AGSSceneView!
     
     private var graphicsOverlay: AGSGraphicsOverlay!
     
-    private let cameraStartingPoint = AGSPoint(x: 83, y: 28.4, z: 20000, spatialReference: AGSSpatialReference.wgs84())
-    private let squareSize:Double = 0.01
-    private let spacing:Double = 0.01
+    private let cameraStartingPoint = AGSPoint(x: 83, y: 28.4, z: 20000, spatialReference: .wgs84())
+    private let squareSize: Double = 0.01
+    private let spacing: Double = 0.01
     private let maxHeight = 10000
     
     override func viewDidLoad() {
@@ -65,7 +65,6 @@ class ExtrudeGraphicsViewController: NSViewController {
         self.addGraphics()
     }
     
-    
     private func addGraphics() {
         //starting point
         let x = self.cameraStartingPoint.x - 0.03
@@ -82,8 +81,8 @@ class ExtrudeGraphicsViewController: NSViewController {
     
     //the function returns a polygon starting at the given point
     //with size equal to squareSize
-    private func polygonForStartingPoint(_ point:AGSPoint) -> AGSPolygon {
-        let polygon = AGSPolygonBuilder(spatialReference: AGSSpatialReference.wgs84())
+    private func polygonForStartingPoint(_ point: AGSPoint) -> AGSPolygon {
+        let polygon = AGSPolygonBuilder(spatialReference: .wgs84())
         polygon.addPointWith(x: point.x, y: point.y)
         polygon.addPointWith(x: point.x, y: point.y+squareSize)
         polygon.addPointWith(x: point.x+squareSize, y: point.y+squareSize)
@@ -92,13 +91,12 @@ class ExtrudeGraphicsViewController: NSViewController {
     }
     
     //add a graphic to the graphics overlay for the given polygon
-    private func addGraphicForPolygon(_ polygon:AGSPolygon) {
+    private func addGraphicForPolygon(_ polygon: AGSPolygon) {
         
         let rand = Int(arc4random()) % self.maxHeight
         let graphic = AGSGraphic(geometry: polygon, symbol: nil, attributes: nil)
         graphic.attributes.setValue(rand, forKey: "height")
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
     
 }

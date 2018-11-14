@@ -219,13 +219,13 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         if AGSGeometryEngine.geometry(geometry1, disjointTo: geometry2) { relationships.append("Disjoint") }
         if AGSGeometryEngine.geometry(geometry1, intersects: geometry2) { relationships.append("Intersects") }
         if AGSGeometryEngine.geometry(geometry1, overlapsGeometry: geometry2) { relationships.append("Overlaps") }
-        if AGSGeometryEngine.geometry(geometry1, touchesGeometry: geometry2)  { relationships.append("Touches") }
+        if AGSGeometryEngine.geometry(geometry1, touchesGeometry: geometry2) { relationships.append("Touches") }
         if AGSGeometryEngine.geometry(geometry1, within: geometry2) { relationships.append("Within") }
         return relationships
     }
     
     // Show error
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
@@ -237,7 +237,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         //
         // Set number of children of an item
-        if item == nil  {
+        if item == nil {
             return relationshipsResults.count
         }
         else if item as? [String] == pointRelationships {
@@ -255,7 +255,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         //
         // Set children of an item
-        if item == nil  {
+        if item == nil {
             return relationshipsResults[index]
         }
         else if item as? [String] == pointRelationships {
@@ -273,13 +273,16 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         //
         // Item should be expandable if result array has elements
-        if item as? [String] == pointRelationships && pointRelationships.count > 0 {
+        if item as? [String] == pointRelationships,
+            !pointRelationships.isEmpty {
             return true
         }
-        else if item as? [String] == polylineRelationships && polylineRelationships.count > 0 {
+        else if item as? [String] == polylineRelationships,
+            !polylineRelationships.isEmpty {
             return true
         }
-        else if item as? [String] == polygonRelationships && polygonRelationships.count > 0 {
+        else if item as? [String] == polygonRelationships,
+            !polygonRelationships.isEmpty {
             return true
         }
         return false

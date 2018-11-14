@@ -253,7 +253,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     
     // MARK: - Helper Methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         if let window = view.window {
             let alert = NSAlert()
             alert.messageText = messageText
@@ -271,7 +271,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         }
     }
     
-    private func setRemoveStatisticButtonEnabledState(){
+    private func setRemoveStatisticButtonEnabledState() {
         // Only allow definition removal if there is a selected definition
         removeStatisticDefinitionButton.isEnabled = !statisticDefinitionsTableView.selectedRowIndexes.isEmpty
     }
@@ -414,7 +414,7 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let statisticRecord = item as? AGSStatisticRecord {
-            return statisticRecord.statistics.keys.count > 0
+            return !statisticRecord.statistics.keys.isEmpty
         }
         else {
             return false

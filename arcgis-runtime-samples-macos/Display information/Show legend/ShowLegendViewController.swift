@@ -19,13 +19,13 @@ import ArcGIS
 
 class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var outlineView:NSOutlineView!
-    @IBOutlet private var legendView:NSVisualEffectView!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var outlineView: NSOutlineView!
+    @IBOutlet private var legendView: NSVisualEffectView!
     
-    private var map:AGSMap!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
-    var legendInfosDict = [String:[AGSLegendInfo]]()
+    private var map: AGSMap!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
+    var legendInfosDict = [String: [AGSLegendInfo]]()
     private var orderArray = [AGSLayerContent]()
     
     override func viewDidLoad() {
@@ -61,7 +61,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         self.mapView.map = self.map
         
         //zoom to a custom viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: .webMercator()), scale: 9e7)
     }
     
     func populateLegends<S: Sequence>(with layers: S) where S.Element == AGSLayerContent {
@@ -99,7 +99,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    //MARK: - NSOutlineViewDataSource
+    // MARK: - NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil { //root
@@ -107,7 +107,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
         else {
             if let layerContent = item as? AGSLayerContent {
-                if layerContent.subLayerContents.count > 0 {
+                if !layerContent.subLayerContents.isEmpty {
                     return layerContent.subLayerContents.count
                 }
                 else {
@@ -143,7 +143,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         return (item is AGSLayerContent)
     }
     
-    //MARK: - NSOutlineViewDelegate
+    // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
@@ -162,9 +162,9 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         }
     }
     
-    //MARK: - Helper functions
+    // MARK: - Helper functions
     
-    func geometryTypeForSymbol(_ symbol:AGSSymbol) -> AGSGeometryType {
+    func geometryTypeForSymbol(_ symbol: AGSSymbol) -> AGSGeometryType {
         if symbol is AGSFillSymbol {
             return AGSGeometryType.polygon
         }
@@ -180,7 +180,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         return String(UInt(bitPattern: ObjectIdentifier(obj)))
     }
     
-    func nameForLayerContent(_ layerContent:AGSLayerContent) -> String {
+    func nameForLayerContent(_ layerContent: AGSLayerContent) -> String {
         if let layer = layerContent as? AGSLayer {
             return layer.name
         }

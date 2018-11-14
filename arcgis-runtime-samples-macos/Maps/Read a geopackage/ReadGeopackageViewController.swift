@@ -14,20 +14,20 @@
 
 import ArcGIS
 
-private let kDragRowType:String = "AGSLayerInMap"
-private let kLayerInTableRowKey:String = "AddedLayerRowView"
-private let kLayerNotInTableRowKey:String = "RemovedLayerRowView"
+private let kDragRowType: String = "AGSLayerInMap"
+private let kLayerInTableRowKey: String = "AddedLayerRowView"
+private let kLayerNotInTableRowKey: String = "RemovedLayerRowView"
 
 class ReadGeopackageViewController: NSViewController {
     
-    @IBOutlet weak var mapView:AGSMapView!
+    @IBOutlet weak var mapView: AGSMapView!
     
     @IBOutlet weak var layersInMapTableView: NSTableView!
     @IBOutlet weak var layersNotInMapTableView: NSTableView!
     
-    private var geoPackage:AGSGeoPackage?
+    private var geoPackage: AGSGeoPackage?
     
-    fileprivate var allLayers:[AGSLayer] = [] {
+    fileprivate var allLayers: [AGSLayer] = [] {
         didSet {
             var rasterCount = 1
             for layer in allLayers where layer is AGSRasterLayer &&
@@ -39,13 +39,13 @@ class ReadGeopackageViewController: NSViewController {
         }
     }
     
-    fileprivate var layersInMap:[AGSLayer] {
+    fileprivate var layersInMap: [AGSLayer] {
         // 0 is the bottom-most layer on the map, but first cell in a table.
         // By reversing the layer order from the map, we match the NSTableView order.
         return mapView.map?.operationalLayers.reversed() as? [AGSLayer] ?? []
     }
     
-    fileprivate var layersNotInMap:[AGSLayer] {
+    fileprivate var layersNotInMap: [AGSLayer] {
         guard mapView.map != nil else {
             return allLayers
         }
@@ -54,7 +54,6 @@ class ReadGeopackageViewController: NSViewController {
             return !layersInMap.contains(layer)
         })
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +101,7 @@ class ReadGeopackageViewController: NSViewController {
 }
 
 extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelegate, GPKGLayerTableCellDelegate {
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         // Return how many layers to show in each table
@@ -140,8 +139,8 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         if tableView == layersInMapTableView {
             
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
-            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: kDragRowType)], owner:self)
-            pboard.setData(data, forType:NSPasteboard.PasteboardType(rawValue: kDragRowType))
+            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: kDragRowType)], owner: self)
+            pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
             
             return true
         }
@@ -165,9 +164,9 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
         
-        if(rowData != nil) {
+        if rowData != nil {
             // A row for a layer in the map was dragged and dropped. Let's re-order the map layers to match.
-            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! Array<IndexSet>
+            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet]
             
             if let movingFromIndex = dataArray.first?.first {
                 self.moveLayer(from: movingFromIndex, to: row)
@@ -204,9 +203,8 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         // And redraw the table view to reflect the move.
         layersInMapTableView.reloadData()
     }
-
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if let tableView = notification.object as? NSTableView {
@@ -222,7 +220,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    //MARK: - GPKGLayerTableCellDelegate
+    // MARK: - GPKGLayerTableCellDelegate
     
     func removeLayerFromMap(cell: GPKGLayerTableCell) {
         // The trash can was clicked in a cell for a layer that's on the map.

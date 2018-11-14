@@ -19,9 +19,9 @@ import ArcGIS
 
 class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet private weak var mapView:AGSMapView!
-    private var map:AGSMap!
-    private var graphicsOverlay:AGSGraphicsOverlay!
+    @IBOutlet private weak var mapView: AGSMapView!
+    private var map: AGSMap!
+    private var graphicsOverlay: AGSGraphicsOverlay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
     
     func addGraphicsOverlay() {
         //polygon graphic
-        let polygonGeometry = AGSPolygonBuilder(spatialReference: AGSSpatialReference.webMercator())
+        let polygonGeometry = AGSPolygonBuilder(spatialReference: .webMercator())
         polygonGeometry.addPointWith(x: -20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: 20e5)
         polygonGeometry.addPointWith(x: 20e5, y: -20e5)
@@ -63,13 +63,13 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.mapView.graphicsOverlays.add(self.graphicsOverlay)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //use the following method to identify graphics in a specific graphics overlay
         //otherwise if you need to identify on all the graphics overlay present in the map view
         //use `identifyGraphicsOverlaysAtScreenCoordinate:tolerance:maximumGraphics:completion:` method provided on map view
-        let tolerance:Double = 4
+        let tolerance: Double = 4
         
         //show progress indicator
         NSApp.showProgressIndicator()
@@ -84,8 +84,8 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
             }
             else {
                 //if a graphics is found then show an alert
-                if result.graphics.count > 0 {
-                    if let _ = self.view.window {
+                if !result.graphics.isEmpty {
+                    if self.view.window != nil {
                         let alert = NSAlert()
                         alert.informativeText = "Tapped graphic."
                         alert.runModal()

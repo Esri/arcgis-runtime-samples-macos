@@ -21,7 +21,7 @@ let viewshedURLString = "https://sampleserver6.arcgisonline.com/arcgis/rest/serv
 
 class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     private var geoprocessingTask: AGSGeoprocessingTask!
     private var geoprocessingJob: AGSGeoprocessingJob!
@@ -147,7 +147,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         })
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //add a graphic in graphics overlay for the tapped point
@@ -157,9 +157,9 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         self.calculateViewshed(at: mapPoint)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

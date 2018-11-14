@@ -19,21 +19,21 @@ import ArcGIS
 
 class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var outlineView:NSOutlineView!
-    @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectView:NSVisualEffectView!
-    @IBOutlet private var featureTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var outlineView: NSOutlineView!
+    @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectView: NSVisualEffectView!
+    @IBOutlet private var featureTextField: NSTextField!
     
-    private var parksFeatureLayer:AGSFeatureLayer!
-    private var parksFeatureTable:AGSServiceFeatureTable!
-    private var preservesFeatureTable:AGSServiceFeatureTable!
-    private var speciesFeatureTable:AGSServiceFeatureTable!
-    private var identifyCancelable:AGSCancelable!
-    private var selectedPark:AGSArcGISFeature!
+    private var parksFeatureLayer: AGSFeatureLayer!
+    private var parksFeatureTable: AGSServiceFeatureTable!
+    private var preservesFeatureTable: AGSServiceFeatureTable!
+    private var speciesFeatureTable: AGSServiceFeatureTable!
+    private var identifyCancelable: AGSCancelable!
+    private var selectedPark: AGSArcGISFeature!
     
-    private var results:[AGSRelatedFeatureQueryResult]!
+    private var results: [AGSRelatedFeatureQueryResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         let map = AGSMap(basemap: .streets())
         
         //initial viewpoint
-        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: AGSSpatialReference(wkid: 3857))
+        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: .webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(center: point, scale: 36764077)
@@ -95,7 +95,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.featureTextField.stringValue = ""
         
         //query for related features
-        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
+        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -106,7 +106,8 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             }
             else {
-                if let results = results, results.count > 0 {
+                if let results = results,
+                    !results.isEmpty {
                     
                     //store results to show in the outline view
                     self?.results = results
@@ -126,7 +127,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
@@ -155,7 +156,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     self?.selectedPark = nil
                 }
                 
-                if result.geoElements.count > 0 {
+                if !result.geoElements.isEmpty {
                     
                     //Will pick the first feature
                     let feature = result.geoElements[0] as! AGSArcGISFeature
@@ -178,7 +179,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         }
     }
     
-    //MARK: - NSOutlineViewDataSource
+    // MARK: - NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         
@@ -201,14 +202,14 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let result = item as? AGSRelatedFeatureQueryResult {
-            return result.featureEnumerator().allObjects.count > 0
+            return !result.featureEnumerator().allObjects.isEmpty
         }
         else {
             return false
         }
     }
     
-    //MARK: - NSOutlineViewDelegate
+    // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         
@@ -234,9 +235,9 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         return cellView
     }
     
-    //MARK: - Show/hide table view
+    // MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(on:Bool, animated:Bool) {
+    private func toggleVisualEffectView(on: Bool, animated: Bool) {
         
         if animated {
          
@@ -248,9 +249,9 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
