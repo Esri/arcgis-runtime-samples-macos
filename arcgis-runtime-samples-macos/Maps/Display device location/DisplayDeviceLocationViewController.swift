@@ -19,7 +19,7 @@ import ArcGIS
 
 class DisplayDeviceLocationViewController: NSViewController {
     
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,7 @@ class DisplayDeviceLocationViewController: NSViewController {
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
             }
-        }
-        else {
+        } else {
             // stop showing the device location
             mapView.locationDisplay.stop()
         }
