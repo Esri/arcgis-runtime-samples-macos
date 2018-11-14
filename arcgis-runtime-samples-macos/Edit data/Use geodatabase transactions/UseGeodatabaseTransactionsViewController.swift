@@ -73,8 +73,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 // minimze the geodatabase size by excluding attachments
                 parameters.returnAttachments = false
                
@@ -119,8 +118,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
-            }
-            else if let geodatabase = geodatabase {
+            } else if let geodatabase = geodatabase {
                 self.geodatabase = geodatabase
                 
                 // enable the controls now that we have a geodatabase
@@ -133,8 +131,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                     }
                     if let error = error {
                         NSAlert(error: error).beginSheetModal(for: self.view.window!)
-                    }
-                    else {
+                    } else {
                         self.loadFeatureTables()
                     }
                     
@@ -163,8 +160,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 }
                 if let error = error {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
-                }
-                else {
+                } else {
                     self.loadPopUpMenuItems(for: featureTable)
                 }
             }
@@ -287,8 +283,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // enter a new transaction that must be matched with `rollbackTransaction()` or `commitTransaction()`
             try geodatabase.beginTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -303,8 +298,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // revert all the changes made since `beginTransaction()` and leave the transaction
             try geodatabase.rollbackTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -319,8 +313,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // save all the changes made since `beginTransaction()` and leave the transaction
             try geodatabase.commitTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -340,8 +333,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
             
                 // you can alter the parameters here if you need change the sync settings
             

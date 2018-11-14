@@ -15,7 +15,6 @@ disabled_rules: # rule identifiers to exclude from running
   - function_body_length
   - identifier_name
   - line_length
-  - statement_position
   - trailing_whitespace
   - type_name
   - unused_closure_parameter

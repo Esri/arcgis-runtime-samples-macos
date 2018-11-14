@@ -167,8 +167,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
                 // Add relationships to results array
                 strongSelf.relationshipsResults.append(strongSelf.polylineRelationships)
                 strongSelf.relationshipsResults.append(strongSelf.polygonRelationships)
-            }
-            else if let pointGeometry = strongSelf.pointGraphic.geometry, let polygonGeometry = strongSelf.polygonGraphic.geometry, selectedGeometry.geometryType == .polyline {
+            } else if let pointGeometry = strongSelf.pointGraphic.geometry, let polygonGeometry = strongSelf.polygonGraphic.geometry, selectedGeometry.geometryType == .polyline {
                 //
                 // Set geometry type for which we want to find relationships
                 strongSelf.findRelationshipsForGeometry = "Polyline"
@@ -180,8 +179,7 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
                 // Add relationships to results array
                 strongSelf.relationshipsResults.append(strongSelf.pointRelationships)
                 strongSelf.relationshipsResults.append(strongSelf.polygonRelationships)
-            }
-            else if let pointGeometry = strongSelf.pointGraphic.geometry, let polylineGeometry = strongSelf.polylineGraphic.geometry, selectedGeometry.geometryType == .polygon {
+            } else if let pointGeometry = strongSelf.pointGraphic.geometry, let polylineGeometry = strongSelf.polylineGraphic.geometry, selectedGeometry.geometryType == .polygon {
                 //
                 // Set geometry type for which we want to find relationships
                 strongSelf.findRelationshipsForGeometry = "Polygon"
@@ -239,14 +237,11 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         // Set number of children of an item
         if item == nil {
             return relationshipsResults.count
-        }
-        else if item as? [String] == pointRelationships {
+        } else if item as? [String] == pointRelationships {
             return pointRelationships.count
-        }
-        else if item as? [String] == polylineRelationships {
+        } else if item as? [String] == polylineRelationships {
             return polylineRelationships.count
-        }
-        else if item as? [String] == polygonRelationships {
+        } else if item as? [String] == polygonRelationships {
             return polygonRelationships.count
         }
         return 0
@@ -257,14 +252,11 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         // Set children of an item
         if item == nil {
             return relationshipsResults[index]
-        }
-        else if item as? [String] == pointRelationships {
+        } else if item as? [String] == pointRelationships {
             return pointRelationships[index]
-        }
-        else if item as? [String] == polylineRelationships {
+        } else if item as? [String] == polylineRelationships {
             return polylineRelationships[index]
-        }
-        else if item as? [String] == polygonRelationships {
+        } else if item as? [String] == polygonRelationships {
             return polygonRelationships[index]
         }
         return ""
@@ -276,12 +268,10 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         if item as? [String] == pointRelationships,
             !pointRelationships.isEmpty {
             return true
-        }
-        else if item as? [String] == polylineRelationships,
+        } else if item as? [String] == polylineRelationships,
             !polylineRelationships.isEmpty {
             return true
-        }
-        else if item as? [String] == polygonRelationships,
+        } else if item as? [String] == polygonRelationships,
             !polygonRelationships.isEmpty {
             return true
         }
@@ -296,14 +286,11 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
         // Set the title of the cell view
         if item as? [String] == pointRelationships {
             cellView.textField?.stringValue = "\(findRelationshipsForGeometry) Relationships With Point"
-        }
-        else if item as? [String] == polylineRelationships {
+        } else if item as? [String] == polylineRelationships {
             cellView.textField?.stringValue = "\(findRelationshipsForGeometry) Relationships With Polyline"
-        }
-        else if item as? [String] == polygonRelationships {
+        } else if item as? [String] == polygonRelationships {
             cellView.textField?.stringValue = "\(findRelationshipsForGeometry) Relationships With Polygon"
-        }
-        else if let string = item as? String {
+        } else if let string = item as? String {
             cellView.textField?.stringValue = string
         }
 

@@ -73,8 +73,7 @@ extension WindowController: NSSearchFieldDelegate {
             let matchingSamples = searchEngine.sortedSamples(matching: query)
             let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
             mainViewController.showCategory(searchResultsCategory)
-        }
-        else {
+        } else {
             mainViewController.showCategoryForAllSamples()
         }
     }

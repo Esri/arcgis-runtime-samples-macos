@@ -92,8 +92,7 @@ class HotspotsViewController: NSViewController {
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //a map image layer is generated as a result
                 //remove any layer previously added to the map
                 self?.mapView.map?.operationalLayers.removeAllObjects()
@@ -125,8 +124,7 @@ class HotspotsViewController: NSViewController {
         //if no interval specified
         if timeInterval <= 0 {
             self.showAlert(messageText: "Error", informativeText: "Please select a date range")
-        }
-        else {
+        } else {
             //get the dates from the date picker
             let fromDate = self.datePicker.dateValue
             let toDate = self.datePicker.dateValue.addingTimeInterval(timeInterval)

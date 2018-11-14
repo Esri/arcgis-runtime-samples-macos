@@ -90,8 +90,7 @@ class FeatureLayerQueryVC: NSViewController {
             if let error = error {
                 // display the error as an alert
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else if let features = result?.featureEnumerator().allObjects {
+            } else if let features = result?.featureEnumerator().allObjects {
                 if !features.isEmpty {
                     // display the selection
                     featureLayer.select(features)

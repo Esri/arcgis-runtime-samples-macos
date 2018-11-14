@@ -81,8 +81,7 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
             
             if let error = result.error {
                 print("error while identifying :: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 //if a graphics is found then show an alert
                 if !result.graphics.isEmpty {
                     if self.view.window != nil {

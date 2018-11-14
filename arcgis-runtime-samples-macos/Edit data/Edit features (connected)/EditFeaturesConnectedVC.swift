@@ -68,8 +68,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 print("Edits applied successfully")
             }
         }
@@ -92,8 +91,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while identifying features :: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 var popups = [AGSPopup]()
                 let geoElements = identifyLayerResult.geoElements
                 
@@ -106,8 +104,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
                 if !popups.isEmpty {
                     //show popups view controller
                     self?.showPopupsViewController(with: popups)
-                }
-                else {
+                } else {
                     //hide popups view controller
                     self?.hidePopupsViewController(animated: true)
                 }
@@ -145,8 +142,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //hide popups view controller to the left with or without animation
         if animated {
             self.containerViewLeadingConstraint.animator().constant = -200
-        }
-        else {
+        } else {
             self.containerViewLeadingConstraint.constant = -200
         }
         
@@ -245,8 +241,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //set the geometry as the center of the screen
         if let visibleArea = self.mapView.visibleArea {
             newFeature.geometry = visibleArea.extent.center
-        }
-        else {
+        } else {
             newFeature.geometry = AGSPoint(x: 0, y: 0, spatialReference: self.map.spatialReference)
         }
         

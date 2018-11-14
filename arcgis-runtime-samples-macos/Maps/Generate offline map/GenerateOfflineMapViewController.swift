@@ -79,8 +79,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                     //display error as alert
                     alert.beginSheetModal(for: window)
                 }
-            }
-            else {
+            } else {
                 strongSelf.title = strongSelf.mapView.map?.item?.title
                 strongSelf.generateButton.isEnabled = true
             }
@@ -135,8 +134,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                 
                 //unhide the extent view
                 self.extentView.isHidden = false
-            }
-            else if let result = result {
+            } else if let result = result {
                 self.offlineMapGenerationDidSucceed(with: result)
             }
         }
@@ -190,8 +188,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                     //display error as alert
                     alert.beginSheetModal(for: window)
                 }
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 //take map offline now that we have the parameters
                 self.takeMapOffline(parameters: parameters)
             }

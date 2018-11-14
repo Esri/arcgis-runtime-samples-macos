@@ -34,8 +34,7 @@ class OpenMobileMapViewController: NSViewController {
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else {
+            } else {
                 // assign the first map from the map package to the map view
                 self.mapView.map = mapPackage.maps.first
             }

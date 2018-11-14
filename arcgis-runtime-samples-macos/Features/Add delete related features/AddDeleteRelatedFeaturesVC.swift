@@ -260,8 +260,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 
                 //query for related features
                 self?.queryRelatedFeatures()
-            }
-            else {
+            } else {
                 //hide side container view
                 self?.toggleVisualEffectView(on: false, animated: true)
             }
@@ -297,8 +296,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         if animated {
             
             self.visualEffectViewTrailingConstraint.animator().constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
-        }
-        else {
+        } else {
             
             self.visualEffectViewTrailingConstraint.constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
         }

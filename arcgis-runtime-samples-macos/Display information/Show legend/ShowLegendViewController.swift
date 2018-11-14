@@ -104,19 +104,16 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil { //root
             return orderArray.count
-        }
-        else {
+        } else {
             if let layerContent = item as? AGSLayerContent {
                 if !layerContent.subLayerContents.isEmpty {
                     return layerContent.subLayerContents.count
-                }
-                else {
+                } else {
                     //return legend infos
                     let legendInfos = self.legendInfosDict[self.hashString(for: layerContent)]!
                     return legendInfos.count
                 }
-            }
-            else {
+            } else {
                 return 0
             }
         }
@@ -126,8 +123,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         if item == nil {
             let layer = self.orderArray[index]
             return layer
-        }
-        else {
+        } else {
             let layer = item as! AGSLayerContent
             let legendInfos = self.legendInfosDict[self.hashString(for: layer)]!
             let legendInfo = legendInfos[index]
@@ -151,8 +147,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
             let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LegendGroupCell"), owner: self) as! NSTableCellView
             cellView.textField?.stringValue = self.nameForLayerContent(layer)
             return cellView
-        }
-        else {
+        } else {
             let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LegendCellView"), owner: self) as! LegendCellView
 
             let legendInfo = item as! AGSLegendInfo
@@ -167,11 +162,9 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     func geometryTypeForSymbol(_ symbol: AGSSymbol) -> AGSGeometryType {
         if symbol is AGSFillSymbol {
             return AGSGeometryType.polygon
-        }
-        else if symbol is AGSLineSymbol {
+        } else if symbol is AGSLineSymbol {
             return .polyline
-        }
-        else {
+        } else {
             return .point
         }
     }
@@ -183,8 +176,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     func nameForLayerContent(_ layerContent: AGSLayerContent) -> String {
         if let layer = layerContent as? AGSLayer {
             return layer.name
-        }
-        else {
+        } else {
             return (layerContent as! AGSArcGISSublayer).name
         }
     }

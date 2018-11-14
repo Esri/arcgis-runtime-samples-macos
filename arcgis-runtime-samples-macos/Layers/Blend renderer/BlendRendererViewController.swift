@@ -99,8 +99,7 @@ class BlendRendererViewController: NSViewController {
         var baseRaster: AGSRaster
         if colorRampType == .none {
             baseRaster = AGSRaster(name: "Shasta", extension: "tif")
-        }
-        else {
+        } else {
             baseRaster = AGSRaster(name: "Shasta_Elevation", extension: "tif")
         }
         

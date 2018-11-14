@@ -41,8 +41,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
                 self.directionsListViewController?.route = generatedRoute
                 //show directionsList
                 self.toggleDirectionsList(on: true, animated: true)
-            }
-            else {
+            } else {
                 //hide directionsList
                 self.toggleDirectionsList(on: false, animated: true)
             }
@@ -87,8 +86,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.routeParameters = params
                 //enable bar button item
                 self?.routeParametersButton.isEnabled = true
@@ -139,8 +137,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
-            }
-            else {
+            } else {
                 let route = routeResult!.routes[0]
                 let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self!.routeSymbol(), attributes: nil)
                 self?.routeGraphicsOverlay.graphics.add(routeGraphic)
@@ -193,8 +190,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             if graphicsCount > 0 {
                 self.routeButton.isEnabled = true
             }
-        }
-        else {
+        } else {
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(normalizedPoint, byDistance: 500)
             let symbol = self.barrierSymbol()
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: symbol, attributes: nil)
@@ -208,8 +204,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             self.stopGraphicsOverlay.graphics.removeAllObjects()
             self.routeButton.isEnabled = false
-        }
-        else {
+        } else {
             self.barrierGraphicsOverlay.graphics.removeAllObjects()
         }
     }
@@ -217,8 +212,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     func toggleDirectionsList(on: Bool, animated: Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
-        }
-        else {
+        } else {
             self.directionsLeadingConstraint.constant = on ? 0 : -200
         }
     }
@@ -232,8 +226,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if id == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
-        }
-        else if id == "DirectionsListSegue" {
+        } else if id == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as? DirectionsListViewController
             self.directionsListViewController.delegate = self
         }

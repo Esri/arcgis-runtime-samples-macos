@@ -56,8 +56,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         if row == self.tableView.selectedRow {
             return 158  //height for expanded row
-        }
-        else {
+        } else {
             return 35   //height for regular row
         }
     }

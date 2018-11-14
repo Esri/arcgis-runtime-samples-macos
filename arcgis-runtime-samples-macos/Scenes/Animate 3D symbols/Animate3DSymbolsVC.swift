@@ -222,8 +222,7 @@ class Animate3DSymbolsVC: NSViewController {
                 
                 self.frames = frames
             }
-        }
-        else {
+        } else {
             Swift.print("Mission file not found")
         }
     }
@@ -379,8 +378,7 @@ class Animate3DSymbolsVC: NSViewController {
         //else stop animation by invalidating the timer
         if sender.state == NSControl.StateValue.on {
             self.startAnimation()
-        }
-        else {
+        } else {
             self.animationTimer?.invalidate()
         }
     }

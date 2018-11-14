@@ -140,8 +140,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         if self.routeTask == nil && self.locatorTask == nil {
             return
-        }
-        else if routeTask == nil {
+        } else if routeTask == nil {
             //if routing is not possible, then clear previous graphics
             self.markerGraphicsOverlay.graphics.removeAllObjects()
         }
@@ -159,8 +158,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
             
             if let error = result.error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 if result.graphics.isEmpty {
                     //add a graphic
                     var graphic: AGSGraphic
@@ -168,8 +166,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
                     if self?.routeTask != nil {
                         let index = self!.markerGraphicsOverlay.graphics.count + 1
                         graphic = self!.graphic(for: mapPoint, isIndexRequired: true, index: index)
-                    }
-                    else {
+                    } else {
                         graphic = self!.graphic(for: mapPoint, isIndexRequired: false, index: nil)
                     }
                     
@@ -180,8 +177,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
                     
                     //find route
                     self?.route()
-                }
-                else {
+                } else {
                     //reverse geocode
                     self?.reverseGeocode(mapPoint, withGraphic: result.graphics[0])
                 }
@@ -212,8 +208,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
             if let error = error {
                 
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //assign the label property of result as an attributes to the graphic
                 //and show the callout
                 if let results = results,
@@ -222,8 +217,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
                     graphic.attributes["Match_addr"] = results.first!.formattedAddressString
                     self?.showCallout(for: graphic, at: point, animated: false, offset: false)
                     return
-                }
-                else {
+                } else {
                     //no result was found
                     self?.showAlert(messageText: "Error", informativeText: "No address found")
                     
@@ -264,8 +258,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
             if let error = error {
                 
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.routeParameters = params
             }
         }
@@ -306,8 +299,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
                 
                 //remove the last marker
                 self?.markerGraphicsOverlay.graphics.removeLastObject()
-            }
-            else {
+            } else {
                 if let route = routeResult?.routes[0] {
                     let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self?.routeSymbol(), attributes: nil)
                     self?.routeGraphicsOverlay.graphics.add(routeGraphic)

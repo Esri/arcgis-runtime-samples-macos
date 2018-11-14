@@ -102,8 +102,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
         if addressType == "POI" {
             self.mapView.callout.detail = graphic.attributes["Place_addr"] as? String ?? ""
-        }
-        else {
+        } else {
             self.mapView.callout.detail = nil
         }
         
@@ -128,8 +127,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             if let error = result.error {
                 
                 self?.showAlert("Error", informativeText: error.localizedDescription)
-            }
-            else if !result.graphics.isEmpty {
+            } else if !result.graphics.isEmpty {
                 //show callout for the graphic
                 self?.showCallout(for: result.graphics[0], at: mapPoint)
             }
@@ -142,8 +140,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         //geocode if field not empty
         if !sender.stringValue.isEmpty {
             self.geocodeSearchText(sender.stringValue)
-        }
-        else {
+        } else {
             //clear already existing graphics
             self.graphicsOverlay.graphics.removeAllObjects()
             
