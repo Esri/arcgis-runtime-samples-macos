@@ -51,7 +51,6 @@ opt_in_rules: # some rules are only opt-in
   - multiline_parameters
   - overridden_super_call
   - override_in_extension
-  - prefixed_toplevel_constant
   - prohibited_super_call
   - redundant_nil_coalescing
   - redundant_type_annotation

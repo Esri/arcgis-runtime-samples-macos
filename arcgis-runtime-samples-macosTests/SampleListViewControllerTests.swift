@@ -17,8 +17,18 @@
 import XCTest
 @testable import ArcGIS_Runtime_SDK_Samples
 
+private let sample1 = Sample(name: "Sample 1", description: "", storyboardName: "", sourceFilenames: [])
+private let sample2 = Sample(name: "Sample 2", description: "", storyboardName: "", sourceFilenames: [])
+private let sample3 = Sample(name: "Sample 3", description: "", storyboardName: "", sourceFilenames: [])
+private let sample4 = Sample(name: "Sample 4", description: "", storyboardName: "", sourceFilenames: [])
+private let sample5 = Sample(name: "Sample 5", description: "", storyboardName: "", sourceFilenames: [])
+private let sample6 = Sample(name: "Sample 6", description: "", storyboardName: "", sourceFilenames: [])
+
+private let category1 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 1", samples: [sample1, sample2])
+private let category2 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 2", samples: [sample3])
+private let category3 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 3", samples: [sample4, sample5, sample6])
+
 class SampleListViewControllerTests: XCTestCase {
-    
     func testInit() {
         let sampleListVC = makeViewController()
         XCTAssertEqual(sampleListVC.categories, [])
@@ -30,17 +40,6 @@ class SampleListViewControllerTests: XCTestCase {
         let sampleListVC = makeViewController()
         _ = sampleListVC.view
         
-        let sample1 = Sample(name: "Sample 1", description: "", storyboardName: "", sourceFilenames: [])
-        let sample2 = Sample(name: "Sample 2", description: "", storyboardName: "", sourceFilenames: [])
-        let sample3 = Sample(name: "Sample 3", description: "", storyboardName: "", sourceFilenames: [])
-        let sample4 = Sample(name: "Sample 4", description: "", storyboardName: "", sourceFilenames: [])
-        let sample5 = Sample(name: "Sample 5", description: "", storyboardName: "", sourceFilenames: [])
-        let sample6 = Sample(name: "Sample 6", description: "", storyboardName: "", sourceFilenames: [])
-        
-        let category1 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 1", samples: [sample1, sample2])
-        let category2 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 2", samples: [sample3])
-        let category3 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 3", samples: [sample4, sample5, sample6])
-        
         sampleListVC.categories = [category1, category2, category3]
         
         XCTAssertEqual(sampleListVC.selectedCategory, category1)
@@ -50,17 +49,6 @@ class SampleListViewControllerTests: XCTestCase {
     func testSelectCategory() {
         let sampleListVC = makeViewController()
         _ = sampleListVC.view
-        
-        let sample1 = Sample(name: "Sample 1", description: "", storyboardName: "", sourceFilenames: [])
-        let sample2 = Sample(name: "Sample 2", description: "", storyboardName: "", sourceFilenames: [])
-        let sample3 = Sample(name: "Sample 3", description: "", storyboardName: "", sourceFilenames: [])
-        let sample4 = Sample(name: "Sample 4", description: "", storyboardName: "", sourceFilenames: [])
-        let sample5 = Sample(name: "Sample 5", description: "", storyboardName: "", sourceFilenames: [])
-        let sample6 = Sample(name: "Sample 6", description: "", storyboardName: "", sourceFilenames: [])
-        
-        let category1 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 1", samples: [sample1, sample2])
-        let category2 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 2", samples: [sample3])
-        let category3 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 3", samples: [sample4, sample5, sample6])
         
         XCTAssertNil(sampleListVC.selectedCategory)
         
@@ -74,17 +62,6 @@ class SampleListViewControllerTests: XCTestCase {
     func testSelectSample() {
         let sampleListVC = makeViewController()
         _ = sampleListVC.view
-        
-        let sample1 = Sample(name: "Sample 1", description: "", storyboardName: "", sourceFilenames: [])
-        let sample2 = Sample(name: "Sample 2", description: "", storyboardName: "", sourceFilenames: [])
-        let sample3 = Sample(name: "Sample 3", description: "", storyboardName: "", sourceFilenames: [])
-        let sample4 = Sample(name: "Sample 4", description: "", storyboardName: "", sourceFilenames: [])
-        let sample5 = Sample(name: "Sample 5", description: "", storyboardName: "", sourceFilenames: [])
-        let sample6 = Sample(name: "Sample 6", description: "", storyboardName: "", sourceFilenames: [])
-        
-        let category1 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 1", samples: [sample1, sample2])
-        let category2 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 2", samples: [sample3])
-        let category3 = ArcGIS_Runtime_SDK_Samples.Category(name: "Category 3", samples: [sample4, sample5, sample6])
         
         XCTAssertNil(sampleListVC.selectedSample)
         
