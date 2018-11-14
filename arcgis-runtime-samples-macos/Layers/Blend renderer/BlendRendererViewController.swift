@@ -20,14 +20,14 @@ import ArcGIS
 class BlendRendererViewController: NSViewController {
 
     @IBOutlet var mapView: AGSMapView!
-    @IBOutlet var altitudeSlider:NSSlider!
-    @IBOutlet var azimuthSlider:NSSlider!
-    @IBOutlet var altitudeLabel:NSTextField!
-    @IBOutlet var azimuthLabel:NSTextField!
-    @IBOutlet var slopeType:NSPopUpButton!
-    @IBOutlet var colorramp:NSPopUpButton!
+    @IBOutlet var altitudeSlider: NSSlider!
+    @IBOutlet var azimuthSlider: NSSlider!
+    @IBOutlet var altitudeLabel: NSTextField!
+    @IBOutlet var azimuthLabel: NSTextField!
+    @IBOutlet var slopeType: NSPopUpButton!
+    @IBOutlet var colorramp: NSPopUpButton!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     private var rasterLayer: AGSRasterLayer!
     
@@ -61,8 +61,6 @@ class BlendRendererViewController: NSViewController {
         return renderer
     }
     
-    
-    
     func selectedSlope() -> AGSSlopeType {
         switch self.slopeType.indexOfSelectedItem {
         case 0:
@@ -89,7 +87,7 @@ class BlendRendererViewController: NSViewController {
         }
     }
     
-    //MARK: -
+    // MARK: -
     
     func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType, colorRampType: AGSPresetColorRampType) {
         
@@ -98,11 +96,10 @@ class BlendRendererViewController: NSViewController {
         
         //if the colorRamp type is None, then use the Shasta.tif for blending.
         //else use the elevation raster with color ramp
-        var baseRaster:AGSRaster
+        var baseRaster: AGSRaster
         if colorRampType == .none {
             baseRaster = AGSRaster(name: "Shasta", extension: "tif")
-        }
-        else {
+        } else {
             baseRaster = AGSRaster(name: "Shasta_Elevation", extension: "tif")
         }
         
@@ -116,20 +113,20 @@ class BlendRendererViewController: NSViewController {
         self.rasterLayer.renderer = blendRenderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func applyAction(_ sender:NSButton) {
+    @IBAction func applyAction(_ sender: NSButton) {
         let altitude = self.altitudeSlider.doubleValue
         let azimuth = self.azimuthSlider.doubleValue
         
         self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope(), colorRampType: self.selectedColorRamp())
     }
     
-    @IBAction func altitudeSliderAction(_ sender:NSSlider) {
+    @IBAction func altitudeSliderAction(_ sender: NSSlider) {
         self.altitudeLabel.stringValue = "\(sender.integerValue)"
     }
     
-    @IBAction func azimuthSliderAction(_ sender:NSSlider) {
+    @IBAction func azimuthSliderAction(_ sender: NSSlider) {
         self.azimuthLabel.stringValue = "\(sender.integerValue)"
     }
 }

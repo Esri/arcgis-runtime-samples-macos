@@ -61,7 +61,7 @@ class GenerateGeodatabaseVC: NSViewController {
                    
                     //For each layer in the serice, add a layer to the map
                     let layerURL = self.syncTask.url!.appendingPathComponent(String(index))
-                    let featureTable = AGSServiceFeatureTable(url:layerURL)
+                    let featureTable = AGSServiceFeatureTable(url: layerURL)
                     let featureLayer = AGSFeatureLayer(featureTable: featureTable)
                     featureLayer.name = layerInfo.name
                     featureLayer.opacity = 0.65
@@ -82,9 +82,9 @@ class GenerateGeodatabaseVC: NSViewController {
         return extent
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func generateAction(_ sender:NSButton) {
+    @IBAction func generateAction(_ sender: NSButton) {
         
         //show progress indicator
         NSApp.showProgressIndicator()
@@ -103,11 +103,13 @@ class GenerateGeodatabaseVC: NSViewController {
                 //create a unique name for the geodatabase based on current timestamp
                 let dateFormatter = ISO8601DateFormatter()
                 
-                let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                let fullPath = "\(path)/\(dateFormatter.string(from: Date())).geodatabase"
+                let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let downloadFileURL = documentDirectoryURL
+                    .appendingPathComponent(dateFormatter.string(from: Date()))
+                    .appendingPathExtension("geodatabase")
                 
                 //request a job to generate the geodatabase
-                let generateJob = self.syncTask.generateJob(with: params, downloadFileURL: URL(string: fullPath)!)
+                let generateJob = self.syncTask.generateJob(with: params, downloadFileURL: downloadFileURL)
                 self.activeJob = generateJob
                 
                 //show progress bar
@@ -130,14 +132,12 @@ class GenerateGeodatabaseVC: NSViewController {
                         if (error as NSError).code != NSUserCancelledError {
                             self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                         }
-                    }
-                    else if let geodatabase = object as? AGSGeodatabase {
+                    } else if let geodatabase = object as? AGSGeodatabase {
                         self.generatedGeodatabase = geodatabase
                         self.displayLayersFromGeodatabase()
                     }
                 }
-            }
-            else{
+            } else {
                 self?.showAlert(messageText: "Error", informativeText: "Could not generate default parameters: \(error!)")
             }
         }
@@ -147,7 +147,7 @@ class GenerateGeodatabaseVC: NSViewController {
         guard let generatedGeodatabase = generatedGeodatabase else {
             return
         }
-        generatedGeodatabase.load(completion: { [weak self] (error:Error?) -> Void in
+        generatedGeodatabase.load(completion: { [weak self] (error: Error?) -> Void in
             
             guard let self = self else {
                 return
@@ -155,8 +155,7 @@ class GenerateGeodatabaseVC: NSViewController {
             
             if let error = error {
                 self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self.mapView.map?.operationalLayers.removeAllObjects()
                 
                 AGSLoadObjects(generatedGeodatabase.geodatabaseFeatureTables) { (success: Bool) in
@@ -183,9 +182,9 @@ class GenerateGeodatabaseVC: NSViewController {
         })
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

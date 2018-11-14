@@ -61,7 +61,7 @@ class StatisticalQueryViewController: NSViewController {
         let statisticsQueryParameters = AGSStatisticsQueryParameters(statisticDefinitions: statisticDefinitions)
         
         // If only using features in the current extent, set up the spatial filter for the statistics query parameters
-        if (onlyInCurrentExtentCheckBox.state.rawValue == 1) {
+        if onlyInCurrentExtentCheckBox.state.rawValue == 1 {
             //
             // Set the statistics query parameters geometry with the envelope
             statisticsQueryParameters.geometry = mapView.visibleArea?.extent
@@ -71,7 +71,7 @@ class StatisticalQueryViewController: NSViewController {
         }
         
         // If only evaluating the largest cities (over 5 million in population), set up an attribute filter
-        if (onlyBigCitiesCheckBox.state.rawValue == 1) {
+        if onlyBigCitiesCheckBox.state.rawValue == 1 {
             statisticsQueryParameters.whereClause = "POP_RANK = 1"
         }
         
@@ -104,7 +104,7 @@ class StatisticalQueryViewController: NSViewController {
     
     // MARK: - Helper Methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

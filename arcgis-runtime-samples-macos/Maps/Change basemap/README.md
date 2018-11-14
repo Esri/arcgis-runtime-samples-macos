@@ -10,7 +10,7 @@ The sample provides a segmented control that you can use to select and change a 
 
 ## How it works
 
-`AGSMap` has a `basemap` property of type `AGSBasemap`. On each selection, the app creates a new basemap of the specified type and assigns it to `map.basemap`. `AGSBasemp` provides a set of factory methods for each of Esri's basemap.
+`AGSMap` has a `basemap` property of type `AGSBasemap`. On each selection, the app assigns the basemap of the specified type to `map.basemap`. `AGSBasemp` provides a set of factory methods for each of Esri's basemap.
 
 
 

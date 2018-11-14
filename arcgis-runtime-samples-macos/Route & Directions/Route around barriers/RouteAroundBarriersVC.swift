@@ -19,30 +19,29 @@ import ArcGIS
 
 class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, DirectionsListVCDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var segmentedControl:NSSegmentedControl!
-    @IBOutlet var routeParametersButton:NSButton!
-    @IBOutlet var routeButton:NSButton!
-    @IBOutlet var directionsLeadingConstraint:NSLayoutConstraint!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var segmentedControl: NSSegmentedControl!
+    @IBOutlet var routeParametersButton: NSButton!
+    @IBOutlet var routeButton: NSButton!
+    @IBOutlet var directionsLeadingConstraint: NSLayoutConstraint!
     
     private var stopGraphicsOverlay = AGSGraphicsOverlay()
     private var barrierGraphicsOverlay = AGSGraphicsOverlay()
     private var routeGraphicsOverlay = AGSGraphicsOverlay()
     private var directionsGraphicsOverlay = AGSGraphicsOverlay()
     
-    private var routeTask:AGSRouteTask!
-    private var routeParameters:AGSRouteParameters!
+    private var routeTask: AGSRouteTask!
+    private var routeParameters: AGSRouteParameters!
     //private var isDirectionsListVisible = false
-    private var directionsListViewController:DirectionsListViewController!
+    private var directionsListViewController: DirectionsListViewController!
     
-    var generatedRoute:AGSRoute! {
+    var generatedRoute: AGSRoute! {
         didSet {
             if generatedRoute != nil {
                 self.directionsListViewController?.route = generatedRoute
                 //show directionsList
                 self.toggleDirectionsList(on: true, animated: true)
-            }
-            else {
+            } else {
                 //hide directionsList
                 self.toggleDirectionsList(on: false, animated: true)
             }
@@ -61,7 +60,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.mapView.graphicsOverlays.addObjects(from: [routeGraphicsOverlay, directionsGraphicsOverlay, barrierGraphicsOverlay, stopGraphicsOverlay])
         
         //zoom to viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13042254.715252, y: 3857970.236806, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 1e5, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13042254.715252, y: 3857970.236806, spatialReference: .webMercator()), scale: 1e5)
         
         //initialize route task
         self.routeTask = AGSRouteTask(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route")!)
@@ -73,7 +72,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.toggleDirectionsList(on: false, animated: false)
     }
     
-    //MARK: - Route logic
+    // MARK: - Route logic
     
     func getDefaultParameters() {
         
@@ -87,8 +86,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.routeParameters = params
                 //enable bar button item
                 self?.routeParametersButton.isEnabled = true
@@ -96,7 +94,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    @IBAction func route(_ sender:NSButton) {
+    @IBAction func route(_ sender: NSButton) {
         //add check
         if self.routeParameters == nil || self.stopGraphicsOverlay.graphics.count < 2 {
             //SVProgressHUD.showErrorWithStatus("Either parameters not loaded or not sufficient stops")
@@ -113,7 +111,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         var stops = [AGSStop]()
         for graphic in self.stopGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
             let stop = AGSStop(point: graphic.geometry as! AGSPoint)
-            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic)+1)"
+            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic) + 1)"
             stops.append(stop)
         }
         self.routeParameters.clearStops()
@@ -132,15 +130,14 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult:AGSRouteResult?, error:Error?) -> Void in
+        self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) -> Void in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
-            }
-            else {
+            } else {
                 let route = routeResult!.routes[0]
                 let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self!.routeSymbol(), attributes: nil)
                 self?.routeGraphicsOverlay.graphics.add(routeGraphic)
@@ -162,7 +159,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
         let markerImage = #imageLiteral(resourceName: "BlueMarker")
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
-        markerSymbol.offsetY = markerImage.size.height/2
+        markerSymbol.offsetY = markerImage.size.height / 2
         
         let textSymbol = AGSTextSymbol(text: "\(index)", color: .white, size: 20, horizontalAlignment: .center, verticalAlignment: .middle)
         textSymbol.offsetY = markerSymbol.offsetY
@@ -176,7 +173,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         return AGSSimpleFillSymbol(style: .diagonalCross, color: .red, outline: nil)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //normalize geometry
@@ -185,7 +182,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             //create a graphic for stop and add to the graphics overlay
             let graphicsCount = self.stopGraphicsOverlay.graphics.count
-            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount+1)
+            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount + 1)
             let graphic = AGSGraphic(geometry: normalizedPoint, symbol: symbol, attributes: nil)
             self.stopGraphicsOverlay.graphics.add(graphic)
             
@@ -193,8 +190,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             if graphicsCount > 0 {
                 self.routeButton.isEnabled = true
             }
-        }
-        else {
+        } else {
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(normalizedPoint, byDistance: 500)
             let symbol = self.barrierSymbol()
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: symbol, attributes: nil)
@@ -202,28 +198,26 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func clearAction(_ sender:NSButton) {
+    @IBAction func clearAction(_ sender: NSButton) {
         if segmentedControl.selectedSegment == 0 {
             self.stopGraphicsOverlay.graphics.removeAllObjects()
             self.routeButton.isEnabled = false
-        }
-        else {
+        } else {
             self.barrierGraphicsOverlay.graphics.removeAllObjects()
         }
     }
     
-    func toggleDirectionsList(on:Bool, animated:Bool) {
+    func toggleDirectionsList(on: Bool, animated: Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
-        }
-        else {
+        } else {
             self.directionsLeadingConstraint.constant = on ? 0 : -200
         }
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier else {
@@ -232,17 +226,16 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if id == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
-        }
-        else if id == "DirectionsListSegue" {
+        } else if id == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as? DirectionsListViewController
             self.directionsListViewController.delegate = self
         }
     }
     
-    //MARK: - DirectionsListVCDelegate
+    // MARK: - DirectionsListVCDelegate
     
     func directionsListViewControllerDidDeleteRoute(_ directionsListViewController: DirectionsListViewController) {
-        self.generatedRoute = nil;
+        self.generatedRoute = nil
         self.routeGraphicsOverlay.graphics.removeAllObjects()
         self.directionsGraphicsOverlay.graphics.removeAllObjects()
     }
@@ -259,9 +252,9 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.mapView.setViewpointGeometry(directionManeuver.geometry!.extent, padding: 100, completion: nil)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

@@ -19,20 +19,20 @@ import ArcGIS
 
 class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate, NSTableViewDataSource, NSTableViewDelegate {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var tableView:NSTableView!
-    @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectView:NSVisualEffectView!
-    @IBOutlet private var featureTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var tableView: NSTableView!
+    @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectView: NSVisualEffectView!
+    @IBOutlet private var featureTextField: NSTextField!
     
-    private var parksFeatureTable:AGSServiceFeatureTable!
-    private var speciesFeatureTable:AGSServiceFeatureTable!
-    private var parksFeatureLayer:AGSFeatureLayer!
-    private var relatedFeatures:[AGSFeature]!
-    private var relationshipInfo:AGSRelationshipInfo!
-    private var selectedPark:AGSArcGISFeature!
-    private var identifyCancelable:AGSCancelable!
+    private var parksFeatureTable: AGSServiceFeatureTable!
+    private var speciesFeatureTable: AGSServiceFeatureTable!
+    private var parksFeatureLayer: AGSFeatureLayer!
+    private var relatedFeatures: [AGSFeature]!
+    private var relationshipInfo: AGSRelationshipInfo!
+    private var selectedPark: AGSArcGISFeature!
+    private var identifyCancelable: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let map = AGSMap(basemap: .terrainWithLabels())
         
         //initial viewpoint
-        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: AGSSpatialReference(wkid: 3857))
+        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: .webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(center: point, scale: 20064077)
@@ -103,7 +103,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         parameters.orderByFields = [AGSOrderBy(fieldName: "OBJECTID", sortOrder: .descending)]
         
         //query for species related to the selected park
-        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
+        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark, parameters: parameters) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -115,7 +115,8 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 return
             }
             
-            if let results = results, results.count > 0 {
+            if let results = results,
+                !results.isEmpty {
                 
                 //Displaying information on selected park using the field UNIT_NAME, name of the park
                 self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
@@ -141,7 +142,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
         
         //new related feature (specie)
-        let feature = relatedTable.createFeature(attributes: ["Scientific_name" : "New specie"], geometry: nil) as! AGSArcGISFeature
+        let feature = relatedTable.createFeature(attributes: ["Scientific_name": "New specie"], geometry: nil) as! AGSArcGISFeature
         
         //relate new feature to origin feature
         feature.relate(to: self.selectedPark)
@@ -214,7 +215,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         
@@ -248,7 +249,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 return
             }
             
-            if result.geoElements.count > 0 {
+            if !result.geoElements.isEmpty {
                 
                 //will use the first feature
                 let feature = result.geoElements[0] as! AGSArcGISFeature
@@ -259,21 +260,20 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 
                 //query for related features
                 self?.queryRelatedFeatures()
-            }
-            else {
+            } else {
                 //hide side container view
                 self?.toggleVisualEffectView(on: false, animated: true)
             }
         }
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.relatedFeatures?.count ?? 0
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
@@ -289,23 +289,22 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         return cellView
     }
     
-    //MARK: - Show/hide table view
+    // MARK: - Show/hide table view
     
     private func toggleVisualEffectView(on: Bool, animated: Bool) {
         
         if animated {
             
             self.visualEffectViewTrailingConstraint.animator().constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
-        }
-        else {
+        } else {
             
             self.visualEffectViewTrailingConstraint.constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction private func addAction(sender:NSButton) {
+    @IBAction private func addAction(sender: NSButton) {
         
         self.addRelatedFeature()
     }
@@ -326,9 +325,9 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

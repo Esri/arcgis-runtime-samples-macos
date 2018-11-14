@@ -17,15 +17,15 @@
 import Cocoa
 
 extension NSApplication {
-    //MARK: - Progres indicator
+    // MARK: - Progres indicator
     
     func showProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.showProgressIndicator()
     }
     
     func hideProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.hideProgressIndicator()
     }
 }
@@ -34,13 +34,13 @@ class WindowController: NSWindowController {
     
     private var searchEngine: SampleSearchEngine?
     
-    @IBOutlet private var progressIndicator:NSProgressIndicator!
+    @IBOutlet private var progressIndicator: NSProgressIndicator!
     
-    func loadSearchEngine(samples: [Sample]){
+    func loadSearchEngine(samples: [Sample]) {
         searchEngine = SampleSearchEngine(samples: samples)
     }
     
-    //MARK: - Progress indicator
+    // MARK: - Progress indicator
     
     func showProgressIndicator() {
         progressIndicator.startAnimation(nil)
@@ -52,10 +52,10 @@ class WindowController: NSWindowController {
     
 }
 
-extension WindowController: NSSearchFieldDelegate{
+extension WindowController: NSSearchFieldDelegate {
     
     func controlTextDidBeginEditing(_ obj: Notification) {
-        if let mainViewController = contentViewController as? MainViewController{
+        if let mainViewController = contentViewController as? MainViewController {
             // Remove the selection in the outline since it doesn't correspond to the search results
             mainViewController.sampleListViewController.deselectAllOutlineViewCells()
         }
@@ -64,17 +64,16 @@ extension WindowController: NSSearchFieldDelegate{
     func controlTextDidChange(_ notification: Notification) {
         guard let searchEngine = searchEngine,
             let searchField = notification.object as? NSSearchField,
-            let mainViewController = contentViewController as? MainViewController else{
+            let mainViewController = contentViewController as? MainViewController else {
             return
         }
             
         let query = searchField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !query.isEmpty{
+        if !query.isEmpty {
             let matchingSamples = searchEngine.sortedSamples(matching: query)
             let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
             mainViewController.showCategory(searchResultsCategory)
-        }
-        else{
+        } else {
             mainViewController.showCategoryForAllSamples()
         }
     }

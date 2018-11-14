@@ -19,20 +19,20 @@ import ArcGIS
 
 protocol MapPackageCellDelegate: AnyObject {
     
-    func mapPackageCellView(_ mapPackageCellView:MapPackageCellView, didSelectMap map:AGSMap)
+    func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap)
 }
 
 class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollectionViewDelegate {
 
-    @IBOutlet var label:NSTextField!
-    @IBOutlet var collectionView:NSCollectionView!
-    @IBOutlet var collectionViewHeightConstraint:NSLayoutConstraint!
+    @IBOutlet var label: NSTextField!
+    @IBOutlet var collectionView: NSCollectionView!
+    @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
     
     weak var delegate: MapPackageCellDelegate?
     
-    var cellOriginalHeight:CGFloat = 0
+    var cellOriginalHeight: CGFloat = 0
     
-    var mapPackage:AGSMobileMapPackage! {
+    var mapPackage: AGSMobileMapPackage! {
         didSet {
             self.loadMapPackage()
         }
@@ -43,7 +43,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.mapPackage.load { [weak self] (error:Error?) in
+        self.mapPackage.load { [weak self] (error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -51,8 +51,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
             if let error = error {
                 //error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //update title label
                 if let title = self?.mapPackage.item?.title {
                     self?.label.stringValue = title
@@ -63,7 +62,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         }
     }
     
-    //MARK: - NSCollectionViewDataSource
+    // MARK: - NSCollectionViewDataSource
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.mapPackage?.maps.count ?? 0
@@ -89,7 +88,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         return item
     }
     
-    //MARK: - NSCollectionViewDelegate
+    // MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         let indexPath = indexPaths.first!
@@ -98,10 +97,9 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
         self.delegate?.mapPackageCellView(self, didSelectMap: map)
     }
     
+    // MARK: - Helper methods
     
-    //MARK: - Helper methods
-    
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

@@ -18,25 +18,25 @@ import ArcGIS
 
 class FindRouteViewController: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var routeButton:NSButton!
-    @IBOutlet var directionsButton:NSButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var routeButton: NSButton!
+    @IBOutlet var directionsButton: NSButton!
     
     //initialize route task
     var routeTask = AGSRouteTask(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route")!)
-    var routeParameters:AGSRouteParameters?
+    var routeParameters: AGSRouteParameters?
     
     var stopGraphicsOverlay = AGSGraphicsOverlay()
     var routeGraphicsOverlay = AGSGraphicsOverlay()
     
-    var stop1Geometry:AGSPoint {
-        return AGSPoint(x: -13041171.537945, y: 3860988.271378, spatialReference: AGSSpatialReference(wkid: 3857))
+    var stop1Geometry: AGSPoint {
+        return AGSPoint(x: -13041171.537945, y: 3860988.271378, spatialReference: .webMercator())
     }
-    var stop2Geometry:AGSPoint {
-        return AGSPoint(x: -13041693.562570, y: 3856006.859684, spatialReference: AGSSpatialReference(wkid: 3857))
+    var stop2Geometry: AGSPoint {
+        return AGSPoint(x: -13041693.562570, y: 3856006.859684, spatialReference: .webMercator())
     }
     
-    var generatedRoute:AGSRoute? {
+    var generatedRoute: AGSRoute? {
         didSet {
             let flag = generatedRoute != nil
             self.directionsButton.isEnabled = flag
@@ -54,7 +54,7 @@ class FindRouteViewController: NSViewController {
         self.mapView.graphicsOverlays.addObjects(from: [routeGraphicsOverlay, stopGraphicsOverlay])
         
         //zoom to viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13041154.715252, y: 3858170.236806, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 9e4, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13041154.715252, y: 3858170.236806, spatialReference: .webMercator()), scale: 9e4)
         
         //get default parameters
         self.getDefaultParameters()
@@ -90,7 +90,7 @@ class FindRouteViewController: NSViewController {
         return compositeSymbol
     }
     
-    //MARK: - Route logic
+    // MARK: - Route logic
     
     //method to get the default parameters for the route task
     func getDefaultParameters() {
@@ -120,7 +120,7 @@ class FindRouteViewController: NSViewController {
         }
     }
     
-    @IBAction func route(_ sender:NSButton) {
+    @IBAction func route(_ sender: NSButton) {
         
         //route only if default parameters are fetched successfully
         guard let routeParameters = self.routeParameters else {
@@ -187,9 +187,9 @@ class FindRouteViewController: NSViewController {
         controller.preferredContentSize = CGSize(width: 300, height: 300)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

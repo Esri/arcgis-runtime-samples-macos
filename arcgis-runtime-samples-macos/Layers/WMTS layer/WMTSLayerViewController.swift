@@ -19,9 +19,9 @@ import ArcGIS
 
 class WMTSLayerViewController: NSViewController {
     
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     private var wmtsService: AGSWMTSService!
     
     private let WMTS_SERVICE_URL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS")!
@@ -59,9 +59,9 @@ class WMTSLayerViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

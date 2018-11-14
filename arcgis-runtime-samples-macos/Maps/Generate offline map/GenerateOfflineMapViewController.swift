@@ -67,20 +67,19 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
             
-            guard let strongSelf = self else{
+            guard let strongSelf = self else {
                 return
             }
             
-            if let error = error{
+            if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = strongSelf.view.window{
+                    let window = strongSelf.view.window {
                     let alert = NSAlert(error: error)
                     //display error as alert
                     alert.beginSheetModal(for: window)
                 }
-            }
-            else{
+            } else {
                 strongSelf.title = strongSelf.mapView.map?.item?.title
                 strongSelf.generateButton.isEnabled = true
             }
@@ -94,11 +93,11 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         extentView.layer?.borderWidth = 3
     }
     
-    //MARK: - offline map generation
+    // MARK: - offline map generation
     
     private func takeMapOffline(parameters: AGSGenerateOfflineMapParameters) {
         
-        guard let offlineMapTask = offlineMapTask else{
+        guard let offlineMapTask = offlineMapTask else {
                 return
         }
 
@@ -108,11 +107,11 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         self.generateOfflineMapJob = generateOfflineMapJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel:  "Generating Offline Map")
+        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel: "Generating Offline Map")
         presentAsSheet(progressViewController)
         
         //start the job
-        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
+        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result: AGSGenerateOfflineMapResult?, error: Error?) in
             
             guard let self = self else {
                 return
@@ -124,7 +123,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
             if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
@@ -135,8 +134,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                 
                 //unhide the extent view
                 self.extentView.isHidden = false
-            }
-            else if let result = result {
+            } else if let result = result {
                 self.offlineMapGenerationDidSucceed(with: result)
             }
         }
@@ -163,9 +161,9 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         mapView.map = result.offlineMap
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func generateOfflineMapAction(_ button:NSButton) {
+    @IBAction func generateOfflineMapAction(_ button: NSButton) {
         
         //hide and disable the offline map button
         generateButton.isEnabled = false
@@ -190,15 +188,14 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
                     //display error as alert
                     alert.beginSheetModal(for: window)
                 }
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 //take map offline now that we have the parameters
                 self.takeMapOffline(parameters: parameters)
             }
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showLoginQueryAlert() {
         let alert = NSAlert()
@@ -206,7 +203,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
         alert.beginSheetModal(for: view.window!) {[weak self] (response) in
-            if response == .alertFirstButtonReturn{
+            if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
         }
@@ -226,7 +223,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         return AGSEnvelope(min: minPoint, max: maxPoint)
     }
     
-    private func getNewOfflineGeodatabaseURL()->URL{
+    private func getNewOfflineGeodatabaseURL() -> URL {
        
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory

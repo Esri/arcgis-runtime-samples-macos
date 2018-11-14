@@ -24,7 +24,7 @@ protocol MapPackagesListVCDelegate: AnyObject {
 
 class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MapPackageCellDelegate {
 
-    @IBOutlet private var tableView:NSTableView!
+    @IBOutlet private var tableView: NSTableView!
     
     var mapPackages = [AGSMobileMapPackage]() {
         didSet {
@@ -34,9 +34,9 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     }
     private var selectedRow = -1
     
-    weak var delegate:MapPackagesListVCDelegate?
+    weak var delegate: MapPackagesListVCDelegate?
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return mapPackages.count
@@ -56,13 +56,12 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         if row == self.tableView.selectedRow {
             return 158  //height for expanded row
-        }
-        else {
+        } else {
             return 35   //height for regular row
         }
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if self.selectedRow != -1 {
@@ -80,7 +79,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
         self.selectedRow = self.tableView.selectedRow
     }
     
-    //MARK: - MapPackageCellDelegate
+    // MARK: - MapPackageCellDelegate
     
     func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
         
