@@ -316,10 +316,10 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
         
         if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            guard let id = tableColumn?.identifier else {
+            guard let tableColumnID = tableColumn?.identifier.rawValue else {
                 return
             }
-            if id.rawValue == "FieldNameCheckBox" {
+            if tableColumnID == "FieldNameCheckBox" {
                 if let buttonState = object as? Int, buttonState == 1 {
                     selectedOrderByFields.append(orderByField)
                 } else {
@@ -328,7 +328,7 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
                         selectedOrderByFields.remove(at: index)
                     }
                 }
-            } else if id.rawValue == "SortOrder" {
+            } else if tableColumnID == "SortOrder" {
                 if let selectedIndex = object as? Int, let sortOrder = AGSSortOrder(rawValue: selectedIndex) {
                     orderByField.sortOrder = sortOrder
                 }
@@ -350,15 +350,15 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
             }
         } else if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            guard let id = tableColumn?.identifier else {
+            guard let tableColumnID = tableColumn?.identifier.rawValue else {
                 return nil
             }
-            if id.rawValue == "FieldNameCheckBox" {
+            if tableColumnID == "FieldNameCheckBox" {
                 if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
                     buttonCell.title = orderByField.fieldName
                     return selectedOrderByFields.contains(orderByField) ? 1 : 0
                 }
-            } else if id.rawValue == "SortOrder" {
+            } else if tableColumnID == "SortOrder" {
                 if let popUpButtonCell = tableColumn?.dataCell(forRow: row) as? NSPopUpButtonCell {
                     return popUpButtonCell.indexOfItem(withTitle: stringFor(sortOrder: orderByField.sortOrder))
                 }

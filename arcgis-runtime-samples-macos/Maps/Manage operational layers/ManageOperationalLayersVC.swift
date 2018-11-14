@@ -47,13 +47,13 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         
     }
     
-    func moveLayer(_ layer: AGSLayer, from: Int, to: Int) {
-        self.mapView.map?.operationalLayers.removeObject(at: from)
+    func moveLayer(_ layer: AGSLayer, fromIndex: Int, toIndex: Int) {
+        self.mapView.map?.operationalLayers.removeObject(at: fromIndex)
         
-        if to > mapView.map!.operationalLayers.count - 1 {
+        if toIndex > mapView.map!.operationalLayers.count - 1 {
             self.mapView.map?.operationalLayers.add(layer)
         } else {
-            self.mapView.map?.operationalLayers.insert(layer, at: to)
+            self.mapView.map?.operationalLayers.insert(layer, at: toIndex)
         }
         self.tableView1.reloadData()
     }
@@ -120,7 +120,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
             let movingFromIndex = indexSet.first
             let layer = self.mapView.map!.operationalLayers[movingFromIndex!] as! AGSLayer
             
-            self.moveLayer(layer, from: movingFromIndex!, to: row)
+            self.moveLayer(layer, fromIndex: movingFromIndex!, toIndex: row)
             
             return true
         } else {

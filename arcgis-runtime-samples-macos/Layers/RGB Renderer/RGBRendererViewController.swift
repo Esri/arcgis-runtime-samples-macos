@@ -59,11 +59,11 @@ class RGBRendererViewController: NSViewController {
         self.label2.isHidden = true
     }
     
-    func toggleExtraTextFields(_ on: Bool) {
-        self.textField1b.isHidden = !on
-        self.textField1c.isHidden = !on
-        self.textField2b.isHidden = !on
-        self.textField2c.isHidden = !on
+    func toggleExtraTextFields(_ visible: Bool) {
+        textField1b.isHidden = !visible
+        textField1c.isHidden = !visible
+        textField2b.isHidden = !visible
+        textField2c.isHidden = !visible
     }
     
     // MARK: - Actions

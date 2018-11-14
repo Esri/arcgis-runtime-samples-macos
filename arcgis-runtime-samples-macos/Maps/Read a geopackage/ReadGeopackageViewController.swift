@@ -69,8 +69,7 @@ class ReadGeopackageViewController: NSViewController {
             
             if let error = error {
                 print("Error loading the geopackage: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 
                 // Create feature layers for each feature table in the geopackage.
                 let featureLayers = geoPackage.geoPackageFeatureTables.map { AGSFeatureLayer(featureTable: $0) }
@@ -165,7 +164,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
             let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet]
             
             if let movingFromIndex = dataArray.first?.first {
-                self.moveLayer(from: movingFromIndex, to: row)
+                self.moveLayer(fromIndex: movingFromIndex, toIndex: row)
             
                 return true
             }
@@ -175,21 +174,21 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    func moveLayer(from: Int, to: Int) {
+    func moveLayer(fromIndex: Int, toIndex: Int) {
         guard let map = mapView.map else {
             print("No map to manipulate layers on!")
             return
         }
         
-        guard from != to && to != from + 1 else {
+        guard fromIndex != toIndex && toIndex != fromIndex + 1 else {
             // Don't do anything if we drop it into the gap between itself and
             // the row before or itself and the row after.
             return
         }
         
         // Figure out which layer was moved and where it was moved to.
-        let newMapIndex = map.operationalLayers.count - to
-        let layer = layersInMap[from]
+        let newMapIndex = map.operationalLayers.count - toIndex
+        let layer = layersInMap[fromIndex]
 
         // Remove the layer, and re-add it in the new layer order.
         map.operationalLayers.remove(layer)
