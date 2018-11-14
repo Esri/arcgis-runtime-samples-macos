@@ -25,8 +25,6 @@ class ReadGeopackageViewController: NSViewController {
     @IBOutlet weak var layersInMapTableView: NSTableView!
     @IBOutlet weak var layersNotInMapTableView: NSTableView!
     
-    private var geoPackage: AGSGeoPackage?
-    
     fileprivate var allLayers: [AGSLayer] = [] {
         didSet {
             var rasterCount = 1
@@ -50,9 +48,7 @@ class ReadGeopackageViewController: NSViewController {
             return allLayers
         }
         
-        return allLayers.filter { layer -> Bool in
-            !layersInMap.contains(layer)
-        }
+        return allLayers.filter { !layersInMap.contains($0) }
     }
 
     override func viewDidLoad() {
@@ -62,36 +58,40 @@ class ReadGeopackageViewController: NSViewController {
         mapView.map = AGSMap(basemapType: .streets, latitude: 39.7294, longitude: -104.8319, levelOfDetail: 11)
         
         // Create a geopackage from a named bundle resource.
-        geoPackage = AGSGeoPackage(name: "AuroraCO")
+        let geoPackage = AGSGeoPackage(name: "AuroraCO")
         
         // Load the geopackage.
-        geoPackage?.load { [weak self] error in
-            guard error == nil else {
-                print("Error loading the geopackage: \(error!.localizedDescription)")
+        geoPackage.load { [weak self] error in
+            
+            guard let self = self else {
                 return
             }
-
-            // Create feature layers for each feature table in the geopackage.
-            let featureLayers = self?.geoPackage?.geoPackageFeatureTables.map({ featureTable -> AGSLayer in
-                AGSFeatureLayer(featureTable: featureTable)
-            }) ?? []
             
-            // Create raster layers for each raster in the geopackage.
-            let rasterLayers = self?.geoPackage?.geoPackageRasters.map({ raster -> AGSLayer in
-                let rasterLayer = AGSRasterLayer(raster: raster)
-                //make layer semi-transparent so it doesn't obscure the contents underneath it
-                rasterLayer.opacity = 0.55
-                return rasterLayer
-            }) ?? []
-
-            // Keep an array of all the feature layers and raster layers in this geopackage.
-            var layers = [AGSLayer]()
-            layers.append(contentsOf: rasterLayers)
-            layers.append(contentsOf: featureLayers)
-            self?.allLayers = layers
-            
-            self?.layersInMapTableView.reloadData()
-            self?.layersNotInMapTableView.reloadData()
+            if let error = error {
+                print("Error loading the geopackage: \(error.localizedDescription)")
+            }
+            else {
+                
+                // Create feature layers for each feature table in the geopackage.
+                let featureLayers = geoPackage.geoPackageFeatureTables.map { AGSFeatureLayer(featureTable: $0) }
+                
+                // Create raster layers for each raster in the geopackage.
+                let rasterLayers = geoPackage.geoPackageRasters.map({ raster -> AGSLayer in
+                    let rasterLayer = AGSRasterLayer(raster: raster)
+                    //make layer semi-transparent so it doesn't obscure the contents underneath it
+                    rasterLayer.opacity = 0.55
+                    return rasterLayer
+                })
+                
+                // Keep an array of all the feature layers and raster layers in this geopackage.
+                var layers = [AGSLayer]()
+                layers.append(contentsOf: rasterLayers)
+                layers.append(contentsOf: featureLayers)
+                self.allLayers = layers
+                
+                self.layersInMapTableView.reloadData()
+                self.layersNotInMapTableView.reloadData()
+            }
         }
         
         // Enable us to drag layers to reorder them in the table view.

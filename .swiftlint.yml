@@ -42,7 +42,6 @@ opt_in_rules: # some rules are only opt-in
   - first_where
   - function_default_parameter_at_end
   - identical_operands
-  - implicit_return
   - joined_default_parameter
   - legacy_random
   - let_var_whitespace
