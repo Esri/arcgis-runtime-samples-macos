@@ -113,7 +113,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         var stops = [AGSStop]()
         for graphic in self.stopGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
             let stop = AGSStop(point: graphic.geometry as! AGSPoint)
-            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic)+1)"
+            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic) + 1)"
             stops.append(stop)
         }
         self.routeParameters.clearStops()
@@ -162,7 +162,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
         let markerImage = #imageLiteral(resourceName: "BlueMarker")
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
-        markerSymbol.offsetY = markerImage.size.height/2
+        markerSymbol.offsetY = markerImage.size.height / 2
         
         let textSymbol = AGSTextSymbol(text: "\(index)", color: .white, size: 20, horizontalAlignment: .center, verticalAlignment: .middle)
         textSymbol.offsetY = markerSymbol.offsetY
@@ -185,7 +185,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             //create a graphic for stop and add to the graphics overlay
             let graphicsCount = self.stopGraphicsOverlay.graphics.count
-            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount+1)
+            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount + 1)
             let graphic = AGSGraphic(geometry: normalizedPoint, symbol: symbol, attributes: nil)
             self.stopGraphicsOverlay.graphics.add(graphic)
             

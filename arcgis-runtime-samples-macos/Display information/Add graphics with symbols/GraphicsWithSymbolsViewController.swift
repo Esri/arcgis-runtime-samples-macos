@@ -80,9 +80,9 @@ class GraphicsWithSymbolsViewController: NSViewController {
         let craigleithLocation = AGSPoint(x: -2.720324, y: 56.073569, spatialReference: wgs84)
         
         //create text symbols
-        let bassRockSymbol = AGSTextSymbol(text: "Bass Rock", color: NSColor(red: 0, green: 0, blue: 230/255.0, alpha: 1), size: 10, horizontalAlignment: AGSHorizontalAlignment.left, verticalAlignment: AGSVerticalAlignment.bottom)
+        let bassRockSymbol = AGSTextSymbol(text: "Bass Rock", color: NSColor(red: 0, green: 0, blue: 230 / 255.0, alpha: 1), size: 10, horizontalAlignment: AGSHorizontalAlignment.left, verticalAlignment: AGSVerticalAlignment.bottom)
         
-        let craigleithSymbol = AGSTextSymbol(text: "Craigleith", color: NSColor(red: 0, green: 0, blue: 230/255.0, alpha: 1), size: 10, horizontalAlignment: AGSHorizontalAlignment.right, verticalAlignment: AGSVerticalAlignment.top)
+        let craigleithSymbol = AGSTextSymbol(text: "Craigleith", color: NSColor(red: 0, green: 0, blue: 230 / 255.0, alpha: 1), size: 10, horizontalAlignment: AGSHorizontalAlignment.right, verticalAlignment: AGSVerticalAlignment.top)
         
         //define a graphic from the geometry and symbol
         let bassRockGraphic = AGSGraphic(geometry: bassLocation, symbol: bassRockSymbol, attributes: nil)
@@ -121,7 +121,7 @@ class GraphicsWithSymbolsViewController: NSViewController {
             width: 1)
         let fillSymbol = AGSSimpleFillSymbol(
             style: .diagonalCross,
-            color: NSColor(red: 0, green: 80/255.0, blue: 0, alpha: 1),
+            color: NSColor(red: 0, green: 80 / 255.0, blue: 0, alpha: 1),
             outline: outlineSymbol)
         
         //nesting graphic

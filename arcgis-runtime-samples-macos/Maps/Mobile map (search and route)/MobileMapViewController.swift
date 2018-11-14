@@ -95,7 +95,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     private func symbolForStopGraphic(isIndexRequired: Bool, index: Int?) -> AGSSymbol {
         let markerImage = #imageLiteral(resourceName: "BlueMarker")
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
-        markerSymbol.offsetY = markerImage.size.height/2
+        markerSymbol.offsetY = markerImage.size.height / 2
         markerSymbol.leaderOffsetY = markerSymbol.offsetY
         
         if isIndexRequired && index != nil {
@@ -283,8 +283,8 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         
         //create stops for last and second last graphic
         let count = self.markerGraphicsOverlay.graphics.count
-        let lastGraphic = self.markerGraphicsOverlay.graphics[count-1] as! AGSGraphic
-        let secondLastGraphic = self.markerGraphicsOverlay.graphics[count-2] as! AGSGraphic
+        let lastGraphic = self.markerGraphicsOverlay.graphics[count - 1] as! AGSGraphic
+        let secondLastGraphic = self.markerGraphicsOverlay.graphics[count - 2] as! AGSGraphic
         let stops = self.stops(for: [secondLastGraphic, lastGraphic])
         
         //add stops to the parameters

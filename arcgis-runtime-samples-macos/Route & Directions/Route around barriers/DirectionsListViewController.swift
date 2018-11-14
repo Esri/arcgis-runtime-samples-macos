@@ -41,12 +41,12 @@ class DirectionsListViewController: NSViewController, NSTableViewDataSource, NST
     
     func updateLabels() {
         if self.route != nil {
-            let miles = String(format: "%.2f", self.route.totalLength*0.000621371)
+            let miles = String(format: "%.2f", self.route.totalLength * 0.000621371)
             self.milesLabel.stringValue = "(\(miles) mi)"
             
             var minutes = Int(self.route.totalTime)
-            let hours = minutes/60
-            minutes = minutes%60
+            let hours = minutes / 60
+            minutes = minutes % 60
             let hoursString = hours == 0 ? "" : "\(hours) hr "
             let minutesString = minutes == 0 ? "" : "\(minutes) min"
             self.minutesLabel.stringValue = "\(hoursString)\(minutesString)"

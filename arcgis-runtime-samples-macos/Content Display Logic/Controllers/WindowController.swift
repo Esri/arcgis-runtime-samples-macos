@@ -20,12 +20,12 @@ extension NSApplication {
     // MARK: - Progres indicator
     
     func showProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.showProgressIndicator()
     }
     
     func hideProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.hideProgressIndicator()
     }
 }
