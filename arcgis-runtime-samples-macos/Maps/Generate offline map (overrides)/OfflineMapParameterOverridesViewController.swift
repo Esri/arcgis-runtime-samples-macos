@@ -231,9 +231,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
             let serviceLayerID = serviceLayerID(for: layer),
             let parameters = getGenerateGeodatabaseParameters(forLayer: layer) {
             // The layers options may correspond to multiple layers, so filter based on the ID of the target layer.
-            return parameters.layerOptions.filter { (option) -> Bool in
-                option.layerID == serviceLayerID
-            }
+            return parameters.layerOptions.filter { $0.layerID == serviceLayerID }
         }
         return []
     }
