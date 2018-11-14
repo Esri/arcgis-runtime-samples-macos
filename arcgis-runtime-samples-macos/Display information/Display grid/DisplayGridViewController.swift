@@ -151,8 +151,7 @@ class DisplayGridViewController: NSViewController {
     @IBAction func labelUnitAction(_ sender: NSPopUpButton) {
         if mapView?.grid is AGSMGRSGrid {
             (mapView?.grid as! AGSMGRSGrid).labelUnit = AGSMGRSGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
-        }
-        else if mapView?.grid is AGSUSNGGrid {
+        } else if mapView?.grid is AGSUSNGGrid {
             (mapView?.grid as! AGSUSNGGrid).labelUnit = AGSUSNGGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
         }
     }

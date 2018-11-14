@@ -52,8 +52,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         
         if to > mapView.map!.operationalLayers.count - 1 {
             self.mapView.map?.operationalLayers.add(layer)
-        }
-        else {
+        } else {
             self.mapView.map?.operationalLayers.insert(layer, at: to)
         }
         self.tableView1.reloadData()
@@ -64,8 +63,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == self.tableView1 {
             return self.mapView?.map?.operationalLayers.count ?? 0
-        }
-        else {
+        } else {
             return self.removedLayers.count
         }
     }
@@ -80,8 +78,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
             rowView.index = self.mapView.map!.operationalLayers.index(of: layer)
             rowView.textField?.stringValue = (layer as AnyObject).name ?? ""
             return rowView
-        }
-        else {
+        } else {
             let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RemovedLayerRowView"), owner: self) as! NSTableCellView
             let layer = self.removedLayers[row]
             rowView.textField?.stringValue = layer.name 
@@ -97,8 +94,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
             pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: "hey"))
             
             return true
-        }
-        else {
+        } else {
             return false
         }
     }
@@ -107,8 +103,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         if tableView == tableView1 {
             tableView.setDropRow(row, dropOperation: NSTableView.DropOperation.above)
             return .move
-        }
-        else {
+        } else {
             return NSDragOperation()
         }
     }
@@ -128,8 +123,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
             self.moveLayer(layer, from: movingFromIndex!, to: row)
             
             return true
-        }
-        else {
+        } else {
             return false
         }
     }

@@ -96,8 +96,7 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.performGeoprocessing(using: featureCollectionTable)
             }
         }

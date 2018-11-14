@@ -107,8 +107,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         if index == 0 {
             let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor(red: 0.4, green: 0.4, blue: 0, alpha: 0.3), width: 2)
             fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor(red: 0.8, green: 0.8, blue: 0, alpha: 0.3), outline: lineSymbol)
-        }
-        else {
+        } else {
             let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor(red: 0, green: 0.4, blue: 0, alpha: 0.3), width: 2)
             fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor(red: 0, green: 0.8, blue: 0, alpha: 0.3), outline: lineSymbol)
         }
@@ -202,8 +201,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             
             self.firstTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.firstTimeBreak = sender.integerValue
-        }
-        else {
+        } else {
             
             self.secondTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.secondTimeBreak = sender.integerValue
@@ -219,8 +217,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             //facilities selected
             let graphic = AGSGraphic(geometry: mapPoint, symbol: nil, attributes: nil)
             self.facilitiesGraphicsOverlay.graphics.add(graphic)
-        }
-        else {
+        } else {
             
             //barriers selected
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(mapPoint, byDistance: 500)

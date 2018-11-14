@@ -132,14 +132,12 @@ class GenerateGeodatabaseVC: NSViewController {
                         if (error as NSError).code != NSUserCancelledError {
                             self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
                         }
-                    }
-                    else if let geodatabase = object as? AGSGeodatabase {
+                    } else if let geodatabase = object as? AGSGeodatabase {
                         self.generatedGeodatabase = geodatabase
                         self.displayLayersFromGeodatabase()
                     }
                 }
-            }
-            else {
+            } else {
                 self?.showAlert(messageText: "Error", informativeText: "Could not generate default parameters: \(error!)")
             }
         }
@@ -157,8 +155,7 @@ class GenerateGeodatabaseVC: NSViewController {
             
             if let error = error {
                 self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self.mapView.map?.operationalLayers.removeAllObjects()
                 
                 AGSLoadObjects(generatedGeodatabase.geodatabaseFeatureTables) { (success: Bool) in

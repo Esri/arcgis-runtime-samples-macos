@@ -52,8 +52,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
             
             if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 //create a feature collection table fromt the query results
                 let featureCollectionTable = AGSFeatureCollectionTable(featureSet: queryResult!)
                 

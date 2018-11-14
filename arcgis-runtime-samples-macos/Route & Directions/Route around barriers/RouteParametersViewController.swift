@@ -54,11 +54,9 @@ class RouteParametersViewController: NSViewController {
         if sender == self.findBestSequenceButton {
             self.routeParameters.findBestSequence = (sender.state == NSControl.StateValue.on)
             self.enableSubSwitches(sender.state == NSControl.StateValue.on)
-        }
-        else if sender == self.preservceFirstStopButton {
+        } else if sender == self.preservceFirstStopButton {
             self.routeParameters.preserveFirstStop = (self.preservceFirstStopButton.state == NSControl.StateValue.on)
-        }
-        else {
+        } else {
             self.routeParameters.preserveLastStop = (self.preservceLastStopButton.state == NSControl.StateValue.on)
         }
     }

@@ -107,8 +107,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         // Return how many layers to show in each table
         if tableView == self.layersInMapTableView {
             return layersInMap.count
-        }
-        else {
+        } else {
             return layersNotInMap.count
         }
     }
@@ -122,8 +121,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
                 rowView.delegate = self
                 return rowView
             }
-        }
-        else {
+        } else {
             // Get a row to show a layer that is not in the map.
             if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: kLayerNotInTableRowKey), owner: self) as? NSTableCellView {
                 let layer = layersNotInMap[row]
@@ -143,8 +141,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
             pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
             
             return true
-        }
-        else {
+        } else {
             return false
         }
     }
@@ -153,8 +150,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         if tableView == layersInMapTableView {
             tableView.setDropRow(row, dropOperation: NSTableView.DropOperation.above)
             return .move
-        }
-        else {
+        } else {
             return NSDragOperation()
         }
     }
@@ -174,8 +170,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
                 return true
             }
             return false
-        }
-        else {
+        } else {
             return false
         }
     }

@@ -51,8 +51,7 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
             if let error = error {
                 //error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //update title label
                 if let title = self?.mapPackage.item?.title {
                     self?.label.stringValue = title
