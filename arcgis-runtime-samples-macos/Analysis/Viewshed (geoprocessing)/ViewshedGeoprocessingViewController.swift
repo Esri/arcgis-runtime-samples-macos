@@ -17,8 +17,6 @@
 import Cocoa
 import ArcGIS
 
-let viewshedURLString = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/ESRI_Elevation_World/GPServer/Viewshed"
-
 class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDelegate {
 
     @IBOutlet var mapView: AGSMapView!
@@ -50,7 +48,8 @@ class ViewshedGeoprocessingViewController: NSViewController, AGSGeoViewTouchDele
         //add graphics overlays to the map view
         self.mapView.graphicsOverlays.addObjects(from: [self.resultGraphicsOverlay, self.inputGraphicsOverlay])
         
-        self.geoprocessingTask = AGSGeoprocessingTask(url: URL(string: viewshedURLString)!)
+        let viewshedURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/ESRI_Elevation_World/GPServer/Viewshed")!
+        geoprocessingTask = AGSGeoprocessingTask(url: viewshedURL)
     }
     
     private func addGraphicForPoint(_ point: AGSPoint) {
