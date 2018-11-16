@@ -105,8 +105,8 @@ class DisplayGridViewController: NSViewController {
     
     @IBAction func gridColorAction(_ sender: NSColorWell) {
         if let gridLevels = mapView.grid?.levelCount {
-            for gridLevel in 0...gridLevels-1 {
-                let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: sender.color, width: CGFloat(gridLevel+1))
+            for gridLevel in 0...gridLevels - 1 {
+                let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: sender.color, width: CGFloat(gridLevel + 1))
                 mapView.grid?.setLineSymbol(lineSymbol, forLevel: gridLevel)
             }
         }
@@ -125,14 +125,14 @@ class DisplayGridViewController: NSViewController {
     
     @IBAction func labelColorAction(_ sender: NSColorWell) {
         if let gridLevels = mapView.grid?.levelCount {
-            for gridLevel in 0...gridLevels-1 {
+            for gridLevel in 0...gridLevels - 1 {
                 let textSymbol = AGSTextSymbol()
                 textSymbol.color = sender.color
                 textSymbol.size = 14
                 textSymbol.horizontalAlignment = .left
                 textSymbol.verticalAlignment = .bottom
                 textSymbol.haloColor = .white
-                textSymbol.haloWidth = CGFloat(gridLevel+1)
+                textSymbol.haloWidth = CGFloat(gridLevel + 1)
                 mapView.grid?.setTextSymbol(textSymbol, forLevel: gridLevel)
             }
         }
@@ -151,8 +151,7 @@ class DisplayGridViewController: NSViewController {
     @IBAction func labelUnitAction(_ sender: NSPopUpButton) {
         if mapView?.grid is AGSMGRSGrid {
             (mapView?.grid as! AGSMGRSGrid).labelUnit = AGSMGRSGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
-        }
-        else if mapView?.grid is AGSUSNGGrid {
+        } else if mapView?.grid is AGSUSNGGrid {
             (mapView?.grid as! AGSUSNGGrid).labelUnit = AGSUSNGGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
         }
     }

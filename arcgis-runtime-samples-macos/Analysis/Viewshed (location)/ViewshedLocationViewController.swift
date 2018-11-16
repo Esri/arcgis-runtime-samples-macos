@@ -183,24 +183,19 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         if sender == headingSlider {
             headingLabel.stringValue = "\(sender.integerValue)"
             viewshed.heading = sender.doubleValue
-        }
-        else if sender == pitchSlider {
+        } else if sender == pitchSlider {
             pitchLabel.stringValue = "\(sender.integerValue)"
             viewshed.pitch = sender.doubleValue
-        }
-        else if sender == horizontalAngleSlider {
+        } else if sender == horizontalAngleSlider {
             horizontalAngleLabel.stringValue = "\(sender.integerValue)"
             viewshed.horizontalAngle = sender.doubleValue
-        }
-        else if sender == verticalAngleSlider {
+        } else if sender == verticalAngleSlider {
             verticalAngleLabel.stringValue = "\(sender.integerValue)"
             viewshed.verticalAngle = sender.doubleValue
-        }
-        else if sender == minDistanceSlider {
+        } else if sender == minDistanceSlider {
             minDistanceLabel.stringValue = "\(sender.integerValue)"
             viewshed.minDistance = sender.doubleValue
-        }
-        else if sender == maxDistanceSlider {
+        } else if sender == maxDistanceSlider {
             maxDistanceLabel.stringValue = "\(sender.integerValue)"
             viewshed.maxDistance = sender.doubleValue
         }

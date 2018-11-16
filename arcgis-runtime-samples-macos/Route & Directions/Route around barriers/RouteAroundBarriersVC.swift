@@ -41,8 +41,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
                 self.directionsListViewController?.route = generatedRoute
                 //show directionsList
                 self.toggleDirectionsList(on: true, animated: true)
-            }
-            else {
+            } else {
                 //hide directionsList
                 self.toggleDirectionsList(on: false, animated: true)
             }
@@ -87,8 +86,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.routeParameters = params
                 //enable bar button item
                 self?.routeParametersButton.isEnabled = true
@@ -113,7 +111,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         var stops = [AGSStop]()
         for graphic in self.stopGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
             let stop = AGSStop(point: graphic.geometry as! AGSPoint)
-            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic)+1)"
+            stop.name = "\(self.stopGraphicsOverlay.graphics.index(of: graphic) + 1)"
             stops.append(stop)
         }
         self.routeParameters.clearStops()
@@ -139,8 +137,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "\(error.localizedDescription) \((error as NSError).localizedFailureReason ?? "")")
-            }
-            else {
+            } else {
                 let route = routeResult!.routes[0]
                 let routeGraphic = AGSGraphic(geometry: route.routeGeometry, symbol: self!.routeSymbol(), attributes: nil)
                 self?.routeGraphicsOverlay.graphics.add(routeGraphic)
@@ -162,7 +159,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     private func symbolForStopGraphic(withIndex index: Int) -> AGSSymbol {
         let markerImage = #imageLiteral(resourceName: "BlueMarker")
         let markerSymbol = AGSPictureMarkerSymbol(image: markerImage)
-        markerSymbol.offsetY = markerImage.size.height/2
+        markerSymbol.offsetY = markerImage.size.height / 2
         
         let textSymbol = AGSTextSymbol(text: "\(index)", color: .white, size: 20, horizontalAlignment: .center, verticalAlignment: .middle)
         textSymbol.offsetY = markerSymbol.offsetY
@@ -185,7 +182,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             //create a graphic for stop and add to the graphics overlay
             let graphicsCount = self.stopGraphicsOverlay.graphics.count
-            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount+1)
+            let symbol = self.symbolForStopGraphic(withIndex: graphicsCount + 1)
             let graphic = AGSGraphic(geometry: normalizedPoint, symbol: symbol, attributes: nil)
             self.stopGraphicsOverlay.graphics.add(graphic)
             
@@ -193,8 +190,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
             if graphicsCount > 0 {
                 self.routeButton.isEnabled = true
             }
-        }
-        else {
+        } else {
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(normalizedPoint, byDistance: 500)
             let symbol = self.barrierSymbol()
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: symbol, attributes: nil)
@@ -208,8 +204,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if segmentedControl.selectedSegment == 0 {
             self.stopGraphicsOverlay.graphics.removeAllObjects()
             self.routeButton.isEnabled = false
-        }
-        else {
+        } else {
             self.barrierGraphicsOverlay.graphics.removeAllObjects()
         }
     }
@@ -217,8 +212,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     func toggleDirectionsList(on: Bool, animated: Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
-        }
-        else {
+        } else {
             self.directionsLeadingConstraint.constant = on ? 0 : -200
         }
     }
@@ -232,8 +226,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         if id == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
-        }
-        else if id == "DirectionsListSegue" {
+        } else if id == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as? DirectionsListViewController
             self.directionsListViewController.delegate = self
         }

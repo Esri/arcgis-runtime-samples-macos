@@ -51,8 +51,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.showAlert(messageText: "Info", informativeText: "Map was saved successfully")
             }
             
@@ -82,8 +81,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         if id == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
-        }
-        else if id == "SaveMapVCSegue" {
+        } else if id == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }
@@ -121,8 +119,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //crop the image from the center
                 //also to cut on the size
                 let croppedImage: NSImage? = image?.croppedImage(of: CGSize(width: 200, height: 200))
@@ -148,8 +145,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
                 if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
-            }
-            else {
+            } else {
                 //get title etc
                 self.toggleSaveMapVC(on: true)
             }
@@ -170,8 +166,8 @@ extension NSImage {
     
     func croppedImage(of size: CGSize) -> NSImage {
         //calculate rect based on input size
-        let originX = (self.size.width - size.width)/2
-        let originY = (self.size.height - size.height)/2
+        let originX = (self.size.width - size.width) / 2
+        let originY = (self.size.height - size.height) / 2
         
         let rect = CGRect(x: originX, y: originY, width: size.width, height: size.height)
         

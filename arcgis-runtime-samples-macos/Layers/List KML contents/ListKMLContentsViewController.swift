@@ -89,8 +89,7 @@ class ListKMLContentsViewController: NSViewController {
     private func childNodes(of node: AGSKMLNode) -> [AGSKMLNode] {
         if let container = node as? AGSKMLContainer {
             return container.childNodes
-        }
-        else if let networkLink = node as? AGSKMLNetworkLink {
+        } else if let networkLink = node as? AGSKMLNetworkLink {
             return networkLink.childNodes
         }
         return []
@@ -209,8 +208,7 @@ class ListKMLContentsViewController: NSViewController {
                 // only the camera parameter is used by the scene
                 return AGSViewpoint(targetExtent: extent, camera: camera)
 
-            }
-            else {
+            } else {
                 // expand the extent to give some margins when framing the node
                 let bufferRadius = [extent.width, extent.height].max()! / 20
                 let bufferedExtent = AGSEnvelope(xMin: extent.xMin - bufferRadius,

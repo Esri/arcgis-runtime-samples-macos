@@ -80,8 +80,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else {
+            } else {
                 self.title = self.mapView.map?.item?.title
                 self.generateButton.isEnabled = true
             }
@@ -138,8 +137,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                 self.generateButtonParentView.isHidden = false
                 //unhide the extent view
                 self.extentView.isHidden = false
-            }
-            else if let result = result {
+            } else if let result = result {
                 self.offlineMapGenerationDidSucceed(with: result)
             }
         }
@@ -231,8 +229,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 self.parameters = parameters
                 
                 //build the parameter overrides object to be configured by the user

@@ -49,7 +49,7 @@ class MapRotationViewController: NSViewController {
     func mapViewViewpointDidChange() {
         slider.integerValue = Int(mapView.rotation)
         rotationLabel.stringValue = "\(slider.integerValue)\u{00B0}"
-        let rotationTransform = CGAffineTransform(rotationAngle: CGFloat(mapView.rotation * Double.pi/180))
+        let rotationTransform = CGAffineTransform(rotationAngle: CGFloat(mapView.rotation * Double.pi / 180))
         compassButton.layer?.setAffineTransform(rotationTransform)
     }
     

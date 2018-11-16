@@ -55,8 +55,7 @@ class CreateOptionsViewController: NSViewController {
             if let index = self.selectedLayersIndexes.index(of: sender.tag) {
                 self.selectedLayersIndexes.remove(at: index)
             }
-        }
-        else {
+        } else {
             self.selectedLayersIndexes.append(sender.tag)
         }
     }

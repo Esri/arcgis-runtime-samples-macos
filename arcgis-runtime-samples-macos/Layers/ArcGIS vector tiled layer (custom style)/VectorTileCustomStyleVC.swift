@@ -118,7 +118,7 @@ extension VectorTileCustomStyleVC.VectorStyleItem {
         let color2Layer = CALayer()
         color2Layer.backgroundColor = color2.cgColor
         view.layer?.addSublayer(color2Layer)
-        color2Layer.frame = CGRect(x: size.width/2, y: 0, width: size.width/2, height: size.height)
+        color2Layer.frame = CGRect(x: size.width / 2, y: 0, width: size.width / 2, height: size.height)
         
         // create and return an image based on the view
         let imageRep = view.bitmapImageRepForCachingDisplay(in: view.bounds)!

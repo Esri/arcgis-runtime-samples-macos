@@ -152,8 +152,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         let textField = obj.object as! NSTextField
         if textField.stringValue.isEmpty {
             self.alert.buttons[0].isEnabled = false
-        }
-        else {
+        } else {
             self.alert.buttons[0].isEnabled = true
         }
     }

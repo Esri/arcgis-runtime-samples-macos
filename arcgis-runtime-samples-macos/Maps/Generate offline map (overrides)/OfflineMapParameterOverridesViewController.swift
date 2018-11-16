@@ -159,7 +159,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
                 let serviceLayerID = serviceLayerID(for: layer),
                 let parameters = getGenerateGeodatabaseParameters(forLayer: layer) {
                 // Remove the options for this layer from the parameters
-                parameters.layerOptions.removeAll { return $0.layerID == serviceLayerID }
+                parameters.layerOptions.removeAll { $0.layerID == serviceLayerID }
             }
         }
         
@@ -231,9 +231,7 @@ class OfflineMapParameterOverridesViewController: NSViewController {
             let serviceLayerID = serviceLayerID(for: layer),
             let parameters = getGenerateGeodatabaseParameters(forLayer: layer) {
             // The layers options may correspond to multiple layers, so filter based on the ID of the target layer.
-            return parameters.layerOptions.filter { (option) -> Bool in
-                return option.layerID == serviceLayerID
-            }
+            return parameters.layerOptions.filter { $0.layerID == serviceLayerID }
         }
         return []
     }

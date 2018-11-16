@@ -83,8 +83,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.handleIdentifyResults(results!)
             }
         }
@@ -114,8 +113,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         //else notify user that no elements were found
         if totalCount > 0 {
             self.showAlert(messageText: "Number of geoElements found", informativeText: messageString)
-        }
-        else {
+        } else {
             self.showAlert(messageText: "Error", informativeText: "No geoElement found")
         }
     }

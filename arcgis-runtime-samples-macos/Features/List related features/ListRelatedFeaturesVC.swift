@@ -104,8 +104,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 if let results = results,
                     !results.isEmpty {
                     
@@ -147,8 +146,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 
                 //unselect previously selected park
                 if let previousSelection = self?.selectedPark {
@@ -169,8 +167,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     
                     //query for related features
                     self?.queryRelatedFeatures()
-                }
-                else {
+                } else {
                     
                     //hide outline view
                     self?.toggleVisualEffectView(on: false, animated: true)
@@ -185,8 +182,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         if let result = item as? AGSRelatedFeatureQueryResult {
             return result.featureEnumerator().allObjects.count
-        }
-        else {
+        } else {
             return self.results?.count ?? 0
         }
     }
@@ -194,8 +190,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let result = item as? AGSRelatedFeatureQueryResult {
             return result.featureEnumerator().allObjects[index]
-        }
-        else {
+        } else {
             return self.results[index]
         }
     }
@@ -203,8 +198,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let result = item as? AGSRelatedFeatureQueryResult {
             return !result.featureEnumerator().allObjects.isEmpty
-        }
-        else {
+        } else {
             return false
         }
     }
@@ -219,15 +213,13 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         if let result = item as? AGSRelatedFeatureQueryResult {
             
             cellView.textField?.stringValue = result.relatedTable!.tableName
-        }
-        else {
+        } else {
             let relatedFeature = item as! AGSArcGISFeature
             let result = outlineView.parent(forItem: item) as! AGSRelatedFeatureQueryResult
             
             if let displayField = result.relatedTable?.layerInfo?.displayFieldName {
                 cellView.textField?.stringValue = relatedFeature.attributes[displayField] as? String ?? "Related feature"
-            }
-            else {
+            } else {
                 cellView.textField?.stringValue = "Related feature"
             }
         }
@@ -242,8 +234,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         if animated {
          
             self.visualEffectViewTrailingConstraint.animator().constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
-        }
-        else {
+        } else {
             
             self.visualEffectViewTrailingConstraint.constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
         }

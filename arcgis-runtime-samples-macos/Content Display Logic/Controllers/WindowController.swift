@@ -20,12 +20,12 @@ extension NSApplication {
     // MARK: - Progres indicator
     
     func showProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.showProgressIndicator()
     }
     
     func hideProgressIndicator() {
-        let controller = windows.compactMap { return $0.windowController as? WindowController }.first
+        let controller = windows.compactMap { $0.windowController as? WindowController }.first
         controller?.hideProgressIndicator()
     }
 }
@@ -73,8 +73,7 @@ extension WindowController: NSSearchFieldDelegate {
             let matchingSamples = searchEngine.sortedSamples(matching: query)
             let searchResultsCategory = Category(name: "Results for \"\(query)\"", samples: matchingSamples)
             mainViewController.showCategory(searchResultsCategory)
-        }
-        else {
+        } else {
             mainViewController.showCategoryForAllSamples()
         }
     }
