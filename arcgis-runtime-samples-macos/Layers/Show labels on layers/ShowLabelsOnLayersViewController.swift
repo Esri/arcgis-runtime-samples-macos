@@ -19,7 +19,7 @@ import ArcGIS
 
 class ShowLabelsOnLayersViewController: NSViewController {
     
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +53,7 @@ class ShowLabelsOnLayersViewController: NSViewController {
             
             // add the label definitions to the layer
             featureLayer.labelDefinitions.addObjects(from: [demDefinition, repDefinition])
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -96,8 +95,7 @@ class ShowLabelsOnLayersViewController: NSViewController {
         let result = try AGSLabelDefinition.fromJSON(labelJSONObject)
         if let definition = result as? AGSLabelDefinition {
             return definition
-        }
-        else {
+        } else {
             throw ShowLabelsOnLayersError.withDescription("The JSON could not be read as a label definition.")
         }
     }

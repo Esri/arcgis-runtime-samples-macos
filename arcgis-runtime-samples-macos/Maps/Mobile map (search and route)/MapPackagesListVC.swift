@@ -24,38 +24,22 @@ protocol MapPackagesListVCDelegate: AnyObject {
 
 class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MapPackageCellDelegate {
 
-    @IBOutlet private var tableView:NSTableView!
+    @IBOutlet private var tableView: NSTableView!
     
-    private var mapPackages:[AGSMobileMapPackage]!
+    var mapPackages = [AGSMobileMapPackage]() {
+        didSet {
+            guard isViewLoaded else { return }
+            tableView.reloadData()
+        }
+    }
     private var selectedRow = -1
     
-    weak var delegate:MapPackagesListVCDelegate?
+    weak var delegate: MapPackagesListVCDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.fetchMapPackages()
-    }
-    
-    func fetchMapPackages() {
-        //load map packages from the bundle
-        let bundleMMPKPaths = Bundle.main.paths(forResourcesOfType: "mmpk", inDirectory: nil)
-        
-        //create map packages from the paths
-        self.mapPackages = [AGSMobileMapPackage]()
-        
-        for path in bundleMMPKPaths {
-            let mapPackage = AGSMobileMapPackage(fileURL: URL(fileURLWithPath: path))
-            self.mapPackages.append(mapPackage)
-        }
-        
-        self.tableView.reloadData()
-    }
-    
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.mapPackages?.count ?? 0
+        return mapPackages.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -72,13 +56,12 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         if row == self.tableView.selectedRow {
             return 158  //height for expanded row
-        }
-        else {
+        } else {
             return 35   //height for regular row
         }
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if self.selectedRow != -1 {
@@ -96,7 +79,7 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
         self.selectedRow = self.tableView.selectedRow
     }
     
-    //MARK: - MapPackageCellDelegate
+    // MARK: - MapPackageCellDelegate
     
     func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
         

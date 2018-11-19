@@ -26,7 +26,7 @@ class ReadmeViewController: NSViewController {
         fetchFileContent(folderName)
     }
     
-    func fetchFileContent(_ folderName:String) {
+    func fetchFileContent(_ folderName: String) {
         
         if let path = Bundle.main.path(forResource: "README", ofType: "md", inDirectory: folderName) {
             //read the content of the file
@@ -34,14 +34,14 @@ class ReadmeViewController: NSViewController {
                 //remove the images
                 let pattern = "!\\[.*\\]\\(.*\\)"
                 if let regex = try? NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive) {
-                    let newContent = regex.stringByReplacingMatches(in: content, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, content.count), withTemplate: "")
+                    let newContent = regex.stringByReplacingMatches(in: content, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: content.count), withTemplate: "")
                     self.displayHTML(newContent)
                 }
             }
         }
     }
     
-    func displayHTML(_ readmeContent:String) {
+    func displayHTML(_ readmeContent: String) {
         let cssPath = Bundle.main.path(forResource: "style", ofType: "css") ?? ""
         let string = """
             <!doctype html>

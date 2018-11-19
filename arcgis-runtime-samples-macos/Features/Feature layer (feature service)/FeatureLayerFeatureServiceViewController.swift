@@ -19,7 +19,7 @@ import ArcGIS
 
 class FeatureLayerFeatureServiceViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class FeatureLayerFeatureServiceViewController: NSViewController {
         let map = AGSMap(basemap: .terrainWithLabels())
         
         //initial viewpoint
-        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -13176752, y: 4090404, spatialReference: AGSSpatialReference.webMercator()), scale: 300000)
+        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -13176752, y: 4090404, spatialReference: .webMercator()), scale: 300000)
         
         //assign map to the map view
         self.mapView.map = map

@@ -19,9 +19,9 @@ import ArcGIS
 
 class FeatureCollectionLayerQueryVC: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
-    private var featureTable:AGSServiceFeatureTable!
+    private var featureTable: AGSServiceFeatureTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,7 @@ class FeatureCollectionLayerQueryVC: NSViewController {
             
             if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 //create a feature collection table fromt the query results
                 let featureCollectionTable = AGSFeatureCollectionTable(featureSet: queryResult!)
                 

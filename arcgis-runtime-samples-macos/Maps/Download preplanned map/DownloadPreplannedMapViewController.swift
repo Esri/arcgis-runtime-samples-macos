@@ -57,7 +57,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
         alert.beginSheetModal(for: view.window!) {[weak self] (response) in
-            if response == .alertFirstButtonReturn{
+            if response == .alertFirstButtonReturn {
                 self?.loadMap()
             }
         }
@@ -77,11 +77,11 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
             
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
-            if let error = error{
+            if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError {
                     //display error as alert
@@ -95,10 +95,10 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         let offlineMapTask = AGSOfflineMapTask(portalItem: portalItem)
         self.offlineMapTask = offlineMapTask
         offlineMapTask.getPreplannedMapAreas(completion: {[weak self] (preplannedMapAreas, error) in
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
-            guard error == nil else{
+            guard error == nil else {
                 NSAlert(error: error!).beginSheetModal(for: self.view.window!)
                 return
             }
@@ -117,7 +117,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         })
     }
     
-    private func loadMapForPortalItem(){
+    private func loadMapForPortalItem() {
         if let portalItem = portalItem {
             //map from portal item
             let map = AGSMap(item: portalItem)
@@ -126,7 +126,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         }
     }
     
-    //MARK: - Preplanned map download
+    // MARK: - Preplanned map download
     
     func downloadPreplannedMapArea(_ preplannedMapArea: AGSPreplannedMapArea) {
         
@@ -150,7 +150,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         presentAsSheet(progressController)
         
         //start the job
-        downloadPreplannedMapJob.start(statusHandler: nil) { [weak self] (result:AGSDownloadPreplannedOfflineMapResult?, error:Error?) in
+        downloadPreplannedMapJob.start(statusHandler: nil) { [weak self] (result: AGSDownloadPreplannedOfflineMapResult?, error: Error?) in
             
             //close the progress sheet since the job is no longer active
             progressController.dismiss(self)
@@ -162,18 +162,17 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
             if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else if let result = result {
+            } else if let result = result {
                 self.preplannedMapDownloadDidSucceed(with: result)
             }
         }
     }
     
-    private func loadDownloadedMap(at url:URL){
+    private func loadDownloadedMap(at url: URL) {
         let package = AGSMobileMapPackage(fileURL: url)
         package.load {[weak self] (error) in
             if error == nil,
@@ -206,20 +205,19 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         removeDownloadsButton.isEnabled = true
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         if let selectedItem = sender.selectedItem,
             let preplannedMapArea = selectedItem.representedObject as? AGSPreplannedMapArea {
             downloadPreplannedMapArea(preplannedMapArea)
-        }
-        else {
+        } else {
            loadMapForPortalItem()
         }
     }
 
     @IBAction func removeDownloadsButtonAction(_ sender: NSButton) {
-        for url in localAreaURLs.values{
+        for url in localAreaURLs.values {
             try? FileManager.default.removeItem(at: url)
         }
         localAreaURLs = [:]
@@ -228,7 +226,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         sender.isEnabled = false
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func preplannedMapLocalURL(for preplannedMapArea: AGSPreplannedMapArea) -> URL {
         
@@ -236,8 +234,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         
         if let url = localAreaURLs[areaID] {
             return url
-        }
-        else{
+        } else {
             //get a suitable directory to place files
             let directoryURL = FileManager.default.temporaryDirectory
             

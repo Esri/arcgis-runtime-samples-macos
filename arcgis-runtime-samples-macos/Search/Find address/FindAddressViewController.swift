@@ -19,13 +19,13 @@ import ArcGIS
 
 class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTextFieldDelegate {
     
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var button:NSButton!
-    @IBOutlet private var searchField:NSSearchField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var button: NSButton!
+    @IBOutlet private var searchField: NSSearchField!
     
-    private var locatorTask:AGSLocatorTask!
-    private var geocodeParameters:AGSGeocodeParameters!
-    private var graphicsOverlay:AGSGraphicsOverlay!
+    private var locatorTask: AGSLocatorTask!
+    private var geocodeParameters: AGSGeocodeParameters!
+    private var graphicsOverlay: AGSGraphicsOverlay!
     
     private let locatorURL = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
     
@@ -51,7 +51,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
     }
     
-    private func geocodeSearchText(_ text:String) {
+    private func geocodeSearchText(_ text: String) {
         //clear already existing graphics
         self.graphicsOverlay.graphics.removeAllObjects()
         
@@ -91,26 +91,25 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         }
     }
     
-    //MARK: - Callout
+    // MARK: - Callout
     
     //method shows the callout for the specified graphic,
     //populates the title and detail of the callout with specific attributes
     //hides the accessory button
-    private func showCallout(for graphic:AGSGraphic, at point:AGSPoint) {
+    private func showCallout(for graphic: AGSGraphic, at point: AGSPoint) {
         let addressType = graphic.attributes["Addr_type"] as! String
         self.mapView.callout.title = graphic.attributes["Match_addr"] as? String ?? ""
         
         if addressType == "POI" {
             self.mapView.callout.detail = graphic.attributes["Place_addr"] as? String ?? ""
-        }
-        else {
+        } else {
             self.mapView.callout.detail = nil
         }
         
         self.mapView.callout.show(for: graphic, tapLocation: point, animated: true)
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //dismiss the callout
@@ -128,22 +127,20 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
             if let error = result.error {
                 
                 self?.showAlert("Error", informativeText: error.localizedDescription)
-            }
-            else if result.graphics.count > 0 {
+            } else if !result.graphics.isEmpty {
                 //show callout for the graphic
                 self?.showCallout(for: result.graphics[0], at: mapPoint)
             }
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func searchAction(_ sender:NSSearchField) {
+    @IBAction func searchAction(_ sender: NSSearchField) {
         //geocode if field not empty
         if !sender.stringValue.isEmpty {
             self.geocodeSearchText(sender.stringValue)
-        }
-        else {
+        } else {
             //clear already existing graphics
             self.graphicsOverlay.graphics.removeAllObjects()
             
@@ -152,7 +149,7 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         }
     }
     
-    @IBAction func searchTemplateAction(_ sender:NSMenuItem) {
+    @IBAction func searchTemplateAction(_ sender: NSMenuItem) {
         let searchString = sender.title
         
         //set the search string on searchField
@@ -162,9 +159,9 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.geocodeSearchText(searchString)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(_ messageText:String, informativeText:String) {
+    private func showAlert(_ messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

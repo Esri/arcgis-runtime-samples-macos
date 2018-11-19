@@ -19,11 +19,11 @@ import ArcGIS
 
 class RouteParametersViewController: NSViewController {
     
-    @IBOutlet var findBestSequenceButton:NSButton!
-    @IBOutlet var preservceFirstStopButton:NSButton!
-    @IBOutlet var preservceLastStopButton:NSButton!
+    @IBOutlet var findBestSequenceButton: NSButton!
+    @IBOutlet var preservceFirstStopButton: NSButton!
+    @IBOutlet var preservceLastStopButton: NSButton!
     
-    var routeParameters:AGSRouteParameters!
+    var routeParameters: AGSRouteParameters!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +43,21 @@ class RouteParametersViewController: NSViewController {
         }
     }
     
-    func enableSubSwitches(_ enable:Bool) {
+    func enableSubSwitches(_ enable: Bool) {
         self.preservceLastStopButton.isEnabled = enable
         self.preservceFirstStopButton.isEnabled = enable
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func switchValueChanged(_ sender:NSButton) {
+    @IBAction func switchValueChanged(_ sender: NSButton) {
         if sender == self.findBestSequenceButton {
             self.routeParameters.findBestSequence = (sender.state == NSControl.StateValue.on)
             self.enableSubSwitches(sender.state == NSControl.StateValue.on)
-        }
-        else if sender == self.preservceFirstStopButton {
+        } else if sender == self.preservceFirstStopButton {
             self.routeParameters.preserveFirstStop = (self.preservceFirstStopButton.state == NSControl.StateValue.on)
-        }
-        else {
+        } else {
             self.routeParameters.preserveLastStop = (self.preservceLastStopButton.state == NSControl.StateValue.on)
         }
     }
 }
-

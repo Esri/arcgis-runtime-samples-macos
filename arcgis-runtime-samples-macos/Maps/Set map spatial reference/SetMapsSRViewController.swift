@@ -19,16 +19,15 @@ import ArcGIS
 
 class SetMapsSRViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //initialize the map, spatial reference as world bonne (54024) or goode (54052)
         self.map = AGSMap(spatialReference: AGSSpatialReference(wkid: 54024)!)
-        
         
         //Adding a map image layer which can reproject itself to the map's spatial reference
         //Note: Some layer such as tiled layer cannot reproject and will fail to draw if their spatial

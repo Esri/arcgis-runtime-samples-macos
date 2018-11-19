@@ -35,16 +35,16 @@ class SourceCodeViewController: NSViewController {
         popUpButton.addItems(withTitles: fileNames)
     }
     
-    //MARK: - HTML logic
+    // MARK: - HTML logic
     
-    func loadHTMLPage(_ filename:String) {
+    func loadHTMLPage(_ filename: String) {
         if let content = self.contentOfFile(filename) {
             let htmlString = self.htmlStringForContent(content)
             webView?.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
         }
     }
     
-    func contentOfFile(_ name:String) -> String? {
+    func contentOfFile(_ name: String) -> String? {
         //find the path of the file
         if let path = Bundle.main.path(forResource: name, ofType: ".swift") {
             //read the content of the file
@@ -55,7 +55,7 @@ class SourceCodeViewController: NSViewController {
         return nil
     }
     
-    func htmlStringForContent(_ content:String) -> String {
+    func htmlStringForContent(_ content: String) -> String {
         let cssPath = Bundle.main.path(forResource: "xcode", ofType: "css") ?? ""
         let jsPath = Bundle.main.path(forResource: "highlight.pack", ofType: "js") ?? ""
         let scale = "1.0"
@@ -75,7 +75,7 @@ class SourceCodeViewController: NSViewController {
         return stringForHTML
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func popUpButtonAction(_ sender: AnyObject) {
         let filename = popUpButton.titleOfSelectedItem!

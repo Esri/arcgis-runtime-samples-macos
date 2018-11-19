@@ -47,7 +47,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     private var viewshed: AGSLocationViewshed!
     private var analysisOverlay: AGSAnalysisOverlay!
     
-    private var canMoveViewshed:Bool = false {
+    private var canMoveViewshed: Bool = false {
         didSet {
             guard canMoveViewshed != oldValue else { return }
             updateInstructionLabel()
@@ -70,7 +70,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         sceneView.scene = scene
         
         // initialize the camera and set the viewpoint specified by the camera position
-        let camera = AGSCamera(lookAt: AGSPoint(x: -4.50, y: 48.4, z: 100.0, spatialReference: AGSSpatialReference.wgs84()), distance: 200, heading: 20, pitch: 70, roll: 0)
+        let camera = AGSCamera(lookAt: AGSPoint(x: -4.50, y: 48.4, z: 100.0, spatialReference: .wgs84()), distance: 200, heading: 20, pitch: 70, roll: 0)
         sceneView.setViewpointCamera(camera)
         
         /// The url of the image service for elevation in Brest, France.
@@ -86,7 +86,7 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         scene.operationalLayers.add(buildings)
         
         // initialize a viewshed analysis object with arbitrary location (the location will be defined by the user), heading, pitch, view angles, and distance range (in meters) from which visibility is calculated from the observer location
-        viewshed = AGSLocationViewshed(location: AGSPoint(x: 0.0, y: 0.0, z: 0.0, spatialReference: AGSSpatialReference.wgs84()), heading: 20, pitch: 70, horizontalAngle: 45, verticalAngle: 90, minDistance: 50, maxDistance: 1000)
+        viewshed = AGSLocationViewshed(location: AGSPoint(x: 0.0, y: 0.0, z: 0.0, spatialReference: .wgs84()), heading: 20, pitch: 70, horizontalAngle: 45, verticalAngle: 90, minDistance: 50, maxDistance: 1000)
         
         // create an analysis overlay for the viewshed and to add it to the scene view
         analysisOverlay = AGSAnalysisOverlay()
@@ -179,32 +179,25 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
         AGSViewshed.setFrustumOutlineColor(sender.color)
     }
     
-    @IBAction private func sliderValueChanged(_ sender:NSSlider) {
+    @IBAction private func sliderValueChanged(_ sender: NSSlider) {
         if sender == headingSlider {
             headingLabel.stringValue = "\(sender.integerValue)"
             viewshed.heading = sender.doubleValue
-        }
-        else if sender == pitchSlider {
+        } else if sender == pitchSlider {
             pitchLabel.stringValue = "\(sender.integerValue)"
             viewshed.pitch = sender.doubleValue
-        }
-        else if sender == horizontalAngleSlider {
+        } else if sender == horizontalAngleSlider {
             horizontalAngleLabel.stringValue = "\(sender.integerValue)"
             viewshed.horizontalAngle = sender.doubleValue
-        }
-        else if sender == verticalAngleSlider {
+        } else if sender == verticalAngleSlider {
             verticalAngleLabel.stringValue = "\(sender.integerValue)"
             viewshed.verticalAngle = sender.doubleValue
-        }
-        else if sender == minDistanceSlider {
+        } else if sender == minDistanceSlider {
             minDistanceLabel.stringValue = "\(sender.integerValue)"
             viewshed.minDistance = sender.doubleValue
-        }
-        else if sender == maxDistanceSlider {
+        } else if sender == maxDistanceSlider {
             maxDistanceLabel.stringValue = "\(sender.integerValue)"
             viewshed.maxDistance = sender.doubleValue
         }
     }
 }
-
-

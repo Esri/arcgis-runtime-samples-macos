@@ -19,15 +19,15 @@ import ArcGIS
 
 class HillshadeRendererVC: NSViewController {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var altitudeSlider:NSSlider!
-    @IBOutlet var azimuthSlider:NSSlider!
-    @IBOutlet var altitudeLabel:NSTextField!
-    @IBOutlet var azimuthLabel:NSTextField!
-    @IBOutlet var slopeType:NSPopUpButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var altitudeSlider: NSSlider!
+    @IBOutlet var azimuthSlider: NSSlider!
+    @IBOutlet var altitudeLabel: NSTextField!
+    @IBOutlet var azimuthLabel: NSTextField!
+    @IBOutlet var slopeType: NSPopUpButton!
     
-    private var map:AGSMap!
-    private var rasterLayer:AGSRasterLayer!
+    private var map: AGSMap!
+    private var rasterLayer: AGSRasterLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,20 +68,20 @@ class HillshadeRendererVC: NSViewController {
         self.rasterLayer.renderer = renderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func applyAction(_ sender:NSButton) {
+    @IBAction func applyAction(_ sender: NSButton) {
         let altitude = self.altitudeSlider.doubleValue
         let azimuth = self.azimuthSlider.doubleValue
         
         self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope())
     }
     
-    @IBAction func altitudeSliderAction(_ sender:NSSlider) {
+    @IBAction func altitudeSliderAction(_ sender: NSSlider) {
         self.altitudeLabel.stringValue = "\(sender.integerValue)"
     }
     
-    @IBAction func azimuthSliderAction(_ sender:NSSlider) {
+    @IBAction func azimuthSliderAction(_ sender: NSSlider) {
         self.azimuthLabel.stringValue = "\(sender.integerValue)"
     }
 }

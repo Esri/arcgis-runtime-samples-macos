@@ -19,7 +19,7 @@ import ArcGIS
 
 class OpenMobileMapViewController: NSViewController {
 
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,7 @@ class OpenMobileMapViewController: NSViewController {
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else {
+            } else {
                 // assign the first map from the map package to the map view
                 self.mapView.map = mapPackage.maps.first
             }

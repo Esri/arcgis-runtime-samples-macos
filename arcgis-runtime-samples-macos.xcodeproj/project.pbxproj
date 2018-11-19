@@ -2562,6 +2562,7 @@
 				3E7C0E331CF8FD5100200B6E /* CopyFiles */,
 				3E69DE491CFE36F4001F65F7 /* ShellScript */,
 				4CF02587211893C100806810 /* Embed Frameworks */,
+				4C962B78217F975900BD7A2C /* Lint Code */,
 			);
 			buildRules = (
 			);
@@ -2842,6 +2843,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "echo $BUILT_PRODUCTS_DIR\n#readme for the project to skip\nDEFAULT_README=$SRCROOT/README.md\n#find all README.md files in the project\nfind ${SRCROOT} -name \"README.md\" | while read file\ndo\n#skip if its the default readme for project\nif [ \"$file\" = \"$DEFAULT_README\" ]\nthen\necho $BUILT_PRODUCTS_DIR\ncontinue\nfi\n#extract the folder name from the path\nFILE_PATH=$(dirname \"$file\")\nFOLDER_NAME=$(basename \"$FILE_PATH\")\n#path of the folder to be created for each readme\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/${FOLDER_NAME}\"\n\n#for legacy setting the build folder is also within the SRCROOT folder\n#check if source path is equal to destination then skip\nif [ \"$file\" != \"${BUILD_APP_DIR}/README.md\" ]\nthen\nmkdir -p \"${BUILD_APP_DIR}\"\ncp \"${file}\" \"${BUILD_APP_DIR}/README.md\"\nfi\ndone";
+		};
+		4C962B78217F975900BD7A2C /* Lint Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Code";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -19,11 +19,11 @@ import ArcGIS
 
 class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, SublayerCellViewDelegate {
 
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView: NSTableView!
     
-    private var map:AGSMap!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
+    private var map: AGSMap!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +47,10 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
         self.mapView.map = self.map
         
         //zoom to a custom viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: AGSSpatialReference.webMercator()), scale: 9e7, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -11e6, y: 6e6, spatialReference: .webMercator()), scale: 9e7)
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         let rows = self.mapImageLayer?.mapImageSublayers.count ?? 0
@@ -68,7 +68,7 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
         return cellView
     }
     
-    //MARK: - SublayerCellViewDelegate
+    // MARK: - SublayerCellViewDelegate
     
     func sublayerCellView(_ sublayerCellView: SublayerCellView, didToggleVisibility visible: Bool) {
         let index = sublayerCellView.index

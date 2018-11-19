@@ -19,9 +19,9 @@ import ArcGIS
 
 class LegendCellView: NSTableCellView {
 
-    @IBOutlet var thumbnail:NSImageView!
+    @IBOutlet var thumbnail: NSImageView!
     
-    var legendInfo:AGSLegendInfo! {
+    var legendInfo: AGSLegendInfo! {
         didSet {
             
             //set label

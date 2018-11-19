@@ -38,7 +38,7 @@ class DisplayGridViewController: NSViewController {
         let map = AGSMap(basemap: .imagery())
         
         // Set initial viewpoint
-        let center = AGSPoint(x: -7702852.905619, y: 6217972.345771, spatialReference: AGSSpatialReference(wkid: 3857))
+        let center = AGSPoint(x: -7702852.905619, y: 6217972.345771, spatialReference: .webMercator())
         map.initialViewpoint = AGSViewpoint(center: center, scale: 23227)
         
         // Assign map to the map view
@@ -60,7 +60,7 @@ class DisplayGridViewController: NSViewController {
     
     // MARK: Actions
     
-    @IBAction func gridVisibilityAction(_ sender:NSSegmentedControl) {
+    @IBAction func gridVisibilityAction(_ sender: NSSegmentedControl) {
         switch sender.selectedSegment {
         case 0:
             mapView.grid?.isVisible = true
@@ -71,26 +71,26 @@ class DisplayGridViewController: NSViewController {
         }
     }
     
-    @IBAction func gridTypeAction(_ sender:NSPopUpButton) {
+    @IBAction func gridTypeAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {
-            case 0:
-                mapView.grid = AGSLatitudeLongitudeGrid()
-                labelFormatButton.isEnabled = true
-                labelUnitButton.isEnabled = false
-            case 1:
-                mapView.grid = AGSMGRSGrid()
-                labelFormatButton.isEnabled = false
-                labelUnitButton.isEnabled = true
-            case 2:
-                 mapView.grid = AGSUTMGrid()
-                 labelFormatButton.isEnabled = false
-                 labelUnitButton.isEnabled = false
-            case 3:
-                mapView.grid = AGSUSNGGrid()
-                labelFormatButton.isEnabled = false
-                labelUnitButton.isEnabled = true
-            default:
-                break
+        case 0:
+            mapView.grid = AGSLatitudeLongitudeGrid()
+            labelFormatButton.isEnabled = true
+            labelUnitButton.isEnabled = false
+        case 1:
+            mapView.grid = AGSMGRSGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = true
+        case 2:
+            mapView.grid = AGSUTMGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = false
+        case 3:
+            mapView.grid = AGSUSNGGrid()
+            labelFormatButton.isEnabled = false
+            labelUnitButton.isEnabled = true
+        default:
+            break
         }
         
         // Apply other settings to selected grid
@@ -103,16 +103,16 @@ class DisplayGridViewController: NSViewController {
         labelUnitAction(labelUnitButton)
     }
     
-    @IBAction func gridColorAction(_ sender : NSColorWell) {
+    @IBAction func gridColorAction(_ sender: NSColorWell) {
         if let gridLevels = mapView.grid?.levelCount {
-            for gridLevel in 0...gridLevels-1 {
-                let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: sender.color, width: CGFloat(gridLevel+1))
+            for gridLevel in 0...gridLevels - 1 {
+                let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: sender.color, width: CGFloat(gridLevel + 1))
                 mapView.grid?.setLineSymbol(lineSymbol, forLevel: gridLevel)
             }
         }
     }
     
-    @IBAction func labelVisibilityAction(_ sender:NSSegmentedControl) {
+    @IBAction func labelVisibilityAction(_ sender: NSSegmentedControl) {
         switch sender.selectedSegment {
         case 0:
             mapView.grid?.labelVisibility = true
@@ -123,36 +123,35 @@ class DisplayGridViewController: NSViewController {
         }
     }
     
-    @IBAction func labelColorAction(_ sender : NSColorWell) {
+    @IBAction func labelColorAction(_ sender: NSColorWell) {
         if let gridLevels = mapView.grid?.levelCount {
-            for gridLevel in 0...gridLevels-1 {
+            for gridLevel in 0...gridLevels - 1 {
                 let textSymbol = AGSTextSymbol()
                 textSymbol.color = sender.color
                 textSymbol.size = 14
                 textSymbol.horizontalAlignment = .left
                 textSymbol.verticalAlignment = .bottom
                 textSymbol.haloColor = .white
-                textSymbol.haloWidth = CGFloat(gridLevel+1)
+                textSymbol.haloWidth = CGFloat(gridLevel + 1)
                 mapView.grid?.setTextSymbol(textSymbol, forLevel: gridLevel)
             }
         }
     }
     
-    @IBAction func labelPositionAction(_ sender:NSPopUpButton) {
+    @IBAction func labelPositionAction(_ sender: NSPopUpButton) {
         mapView?.grid?.labelPosition = AGSGridLabelPosition(rawValue: sender.indexOfSelectedItem)!
     }
     
-    @IBAction func labelFormatAction(_ sender:NSPopUpButton) {
+    @IBAction func labelFormatAction(_ sender: NSPopUpButton) {
         if mapView?.grid is AGSLatitudeLongitudeGrid {
             (mapView?.grid as! AGSLatitudeLongitudeGrid).labelFormat = AGSLatitudeLongitudeGridLabelFormat(rawValue: sender.indexOfSelectedItem)!
         }
     }
     
-    @IBAction func labelUnitAction(_ sender:NSPopUpButton) {
+    @IBAction func labelUnitAction(_ sender: NSPopUpButton) {
         if mapView?.grid is AGSMGRSGrid {
             (mapView?.grid as! AGSMGRSGrid).labelUnit = AGSMGRSGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
-        }
-        else if mapView?.grid is AGSUSNGGrid {
+        } else if mapView?.grid is AGSUSNGGrid {
             (mapView?.grid as! AGSUSNGGrid).labelUnit = AGSUSNGGridLabelUnit(rawValue: sender.indexOfSelectedItem)!
         }
     }

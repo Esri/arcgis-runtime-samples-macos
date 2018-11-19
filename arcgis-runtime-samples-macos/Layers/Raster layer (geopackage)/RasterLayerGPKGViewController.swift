@@ -18,7 +18,7 @@ class RasterLayerGPKGViewController: NSViewController {
     
     @IBOutlet weak var mapView: AGSMapView!
     
-    var geoPackage:AGSGeoPackage?
+    var geoPackage: AGSGeoPackage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,4 +48,3 @@ class RasterLayerGPKGViewController: NSViewController {
     }
     
 }
-

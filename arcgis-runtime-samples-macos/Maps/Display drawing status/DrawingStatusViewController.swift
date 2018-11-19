@@ -19,11 +19,11 @@ import ArcGIS
 
 class DrawingStatusViewController: NSViewController {
 
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var activityIndicatorView:NSView!
-    @IBOutlet private var progressIndicator:NSProgressIndicator!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var activityIndicatorView: NSView!
+    @IBOutlet private var progressIndicator: NSProgressIndicator!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     /// The observation of the map view's draw status.
     private var drawStatusObservation: NSKeyValueObservation?
     
@@ -36,7 +36,7 @@ class DrawingStatusViewController: NSViewController {
         self.progressIndicator.startAnimation(self)
         
         //initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -13639984, yMin: 4537387, xMax: -13606734, yMax: 4558866, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -13639984, yMin: 4537387, xMax: -13606734, yMax: 4558866, spatialReference: .webMercator()))
         
         //add a feature layer
         let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)

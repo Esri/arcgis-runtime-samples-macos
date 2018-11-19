@@ -21,12 +21,12 @@ class GraphicDrawOrderVC: NSViewController {
 
     @IBOutlet var mapView: AGSMapView!
     
-    var map:AGSMap!
+    var map: AGSMap!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
-    private var graphics:[AGSGraphic]!
+    private var graphics: [AGSGraphic]!
     
-    private var drawIndex:Int = 0
+    private var drawIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +43,10 @@ class GraphicDrawOrderVC: NSViewController {
         self.addGraphics()
         
         //set map scale
-        let mapScale:Double = 53500
+        let mapScale: Double = 53500
         
         //initial viewpoint
-        self.mapView.setViewpointCenter(AGSPoint(x: -13148960, y: 4000040, spatialReference: AGSSpatialReference.webMercator()), scale: mapScale, completion: nil)
+        self.mapView.setViewpointCenter(AGSPoint(x: -13148960, y: 4000040, spatialReference: .webMercator()), scale: mapScale)
         
         //restricting map scale to preserve the graphics overlapping
         self.map.minScale = mapScale
@@ -55,10 +55,10 @@ class GraphicDrawOrderVC: NSViewController {
     
     private func addGraphics() {
         //starting x and y
-        let x:Double = -13149000
-        let y:Double = 4e6
+        let x: Double = -13149000
+        let y: Double = 4e6
         //distance between the graphics
-        let delta:Double = 100
+        let delta: Double = 100
         
         //graphics array for reference when a button is tapped
         self.graphics = [AGSGraphic]()
@@ -70,19 +70,19 @@ class GraphicDrawOrderVC: NSViewController {
         self.graphics.append(graphic)
         
         //red marker
-        geometry = AGSPoint(x: x+delta, y: y, spatialReference: .webMercator())
+        geometry = AGSPoint(x: x + delta, y: y, spatialReference: .webMercator())
         symbol = AGSPictureMarkerSymbol(image: NSImage(named: "RedMarker2")!)
         graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //green marker
-        geometry = AGSPoint(x: x, y: y+delta, spatialReference: .webMercator())
+        geometry = AGSPoint(x: x, y: y + delta, spatialReference: .webMercator())
         symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "GreenMarker"))
         graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
         
         //Violet marker
-        geometry = AGSPoint(x: x+delta, y: y+delta, spatialReference: .webMercator())
+        geometry = AGSPoint(x: x + delta, y: y + delta, spatialReference: .webMercator())
         symbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "VioletMarker"))
         graphic = AGSGraphic(geometry: geometry, symbol: symbol)
         self.graphics.append(graphic)
@@ -91,9 +91,9 @@ class GraphicDrawOrderVC: NSViewController {
         self.graphicsOverlay.graphics.addObjects(from: self.graphics)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func buttonAction(_ sender:NSButton) {
+    @IBAction func buttonAction(_ sender: NSButton) {
         //increment draw index by 1 and assign as the zIndex for the respective graphic
         self.drawIndex += 1
         

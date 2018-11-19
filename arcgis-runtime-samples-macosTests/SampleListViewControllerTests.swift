@@ -38,7 +38,7 @@ class SampleListViewControllerTests: XCTestCase {
     
     func testSettingCategoriesSelectsFirstCategory() {
         let sampleListVC = makeViewController()
-        let _ = sampleListVC.view
+        _ = sampleListVC.view
         
         sampleListVC.categories = [category1, category2, category3]
         
@@ -48,7 +48,7 @@ class SampleListViewControllerTests: XCTestCase {
     
     func testSelectCategory() {
         let sampleListVC = makeViewController()
-        let _ = sampleListVC.view
+        _ = sampleListVC.view
         
         XCTAssertNil(sampleListVC.selectedCategory)
         
@@ -61,7 +61,7 @@ class SampleListViewControllerTests: XCTestCase {
     
     func testSelectSample() {
         let sampleListVC = makeViewController()
-        let _ = sampleListVC.view
+        _ = sampleListVC.view
         
         XCTAssertNil(sampleListVC.selectedSample)
         
