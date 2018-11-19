@@ -14,16 +14,14 @@
 
 import ArcGIS
 
-private let kDragRowType: String = "AGSLayerInMap"
-private let kLayerInTableRowKey: String = "AddedLayerRowView"
-private let kLayerNotInTableRowKey: String = "RemovedLayerRowView"
-
 class ReadGeopackageViewController: NSViewController {
     
     @IBOutlet weak var mapView: AGSMapView!
     
     @IBOutlet weak var layersInMapTableView: NSTableView!
     @IBOutlet weak var layersNotInMapTableView: NSTableView!
+    
+    private let layerInMapPasteboardType = NSPasteboard.PasteboardType("AGSLayerInMap")
     
     fileprivate var allLayers: [AGSLayer] = [] {
         didSet {
@@ -94,7 +92,7 @@ class ReadGeopackageViewController: NSViewController {
         }
         
         // Enable us to drag layers to reorder them in the table view.
-        layersInMapTableView.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: kDragRowType)])
+        layersInMapTableView.registerForDraggedTypes([layerInMapPasteboardType])
     }
 
 }
@@ -115,14 +113,14 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         
         if tableView == self.layersInMapTableView {
             // Get a row to show a layer that is in the map.
-            if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: kLayerInTableRowKey), owner: self) as? GPKGLayerTableCell {
+            if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("AddedLayerRowView"), owner: self) as? GPKGLayerTableCell {
                 rowView.agsLayer = layersInMap[row]
                 rowView.delegate = self
                 return rowView
             }
         } else {
             // Get a row to show a layer that is not in the map.
-            if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: kLayerNotInTableRowKey), owner: self) as? NSTableCellView {
+            if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("RemovedLayerRowView"), owner: self) as? NSTableCellView {
                 let layer = layersNotInMap[row]
                 rowView.textField?.stringValue = layer.name
                 return rowView
@@ -136,8 +134,8 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
         if tableView == layersInMapTableView {
             
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
-            pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: kDragRowType)], owner: self)
-            pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
+            pboard.declareTypes([layerInMapPasteboardType], owner: self)
+            pboard.setData(data, forType: layerInMapPasteboardType)
             
             return true
         } else {
@@ -157,7 +155,7 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         
         let pasteboard = info.draggingPasteboard
-        let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: kDragRowType))
+        let rowData = pasteboard.data(forType: layerInMapPasteboardType)
         
         if rowData != nil {
             // A row for a layer in the map was dragged and dropped. Let's re-order the map layers to match.
