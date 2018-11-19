@@ -62,26 +62,26 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     // MARK: - Show/hide options view controller
     
-    private func toggleOptionsVC(on: Bool) {
-        self.optionsContainerView.isHidden = !on
+    private func setOptionsViewControllerVisibility(visible: Bool) {
+        optionsContainerView.isHidden = !visible
     }
     
     // MARK: - Show/hide save map view controller
     
-    private func toggleSaveMapVC(on: Bool) {
-        self.saveMapContainerView.isHidden = !on
+    private func setSaveMapViewControllerVisibility(visible: Bool) {
+        saveMapContainerView.isHidden = !visible
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier else {
+        guard let segueID = segue.identifier else {
             return
         }
-        if id == "OptionsVCSegue" {
+        if segueID == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
-        } else if id == "SaveMapVCSegue" {
+        } else if segueID == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }
@@ -102,13 +102,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.mapView.map = map
         
         //hide the create options view
-        self.toggleOptionsVC(on: false)
+        self.setOptionsViewControllerVisibility(visible: false)
     }
     
     // MARK: - SaveMapVCDelegate
     
     func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController) {
-        self.toggleSaveMapVC(on: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
@@ -129,13 +129,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         }
         
         //hide the input screen
-        self.toggleSaveMapVC(on: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     // MARK: - Actions
     
     @IBAction private func newAction(_ sender: AnyObject) {
-        self.toggleOptionsVC(on: true)
+        self.setOptionsViewControllerVisibility(visible: true)
     }
     
     @IBAction func saveAsAction(_ sender: AnyObject) {
@@ -147,7 +147,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
                 }
             } else {
                 //get title etc
-                self.toggleSaveMapVC(on: true)
+                self.setSaveMapViewControllerVisibility(visible: true)
             }
         }
     }
