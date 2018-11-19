@@ -69,8 +69,7 @@ class ReadGeopackageViewController: NSViewController {
             
             if let error = error {
                 print("Error loading the geopackage: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 
                 // Create feature layers for each feature table in the geopackage.
                 let featureLayers = geoPackage.geoPackageFeatureTables.map { AGSFeatureLayer(featureTable: $0) }
