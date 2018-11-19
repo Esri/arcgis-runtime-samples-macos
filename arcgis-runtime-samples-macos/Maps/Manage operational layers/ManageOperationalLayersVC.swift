@@ -47,7 +47,7 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         
     }
     
-    func moveLayer(_ layer: AGSLayer, fromIndex: Int, toIndex: Int) {
+    func moveLayer(_ layer: AGSLayer, from fromIndex: Int, to toIndex: Int) {
         self.mapView.map?.operationalLayers.removeObject(at: fromIndex)
         
         if toIndex > mapView.map!.operationalLayers.count - 1 {
@@ -109,18 +109,14 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        
-        let pasteboard = info.draggingPasteboard
-        let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
-        
-        if rowData != nil {
-            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet],
-            indexSet = dataArray[0]
+
+        if let rowData = info.draggingPasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey")),
+            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData) as? [IndexSet],
+            let indexSet = dataArray.first,
+            let movingFromIndex = indexSet.first,
+            let layer = mapView.map?.operationalLayers[movingFromIndex] as? AGSLayer {
             
-            let movingFromIndex = indexSet.first
-            let layer = self.mapView.map!.operationalLayers[movingFromIndex!] as! AGSLayer
-            
-            self.moveLayer(layer, fromIndex: movingFromIndex!, toIndex: row)
+            moveLayer(layer, from: movingFromIndex, to: row)
             
             return true
         } else {
