@@ -71,9 +71,9 @@ class ExtrudeGraphicsViewController: NSViewController {
         let y = self.cameraStartingPoint.y + 0.2
         
         //creating a grid of polygon graphics
-        for i in 0...6 {
-            for j in 0...4 {
-                let polygon = self.polygonForStartingPoint(AGSPoint(x: x + Double(i) * (squareSize + spacing), y: y + Double(j) * (squareSize + spacing), spatialReference: nil))
+        for column in 0...6 {
+            for row in 0...4 {
+                let polygon = self.polygonForStartingPoint(AGSPoint(x: x + Double(column) * (squareSize + spacing), y: y + Double(row) * (squareSize + spacing), spatialReference: nil))
                 self.addGraphicForPolygon(polygon)
             }
         }

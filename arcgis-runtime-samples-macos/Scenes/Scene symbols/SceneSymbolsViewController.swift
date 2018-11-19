@@ -80,14 +80,9 @@ class SceneSymbolsViewController: NSViewController {
         symbols.append(contentsOf: [coneSymbol, cubeSymbol, cylinderSymbol, diamondSymbol, sphereSymbol, tetrahedronSymbol])
         
         //create graphics for each symbol
-        var graphics = [AGSGraphic]()
-        
-        var i = 0
-        for symbol in symbols {
-            let point = AGSPoint(x: x + 0.01 * Double(i), y: y, z: z, spatialReference: .wgs84())
-            let graphic = AGSGraphic(geometry: point, symbol: symbol, attributes: nil)
-            graphics.append(graphic)
-            i += 1
+        let graphics = symbols.enumerated().map { (index, symbol) -> AGSGraphic in
+            let point = AGSPoint(x: x + 0.01 * Double(index), y: y, z: z, spatialReference: .wgs84())
+            return AGSGraphic(geometry: point, symbol: symbol, attributes: nil)
         }
         
         //add the graphics to the overlay

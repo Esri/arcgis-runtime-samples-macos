@@ -70,7 +70,7 @@ class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTab
     
     // MARK: - SublayerCellViewDelegate
     
-    func sublayerCellView(_ sublayerCellView: SublayerCellView, didToggleVisibility visible: Bool) {
+    func sublayerCellView(_ sublayerCellView: SublayerCellView, didSetVisibility visible: Bool) {
         let index = sublayerCellView.index
         let sublayer = self.mapImageLayer.mapImageSublayers[index] as! AGSArcGISMapImageSublayer
         sublayer.isVisible = visible

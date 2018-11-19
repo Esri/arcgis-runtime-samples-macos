@@ -38,12 +38,12 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     var generatedRoute: AGSRoute! {
         didSet {
             if generatedRoute != nil {
-                self.directionsListViewController?.route = generatedRoute
+                directionsListViewController?.route = generatedRoute
                 //show directionsList
-                self.toggleDirectionsList(on: true, animated: true)
+                setDirectionsListVisibility(visible: true, animated: true)
             } else {
                 //hide directionsList
-                self.toggleDirectionsList(on: false, animated: true)
+                setDirectionsListVisibility(visible: false, animated: true)
             }
         }
     }
@@ -69,7 +69,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.getDefaultParameters()
         
         //hide directions list
-        self.toggleDirectionsList(on: false, animated: false)
+        self.setDirectionsListVisibility(visible: false, animated: false)
     }
     
     // MARK: - Route logic
@@ -209,24 +209,24 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    func toggleDirectionsList(on: Bool, animated: Bool) {
+    func setDirectionsListVisibility(visible: Bool, animated: Bool) {
         if animated {
-            self.directionsLeadingConstraint.animator().constant = on ? 0 : -200
+            self.directionsLeadingConstraint.animator().constant = visible ? 0 : -200
         } else {
-            self.directionsLeadingConstraint.constant = on ? 0 : -200
+            self.directionsLeadingConstraint.constant = visible ? 0 : -200
         }
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier else {
+        guard let segueID = segue.identifier else {
             return
         }
-        if id == "RouteSettingsSegue" {
+        if segueID == "RouteSettingsSegue" {
             let controller = segue.destinationController as! RouteParametersViewController
             controller.routeParameters = self.routeParameters
-        } else if id == "DirectionsListSegue" {
+        } else if segueID == "DirectionsListSegue" {
             self.directionsListViewController = segue.destinationController as? DirectionsListViewController
             self.directionsListViewController.delegate = self
         }
