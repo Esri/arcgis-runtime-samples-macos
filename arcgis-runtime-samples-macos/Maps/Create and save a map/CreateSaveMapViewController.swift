@@ -62,13 +62,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     // MARK: - Show/hide options view controller
     
-    private func toggleOptionsVC(visible: Bool) {
+    private func setOptionsViewControllerVisibility(visible: Bool) {
         optionsContainerView.isHidden = !visible
     }
     
     // MARK: - Show/hide save map view controller
     
-    private func toggleSaveMapVC(visible: Bool) {
+    private func setSaveMapViewControllerVisibility(visible: Bool) {
         saveMapContainerView.isHidden = !visible
     }
     
@@ -102,13 +102,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.mapView.map = map
         
         //hide the create options view
-        self.toggleOptionsVC(visible: false)
+        self.setOptionsViewControllerVisibility(visible: false)
     }
     
     // MARK: - SaveMapVCDelegate
     
     func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController) {
-        self.toggleSaveMapVC(visible: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
@@ -129,13 +129,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         }
         
         //hide the input screen
-        self.toggleSaveMapVC(visible: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     // MARK: - Actions
     
     @IBAction private func newAction(_ sender: AnyObject) {
-        self.toggleOptionsVC(visible: true)
+        self.setOptionsViewControllerVisibility(visible: true)
     }
     
     @IBAction func saveAsAction(_ sender: AnyObject) {
@@ -147,7 +147,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
                 }
             } else {
                 //get title etc
-                self.toggleSaveMapVC(visible: true)
+                self.setSaveMapViewControllerVisibility(visible: true)
             }
         }
     }

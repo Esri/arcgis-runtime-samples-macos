@@ -38,12 +38,12 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     var generatedRoute: AGSRoute! {
         didSet {
             if generatedRoute != nil {
-                self.directionsListViewController?.route = generatedRoute
+                directionsListViewController?.route = generatedRoute
                 //show directionsList
-                self.toggleDirectionsList(visible: true, animated: true)
+                setDirectionsListVisibility(visible: true, animated: true)
             } else {
                 //hide directionsList
-                self.toggleDirectionsList(visible: false, animated: true)
+                setDirectionsListVisibility(visible: false, animated: true)
             }
         }
     }
@@ -69,7 +69,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         self.getDefaultParameters()
         
         //hide directions list
-        self.toggleDirectionsList(visible: false, animated: false)
+        self.setDirectionsListVisibility(visible: false, animated: false)
     }
     
     // MARK: - Route logic
@@ -209,7 +209,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         }
     }
     
-    func toggleDirectionsList(visible: Bool, animated: Bool) {
+    func setDirectionsListVisibility(visible: Bool, animated: Bool) {
         if animated {
             self.directionsLeadingConstraint.animator().constant = visible ? 0 : -200
         } else {

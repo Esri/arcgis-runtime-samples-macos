@@ -76,7 +76,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         self.mapView.touchDelegate = self
         
         //hide side container view initially
-        self.toggleVisualEffectView(visible: false, animated: false)
+        setVisualEffectViewVisibility(visible: false, animated: false)
     }
     
     private func queryRelatedFeatures() {
@@ -128,7 +128,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 self?.tableView.reloadData()
                 
                 //show container view
-                self?.toggleVisualEffectView(visible: true, animated: true)
+                self?.setVisualEffectViewVisibility(visible: true, animated: true)
             }
         }
     }
@@ -262,7 +262,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
                 self?.queryRelatedFeatures()
             } else {
                 //hide side container view
-                self?.toggleVisualEffectView(visible: false, animated: true)
+                self?.setVisualEffectViewVisibility(visible: false, animated: true)
             }
         }
     }
@@ -291,7 +291,7 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
     
     // MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(visible: Bool, animated: Bool) {
+    private func setVisualEffectViewVisibility(visible: Bool, animated: Bool) {
         if animated {
             visualEffectViewTrailingConstraint.animator().constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
         } else {

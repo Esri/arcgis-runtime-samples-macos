@@ -59,7 +59,7 @@ class RGBRendererViewController: NSViewController {
         self.label2.isHidden = true
     }
     
-    func toggleExtraTextFields(_ visible: Bool) {
+    func setExtraTextFieldsVisibility(visible: Bool) {
         textField1b.isHidden = !visible
         textField1c.isHidden = !visible
         textField2b.isHidden = !visible
@@ -79,19 +79,19 @@ class RGBRendererViewController: NSViewController {
             self.textField2a.stringValue = "255"
             self.textField2b.stringValue = "255"
             self.textField2c.stringValue = "255"
-            self.toggleExtraTextFields(true)
+            self.setExtraTextFieldsVisibility(visible: true)
             self.expandView()
         case 1:
             self.label1.stringValue = "Min"
             self.label2.stringValue = "Max"
             self.textField1a.stringValue = "0"
             self.textField2a.stringValue = "0"
-            self.toggleExtraTextFields(false)
+            self.setExtraTextFieldsVisibility(visible: false)
             self.expandView()
         default:
             self.label1.stringValue = "Factor"
             self.textField1a.stringValue = "1"
-            self.toggleExtraTextFields(false)
+            self.setExtraTextFieldsVisibility(visible: false)
             self.shrinkView()
         }
     }

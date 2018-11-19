@@ -81,7 +81,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.visualEffectView.bottomAnchor.constraint(equalTo: self.mapView.attributionTopAnchor, constant: -20).isActive = true
         
         //hide visual effect view at start
-        self.toggleVisualEffectView(visible: false, animated: false)
+        setVisualEffectViewVisibility(visible: false, animated: false)
     }
     
     private func queryRelatedFeatures() {
@@ -112,7 +112,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     self?.results = results
                     
                     //toggle results on
-                    self?.toggleVisualEffectView(visible: true, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: true, animated: true)
                     
                     self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
                     
@@ -170,7 +170,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 } else {
                     
                     //hide outline view
-                    self?.toggleVisualEffectView(visible: false, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: false, animated: true)
                 }
             }
         }
@@ -229,7 +229,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     // MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(visible: Bool, animated: Bool) {
+    private func setVisualEffectViewVisibility(visible: Bool, animated: Bool) {
         if animated {
             visualEffectViewTrailingConstraint.animator().constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
         } else {
