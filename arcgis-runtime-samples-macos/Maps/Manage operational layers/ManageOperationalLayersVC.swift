@@ -47,13 +47,13 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         
     }
     
-    func moveLayer(_ layer: AGSLayer, from: Int, to: Int) {
-        self.mapView.map?.operationalLayers.removeObject(at: from)
+    func moveLayer(_ layer: AGSLayer, from fromIndex: Int, to toIndex: Int) {
+        self.mapView.map?.operationalLayers.removeObject(at: fromIndex)
         
-        if to > mapView.map!.operationalLayers.count - 1 {
+        if toIndex > mapView.map!.operationalLayers.count - 1 {
             self.mapView.map?.operationalLayers.add(layer)
         } else {
-            self.mapView.map?.operationalLayers.insert(layer, at: to)
+            self.mapView.map?.operationalLayers.insert(layer, at: toIndex)
         }
         self.tableView1.reloadData()
     }
@@ -109,18 +109,14 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        
-        let pasteboard = info.draggingPasteboard
-        let rowData = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey"))
-        
-        if rowData != nil {
-            var dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData!) as! [IndexSet],
-            indexSet = dataArray[0]
+
+        if let rowData = info.draggingPasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey")),
+            let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData) as? [IndexSet],
+            let indexSet = dataArray.first,
+            let movingFromIndex = indexSet.first,
+            let layer = mapView.map?.operationalLayers[movingFromIndex] as? AGSLayer {
             
-            let movingFromIndex = indexSet.first
-            let layer = self.mapView.map!.operationalLayers[movingFromIndex!] as! AGSLayer
-            
-            self.moveLayer(layer, from: movingFromIndex!, to: row)
+            moveLayer(layer, from: movingFromIndex, to: row)
             
             return true
         } else {

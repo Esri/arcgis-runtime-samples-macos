@@ -82,10 +82,10 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "EmbedSegue" else {
+        guard segue.identifier == "EmbedSegue",
+            let controller = segue.destinationController as? MapPackagesListVC else {
             return
         }
-        let controller = segue.destinationController as! MapPackagesListVC
         controller.delegate = self
         controller.mapPackages = Bundle.main
             .urls(forResourcesWithExtension: "mmpk", subdirectory: nil)?

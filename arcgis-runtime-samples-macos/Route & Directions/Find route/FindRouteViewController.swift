@@ -179,10 +179,10 @@ class FindRouteViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "DirectionsSegue" else {
+        guard segue.identifier == "DirectionsSegue",
+            let controller = segue.destinationController as? DirectionsViewController else {
             return
         }
-        let controller = segue.destinationController as! DirectionsViewController
         controller.route = self.generatedRoute
         controller.preferredContentSize = CGSize(width: 300, height: 300)
     }

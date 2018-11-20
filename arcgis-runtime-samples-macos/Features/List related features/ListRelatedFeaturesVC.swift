@@ -81,7 +81,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.visualEffectView.bottomAnchor.constraint(equalTo: self.mapView.attributionTopAnchor, constant: -20).isActive = true
         
         //hide visual effect view at start
-        self.toggleVisualEffectView(on: false, animated: false)
+        setVisualEffectViewVisibility(visible: false, animated: false)
     }
     
     private func queryRelatedFeatures() {
@@ -112,7 +112,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     self?.results = results
                     
                     //toggle results on
-                    self?.toggleVisualEffectView(on: true, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: true, animated: true)
                     
                     self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
                     
@@ -170,7 +170,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 } else {
                     
                     //hide outline view
-                    self?.toggleVisualEffectView(on: false, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: false, animated: true)
                 }
             }
         }
@@ -229,14 +229,11 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     
     // MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(on: Bool, animated: Bool) {
-        
+    private func setVisualEffectViewVisibility(visible: Bool, animated: Bool) {
         if animated {
-         
-            self.visualEffectViewTrailingConstraint.animator().constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
+            visualEffectViewTrailingConstraint.animator().constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
         } else {
-            
-            self.visualEffectViewTrailingConstraint.constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
+            visualEffectViewTrailingConstraint.constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
         }
     }
     
