@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Style Web Map Service Layer View Controller-->
         <scene sceneID="sCs-a0-IaD">
             <objects>
-                <viewController id="4at-8Q-tJz" customClass="StyleWebMapServiceLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4at-8Q-tJz" customClass="StyleWebMapServiceLayerViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="EYk-Ia-i1s">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -21,12 +21,12 @@
                                 <rect key="frame" x="0.0" y="263" width="450" height="37"/>
                                 <subviews>
                                     <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
-                                        <rect key="frame" x="307" y="6" width="137" height="24"/>
+                                        <rect key="frame" x="187" y="6" width="257" height="24"/>
                                         <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment label="Style 1" selected="YES"/>
-                                                <segment label="Style 2" tag="1"/>
+                                                <segment label="Default" width="125" selected="YES"/>
+                                                <segment label="Contrast Stretch" width="125" tag="1"/>
                                             </segments>
                                         </segmentedCell>
                                         <connections>
