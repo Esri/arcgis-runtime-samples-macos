@@ -62,6 +62,7 @@ opt_in_rules: # some rules are only opt-in
   - toggle_bool
   - unused_import
   - unused_private_declaration
+  - untyped_error_in_catch
   - vertical_parameter_alignment_on_call
   - yoda_condition
 
