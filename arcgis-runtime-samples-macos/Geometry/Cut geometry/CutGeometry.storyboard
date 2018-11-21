@@ -1,51 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Cut Geometry View Controller-->
         <scene sceneID="e7x-ur-E6P">
             <objects>
-                <viewController id="snF-ms-OmO" customClass="CutGeometryViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="snF-ms-OmO" customClass="CutGeometryViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="MPW-TP-25B">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-Fg-Hvg" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="51" width="450" height="249"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="zBf-Qw-eQ4">
-                                <rect key="frame" x="0.0" y="263" width="450" height="37"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lW7-NO-G6Y">
-                                        <rect key="frame" x="386" y="1" width="62" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Cut" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eVz-kU-eQV">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="cutGeometryWithPolyline:" target="snF-ms-OmO" id="lBQ-LW-tMw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lW7-NO-G6Y" secondAttribute="bottom" constant="8" id="5LP-cC-TCO"/>
-                                    <constraint firstAttribute="trailing" secondItem="lW7-NO-G6Y" secondAttribute="trailing" constant="8" id="CN3-Ly-ZlH"/>
-                                    <constraint firstItem="lW7-NO-G6Y" firstAttribute="top" secondItem="zBf-Qw-eQ4" secondAttribute="top" constant="8" id="mq4-Qg-dMi"/>
-                                </constraints>
-                            </visualEffectView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lW7-NO-G6Y">
+                                <rect key="frame" x="194" y="8" width="62" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cut" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eVz-kU-eQV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cutGeometryWithPolyline:" target="snF-ms-OmO" id="lBQ-LW-tMw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="1M4-tR-pfz"/>
                             <constraint firstAttribute="trailing" secondItem="aoQ-Fg-Hvg" secondAttribute="trailing" id="7Hh-ib-wcJ"/>
-                            <constraint firstItem="zBf-Qw-eQ4" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="8Qv-2B-oHB"/>
                             <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="N8A-bk-Tfs"/>
-                            <constraint firstItem="zBf-Qw-eQ4" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="ZHZ-y9-k1C"/>
-                            <constraint firstAttribute="trailing" secondItem="zBf-Qw-eQ4" secondAttribute="trailing" id="ZQg-V6-ejH"/>
-                            <constraint firstAttribute="bottom" secondItem="aoQ-Fg-Hvg" secondAttribute="bottom" id="edp-fc-R8Q"/>
+                            <constraint firstItem="lW7-NO-G6Y" firstAttribute="centerX" secondItem="MPW-TP-25B" secondAttribute="centerX" id="NPr-P0-wyf"/>
+                            <constraint firstItem="lW7-NO-G6Y" firstAttribute="top" secondItem="aoQ-Fg-Hvg" secondAttribute="bottom" constant="15" id="Tfu-Jv-hau"/>
+                            <constraint firstAttribute="bottom" secondItem="lW7-NO-G6Y" secondAttribute="bottom" constant="15" id="dIo-3f-LWk"/>
                         </constraints>
                     </view>
                     <connections>
