@@ -172,7 +172,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         paramController.parameterOverrides = parameterOverrides
         paramController.map = mapView.map
         // set the completion handler
-        paramController.startJobHandler = {[weak self] (paramController) in
+        paramController.startJobHandler = { [weak self] (paramController) in
             
             guard let self = self else {
                 return
@@ -183,7 +183,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
             // initiate the job
             self.takeMapOffline()
         }
-        paramController.cancelHandler = {[weak self] (paramController) in
+        paramController.cancelHandler = { [weak self] (paramController) in
             
             guard let self = self else {
                 return
@@ -233,7 +233,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                 self.parameters = parameters
                 
                 //build the parameter overrides object to be configured by the user
-                offlineMapTask.generateOfflineMapParameterOverrides(with: parameters, completion: {[weak self] (parameterOverrides, error) in
+                offlineMapTask.generateOfflineMapParameterOverrides(with: parameters, completion: { [weak self] (parameterOverrides, error) in
                     
                     guard let self = self else {
                         return
@@ -268,7 +268,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would you like to continue?"
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
-        alert.beginSheetModal(for: view.window!) {[weak self] (response) in
+        alert.beginSheetModal(for: view.window!) { [weak self] (response) in
             if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
