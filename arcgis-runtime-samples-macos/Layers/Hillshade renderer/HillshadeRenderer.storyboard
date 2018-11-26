@@ -84,16 +84,16 @@
                                             </textField>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FJ5-Gt-BLO">
                                                 <rect key="frame" x="81" y="78" width="168" height="19"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="90" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="JT4-oH-24d"/>
+                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="90" doubleValue="45" tickMarkPosition="above" sliderType="linear" id="JT4-oH-24d"/>
                                                 <connections>
-                                                    <action selector="slopeTypePopUpAction:" target="hce-ud-MQ3" id="WUx-HQ-JSk"/>
+                                                    <action selector="altitudeSliderAction:" target="hce-ud-MQ3" id="OW5-Ih-LGr"/>
                                                 </connections>
                                             </slider>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oqi-Ha-KmC">
                                                 <rect key="frame" x="81" y="51" width="168" height="19"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="359" doubleValue="315" tickMarkPosition="above" sliderType="linear" id="5dr-ck-KH9"/>
+                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" doubleValue="315" tickMarkPosition="above" sliderType="linear" id="5dr-ck-KH9"/>
                                                 <connections>
-                                                    <action selector="slopeTypePopUpAction:" target="hce-ud-MQ3" id="qLA-0x-LxU"/>
+                                                    <action selector="azimuthSliderAction:" target="hce-ud-MQ3" id="gek-dh-Vn1"/>
                                                 </connections>
                                             </slider>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x0n-xt-dIS">

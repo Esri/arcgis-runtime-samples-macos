@@ -25,7 +25,7 @@
                                 <subviews>
                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ozC-cb-yvh">
                                         <rect key="frame" x="76" y="108" width="176" height="19"/>
-                                        <sliderCell key="cell" state="on" alignment="left" maxValue="90" tickMarkPosition="above" sliderType="linear" id="Epi-yi-8Ua"/>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="90" tickMarkPosition="above" sliderType="linear" id="Epi-yi-8Ua"/>
                                         <connections>
                                             <action selector="altitudeSliderAction:" target="OLG-d1-zne" id="htf-3L-JOa"/>
                                         </connections>
@@ -54,7 +54,7 @@
                                     </textField>
                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FOu-6C-kTQ">
                                         <rect key="frame" x="76" y="78" width="176" height="19"/>
-                                        <sliderCell key="cell" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="Tg7-Ij-K3G"/>
+                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="359" tickMarkPosition="above" sliderType="linear" id="Tg7-Ij-K3G"/>
                                         <connections>
                                             <action selector="azimuthSliderAction:" target="OLG-d1-zne" id="IfE-F1-goB"/>
                                         </connections>
