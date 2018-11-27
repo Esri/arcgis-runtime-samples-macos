@@ -288,7 +288,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         NSApp.showProgressIndicator()
         
         //route
-        self.routeTaskCancelable = self.routeTask.solveRoute(with: self.routeParameters) {[weak self] (routeResult: AGSRouteResult?, error: Error?) in
+        self.routeTaskCancelable = self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
