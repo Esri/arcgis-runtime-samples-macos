@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-import Cocoa
+import AppKit
 import ArcGIS
 
 class BlendRendererViewController: NSViewController {
@@ -24,12 +24,8 @@ class BlendRendererViewController: NSViewController {
     @IBOutlet var azimuthSlider: NSSlider!
     @IBOutlet var altitudeLabel: NSTextField!
     @IBOutlet var azimuthLabel: NSTextField!
-    @IBOutlet var slopeType: NSPopUpButton!
-    @IBOutlet var colorramp: NSPopUpButton!
-    
-    private var map: AGSMap!
-    
-    private var rasterLayer: AGSRasterLayer!
+    @IBOutlet var slopeTypePopUp: NSPopUpButton!
+    @IBOutlet var colorRampPopUp: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +34,13 @@ class BlendRendererViewController: NSViewController {
         let raster = AGSRaster(name: "Shasta", extension: "tif")
         
         //create raster layer using raster
-        self.rasterLayer = AGSRasterLayer(raster: raster)
+        let rasterLayer = AGSRasterLayer(raster: raster)
         
         //initialize map with raster layer as the basemap
-        self.map = AGSMap(basemap: AGSBasemap(baseLayer: self.rasterLayer))
+        let map = AGSMap(basemap: AGSBasemap(baseLayer: rasterLayer))
         
         //assign map to the map view
-        self.mapView.map = self.map
+        mapView.map = map
     }
     
     private func generateBlendRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType, colorRampType: AGSPresetColorRampType) -> AGSBlendRenderer {
@@ -53,16 +49,16 @@ class BlendRendererViewController: NSViewController {
         let raster = AGSRaster(name: "Shasta_Elevation", extension: "tif")
         
         //create a colorRamp object from the type specified
-        let colorRmp = AGSColorRamp(type: colorRampType, size: 800)
+        let colorRamp = AGSColorRamp(type: colorRampType, size: 800)
         
         //create a blend renderer
-        let renderer = AGSBlendRenderer(elevationRaster: raster, outputMinValues: [9], outputMaxValues: [255], sourceMinValues: [], sourceMaxValues: [], noDataValues: [], gammas: [], colorRamp: colorRmp, altitude: altitude, azimuth: azimuth, zFactor: 1, slopeType: slopeType, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
+        let renderer = AGSBlendRenderer(elevationRaster: raster, outputMinValues: [9], outputMaxValues: [255], sourceMinValues: [], sourceMaxValues: [], noDataValues: [], gammas: [], colorRamp: colorRamp, altitude: altitude, azimuth: azimuth, zFactor: 1, slopeType: slopeType, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
         
         return renderer
     }
     
     func selectedSlope() -> AGSSlopeType {
-        switch self.slopeType.indexOfSelectedItem {
+        switch slopeTypePopUp.indexOfSelectedItem {
         case 0:
             return .none
         case 1:
@@ -75,7 +71,7 @@ class BlendRendererViewController: NSViewController {
     }
     
     func selectedColorRamp() -> AGSPresetColorRampType {
-        switch self.colorramp.indexOfSelectedItem {
+        switch colorRampPopUp.indexOfSelectedItem {
         case 0:
             return .none
         case 1:
@@ -87,16 +83,20 @@ class BlendRendererViewController: NSViewController {
         }
     }
     
-    // MARK: -
-    
-    func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType, colorRampType: AGSPresetColorRampType) {
+    private func updateRenderer() {
+        
+        let altitude = altitudeSlider.doubleValue
+        let azimuth = azimuthSlider.doubleValue
+        
+        let slopeType = selectedSlope()
+        let colorRampType = selectedColorRamp()
         
         //get the blend render for the specified settings
-        let blendRenderer = self.generateBlendRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: slopeType, colorRampType: colorRampType)
+        let blendRenderer = generateBlendRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: slopeType, colorRampType: colorRampType)
         
         //if the colorRamp type is None, then use the Shasta.tif for blending.
         //else use the elevation raster with color ramp
-        var baseRaster: AGSRaster
+        let baseRaster: AGSRaster
         if colorRampType == .none {
             baseRaster = AGSRaster(name: "Shasta", extension: "tif")
         } else {
@@ -104,29 +104,28 @@ class BlendRendererViewController: NSViewController {
         }
         
         //create a raster layer with the new raster
-        self.rasterLayer = AGSRasterLayer(raster: baseRaster)
-        
-        //add the raster layer as the basemap
-        self.mapView.map?.basemap = AGSBasemap(baseLayer: self.rasterLayer)
+        let rasterLayer = AGSRasterLayer(raster: baseRaster)
         
         //apply the blend renderer on this new raster layer
-        self.rasterLayer.renderer = blendRenderer
+        rasterLayer.renderer = blendRenderer
+        
+        //add the raster layer as the basemap
+        mapView.map?.basemap = AGSBasemap(baseLayer: rasterLayer)
     }
     
     // MARK: - Actions
     
-    @IBAction func applyAction(_ sender: NSButton) {
-        let altitude = self.altitudeSlider.doubleValue
-        let azimuth = self.azimuthSlider.doubleValue
-        
-        self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope(), colorRampType: self.selectedColorRamp())
+    @IBAction func popUpAction(_ sender: NSPopUpButton) {
+        updateRenderer()
     }
     
     @IBAction func altitudeSliderAction(_ sender: NSSlider) {
-        self.altitudeLabel.stringValue = "\(sender.integerValue)"
+        altitudeLabel.stringValue = "\(sender.integerValue)"
+        updateRenderer()
     }
     
     @IBAction func azimuthSliderAction(_ sender: NSSlider) {
-        self.azimuthLabel.stringValue = "\(sender.integerValue)"
+        azimuthLabel.stringValue = "\(sender.integerValue)"
+        updateRenderer()
     }
 }

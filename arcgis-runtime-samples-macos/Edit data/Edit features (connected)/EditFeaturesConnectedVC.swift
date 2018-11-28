@@ -265,10 +265,10 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "FeatureTemplateSegue" else {
+        guard segue.identifier == "FeatureTemplateSegue",
+            let controller = segue.destinationController as? FeatureTemplatePickerVC else {
             return
         }
-        let controller = segue.destinationController as! FeatureTemplatePickerVC
         controller.featureLayer = self.featureLayer
         controller.delegate = self
         

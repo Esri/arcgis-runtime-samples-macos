@@ -67,7 +67,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)
         self.geodatabaseSyncTask = geodatabaseSyncTask
         
-        geodatabaseSyncTask.defaultGenerateGeodatabaseParameters(withExtent: areaOfInterest) {[weak self] (parameters, error) in
+        geodatabaseSyncTask.defaultGenerateGeodatabaseParameters(withExtent: areaOfInterest) { [weak self] (parameters, error) in
             guard let self = self else {
                 return
             }
@@ -104,7 +104,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         presentAsSheet(progressViewController)
         
         // start the download
-        generateGeodatabaseJob.start(statusHandler: nil) {[weak self] (geodatabase, error) in
+        generateGeodatabaseJob.start(statusHandler: nil) { [weak self] (geodatabase, error) in
             guard let self = self else {
                 return
             }
@@ -125,7 +125,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 self.manageControlEnabledStates()
                 
                 // load the geodatabase to ensure the feature tables are available
-                geodatabase.load {[weak self] (error) in
+                geodatabase.load { [weak self] (error) in
                     guard let self = self else {
                         return
                     }
@@ -153,7 +153,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             mapView.map?.operationalLayers.add(featureLayer)
             
             // load the table to ensure the fields are available
-            featureTable.load {[weak self] (error) in
+            featureTable.load { [weak self] (error) in
                 
                 guard let self = self else {
                     return
@@ -327,7 +327,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             return
         }
         // get the parameters needed to sync the database
-        geodatabaseSyncTask.defaultSyncGeodatabaseParameters(with: geodatabase, completion: {[weak self] (parameters, error) in
+        geodatabaseSyncTask.defaultSyncGeodatabaseParameters(with: geodatabase, completion: { [weak self] (parameters, error) in
             guard let self = self else {
                 return
             }

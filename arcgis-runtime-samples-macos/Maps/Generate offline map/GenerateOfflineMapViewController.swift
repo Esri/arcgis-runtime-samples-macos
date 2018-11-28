@@ -202,7 +202,7 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would you like to continue?"
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
-        alert.beginSheetModal(for: view.window!) {[weak self] (response) in
+        alert.beginSheetModal(for: view.window!) { [weak self] (response) in
             if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
