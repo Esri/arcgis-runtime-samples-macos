@@ -34,7 +34,7 @@ class OpenMapURLViewController: NSViewController {
                        representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=01f052c8995e4b9e889d73c3e210ebe3")!),
             NSMenuItem(title: "Geology of United States",
                        image: #imageLiteral(resourceName: "OpenExistingMapThumbnail3"),
-                       representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=92ad152b9da94dee89b9e387dfe21acd")!)
+                       representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=3a3e6324b0e74b6abacf34cce2499d8f")!)
         ]
         
         // load the map info into the popup button menu
