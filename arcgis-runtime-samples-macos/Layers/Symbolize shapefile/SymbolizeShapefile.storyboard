@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="0Rv-bB-2rW">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="0Rv-bB-2rW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Symbolize Shapefile View Controller-->
         <scene sceneID="NNv-5h-uoz">
             <objects>
-                <viewController id="0Rv-bB-2rW" customClass="SymbolizeShapefileViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Rv-bB-2rW" customClass="SymbolizeShapefileViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RYI-8m-sXW">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="YYr-6u-UV5" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="46" width="450" height="254"/>
+                                <rect key="frame" x="0.0" y="49" width="450" height="251"/>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-AI-d0s">
-                                <rect key="frame" x="158" y="13" width="135" height="19"/>
-                                <buttonCell key="cell" type="roundRect" title="Set Shapefile Symbol" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k9n-nw-WfK">
+                                <rect key="frame" x="141" y="7" width="169" height="32"/>
+                                <buttonCell key="cell" type="push" title="Set Shapefile Symbol" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k9n-nw-WfK">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="setShapefileSymbol:" target="0Rv-bB-2rW" id="mEg-aB-Ecy"/>

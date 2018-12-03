@@ -50,7 +50,7 @@ class ListKMLContentsViewController: NSViewController {
         scene.operationalLayers.add(kmlLayer)
         
         // load the dataset asynchronously so we can list its contents
-        kmlDataset.load {[weak self] (error) in
+        kmlDataset.load { [weak self] (error) in
             
             guard let self = self else {
                 return
