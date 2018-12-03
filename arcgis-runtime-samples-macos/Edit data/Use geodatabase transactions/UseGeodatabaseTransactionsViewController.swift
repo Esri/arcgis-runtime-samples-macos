@@ -182,7 +182,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         let feature = featureTable.createFeature(attributes: attributes, geometry: normalizedPoint)
         
         // add the feature to the feature table
-        featureTable.add(feature) { [weak self] (error: Error?) -> Void in
+        featureTable.add(feature) { [weak self] (error: Error?) in
             
             guard let self = self else {
                 return

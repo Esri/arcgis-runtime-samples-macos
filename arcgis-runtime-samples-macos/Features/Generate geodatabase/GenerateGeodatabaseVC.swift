@@ -49,7 +49,7 @@ class GenerateGeodatabaseVC: NSViewController {
     }
     
     private func addFeatureLayers() {
-        syncTask.load { [weak self] (error) -> Void in
+        syncTask.load { [weak self] (error) in
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Could not load feature service \(error.localizedDescription)")
             } else {
@@ -117,7 +117,7 @@ class GenerateGeodatabaseVC: NSViewController {
                 self.presentAsSheet(progressController)
                 
                 //kick off the job
-                generateJob.start(statusHandler: nil) { [weak self] (object: AnyObject?, error: Error?) -> Void in
+                generateJob.start(statusHandler: nil) { [weak self] (object: AnyObject?, error: Error?) in
                     
                     //hide progress bar
                     progressController.dismiss(self)
@@ -147,7 +147,7 @@ class GenerateGeodatabaseVC: NSViewController {
         guard let generatedGeodatabase = generatedGeodatabase else {
             return
         }
-        generatedGeodatabase.load(completion: { [weak self] (error: Error?) -> Void in
+        generatedGeodatabase.load(completion: { [weak self] (error: Error?) in
             
             guard let self = self else {
                 return
