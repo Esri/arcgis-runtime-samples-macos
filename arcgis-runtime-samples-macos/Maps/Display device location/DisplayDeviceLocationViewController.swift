@@ -42,7 +42,7 @@ class DisplayDeviceLocationViewController: NSViewController {
         
         if isChecked {
             // attempt to start showing the device location
-            mapView.locationDisplay.start {[weak self] (error) in
+            mapView.locationDisplay.start { [weak self] (error) in
                 if let error = error,
                     let window = self?.view.window {
                     // show the error if one occurred
