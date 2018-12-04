@@ -20,7 +20,7 @@ import ArcGIS
 class ChangeAtmosphereEffectViewController: NSViewController {
     
     @IBOutlet private weak var sceneView: AGSSceneView!
-    @IBOutlet weak var popUpButton: NSPopUpButton!
+    @IBOutlet private weak var popUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
