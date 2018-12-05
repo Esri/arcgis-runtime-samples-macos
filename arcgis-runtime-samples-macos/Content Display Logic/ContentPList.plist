@@ -1321,7 +1321,7 @@
 				<key>storyboardName</key>
 				<string>OpenScene</string>
 				<key>descriptionText</key>
-				<string>This sample shows you how to open a web scene from a portal item.</string>
+				<string>Open a web scene from a portal item.</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>OpenSceneViewController</string>
@@ -1333,7 +1333,7 @@
 				<key>storyboardName</key>
 				<string>DisplayScene</string>
 				<key>descriptionText</key>
-				<string>The sample shows you how to display a scene with elevation data</string>
+				<string>Display a scene with elevation data</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>DisplaySceneViewController</string>
@@ -1345,7 +1345,7 @@
 				<key>storyboardName</key>
 				<string>ExtrudeGraphics</string>
 				<key>descriptionText</key>
-				<string>The sample shows you how to render graphics extruded in z direction</string>
+				<string>Render graphics extruded in z direction</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>ExtrudeGraphicsViewController</string>
@@ -1357,7 +1357,7 @@
 				<key>storyboardName</key>
 				<string>SceneSymbols</string>
 				<key>descriptionText</key>
-				<string>The sample shows how to create symbols with different 3D shapes</string>
+				<string>Create symbols with different 3D shapes</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>SceneSymbolsViewController</string>
@@ -1369,7 +1369,7 @@
 				<key>storyboardName</key>
 				<string>SurfacePlacements</string>
 				<key>descriptionText</key>
-				<string>The sample shows how to position graphics using different surface placements</string>
+				<string>Position graphics using different surface placements</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>SurfacePlacementsViewController</string>
@@ -1381,7 +1381,7 @@
 				<key>storyboardName</key>
 				<string>SceneLayerURL</string>
 				<key>descriptionText</key>
-				<string>The sample shows how to use a scene layer in a scene</string>
+				<string>Use a scene layer in a scene</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>SceneLayerURLViewController</string>
@@ -1393,7 +1393,7 @@
 				<key>storyboardName</key>
 				<string>ScenePropertiesExpressions</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to update the orientation of graphics in graphics overlay using expressions on scene properties</string>
+				<string>Update the orientation of graphics in graphics overlay using expressions on scene properties</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>ScenePropertiesExpressions</string>
@@ -1405,7 +1405,7 @@
 				<key>storyboardName</key>
 				<string>Animate3DSymbols</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to animate a graphic’s position and rotation and have the camera follow it</string>
+				<string>Animate a graphic’s position and rotation and have the camera follow it</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>Animate3DSymbolsVC</string>
@@ -1417,7 +1417,7 @@
 				<key>storyboardName</key>
 				<string>DistanceCompositeSymbol</string>
 				<key>descriptionText</key>
-				<string>Demonstrates how to create a graphic using a distance composite scene symbol. Distance composite scene symbols can render different symbols depending on the distance between the camera and the graphic.</string>
+				<string>Create a graphic using a distance composite scene symbol. Distance composite scene symbols can render different symbols depending on the distance between the camera and the graphic.</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>DistanceCompositeSymbolViewController</string>
@@ -1429,7 +1429,7 @@
 				<key>storyboardName</key>
 				<string>TerrainExaggeration</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to use terrain exaggeration on a surface in a scene</string>
+				<string>Use terrain exaggeration on a surface in a scene</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>TerrainExaggerationViewController</string>
@@ -1441,7 +1441,7 @@
 				<key>storyboardName</key>
 				<string>FeatureLayerExtrusion</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to apply extrusion to a renderer on a feature layer</string>
+				<string>Apply extrusion to a renderer on a feature layer</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>FeatureLayerExtrusionViewController</string>
@@ -1453,7 +1453,7 @@
 				<key>storyboardName</key>
 				<string>SceneLayerSelection</string>
 				<key>descriptionText</key>
-				<string>This sample demonstrates how to identify geoelements in a scene layer.</string>
+				<string>Identify geoelements in a scene layer.</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>SceneLayerSelectionViewController</string>
