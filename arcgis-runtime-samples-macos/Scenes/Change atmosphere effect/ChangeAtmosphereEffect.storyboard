@@ -36,7 +36,7 @@
                                             <menu key="menu" id="9go-jD-3es"/>
                                         </popUpButtonCell>
                                         <connections>
-                                            <action selector="popUpAction:" target="FQC-id-YCW" id="Tfl-Eg-sFs"/>
+                                            <action selector="updateEffectFromPopUp" target="FQC-id-YCW" id="Tfl-Eg-sFs"/>
                                         </connections>
                                     </popUpButton>
                                 </subviews>

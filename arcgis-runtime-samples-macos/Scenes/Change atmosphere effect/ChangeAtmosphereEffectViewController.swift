@@ -57,9 +57,6 @@ class ChangeAtmosphereEffectViewController: NSViewController {
         // set the camera for the scene view
         sceneView.setViewpointCamera(camera)
         
-        // set the initial effect
-        sceneView.atmosphereEffect = .none
-        
         let menuItems: [NSMenuItem] = [
             NSMenuItem(title: "None",
                        representedObject: AGSAtmosphereEffect.none),
@@ -73,12 +70,14 @@ class ChangeAtmosphereEffectViewController: NSViewController {
         for menuItem in menuItems {
             popUpButton.menu?.addItem(menuItem)
         }
+        
+        // set the initial effect
+        updateEffectFromPopUp(popUpButton)
     }
     
-    @IBAction func popUpAction(_ sender: NSPopUpButton) {
-        
+    @IBAction func updateEffectFromPopUp(_ popUp: NSPopUpButton) {
         // get the effect from the menu item and reload the scene
-        if let atmosphereEffect = sender.selectedItem?.representedObject as? AGSAtmosphereEffect {
+        if let atmosphereEffect = popUp.selectedItem?.representedObject as? AGSAtmosphereEffect {
             sceneView.atmosphereEffect = atmosphereEffect
         }
     }
