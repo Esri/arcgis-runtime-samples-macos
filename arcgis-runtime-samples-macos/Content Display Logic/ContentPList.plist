@@ -836,6 +836,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Update attributes (feature service)</string>
+				<key>storyboardName</key>
+				<string>UpdateAttributesFeatureService</string>
+				<key>descriptionText</key>
+				<string>Tap on a feature to display a callout. The callout shows the damage type for that feature and an info button. To change the damage type tap on the info button and select a new on from the list shown</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>UpdateAttributesViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Delete features (feature service)</string>
 				<key>storyboardName</key>
 				<string>DeleteFeaturesFS</string>
