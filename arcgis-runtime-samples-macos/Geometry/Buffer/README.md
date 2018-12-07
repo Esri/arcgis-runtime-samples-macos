@@ -13,7 +13,7 @@ Creating buffers is a core concept in GIS proximity analysis, allowing you to vi
 4. Click `Clear Buffers` to remove all the graphics and start again.
 
 ## How it works
-The map point for a tap on the display is captured and the buffer distance entered (in miles) is converted to meters. The static method `AGSGeometryEngine.bufferGeometry` is called to create a planar buffer polygon from the map location and distance. Another static method, `AGSGeometryEngine.geodeticBufferGeometry` is called to create a geodesic buffer polygon using the same inputs. The polygon results (and tap location) are displayed in the map view with different symbols in order to highlight the difference between the buffer techniques due to the spatial reference used in the planar calculation.
+The map point for a tap on the display is captured and the buffer distance entered (in miles) is converted to meters. The `AGSGeometryEngine` static method `bufferGeometry(_:byDistance:)` is called to create a planar buffer polygon from the map location and distance. Another static method, `geodeticBufferGeometry(_:distance:distanceUnit:maxDeviation:curveType:)` is called to create a geodesic buffer polygon using the same inputs. The polygon results (and tap location) are displayed in the map view with different symbols in order to highlight the difference between the buffer techniques due to the spatial reference used in the planar calculation.
 
 ## Relevant API
 * `AGSGeometryEngine.bufferGeometry(_:byDistance:)`
