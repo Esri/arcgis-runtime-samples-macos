@@ -17,7 +17,7 @@ The map point for a tap on the display is captured and the buffer distance enter
 
 ## Relevant API
 * `class AGSGeometryEngine.bufferGeometry(_:byDistance:)`
-* `AGSGeometryEngine.geodeticBufferGeometry(_:distance:distanceUnit:maxDeviation:curveType:)`
+* `class AGSGeometryEngine.geodeticBufferGeometry(_:distance:distanceUnit:maxDeviation:curveType:)`
 * `AGSGraphicsOverlay`
 
 ## Tags
