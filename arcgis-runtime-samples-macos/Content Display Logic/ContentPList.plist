@@ -1471,6 +1471,18 @@
 					<string>SceneLayerSelectionViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Change atmosphere effect</string>
+				<key>storyboardName</key>
+				<string>ChangeAtmosphereEffect</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to change the appearance of the atmosphere in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ChangeAtmosphereEffectViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 </array>
