@@ -90,15 +90,15 @@ extension BufferViewController: AGSGeoViewTouchDelegate {
         /// The buffer radius converted to meters.
         let bufferRadiusInMeters = Measurement(value: bufferRadiusInMiles, unit: UnitLength.miles).converted(to: .meters).value
         
-        /// The geometry for the map point buffered by the given distance in respect
-        /// to the projected map spatial reference system.
+        // create geometry for the map point buffered by the given distance in respect
+        // to the projected map spatial reference system
         if let planarGeometry = AGSGeometryEngine.bufferGeometry(mapPoint, byDistance: bufferRadiusInMeters) {
-            let graphic = AGSGraphic(geometry: planarGeometry, symbol: nil, attributes: nil)
+            let graphic = AGSGraphic(geometry: planarGeometry, symbol: nil)
             planarOverlay.graphics.add(graphic)
         }
         
-        /// The geometry for the map point buffered by the given distance in respect
-        /// to the geodetic spatial reference system (the 3D representation of the Earth).
+        // create geometry for the map point buffered by the given distance in respect
+        // to the geodetic spatial reference system (the 3D representation of the Earth)
         if let geodesicGeometry = AGSGeometryEngine.geodeticBufferGeometry(
             mapPoint,
             distance: bufferRadiusInMeters,
@@ -106,12 +106,12 @@ extension BufferViewController: AGSGeoViewTouchDelegate {
             maxDeviation: .nan,
             curveType: .geodesic
         ) {
-            let graphic = AGSGraphic(geometry: geodesicGeometry, symbol: nil, attributes: nil)
+            let graphic = AGSGraphic(geometry: geodesicGeometry, symbol: nil)
             geodesicOverlay.graphics.add(graphic)
         }
         
         // create and add graphic symbolizing the click point
-        let pointGraphic = AGSGraphic(geometry: mapPoint, symbol: nil, attributes: nil)
+        let pointGraphic = AGSGraphic(geometry: mapPoint, symbol: nil)
         clickLocationsOverlay.graphics.add(pointGraphic)
     }
 }
