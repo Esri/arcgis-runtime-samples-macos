@@ -250,7 +250,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         NSApp.showProgressIndicator()
         
         //get the default parameters
-        self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) -> Void in
+        self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()

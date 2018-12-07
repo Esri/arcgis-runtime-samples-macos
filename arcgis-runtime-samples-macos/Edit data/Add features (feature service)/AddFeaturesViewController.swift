@@ -60,7 +60,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         let feature = self.featureTable.createFeature(attributes: featureAttributes, geometry: normalizedGeometry)
         
         //add the feature to the feature table
-        self.featureTable.add(feature) { [weak self] (error: Error?) -> Void in
+        self.featureTable.add(feature) { [weak self] (error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -79,7 +79,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
+        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
