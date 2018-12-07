@@ -58,8 +58,8 @@ class UpdateAttributesViewController: NSViewController {
         let map = AGSMap(basemap: .oceans())
         // set initial viewpoint
         map.initialViewpoint = AGSViewpoint(
-            center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: .webMercator()),
-            scale: 2e6
+            center: AGSPoint(x: 0, y: 0, spatialReference: .webMercator()),
+            scale: 100000000
         )
         // add the feature layer to the map
         map.operationalLayers.add(featureLayer)
@@ -71,9 +71,9 @@ class UpdateAttributesViewController: NSViewController {
         mapView.callout.delegate = self
     }
     
-    private func damageType(for feature: AGSFeature) -> String {
+    private func damageType(for feature: AGSFeature) -> String? {
         // get the value from the attributes dictionary using the correct key
-        return feature.attributes[damageTypeAttributeKey] as! String
+        return feature.attributes[damageTypeAttributeKey] as? String
     }
     
     private func showCallout(for feature: AGSFeature, tapLocation: AGSPoint?) {
@@ -98,8 +98,11 @@ class UpdateAttributesViewController: NSViewController {
         let popUp = NSPopUpButton(frame: NSRect(x: 0, y: 0, width: 200, height: 32))
         // use the damage types as the menu options
         popUp.addItems(withTitles: damageTypes)
-        // set the initially selected option as the exisiting damage type for this feature
-        popUp.selectItem(withTitle: damageType(for: feature))
+        
+        if let damageType = damageType(for: feature) {
+            // set the initially selected option as the exisiting damage type for this feature, if possible
+            popUp.selectItem(withTitle: damageType)
+        }
         
         // the editor is simple so just use an alert
         let alert = NSAlert()
@@ -129,25 +132,27 @@ class UpdateAttributesViewController: NSViewController {
         
         // update the damage type for the feature
         feature.attributes[damageTypeAttributeKey] = damageType
+        // update the callout with the new damage type
+        mapView.callout.title = damageType
         
         // update the values in the feature table with those we set in the feature attributes
-        featureTable.update(feature) { (error: Error?) in
+        featureTable.update(feature) { [weak self] (error: Error?) in
             
             NSApp.hideProgressIndicator()
+            
+            guard let self = self else {
+                return
+            }
             
             if let error = error {
                 self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
-                self.applyEdits { [weak self] in
-                    // upon successfully applying the edits, show the callout so the user
-                    // can see the updated value
-                    self?.showCallout(for: feature, tapLocation: nil)
-                }
+                self.applyEdits()
             }
         }
     }
     
-    private func applyEdits(onSuccess: @escaping () -> Void) {
+    private func applyEdits() {
         
         NSApp.showProgressIndicator()
         
@@ -170,8 +175,6 @@ class UpdateAttributesViewController: NSViewController {
             
             } else {
                 self.showAlert(messageText: "Edits Applied Successfully", informativeText: "Your changes have been uploaded to the feature service.")
-                // run the successful completion handler
-                onSuccess()
             }
         })
     }
@@ -203,8 +206,7 @@ extension UpdateAttributesViewController: AGSGeoViewTouchDelegate {
             
             if let error = identifyLayerResult.error {
                 print(error)
-            } else if let features = identifyLayerResult.geoElements as? [AGSFeature],
-                let feature = features.first {
+            } else if let feature = identifyLayerResult.geoElements.first as? AGSFeature {
                 // show a callout for the tapped feature
                 self.showCallout(for: feature, tapLocation: mapPoint)
             }
@@ -216,18 +218,11 @@ extension UpdateAttributesViewController: AGSCalloutDelegate {
     
     func didTap(_ callout: AGSCallout) {
         
-        guard let featureForCallout = featureForCallout else {
-            return
+        if let featureForCallout = featureForCallout {
+            // display the editing interface for the chosen feature
+            showEditor(for: featureForCallout)
         }
         
-        // hide the callout
-        callout.dismiss()
-        
-        // clear this since the callout has been dismissed
-        self.featureForCallout = nil
-        
-        // display the editing interface for the chosen feature
-        showEditor(for: featureForCallout)
     }
 
 }

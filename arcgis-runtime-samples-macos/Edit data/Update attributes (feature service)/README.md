@@ -1,12 +1,13 @@
 # Update attributes (feature service)
 
-This sample demonstrates how to edit attributes of feature in a feature layer.
+This sample demonstrates how to edit the attributes of features in a feature service.
+
+![](image1.png)
 
 ## How to use the sample
 
-Features in the map represent properties. Click a house icon to display a callout. Callouts contain information about the type of damage for each property. Click the callout to open the editor for the type of property damage. Select one a new value and click Apply to update the damage type for the selected property.
+Features in the map represent properties. Click a house icon to display a callout. Callouts contain information about the type of damage for each property. Click the callout to open the editor for the type of property damage. Select a new value and click Apply to update the damage type for the selected property.
 
-![](image1.png)
 
 ## How it works
 

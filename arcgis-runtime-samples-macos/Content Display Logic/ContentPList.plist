@@ -840,7 +840,7 @@
 				<key>storyboardName</key>
 				<string>UpdateAttributesFeatureService</string>
 				<key>descriptionText</key>
-				<string>Tap on a feature to display a callout. The callout shows the damage type for that feature and an info button. To change the damage type tap on the info button and select a new on from the list shown</string>
+				<string>This sample demonstrates how to edit the attributes of features in a feature service.</string>
 				<key>sourceFileNames</key>
 				<array>
 					<string>UpdateAttributesViewController</string>
