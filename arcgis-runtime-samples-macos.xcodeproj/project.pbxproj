@@ -393,6 +393,9 @@
 		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
+		C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
+		C731A01D21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */; };
+		C731A01E21B71745003F5D14 /* ChangeAtmosphereEffectViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
@@ -616,6 +619,7 @@
 				C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */,
 				4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */,
 				4CA8381F216C049000698E11 /* DisplayLayerViewStateViewController.swift in CopyFiles */,
+				C731A01E21B71745003F5D14 /* ChangeAtmosphereEffectViewController.swift in CopyFiles */,
 				4CF5C19921791530001FB88C /* LayerViewStatusViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,6 +914,8 @@
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
 		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
+		C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAtmosphereEffectViewController.swift; sourceTree = "<group>"; };
+		C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeAtmosphereEffect.storyboard; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
@@ -1342,6 +1348,7 @@
 				4CBF1B102130853F00CE1567 /* Distance composite symbol */,
 				10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */,
 				4CE3B22920E2ACE000D4A06A /* Scene layer selection */,
+				C731A01921B70587003F5D14 /* Change atmosphere effect */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -2319,6 +2326,15 @@
 			path = "Open mobile map (map package)";
 			sourceTree = "<group>";
 		};
+		C731A01921B70587003F5D14 /* Change atmosphere effect */ = {
+			isa = PBXGroup;
+			children = (
+				C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */,
+				C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */,
+			);
+			path = "Change atmosphere effect";
+			sourceTree = "<group>";
+		};
 		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
 			isa = PBXGroup;
 			children = (
@@ -2747,6 +2763,7 @@
 				3E7823661DCD54CE0011B304 /* VectorTileCustomStyle.storyboard in Resources */,
 				3E69DE541CFF8D5F001F65F7 /* CollectionViewItem.xib in Resources */,
 				3EFDE0B61E31287B00CBCD92 /* Shasta_Elevation.tif in Resources */,
+				C731A01D21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard in Resources */,
 				3E8D55001D5513D300E628D9 /* ScenePropertiesExpressions.storyboard in Resources */,
 				C74AA5342152D334009047AF /* US_State_Capitals.kml in Resources */,
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
@@ -2825,7 +2842,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "echo $BUILT_PRODUCTS_DIR\n#readme for the project to skip\nDEFAULT_README=$SRCROOT/README.md\n#find all README.md files in the project\nfind ${SRCROOT} -name \"README.md\" | while read file\ndo\n#skip if its the default readme for project\nif [ \"$file\" = \"$DEFAULT_README\" ]\nthen\necho $BUILT_PRODUCTS_DIR\ncontinue\nfi\n#extract the folder name from the path\nFILE_PATH=$(dirname \"$file\")\nFOLDER_NAME=$(basename \"$FILE_PATH\")\n#path of the folder to be created for each readme\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/${FOLDER_NAME}\"\n\n#for legacy setting the build folder is also within the SRCROOT folder\n#check if source path is equal to destination then skip\nif [ \"$file\" != \"${BUILD_APP_DIR}/README.md\" ]\nthen\nmkdir -p \"${BUILD_APP_DIR}\"\ncp \"${file}\" \"${BUILD_APP_DIR}/README.md\"\nfi\ndone";
+			shellScript = "echo $BUILT_PRODUCTS_DIR\n#readme for the project to skip\nDEFAULT_README=$SRCROOT/README.md\n#find all README.md files in the project\nfind ${SRCROOT} -name \"README.md\" | while read file\ndo\n#skip if its the default readme for project\nif [ \"$file\" = \"$DEFAULT_README\" ]\nthen\necho $BUILT_PRODUCTS_DIR\ncontinue\nfi\n#extract the folder name from the path\nFILE_PATH=$(dirname \"$file\")\nFOLDER_NAME=$(basename \"$FILE_PATH\")\n#path of the folder to be created for each readme\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/${FOLDER_NAME}\"\n\n#for legacy setting the build folder is also within the SRCROOT folder\n#check if source path is equal to destination then skip\nif [ \"$file\" != \"${BUILD_APP_DIR}/README.md\" ]\nthen\nmkdir -p \"${BUILD_APP_DIR}\"\ncp \"${file}\" \"${BUILD_APP_DIR}/README.md\"\nfi\ndone\n";
 		};
 		4C962B78217F975900BD7A2C /* Lint Code */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2871,6 +2888,7 @@
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
+				C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
