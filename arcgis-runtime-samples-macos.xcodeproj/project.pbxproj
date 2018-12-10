@@ -419,6 +419,9 @@
 		C793B5EF2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */; };
 		C793B5F02166BF27000A7A10 /* OpenStreetMapLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */; };
 		C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */; };
+		C796FAF121B887A200B5849E /* UpdateAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */; };
+		C796FAF221B887A200B5849E /* UpdateAttributesFeatureService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */; };
+		C796FAF321B8929D00B5849E /* UpdateAttributesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */; };
 		C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */; };
 		C79F51D92155A622001B41EA /* ListKMLContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79F51D72155A622001B41EA /* ListKMLContents.storyboard */; };
 		C79F51DA2155A622001B41EA /* ListKMLContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
@@ -499,6 +502,7 @@
 				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
 				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
 				C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */,
+				C796FAF321B8929D00B5849E /* UpdateAttributesViewController.swift in CopyFiles */,
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
@@ -936,6 +940,8 @@
 		C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapParameterOverridesViewController.swift; sourceTree = "<group>"; };
 		C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenStreetMapLayerViewController.swift; sourceTree = "<group>"; };
 		C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenStreetMapLayer.storyboard; sourceTree = "<group>"; };
+		C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAttributesViewController.swift; sourceTree = "<group>"; };
+		C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UpdateAttributesFeatureService.storyboard; sourceTree = "<group>"; };
 		C79F51D72155A622001B41EA /* ListKMLContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListKMLContents.storyboard; sourceTree = "<group>"; };
 		C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListKMLContentsViewController.swift; sourceTree = "<group>"; };
 		C79F51DB2155A84F001B41EA /* esri_test_data.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = esri_test_data.kmz; sourceTree = "<group>"; };
@@ -1620,6 +1626,7 @@
 			isa = PBXGroup;
 			children = (
 				3E29C9E41DC7C20800E5571F /* Add features (feature service) */,
+				C796FAEE21B8853400B5849E /* Update attributes (feature service) */,
 				3E29C9EA1DC7C55200E5571F /* Delete features (feature service) */,
 				3E84EE401DCA4ADE006731B5 /* Edit features (connected) */,
 				C7D22F832167BBFA00C39D5C /* Use geodatabase transactions */,
@@ -2397,6 +2404,15 @@
 			path = "OpenStreetMap layer";
 			sourceTree = "<group>";
 		};
+		C796FAEE21B8853400B5849E /* Update attributes (feature service) */ = {
+			isa = PBXGroup;
+			children = (
+				C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */,
+				C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */,
+			);
+			path = "Update attributes (feature service)";
+			sourceTree = "<group>";
+		};
 		C79F51D62155A354001B41EA /* List KML contents */ = {
 			isa = PBXGroup;
 			children = (
@@ -2761,6 +2777,7 @@
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
 				4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
+				C796FAF221B887A200B5849E /* UpdateAttributesFeatureService.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */,
 				3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */,
@@ -2937,6 +2954,7 @@
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
 				1271FB9F1FE300E200536F60 /* LineOfSightLocationViewController.swift in Sources */,
 				3EFDE0A81E31279700CBCD92 /* RGBRendererViewController.swift in Sources */,
+				C796FAF121B887A200B5849E /* UpdateAttributesViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3E0662571F031F2C007666DF /* ChangeSublayerRendererVC.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,

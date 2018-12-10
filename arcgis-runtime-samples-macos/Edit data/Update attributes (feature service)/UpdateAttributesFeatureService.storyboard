@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="9rv-fj-56X">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--UpdateAttributesViewController-->
+        <scene sceneID="bAj-hu-lot">
+            <objects>
+                <viewController title="UpdateAttributesViewController" id="9rv-fj-56X" customClass="UpdateAttributesViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="LeQ-na-ZHK">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-LO-6OV" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Hfn-LO-6OV" firstAttribute="leading" secondItem="LeQ-na-ZHK" secondAttribute="leading" id="B6q-7J-BHj"/>
+                            <constraint firstItem="Hfn-LO-6OV" firstAttribute="top" secondItem="LeQ-na-ZHK" secondAttribute="top" id="Hy7-QR-1kF"/>
+                            <constraint firstAttribute="bottom" secondItem="Hfn-LO-6OV" secondAttribute="bottom" id="bF7-6w-5F1"/>
+                            <constraint firstAttribute="trailing" secondItem="Hfn-LO-6OV" secondAttribute="trailing" id="oKZ-iY-8tt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Hfn-LO-6OV" id="HEG-7K-aD5"/>
+                    </connections>
+                </viewController>
+                <customObject id="heI-Ky-tgb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="189"/>
+        </scene>
+    </scenes>
+</document>

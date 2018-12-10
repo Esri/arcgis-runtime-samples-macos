@@ -836,6 +836,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Update attributes (feature service)</string>
+				<key>storyboardName</key>
+				<string>UpdateAttributesFeatureService</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to edit the attributes of features in a feature service.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>UpdateAttributesViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Delete features (feature service)</string>
 				<key>storyboardName</key>
 				<string>DeleteFeaturesFS</string>
