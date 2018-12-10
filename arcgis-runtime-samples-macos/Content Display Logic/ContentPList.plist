@@ -1134,6 +1134,18 @@
 					<string>SpatialRelationshipsViewController</string>
 				</array>
 			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Buffer</string>
+				<key>storyboardName</key>
+				<string>Buffer</string>
+				<key>descriptionText</key>
+				<string>Create buffers around the click location with a given radius.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>BufferViewController</string>
+				</array>
+			</dict>
 		</array>
 	</dict>
 	<dict>
