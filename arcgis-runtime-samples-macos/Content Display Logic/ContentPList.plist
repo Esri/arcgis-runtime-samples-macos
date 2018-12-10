@@ -849,6 +849,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Update attributes (feature service)</string>
+				<key>storyboardName</key>
+				<string>UpdateAttributesFeatureService</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to edit the attributes of features in a feature service.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>UpdateAttributesViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Delete features (feature service)</string>
 				<key>storyboardName</key>
 				<string>DeleteFeaturesFS</string>
@@ -1145,6 +1157,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>SpatialRelationshipsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Buffer</string>
+				<key>storyboardName</key>
+				<string>Buffer</string>
+				<key>descriptionText</key>
+				<string>Create buffers around the click location with a given radius.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>BufferViewController</string>
 				</array>
 			</dict>
 		</array>
@@ -1470,6 +1494,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>SceneLayerSelectionViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Change atmosphere effect</string>
+				<key>storyboardName</key>
+				<string>ChangeAtmosphereEffect</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to change the appearance of the atmosphere in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ChangeAtmosphereEffectViewController</string>
 				</array>
 			</dict>
 		</array>

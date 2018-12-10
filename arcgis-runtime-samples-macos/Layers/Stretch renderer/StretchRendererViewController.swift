@@ -20,7 +20,7 @@ import ArcGIS
 class StretchRendererViewController: NSViewController {
 
     @IBOutlet var mapView: AGSMapView!
-    @IBOutlet var stretchType: NSPopUpButton!
+    @IBOutlet var stretchTypePopUp: NSPopUpButton!
     @IBOutlet var label1: NSTextField!
     @IBOutlet var label2: NSTextField!
     @IBOutlet var textField1: NSTextField!
@@ -28,31 +28,56 @@ class StretchRendererViewController: NSViewController {
     @IBOutlet var textField2TopConstraint: NSLayoutConstraint!
     @IBOutlet var textField2HeightConstraint: NSLayoutConstraint!
     
-    private var raster: AGSRaster!
-    private var rasterLayer: AGSRasterLayer!
+    private var rasterLayer: AGSRasterLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.raster = AGSRaster(name: "ShastaBW", extension: "tif")
+        let raster = AGSRaster(name: "ShastaBW", extension: "tif")
         
-        self.rasterLayer = AGSRasterLayer(raster: self.raster)
+        let rasterLayer = AGSRasterLayer(raster: raster)
+        self.rasterLayer = rasterLayer
         
-        let map = AGSMap(basemap: AGSBasemap(baseLayer: self.rasterLayer))
-        
-        self.mapView.map = map
+        let map = AGSMap(basemap: AGSBasemap(baseLayer: rasterLayer))
+        mapView.map = map
     }
     
-    func expandView() {
-        self.textField2TopConstraint.constant = 12
-        self.textField2HeightConstraint.constant = 22
-        self.label2.isHidden = false
+    private func expandView() {
+        textField2TopConstraint.constant = 12
+        textField2HeightConstraint.constant = 22
+        label2.isHidden = false
     }
     
-    func shrinkView() {
-        self.textField2TopConstraint.constant = 0
-        self.textField2HeightConstraint.constant = 0
-        self.label2.isHidden = true
+    private func shrinkView() {
+        textField2TopConstraint.constant = 0
+        textField2HeightConstraint.constant = 0
+        label2.isHidden = true
+    }
+    
+    private func updateRenderer() {
+        let stretchParameters: AGSStretchParameters = {
+            switch stretchTypePopUp.indexOfSelectedItem {
+            case 0:
+                let minValue = textField1.integerValue
+                let maxValue = textField2.integerValue
+                return AGSMinMaxStretchParameters(minValues: [NSNumber(value: minValue)], maxValues: [NSNumber(value: maxValue)])
+            case 1:
+                let min = textField1.doubleValue
+                let max = textField2.doubleValue
+                return AGSPercentClipStretchParameters(min: min, max: max)
+            default:
+                let factor = textField1.doubleValue
+                return AGSStandardDeviationStretchParameters(factor: factor)
+            }
+        }()
+        
+        let renderer = AGSStretchRenderer(
+            stretchParameters: stretchParameters,
+            gammas: [],
+            estimateStatistics: true,
+            colorRamp: AGSColorRamp(type: .demLight, size: 1000)
+        )
+        rasterLayer?.renderer = renderer
     }
     
     // MARK: - Actions
@@ -60,43 +85,27 @@ class StretchRendererViewController: NSViewController {
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         switch sender.indexOfSelectedItem {
         case 0:
-            self.label1.stringValue = "Min value"
-            self.label2.stringValue = "Max value"
-            self.textField1.stringValue = "0"
-            self.textField2.stringValue = "255"
-            self.expandView()
+            label1.stringValue = "Min Value"
+            label2.stringValue = "Max Value"
+            textField1.stringValue = "0"
+            textField2.stringValue = "255"
+            expandView()
         case 1:
-            self.label1.stringValue = "Min"
-            self.label2.stringValue = "Max"
-            self.textField1.stringValue = "0"
-            self.textField2.stringValue = "0"
-            self.expandView()
+            label1.stringValue = "Min"
+            label2.stringValue = "Max"
+            textField1.stringValue = "0"
+            textField2.stringValue = "0"
+            expandView()
         default:
-            self.label1.stringValue = "Factor"
-            self.textField1.stringValue = "1"
-            self.shrinkView()
+            label1.stringValue = "Factor"
+            textField1.stringValue = "1"
+            shrinkView()
         }
+        updateRenderer()
     }
     
-    @IBAction func applyAction(_ sender: NSButton) {
-        var stretchParams: AGSStretchParameters
-        
-        switch self.stretchType.indexOfSelectedItem {
-        case 0:
-            let minValue = self.textField1.integerValue
-            let maxValue = self.textField2.integerValue
-            stretchParams = AGSMinMaxStretchParameters(minValues: [NSNumber(value: minValue)], maxValues: [NSNumber(value: maxValue)])
-        case 1:
-            let min = self.textField1.doubleValue
-            let max = self.textField2.doubleValue
-            stretchParams = AGSPercentClipStretchParameters(min: min, max: max)
-        default:
-            let factor = self.textField1.doubleValue
-            stretchParams = AGSStandardDeviationStretchParameters(factor: factor)
-        }
-        
-        let renderer = AGSStretchRenderer(stretchParameters: stretchParams, gammas: [], estimateStatistics: true, colorRamp: AGSColorRamp(type: .demLight, size: 1000))
-        self.rasterLayer.renderer = renderer
+    @IBAction func textFieldAction(_ sender: NSTextField) {
+        updateRenderer()
     }
-    
+  
 }

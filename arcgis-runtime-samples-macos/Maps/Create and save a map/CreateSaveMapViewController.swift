@@ -47,7 +47,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     // MARK: - Save map
     
     private func saveMap(_ title: String, tags: [String], itemDescription: String?, thumbnail: NSImage?) {
-        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) -> Void in
+        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) in
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
@@ -62,26 +62,26 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     // MARK: - Show/hide options view controller
     
-    private func toggleOptionsVC(on: Bool) {
-        self.optionsContainerView.isHidden = !on
+    private func setOptionsViewControllerVisibility(visible: Bool) {
+        optionsContainerView.isHidden = !visible
     }
     
     // MARK: - Show/hide save map view controller
     
-    private func toggleSaveMapVC(on: Bool) {
-        self.saveMapContainerView.isHidden = !on
+    private func setSaveMapViewControllerVisibility(visible: Bool) {
+        saveMapContainerView.isHidden = !visible
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier else {
+        guard let segueID = segue.identifier else {
             return
         }
-        if id == "OptionsVCSegue" {
+        if segueID == "OptionsVCSegue" {
             let controller = segue.destinationController as! CreateOptionsViewController
             controller.delegate = self
-        } else if id == "SaveMapVCSegue" {
+        } else if segueID == "SaveMapVCSegue" {
             self.saveMapVC = segue.destinationController as? SaveMapViewController
             self.saveMapVC.delegate = self
         }
@@ -102,13 +102,13 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         self.mapView.map = map
         
         //hide the create options view
-        self.toggleOptionsVC(on: false)
+        self.setOptionsViewControllerVisibility(visible: false)
     }
     
     // MARK: - SaveMapVCDelegate
     
     func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController) {
-        self.toggleSaveMapVC(on: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
@@ -116,7 +116,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         //set the initial viewpoint from map view
         self.mapView.map?.initialViewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale)
         
-        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
+        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) in
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
@@ -129,25 +129,25 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         }
         
         //hide the input screen
-        self.toggleSaveMapVC(on: false)
+        setSaveMapViewControllerVisibility(visible: false)
     }
     
     // MARK: - Actions
     
     @IBAction private func newAction(_ sender: AnyObject) {
-        self.toggleOptionsVC(on: true)
+        self.setOptionsViewControllerVisibility(visible: true)
     }
     
     @IBAction func saveAsAction(_ sender: AnyObject) {
         self.portal = AGSPortal(url: URL(string: "https://www.arcgis.com")!, loginRequired: true)
-        self.portal.load { (error) -> Void in
+        self.portal.load { (error) in
             if let error = error {
                 if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
             } else {
                 //get title etc
-                self.toggleSaveMapVC(on: true)
+                self.setSaveMapViewControllerVisibility(visible: true)
             }
         }
     }

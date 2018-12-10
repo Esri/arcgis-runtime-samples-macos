@@ -24,7 +24,7 @@ class WMTSLayerViewController: NSViewController {
     private var map: AGSMap!
     private var wmtsService: AGSWMTSService!
     
-    private let WMTS_SERVICE_URL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS")!
+    private let wmtsServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,10 @@ class WMTSLayerViewController: NSViewController {
         self.mapView.map = self.map
         
         //create a WMTS service with the service URL
-        self.wmtsService = AGSWMTSService(url: WMTS_SERVICE_URL)
+        self.wmtsService = AGSWMTSService(url: wmtsServiceURL)
         
         //load the WMTS service to access the service information
-        self.wmtsService.load {[weak self] (error) in
+        self.wmtsService.load { [weak self] (error) in
             if let error = error {
                 self?.showAlert(messageText: "Error loading WMTS service:", informativeText: error.localizedDescription)
             } else {

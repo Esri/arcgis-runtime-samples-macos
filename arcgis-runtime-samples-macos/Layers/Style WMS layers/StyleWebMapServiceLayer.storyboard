@@ -1,54 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="4at-8Q-tJz">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Style Web Map Service Layer View Controller-->
         <scene sceneID="sCs-a0-IaD">
             <objects>
-                <viewController id="4at-8Q-tJz" customClass="StyleWebMapServiceLayerViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4at-8Q-tJz" customClass="StyleWebMapServiceLayerViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="EYk-Ia-i1s">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="463" height="279"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="EJD-Bj-JQr" customClass="AGSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="51" width="463" height="228"/>
                             </customView>
-                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="2Eu-zj-ikC">
-                                <rect key="frame" x="0.0" y="263" width="450" height="37"/>
-                                <subviews>
-                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
-                                        <rect key="frame" x="307" y="6" width="137" height="24"/>
-                                        <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment label="Style 1" selected="YES"/>
-                                                <segment label="Style 2" tag="1"/>
-                                            </segments>
-                                        </segmentedCell>
-                                        <connections>
-                                            <action selector="changeStyle:" target="4at-8Q-tJz" id="UOp-4e-oyr"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="TKX-jE-LhD" secondAttribute="bottom" constant="8" id="EV3-a4-hrs"/>
-                                    <constraint firstAttribute="trailing" secondItem="TKX-jE-LhD" secondAttribute="trailing" constant="8" id="b76-GC-410"/>
-                                    <constraint firstItem="TKX-jE-LhD" firstAttribute="top" secondItem="2Eu-zj-ikC" secondAttribute="top" constant="8" id="hPK-EO-jdW"/>
-                                </constraints>
-                            </visualEffectView>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-jE-LhD">
+                                <rect key="frame" x="103" y="13" width="257" height="24"/>
+                                <segmentedCell key="cell" enabled="NO" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mOA-KY-tzE">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Default" width="125" selected="YES"/>
+                                        <segment label="Contrast Stretch" width="125" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="changeStyle:" target="4at-8Q-tJz" id="UOp-4e-oyr"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EJD-Bj-JQr" secondAttribute="trailing" id="3fW-d0-uc0"/>
-                            <constraint firstAttribute="bottom" secondItem="EJD-Bj-JQr" secondAttribute="bottom" id="HKu-x8-AWU"/>
+                            <constraint firstItem="TKX-jE-LhD" firstAttribute="centerX" secondItem="EYk-Ia-i1s" secondAttribute="centerX" id="FT3-9L-Swg"/>
                             <constraint firstItem="EJD-Bj-JQr" firstAttribute="top" secondItem="EYk-Ia-i1s" secondAttribute="top" id="MZx-6I-MEg"/>
-                            <constraint firstItem="2Eu-zj-ikC" firstAttribute="leading" secondItem="EYk-Ia-i1s" secondAttribute="leading" id="ODl-AX-hJe"/>
-                            <constraint firstAttribute="trailing" secondItem="2Eu-zj-ikC" secondAttribute="trailing" id="Wqe-ex-SaK"/>
+                            <constraint firstAttribute="bottom" secondItem="TKX-jE-LhD" secondAttribute="bottom" constant="15" id="Uql-HL-GBR"/>
                             <constraint firstItem="EJD-Bj-JQr" firstAttribute="leading" secondItem="EYk-Ia-i1s" secondAttribute="leading" id="cdz-E8-NIP"/>
-                            <constraint firstItem="2Eu-zj-ikC" firstAttribute="top" secondItem="EYk-Ia-i1s" secondAttribute="top" id="k9S-Um-fEz"/>
+                            <constraint firstItem="TKX-jE-LhD" firstAttribute="top" secondItem="EJD-Bj-JQr" secondAttribute="bottom" constant="15" id="jpW-vQ-eU6"/>
                         </constraints>
                     </view>
                     <connections>

@@ -47,7 +47,7 @@ class DisplayKMLViewController: NSViewController {
         
         // This load call is not required, but it allows for error
         // feedback and progress indication
-        kmlLayer.load {[weak self] (error) in
+        kmlLayer.load { [weak self] (error) in
             
             NSApp.hideProgressIndicator()
             

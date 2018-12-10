@@ -56,7 +56,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would you like to continue?"
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
-        alert.beginSheetModal(for: view.window!) {[weak self] (response) in
+        alert.beginSheetModal(for: view.window!) { [weak self] (response) in
             if response == .alertFirstButtonReturn {
                 self?.loadMap()
             }
@@ -94,7 +94,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
         //instantiate offline map task
         let offlineMapTask = AGSOfflineMapTask(portalItem: portalItem)
         self.offlineMapTask = offlineMapTask
-        offlineMapTask.getPreplannedMapAreas(completion: {[weak self] (preplannedMapAreas, error) in
+        offlineMapTask.getPreplannedMapAreas(completion: { [weak self] (preplannedMapAreas, error) in
             guard let self = self else {
                 return
             }
@@ -174,7 +174,7 @@ class DownloadPreplannedMapViewController: NSViewController, AGSAuthenticationMa
     
     private func loadDownloadedMap(at url: URL) {
         let package = AGSMobileMapPackage(fileURL: url)
-        package.load {[weak self] (error) in
+        package.load { [weak self] (error) in
             if error == nil,
                 let map = package.maps.first {
                 self?.mapView.map = map

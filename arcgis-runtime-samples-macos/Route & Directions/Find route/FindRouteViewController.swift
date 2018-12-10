@@ -98,7 +98,7 @@ class FindRouteViewController: NSViewController {
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.routeTask.defaultRouteParameters { [weak self] (parameters, error) -> Void in
+        self.routeTask.defaultRouteParameters { [weak self] (parameters, error) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -148,7 +148,7 @@ class FindRouteViewController: NSViewController {
         stop2.name = "B"
         routeParameters.setStops([stop1, stop2])
         
-        self.routeTask.solveRoute(with: routeParameters) { [weak self] (routeResult, error) -> Void in
+        self.routeTask.solveRoute(with: routeParameters) { [weak self] (routeResult, error) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -179,10 +179,10 @@ class FindRouteViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "DirectionsSegue" else {
+        guard segue.identifier == "DirectionsSegue",
+            let controller = segue.destinationController as? DirectionsViewController else {
             return
         }
-        let controller = segue.destinationController as! DirectionsViewController
         controller.route = self.generatedRoute
         controller.preferredContentSize = CGSize(width: 300, height: 300)
     }

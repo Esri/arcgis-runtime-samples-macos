@@ -40,7 +40,7 @@ class WMSLayerUsingURLViewController: NSViewController {
         NSApp.showProgressIndicator()
         
         //load the WMS layer
-        wmsLayer.load {[weak self] (error) in
+        wmsLayer.load { [weak self] (error) in
             
             guard let self = self else {
                 return

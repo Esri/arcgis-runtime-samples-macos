@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="snF-ms-OmO">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Buffer View Controller-->
+        <scene sceneID="e7x-ur-E6P">
+            <objects>
+                <viewController id="snF-ms-OmO" customClass="BufferViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="MPW-TP-25B">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-Fg-Hvg" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="52" width="450" height="248"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-pd-eTN">
+                                <rect key="frame" x="78" y="15" width="294" height="22"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Po-WW-RP5">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="22"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-gx-F80">
+                                                <rect key="frame" x="-2" y="3" width="86" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Buffer radius:" id="wOd-0j-8Uh">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GvW-du-Meg">
+                                                <rect key="frame" x="90" y="0.0" width="80" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="OdV-vs-CHR"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="300 mi" placeholderString="300 mi" drawsBackground="YES" id="JRL-CH-wwZ">
+                                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="# mi" usesGroupingSeparator="NO" lenient="YES" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="2000000000" id="yca-N5-9hu">
+                                                        <real key="minimum" value="0.0"/>
+                                                    </numberFormatter>
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk5-nw-ezi">
+                                        <rect key="frame" x="180" y="-6" width="120" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Clear Buffers" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jwm-Z0-dAB">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="clearBuffersAction:" target="snF-ms-OmO" id="Wqh-yZ-wU6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="leading" secondItem="MPW-TP-25B" secondAttribute="leading" id="1M4-tR-pfz"/>
+                            <constraint firstItem="SgG-pd-eTN" firstAttribute="centerX" secondItem="MPW-TP-25B" secondAttribute="centerX" id="1QC-0x-kPB"/>
+                            <constraint firstAttribute="trailing" secondItem="aoQ-Fg-Hvg" secondAttribute="trailing" id="7Hh-ib-wcJ"/>
+                            <constraint firstItem="aoQ-Fg-Hvg" firstAttribute="top" secondItem="MPW-TP-25B" secondAttribute="top" id="N8A-bk-Tfs"/>
+                            <constraint firstAttribute="bottom" secondItem="SgG-pd-eTN" secondAttribute="bottom" constant="15" id="e4y-5S-97I"/>
+                            <constraint firstItem="SgG-pd-eTN" firstAttribute="top" secondItem="aoQ-Fg-Hvg" secondAttribute="bottom" constant="15" id="i9O-Eb-f8t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aoQ-Fg-Hvg" id="zoe-5E-YwM"/>
+                        <outlet property="textField" destination="GvW-du-Meg" id="XD1-mK-BaM"/>
+                    </connections>
+                </viewController>
+                <customObject id="R6H-6h-X9c" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="148" y="257"/>
+        </scene>
+    </scenes>
+</document>

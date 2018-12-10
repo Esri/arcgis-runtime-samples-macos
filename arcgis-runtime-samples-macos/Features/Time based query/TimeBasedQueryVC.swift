@@ -68,7 +68,7 @@ class TimeBasedQueryVC: NSViewController {
         queryParams.timeExtent = timeExtent
         
         //populate features based on query parameters
-        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) {[weak self] (result: AGSFeatureQueryResult?, error: Error?) -> Void in
+        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) { [weak self] (result: AGSFeatureQueryResult?, error: Error?) in
             
             guard error == nil else {
                 //show error

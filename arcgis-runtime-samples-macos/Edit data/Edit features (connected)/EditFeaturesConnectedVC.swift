@@ -61,7 +61,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result: [AGSFeatureEditResult]?, error: Error?) -> Void in
+        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result: [AGSFeatureEditResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -84,7 +84,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
+        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -265,10 +265,10 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "FeatureTemplateSegue" else {
+        guard segue.identifier == "FeatureTemplateSegue",
+            let controller = segue.destinationController as? FeatureTemplatePickerVC else {
             return
         }
-        let controller = segue.destinationController as! FeatureTemplatePickerVC
         controller.featureLayer = self.featureLayer
         controller.delegate = self
         
