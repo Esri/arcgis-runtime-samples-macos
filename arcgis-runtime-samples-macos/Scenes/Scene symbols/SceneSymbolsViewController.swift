@@ -96,6 +96,6 @@ class SceneSymbolsViewController: NSViewController {
     
     //returns a CGFloat between 0 and 1
     private func randFloat() -> CGFloat {
-        return CGFloat(arc4random() % 256) / 256
+        return CGFloat.random(in: 0...1)
     }
 }
