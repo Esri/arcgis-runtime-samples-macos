@@ -395,10 +395,10 @@
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
 		C730BFD621B5CC610076FC18 /* Buffer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C730BFD421B5CC610076FC18 /* Buffer.storyboard */; };
 		C730BFD721B5CC610076FC18 /* BufferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
-		C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
 		C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
 		C731A01D21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */; };
 		C731A01E21B71745003F5D14 /* ChangeAtmosphereEffectViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
+		C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
@@ -430,6 +430,9 @@
 		C7D22F872167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */; };
 		C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */; };
 		C7D22F8A2167D35200C39D5C /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
+		C7E9D7CE21C06C3600E6C47E /* FeatureLayerRenderingModeScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E9D7CC21C06C3600E6C47E /* FeatureLayerRenderingModeScene.storyboard */; };
+		C7E9D7CF21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E9D7CD21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift */; };
+		C7E9D7D021C06C4C00E6C47E /* FeatureLayerRenderingModeSceneViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7E9D7CD21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift */; };
 		D952E0162107D7AC00424FF3 /* dolmus_back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */; };
 		D952E0172107D7AC00424FF3 /* dolmus.3ds in Resources */ = {isa = PBXBuildFile; fileRef = D952E0122107D7AC00424FF3 /* dolmus.3ds */; };
 		D952E0182107D7AC00424FF3 /* tire_tread.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D952E0132107D7AC00424FF3 /* tire_tread.jpeg */; };
@@ -600,6 +603,7 @@
 				3E865A451D088E9900368F32 /* DisplaySceneViewController.swift in CopyFiles */,
 				3E865A461D088E9900368F32 /* ExtrudeGraphicsViewController.swift in CopyFiles */,
 				3E69DE301CFE2826001F65F7 /* OpenMapURLViewController.swift in CopyFiles */,
+				C7E9D7D021C06C4C00E6C47E /* FeatureLayerRenderingModeSceneViewController.swift in CopyFiles */,
 				3E69DE321CFE2826001F65F7 /* ChangeBasemapViewController.swift in CopyFiles */,
 				3E69DE331CFE2826001F65F7 /* SetInitialMapAreaViewController.swift in CopyFiles */,
 				3E69DE341CFE2826001F65F7 /* SetInitialMapLocationViewController.swift in CopyFiles */,
@@ -948,6 +952,8 @@
 		C7D22F842167BD4400C39D5C /* UseGeodatabaseTransactions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UseGeodatabaseTransactions.storyboard; sourceTree = "<group>"; };
 		C7D22F852167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseGeodatabaseTransactionsViewController.swift; sourceTree = "<group>"; };
 		C7D22F892167D35200C39D5C /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		C7E9D7CC21C06C3600E6C47E /* FeatureLayerRenderingModeScene.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeatureLayerRenderingModeScene.storyboard; sourceTree = "<group>"; };
+		C7E9D7CD21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureLayerRenderingModeSceneViewController.swift; sourceTree = "<group>"; };
 		D952E0112107D7AB00424FF3 /* dolmus_back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dolmus_back.jpeg; sourceTree = "<group>"; };
 		D952E0122107D7AC00424FF3 /* dolmus.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = dolmus.3ds; sourceTree = "<group>"; };
 		D952E0132107D7AC00424FF3 /* tire_tread.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tire_tread.jpeg; sourceTree = "<group>"; };
@@ -1585,6 +1591,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE837F32125D32300BB96DB /* Feature layer rendering mode (map) */,
+				C7E9D7CB21C06C0A00E6C47E /* Feature layer rendering mode (scene) */,
 				3E8A25C31D36FC4400D14F08 /* Feature layer (feature service) */,
 				3E8A25C41D36FC7900D14F08 /* Feature layer (geodatabase) */,
 				D9ED2DAB1FD7618E0043BFE1 /* Feature layer (geopackage) */,
@@ -2449,6 +2456,15 @@
 			path = "Generate offline map";
 			sourceTree = "<group>";
 		};
+		C7E9D7CB21C06C0A00E6C47E /* Feature layer rendering mode (scene) */ = {
+			isa = PBXGroup;
+			children = (
+				C7E9D7CC21C06C3600E6C47E /* FeatureLayerRenderingModeScene.storyboard */,
+				C7E9D7CD21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift */,
+			);
+			path = "Feature layer rendering mode (scene)";
+			sourceTree = "<group>";
+		};
 		D952E0102107D78000424FF3 /* taxi */ = {
 			isa = PBXGroup;
 			children = (
@@ -2712,6 +2728,7 @@
 				3EA7340F1EC0CD2D00356885 /* Bristol.dae in Resources */,
 				4C914BB920DAA4DC00779991 /* QueryMapImageSublayer.storyboard in Resources */,
 				3EFDE0BF1E31287B00CBCD92 /* ShastaBW.tif.aux.xml in Resources */,
+				C7E9D7CE21C06C3600E6C47E /* FeatureLayerRenderingModeScene.storyboard in Resources */,
 				3E04AB321DCAA7DE00B4E2FB /* SketchOnMap.storyboard in Resources */,
 				3E0103651E29671E0013AEEF /* ManageOperationalLayers.storyboard in Resources */,
 				3EEB2B9F1EBB8CC200B52513 /* ListRelatedFeatures.storyboard in Resources */,
@@ -2964,6 +2981,7 @@
 				C7D22F872167BD4400C39D5C /* UseGeodatabaseTransactionsViewController.swift in Sources */,
 				3E496EE41DD29B5D004C921C /* TakeScreenshotViewController.swift in Sources */,
 				3E69DE4F1CFF7F48001F65F7 /* SampleCollectionViewController.swift in Sources */,
+				C7E9D7CF21C06C3600E6C47E /* FeatureLayerRenderingModeSceneViewController.swift in Sources */,
 				3E8A25C61D36FCB300D14F08 /* FeatureLayerGDBViewController.swift in Sources */,
 				4C80B8DE21501DAF00840A94 /* Sample.swift in Sources */,
 				3E29C9EE1DC7C55200E5571F /* DeleteFeaturesViewController.swift in Sources */,

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="erO-wi-0tM">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feature Layer Rendering Mode Scene View Controller-->
+        <scene sceneID="FhL-bX-Vci">
+            <objects>
+                <viewController id="erO-wi-0tM" customClass="FeatureLayerRenderingModeSceneViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="HlF-mH-twQ">
+                        <rect key="frame" x="0.0" y="0.0" width="491" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VVk-Mk-7q8">
+                                <rect key="frame" x="201" y="264" width="90" height="32"/>
+                                <buttonCell key="cell" type="push" title="Zoom In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2FZ-8Y-djR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="animateZoomAction:" target="erO-wi-0tM" id="7Vs-QJ-bb2"/>
+                                </connections>
+                            </button>
+                            <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Uj-A9-X1v">
+                                <rect key="frame" x="8" y="8" width="475" height="255"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-bi-dk7">
+                                        <rect key="frame" x="0.0" y="18" width="234" height="219"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-k5-VMU">
+                                                <rect key="frame" x="97" y="202" width="39" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Static" id="gLV-oJ-sHI">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="lDP-Lh-6x3" customClass="AGSSceneView">
+                                                <rect key="frame" x="6" y="0.0" width="222" height="194"/>
+                                            </customView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Py3-5w-Zby">
+                                        <rect key="frame" x="242" y="18" width="233" height="219"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lv6-Ix-Ich">
+                                                <rect key="frame" x="88" y="202" width="57" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dynamic" id="OzF-em-vME">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ATt-9x-bdk" customClass="AGSSceneView">
+                                                <rect key="frame" x="6" y="0.0" width="221" height="194"/>
+                                            </customView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3Uj-A9-X1v" secondAttribute="bottom" constant="8" id="3zT-YU-LJr"/>
+                            <constraint firstItem="3Uj-A9-X1v" firstAttribute="top" secondItem="VVk-Mk-7q8" secondAttribute="bottom" constant="8" id="4iv-y5-qoV"/>
+                            <constraint firstItem="3Uj-A9-X1v" firstAttribute="leading" secondItem="HlF-mH-twQ" secondAttribute="leading" constant="8" id="8qE-QD-4nm"/>
+                            <constraint firstItem="VVk-Mk-7q8" firstAttribute="centerX" secondItem="HlF-mH-twQ" secondAttribute="centerX" id="Hbk-Pb-lGN"/>
+                            <constraint firstItem="VVk-Mk-7q8" firstAttribute="top" secondItem="HlF-mH-twQ" secondAttribute="top" constant="8" id="ZcU-A0-7l0"/>
+                            <constraint firstAttribute="trailing" secondItem="3Uj-A9-X1v" secondAttribute="trailing" constant="8" id="xaz-6N-baF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dynamicSceneView" destination="ATt-9x-bdk" id="xFP-83-gKL"/>
+                        <outlet property="staticSceneView" destination="lDP-Lh-6x3" id="x61-kQ-0H3"/>
+                        <outlet property="zoomButton" destination="VVk-Mk-7q8" id="vB9-zG-W44"/>
+                    </connections>
+                </viewController>
+                <customObject id="145-m0-vCY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27" y="-73"/>
+        </scene>
+    </scenes>
+</document>
