@@ -79,7 +79,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) -> Void in
+        self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -130,7 +130,7 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) -> Void in
+        self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()

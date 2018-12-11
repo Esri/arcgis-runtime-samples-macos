@@ -75,7 +75,7 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
                 //show progress indicator
                 NSApp.showProgressIndicator()
                 
-                layer.fetchLegendInfos { [weak self] (legendInfos: [AGSLegendInfo]?, error: Error?) -> Void in
+                layer.fetchLegendInfos { [weak self] (legendInfos: [AGSLegendInfo]?, error: Error?) in
                     guard let strongSelf = self else { return }
                     //hide progress indicator
                     NSApp.hideProgressIndicator()

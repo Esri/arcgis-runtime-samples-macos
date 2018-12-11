@@ -25,7 +25,7 @@ class SampleSearchEngine {
         self.samples = samples
         
         isLoadingReadmeIndex = true
-        DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
+        DispatchQueue.global(qos: .background).async { [weak self] in
             guard let strongSelf = self else {
                 return
             }

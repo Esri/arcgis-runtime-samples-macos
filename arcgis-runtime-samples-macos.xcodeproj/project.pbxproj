@@ -393,6 +393,12 @@
 		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
+		C730BFD621B5CC610076FC18 /* Buffer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C730BFD421B5CC610076FC18 /* Buffer.storyboard */; };
+		C730BFD721B5CC610076FC18 /* BufferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
+		C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
+		C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
+		C731A01D21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */; };
+		C731A01E21B71745003F5D14 /* ChangeAtmosphereEffectViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
 		C7367ABE214023DE0022572E /* GenerateOfflineMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
 		C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */; };
 		C7367AC0214050170022572E /* GenerateOfflineMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */; };
@@ -413,6 +419,9 @@
 		C793B5EF2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */; };
 		C793B5F02166BF27000A7A10 /* OpenStreetMapLayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */; };
 		C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */; };
+		C796FAF121B887A200B5849E /* UpdateAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */; };
+		C796FAF221B887A200B5849E /* UpdateAttributesFeatureService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */; };
+		C796FAF321B8929D00B5849E /* UpdateAttributesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */; };
 		C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */; };
 		C79F51D92155A622001B41EA /* ListKMLContents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79F51D72155A622001B41EA /* ListKMLContents.storyboard */; };
 		C79F51DA2155A622001B41EA /* ListKMLContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
@@ -493,7 +502,9 @@
 				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
 				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
 				C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */,
+				C796FAF321B8929D00B5849E /* UpdateAttributesViewController.swift in CopyFiles */,
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
+				C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */,
 				C7586C882153F8D6005A4F11 /* GenerateOfflineMapOverridesViewController.swift in CopyFiles */,
 				C79F51D52155581E001B41EA /* OfflineMapParameterOverridesViewController.swift in CopyFiles */,
 				4C914BBA20DAAC1D00779991 /* QueryMapImageSublayerViewController.swift in CopyFiles */,
@@ -616,6 +627,7 @@
 				C74AA5352152E2FF009047AF /* DisplayKMLViewController.swift in CopyFiles */,
 				4CF944D3216445A30083CB84 /* IdentifyKMLFeaturesViewController.swift in CopyFiles */,
 				4CA8381F216C049000698E11 /* DisplayLayerViewStateViewController.swift in CopyFiles */,
+				C731A01E21B71745003F5D14 /* ChangeAtmosphereEffectViewController.swift in CopyFiles */,
 				4CF5C19921791530001FB88C /* LayerViewStatusViewController.swift in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,6 +922,10 @@
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
 		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
+		C730BFD421B5CC610076FC18 /* Buffer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buffer.storyboard; sourceTree = "<group>"; };
+		C730BFD521B5CC610076FC18 /* BufferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferViewController.swift; sourceTree = "<group>"; };
+		C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAtmosphereEffectViewController.swift; sourceTree = "<group>"; };
+		C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeAtmosphereEffect.storyboard; sourceTree = "<group>"; };
 		C7367ABC214023DE0022572E /* GenerateOfflineMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateOfflineMapViewController.swift; sourceTree = "<group>"; };
 		C7367ABD214023DE0022572E /* GenerateOfflineMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GenerateOfflineMap.storyboard; sourceTree = "<group>"; };
 		C743A8F3215A9A230081B756 /* DisplayKMLNetworkLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayKMLNetworkLinks.storyboard; sourceTree = "<group>"; };
@@ -924,6 +940,8 @@
 		C76725E02154128B00B738AB /* OfflineMapParameterOverridesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMapParameterOverridesViewController.swift; sourceTree = "<group>"; };
 		C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenStreetMapLayerViewController.swift; sourceTree = "<group>"; };
 		C793B5EE2166BF27000A7A10 /* OpenStreetMapLayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenStreetMapLayer.storyboard; sourceTree = "<group>"; };
+		C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAttributesViewController.swift; sourceTree = "<group>"; };
+		C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UpdateAttributesFeatureService.storyboard; sourceTree = "<group>"; };
 		C79F51D72155A622001B41EA /* ListKMLContents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListKMLContents.storyboard; sourceTree = "<group>"; };
 		C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListKMLContentsViewController.swift; sourceTree = "<group>"; };
 		C79F51DB2155A84F001B41EA /* esri_test_data.kmz */ = {isa = PBXFileReference; lastKnownFileType = file; path = esri_test_data.kmz; sourceTree = "<group>"; };
@@ -1342,6 +1360,7 @@
 				4CBF1B102130853F00CE1567 /* Distance composite symbol */,
 				10C3F21D1F02BBBC003C7F20 /* Terrain exaggeration */,
 				4CE3B22920E2ACE000D4A06A /* Scene layer selection */,
+				C731A01921B70587003F5D14 /* Change atmosphere effect */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1607,6 +1626,7 @@
 			isa = PBXGroup;
 			children = (
 				3E29C9E41DC7C20800E5571F /* Add features (feature service) */,
+				C796FAEE21B8853400B5849E /* Update attributes (feature service) */,
 				3E29C9EA1DC7C55200E5571F /* Delete features (feature service) */,
 				3E84EE401DCA4ADE006731B5 /* Edit features (connected) */,
 				C7D22F832167BBFA00C39D5C /* Use geodatabase transactions */,
@@ -1651,6 +1671,7 @@
 				124FAF3720E6CF6700F96548 /* Geodesic operations */,
 				94557F6020EAA08D0003644A /* Cut geometry */,
 				215E23D8210248B4001DE092 /* Spatial relationships */,
+				C730BFD321B5CA5A0076FC18 /* Buffer */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -2319,6 +2340,24 @@
 			path = "Open mobile map (map package)";
 			sourceTree = "<group>";
 		};
+		C730BFD321B5CA5A0076FC18 /* Buffer */ = {
+			isa = PBXGroup;
+			children = (
+				C730BFD421B5CC610076FC18 /* Buffer.storyboard */,
+				C730BFD521B5CC610076FC18 /* BufferViewController.swift */,
+			);
+			path = Buffer;
+			sourceTree = "<group>";
+		};
+		C731A01921B70587003F5D14 /* Change atmosphere effect */ = {
+			isa = PBXGroup;
+			children = (
+				C731A01B21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard */,
+				C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */,
+			);
+			path = "Change atmosphere effect";
+			sourceTree = "<group>";
+		};
 		C743A8F2215A99DB0081B756 /* Display KML network links */ = {
 			isa = PBXGroup;
 			children = (
@@ -2363,6 +2402,15 @@
 				C793B5ED2166BF27000A7A10 /* OpenStreetMapLayerViewController.swift */,
 			);
 			path = "OpenStreetMap layer";
+			sourceTree = "<group>";
+		};
+		C796FAEE21B8853400B5849E /* Update attributes (feature service) */ = {
+			isa = PBXGroup;
+			children = (
+				C796FAF021B887A200B5849E /* UpdateAttributesFeatureService.storyboard */,
+				C796FAEF21B887A200B5849E /* UpdateAttributesViewController.swift */,
+			);
+			path = "Update attributes (feature service)";
 			sourceTree = "<group>";
 		};
 		C79F51D62155A354001B41EA /* List KML contents */ = {
@@ -2729,6 +2777,7 @@
 				3ECCFE2D1BCC31E700CE256D /* MapRotation.storyboard in Resources */,
 				4CE3B22D20E2AD2D00D4A06A /* SceneLayerSelection.storyboard in Resources */,
 				3EBA25691D34491C00AB0703 /* SimpleMarkerSymbol.storyboard in Resources */,
+				C796FAF221B887A200B5849E /* UpdateAttributesFeatureService.storyboard in Resources */,
 				3EFDE0D61E31850900CBCD92 /* FeatureCollectionLayer.storyboard in Resources */,
 				21EA2F531FD8AE4000F39E9E /* RasterFunctionService.storyboard in Resources */,
 				3E5E09461EF843ED00FF3454 /* FindServiceAreaInteractive.storyboard in Resources */,
@@ -2747,6 +2796,7 @@
 				3E7823661DCD54CE0011B304 /* VectorTileCustomStyle.storyboard in Resources */,
 				3E69DE541CFF8D5F001F65F7 /* CollectionViewItem.xib in Resources */,
 				3EFDE0B61E31287B00CBCD92 /* Shasta_Elevation.tif in Resources */,
+				C731A01D21B70973003F5D14 /* ChangeAtmosphereEffect.storyboard in Resources */,
 				3E8D55001D5513D300E628D9 /* ScenePropertiesExpressions.storyboard in Resources */,
 				C74AA5342152D334009047AF /* US_State_Capitals.kml in Resources */,
 				3E8A25C01D36F9D200D14F08 /* MapLoaded.storyboard in Resources */,
@@ -2796,6 +2846,7 @@
 				3E01035D1E28579C0013AEEF /* ManageBookmarks.storyboard in Resources */,
 				3E78235E1DCD52D20011B304 /* IdentifyLayers.storyboard in Resources */,
 				D952E01B2107D8E100424FF3 /* LineOfSightGeoElement.storyboard in Resources */,
+				C730BFD621B5CC610076FC18 /* Buffer.storyboard in Resources */,
 				D9ED2DB51FD765BA0043BFE1 /* AuroraCO.gpkg in Resources */,
 				D971AC5420EEDFDB0062DA69 /* Public_Art.shp.xml in Resources */,
 				D971AC5520EEDFDB0062DA69 /* Public_Art.prj in Resources */,
@@ -2825,7 +2876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "echo $BUILT_PRODUCTS_DIR\n#readme for the project to skip\nDEFAULT_README=$SRCROOT/README.md\n#find all README.md files in the project\nfind ${SRCROOT} -name \"README.md\" | while read file\ndo\n#skip if its the default readme for project\nif [ \"$file\" = \"$DEFAULT_README\" ]\nthen\necho $BUILT_PRODUCTS_DIR\ncontinue\nfi\n#extract the folder name from the path\nFILE_PATH=$(dirname \"$file\")\nFOLDER_NAME=$(basename \"$FILE_PATH\")\n#path of the folder to be created for each readme\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/${FOLDER_NAME}\"\n\n#for legacy setting the build folder is also within the SRCROOT folder\n#check if source path is equal to destination then skip\nif [ \"$file\" != \"${BUILD_APP_DIR}/README.md\" ]\nthen\nmkdir -p \"${BUILD_APP_DIR}\"\ncp \"${file}\" \"${BUILD_APP_DIR}/README.md\"\nfi\ndone";
+			shellScript = "echo $BUILT_PRODUCTS_DIR\n#readme for the project to skip\nDEFAULT_README=$SRCROOT/README.md\n#find all README.md files in the project\nfind ${SRCROOT} -name \"README.md\" | while read file\ndo\n#skip if its the default readme for project\nif [ \"$file\" = \"$DEFAULT_README\" ]\nthen\necho $BUILT_PRODUCTS_DIR\ncontinue\nfi\n#extract the folder name from the path\nFILE_PATH=$(dirname \"$file\")\nFOLDER_NAME=$(basename \"$FILE_PATH\")\n#path of the folder to be created for each readme\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/${FOLDER_NAME}\"\n\n#for legacy setting the build folder is also within the SRCROOT folder\n#check if source path is equal to destination then skip\nif [ \"$file\" != \"${BUILD_APP_DIR}/README.md\" ]\nthen\nmkdir -p \"${BUILD_APP_DIR}\"\ncp \"${file}\" \"${BUILD_APP_DIR}/README.md\"\nfi\ndone\n";
 		};
 		4C962B78217F975900BD7A2C /* Lint Code */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2871,6 +2922,7 @@
 				3E53C7391D1D9CED0054B5C8 /* SurfacePlacementsViewController.swift in Sources */,
 				3E7823671DCD54CE0011B304 /* VectorTileCustomStyleVC.swift in Sources */,
 				3E496EF41DD39DF4004C921C /* RouteParametersViewController.swift in Sources */,
+				C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */,
 				3E049A121CEA6FE10031ADA9 /* SaveMapViewController.swift in Sources */,
 				213850851F74370600F79149 /* DisplayGridViewController.swift in Sources */,
 				3E84EE451DCA4ADE006731B5 /* EditFeaturesConnectedVC.swift in Sources */,
@@ -2902,6 +2954,7 @@
 				3EFDE0D71E31850900CBCD92 /* FeatureCollectionLayerVC.swift in Sources */,
 				1271FB9F1FE300E200536F60 /* LineOfSightLocationViewController.swift in Sources */,
 				3EFDE0A81E31279700CBCD92 /* RGBRendererViewController.swift in Sources */,
+				C796FAF121B887A200B5849E /* UpdateAttributesViewController.swift in Sources */,
 				3E913DC21CE6608D000375C8 /* CreateOptionsViewController.swift in Sources */,
 				3E0662571F031F2C007666DF /* ChangeSublayerRendererVC.swift in Sources */,
 				3ECCFE241BCC2F0C00CE256D /* ChangeViewpointViewController.swift in Sources */,
@@ -2924,6 +2977,7 @@
 				3EFDE0931E30292700CBCD92 /* HillshadeRendererVC.swift in Sources */,
 				3E01038D1E29A7250013AEEF /* FeatureLayerDefinitionExpressionVC.swift in Sources */,
 				D97B7E741FDAE98C00E1239D /* FeatureLayerShapefileViewController.swift in Sources */,
+				C730BFD721B5CC610076FC18 /* BufferViewController.swift in Sources */,
 				3EA15C6E1ED88C9800B1F816 /* WebTiledLayerViewController.swift in Sources */,
 				4CF92E952118D9FF009A62C6 /* SampleCollectionSectionHeaderView.swift in Sources */,
 				4CBF1B122130856C00CE1567 /* DistanceCompositeSymbolViewController.swift in Sources */,

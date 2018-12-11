@@ -47,7 +47,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     // MARK: - Save map
     
     private func saveMap(_ title: String, tags: [String], itemDescription: String?, thumbnail: NSImage?) {
-        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) -> Void in
+        self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) in
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
@@ -116,7 +116,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
         //set the initial viewpoint from map view
         self.mapView.map?.initialViewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale)
         
-        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
+        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) in
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
@@ -140,7 +140,7 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     @IBAction func saveAsAction(_ sender: AnyObject) {
         self.portal = AGSPortal(url: URL(string: "https://www.arcgis.com")!, loginRequired: true)
-        self.portal.load { (error) -> Void in
+        self.portal.load { (error) in
             if let error = error {
                 if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)

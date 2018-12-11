@@ -57,7 +57,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.delete(feature) { [weak self] (error: Error?) -> Void in
+        self.featureTable.delete(feature) { [weak self] (error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -74,7 +74,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
+        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
@@ -103,7 +103,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
+        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()

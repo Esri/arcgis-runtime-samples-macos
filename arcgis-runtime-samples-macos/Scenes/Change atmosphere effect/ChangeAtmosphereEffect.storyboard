@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="FQC-id-YCW">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Change Atmosphere Effect View Controller-->
+        <scene sceneID="j9q-BV-3ED">
+            <objects>
+                <viewController id="FQC-id-YCW" customClass="ChangeAtmosphereEffectViewController" customModule="ArcGIS_Runtime_SDK_Samples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eQe-as-79J">
+                        <rect key="frame" x="0.0" y="0.0" width="583" height="464"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="BEO-la-DSt" customClass="AGSSceneView">
+                                <rect key="frame" x="0.0" y="51" width="583" height="413"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-2z-IuP">
+                                <rect key="frame" x="213" y="15" width="158" height="21"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CeY-HI-kK5">
+                                        <rect key="frame" x="-2" y="3" width="121" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Atmosphere Effect:" id="j05-cT-TaU">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pub-bB-uag">
+                                        <rect key="frame" x="123" y="-3" width="38" height="25"/>
+                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YXW-24-pLz">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="9go-jD-3es"/>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="updateEffectFromPopUp" target="FQC-id-YCW" id="Tfl-Eg-sFs"/>
+                                        </connections>
+                                    </popUpButton>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BEO-la-DSt" firstAttribute="top" secondItem="eQe-as-79J" secondAttribute="top" id="62U-ui-zzD"/>
+                            <constraint firstItem="WjY-2z-IuP" firstAttribute="centerX" secondItem="eQe-as-79J" secondAttribute="centerX" id="H1X-T6-MBH"/>
+                            <constraint firstItem="BEO-la-DSt" firstAttribute="leading" secondItem="eQe-as-79J" secondAttribute="leading" id="LXs-kq-t4E"/>
+                            <constraint firstAttribute="trailing" secondItem="BEO-la-DSt" secondAttribute="trailing" id="NR1-Hv-XbS"/>
+                            <constraint firstAttribute="bottom" secondItem="WjY-2z-IuP" secondAttribute="bottom" constant="15" id="dfE-La-yew"/>
+                            <constraint firstItem="WjY-2z-IuP" firstAttribute="top" secondItem="BEO-la-DSt" secondAttribute="bottom" constant="15" id="frF-a5-RRu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popUpButton" destination="Pub-bB-uag" id="H3O-Fg-QnP"/>
+                        <outlet property="sceneView" destination="BEO-la-DSt" id="lDb-ty-s8S"/>
+                    </connections>
+                </viewController>
+                <customObject id="S2i-0E-rhx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.5" y="449"/>
+        </scene>
+    </scenes>
+</document>

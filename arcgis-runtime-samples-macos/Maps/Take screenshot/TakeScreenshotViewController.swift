@@ -58,7 +58,7 @@ class TakeScreenshotViewController: NSViewController {
         NSApp.showProgressIndicator()
         
         //the method on map view we can use to get the screenshot image
-        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) -> Void in
+        self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) in
             
             //hide progress indicator
             NSApp.hideProgressIndicator()
