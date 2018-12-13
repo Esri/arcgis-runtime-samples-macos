@@ -212,11 +212,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         presentAsSheet(progressViewController)
         
         // start the upload
-        syncGeodatabaseJob.start(statusHandler: nil) { [weak self] (_, error) in
-            
-            guard let self = self else {
-                return
-            }
+        syncGeodatabaseJob.start(statusHandler: nil) { [weak self] (results, error) in
+            guard let self = self else { return }
             
             // close the progress sheet
             self.dismiss(progressViewController)
@@ -226,6 +223,8 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 // don't show an alert if the user clicked Cancel
                 (error as NSError).code != NSUserCancelledError {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
+            } else if let results = results {
+                print("Job succeeded with results: \(results)")
             }
         }
     }

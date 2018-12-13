@@ -199,19 +199,17 @@ class AddDeleteRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, AGS
         //get the related table using the relationshipInfo
         let relatedTable = self.parksFeatureTable.relatedTables(with: self.relationshipInfo)![0] as! AGSServiceFeatureTable
         
-        relatedTable.applyEdits { [weak self] (_: [AGSFeatureEditResult]?, error: Error?) in
-            
+        relatedTable.applyEdits { [weak self] (results, error) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
-            guard error == nil else {
+            if let error = error {
                 //show error
-                self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
-                return
+                self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
+            } else if let results = results {
+                print("Edits applied succeeded with results: \(results)")
+                self?.queryRelatedFeatures()
             }
-            
-            print("Apply edits succeeded")
-            self?.queryRelatedFeatures()
         }
     }
     

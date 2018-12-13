@@ -52,10 +52,14 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
         //add feature layer to the map
         self.map.operationalLayers.add(featureLayer)
         
-        AGSLoadObjects(self.map.operationalLayers as! [AGSLayer]) { [weak self] (_) in
-            guard let strongSelf = self else { return }
-            strongSelf.orderArray.removeAll()
-            strongSelf.populateLegends(with: strongSelf.map.operationalLayers as! [AGSLayerContent])
+        AGSLoadObjects(self.map.operationalLayers as! [AGSLayer]) { [weak self] (finishedWithNoErrors) in
+            guard let self = self else { return }
+            if !finishedWithNoErrors {
+                let errors = (self.map.operationalLayers as! [AGSLayer]).compactMap { $0.loadError }
+                print("Error loading layers: \(errors)")
+            }
+            self.orderArray.removeAll()
+            self.populateLegends(with: self.map.operationalLayers as! [AGSLayerContent])
         }
         
         self.mapView.map = self.map
