@@ -28,7 +28,7 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
     private let zoomedInCamera = AGSCamera(lookAt: AGSPoint(x: -118.45, y: 34.395, spatialReference: .wgs84()), distance: 2500, heading: 90, pitch: 75, roll: 0)
     
     /// The length of one animation, zooming in or out.
-    private let animationDurationInSeconds = 5.0
+    private let animationDuration: TimeInterval = 5
     
     /// The flag indicating the zoom state of the views.
     private var zoomedIn = false
@@ -36,14 +36,22 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for view in [staticSceneView, dynamicSceneView] {
-            // create and assign scenes to the scene views
-            view?.scene = AGSScene()
-            // set the initial viewpoint cameras with the zoomed out camera
-            view?.setViewpointCamera(zoomedOutCamera)
-            // register to receive touch events
-            view?.touchDelegate = self
-        }
+        // set the initial viewpoint cameras with the zoomed out camera
+        staticSceneView.setViewpointCamera(zoomedOutCamera)
+        dynamicSceneView.setViewpointCamera(zoomedOutCamera)
+           
+        // register to receive touch events
+        staticSceneView.touchDelegate = self
+        dynamicSceneView.touchDelegate = self
+        
+        // load identical scenes for each view, differing the layer rendering mode
+        staticSceneView.scene = makeScene(renderingMode: .static)
+        dynamicSceneView.scene = makeScene(renderingMode: .dynamic)
+    }
+    
+    private func makeScene(renderingMode: AGSFeatureRenderingMode) -> AGSScene {
+        
+        let scene = AGSScene()
         
         // create service feature tables using point, polygon, and polyline services
         let pointTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Energy/Geology/FeatureServer/0")!)
@@ -54,19 +62,16 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
         for featureTable in [polygonTable, polylineTable, pointTable] {
             
             // create a feature layer for the table
-            let dynamicFeatureLayer = AGSFeatureLayer(featureTable: featureTable)
-            // create a second, identical feature layer from the first
-            let staticFeatureLayer = dynamicFeatureLayer.copy() as! AGSFeatureLayer
+            let featureLayer = AGSFeatureLayer(featureTable: featureTable)
             
-            // set the rendering modes for each layer
-            dynamicFeatureLayer.renderingMode = .dynamic
-            staticFeatureLayer.renderingMode = .static
+            // set the rendering mode for the layer
+            featureLayer.renderingMode = renderingMode
             
-            // add the layers to their corresponding scenes
-            dynamicSceneView.scene?.operationalLayers.add(dynamicFeatureLayer)
-            staticSceneView.scene?.operationalLayers.add(staticFeatureLayer)
+            // add the layer to the scene
+            scene.operationalLayers.add(featureLayer)
         }
         
+        return scene
     }
     
     @IBAction func animateZoomAction(_ sender: NSButton) {
@@ -81,8 +86,8 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
         let targetCamera = zoomedIn ? zoomedOutCamera : zoomedInCamera
         
         // start the animation to the opposite viewpoint in both scenes
-        dynamicSceneView.setViewpointCamera(targetCamera, duration: animationDurationInSeconds)
-        staticSceneView.setViewpointCamera(targetCamera, duration: animationDurationInSeconds) { [weak self] _ in
+        dynamicSceneView.setViewpointCamera(targetCamera, duration: animationDuration)
+        staticSceneView.setViewpointCamera(targetCamera, duration: animationDuration) { [weak self] _ in
             // we only need to run the completion handler for one view
             
             // update the title for the new state
