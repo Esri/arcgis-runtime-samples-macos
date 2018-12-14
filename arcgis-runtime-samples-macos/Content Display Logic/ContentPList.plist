@@ -643,6 +643,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Feature layer rendering mode (scene)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerRenderingModeScene</string>
+				<key>descriptionText</key>
+				<string>Control the rendering mode of feature layers in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerRenderingModeSceneViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Feature layer (feature service)</string>
 				<key>storyboardName</key>
 				<string>FeatureLayerFeatureService</string>
