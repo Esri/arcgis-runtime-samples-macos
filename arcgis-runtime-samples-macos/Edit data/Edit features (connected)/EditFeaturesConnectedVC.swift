@@ -61,15 +61,14 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result: [AGSFeatureEditResult]?, error: Error?) in
-            
+        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (results, error) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
-            } else {
-                print("Edits applied successfully")
+            } else if let results = results {
+                print("Edits applied successfully with results: \(results)")
             }
         }
     }

@@ -105,7 +105,7 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
             let newFeature = featureTable.createFeature(with: info.featureTemplate)!
             let symbol = self.featureLayer.renderer?.symbol(for: newFeature)
             
-            symbol?.createSwatch { (image: NSImage?, error: Error?) in
+            symbol?.createSwatch { (image: NSImage?, _: Error?) in
                 imageView.image = image
             }
         }
