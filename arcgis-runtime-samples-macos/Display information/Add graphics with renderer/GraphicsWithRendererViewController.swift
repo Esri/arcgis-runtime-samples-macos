@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GraphicsWithRendererViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var map: AGSMap!
@@ -95,5 +94,4 @@ class GraphicsWithRendererViewController: NSViewController {
         //add the overlay to the map view
         self.mapView.graphicsOverlays.add(polygonGraphicOverlay)
     }
-    
 }

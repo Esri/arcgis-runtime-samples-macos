@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class SceneSymbolsViewController: NSViewController {
-
     @IBOutlet var sceneView: AGSSceneView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()

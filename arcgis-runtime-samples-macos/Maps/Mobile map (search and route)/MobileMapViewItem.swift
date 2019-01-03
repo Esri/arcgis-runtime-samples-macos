@@ -37,5 +37,4 @@ class MobileMapViewItem: NSCollectionViewItem {
         self.view.layer?.borderColor = NSColor.gray.cgColor
         self.view.layer?.borderWidth = 1
     }
-    
 }

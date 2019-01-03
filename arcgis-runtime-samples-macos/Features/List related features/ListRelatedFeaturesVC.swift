@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var outlineView: NSOutlineView!
     @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
@@ -85,7 +84,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     }
     
     private func queryRelatedFeatures() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -96,18 +94,15 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //query for related features
         self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
-                
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
                 if let results = results,
                     !results.isEmpty {
-                    
                     //store results to show in the outline view
                     self?.results = results
                     
@@ -129,7 +124,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //cancel previous identify
         self.identifyCancelable?.cancel()
         
@@ -138,16 +132,13 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //identify feature at tapped location
         self.identifyCancelable = self.mapView.identifyLayer(self.parksFeatureLayer, screenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false) { [weak self] (result: AGSIdentifyLayerResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = result.error {
-                
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
-                
                 //unselect previously selected park
                 if let previousSelection = self?.selectedPark {
                     self?.parksFeatureLayer.unselectFeature(previousSelection)
@@ -155,7 +146,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                 }
                 
                 if !result.geoElements.isEmpty {
-                    
                     //Will pick the first feature
                     let feature = result.geoElements[0] as! AGSArcGISFeature
                     
@@ -168,7 +158,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     //query for related features
                     self?.queryRelatedFeatures()
                 } else {
-                    
                     //hide outline view
                     self?.setVisualEffectViewVisibility(visible: false, animated: true)
                 }
@@ -179,7 +168,6 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     // MARK: - NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        
         if let result = item as? AGSRelatedFeatureQueryResult {
             return result.featureEnumerator().allObjects.count
         } else {
@@ -206,12 +194,10 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        
         let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListCell"), owner: self) as! NSTableCellView
         cellView.wantsLayer = true
         
         if let result = item as? AGSRelatedFeatureQueryResult {
-            
             cellView.textField?.stringValue = result.relatedTable!.tableName
         } else {
             let relatedFeature = item as! AGSArcGISFeature

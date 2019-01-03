@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ChangeFeatureLayerRendererVC: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var map: AGSMap!

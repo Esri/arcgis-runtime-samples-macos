@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GraphicDrawOrderVC: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     var map: AGSMap!

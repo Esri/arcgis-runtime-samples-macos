@@ -16,7 +16,6 @@ import AppKit
 import ArcGIS
 
 class BufferViewController: NSViewController {
-
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var textField: NSTextField!
     
@@ -72,13 +71,10 @@ class BufferViewController: NSViewController {
             overlay.graphics.removeAllObjects()
         }
     }
-    
 }
 
 extension BufferViewController: AGSGeoViewTouchDelegate {
-    
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-
         /// The user-set buffer radius in miles.
         let bufferRadiusInMiles = textField.doubleValue
         

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class SetInitialMapLocationViewController: NSViewController {
-
     @IBOutlet weak var mapView: AGSMapView!
     var map: AGSMap!
     
@@ -30,6 +29,5 @@ class SetInitialMapLocationViewController: NSViewController {
         
         //assign the map to the map view
         self.mapView.map = self.map
-        
     }
 }

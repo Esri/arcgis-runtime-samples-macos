@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class TerrainExaggerationViewController: NSViewController {
-
     @IBOutlet weak var exaggerationValue: NSTextField!
     @IBOutlet weak var exaggerationSlider: NSSlider!
     @IBOutlet weak var sceneView: AGSSceneView!

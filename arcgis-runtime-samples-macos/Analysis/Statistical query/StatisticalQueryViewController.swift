@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class StatisticalQueryViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet weak var settingsView: NSVisualEffectView!
     @IBOutlet private var getStatisticsButton: NSButton!

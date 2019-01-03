@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class VectorTileLayerViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var midCenturyURLString = "https://www.arcgis.com/home/item.html?id=7675d44bb1e4428aa2c30a9b68f97822"
@@ -40,7 +39,6 @@ class VectorTileLayerViewController: NSViewController {
 
         //center on Miami, Fl
         self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: .wgs84()), scale: 150000)
-
     }
     
     @IBAction func segmentedControlChanged(_ sender: NSSegmentedControl) {

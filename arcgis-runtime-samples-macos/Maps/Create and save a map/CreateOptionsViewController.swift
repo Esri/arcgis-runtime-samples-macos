@@ -22,7 +22,6 @@ protocol CreateOptionsVCDelegate: AnyObject {
 }
 
 class CreateOptionsViewController: NSViewController {
-    
     private var selectedLayersIndexes = [Int]()
     private var selectedBasemapIndex: Int!
     

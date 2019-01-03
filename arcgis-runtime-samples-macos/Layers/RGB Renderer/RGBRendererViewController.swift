@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class RGBRendererViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var stretchTypePopUp: NSPopUpButton!
     @IBOutlet var label1: NSTextField!
@@ -66,7 +65,6 @@ class RGBRendererViewController: NSViewController {
     }
     
     private func updateRenderer() {
-        
         let stretchParameters: AGSStretchParameters = {
             switch stretchTypePopUp.indexOfSelectedItem {
             case 0:
@@ -126,5 +124,4 @@ class RGBRendererViewController: NSViewController {
     @IBAction func textFieldAction(_ sender: NSTextField) {
         updateRenderer()
     }
-    
 }

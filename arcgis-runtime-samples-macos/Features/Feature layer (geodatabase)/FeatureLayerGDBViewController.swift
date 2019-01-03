@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureLayerGDBViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var geodatabase: AGSGeodatabase!

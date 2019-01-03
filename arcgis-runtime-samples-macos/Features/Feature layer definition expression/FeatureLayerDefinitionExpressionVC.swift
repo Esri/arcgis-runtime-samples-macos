@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureLayerDefinitionExpressionVC: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var map: AGSMap!
@@ -55,5 +54,4 @@ class FeatureLayerDefinitionExpressionVC: NSViewController {
         //reset definition expression
         self.featureLayer.definitionExpression = ""
     }
-    
 }

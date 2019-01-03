@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet private weak var mapView: AGSMapView!
     private var map: AGSMap!
     private var graphicsOverlay: AGSGraphicsOverlay!
@@ -40,7 +39,6 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         //we will be using a method on the delegate to know
         //when the user tapped on the map view
         self.mapView.touchDelegate = self
-        
     }
     
     func addGraphicsOverlay() {
@@ -75,7 +73,6 @@ class GOIdentifyViewController: NSViewController, AGSGeoViewTouchDelegate {
         NSApp.showProgressIndicator()
         
         self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: tolerance, returnPopupsOnly: false) { (result: AGSIdentifyGraphicsOverlayResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             

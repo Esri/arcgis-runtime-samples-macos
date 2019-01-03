@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTextFieldDelegate {
-    
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var button: NSButton!
     @IBOutlet private var searchField: NSSearchField!
@@ -48,7 +47,6 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         self.geocodeParameters = AGSGeocodeParameters()
         self.geocodeParameters.resultAttributeNames.append(contentsOf: ["*"])
         self.geocodeParameters.minScore = 75
-        
     }
     
     private func geocodeSearchText(_ text: String) {
@@ -120,12 +118,10 @@ class FindAddressViewController: NSViewController, AGSGeoViewTouchDelegate, NSTe
         
         //identify graphics at the tapped location
         self.mapView.identify(self.graphicsOverlay, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (result: AGSIdentifyGraphicsOverlayResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = result.error {
-                
                 self?.showAlert("Error", informativeText: error.localizedDescription)
             } else if !result.graphics.isEmpty {
                 //show callout for the graphic

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class RasterLayerUsingServiceVC: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -44,5 +43,4 @@ class RasterLayerUsingServiceVC: NSViewController {
         // add raster layer as an operational layer to the map
         map.operationalLayers.add(rasterLayer)
     }
-    
 }

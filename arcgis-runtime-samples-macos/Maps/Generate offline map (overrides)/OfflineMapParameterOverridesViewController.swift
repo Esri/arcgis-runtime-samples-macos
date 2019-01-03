@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class OfflineMapParameterOverridesViewController: NSViewController {
-    
     var parameterOverrides: AGSGenerateOfflineMapParameterOverrides?
     var map: AGSMap?
     
@@ -93,7 +92,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     
     /// Updates the `AGSGenerateOfflineMapParameterOverrides` object with the user-set values.
     private func setParameterOverridesFromUI() {
-        
         restrictBasemapScaleLevelRange()
         bufferBasemapAreaOfInterest()
         evaluateLayerVisiblity()
@@ -104,7 +102,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     // MARK: - Basemap adjustment
     
     private func restrictBasemapScaleLevelRange() {
-        
         /// The user-set min scale value
         let minScale = self.basemapMinScaleLevel.intValue
         /// The user-set max scale value
@@ -123,7 +120,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     }
     
     private func bufferBasemapAreaOfInterest() {
-        
         guard let tileCacheParameters = getExportTileCacheParametersForBasemapLayer(),
             /// The area initially specified for download when the default parameters object was created
             let areaOfInterest = tileCacheParameters.areaOfInterest else {
@@ -142,7 +138,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     // MARK: - Layer adjustment
     
     private func addHydrantFilter() {
-        
         /// The user-set min flow rate value
         let minFlowRate = minHydrantFlowRate.doubleValue
         
@@ -153,7 +148,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
     }
     
     private func evaluateLayerVisiblity() {
-        
         func excludeLayerFromDownload(named name: String) {
             if let layer = operationalMapLayer(named: name),
                 let serviceLayerID = serviceLayerID(for: layer),
@@ -170,7 +164,6 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         if serviceConnectionsCheckbox.state == .off {
             excludeLayerFromDownload(named: "Service Connection")
         }
-        
     }
     
     private func evaluatePipeLayersExtentCropping() {
@@ -235,5 +228,4 @@ class OfflineMapParameterOverridesViewController: NSViewController {
         }
         return []
     }
-  
 }

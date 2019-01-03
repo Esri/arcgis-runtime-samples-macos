@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class OpenMapURLViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet weak var mapListPopUp: NSPopUpButton!
     
@@ -48,13 +47,11 @@ class OpenMapURLViewController: NSViewController {
     }
     
     @IBAction func mapListPopUpAction(_ sender: NSPopUpButton) {
-        
         // get the map URL from the menu item and load the map
         if let mapUrl = sender.selectedItem?.representedObject as? URL {
             mapView.map = AGSMap(url: mapUrl)
         }
     }
-    
 }
 
 private extension NSMenuItem {

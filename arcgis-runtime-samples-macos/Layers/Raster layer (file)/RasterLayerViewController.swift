@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class RasterLayerViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var rasterLayer: AGSRasterLayer!
@@ -54,7 +53,6 @@ class RasterLayerViewController: NSViewController {
                 self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 80000))
             }
         }
-        
     }
     
     // MARK: - Helper methods

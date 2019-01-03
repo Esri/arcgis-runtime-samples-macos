@@ -15,7 +15,6 @@
 import ArcGIS
 
 class RasterLayerGPKGViewController: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
     
     var geoPackage: AGSGeoPackage?
@@ -46,5 +45,4 @@ class RasterLayerGPKGViewController: NSViewController {
         // Display the map in the map view.
         mapView.map = map
     }
-    
 }

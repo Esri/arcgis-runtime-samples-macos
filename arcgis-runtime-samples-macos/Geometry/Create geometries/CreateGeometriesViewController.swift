@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class CreateGeometriesViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()

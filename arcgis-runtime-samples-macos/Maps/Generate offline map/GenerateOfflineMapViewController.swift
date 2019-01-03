@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManagerDelegate {
-
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var extentView: NSView!
     @IBOutlet weak var generateButton: NSButton!
@@ -36,7 +35,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         let config = AGSOAuthConfiguration(portalURL: nil, clientID: "vVHDSfKfdKBs8lkA", redirectURL: nil)
         AGSAuthenticationManager.shared().oAuthConfigurations.add(config)
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
-        
     }
     
     override func viewDidAppear() {
@@ -50,7 +48,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     }
     
     private func addMap() {
-        
         //portal for the web map
         let portal = AGSPortal.arcGISOnline(withLoginRequired: true)
         
@@ -66,7 +63,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
-            
             guard let strongSelf = self else {
                 return
             }
@@ -96,7 +92,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     // MARK: - offline map generation
     
     private func takeMapOffline(parameters: AGSGenerateOfflineMapParameters) {
-        
         guard let offlineMapTask = offlineMapTask else {
                 return
         }
@@ -112,7 +107,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         
         //start the job
         generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result: AGSGenerateOfflineMapResult?, error: Error?) in
-            
             guard let self = self else {
                 return
             }
@@ -148,7 +142,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         if let layerErrors = result.layerErrors as? [AGSLayer: Error],
             let tableErrors = result.tableErrors as? [AGSFeatureTable: Error],
             !(layerErrors.isEmpty && tableErrors.isEmpty) {
-            
             let errorMessages = layerErrors.map { "\($0.key.name): \($0.value.localizedDescription)" } +
                 tableErrors.map { "\($0.key.displayName): \($0.value.localizedDescription)" }
             let alert = NSAlert()
@@ -164,7 +157,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     // MARK: - Actions
     
     @IBAction func generateOfflineMapAction(_ button: NSButton) {
-        
         //hide and disable the offline map button
         generateButton.isEnabled = false
         generateButtonParentView.isHidden = true
@@ -177,7 +169,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         
         //build the default parameters for the offline map task
         offlineMapTask?.defaultGenerateOfflineMapParameters(withAreaOfInterest: areaOfInterest) { [weak self] (parameters: AGSGenerateOfflineMapParameters?, error: Error?) in
-            
             guard let self = self else {
                 return
             }
@@ -210,7 +201,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     }
     
     private func extentViewFrameToEnvelope() -> AGSEnvelope {
-        
         let frame = mapView.convert(extentView.frame, from: view)
         
         //the lower-left corner
@@ -224,7 +214,6 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
     }
     
     private func getNewOfflineGeodatabaseURL() -> URL {
-       
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory
         
@@ -233,5 +222,4 @@ class GenerateOfflineMapViewController: NSViewController, AGSAuthenticationManag
         
         return directoryURL.appendingPathComponent("offline-map-\(formattedDate).geodatabase")
     }
-    
 }

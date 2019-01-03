@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, AddedLayerCellViewDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var tableView1: NSTableView!
     @IBOutlet var tableView2: NSTableView!
@@ -49,7 +48,6 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
         }
         
         self.tableView1.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: "hey")])
-        
     }
     
     func moveLayer(_ layer: AGSLayer, from fromIndex: Int, to toIndex: Int) {
@@ -74,7 +72,6 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         if tableView == self.tableView1 {
             let layer = self.mapView.map!.operationalLayers.reversed()[row]
             
@@ -93,7 +90,6 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         if tableView == tableView1 {
-            
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
             pboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "hey")], owner: self)
             pboard.setData(data, forType: NSPasteboard.PasteboardType(rawValue: "hey"))
@@ -114,13 +110,11 @@ class ManageOperationalLayersVC: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-
         if let rowData = info.draggingPasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: "hey")),
             let dataArray = NSKeyedUnarchiver.unarchiveObject(with: rowData) as? [IndexSet],
             let indexSet = dataArray.first,
             let movingFromIndex = indexSet.first,
             let layer = mapView.map?.operationalLayers[movingFromIndex] as? AGSLayer {
-            
             moveLayer(layer, from: movingFromIndex, to: row)
             
             return true

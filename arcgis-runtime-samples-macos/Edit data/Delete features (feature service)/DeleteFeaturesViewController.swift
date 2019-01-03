@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var deleteButton: NSButton!
     
@@ -75,7 +74,6 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         NSApp.showProgressIndicator()
         
         self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -104,14 +102,12 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         NSApp.showProgressIndicator()
         
         self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else if let features = identifyLayerResult.geoElements as? [AGSFeature] {
-                
                 //clear selection
                 self?.featureLayer.clearSelection()
                 self?.selectedFeature = nil

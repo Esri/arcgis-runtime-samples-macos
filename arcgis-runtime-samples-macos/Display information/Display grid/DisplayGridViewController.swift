@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class DisplayGridViewController: NSViewController {
-
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var gridSettingsView: NSVisualEffectView!
     @IBOutlet weak var gridSettingsTextField: NSTextField!

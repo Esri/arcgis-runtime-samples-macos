@@ -17,12 +17,10 @@
 import Cocoa
 
 protocol AddedLayerCellViewDelegate: AnyObject {
-    
     func addedLayerCellViewWantsToDelete(_ addedLayerCellView: AddedLayerCellView)
 }
 
 class AddedLayerCellView: NSTableCellView {
-    
     var index: Int = 0
     
     weak var delegate: AddedLayerCellViewDelegate?
@@ -30,5 +28,4 @@ class AddedLayerCellView: NSTableCellView {
     @IBAction func deleteAction(_ sender: NSButton) {
         self.delegate?.addedLayerCellViewWantsToDelete(self)
     }
-
 }

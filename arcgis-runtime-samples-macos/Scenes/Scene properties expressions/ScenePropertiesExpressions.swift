@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class ScenePropertiesExpressions: NSViewController {
-
     @IBOutlet var sceneView: AGSSceneView!
     @IBOutlet var headingLabel: NSTextField!
     @IBOutlet var pitchLabel: NSTextField!

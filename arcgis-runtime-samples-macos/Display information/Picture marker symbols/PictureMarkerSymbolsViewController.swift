@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class PictureMarkerSymbolsViewController: NSViewController {
-    
     @IBOutlet var mapView: AGSMapView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
@@ -82,5 +81,4 @@ class PictureMarkerSymbolsViewController: NSViewController {
         //add the graphic to the overlay
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
 }

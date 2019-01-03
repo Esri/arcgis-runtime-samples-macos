@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class TakeScreenshotViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var overlayParentView: NSVisualEffectView!
     @IBOutlet private weak var overlayImageView: AspectFillImageView!
@@ -59,7 +58,6 @@ class TakeScreenshotViewController: NSViewController {
         
         //the method on map view we can use to get the screenshot image
         self.mapView.exportImage { [weak self] (image: NSImage?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -90,7 +88,6 @@ class TakeScreenshotViewController: NSViewController {
         NSAnimationContext.runAnimationGroup({ (context: NSAnimationContext) in
             context.duration = 0.3
             flashView.animator().alphaValue = 0
-    
         }, completionHandler: { [weak self] in
             //On completion play the shutter sound
             self?.playShutterSound()

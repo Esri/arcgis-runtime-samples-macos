@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet weak var sceneView: AGSSceneView!
     
     @IBOutlet weak var instructionLabel: NSTextField!
@@ -132,7 +131,6 @@ class ViewshedLocationViewController: NSViewController, AGSGeoViewTouchDelegate 
     func geoView(_ geoView: AGSGeoView, didTouchDownAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
         // tell the ArcGIS Runtime if we are going to handle interaction
         canMoveViewshed ? completion(true) : completion(false)
-        
     }
     
     func geoView(_ geoView: AGSGeoView, didTouchDragToScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {

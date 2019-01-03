@@ -18,14 +18,12 @@ import Cocoa
 import ArcGIS
 
 protocol DirectionsListVCDelegate: AnyObject {
-    
     func directionsListViewController(_ directionsListViewController: DirectionsListViewController, didSelectDirectionManuever directionManeuver: AGSDirectionManeuver)
     
     func directionsListViewControllerDidDeleteRoute(_ directionsListViewController: DirectionsListViewController)
 }
 
 class DirectionsListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-    
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var milesLabel: NSTextField!
     @IBOutlet var minutesLabel: NSTextField!

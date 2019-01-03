@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class LineOfSightGeoElementViewController: NSViewController {
-    
     @IBOutlet var sceneView: AGSSceneView!
 
     @IBOutlet var targetVisibilityLabel: NSTextField!

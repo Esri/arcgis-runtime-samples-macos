@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var map: AGSMap?
@@ -58,7 +57,6 @@ class FeatureLayerSelectionVC: NSViewController, AGSGeoViewTouchDelegate {
     // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //cancel the active query if it hasn't been completed yet
         if let activeSelectionQuery = activeSelectionQuery {
             activeSelectionQuery.cancel()

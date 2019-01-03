@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet var mapView: AGSMapView!
    
     private let destinationGraphic: AGSGraphic
@@ -101,5 +100,4 @@ class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegat
         
         mapView.callout.show(at: mapPoint, screenOffset: .zero, rotateOffsetWithMap: false, animated: true)
     }
-
 }

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class SceneLayerURLViewController: NSViewController {
-
     @IBOutlet var sceneView: AGSSceneView!
     
     override func viewDidLoad() {
@@ -49,5 +48,4 @@ class SceneLayerURLViewController: NSViewController {
         let sceneLayer = AGSArcGISSceneLayer(url: brestBuildingsServiceURL)
         self.sceneView.scene?.operationalLayers.add(sceneLayer)
     }
-    
 }

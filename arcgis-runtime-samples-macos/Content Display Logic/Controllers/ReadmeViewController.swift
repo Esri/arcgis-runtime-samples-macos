@@ -27,7 +27,6 @@ class ReadmeViewController: NSViewController {
     }
     
     func fetchFileContent(_ folderName: String) {
-        
         if let path = Bundle.main.path(forResource: "README", ofType: "md", inDirectory: folderName) {
             //read the content of the file
             if let content = try? String(contentsOfFile: path, encoding: String.Encoding.utf8) {

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, SaveMapVCDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var optionsContainerView: NSView!
     @IBOutlet var saveMapContainerView: NSView!
@@ -48,7 +47,6 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     
     private func saveMap(_ title: String, tags: [String], itemDescription: String?, thumbnail: NSImage?) {
         self.mapView.map?.save(as: title, portal: self.portal!, tags: tags, folder: nil, itemDescription: itemDescription!, thumbnail: thumbnail, forceSaveToSupportedVersion: true) { [weak self] (error) in
-            
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
@@ -90,7 +88,6 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     // MARK: - CreateOptionsVCDelegate
     
     func createOptionsViewController(_ createOptionsViewController: CreateOptionsViewController, didSelectBasemap basemap: AGSBasemap, layers: [AGSLayer]?) {
-        
         //create a map with the selected basemap
         let map = AGSMap(basemap: basemap)
         
@@ -112,7 +109,6 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
     }
     
     func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?) {
-        
         //set the initial viewpoint from map view
         self.mapView.map?.initialViewpoint = self.mapView.currentViewpoint(with: AGSViewpointType.centerAndScale)
         
@@ -163,7 +159,6 @@ class CreateSaveMapViewController: NSViewController, CreateOptionsVCDelegate, Sa
 }
 
 extension NSImage {
-    
     func croppedImage(of size: CGSize) -> NSImage {
         //calculate rect based on input size
         let originX = (self.size.width - size.width) / 2

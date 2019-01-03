@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class ChangeAtmosphereEffectViewController: NSViewController {
-    
     @IBOutlet private weak var sceneView: AGSSceneView!
     @IBOutlet private weak var popUpButton: NSPopUpButton!
     
@@ -81,7 +80,6 @@ class ChangeAtmosphereEffectViewController: NSViewController {
             sceneView.atmosphereEffect = atmosphereEffect
         }
     }
-    
 }
 
 private extension NSMenuItem {

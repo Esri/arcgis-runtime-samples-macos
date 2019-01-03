@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class SimpleMarkerSymbolViewController: NSViewController {
-    
     @IBOutlet var mapView: AGSMapView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
@@ -54,5 +53,4 @@ class SimpleMarkerSymbolViewController: NSViewController {
         //add the graphic to the graphics overlay
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
 }

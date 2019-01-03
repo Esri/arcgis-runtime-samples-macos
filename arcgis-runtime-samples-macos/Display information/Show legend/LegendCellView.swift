@@ -18,12 +18,10 @@ import Cocoa
 import ArcGIS
 
 class LegendCellView: NSTableCellView {
-
     @IBOutlet var thumbnail: NSImageView!
     
     var legendInfo: AGSLegendInfo! {
         didSet {
-            
             //set label
             self.textField?.stringValue = legendInfo.name 
             

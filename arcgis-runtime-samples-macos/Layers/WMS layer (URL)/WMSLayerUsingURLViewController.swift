@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class WMSLayerUsingURLViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -41,7 +40,6 @@ class WMSLayerUsingURLViewController: NSViewController {
         
         //load the WMS layer
         wmsLayer.load { [weak self] (error) in
-            
             guard let self = self else {
                 return
             }
@@ -65,5 +63,4 @@ class WMSLayerUsingURLViewController: NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: view.window!)
     }
-    
 }

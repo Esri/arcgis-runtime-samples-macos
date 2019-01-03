@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet private var mapView: AGSMapView!
     
     private var featureTable: AGSServiceFeatureTable!
@@ -61,7 +60,6 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         
         //add the feature to the feature table
         self.featureTable.add(feature) { [weak self] (error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -75,7 +73,6 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     func applyEdits() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -97,7 +94,6 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //add a feature at the tapped location
         self.addFeature(at: mapPoint)
     }

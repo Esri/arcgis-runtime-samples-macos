@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class TimeBasedQueryVC: NSViewController {
-    
     @IBOutlet var mapView: AGSMapView!
     
     private var map: AGSMap!
@@ -48,11 +47,9 @@ class TimeBasedQueryVC: NSViewController {
         
         //populate features based on a time-based query
         self.populateFeaturesWithQuery()
-        
     }
     
     func populateFeaturesWithQuery() {
-        
         //create query parameters
         let queryParams = AGSQueryParameters()
         
@@ -69,7 +66,6 @@ class TimeBasedQueryVC: NSViewController {
         
         //populate features based on query parameters
         self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) { [weak self] (result: AGSFeatureQueryResult?, error: Error?) in
-            
             guard error == nil else {
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
@@ -79,7 +75,6 @@ class TimeBasedQueryVC: NSViewController {
             //the resulting features should be displayed on the map
             //you can print the count of features
             print("Hurricane features during the time inverval: \(result?.featureEnumerator().allObjects.count ?? 0)")
-            
         }
     }
     
@@ -90,5 +85,4 @@ class TimeBasedQueryVC: NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
     }
-    
 }

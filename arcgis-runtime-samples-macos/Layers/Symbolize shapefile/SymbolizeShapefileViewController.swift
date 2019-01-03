@@ -15,7 +15,6 @@
 import ArcGIS
 
 class SymbolizeShapefileViewController: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
     
     var featureLayer: AGSFeatureLayer?
@@ -70,5 +69,4 @@ class SymbolizeShapefileViewController: NSViewController {
             layer.renderer = AGSSimpleRenderer(symbol: fillSymbol)
         }
     }
-    
 }

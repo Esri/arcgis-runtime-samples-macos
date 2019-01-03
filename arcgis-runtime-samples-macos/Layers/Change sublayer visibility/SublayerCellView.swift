@@ -21,7 +21,6 @@ protocol SublayerCellViewDelegate: AnyObject {
 }
 
 class SublayerCellView: NSTableCellView {
-
     @IBOutlet var button: NSButton!
     
     var index: Int = -1
@@ -32,5 +31,4 @@ class SublayerCellView: NSTableCellView {
         Swift.print(sender.state)
         self.delegate?.sublayerCellView(self, didSetVisibility: sender.state.rawValue == 1)
     }
-    
 }

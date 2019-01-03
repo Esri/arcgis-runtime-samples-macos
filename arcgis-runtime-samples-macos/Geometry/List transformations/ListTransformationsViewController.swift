@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ListTransformationsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var orderByMapExtent: NSButton!
@@ -129,7 +128,6 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         if transformation.isMissingProjectionEngineFiles,
             // if we're missing the grid files, detail which ones
             let geographicTransformation = transformation as? AGSGeographicTransformation {
-
             cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DatumTransformCell"), owner: self) as? NSTableCellView
             if let titleLabel = cellView?.viewWithTag(0) as? NSTextField {
                 titleLabel.stringValue = transformation.name
@@ -144,7 +142,6 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
             if let detailLabel = cellView?.viewWithTag(1) as? NSTextField {
                 detailLabel.stringValue = "Missing grid files: \(files.joined(separator: ", "))"
             }
-
         } else {
             // we have the grid files, so use the simple, title-only cell to display the transformation name
             let tableCellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TitleCell"), owner: self) as? NSTableCellView

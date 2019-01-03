@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class BlendRendererViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var altitudeSlider: NSSlider!
     @IBOutlet var azimuthSlider: NSSlider!
@@ -44,7 +43,6 @@ class BlendRendererViewController: NSViewController {
     }
     
     private func generateBlendRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType, colorRampType: AGSPresetColorRampType) -> AGSBlendRenderer {
-        
         //create the raster to be used as elevation raster
         let raster = AGSRaster(name: "Shasta_Elevation", extension: "tif")
         
@@ -84,7 +82,6 @@ class BlendRendererViewController: NSViewController {
     }
     
     private func updateRenderer() {
-        
         let altitude = altitudeSlider.doubleValue
         let azimuth = azimuthSlider.doubleValue
         

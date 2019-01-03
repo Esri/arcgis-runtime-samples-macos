@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class StretchRendererViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var stretchTypePopUp: NSPopUpButton!
     @IBOutlet var label1: NSTextField!
@@ -107,5 +106,4 @@ class StretchRendererViewController: NSViewController {
     @IBAction func textFieldAction(_ sender: NSTextField) {
         updateRenderer()
     }
-  
 }

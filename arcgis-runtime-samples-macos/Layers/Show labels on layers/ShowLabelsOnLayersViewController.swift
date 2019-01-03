@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class ShowLabelsOnLayersViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
    
     override func viewDidLoad() {
@@ -60,7 +59,6 @@ class ShowLabelsOnLayersViewController: NSViewController {
     
     /// Creates a label definition for the given PARTY field value and color.
     private func makeLabelDefinition(party: String, color: NSColor) throws -> AGSLabelDefinition {
-        
         // The JSON syntax reference for AGSLabelDefinition.fromJSON(_:) can be found here:
         // https://developers.arcgis.com/web-map-specification/objects/labelingInfo/
         
@@ -103,5 +101,4 @@ class ShowLabelsOnLayersViewController: NSViewController {
     private enum ShowLabelsOnLayersError: Error {
         case withDescription(String)
     }
-    
 }
