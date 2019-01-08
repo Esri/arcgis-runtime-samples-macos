@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class WebTiledLayerViewController: NSViewController {
-
     @IBOutlet private var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -29,7 +28,6 @@ class WebTiledLayerViewController: NSViewController {
     }
     
     private func applyWebTiledLayer(at index: Int) {
-        
         //web tiled layer
         let webTiledLayer = self.webTiledLayer(for: index)
         
@@ -43,7 +41,6 @@ class WebTiledLayerViewController: NSViewController {
     }
     
     private func webTiledLayer(for index: Int) -> AGSWebTiledLayer {
-        
         //url template for web tiled layer
         let urlTemplate: String
         
@@ -80,9 +77,7 @@ class WebTiledLayerViewController: NSViewController {
     }
     
     @IBAction private func segmentedControlValueChanged(_ sender: NSSegmentedControl) {
-        
         //update web tiled layer
         self.applyWebTiledLayer(at: sender.selectedSegment)
     }
-    
 }

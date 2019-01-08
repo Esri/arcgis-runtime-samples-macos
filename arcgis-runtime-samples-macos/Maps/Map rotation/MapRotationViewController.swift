@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class MapRotationViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var slider: NSSlider!
     @IBOutlet private weak var rotationLabel: NSTextField!

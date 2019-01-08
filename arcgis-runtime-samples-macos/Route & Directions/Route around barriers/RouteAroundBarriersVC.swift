@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, DirectionsListVCDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var segmentedControl: NSSegmentedControl!
     @IBOutlet var routeParametersButton: NSButton!
@@ -75,12 +74,10 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
     // MARK: - Route logic
     
     func getDefaultParameters() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
         self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -131,7 +128,6 @@ class RouteAroundBarriersVC: NSViewController, AGSGeoViewTouchDelegate, Directio
         NSApp.showProgressIndicator()
         
         self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             

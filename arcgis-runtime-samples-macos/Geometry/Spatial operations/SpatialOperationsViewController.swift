@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class SpatialOperationsViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var visualEffectView: NSVisualEffectView!
     
@@ -59,7 +58,6 @@ class SpatialOperationsViewController: NSViewController {
     }
     
     private func addPolygons() {
-        
         //polygon 1
         self.polygon1 = AGSPolygonBuilder(spatialReference: .webMercator())
         polygon1.addPointWith(x: -13960, y: 6709400)
@@ -109,7 +107,6 @@ class SpatialOperationsViewController: NSViewController {
         var resultGeometry: AGSGeometry
         
         switch index {
-            
         case 1: //Union
             resultGeometry = AGSGeometryEngine.union(ofGeometry1: self.polygon1.toGeometry(), geometry2: self.polygon2.toGeometry())!
             
@@ -152,5 +149,4 @@ class SpatialOperationsViewController: NSViewController {
             self.performOperation(sender.tag)
         }
     }
-
 }

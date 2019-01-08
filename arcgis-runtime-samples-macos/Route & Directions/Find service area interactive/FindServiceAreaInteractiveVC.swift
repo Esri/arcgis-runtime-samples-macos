@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var segmentedControl: NSSegmentedControl!
     @IBOutlet private var serviceAreaButton: NSButton!
@@ -82,10 +81,8 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     private func getDefaultParameters() {
-        
         //get default parameters
         self.serviceAreaTask.defaultServiceAreaParameters { [weak self] (parameters: AGSServiceAreaParameters?, error: Error?) in
-            
             guard error == nil else {
                 self?.showAlert(messageText: "Error getting default parameters", informativeText: error!.localizedDescription)
                 return
@@ -100,7 +97,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     private func serviceAreaSymbol(for index: Int) -> AGSSymbol {
-        
         //fill symbol for service area
         var fillSymbol: AGSSimpleFillSymbol
         
@@ -118,7 +114,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     // MARK: - Actions
     
     @IBAction private func serviceArea(_ sender: NSButton) {
-        
         //remove previously added service areas
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
         
@@ -135,7 +130,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //for each graphic in facilities graphicsOverlay add a facility to the parameters
         for graphic in facilitiesGraphics {
-            
             let point = graphic.geometry as! AGSPoint
             let facility = AGSServiceAreaFacility(point: point)
             facilities.append(facility)
@@ -147,7 +141,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //for each graphic in barrier graphicsOverlay add a barrier to the parameters
         for graphic in self.barriersGraphicsOverlay.graphics as! [AGSGraphic] {
-            
             let polygon = graphic.geometry as! AGSPolygon
             let barrier = AGSPolygonBarrier(polygon: polygon)
             barriers.append(barrier)
@@ -161,7 +154,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //solve for service area
         self.serviceAreaTask.solveServiceArea(with: self.serviceAreaParameters) { [weak self] (result: AGSServiceAreaResult?, error: Error?) in
-            
             guard let weakSelf = self else {
                 return
             }
@@ -186,7 +178,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     @IBAction private func clearAction(_ sender: NSButton) {
-        
         //remove all existing graphics in service area and facilities graphics overlays
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
         self.facilitiesGraphicsOverlay.graphics.removeAllObjects()
@@ -194,13 +185,10 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     @IBAction private func sliderValueChanged(_ sender: NSSlider) {
-        
         if sender == self.firstTimeBreakSlider {
-            
             self.firstTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.firstTimeBreak = sender.integerValue
         } else {
-            
             self.secondTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.secondTimeBreak = sender.integerValue
         }
@@ -209,14 +197,11 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         if segmentedControl.selectedSegment == 0 {
-            
             //facilities selected
             let graphic = AGSGraphic(geometry: mapPoint, symbol: nil, attributes: nil)
             self.facilitiesGraphicsOverlay.graphics.add(graphic)
         } else {
-            
             //barriers selected
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(mapPoint, byDistance: 500)
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: nil, attributes: nil)

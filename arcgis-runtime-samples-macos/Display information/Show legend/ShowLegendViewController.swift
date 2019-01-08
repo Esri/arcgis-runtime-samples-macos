@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var outlineView: NSOutlineView!
     @IBOutlet private var legendView: NSVisualEffectView!
@@ -146,7 +145,6 @@ class ShowLegendViewController: NSViewController, NSOutlineViewDataSource, NSOut
     // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        
         if let layer = item as? AGSLayerContent {
             let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LegendGroupCell"), owner: self) as! NSTableCellView
             cellView.textField?.stringValue = self.nameForLayerContent(layer)

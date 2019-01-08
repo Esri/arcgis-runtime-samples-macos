@@ -15,7 +15,6 @@
 import ArcGIS
 
 class DisplayKMLNetworkLinksViewController: NSViewController {
-    
     @IBOutlet weak var sceneView: AGSSceneView!
     @IBOutlet weak var textView: NSTextView!
     
@@ -52,5 +51,4 @@ class DisplayKMLNetworkLinksViewController: NSViewController {
         // add the layer to the scene
         scene.operationalLayers.add(kmlLayer)
     }
-    
 }

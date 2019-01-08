@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class RouteParametersViewController: NSViewController {
-    
     @IBOutlet var findBestSequenceButton: NSButton!
     @IBOutlet var preservceFirstStopButton: NSButton!
     @IBOutlet var preservceLastStopButton: NSButton!

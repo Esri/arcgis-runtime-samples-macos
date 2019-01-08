@@ -16,7 +16,6 @@ import AppKit
 import ArcGIS
 
 class DisplayKMLViewController: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
     
     /// The layer now loading asynchrounously
@@ -48,7 +47,6 @@ class DisplayKMLViewController: NSViewController {
         // This load call is not required, but it allows for error
         // feedback and progress indication
         kmlLayer.load { [weak self] (error) in
-            
             NSApp.hideProgressIndicator()
             
             guard let self = self,
@@ -65,7 +63,6 @@ class DisplayKMLViewController: NSViewController {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
             }
         }
-        
     }
     
     // MARK: - Actions
@@ -95,5 +92,4 @@ class DisplayKMLViewController: NSViewController {
         let kmlLayer = AGSKMLLayer(item: portalItem)
         display(kmlLayer: kmlLayer)
     }
-
 }

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class HotspotsViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var datePicker: NSDatePicker!
     @IBOutlet var applyButton: NSButton!
@@ -53,7 +52,6 @@ class HotspotsViewController: NSViewController {
     }
     
     private func analyzeHotspots(fromDate: Date, toDate: Date) {
-        
         //disable apply button until processing
         self.applyButton.isEnabled = false
         
@@ -83,7 +81,6 @@ class HotspotsViewController: NSViewController {
         self.geoprocessingJob.start(statusHandler: { (status: AGSJobStatus) in
             print(status.rawValue)
         }, completion: { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -103,7 +100,6 @@ class HotspotsViewController: NSViewController {
                 //set map view's viewpoint to the new layer's full extent
                 (self?.mapView.map?.operationalLayers.firstObject as! AGSLayer).load { (error: Error?) in
                     if error == nil {
-                        
                         //set viewpoint as the extent of the mapImageLayer
                         if let extent = result?.mapImageLayer?.fullExtent {
                             self?.mapView.setViewpointGeometry(extent, completion: nil)
@@ -117,7 +113,6 @@ class HotspotsViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func applyAction(_ sender: NSButton) {
-        
         //validate input
         let timeInterval = self.datePicker.timeInterval
         

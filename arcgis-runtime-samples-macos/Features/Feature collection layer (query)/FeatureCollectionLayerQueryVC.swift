@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureCollectionLayerQueryVC: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var featureTable: AGSServiceFeatureTable!
@@ -46,7 +45,6 @@ class FeatureCollectionLayerQueryVC: NSViewController {
         
         //query feature from the table
         self.featureTable.queryFeatures(with: queryParams) { [weak self] (queryResult: AGSFeatureQueryResult?, error: Error?) in
-        
             //hide progress indicator
             NSApp.hideProgressIndicator()
             

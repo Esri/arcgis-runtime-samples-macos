@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class FindRouteViewController: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var routeButton: NSButton!
     @IBOutlet var directionsButton: NSButton!
@@ -62,7 +61,6 @@ class FindRouteViewController: NSViewController {
     
     //add hard coded stops to the map view
     func addStops() {
-        
         //start symbol
         let startSymbol = AGSPictureMarkerSymbol(image: #imageLiteral(resourceName: "StopA"))
         startSymbol.offsetY = 22
@@ -83,7 +81,6 @@ class FindRouteViewController: NSViewController {
     
     //method provides a line symbol for the route graphic
     func routeSymbol() -> AGSSymbol {
-        
         let outerSymbol = AGSSimpleLineSymbol(style: .solid, color: .secondaryBlue, width: 5)
         let innerSymbol = AGSSimpleLineSymbol(style: .solid, color: .primaryBlue, width: 2)
         let compositeSymbol = AGSCompositeSymbol(symbols: [outerSymbol, innerSymbol])
@@ -94,12 +91,10 @@ class FindRouteViewController: NSViewController {
     
     //method to get the default parameters for the route task
     func getDefaultParameters() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
         self.routeTask.defaultRouteParameters { [weak self] (parameters, error) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -116,15 +111,12 @@ class FindRouteViewController: NSViewController {
             
             //enable bar button item
             self?.routeButton.isEnabled = true
-            
         }
     }
     
     @IBAction func route(_ sender: NSButton) {
-        
         //route only if default parameters are fetched successfully
         guard let routeParameters = self.routeParameters else {
-            
             self.showAlert(messageText: "Error", informativeText: "Default route parameters not loaded")
             return
         }
@@ -149,7 +141,6 @@ class FindRouteViewController: NSViewController {
         routeParameters.setStops([stop1, stop2])
         
         self.routeTask.solveRoute(with: routeParameters) { [weak self] (routeResult, error) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -174,7 +165,6 @@ class FindRouteViewController: NSViewController {
             
             let routeGraphic = AGSGraphic(geometry: generatedRoute.routeGeometry, symbol: strongSelf.routeSymbol(), attributes: nil)
             strongSelf.routeGraphicsOverlay.graphics.add(routeGraphic)
-            
         }
     }
     

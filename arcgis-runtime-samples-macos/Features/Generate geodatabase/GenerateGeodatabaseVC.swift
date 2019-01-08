@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GenerateGeodatabaseVC: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var generateButton: NSButton!
     @IBOutlet var extentView: NSView!
@@ -58,7 +57,6 @@ class GenerateGeodatabaseVC: NSViewController {
                 }
                 
                 for (index, layerInfo) in self.syncTask.featureServiceInfo!.layerInfos.enumerated().reversed() {
-                   
                     //For each layer in the serice, add a layer to the map
                     let layerURL = self.syncTask.url!.appendingPathComponent(String(index))
                     let featureTable = AGSServiceFeatureTable(url: layerURL)
@@ -85,7 +83,6 @@ class GenerateGeodatabaseVC: NSViewController {
     // MARK: - Actions
     
     @IBAction func generateAction(_ sender: NSButton) {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -93,7 +90,6 @@ class GenerateGeodatabaseVC: NSViewController {
         syncTask.defaultGenerateGeodatabaseParameters(withExtent: self.frameToExtent()) { [weak self] (params: AGSGenerateGeodatabaseParameters?, error: Error?) in
             if let params = params,
                 let self = self {
-                
                 //hide progress indicator
                 NSApp.hideProgressIndicator()
                 
@@ -118,7 +114,6 @@ class GenerateGeodatabaseVC: NSViewController {
                 
                 //kick off the job
                 generateJob.start(statusHandler: nil) { [weak self] (object: AnyObject?, error: Error?) in
-                    
                     //hide progress bar
                     progressController.dismiss(self)
                     
@@ -148,7 +143,6 @@ class GenerateGeodatabaseVC: NSViewController {
             return
         }
         generatedGeodatabase.load(completion: { [weak self] (error: Error?) in
-            
             guard let self = self else {
                 return
             }
@@ -190,5 +184,4 @@ class GenerateGeodatabaseVC: NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
     }
-    
 }

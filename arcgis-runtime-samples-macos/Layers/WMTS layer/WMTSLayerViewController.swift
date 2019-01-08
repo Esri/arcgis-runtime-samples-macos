@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class WMTSLayerViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var map: AGSMap!
@@ -45,7 +44,6 @@ class WMTSLayerViewController: NSViewController {
             } else {
                 //get the service information or metadata about the WMTS service
                 if let weakSelf = self, let wmtsServiceInfo = weakSelf.wmtsService.serviceInfo {
-                    
                     //get information about the layers available in the WMTS service
                     let layerInfos = wmtsServiceInfo.layerInfos
                     
@@ -67,5 +65,4 @@ class WMTSLayerViewController: NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
     }
-    
 }

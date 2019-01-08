@@ -24,14 +24,12 @@ class FeatureTemplateInfo {
 }
 
 protocol FeatureTemplatePickerVCDelegate: AnyObject {
-    
     func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer)
     
     func featureTemplatePickerVCDidCancel(_ featureTemplatePickerVC: FeatureTemplatePickerVC)
 }
 
 class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-    
     var infos = [FeatureTemplateInfo]()
     @IBOutlet weak var featureTemplateTableView: NSTableView!
     weak var delegate: FeatureTemplatePickerVCDelegate?
@@ -45,7 +43,6 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     func addTemplatesFromLayer(_ featureLayer: AGSFeatureLayer) {
-        
         let featureTable = featureLayer.featureTable as! AGSServiceFeatureTable
         //if layer contains only templates (no feature types)
         if !featureTable.featureTemplates.isEmpty {
@@ -98,7 +95,6 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
         }
         
         if let imageView = cellView?.viewWithTag(10) as? NSImageView {
-            
             let featureTable = self.featureLayer.featureTable as! AGSArcGISFeatureTable
             
             //create a new feature based on the template
@@ -116,7 +112,6 @@ class FeatureTemplatePickerVC: NSViewController, NSTableViewDataSource, NSTableV
     // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        
         let row = self.featureTemplateTableView.selectedRow
         
         //Notify the delegate that the user picked a feature template

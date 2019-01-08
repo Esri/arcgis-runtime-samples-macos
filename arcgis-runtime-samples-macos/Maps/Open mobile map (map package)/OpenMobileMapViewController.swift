@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class OpenMobileMapViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -40,5 +39,4 @@ class OpenMobileMapViewController: NSViewController {
             }
         }
     }
-    
 }

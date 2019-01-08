@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPopupsViewControllerDelegate, FeatureTemplatePickerVCDelegate {
-    
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var containerView: NSView!
     @IBOutlet private var containerViewLeadingConstraint: NSLayoutConstraint!
@@ -84,7 +83,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         NSApp.showProgressIndicator()
         
         self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -114,7 +112,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     // MARK: - Show/hide popups view controller
     
     private func showPopupsViewController(with popups: [AGSPopup]) {
-        
         //hide popups view controller if it exists
         if self.popupsVC != nil {
             self.popupsVC.view.removeFromSuperview()
@@ -137,7 +134,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     }
     
     private func hidePopupsViewController(animated: Bool) {
-        
         //hide popups view controller to the left with or without animation
         if animated {
             self.containerViewLeadingConstraint.animator().constant = -200
@@ -156,7 +152,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     // MARK: - AGSPopupsViewContollerDelegate methods
     
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, sketchEditorFor popup: AGSPopup) -> AGSSketchEditor? {
-        
         //start sketch editing and
         //zoom to the existing feature's geometry
         if let geometry = popup.geoElement.geometry {
@@ -177,7 +172,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the user clicks on Finish button
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, didFinishEditingFor popup: AGSPopup) {
-        
         if self.isAddingNewFeature {
             //done adding new feature
             self.isAddingNewFeature = false
@@ -201,7 +195,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the user clicks Cancel button
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, didCancelEditingFor popup: AGSPopup) {
-        
         if self.isAddingNewFeature {
             //canceled adding a new feature
             self.isAddingNewFeature = false
@@ -215,13 +208,11 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the only popup in the popups view controller is deleted
     func popupsViewControllerDidFinishViewingPopups(_ popupsViewController: AGSPopupsViewController) {
-        
         //slide the popups view controller to the left
         self.hidePopupsViewController(animated: true)
     }
 
     private func disableSketchEditor() {
-        
         //stop the sketchEditor
         self.mapView.sketchEditor?.stop()
         
@@ -232,7 +223,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     // MARK: - FeatureTemplatePickerVCDelegate
     
     func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer) {
-        
         let featureTable = self.featureLayer.featureTable as! AGSArcGISFeatureTable
         //create a new feature based on the template
         let newFeature = featureTable.createFeature(with: template)!

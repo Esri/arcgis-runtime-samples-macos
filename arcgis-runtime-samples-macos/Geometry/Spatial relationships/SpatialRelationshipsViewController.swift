@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
-    
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var resultsOutlineView: NSOutlineView!
     
@@ -296,5 +295,4 @@ class SpatialRelationshipsViewController: NSViewController, AGSGeoViewTouchDeleg
 
         return cellView
     }
-    
 }

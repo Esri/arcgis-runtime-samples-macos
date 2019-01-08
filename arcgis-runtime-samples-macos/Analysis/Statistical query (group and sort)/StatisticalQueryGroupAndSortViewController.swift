@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class StatisticalQueryGroupAndSortViewController: NSViewController {
-    
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var parametersLabel: NSTextField!
     @IBOutlet weak var resultsLabel: NSTextField!
@@ -52,7 +51,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Load feature table
         serviceFeatureTable.load(completion: { [weak self] (error) in
-            
             // If there an error, display it
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while loading feature table: \(error.localizedDescription)")
@@ -66,7 +64,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     }
     
     private func didLoadServiceFeatureTable(_ serviceFeatureTable: AGSServiceFeatureTable) {
-        
         // Set title
         let title = "Statistics: \(serviceFeatureTable.tableName)"
         let style = NSMutableParagraphStyle()
@@ -204,7 +201,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Execute the statistical query with parameters
         serviceFeatureTable.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
-            
             guard let self = self else {
                 return
             }
@@ -271,11 +267,9 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         // Only allow definition removal if there is a selected definition
         removeStatisticDefinitionButton.isEnabled = !statisticDefinitionsTableView.selectedRowIndexes.isEmpty
     }
-    
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == statisticDefinitionsTableView {
             return statisticDefinitions.count
@@ -369,7 +363,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSTableViewDelegate {
-    
     func tableViewSelectionDidChange(_ notification: Notification) {
         if notification.object as? NSTableView == statisticDefinitionsTableView {
             // Enable or disable the removal button as needed
@@ -379,7 +372,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDelegate {
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
-    
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let statisticRecord = item as? AGSStatisticRecord {
             return statisticRecord.statistics.keys.count
@@ -405,13 +397,10 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
             return false
         }
     }
-    
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDelegate {
-    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        
         guard let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("StatisticRecordCellView"), owner: self) as? NSTableCellView else {
             return nil
         }

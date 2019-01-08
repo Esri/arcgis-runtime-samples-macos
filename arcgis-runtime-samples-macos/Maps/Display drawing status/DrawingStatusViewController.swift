@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class DrawingStatusViewController: NSViewController {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet private var activityIndicatorView: NSView!
     @IBOutlet private var progressIndicator: NSProgressIndicator!

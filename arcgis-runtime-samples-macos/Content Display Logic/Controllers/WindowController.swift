@@ -31,7 +31,6 @@ extension NSApplication {
 }
 
 class WindowController: NSWindowController {
-    
     private var searchEngine: SampleSearchEngine?
     
     @IBOutlet private var progressIndicator: NSProgressIndicator!
@@ -49,11 +48,9 @@ class WindowController: NSWindowController {
     func hideProgressIndicator() {
         progressIndicator.stopAnimation(nil)
     }
-    
 }
 
 extension WindowController: NSSearchFieldDelegate {
-    
     func controlTextDidBeginEditing(_ obj: Notification) {
         if let mainViewController = contentViewController as? MainViewController {
             // Remove the selection in the outline since it doesn't correspond to the search results
@@ -77,5 +74,4 @@ extension WindowController: NSSearchFieldDelegate {
             mainViewController.showCategoryForAllSamples()
         }
     }
-    
 }

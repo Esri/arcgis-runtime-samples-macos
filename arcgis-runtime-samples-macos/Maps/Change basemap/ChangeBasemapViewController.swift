@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ChangeBasemapViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var mapsList: NSPopUpButton!
     
@@ -48,5 +47,4 @@ class ChangeBasemapViewController: NSViewController {
     @IBAction func changeBasemapsAction(_ sender: NSPopUpButton) {
         mapView.map?.basemap = basemaps[sender.indexOfSelectedItem]
     }
-    
 }

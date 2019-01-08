@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ChangeViewpointViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var segmentedControl: NSSegmentedControl!
     
@@ -55,7 +54,6 @@ class ChangeViewpointViewController: NSViewController {
             let data = try? Data(contentsOf: fileURL),
             let jsonObject = try? JSONSerialization.jsonObject(with: data),
             let geometry = try? AGSGeometry.fromJSON(jsonObject) {
-
             return geometry as? AGSGeometry
         }
         return nil
@@ -81,7 +79,5 @@ class ChangeViewpointViewController: NSViewController {
         default:
             print("Never should get here")
         }
-        
     }
-    
 }

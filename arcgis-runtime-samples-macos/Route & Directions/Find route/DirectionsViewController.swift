@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
     @IBOutlet var tableView: NSTableView!
     
     //provide route with direction maneuvers
@@ -33,7 +32,6 @@ class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTable
     // MARK: - NSTableViewDelegate
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         //cell view
         let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DirectionCellView"), owner: self)
         
@@ -50,5 +48,4 @@ class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTable
         
         return view
     }
-    
 }

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class SketchOnMapViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet private weak var geometrySegmentedControl: NSSegmentedControl!
     @IBOutlet private weak var undoButton: NSButton!

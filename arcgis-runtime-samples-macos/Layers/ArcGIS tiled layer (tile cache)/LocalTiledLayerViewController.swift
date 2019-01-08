@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var tableView: NSTableView!
     

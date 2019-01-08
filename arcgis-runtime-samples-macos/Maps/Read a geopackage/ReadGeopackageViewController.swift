@@ -15,7 +15,6 @@
 import ArcGIS
 
 class ReadGeopackageViewController: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
     
     @IBOutlet weak var layersInMapTableView: NSTableView!
@@ -60,7 +59,6 @@ class ReadGeopackageViewController: NSViewController {
         
         // Load the geopackage.
         geoPackage.load { [weak self] error in
-            
             guard let self = self else {
                 return
             }
@@ -68,7 +66,6 @@ class ReadGeopackageViewController: NSViewController {
             if let error = error {
                 print("Error loading the geopackage: \(error.localizedDescription)")
             } else {
-                
                 // Create feature layers for each feature table in the geopackage.
                 let featureLayers = geoPackage.geoPackageFeatureTables.map { AGSFeatureLayer(featureTable: $0) }
                 
@@ -94,7 +91,6 @@ class ReadGeopackageViewController: NSViewController {
         // Enable us to drag layers to reorder them in the table view.
         layersInMapTableView.registerForDraggedTypes([layerInMapPasteboardType])
     }
-
 }
 
 extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelegate, GPKGLayerTableCellDelegate {
@@ -110,7 +106,6 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         if tableView == self.layersInMapTableView {
             // Get a row to show a layer that is in the map.
             if let rowView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("AddedLayerRowView"), owner: self) as? GPKGLayerTableCell {
@@ -132,7 +127,6 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         if tableView == layersInMapTableView {
-            
             let data = NSKeyedArchiver.archivedData(withRootObject: [rowIndexes])
             pboard.declareTypes([layerInMapPasteboardType], owner: self)
             pboard.setData(data, forType: layerInMapPasteboardType)
@@ -153,7 +147,6 @@ extension ReadGeopackageViewController: NSTableViewDataSource, NSTableViewDelega
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        
         let pasteboard = info.draggingPasteboard
         let rowData = pasteboard.data(forType: layerInMapPasteboardType)
         

@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class Animate3DSymbolsVC: NSViewController {
-
     @IBOutlet var sceneView: AGSSceneView!
     @IBOutlet var popUpButton: NSPopUpButton!
     @IBOutlet var speedSlider: NSSlider!
@@ -117,7 +116,6 @@ class Animate3DSymbolsVC: NSViewController {
     private var cameraPitchOffsetObservation: NSKeyValueObservation?
     
     private func setupCamera() {
-        
         //AGSOrbitGeoElementCameraController to follow plane graphic
         //initialize object specifying the target geo element and distance to keep from it
         self.orbitGeoElementCameraController = AGSOrbitGeoElementCameraController(targetGeoElement: self.planeModelGraphic, distance: 1000)
@@ -135,7 +133,6 @@ class Animate3DSymbolsVC: NSViewController {
         
         //set the camera controller on scene view
         self.sceneView.cameraController = self.orbitGeoElementCameraController
-        
     }
     
     override func viewWillAppear() {
@@ -175,11 +172,9 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     private func populatePopUpButton() {
-        
         if fileNames == nil,
             let resourcePath = Bundle.main.resourcePath,
             let content = try? FileManager.default.contentsOfDirectory(atPath: resourcePath) {
-            
             //fetch csv file names in the bundle
             fileNames = content.filter { $0.lowercased().hasSuffix(".csv") }
         }
@@ -192,13 +187,10 @@ class Animate3DSymbolsVC: NSViewController {
     }
 
     private func loadMissionData(_ name: String) {
-        
         //get the path of the specified file in the bundle
         if let path = Bundle.main.path(forResource: name, ofType: nil) {
-            
             //get content of the file
             if let content = try? String(contentsOfFile: path) {
-                
                 //split content into array of lines separated by new line character
                 //each line is one frame
                 let lines = content.components(separatedBy: CharacterSet.newlines)
@@ -228,7 +220,6 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     private func startAnimation() {
-        
         //invalidate timer to stop previous ongoing animation
         self.animationTimer?.invalidate()
         
@@ -242,7 +233,6 @@ class Animate3DSymbolsVC: NSViewController {
     
     @objc
     func animate() {
-        
         //validations
         if self.frames == nil || self.planeModelSymbol == nil {
             return
@@ -250,7 +240,6 @@ class Animate3DSymbolsVC: NSViewController {
         
         //if animation is complete
         if self.currentFrameIndex >= self.frames.count {
-            
             //invalidate timer
             self.animationTimer?.invalidate()
             
@@ -288,7 +277,6 @@ class Animate3DSymbolsVC: NSViewController {
     // MARK: - Actions
     
     @IBAction func changeMissionAction(_ sender: NSPopUpButton) {
-        
         //invalidate timer
         self.animationTimer?.invalidate()
         
@@ -313,7 +301,6 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     @IBAction func distanceValueChanged(_ sender: NSSlider) {
-        
         //update property
         self.orbitGeoElementCameraController.cameraDistance = sender.doubleValue
         
@@ -322,7 +309,6 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     @IBAction func headingOffsetValueChanged(_ sender: NSSlider) {
-        
         //update property
         self.orbitGeoElementCameraController.cameraHeadingOffset = sender.doubleValue
         
@@ -331,7 +317,6 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     @IBAction func pitchOffsetValueChanged(_ sender: NSSlider) {
-        
         //update property
         self.orbitGeoElementCameraController.cameraPitchOffset = sender.doubleValue
         
@@ -340,30 +325,25 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     @IBAction func autoHeadingEnabledAction(_ sender: NSButton) {
-        
         //update property
         self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func autoPitchEnabledAction(_ sender: NSButton) {
-        
         //update property
         self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func autoRollEnabledAction(_ sender: NSButton) {
-        
         //update property
         self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSControl.StateValue.on)
     }
     
     @IBAction func speedValueChanged(_ sender: NSSlider) {
-        
         //if the animation is playing, invalidate the timer and 
         //start the animation for the speed to take effect
         //else do nothing
         if self.playButton.state == NSControl.StateValue.on {
-
             //invalidate previous timer
             self.animationTimer?.invalidate()
             
@@ -373,7 +353,6 @@ class Animate3DSymbolsVC: NSViewController {
     }
     
     @IBAction func playAction(_ sender: NSButton) {
-        
         //if the button is now in on state then start animation
         //else stop animation by invalidating the timer
         if sender.state == NSControl.StateValue.on {
@@ -382,7 +361,6 @@ class Animate3DSymbolsVC: NSViewController {
             self.animationTimer?.invalidate()
         }
     }
-
 }
 
 class Frame {

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ChangeSublayerVisibilityVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, SublayerCellViewDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var tableView: NSTableView!
     

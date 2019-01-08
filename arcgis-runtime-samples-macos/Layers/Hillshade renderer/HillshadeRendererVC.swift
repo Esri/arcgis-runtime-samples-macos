@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class HillshadeRendererVC: NSViewController {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var altitudeSlider: NSSlider!
     @IBOutlet var azimuthSlider: NSSlider!
@@ -61,7 +60,6 @@ class HillshadeRendererVC: NSViewController {
     }
     
     private func updateRenderer() {
-        
         let altitude = altitudeSlider.doubleValue
         let azimuth = azimuthSlider.doubleValue
         let slopeType = selectedSlope()

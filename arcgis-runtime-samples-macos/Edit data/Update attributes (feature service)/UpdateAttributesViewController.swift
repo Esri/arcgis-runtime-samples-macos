@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class UpdateAttributesViewController: NSViewController {
-
     @IBOutlet private var mapView: AGSMapView!
     
     /// The feature table representing the feature data from the remote service.
@@ -38,7 +37,6 @@ class UpdateAttributesViewController: NSViewController {
     private var lastQuery: AGSCancelable?
     
     required init?(coder: NSCoder) {
-        
         /// The URL of the feature service serving the data.
         let featureServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!
         
@@ -77,7 +75,6 @@ class UpdateAttributesViewController: NSViewController {
     }
     
     private func showCallout(for feature: AGSFeature, tapLocation: AGSPoint?) {
-        
         // close the exisiting callout if there is one
         mapView.callout.dismiss()
         
@@ -93,7 +90,6 @@ class UpdateAttributesViewController: NSViewController {
     }
     
     private func showEditor(for feature: AGSFeature) {
-        
         // use a pop-up button for the damage type selection UI
         let popUp = NSPopUpButton(frame: NSRect(x: 0, y: 0, width: 200, height: 32))
         // use the damage types as the menu options
@@ -127,7 +123,6 @@ class UpdateAttributesViewController: NSViewController {
     }
     
     private func update(feature: AGSFeature, damageType: String) {
-        
         NSApp.showProgressIndicator()
         
         // update the damage type for the feature
@@ -137,7 +132,6 @@ class UpdateAttributesViewController: NSViewController {
         
         // update the values in the feature table with those we set in the feature attributes
         featureTable.update(feature) { [weak self] (error: Error?) in
-            
             NSApp.hideProgressIndicator()
             
             guard let self = self else {
@@ -153,12 +147,10 @@ class UpdateAttributesViewController: NSViewController {
     }
     
     private func applyEdits() {
-        
         NSApp.showProgressIndicator()
         
         // sync the local edits back to the remote feature service
         featureTable.applyEdits(completion: { [weak self] (result: [AGSFeatureEditResult]?, error: Error?) in
-            
             NSApp.hideProgressIndicator()
             
             guard let self = self else {
@@ -172,7 +164,6 @@ class UpdateAttributesViewController: NSViewController {
             // if an error occurred with the individual edit, show it
             } else if let error = result?.first?.error {
                 self.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            
             } else {
                 self.showAlert(messageText: "Edits Applied Successfully", informativeText: "Your changes have been uploaded to the feature service.")
             }
@@ -187,19 +178,15 @@ class UpdateAttributesViewController: NSViewController {
         alert.informativeText = informativeText
         alert.beginSheetModal(for: view.window!)
     }
-    
 }
 
 extension UpdateAttributesViewController: AGSGeoViewTouchDelegate {
-    
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         // stop any existing query
         lastQuery?.cancel()
         
         // determine what layer and feature the user tapped, if any
         lastQuery = mapView.identifyLayer(featureLayer, screenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
-            
             guard let self = self else {
                 return
             }
@@ -215,14 +202,10 @@ extension UpdateAttributesViewController: AGSGeoViewTouchDelegate {
 }
 
 extension UpdateAttributesViewController: AGSCalloutDelegate {
-    
     func didTap(_ callout: AGSCallout) {
-        
         if let featureForCallout = featureForCallout {
             // display the editing interface for the chosen feature
             showEditor(for: featureForCallout)
         }
-        
     }
-
 }

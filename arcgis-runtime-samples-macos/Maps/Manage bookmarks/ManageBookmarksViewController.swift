@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var tableView: NSTableView!
     
@@ -121,7 +120,6 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
     // MARK: - Actions
     
     @IBAction private func addAction(_ sender: NSButton) {
-        
         //show alert to get name for new bookmark
         self.alert = NSAlert()
         self.alert.messageText = "Provide a name for the bookmark"

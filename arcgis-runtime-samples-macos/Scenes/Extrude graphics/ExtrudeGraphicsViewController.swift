@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ExtrudeGraphicsViewController: NSViewController {
-
     @IBOutlet var sceneView: AGSSceneView!
     
     private var graphicsOverlay: AGSGraphicsOverlay!
@@ -92,11 +91,9 @@ class ExtrudeGraphicsViewController: NSViewController {
     
     //add a graphic to the graphics overlay for the given polygon
     private func addGraphicForPolygon(_ polygon: AGSPolygon) {
-        
         let rand = Int.random(in: 0...maxHeight)
         let graphic = AGSGraphic(geometry: polygon, symbol: nil, attributes: nil)
         graphic.attributes.setValue(rand, forKey: "height")
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
 }

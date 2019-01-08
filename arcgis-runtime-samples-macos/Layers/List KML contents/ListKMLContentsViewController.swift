@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class ListKMLContentsViewController: NSViewController {
-
     @IBOutlet weak var sceneView: AGSSceneView!
     @IBOutlet weak var outlineView: NSOutlineView!
     
@@ -51,7 +50,6 @@ class ListKMLContentsViewController: NSViewController {
         
         // load the dataset asynchronously so we can list its contents
         kmlDataset.load { [weak self] (error) in
-            
             guard let self = self else {
                 return
             }
@@ -156,11 +154,8 @@ class ListKMLContentsViewController: NSViewController {
     
     /// Returns the viewpoint showing the node, converting it from the node's AGSKMLViewPoint if possible.
     private func viewpoint(for node: AGSKMLNode) -> AGSViewpoint? {
-        
         if let kmlViewpoint = node.viewpoint {
-            
             return viewpointFromKMLViewpoint(kmlViewpoint)
-            
         } else if let extent = node.extent {
             // the node does not have a predefined viewpoint, so create a viewpoint based on its extent
             return viewpointFromKMLNodeExtent(extent)
@@ -172,7 +167,6 @@ class ListKMLContentsViewController: NSViewController {
     // Converts the KML viewpoint to a viewpoint for the scene.
     // The KML viewpoint may not correspond to the node's geometry.
     private func viewpointFromKMLViewpoint(_ kmlViewpoint: AGSKMLViewpoint) -> AGSViewpoint? {
-        
         switch kmlViewpoint.type {
         case .lookAt:
             var lookAtPoint = kmlViewpoint.location
@@ -204,7 +198,6 @@ class ListKMLContentsViewController: NSViewController {
     
     /// Creates a default viewpoint framing the node based on its extent.
     private func viewpointFromKMLNodeExtent(_ extent: AGSEnvelope) -> AGSViewpoint? {
-        
         // some nodes do not include a geometry, so check that the extent isn't empty
         guard !extent.isEmpty else {
             return nil
@@ -217,7 +210,6 @@ class ListKMLContentsViewController: NSViewController {
         // It's possible for `isEmpty` to be false but for width/height to still be zero.
         if extent.width == 0,
             extent.height == 0 {
-            
             let lookAtPoint = AGSPoint(
                 x: extentCenter.x,
                 y: extentCenter.y,
@@ -243,12 +235,10 @@ class ListKMLContentsViewController: NSViewController {
             return AGSViewpoint(targetExtent: bufferedExtent)
         }
     }
-    
 }
 
 // Boilerplate datasource code to display the KML node hierarchy
 extension ListKMLContentsViewController: NSOutlineViewDataSource {
-    
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let node = item as? AGSKMLNode {
             return childNodes(of: node).count
@@ -280,10 +270,8 @@ extension ListKMLContentsViewController: NSOutlineViewDataSource {
         }
         return cellView
     }
-
 }
 extension ListKMLContentsViewController: NSOutlineViewDelegate {
-    
     func outlineViewSelectionDidChange(_ notification: Notification) {
         let selectedRow = outlineView.selectedRow
         if selectedRow >= 0,
@@ -292,5 +280,4 @@ extension ListKMLContentsViewController: NSOutlineViewDelegate {
             setSceneViewpoint(for: selectedNode)
         }
     }
-    
 }

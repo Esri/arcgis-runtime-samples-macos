@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class LineOfSightLocationViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet weak var sceneView: AGSSceneView!
     @IBOutlet weak var observerInstructionLabel: NSTextField!
     @IBOutlet weak var targetInstructionLabel: NSTextField!

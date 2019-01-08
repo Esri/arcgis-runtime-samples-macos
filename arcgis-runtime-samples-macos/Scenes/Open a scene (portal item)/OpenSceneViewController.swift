@@ -30,5 +30,4 @@ class OpenSceneViewController: NSViewController {
         // Set the scene.
         sceneView.scene = scene
     }
-    
 }

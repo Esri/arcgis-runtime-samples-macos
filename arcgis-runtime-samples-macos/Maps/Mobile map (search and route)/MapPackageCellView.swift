@@ -18,12 +18,10 @@ import Cocoa
 import ArcGIS
 
 protocol MapPackageCellDelegate: AnyObject {
-    
     func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap)
 }
 
 class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollectionViewDelegate {
-
     @IBOutlet var label: NSTextField!
     @IBOutlet var collectionView: NSCollectionView!
     @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
@@ -39,12 +37,10 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     }
     
     func loadMapPackage() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
         self.mapPackage.load { [weak self] (error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -69,7 +65,6 @@ class MapPackageCellView: NSTableCellView, NSCollectionViewDataSource, NSCollect
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MobileMapViewItem"), for: indexPath) as! MobileMapViewItem
         
         let map = self.mapPackage.maps[indexPath.item]

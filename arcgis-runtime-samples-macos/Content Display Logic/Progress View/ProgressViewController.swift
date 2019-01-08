@@ -18,7 +18,6 @@ import AppKit
 
 /// A generic view controller to display a progress bar, percentage, and cancel button.
 class ProgressViewController: NSViewController {
-    
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var progressLabelField: NSTextField!
     

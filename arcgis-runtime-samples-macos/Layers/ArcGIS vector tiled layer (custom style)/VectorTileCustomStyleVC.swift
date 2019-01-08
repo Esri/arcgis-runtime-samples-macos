@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class VectorTileCustomStyleVC: NSViewController {
-
     @IBOutlet private var mapView: AGSMapView!
     @IBOutlet weak var stylesPopUpButton: NSPopUpButton!
     
@@ -69,7 +68,6 @@ class VectorTileCustomStyleVC: NSViewController {
     }
     
     private func setBasemap(item: VectorStyleItem) {
-        
         // create a vector tiled layer from the item's URL
         let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: item.itemURL)
         
@@ -94,18 +92,15 @@ class VectorTileCustomStyleVC: NSViewController {
         var color1: NSColor
         var color2: NSColor
     }
-    
 }
 
 extension VectorTileCustomStyleVC.VectorStyleItem {
-    
     var itemURL: URL {
         return URL(string: "https://arcgisruntime.maps.arcgis.com/home/item.html?id=\(itemId)")!
     }
     
     /// Image for the popup menu, generated from the style's colors
     var thumbnailImage: NSImage {
-        
         // a reasonable size for a menu item image
         let size = CGSize(width: 28, height: 16)
         
@@ -125,5 +120,4 @@ extension VectorTileCustomStyleVC.VectorStyleItem {
         view.cacheDisplay(in: view.bounds, to: imageRep)
         return NSImage(cgImage: imageRep.cgImage!, size: imageRep.size)
     }
-    
 }

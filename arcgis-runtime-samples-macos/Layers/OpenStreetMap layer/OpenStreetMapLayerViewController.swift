@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class OpenStreetMapLayerViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -29,5 +28,4 @@ class OpenStreetMapLayerViewController: NSViewController {
         //assign the map to the map view
         mapView.map = map
     }
-    
 }

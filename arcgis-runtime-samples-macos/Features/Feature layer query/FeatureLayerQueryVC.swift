@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureLayerQueryVC: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var featureTable: AGSServiceFeatureTable?
@@ -60,7 +59,6 @@ class FeatureLayerQueryVC: NSViewController {
     }
     
     private func selectFeaturesForSearchTerm(_ searchTerm: String) {
-        
         guard let featureLayer = featureLayer,
             let featureTable = featureTable else {
             return
@@ -79,7 +77,6 @@ class FeatureLayerQueryVC: NSViewController {
         queryParams.whereClause = "upper(STATE_NAME) LIKE '%\(searchTerm.uppercased())%'"
         
         featureTable.queryFeatures(with: queryParams) { [weak self] (result: AGSFeatureQueryResult?, error: Error?) in
-            
             // hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -97,7 +94,6 @@ class FeatureLayerQueryVC: NSViewController {
                     
                     // zoom to the selected feature
                     self.mapView.setViewpointGeometry(features[0].geometry!, padding: 200)
-                
                 } else {
                     if let fullExtent = featureLayer.fullExtent {
                         // no matches, zoom to show everything in the layer

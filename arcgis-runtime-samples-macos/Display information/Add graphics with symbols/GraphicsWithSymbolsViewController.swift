@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GraphicsWithSymbolsViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     private var map: AGSMap!
     private var graphicsOverlay: AGSGraphicsOverlay!
@@ -53,7 +52,6 @@ class GraphicsWithSymbolsViewController: NSViewController {
     }
     
     private func addBuoyPoints(to graphicsOverlay: AGSGraphicsOverlay) {
-        
         //define the buoy locations
         let buoy1Loc = AGSPoint(x: -2.712642647560347, y: 56.062812566811544, spatialReference: .wgs84())
         let buoy2Loc = AGSPoint(x: -2.6908416959572303, y: 56.06444173689877, spatialReference: .wgs84())
@@ -71,7 +69,6 @@ class GraphicsWithSymbolsViewController: NSViewController {
         
         //add the graphics to the graphics overlay
         graphicsOverlay.graphics.addObjects(from: [buoyGraphic1, buoyGraphic2, buoyGraphic3, buoyGraphic4])
-
     }
     
     private func addText(to graphicsOverlay: AGSGraphicsOverlay) {
@@ -231,5 +228,4 @@ class GraphicsWithSymbolsViewController: NSViewController {
         
         return nestingGround.toGeometry()
     }()
-    
 }

@@ -17,7 +17,6 @@
 import AppKit
 
 class MainViewController: NSSplitViewController {
-    
     var categories = [Category]() {
         didSet {
             sampleListViewController.categories = categories

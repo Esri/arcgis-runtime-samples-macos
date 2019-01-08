@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class UseGeodatabaseTransactionsViewController: NSViewController {
-
     @IBOutlet private var mapView: AGSMapView!
     
     @IBOutlet weak var featureTypePopUp: NSPopUpButton!
@@ -83,13 +82,11 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 self.startGeodatabaseDownload(parameters: parameters)
             }
         }
-        
     }
     
     // MARK: - Geodatabase
     
     private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters) {
-        
         guard let geodatabaseSyncTask = geodatabaseSyncTask else {
             return
         }
@@ -134,7 +131,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                     } else {
                         self.loadFeatureTables()
                     }
-                    
                 }
             }
         }
@@ -146,7 +142,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         }
 
         for featureTable in geodatabase.geodatabaseFeatureTables {
-            
             //create a feature layer with the feature table
             let featureLayer = AGSFeatureLayer(featureTable: featureTable)
             //add the feature layer to the operational layers on map
@@ -154,7 +149,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             
             // load the table to ensure the fields are available
             featureTable.load { [weak self] (error) in
-                
                 guard let self = self else {
                     return
                 }
@@ -169,7 +163,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
     /// Creates a feature with the given parameters in the local geodatabase.
     private func addFeature(at point: AGSPoint, featureTableID: Int, attributes: [String: Any]) {
-        
         guard let geodatabase = geodatabase,
             let featureTable = geodatabase.geodatabaseFeatureTable(byServiceLayerID: featureTableID) else {
                 return
@@ -183,7 +176,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
         // add the feature to the feature table
         featureTable.add(feature) { [weak self] (error: Error?) in
-            
             guard let self = self else {
                 return
             }
@@ -195,7 +187,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
     /// Starts synchronizing changes with the online feature service, uploading any changes made by the user.
     private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters) {
-        
         guard let geodatabase = geodatabase,
             !geodatabase.inTransaction,
             let geodatabaseSyncTask = geodatabaseSyncTask else {
@@ -240,7 +231,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
     /// Adds items to the popup menu for the feature types in the given table.
     private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable) {
-
         let typeFieldName = featureTable.typeIDField
         guard let domain = featureTable.field(forName: typeFieldName)?.domain as? AGSCodedValueDomain else {
             return
@@ -333,7 +323,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
             } else if let parameters = parameters {
-            
                 // you can alter the parameters here if you need change the sync settings
             
                 self.startGeodatabaseSync(parameters: parameters)
@@ -349,7 +338,6 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     
     /// Enables or disables the UI controls based on the state of the workflow.
     private func manageControlEnabledStates() {
-        
         featureTypePopUp.isEnabled = isEditingAllowed
         transactionsRequiredCheckbox.isEnabled = geodatabase != nil
         
@@ -373,17 +361,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // or a transaction is ongoing
             geodatabase.inTransaction
     }
-    
 }
 
 // the view controller is set as the touchDelegate of the map view in the storyboard
 extension UseGeodatabaseTransactionsViewController: AGSGeoViewTouchDelegate {
-    
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         if isEditingAllowed,
             let model = featureTypePopUp.selectedItem?.representedObject as? FeatureMenuItemModel {
-            
             //attributes for the new feature
             let attributes: [String: Any] = [model.typeFieldName: model.typeValue]
             
@@ -391,5 +375,4 @@ extension UseGeodatabaseTransactionsViewController: AGSGeoViewTouchDelegate {
             addFeature(at: mapPoint, featureTableID: model.featureTableID, attributes: attributes)
         }
     }
-    
 }

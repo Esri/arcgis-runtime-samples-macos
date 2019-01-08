@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class CalloutViewController: NSViewController, AGSGeoViewTouchDelegate {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     private var map: AGSMap!
     

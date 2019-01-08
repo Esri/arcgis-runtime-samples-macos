@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
-    
     @IBOutlet var mapView: AGSMapView!
     
     private var map: AGSMap!
@@ -77,7 +76,6 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         NSApp.showProgressIndicator()
         
         self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -92,7 +90,6 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     // MARK: - Helper methods
     
     private func handleIdentifyResults(_ results: [AGSIdentifyLayerResult]) {
-        
         var messageString = ""
         var totalCount = 0
         for identifyLayerResult in results {

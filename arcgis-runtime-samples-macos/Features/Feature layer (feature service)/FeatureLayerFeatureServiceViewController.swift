@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class FeatureLayerFeatureServiceViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
@@ -42,5 +41,4 @@ class FeatureLayerFeatureServiceViewController: NSViewController {
         //add the feature layer to the operational layers
         map.operationalLayers.add(featureLayer)
     }
-    
 }

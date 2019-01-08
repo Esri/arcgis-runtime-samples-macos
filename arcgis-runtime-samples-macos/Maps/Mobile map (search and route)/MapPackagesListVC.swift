@@ -18,12 +18,10 @@ import Cocoa
 import ArcGIS
 
 protocol MapPackagesListVCDelegate: AnyObject {
-    
     func mapPackagesListVC(_ mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?)
 }
 
 class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDelegate, MapPackageCellDelegate {
-
     @IBOutlet private var tableView: NSTableView!
     
     var mapPackages = [AGSMobileMapPackage]() {
@@ -43,7 +41,6 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MapPackageCell"), owner: self) as! MapPackageCellView
         
         let mapPackage = self.mapPackages[row]
@@ -82,7 +79,6 @@ class MapPackagesListVC: NSViewController, NSTableViewDataSource, NSTableViewDel
     // MARK: - MapPackageCellDelegate
     
     func mapPackageCellView(_ mapPackageCellView: MapPackageCellView, didSelectMap map: AGSMap) {
-        
         self.delegate?.mapPackagesListVC(self, wantsToShowMap: map, withLocatorTask: mapPackageCellView.mapPackage.locatorTask)
     }
 }

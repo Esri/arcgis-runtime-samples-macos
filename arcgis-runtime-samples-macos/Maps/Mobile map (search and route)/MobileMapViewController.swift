@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPackagesListVCDelegate {
-
     @IBOutlet var mapView: AGSMapView!
     
     private var map: AGSMap! {
@@ -73,7 +72,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     // MARK: - MapPackagesListVCDelegate
     
     func mapPackagesListVC(_ mapPackagesListVC: MapPackagesListVC, wantsToShowMap map: AGSMap, withLocatorTask locatorTask: AGSLocatorTask?) {
-        
         self.locatorTask = locatorTask
         self.map = map
         self.mapView.map = map
@@ -129,7 +127,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     
     //method to show the callout for the provided graphic, with tap location details
     private func showCallout(for graphic: AGSGraphic, at point: AGSPoint, animated: Bool, offset: Bool) {
-        
         self.mapView.callout.title = graphic.attributes["Match_addr"] as? String
         
         self.mapView.callout.show(for: graphic, tapLocation: point, animated: animated)
@@ -152,7 +149,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         //if yes, then show callout with geocoding
         //else add a graphic and route if more than one graphic
         self.mapView.identify(self.markerGraphicsOverlay, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false) { [weak self] (result: AGSIdentifyGraphicsOverlayResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -201,19 +197,16 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         NSApp.showProgressIndicator()
         
         self.locatorTaskCancelable = self.locatorTask?.reverseGeocode(withLocation: point, parameters: self.reverseGeocodeParameters) { [weak self](results: [AGSGeocodeResult]?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
-                
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
                 //assign the label property of result as an attributes to the graphic
                 //and show the callout
                 if let results = results,
                     !results.isEmpty {
-                    
                     graphic.attributes["Match_addr"] = results.first!.formattedAddressString
                     self?.showCallout(for: graphic, at: point, animated: false, offset: false)
                     return
@@ -236,7 +229,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         
         //if map contains network data
         if !map.transportationNetworks.isEmpty {
-            
             self.routeTask = AGSRouteTask(dataset: self.map.transportationNetworks[0])
             
             //get default parameters
@@ -245,18 +237,15 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
     }
     
     private func getDefaultParameters() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
         //get the default parameters
         self.routeTask.defaultRouteParameters { [weak self] (params: AGSRouteParameters?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
-                
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
             } else {
                 self?.routeParameters = params
@@ -289,7 +278,6 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
         
         //route
         self.routeTaskCancelable = self.routeTask.solveRoute(with: self.routeParameters) { [weak self] (routeResult: AGSRouteResult?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -340,9 +328,7 @@ class MobileMapViewController: NSViewController, AGSGeoViewTouchDelegate, MapPac
 
 //extension for extracting the right attributes if available
 private extension AGSGeocodeResult {
-    
     var formattedAddressString: String? {
-        
         if !label.isEmpty {
             return label
         }

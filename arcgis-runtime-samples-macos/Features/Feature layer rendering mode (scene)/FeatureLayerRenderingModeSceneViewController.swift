@@ -18,7 +18,6 @@ import AppKit
 import ArcGIS
 
 class FeatureLayerRenderingModeSceneViewController: NSViewController {
-
     /// The scene view that displays the static feature layers.
     @IBOutlet weak var staticSceneView: AGSSceneView!
     /// The scene view that displays the dynamic feature layers.
@@ -50,7 +49,6 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
     }
     
     private func makeScene(renderingMode: AGSFeatureRenderingMode) -> AGSScene {
-        
         let scene = AGSScene()
         
         // create service feature tables using point, polygon, and polyline services
@@ -60,7 +58,6 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
         
         // loop through all the tables in the order we want to add them, bottom to top
         for featureTable in [polygonTable, polylineTable, pointTable] {
-            
             // create a feature layer for the table
             let featureLayer = AGSFeatureLayer(featureTable: featureTable)
             
@@ -75,7 +72,6 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
     }
     
     @IBAction func animateZoomAction(_ sender: NSButton) {
-        
         // disable the button during the animation
         sender.isEnabled = false
         
@@ -98,11 +94,9 @@ class FeatureLayerRenderingModeSceneViewController: NSViewController {
             self?.zoomedIn.toggle()
         }
     }
-
 }
 
 extension FeatureLayerRenderingModeSceneViewController: AGSGeoViewTouchDelegate {
-    
     // In order to prevent the views from getting out of sync via user navigation,
     // we implement these two delegate methods and return true in their completion handlers.
     // This disables default interactions.
@@ -114,5 +108,4 @@ extension FeatureLayerRenderingModeSceneViewController: AGSGeoViewTouchDelegate 
     func geoView(_ geoView: AGSGeoView, didDoubleTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
-    
 }

@@ -55,7 +55,6 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
         let sample = samples[indexPath.item]
         
         let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("CollectionViewItem"), for: indexPath) as! CollectionViewItem
