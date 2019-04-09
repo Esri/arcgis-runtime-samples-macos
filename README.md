@@ -1,8 +1,10 @@
 # ArcGIS Runtime SDK for macOS Samples 
+x
 This is a set of samples for demonstrating the capabilities of the [ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/).
 The samples use ArcGIS Online basemaps and services.  Learn more [here](http://www.arcgis.com/about/).
 
 ## Features
+
 * Maps - Open, create, inteact with and save maps
 * Layers - Layer types offered by the SDK
 * Features - Workign with Feature layers
@@ -13,15 +15,25 @@ The samples use ArcGIS Online basemaps and services.  Learn more [here](http://w
 * Route & Directions - Find a route around barriers
 * 3D - Display scenes, 3D symbols, and scene layers
 
-## Instructions
-
-1. Fork and then clone the repo. Don't know how? [Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
-2. Build and run the project to create a single app containing all of the samples.
-
 ## Requirements
-* [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/) 100.4.0 (or higher)
-* Xcode 10.0 (or higher)
-* macOS SDK 10.14 (or higher)
+
+* [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/) 100.5.0 (or newer)
+* Xcode 10.1 (or newer)
+
+The *ArcGIS Runtime SDK Samples app* has a *Target SDK* version of *10.13*, meaning that it can run on devices with *macOS 10.13* or newer.
+
+## Installation
+
+The latest version of *ArcGIS Runtime SDK Samples* can be cloned with
+
+```
+git clone https://github.com/Esri/arcgis-runtime-samples-macos.git
+```
+
+## Building
+
+Build the *ArcGIS Runtime SDK Samples app* by opening `arcgis-runtime-samples-macos.xcodeproj` and running the `arcgis-runtime-samples-macos`
+app target.
 
 ## Additional Resources
 
@@ -37,6 +49,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
+
 Copyright 2016 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
