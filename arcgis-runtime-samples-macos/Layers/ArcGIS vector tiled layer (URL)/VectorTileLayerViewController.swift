@@ -18,8 +18,7 @@ import AppKit
 import ArcGIS
 
 class VectorTileLayerViewController: NSViewController {
-
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     private var midCenturyURLString = "https://www.arcgis.com/home/item.html?id=7675d44bb1e4428aa2c30a9b68f97822"
     private var coloredPencilURLString = "https://www.arcgis.com/home/item.html?id=4cf7e1fb9f254dcda9c8fbadb15cf0f8"
@@ -39,12 +38,11 @@ class VectorTileLayerViewController: NSViewController {
         self.mapView.map = map
 
         //center on Miami, Fl
-        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: AGSSpatialReference.wgs84()), scale: 150000, completion: nil)
-
+        self.mapView.setViewpointCenter(AGSPoint(x: -80.18, y: 25.778135, spatialReference: .wgs84()), scale: 150000)
     }
     
-    @IBAction func segmentedControlChanged(_ sender:NSSegmentedControl) {
-        var urlString:String
+    @IBAction func segmentedControlChanged(_ sender: NSSegmentedControl) {
+        var urlString: String
         switch sender.selectedSegment {
         case 0:
             urlString = midCenturyURLString

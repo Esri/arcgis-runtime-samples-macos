@@ -18,17 +18,15 @@ import Cocoa
 import ArcGIS
 
 class LegendCellView: NSTableCellView {
-
-    @IBOutlet var thumbnail:NSImageView!
+    @IBOutlet var thumbnail: NSImageView!
     
-    var legendInfo:AGSLegendInfo! {
+    var legendInfo: AGSLegendInfo! {
         didSet {
-            
             //set label
             self.textField?.stringValue = legendInfo.name 
             
             //set thumbnail
-            legendInfo.symbol?.createSwatch { (image: NSImage?, error: Error?) -> Void in
+            legendInfo.symbol?.createSwatch { (image: NSImage?, error: Error?) in
                 if error == nil {
                     self.thumbnail.image = image
                 }

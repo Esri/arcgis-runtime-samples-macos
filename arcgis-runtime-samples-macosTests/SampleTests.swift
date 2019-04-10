@@ -15,7 +15,7 @@
 //
 
 import XCTest
-@testable import arcgis_runtime_samples_macos
+@testable import ArcGIS_Runtime_SDK_Samples
 
 class SampleTests: XCTestCase {
     func testInitFromDecoder() {

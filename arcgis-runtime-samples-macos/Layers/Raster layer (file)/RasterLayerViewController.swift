@@ -18,12 +18,11 @@ import Cocoa
 import ArcGIS
 
 class RasterLayerViewController: NSViewController {
-
     @IBOutlet private weak var mapView: AGSMapView!
     
     private var rasterLayer: AGSRasterLayer!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +53,11 @@ class RasterLayerViewController: NSViewController {
                 self?.mapView.setViewpoint(AGSViewpoint(center: center, scale: 80000))
             }
         }
-        
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

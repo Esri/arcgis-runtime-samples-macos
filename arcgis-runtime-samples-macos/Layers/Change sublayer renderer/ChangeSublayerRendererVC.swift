@@ -16,10 +16,9 @@ import Cocoa
 import ArcGIS
 
 class ChangeSublayerRendererVC: NSViewController {
-
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var applyRendererButton:NSButton!
-    @IBOutlet private var resetButton:NSButton!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var applyRendererButton: NSButton!
+    @IBOutlet private var resetButton: NSButton!
     
     //map image layer
     private var mapImageLayer: AGSArcGISMapImageLayer = {
@@ -28,7 +27,7 @@ class ChangeSublayerRendererVC: NSViewController {
         return AGSArcGISMapImageLayer(url: censusMapServiceURL)
     }()
     
-    private var originalRenderer:AGSRenderer?
+    private var originalRenderer: AGSRenderer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,7 @@ class ChangeSublayerRendererVC: NSViewController {
         map.operationalLayers.add(self.mapImageLayer)
         
         //initial viewpoint
-        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference:AGSSpatialReference.webMercator())
+        let envelope = AGSEnvelope(xMin: -14387199.261871, yMin: 2189974.377594, xMax: -6944275.345711, yMax: 6893094.239799, spatialReference: .webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(targetExtent: envelope)
@@ -50,14 +49,12 @@ class ChangeSublayerRendererVC: NSViewController {
         
         //load map image layer to access sublayers
         self.mapImageLayer.load { [weak self] (error: Error?) in
-            
             guard let weakSelf = self else {
                 return
             }
             
             //get the counties sublayer
             if let sublayer = weakSelf.mapImageLayer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer {
-                
                 //load the sublayer to get the original renderer
                 sublayer.load(completion: { (error) in
                     if error == nil {
@@ -74,7 +71,6 @@ class ChangeSublayerRendererVC: NSViewController {
     
     //returns a class break renderer
     private func classBreakRenderer() -> AGSClassBreaksRenderer {
-        
         //create a class breaks renderer for counties in US based on their population in 2007
         
         //outline symbol
@@ -100,22 +96,18 @@ class ChangeSublayerRendererVC: NSViewController {
         return classBreakRenderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func applyRenderer(_ sender: NSButton) {
-        
         //get the counties sublayer
         if let sublayer = self.mapImageLayer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer {
-            
             //set the class breaks renderer on the counties sublayer
             sublayer.renderer = self.classBreakRenderer()
         }
     }
     
     @IBAction private func reset(_ sender: NSButton) {
-        
-        if let renderer = self.originalRenderer, let sublayer = self.mapImageLayer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer  {
-            
+        if let renderer = self.originalRenderer, let sublayer = self.mapImageLayer.mapImageSublayers[2] as? AGSArcGISMapImageSublayer {
             //set the class breaks renderer on the counties sublayer
             sublayer.renderer = renderer
         }

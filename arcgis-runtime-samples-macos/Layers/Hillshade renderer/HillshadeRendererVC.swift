@@ -14,41 +14,40 @@
 // limitations under the License.
 //
 
-import Cocoa
+import AppKit
 import ArcGIS
 
 class HillshadeRendererVC: NSViewController {
-
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var altitudeSlider:NSSlider!
-    @IBOutlet var azimuthSlider:NSSlider!
-    @IBOutlet var altitudeLabel:NSTextField!
-    @IBOutlet var azimuthLabel:NSTextField!
-    @IBOutlet var slopeType:NSPopUpButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var altitudeSlider: NSSlider!
+    @IBOutlet var azimuthSlider: NSSlider!
+    @IBOutlet var altitudeLabel: NSTextField!
+    @IBOutlet var azimuthLabel: NSTextField!
+    @IBOutlet var slopeTypePopUp: NSPopUpButton!
     
-    private var map:AGSMap!
-    private var rasterLayer:AGSRasterLayer!
+    private var rasterLayer: AGSRasterLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         //raster layer
         let raster = AGSRaster(name: "srtm", extension: "tiff")
-        self.rasterLayer = AGSRasterLayer(raster: raster)
+        let rasterLayer = AGSRasterLayer(raster: raster)
+        self.rasterLayer = rasterLayer
         
         //initial map with raster layer as basemap
-        self.map = AGSMap(basemap: AGSBasemap(baseLayer: self.rasterLayer))
+        let map = AGSMap(basemap: AGSBasemap(baseLayer: rasterLayer))
         
         //assign map to map view
-        self.mapView.map = self.map
+        mapView.map = map
         
         //initial renderer
         let renderer = AGSHillshadeRenderer(altitude: 45, azimuth: 315, zFactor: 0.000016, slopeType: .none, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
         rasterLayer.renderer = renderer
     }
     
-    func selectedSlope() -> AGSSlopeType {
-        switch self.slopeType.indexOfSelectedItem {
+    private func selectedSlope() -> AGSSlopeType {
+        switch slopeTypePopUp.indexOfSelectedItem {
         case 0:
             return .none
         case 1:
@@ -60,28 +59,39 @@ class HillshadeRendererVC: NSViewController {
         }
     }
     
-    func applyRenderer(withAltitude altitude: Double, azimuth: Double, slopeType: AGSSlopeType) {
+    private func updateRenderer() {
+        let altitude = altitudeSlider.doubleValue
+        let azimuth = azimuthSlider.doubleValue
+        let slopeType = selectedSlope()
+        
         //initialize hill shade renderer with provided settings
-        let renderer = AGSHillshadeRenderer(altitude: altitude, azimuth: azimuth, zFactor: 0.000016, slopeType: slopeType, pixelSizeFactor: 1, pixelSizePower: 1, outputBitDepth: 8)
+        let renderer = AGSHillshadeRenderer(
+            altitude: altitude,
+            azimuth: azimuth,
+            zFactor: 0.000016,
+            slopeType: slopeType,
+            pixelSizeFactor: 1,
+            pixelSizePower: 1,
+            outputBitDepth: 8
+        )
         
         //assign renderer to raster layer
-        self.rasterLayer.renderer = renderer
+        rasterLayer?.renderer = renderer
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func applyAction(_ sender:NSButton) {
-        let altitude = self.altitudeSlider.doubleValue
-        let azimuth = self.azimuthSlider.doubleValue
-        
-        self.applyRenderer(withAltitude: altitude, azimuth: azimuth, slopeType: self.selectedSlope())
+    @IBAction func slopeTypePopUpAction(_ sender: NSPopUpButton) {
+        updateRenderer()
     }
     
-    @IBAction func altitudeSliderAction(_ sender:NSSlider) {
-        self.altitudeLabel.stringValue = "\(sender.integerValue)"
+    @IBAction func altitudeSliderAction(_ sender: NSSlider) {
+        altitudeLabel.stringValue = "\(sender.integerValue)"
+        updateRenderer()
     }
     
-    @IBAction func azimuthSliderAction(_ sender:NSSlider) {
-        self.azimuthLabel.stringValue = "\(sender.integerValue)"
+    @IBAction func azimuthSliderAction(_ sender: NSSlider) {
+        azimuthLabel.stringValue = "\(sender.integerValue)"
+        updateRenderer()
     }
 }

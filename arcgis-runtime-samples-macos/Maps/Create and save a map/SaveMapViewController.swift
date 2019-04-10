@@ -17,25 +17,17 @@
 import Cocoa
 
 protocol SaveMapVCDelegate: AnyObject {
+    func saveMapViewController(_ saveMapViewController: SaveMapViewController, didInitiateSaveWithTitle title: String, tags: [String], itemDescription: String?)
     
-    func saveMapViewController(_ saveMapViewController:SaveMapViewController, didInitiateSaveWithTitle title:String, tags:[String], itemDescription:String?)
-    
-    func saveMapViewControllerDidCancel(_ saveAsViewController:SaveMapViewController)
+    func saveMapViewControllerDidCancel(_ saveAsViewController: SaveMapViewController)
 }
 
 class SaveMapViewController: NSViewController {
-
-    @IBOutlet  weak var titleTextField:NSTextField!
-    @IBOutlet private weak var tagsTextField:NSTextField!
-    @IBOutlet private weak var descriptionTextField:NSTextField!
+    @IBOutlet  weak var titleTextField: NSTextField!
+    @IBOutlet private weak var tagsTextField: NSTextField!
+    @IBOutlet private weak var descriptionTextField: NSTextField!
     
-    weak var delegate:SaveMapVCDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
+    weak var delegate: SaveMapVCDelegate?
     
     func resetInputFields() {
         self.titleTextField.stringValue = ""
@@ -44,7 +36,6 @@ class SaveMapViewController: NSViewController {
     }
     
     @IBAction private func cancelAction(_ sender: AnyObject) {
-        
         self.delegate?.saveMapViewControllerDidCancel(self)
     }
     

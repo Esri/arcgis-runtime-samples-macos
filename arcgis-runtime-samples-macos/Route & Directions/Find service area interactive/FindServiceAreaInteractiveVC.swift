@@ -18,24 +18,23 @@ import Cocoa
 import ArcGIS
 
 class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
-
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var segmentedControl:NSSegmentedControl!
-    @IBOutlet private var serviceAreaButton:NSButton!
-    @IBOutlet private var firstTimeBreakSlider:NSSlider!
-    @IBOutlet private var secondTimeBreakSlider:NSSlider!
-    @IBOutlet private var firstTimeBreakLabel:NSTextField!
-    @IBOutlet private var secondTimeBreakLabel:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var segmentedControl: NSSegmentedControl!
+    @IBOutlet private var serviceAreaButton: NSButton!
+    @IBOutlet private var firstTimeBreakSlider: NSSlider!
+    @IBOutlet private var secondTimeBreakSlider: NSSlider!
+    @IBOutlet private var firstTimeBreakLabel: NSTextField!
+    @IBOutlet private var secondTimeBreakLabel: NSTextField!
     
     private var facilitiesGraphicsOverlay = AGSGraphicsOverlay()
     private var barriersGraphicsOverlay = AGSGraphicsOverlay()
     private var serviceAreaGraphicsOverlay = AGSGraphicsOverlay()
-    private var barrierGraphic:AGSGraphic!
-    private var serviceAreaTask:AGSServiceAreaTask!
-    private var serviceAreaParameters:AGSServiceAreaParameters!
+    private var barrierGraphic: AGSGraphic!
+    private var serviceAreaTask: AGSServiceAreaTask!
+    private var serviceAreaParameters: AGSServiceAreaParameters!
     
-    var firstTimeBreak:Int = 3
-    var secondTimeBreak:Int = 8
+    var firstTimeBreak: Int = 3
+    var secondTimeBreak: Int = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,7 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         let map = AGSMap(basemap: .terrainWithLabels())
         
         //center for initial viewpoint
-        let center = AGSPoint(x: -13041154, y: 3858170, spatialReference: AGSSpatialReference.webMercator())
+        let center = AGSPoint(x: -13041154, y: 3858170, spatialReference: .webMercator())
         
         //initial viewpoint
         map.initialViewpoint = AGSViewpoint(center: center, scale: 1e5)
@@ -82,10 +81,8 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     private func getDefaultParameters() {
-        
         //get default parameters
         self.serviceAreaTask.defaultServiceAreaParameters { [weak self] (parameters: AGSServiceAreaParameters?, error: Error?) in
-            
             guard error == nil else {
                 self?.showAlert(messageText: "Error getting default parameters", informativeText: error!.localizedDescription)
                 return
@@ -99,16 +96,14 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    private func serviceAreaSymbol(for index:Int) -> AGSSymbol {
-        
+    private func serviceAreaSymbol(for index: Int) -> AGSSymbol {
         //fill symbol for service area
-        var fillSymbol:AGSSimpleFillSymbol
+        var fillSymbol: AGSSimpleFillSymbol
         
         if index == 0 {
             let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor(red: 0.4, green: 0.4, blue: 0, alpha: 0.3), width: 2)
             fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor(red: 0.8, green: 0.8, blue: 0, alpha: 0.3), outline: lineSymbol)
-        }
-        else {
+        } else {
             let lineSymbol = AGSSimpleLineSymbol(style: .solid, color: NSColor(red: 0, green: 0.4, blue: 0, alpha: 0.3), width: 2)
             fillSymbol = AGSSimpleFillSymbol(style: .solid, color: NSColor(red: 0, green: 0.8, blue: 0, alpha: 0.3), outline: lineSymbol)
         }
@@ -116,17 +111,17 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         return fillSymbol
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction private func serviceArea(_ sender:NSButton) {
-        
+    @IBAction private func serviceArea(_ sender: NSButton) {
         //remove previously added service areas
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
         
+        let facilitiesGraphics = facilitiesGraphicsOverlay.graphics as! [AGSGraphic]
+        
         //check if at least a single facility is added
-        if self.facilitiesGraphicsOverlay.graphics.count == 0 {
-            
-            self.showAlert(messageText: "Error", informativeText: "At least one facility is required")
+        guard !facilitiesGraphics.isEmpty else {
+            showAlert(messageText: "Error", informativeText: "At least one facility is required")
             return
         }
         
@@ -134,21 +129,18 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         var facilities = [AGSServiceAreaFacility]()
         
         //for each graphic in facilities graphicsOverlay add a facility to the parameters
-        for graphic in self.facilitiesGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
-            
+        for graphic in facilitiesGraphics {
             let point = graphic.geometry as! AGSPoint
             let facility = AGSServiceAreaFacility(point: point)
             facilities.append(facility)
         }
         self.serviceAreaParameters.setFacilities(facilities)
         
-        
         //add barriers
         var barriers = [AGSPolygonBarrier]()
         
         //for each graphic in barrier graphicsOverlay add a barrier to the parameters
-        for graphic in self.barriersGraphicsOverlay.graphics as AnyObject as! [AGSGraphic] {
-            
+        for graphic in self.barriersGraphicsOverlay.graphics as! [AGSGraphic] {
             let polygon = graphic.geometry as! AGSPolygon
             let barrier = AGSPolygonBarrier(polygon: polygon)
             barriers.append(barrier)
@@ -162,7 +154,6 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         
         //solve for service area
         self.serviceAreaTask.solveServiceArea(with: self.serviceAreaParameters) { [weak self] (result: AGSServiceAreaResult?, error: Error?) in
-            
             guard let weakSelf = self else {
                 return
             }
@@ -177,10 +168,8 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
             //are the same across facilities, we only need to draw the resultPolygons at
             //facility index 0. It will contain either merged or multipart polygons
             if let polygons = result?.resultPolygons(atFacilityIndex: 0) {
-                for j in 0..<polygons.count {
-                    
-                    let polygon = polygons[j]
-                    let fillSymbol = weakSelf.serviceAreaSymbol(for: j)
+                for (index, polygon) in polygons.enumerated() {
+                    let fillSymbol = weakSelf.serviceAreaSymbol(for: index)
                     let graphic = AGSGraphic(geometry: polygon.geometry, symbol: fillSymbol, attributes: nil)
                     weakSelf.serviceAreaGraphicsOverlay.graphics.add(graphic)
                 }
@@ -188,40 +177,31 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    @IBAction private func clearAction(_ sender:NSButton) {
-        
+    @IBAction private func clearAction(_ sender: NSButton) {
         //remove all existing graphics in service area and facilities graphics overlays
         self.serviceAreaGraphicsOverlay.graphics.removeAllObjects()
         self.facilitiesGraphicsOverlay.graphics.removeAllObjects()
         self.barriersGraphicsOverlay.graphics.removeAllObjects()
     }
     
-    @IBAction private func sliderValueChanged(_ sender:NSSlider) {
-        
+    @IBAction private func sliderValueChanged(_ sender: NSSlider) {
         if sender == self.firstTimeBreakSlider {
-            
             self.firstTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.firstTimeBreak = sender.integerValue
-        }
-        else {
-            
+        } else {
             self.secondTimeBreakLabel.stringValue = "\(sender.integerValue)"
             self.secondTimeBreak = sender.integerValue
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         if segmentedControl.selectedSegment == 0 {
-            
             //facilities selected
             let graphic = AGSGraphic(geometry: mapPoint, symbol: nil, attributes: nil)
             self.facilitiesGraphicsOverlay.graphics.add(graphic)
-        }
-        else {
-            
+        } else {
             //barriers selected
             let bufferedGeometry = AGSGeometryEngine.bufferGeometry(mapPoint, byDistance: 500)
             let graphic = AGSGraphic(geometry: bufferedGeometry, symbol: nil, attributes: nil)
@@ -229,9 +209,9 @@ class FindServiceAreaInteractiveVC: NSViewController, AGSGeoViewTouchDelegate {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

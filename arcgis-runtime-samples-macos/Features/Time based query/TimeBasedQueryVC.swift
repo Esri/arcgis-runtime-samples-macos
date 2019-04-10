@@ -18,12 +18,11 @@ import Cocoa
 import ArcGIS
 
 class TimeBasedQueryVC: NSViewController {
-    
     @IBOutlet var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var featureTable:AGSServiceFeatureTable!
+    private var featureTable: AGSServiceFeatureTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +47,9 @@ class TimeBasedQueryVC: NSViewController {
         
         //populate features based on a time-based query
         self.populateFeaturesWithQuery()
-        
     }
     
-    func populateFeaturesWithQuery(){
-        
+    func populateFeaturesWithQuery() {
         //create query parameters
         let queryParams = AGSQueryParameters()
         
@@ -68,8 +65,7 @@ class TimeBasedQueryVC: NSViewController {
         queryParams.timeExtent = timeExtent
         
         //populate features based on query parameters
-        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) {[weak self] (result:AGSFeatureQueryResult?, error:Error?) -> Void in
-            
+        self.featureTable.populateFromService(with: queryParams, clearCache: true, outFields: ["*"]) { [weak self] (result: AGSFeatureQueryResult?, error: Error?) in
             guard error == nil else {
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error!.localizedDescription)
@@ -79,17 +75,14 @@ class TimeBasedQueryVC: NSViewController {
             //the resulting features should be displayed on the map
             //you can print the count of features
             print("Hurricane features during the time inverval: \(result?.featureEnumerator().allObjects.count ?? 0)")
-            
         }
     }
     
-    //MARK: - Helper methods
-    private func showAlert(messageText:String, informativeText:String) {
+    // MARK: - Helper methods
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
     }
-    
 }
-

@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class RasterFunctionServiceViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     private var map: AGSMap?
     private var imageServiceRaster: AGSImageServiceRaster?
@@ -46,7 +45,6 @@ class RasterFunctionServiceViewController: NSViewController {
             // Apply raster function
             self?.applyRasterFunction()
         }
-        
     }
     
     func applyRasterFunction() {
@@ -112,9 +110,9 @@ class RasterFunctionServiceViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

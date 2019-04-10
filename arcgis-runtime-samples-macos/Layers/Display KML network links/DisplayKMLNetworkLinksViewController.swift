@@ -15,7 +15,6 @@
 import ArcGIS
 
 class DisplayKMLNetworkLinksViewController: NSViewController {
-    
     @IBOutlet weak var sceneView: AGSSceneView!
     @IBOutlet weak var textView: NSTextView!
     
@@ -40,7 +39,7 @@ class DisplayKMLNetworkLinksViewController: NSViewController {
         let kmlDataset = AGSKMLDataset(url: datasetURL)
         
         // register to receive the network link messages
-        kmlDataset.networkLinkMessageHandler = {[weak self] (_, message) in
+        kmlDataset.networkLinkMessageHandler = { [weak self] (_, message) in
             // run UI updates on the main thread
             DispatchQueue.main.async {
                  self?.textView.string += "\(message)\n\n"
@@ -52,5 +51,4 @@ class DisplayKMLNetworkLinksViewController: NSViewController {
         // add the layer to the scene
         scene.operationalLayers.add(kmlLayer)
     }
-    
 }

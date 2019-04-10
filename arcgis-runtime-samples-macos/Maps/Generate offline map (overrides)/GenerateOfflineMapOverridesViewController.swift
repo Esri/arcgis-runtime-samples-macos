@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthenticationManagerDelegate {
-
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var extentView: NSView!
     @IBOutlet weak var generateButton: NSButton!
@@ -38,7 +37,6 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         let config = AGSOAuthConfiguration(portalURL: nil, clientID: "vVHDSfKfdKBs8lkA", redirectURL: nil)
         AGSAuthenticationManager.shared().oAuthConfigurations.add(config)
         AGSAuthenticationManager.shared().credentialCache.removeAllCredentials()
-        
     }
     
     override func viewDidAppear() {
@@ -52,7 +50,6 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
     }
     
     private func addMap() {
-        
         //portal for the web map
         let portal = AGSPortal.arcGISOnline(withLoginRequired: true)
         
@@ -68,20 +65,18 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         
         //load the map asynchronously
         mapView.map?.load { [weak self] (error) in
-            
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
-            if let error = error{
+            if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else{
+            } else {
                 self.title = self.mapView.map?.item?.title
                 self.generateButton.isEnabled = true
             }
@@ -95,13 +90,12 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         extentView.layer?.borderWidth = 3
     }
     
-    //MARK: - offline map generation
+    // MARK: - offline map generation
     
     private func takeMapOffline() {
-        
         guard let offlineMapTask = offlineMapTask,
             let parameters = parameters,
-            let parameterOverrides = parameterOverrides else{
+            let parameterOverrides = parameterOverrides else {
             return
         }
 
@@ -112,28 +106,32 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                                                                          downloadDirectory: downloadDirectory)
         self.generateOfflineMapJob = generateOfflineMapJob
         
-        //show the progress sheet
-        showProgressSheet(for: generateOfflineMapJob.progress)
+        // open the progress sheet
+        let progressViewController = ProgressViewController(progress: generateOfflineMapJob.progress, operationLabel: "Generating Offline Map w/ Overrides")
+        presentAsSheet(progressViewController)
         
         //start the job
-        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result:AGSGenerateOfflineMapResult?, error:Error?) in
-            
+        generateOfflineMapJob.start(statusHandler: nil) { [weak self] (result: AGSGenerateOfflineMapResult?, error: Error?) in
             guard let self = self else {
                 return
             }
             
             //close the progress sheet since the job is no longer active
-            self.closeProgressSheet()
+            self.dismiss(progressViewController)
             
             if let error = error {
                 //if not user cancelled
                 if (error as NSError).code != NSUserCancelledError,
-                    let window = self.view.window{
+                    let window = self.view.window {
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else if let result = result {
+                
+                //unhide and enable the offline map button
+                self.generateButtonParentView.isHidden = false
+                //unhide the extent view
+                self.extentView.isHidden = false
+            } else if let result = result {
                 self.offlineMapGenerationDidSucceed(with: result)
             }
         }
@@ -147,7 +145,6 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         if let layerErrors = result.layerErrors as? [AGSLayer: Error],
             let tableErrors = result.tableErrors as? [AGSFeatureTable: Error],
             !(layerErrors.isEmpty && tableErrors.isEmpty) {
-            
             let errorMessages = layerErrors.map { "\($0.key.name): \($0.value.localizedDescription)" } +
                 tableErrors.map { "\($0.key.displayName): \($0.value.localizedDescription)" }
             let alert = NSAlert()
@@ -160,16 +157,15 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         mapView.map = result.offlineMap
     }
     
-    //MARK: - Parameter overrides sheet
+    // MARK: - Parameter overrides sheet
     
-    func openParameterOverridesSheet(){
+    func openParameterOverridesSheet() {
         //instantiate the view controller
         let paramController = storyboard!.instantiateController(withIdentifier: "OfflineMapParameterOverridesViewController") as! OfflineMapParameterOverridesViewController
         paramController.parameterOverrides = parameterOverrides
         paramController.map = mapView.map
         // set the completion handler
-        paramController.startJobHandler = {[weak self] (paramController) in
-            
+        paramController.startJobHandler = { [weak self] (paramController) in
             guard let self = self else {
                 return
             }
@@ -179,8 +175,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
             // initiate the job
             self.takeMapOffline()
         }
-        paramController.cancelHandler = {[weak self] (paramController) in
-            
+        paramController.cancelHandler = { [weak self] (paramController) in
             guard let self = self else {
                 return
             }
@@ -196,34 +191,10 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         presentAsSheet(paramController)
     }
     
-    //MARK: - Progress sheet
+    // MARK: - Actions
     
-    private func showProgressSheet(for progress: Progress){
-        
-        //instantiate the view controller
-        let viewController = storyboard!.instantiateController(withIdentifier: "OfflineMapOverridesProgressViewController") as! OfflineMapOverridesProgressViewController
-        
-        //setup the progress view controller
-        viewController.progress = progress
-        viewController.delegate = self
-        
-        //display the progress sheet
-        presentAsSheet(viewController)
-    }
-    
-    private func closeProgressSheet(){
-        
-        //find and dismiss the view controller
-        if let progressViewController = presentedViewControllers?.first(where: { $0 is OfflineMapOverridesProgressViewController }){
-            dismiss(progressViewController)
-        }
-    }
-    
-    //MARK: - Actions
-    
-    @IBAction func generateOfflineMapAction(_ button:NSButton) {
-        
-        guard let offlineMapTask = offlineMapTask else{
+    @IBAction func generateOfflineMapAction(_ button: NSButton) {
+        guard let offlineMapTask = offlineMapTask else {
             return
         }
         
@@ -238,8 +209,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         
         //build the default parameters for the offline map task
         offlineMapTask.defaultGenerateOfflineMapParameters(withAreaOfInterest: areaOfInterest) { [weak self] (parameters: AGSGenerateOfflineMapParameters?, error: Error?) in
-            
-            guard let self = self else{
+            guard let self = self else {
                 return
             }
             
@@ -248,18 +218,16 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                     //display error as alert
                     NSAlert(error: error).beginSheetModal(for: window)
                 }
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 self.parameters = parameters
                 
                 //build the parameter overrides object to be configured by the user
-                offlineMapTask.generateOfflineMapParameterOverrides(with: parameters, completion: {[weak self] (parameterOverrides, error) in
-                    
-                    guard let self = self else{
+                offlineMapTask.generateOfflineMapParameterOverrides(with: parameters, completion: { [weak self] (parameterOverrides, error) in
+                    guard let self = self else {
                         return
                     }
                     
-                    guard error == nil else{
+                    guard error == nil else {
                         if let window = self.view.window {
                             //display error as alert
                             NSAlert(error: error!).beginSheetModal(for: window)
@@ -267,7 +235,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                         return
                     }
                     
-                    guard let parameterOverrides = parameterOverrides else{
+                    guard let parameterOverrides = parameterOverrides else {
                         return
                     }
                     self.parameterOverrides = parameterOverrides
@@ -275,28 +243,25 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
                     //now that we have the override object, show the overrides UI
                     self.openParameterOverridesSheet()
                 })
-               
             }
         }
-  
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func showLoginQueryAlert() {
         let alert = NSAlert()
         alert.messageText = "This sample requires you to login in order to take the map's basemap offline. Would you like to continue?"
         alert.addButton(withTitle: "Login")
         alert.addButton(withTitle: "Cancel")
-        alert.beginSheetModal(for: view.window!) {[weak self] (response) in
-            if response == .alertFirstButtonReturn{
+        alert.beginSheetModal(for: view.window!) { [weak self] (response) in
+            if response == .alertFirstButtonReturn {
                  self?.addMap()
             }
         }
     }
     
     private func extentViewFrameToEnvelope() -> AGSEnvelope {
-        
         let frame = mapView.convert(extentView.frame, from: view)
         
         //the lower-left corner
@@ -309,8 +274,7 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         return AGSEnvelope(min: minPoint, max: maxPoint)
     }
     
-    private func getNewOfflineGeodatabaseURL()->URL{
-       
+    private func getNewOfflineGeodatabaseURL() -> URL {
         //get a suitable directory to place files
         let directoryURL = FileManager.default.temporaryDirectory
         
@@ -318,20 +282,5 @@ class GenerateOfflineMapOverridesViewController: NSViewController, AGSAuthentica
         let formattedDate = ISO8601DateFormatter().string(from: Date())
         
         return directoryURL.appendingPathComponent("offline-map-overrides-\(formattedDate).geodatabase")
-    }
-    
-}
-
-extension GenerateOfflineMapOverridesViewController: OfflineMapOverridesProgressViewControllerDelegate {
-    
-    func progressViewControllerDidCancel(_ progressViewController: OfflineMapOverridesProgressViewController) {
-        
-        //cancel generate offline map job
-        generateOfflineMapJob?.progress.cancel()
-        
-        //unhide and enable the offline map button
-        generateButtonParentView.isHidden = false
-        //unhide the extent view
-        extentView.isHidden = false
     }
 }

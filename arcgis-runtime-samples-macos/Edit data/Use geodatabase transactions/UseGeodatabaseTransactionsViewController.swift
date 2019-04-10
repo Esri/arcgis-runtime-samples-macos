@@ -18,8 +18,7 @@ import Cocoa
 import ArcGIS
 
 class UseGeodatabaseTransactionsViewController: NSViewController {
-
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
     @IBOutlet weak var featureTypePopUp: NSPopUpButton!
     @IBOutlet weak var startTransactionButton: NSButton!
@@ -61,36 +60,33 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         /// The URL of a feature service that supports geodatabase syncing.
         let featureServerURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Sync/SaveTheBaySync/FeatureServer")!
         /// The IDs of the layers we want included in the download.
-        let layerIDsToDownload: Set<Int> = [0,1]
+        let layerIDsToDownload: Set<Int> = [0, 1]
         
         /// The sync task used to download the geodatabase now and upload it later.
         let geodatabaseSyncTask = AGSGeodatabaseSyncTask(url: featureServerURL)
         self.geodatabaseSyncTask = geodatabaseSyncTask
         
-        geodatabaseSyncTask.defaultGenerateGeodatabaseParameters(withExtent: areaOfInterest) {[weak self] (parameters, error) in
+        geodatabaseSyncTask.defaultGenerateGeodatabaseParameters(withExtent: areaOfInterest) { [weak self] (parameters, error) in
             guard let self = self else {
                 return
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else if let parameters = parameters {
+            } else if let parameters = parameters {
                 // minimze the geodatabase size by excluding attachments
                 parameters.returnAttachments = false
                
                 // remove the `AGSGenerateLayerOption` objects for layers we don't want downloaded
-                parameters.layerOptions = parameters.layerOptions.filter{ layerIDsToDownload.contains($0.layerID) }
+                parameters.layerOptions = parameters.layerOptions.filter { layerIDsToDownload.contains($0.layerID) }
                 
                 self.startGeodatabaseDownload(parameters: parameters)
             }
         }
-        
     }
     
-    //MARK: - Geodatabase
+    // MARK: - Geodatabase
     
-    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters){
-        
+    private func startGeodatabaseDownload(parameters: AGSGenerateGeodatabaseParameters) {
         guard let geodatabaseSyncTask = geodatabaseSyncTask else {
             return
         }
@@ -101,11 +97,11 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = generateGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel:  "Downloading Geodatabase")
+        let progressViewController = ProgressViewController(progress: generateGeodatabaseJob.progress, operationLabel: "Downloading Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the download
-        generateGeodatabaseJob.start(statusHandler: nil) {[weak self] (geodatabase, error) in
+        generateGeodatabaseJob.start(statusHandler: nil) { [weak self] (geodatabase, error) in
             guard let self = self else {
                 return
             }
@@ -119,52 +115,46 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 if (error as NSError).code != NSUserCancelledError {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
                 }
-            }
-            else if let geodatabase = geodatabase {
+            } else if let geodatabase = geodatabase {
                 self.geodatabase = geodatabase
                 
                 // enable the controls now that we have a geodatabase
                 self.manageControlEnabledStates()
                 
                 // load the geodatabase to ensure the feature tables are available
-                geodatabase.load {[weak self] (error) in
+                geodatabase.load { [weak self] (error) in
                     guard let self = self else {
                         return
                     }
                     if let error = error {
                         NSAlert(error: error).beginSheetModal(for: self.view.window!)
-                    }
-                    else {
+                    } else {
                         self.loadFeatureTables()
                     }
-                    
                 }
             }
         }
     }
     
-    private func loadFeatureTables(){
+    private func loadFeatureTables() {
         guard let geodatabase = geodatabase else {
             return
         }
 
         for featureTable in geodatabase.geodatabaseFeatureTables {
-            
             //create a feature layer with the feature table
             let featureLayer = AGSFeatureLayer(featureTable: featureTable)
             //add the feature layer to the operational layers on map
             mapView.map?.operationalLayers.add(featureLayer)
             
             // load the table to ensure the fields are available
-            featureTable.load {[weak self] (error) in
-                
+            featureTable.load { [weak self] (error) in
                 guard let self = self else {
                     return
                 }
                 if let error = error {
                     NSAlert(error: error).beginSheetModal(for: self.view.window!)
-                }
-                else {
+                } else {
                     self.loadPopUpMenuItems(for: featureTable)
                 }
             }
@@ -172,8 +162,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Creates a feature with the given parameters in the local geodatabase.
-    private func addFeature(at point:AGSPoint, featureTableID: Int, attributes: [String: Any]) {
-        
+    private func addFeature(at point: AGSPoint, featureTableID: Int, attributes: [String: Any]) {
         guard let geodatabase = geodatabase,
             let featureTable = geodatabase.geodatabaseFeatureTable(byServiceLayerID: featureTableID) else {
                 return
@@ -186,8 +175,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         let feature = featureTable.createFeature(attributes: attributes, geometry: normalizedPoint)
         
         // add the feature to the feature table
-        featureTable.add(feature) { [weak self] (error: Error?) -> Void in
-            
+        featureTable.add(feature) { [weak self] (error: Error?) in
             guard let self = self else {
                 return
             }
@@ -198,8 +186,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Starts synchronizing changes with the online feature service, uploading any changes made by the user.
-    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters){
-        
+    private func startGeodatabaseSync(parameters: AGSSyncGeodatabaseParameters) {
         guard let geodatabase = geodatabase,
             !geodatabase.inTransaction,
             let geodatabaseSyncTask = geodatabaseSyncTask else {
@@ -212,15 +199,12 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         self.activeJob = syncGeodatabaseJob
         
         // open the progress sheet
-        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel:  "Syncing Geodatabase")
+        let progressViewController = ProgressViewController(progress: syncGeodatabaseJob.progress, operationLabel: "Syncing Geodatabase")
         presentAsSheet(progressViewController)
         
         // start the upload
-        syncGeodatabaseJob.start(statusHandler: nil) {[weak self] (results, error) in
-            
-            guard let self = self else {
-                return
-            }
+        syncGeodatabaseJob.start(statusHandler: nil) { [weak self] (results, error) in
+            guard let self = self else { return }
             
             // close the progress sheet
             self.dismiss(progressViewController)
@@ -230,11 +214,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
                 // don't show an alert if the user clicked Cancel
                 (error as NSError).code != NSUserCancelledError {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
+            } else if let results = results {
+                print("Job succeeded with results: \(results)")
             }
         }
     }
     
-    //MARK: - Popup menu
+    // MARK: - Popup menu
     
     /// A model for the represented object of the popup menu items.
     private struct FeatureMenuItemModel {
@@ -244,8 +230,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
     }
     
     /// Adds items to the popup menu for the feature types in the given table.
-    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable){
-
+    private func loadPopUpMenuItems(for featureTable: AGSGeodatabaseFeatureTable) {
         let typeFieldName = featureTable.typeIDField
         guard let domain = featureTable.field(forName: typeFieldName)?.domain as? AGSCodedValueDomain else {
             return
@@ -269,13 +254,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         
         // only run this once
         if featureTable.serviceLayerID == 0,
-            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }){
+            let enabledItem = featureTypePopUp.menu?.items.first(where: { $0.isEnabled }) {
             // the default selection is a disabled field name so we need to set it to an actual feature type
             featureTypePopUp.select(enabledItem)
         }
     }
 
-    //MARK: - Actions
+    // MARK: - Actions
 
     @IBAction func beginTransactionAction(_ sender: NSButton) {
         guard let geodatabase = geodatabase,
@@ -287,8 +272,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // enter a new transaction that must be matched with `rollbackTransaction()` or `commitTransaction()`
             try geodatabase.beginTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -303,8 +287,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // revert all the changes made since `beginTransaction()` and leave the transaction
             try geodatabase.rollbackTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -319,8 +302,7 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // save all the changes made since `beginTransaction()` and leave the transaction
             try geodatabase.commitTransaction()
             manageControlEnabledStates()
-        }
-        catch {
+        } catch {
             NSAlert(error: error).beginSheetModal(for: view.window!)
         }
     }
@@ -334,15 +316,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             return
         }
         // get the parameters needed to sync the database
-        geodatabaseSyncTask.defaultSyncGeodatabaseParameters(with: geodatabase, completion: {[weak self] (parameters, error) in
+        geodatabaseSyncTask.defaultSyncGeodatabaseParameters(with: geodatabase, completion: { [weak self] (parameters, error) in
             guard let self = self else {
                 return
             }
             if let error = error {
                 NSAlert(error: error).beginSheetModal(for: self.view.window!)
-            }
-            else if let parameters = parameters {
-            
+            } else if let parameters = parameters {
                 // you can alter the parameters here if you need change the sync settings
             
                 self.startGeodatabaseSync(parameters: parameters)
@@ -354,11 +334,10 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
         manageControlEnabledStates()
     }
     
-    //MARK: - UI Helpers
+    // MARK: - UI Helpers
     
     /// Enables or disables the UI controls based on the state of the workflow.
     private func manageControlEnabledStates() {
-        
         featureTypePopUp.isEnabled = isEditingAllowed
         transactionsRequiredCheckbox.isEnabled = geodatabase != nil
         
@@ -382,17 +361,13 @@ class UseGeodatabaseTransactionsViewController: NSViewController {
             // or a transaction is ongoing
             geodatabase.inTransaction
     }
-    
 }
 
 // the view controller is set as the touchDelegate of the map view in the storyboard
 extension UseGeodatabaseTransactionsViewController: AGSGeoViewTouchDelegate {
-    
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         if isEditingAllowed,
             let model = featureTypePopUp.selectedItem?.representedObject as? FeatureMenuItemModel {
-            
             //attributes for the new feature
             let attributes: [String: Any] = [model.typeFieldName: model.typeValue]
             
@@ -400,5 +375,4 @@ extension UseGeodatabaseTransactionsViewController: AGSGeoViewTouchDelegate {
             addFeature(at: mapPoint, featureTableID: model.featureTableID, attributes: attributes)
         }
     }
-    
 }

@@ -18,8 +18,7 @@ import Cocoa
 import ArcGIS
 
 class DisplayMapViewController: NSViewController {
-
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,5 +29,4 @@ class DisplayMapViewController: NSViewController {
         //assign the map to the map view
         self.mapView.map = map
     }
-    
 }

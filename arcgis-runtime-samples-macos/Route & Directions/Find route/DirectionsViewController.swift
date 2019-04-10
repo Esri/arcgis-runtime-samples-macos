@@ -17,23 +17,21 @@ import Cocoa
 import ArcGIS
 
 class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var tableView: NSTableView!
     
     //provide route with direction maneuvers
-    var route:AGSRoute?
+    var route: AGSRoute?
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         //return self.route?.directionManeuvers.count ?? 0
         return 12
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         //cell view
         let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DirectionCellView"), owner: self)
         
@@ -50,5 +48,4 @@ class DirectionsViewController: NSViewController, NSTableViewDataSource, NSTable
         
         return view
     }
-    
 }

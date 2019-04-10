@@ -18,10 +18,9 @@ import Cocoa
 import ArcGIS
 
 class TiledLayerURLViewController: NSViewController {
-
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +35,4 @@ class TiledLayerURLViewController: NSViewController {
         //assign the map to the map view
         self.mapView.map = self.map
     }
-    
 }

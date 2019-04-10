@@ -15,10 +15,9 @@
 import ArcGIS
 
 class FeatureLayerGPKGViewController: NSViewController {
-    
     @IBOutlet weak var mapView: AGSMapView!
 
-    var geoPackage:AGSGeoPackage?
+    var geoPackage: AGSGeoPackage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,5 +45,4 @@ class FeatureLayerGPKGViewController: NSViewController {
         // Display the map in the map view.
         mapView.map = map
     }
-    
 }

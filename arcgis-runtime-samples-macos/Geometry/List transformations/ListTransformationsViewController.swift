@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class ListTransformationsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var mapView: AGSMapView!
     @IBOutlet var orderByMapExtent: NSButton!
@@ -46,11 +45,10 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         // add original graphic to overlay
         addGraphic(originalGeometry, color: .red, style: .square)
         
-        mapView.map?.load() { [weak self] (error) in
+        mapView.map?.load { [weak self] (error) in
             if let error = error {
                 print("map load error = \(error)")
-            }
-            else {
+            } else {
                 self?.mapDidLoad()
             }
         }
@@ -78,8 +76,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         // if orderByMapExtent is on, use the map extent when retrieving the transformations
         if orderByMapExtent.state == .on {
             datumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR, areaOfInterest: mapView.visibleArea?.extent)
-        }
-        else {
+        } else {
             datumTransformations = AGSTransformationCatalog.transformationsBySuitability(withInputSpatialReference: inputSR, outputSpatialReference: outputSR)
         }
         
@@ -118,7 +115,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         setupTransformsList()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return datumTransformations.count
@@ -131,7 +128,6 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         if transformation.isMissingProjectionEngineFiles,
             // if we're missing the grid files, detail which ones
             let geographicTransformation = transformation as? AGSGeographicTransformation {
-
             cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DatumTransformCell"), owner: self) as? NSTableCellView
             if let titleLabel = cellView?.viewWithTag(0) as? NSTextField {
                 titleLabel.stringValue = transformation.name
@@ -146,7 +142,6 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
             if let detailLabel = cellView?.viewWithTag(1) as? NSTextField {
                 detailLabel.stringValue = "Missing grid files: \(files.joined(separator: ", "))"
             }
-
         } else {
             // we have the grid files, so use the simple, title-only cell to display the transformation name
             let tableCellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TitleCell"), owner: self) as? NSTableCellView
@@ -157,7 +152,7 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard let mapViewSR = mapView.spatialReference else { return }
@@ -168,13 +163,11 @@ class ListTransformationsViewController: NSViewController, NSTableViewDataSource
             if let graphic = projectedGraphic {
                 // we've already added the projected graphic
                 graphic.geometry = projectedGeometry
-            }
-            else {
+            } else {
                 // add projected graphic
                 addGraphic(projectedGeometry, color: .blue, style: .cross)
             }
-        }
-        else {
+        } else {
             // If a transformation is missing grid files, then it cannot be
             // successfully used to project a geometry, and "projectGeometry" will return nil.
             // In that case, remove projected graphic

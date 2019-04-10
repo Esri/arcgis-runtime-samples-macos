@@ -17,7 +17,6 @@
 import AppKit
 
 class MainViewController: NSSplitViewController {
-    
     var categories = [Category]() {
         didSet {
             sampleListViewController.categories = categories
@@ -84,8 +83,7 @@ extension MainViewController: SampleListViewControllerDelegate {
             showCategory(category)
         } else if let sample = controller.selectedSample {
             showSample(sample)
-        }
-        else {
+        } else {
             showCategoryForAllSamples()
         }
     }

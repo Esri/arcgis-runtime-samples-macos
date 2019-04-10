@@ -17,12 +17,11 @@ import Cocoa
 import ArcGIS
 
 class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate {
-
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var latLongDDTextField:NSTextField!
-    @IBOutlet private var latLongDMSTextField:NSTextField!
-    @IBOutlet private var utmTextField:NSTextField!
-    @IBOutlet private var usngTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var latLongDDTextField: NSTextField!
+    @IBOutlet private var latLongDMSTextField: NSTextField!
+    @IBOutlet private var utmTextField: NSTextField!
+    @IBOutlet private var usngTextField: NSTextField!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
     
@@ -42,7 +41,7 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         self.mapView.touchDelegate = self
         
         //initial point
-        let point = AGSPoint(x: 0, y: 0, spatialReference: AGSSpatialReference.webMercator())
+        let point = AGSPoint(x: 0, y: 0, spatialReference: .webMercator())
         
         //add initial graphic
         self.displayGraphicAtPoint(point)
@@ -53,7 +52,6 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
     
     //use AGSCoordinateFormatter to generate coordinate string for the given point
     private func coordinateStringsFromPoint(_ point: AGSPoint) {
-        
         self.latLongDDTextField.stringValue = AGSCoordinateFormatter.latitudeLongitudeString(from: point, format: .decimalDegrees, decimalPlaces: 4) ?? ""
         
         self.latLongDMSTextField.stringValue = AGSCoordinateFormatter.latitudeLongitudeString(from: point, format: .degreesMinutesSeconds, decimalPlaces: 1) ?? ""
@@ -63,8 +61,7 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         self.usngTextField.stringValue = AGSCoordinateFormatter.usngString(from: point, precision: 4, addSpaces: true) ?? ""
     }
     
-    private func displayGraphicAtPoint(_ point:AGSPoint) {
-        
+    private func displayGraphicAtPoint(_ point: AGSPoint) {
         //remove previous graphic from graphics overlay
         self.graphicsOverlay.graphics.removeAllObjects()
         
@@ -74,12 +71,11 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         self.graphicsOverlay.graphics.add(graphic)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     //user can change any of the string and update the location by tapping return
-    @IBAction private func textFieldAction(_ textField:NSTextField) {
-        
-        var point:AGSPoint?
+    @IBAction private func textFieldAction(_ textField: NSTextField) {
+        var point: AGSPoint?
         
         //using tags on the textfield to differentiate
         switch textField.tag {
@@ -102,15 +98,13 @@ class FormatCoordinatesViewController: NSViewController, AGSGeoViewTouchDelegate
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //display graphic at the tapped location
         self.displayGraphicAtPoint(mapPoint)
         
         //populate the coordinate strings for tapped location
         self.coordinateStringsFromPoint(mapPoint)
     }
-    
 }

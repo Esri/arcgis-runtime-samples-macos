@@ -18,12 +18,11 @@ import Cocoa
 import ArcGIS
 
 class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
-
-    @IBOutlet private var mapView:AGSMapView!
+    @IBOutlet private var mapView: AGSMapView!
     
-    private var featureTable:AGSServiceFeatureTable!
-    private var featureLayer:AGSFeatureLayer!
-    private var lastQuery:AGSCancelable!
+    private var featureTable: AGSServiceFeatureTable!
+    private var featureLayer: AGSFeatureLayer!
+    private var lastQuery: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         //instantiate map with a basemap
         let map = AGSMap(basemap: .streets())
         //set initial viewpoint
-        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: AGSSpatialReference.webMercator()), scale: 2e6)
+        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: .webMercator()), scale: 2e6)
         
         //assign the map to the map view
         self.mapView.map = map
@@ -47,7 +46,7 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         map.operationalLayers.add(featureLayer)
     }
     
-    func addFeature(at point:AGSPoint) {
+    func addFeature(at point: AGSPoint) {
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -55,20 +54,18 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
         let normalizedGeometry = AGSGeometryEngine.normalizeCentralMeridian(of: point)!
         
         //attributes for the new feature
-        let featureAttributes = ["typdamage" : "Minor", "primcause" : "Earthquake"]
+        let featureAttributes = ["typdamage": "Minor", "primcause": "Earthquake"]
         //create a new feature
         let feature = self.featureTable.createFeature(attributes: featureAttributes, geometry: normalizedGeometry)
         
         //add the feature to the feature table
-        self.featureTable.add(feature) { [weak self] (error: Error?) -> Void in
-            
+        self.featureTable.add(feature) { [weak self] (error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while adding feature :: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 //applied edits on success
                 self?.applyEdits()
             }
@@ -76,36 +73,34 @@ class AddFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     func applyEdits() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
+        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
-            }
-            else {
-                if let featureEditResults = featureEditResults , featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
+            } else {
+                if let featureEditResults = featureEditResults,
+                    featureEditResults.first?.completedWithErrors == false {
                     print("Edits applied successfully")
                 }
             }
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //add a feature at the tapped location
         self.addFeature(at: mapPoint)
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

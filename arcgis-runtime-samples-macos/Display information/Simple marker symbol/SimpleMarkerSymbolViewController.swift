@@ -16,8 +16,7 @@ import Cocoa
 import ArcGIS
 
 class SimpleMarkerSymbolViewController: NSViewController {
-    
-    @IBOutlet var mapView:AGSMapView!
+    @IBOutlet var mapView: AGSMapView!
     
     private var graphicsOverlay = AGSGraphicsOverlay()
     
@@ -28,7 +27,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         let map = AGSMap(basemap: .imageryWithLabels())
         
         //initial viewpoint
-        let center = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())
+        let center = AGSPoint(x: -226773, y: 6550477, spatialReference: .webMercator())
         map.initialViewpoint = AGSViewpoint(center: center, scale: 6500)
         
         //assign map to the map view
@@ -46,7 +45,7 @@ class SimpleMarkerSymbolViewController: NSViewController {
         let symbol = AGSSimpleMarkerSymbol(style: .circle, color: .red, size: 12)
         
         //create point
-        let point = AGSPoint(x: -226773, y: 6550477, spatialReference: AGSSpatialReference.webMercator())
+        let point = AGSPoint(x: -226773, y: 6550477, spatialReference: .webMercator())
         
         //graphic for point using simple marker symbol
         let graphic = AGSGraphic(geometry: point, symbol: symbol, attributes: nil)
@@ -54,6 +53,4 @@ class SimpleMarkerSymbolViewController: NSViewController {
         //add the graphic to the graphics overlay
         self.graphicsOverlay.graphics.add(graphic)
     }
-    
-    
 }

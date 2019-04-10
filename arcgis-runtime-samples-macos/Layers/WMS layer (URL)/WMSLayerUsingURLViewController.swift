@@ -18,8 +18,7 @@ import Cocoa
 import ArcGIS
 
 class WMSLayerUsingURLViewController: NSViewController {
-    
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +39,8 @@ class WMSLayerUsingURLViewController: NSViewController {
         NSApp.showProgressIndicator()
         
         //load the WMS layer
-        wmsLayer.load {[weak self] (error) in
-            
-            guard let self = self else{
+        wmsLayer.load { [weak self] (error) in
+            guard let self = self else {
                 return
             }
             
@@ -57,13 +55,12 @@ class WMSLayerUsingURLViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
         alert.beginSheetModal(for: view.window!)
     }
-    
 }

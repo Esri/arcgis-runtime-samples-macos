@@ -18,13 +18,12 @@ import Cocoa
 import ArcGIS
 
 class WMTSLayerViewController: NSViewController {
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    @IBOutlet private weak var mapView:AGSMapView!
-    
-    private var map:AGSMap!
+    private var map: AGSMap!
     private var wmtsService: AGSWMTSService!
     
-    private let WMTS_SERVICE_URL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS")!
+    private let wmtsServiceURL = URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +35,15 @@ class WMTSLayerViewController: NSViewController {
         self.mapView.map = self.map
         
         //create a WMTS service with the service URL
-        self.wmtsService = AGSWMTSService(url: WMTS_SERVICE_URL)
+        self.wmtsService = AGSWMTSService(url: wmtsServiceURL)
         
         //load the WMTS service to access the service information
-        self.wmtsService.load {[weak self] (error) in
+        self.wmtsService.load { [weak self] (error) in
             if let error = error {
                 self?.showAlert(messageText: "Error loading WMTS service:", informativeText: error.localizedDescription)
             } else {
                 //get the service information or metadata about the WMTS service
                 if let weakSelf = self, let wmtsServiceInfo = weakSelf.wmtsService.serviceInfo {
-                    
                     //get information about the layers available in the WMTS service
                     let layerInfos = wmtsServiceInfo.layerInfos
                     
@@ -59,13 +57,12 @@ class WMTSLayerViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText
         alert.beginSheetModal(for: self.view.window!)
     }
-    
 }

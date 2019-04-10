@@ -18,14 +18,13 @@ import Cocoa
 import ArcGIS
 
 class OpenMapURLViewController: NSViewController {
-    
     @IBOutlet private weak var mapView: AGSMapView!
     @IBOutlet weak var mapListPopUp: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapMenuItems:[NSMenuItem] = [
+        let mapMenuItems: [NSMenuItem] = [
             NSMenuItem(title: "Housing with Mortgages",
                        image: #imageLiteral(resourceName: "OpenExistingMapThumbnail1"),
                        representedObject: URL(string: "https://www.arcgis.com/home/item.html?id=2d6fa24b357d427f9c737774e7b0f977")!),
@@ -38,7 +37,7 @@ class OpenMapURLViewController: NSViewController {
         ]
         
         // load the map info into the popup button menu
-        for menuItem in mapMenuItems{
+        for menuItem in mapMenuItems {
             mapListPopUp.menu?.addItem(menuItem)
         }
         
@@ -48,13 +47,11 @@ class OpenMapURLViewController: NSViewController {
     }
     
     @IBAction func mapListPopUpAction(_ sender: NSPopUpButton) {
-        
         // get the map URL from the menu item and load the map
-        if let mapUrl = sender.selectedItem?.representedObject as? URL{
+        if let mapUrl = sender.selectedItem?.representedObject as? URL {
             mapView.map = AGSMap(url: mapUrl)
         }
     }
-    
 }
 
 private extension NSMenuItem {

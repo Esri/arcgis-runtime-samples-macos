@@ -18,12 +18,11 @@ import Cocoa
 import ArcGIS
 
 class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate {
-
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView: NSTableView!
     
-    private var map:AGSMap!
-    private var alert:NSAlert!
+    private var map: AGSMap!
+    private var alert: NSAlert!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
     
     private func addDefaultBookmarks() {
         //create a few bookmarks and add them to the map
-        var viewpoint:AGSViewpoint, bookmark:AGSBookmark
+        var viewpoint: AGSViewpoint, bookmark: AGSBookmark
         
         //Mysterious Desert Pattern
         viewpoint = AGSViewpoint(latitude: 27.3805833, longitude: 33.6321389, scale: 6e3)
@@ -80,7 +79,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.map.bookmarks.add(bookmark)
     }
     
-    private func addBookmark(with name:String) {
+    private func addBookmark(with name: String) {
         //instantiate a bookmark and set the properties
         let bookmark = AGSBookmark()
         bookmark.name = name
@@ -93,7 +92,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.tableView.reloadData()
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.map?.bookmarks.count ?? 0
@@ -110,7 +109,7 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let index = self.tableView.selectedRow
@@ -118,10 +117,9 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         self.mapView.setViewpoint(bookmark.viewpoint!)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction private func addAction(_ sender:NSButton) {
-        
+    @IBAction private func addAction(_ sender: NSButton) {
         //show alert to get name for new bookmark
         self.alert = NSAlert()
         self.alert.messageText = "Provide a name for the bookmark"
@@ -145,15 +143,14 @@ class ManageBookmarksViewController: NSViewController, NSTableViewDataSource, NS
         }
     }
     
-    //MARK: - NSTextFieldDelegate
+    // MARK: - NSTextFieldDelegate
     
     func controlTextDidChange(_ obj: Notification) {
         //enable OK button on alert when textfield gets input
         let textField = obj.object as! NSTextField
         if textField.stringValue.isEmpty {
             self.alert.buttons[0].isEnabled = false
-        }
-        else {
+        } else {
             self.alert.buttons[0].isEnabled = true
         }
     }

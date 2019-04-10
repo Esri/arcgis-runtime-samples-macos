@@ -20,7 +20,6 @@ import ArcGIS
 /// A view controller that manages the interface of the Feature Layer Rendering
 /// Mode (Map) sample.
 class FeatureLayerRenderingModeMapViewController: NSViewController {
-    
     /// The map displayed in the static map view.
     let staticMap = AGSMap()
     /// The map displayed in the dynamic map view.

@@ -17,7 +17,6 @@ import Cocoa
 import ArcGIS
 
 class StatisticalQueryGroupAndSortViewController: NSViewController {
-    
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var parametersLabel: NSTextField!
     @IBOutlet weak var resultsLabel: NSTextField!
@@ -52,12 +51,10 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Load feature table
         serviceFeatureTable.load(completion: { [weak self] (error) in
-            
             // If there an error, display it
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while loading feature table: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 self?.didLoadServiceFeatureTable(serviceFeatureTable)
             }
         })
@@ -67,7 +64,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     }
     
     private func didLoadServiceFeatureTable(_ serviceFeatureTable: AGSServiceFeatureTable) {
-        
         // Set title
         let title = "Statistics: \(serviceFeatureTable.tableName)"
         let style = NSMutableParagraphStyle()
@@ -169,9 +165,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         statisticDefinitionsTableView.endUpdates()
         
         // Find and remove the selected statistic definitions
-        let selectedDefinitions = Set(selectedIndexes.map { (index) -> AGSStatisticDefinition in
-            return statisticDefinitions[index]
-        })
+        let selectedDefinitions = Set(selectedIndexes.map { statisticDefinitions[$0] })
         statisticDefinitions.removeAll { (definition) -> Bool in
             selectedDefinitions.contains(definition)
         }
@@ -207,7 +201,6 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         
         // Execute the statistical query with parameters
         serviceFeatureTable.queryStatistics(with: statisticsQueryParameters, completion: { [weak self] (statisticsQueryResult, error) in
-            
             guard let self = self else {
                 return
             }
@@ -221,8 +214,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
             if let error = error {
                 self.showAlert(messageText: "Error", informativeText: "Error while executing statistics query: \(error.localizedDescription)")
                 return
-            }
-            else if let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects,
+            } else if let statisticRecords = statisticsQueryResult?.statisticRecordEnumerator().allObjects,
                 !statisticRecords.isEmpty {
                 //
                 // Store results to show in the outline view
@@ -253,7 +245,7 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
     
     // MARK: - Helper Methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         if let window = view.window {
             let alert = NSAlert()
             alert.messageText = messageText
@@ -271,23 +263,19 @@ class StatisticalQueryGroupAndSortViewController: NSViewController {
         }
     }
     
-    private func setRemoveStatisticButtonEnabledState(){
+    private func setRemoveStatisticButtonEnabledState() {
         // Only allow definition removal if there is a selected definition
         removeStatisticDefinitionButton.isEnabled = !statisticDefinitionsTableView.selectedRowIndexes.isEmpty
     }
-    
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == statisticDefinitionsTableView {
             return statisticDefinitions.count
-        }
-        else if tableView == groupByFieldsTableView {
+        } else if tableView == groupByFieldsTableView {
             return fieldNames.count
-        }
-        else if tableView == orderByFieldsTableView {
+        } else if tableView == orderByFieldsTableView {
             return orderByFields.count
         }
         return 0
@@ -303,26 +291,17 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
                 // Add field to order by fields
                 let orderBy = AGSOrderBy(fieldName: fieldName, sortOrder: .ascending)
                 orderByFields.append(orderBy)
-            }
-            else {
+            } else {
                 // Remove field from selected group by fields
                 if let index = selectedGroupByFieldNames.index(of: fieldName) {
                     selectedGroupByFieldNames.remove(at: index)
                 }
                 
                 // Remove field from the order by fields
-                for (i,orderByField) in orderByFields.enumerated().reversed() {
-                    if orderByField.fieldName == fieldName {
-                        orderByFields.remove(at: i)
-                    }
-                }
+                orderByFields.removeAll { $0.fieldName == fieldName }
                 
                 // Remove field from the selected order by fields
-                for (i,selectedOrderByField) in selectedOrderByFields.enumerated().reversed() {
-                    if selectedOrderByField.fieldName == fieldName {
-                        selectedOrderByFields.remove(at: i)
-                    }
-                }
+                selectedOrderByFields.removeAll { $0.fieldName == fieldName }
             }
             
             // Reload order by fields table
@@ -331,21 +310,19 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
         
         if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            guard let id = tableColumn?.identifier else {
+            guard let tableColumnID = tableColumn?.identifier.rawValue else {
                 return
             }
-            if id.rawValue == "FieldNameCheckBox" {
+            if tableColumnID == "FieldNameCheckBox" {
                 if let buttonState = object as? Int, buttonState == 1 {
                     selectedOrderByFields.append(orderByField)
-                }
-                else {
+                } else {
                     // Remove field from selected order by fields
                     if let index = selectedOrderByFields.index(of: orderByField) {
                         selectedOrderByFields.remove(at: index)
                     }
                 }
-            }
-            else if id.rawValue == "SortOrder" {
+            } else if tableColumnID == "SortOrder" {
                 if let selectedIndex = object as? Int, let sortOrder = AGSSortOrder(rawValue: selectedIndex) {
                     orderByField.sortOrder = sortOrder
                 }
@@ -359,26 +336,23 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
             let statisticTypeString = statisticTypes[statisticDefinition.statisticType.rawValue]
             let stringValue = "\(statisticDefinition.onFieldName) (\(statisticTypeString))"
             return stringValue
-        }
-        else if tableView == groupByFieldsTableView {
+        } else if tableView == groupByFieldsTableView {
             let fieldName = fieldNames[row]
             if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
                 buttonCell.title = fieldName
                 return selectedGroupByFieldNames.contains(fieldName) ? 1 : 0
             }
-        }
-        else if tableView == orderByFieldsTableView {
+        } else if tableView == orderByFieldsTableView {
             let orderByField = orderByFields[row]
-            guard let id = tableColumn?.identifier else {
+            guard let tableColumnID = tableColumn?.identifier.rawValue else {
                 return nil
             }
-            if id.rawValue == "FieldNameCheckBox" {
+            if tableColumnID == "FieldNameCheckBox" {
                 if let buttonCell = tableColumn?.dataCell(forRow: row) as? NSButtonCell {
                     buttonCell.title = orderByField.fieldName
                     return selectedOrderByFields.contains(orderByField) ? 1 : 0
                 }
-            }
-            else if id.rawValue == "SortOrder" {
+            } else if tableColumnID == "SortOrder" {
                 if let popUpButtonCell = tableColumn?.dataCell(forRow: row) as? NSPopUpButtonCell {
                     return popUpButtonCell.indexOfItem(withTitle: stringFor(sortOrder: orderByField.sortOrder))
                 }
@@ -389,7 +363,6 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDataSource {
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSTableViewDelegate {
-    
     func tableViewSelectionDidChange(_ notification: Notification) {
         if notification.object as? NSTableView == statisticDefinitionsTableView {
             // Enable or disable the removal button as needed
@@ -399,12 +372,10 @@ extension StatisticalQueryGroupAndSortViewController: NSTableViewDelegate {
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
-    
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let statisticRecord = item as? AGSStatisticRecord {
             return statisticRecord.statistics.keys.count
-        }
-        else {
+        } else {
             return self.statisticRecords.count
         }
     }
@@ -414,27 +385,22 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDataSource {
             let keys = Array(statisticRecord.statistics.keys)
             let values = Array(statisticRecord.statistics.values)
             return "\(keys[index]): \(values[index])"
-        }
-        else {
+        } else {
             return statisticRecords[index]
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let statisticRecord = item as? AGSStatisticRecord {
-            return statisticRecord.statistics.keys.count > 0
-        }
-        else {
+            return !statisticRecord.statistics.keys.isEmpty
+        } else {
             return false
         }
     }
-    
 }
 
 extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDelegate {
-    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        
         guard let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("StatisticRecordCellView"), owner: self) as? NSTableCellView else {
             return nil
         }
@@ -447,8 +413,7 @@ extension StatisticalQueryGroupAndSortViewController: NSOutlineViewDelegate {
                 }
             }
             cellView.textField?.stringValue = groups.joined(separator: ", ")
-        }
-        else {
+        } else {
             if let string = item as? String {
                 cellView.textField?.stringValue = string
             }

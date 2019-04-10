@@ -44,7 +44,7 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
         collectionViewLayout.sectionHeadersPinToVisibleBounds = true
     }
     
-    //MARK: - NSCollectionViewDataSource
+    // MARK: - NSCollectionViewDataSource
     
     func numberOfSections(in collectionView: NSCollectionView) -> Int {
         return 1
@@ -55,7 +55,6 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        
         let sample = samples[indexPath.item]
         
         let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier("CollectionViewItem"), for: indexPath) as! CollectionViewItem
@@ -78,7 +77,7 @@ class SampleCollectionViewController: NSViewController, NSCollectionViewDataSour
         return headerView
     }
     
-    //MARK: - NSCollectionViewDelegate
+    // MARK: - NSCollectionViewDelegate
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         delegate?.sampleCollectionViewController(self, didSelect: samples[indexPaths.first!.item])

@@ -18,22 +18,21 @@ import Cocoa
 import ArcGIS
 
 class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate {
-
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var outlineView:NSOutlineView!
-    @IBOutlet private var visualEffectViewTrailingConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectViewWidthConstraint:NSLayoutConstraint!
-    @IBOutlet private var visualEffectView:NSVisualEffectView!
-    @IBOutlet private var featureTextField:NSTextField!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var outlineView: NSOutlineView!
+    @IBOutlet private var visualEffectViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var visualEffectView: NSVisualEffectView!
+    @IBOutlet private var featureTextField: NSTextField!
     
-    private var parksFeatureLayer:AGSFeatureLayer!
-    private var parksFeatureTable:AGSServiceFeatureTable!
-    private var preservesFeatureTable:AGSServiceFeatureTable!
-    private var speciesFeatureTable:AGSServiceFeatureTable!
-    private var identifyCancelable:AGSCancelable!
-    private var selectedPark:AGSArcGISFeature!
+    private var parksFeatureLayer: AGSFeatureLayer!
+    private var parksFeatureTable: AGSServiceFeatureTable!
+    private var preservesFeatureTable: AGSServiceFeatureTable!
+    private var speciesFeatureTable: AGSServiceFeatureTable!
+    private var identifyCancelable: AGSCancelable!
+    private var selectedPark: AGSArcGISFeature!
     
-    private var results:[AGSRelatedFeatureQueryResult]!
+    private var results: [AGSRelatedFeatureQueryResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,7 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         let map = AGSMap(basemap: .streets())
         
         //initial viewpoint
-        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: AGSSpatialReference(wkid: 3857))
+        let point = AGSPoint(x: -16507762.575543, y: 9058828.127243, spatialReference: .webMercator())
         
         //set initial viewpoint on map
         map.initialViewpoint = AGSViewpoint(center: point, scale: 36764077)
@@ -81,11 +80,10 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.visualEffectView.bottomAnchor.constraint(equalTo: self.mapView.attributionTopAnchor, constant: -20).isActive = true
         
         //hide visual effect view at start
-        self.toggleVisualEffectView(on: false, animated: false)
+        setVisualEffectViewVisibility(visible: false, animated: false)
     }
     
     private func queryRelatedFeatures() {
-        
         //show progress indicator
         NSApp.showProgressIndicator()
         
@@ -95,24 +93,21 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         self.featureTextField.stringValue = ""
         
         //query for related features
-        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results:[AGSRelatedFeatureQueryResult]?, error:Error?) in
-            
+        self.parksFeatureTable.queryRelatedFeatures(for: self.selectedPark) { [weak self] (results: [AGSRelatedFeatureQueryResult]?, error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
-                
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
-                if let results = results, results.count > 0 {
-                    
+            } else {
+                if let results = results,
+                    !results.isEmpty {
                     //store results to show in the outline view
                     self?.results = results
                     
                     //toggle results on
-                    self?.toggleVisualEffectView(on: true, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: true, animated: true)
                     
                     self?.featureTextField.stringValue = self?.selectedPark.attributes["UNIT_NAME"] as? String ?? "Origin Feature"
                     
@@ -126,10 +121,9 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        
         //cancel previous identify
         self.identifyCancelable?.cancel()
         
@@ -138,25 +132,20 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         
         //identify feature at tapped location
         self.identifyCancelable = self.mapView.identifyLayer(self.parksFeatureLayer, screenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false) { [weak self] (result: AGSIdentifyLayerResult) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = result.error {
-                
                 //show error
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
-                
+            } else {
                 //unselect previously selected park
                 if let previousSelection = self?.selectedPark {
                     self?.parksFeatureLayer.unselectFeature(previousSelection)
                     self?.selectedPark = nil
                 }
                 
-                if result.geoElements.count > 0 {
-                    
+                if !result.geoElements.isEmpty {
                     //Will pick the first feature
                     let feature = result.geoElements[0] as! AGSArcGISFeature
                     
@@ -168,24 +157,20 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
                     
                     //query for related features
                     self?.queryRelatedFeatures()
-                }
-                else {
-                    
+                } else {
                     //hide outline view
-                    self?.toggleVisualEffectView(on: false, animated: true)
+                    self?.setVisualEffectViewVisibility(visible: false, animated: true)
                 }
             }
         }
     }
     
-    //MARK: - NSOutlineViewDataSource
+    // MARK: - NSOutlineViewDataSource
     
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        
         if let result = item as? AGSRelatedFeatureQueryResult {
             return result.featureEnumerator().allObjects.count
-        }
-        else {
+        } else {
             return self.results?.count ?? 0
         }
     }
@@ -193,40 +178,34 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let result = item as? AGSRelatedFeatureQueryResult {
             return result.featureEnumerator().allObjects[index]
-        }
-        else {
+        } else {
             return self.results[index]
         }
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let result = item as? AGSRelatedFeatureQueryResult {
-            return result.featureEnumerator().allObjects.count > 0
-        }
-        else {
+            return !result.featureEnumerator().allObjects.isEmpty
+        } else {
             return false
         }
     }
     
-    //MARK: - NSOutlineViewDelegate
+    // MARK: - NSOutlineViewDelegate
     
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        
         let cellView = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListCell"), owner: self) as! NSTableCellView
         cellView.wantsLayer = true
         
         if let result = item as? AGSRelatedFeatureQueryResult {
-            
             cellView.textField?.stringValue = result.relatedTable!.tableName
-        }
-        else {
+        } else {
             let relatedFeature = item as! AGSArcGISFeature
             let result = outlineView.parent(forItem: item) as! AGSRelatedFeatureQueryResult
             
             if let displayField = result.relatedTable?.layerInfo?.displayFieldName {
                 cellView.textField?.stringValue = relatedFeature.attributes[displayField] as? String ?? "Related feature"
-            }
-            else {
+            } else {
                 cellView.textField?.stringValue = "Related feature"
             }
         }
@@ -234,23 +213,19 @@ class ListRelatedFeaturesVC: NSViewController, AGSGeoViewTouchDelegate, NSOutlin
         return cellView
     }
     
-    //MARK: - Show/hide table view
+    // MARK: - Show/hide table view
     
-    private func toggleVisualEffectView(on:Bool, animated:Bool) {
-        
+    private func setVisualEffectViewVisibility(visible: Bool, animated: Bool) {
         if animated {
-         
-            self.visualEffectViewTrailingConstraint.animator().constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
-        }
-        else {
-            
-            self.visualEffectViewTrailingConstraint.constant = on ? 20 : -self.visualEffectViewWidthConstraint.constant - 20
+            visualEffectViewTrailingConstraint.animator().constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
+        } else {
+            visualEffectViewTrailingConstraint.constant = visible ? 20 : -visualEffectViewWidthConstraint.constant - 20
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

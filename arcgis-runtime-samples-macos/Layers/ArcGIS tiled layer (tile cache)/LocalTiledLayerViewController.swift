@@ -18,11 +18,10 @@ import Cocoa
 import ArcGIS
 
 class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var tableView:NSTableView!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var tableView: NSTableView!
     
-    private var bundleTPKPaths:[String]!
+    private var bundleTPKPaths: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +45,11 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         self.tableView.reloadData()
     }
     
-    func extractName(fromPath path:String) -> String {
+    func extractName(fromPath path: String) -> String {
         return URL(fileURLWithPath: path).lastPathComponent
     }
     
-    //MARK: - NSTableViewDataSource
+    // MARK: - NSTableViewDataSource
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.bundleTPKPaths?.count ?? 0
@@ -65,7 +64,7 @@ class LocalTiledLayerViewController: NSViewController, NSTableViewDataSource, NS
         return cellView
     }
     
-    //MARK: - NSTableViewDelegate
+    // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = self.tableView.selectedRow

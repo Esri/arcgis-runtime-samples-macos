@@ -16,8 +16,8 @@
 
 import AppKit
 
+/// A generic view controller to display a progress bar, percentage, and cancel button.
 class ProgressViewController: NSViewController {
-    
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var progressLabelField: NSTextField!
     
@@ -28,7 +28,7 @@ class ProgressViewController: NSViewController {
     /// The text to display alongside the completion percentage.
     private let operationLabel: String
     
-    init(progress: Progress, operationLabel: String = ""){
+    init(progress: Progress, operationLabel: String = "") {
         self.progress = progress
         
         let suffix = !operationLabel.isEmpty ? ": " : ""
@@ -43,7 +43,7 @@ class ProgressViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         // observe progress
-        progressObservation = progress.observe(\.fractionCompleted,  options: .initial, changeHandler: {[weak self] (_, _) in
+        progressObservation = progress.observe(\.fractionCompleted, options: .initial, changeHandler: { [weak self] (_, _) in
             // run UI updates on the main thread
             DispatchQueue.main.async {
                 self?.updateProgressUI()
@@ -57,14 +57,14 @@ class ProgressViewController: NSViewController {
         progressObservation = nil
     }
     
-    private func updateProgressUI(){
+    private func updateProgressUI() {
         // update progress label
         progressLabelField?.stringValue = "\(operationLabel)\(progress.localizedDescription!)"
         // update progress indicator
         progressIndicator?.doubleValue = progress.fractionCompleted
     }
     
-    @IBAction func cancelAction(_ button:NSButton) {
+    @IBAction func cancelAction(_ button: NSButton) {
         // cancel the progress
         progress.cancel()
     }

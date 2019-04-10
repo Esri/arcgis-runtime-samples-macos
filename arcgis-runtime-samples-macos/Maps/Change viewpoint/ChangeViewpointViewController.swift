@@ -18,14 +18,13 @@ import Cocoa
 import ArcGIS
 
 class ChangeViewpointViewController: NSViewController {
-
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var segmentedControl:NSSegmentedControl!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var segmentedControl: NSSegmentedControl!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var griffithParkGeometry:AGSPolygon!
-    private var londonCoordinate:AGSPoint!
+    private var griffithParkGeometry: AGSPolygon!
+    private var londonCoordinate: AGSPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,7 @@ class ChangeViewpointViewController: NSViewController {
         //create a graphicsOverlay to show the graphics
         let graphicsOverlay = AGSGraphicsOverlay()
         
-        self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: AGSSpatialReference.wgs84())
+        self.londonCoordinate = AGSPoint(x: 0.1275, y: 51.5072, spatialReference: .wgs84())
         
         if let griffithParkGeometry = self.geometryFromTextFile(filename: "GriffithParkJson") {
             self.griffithParkGeometry = griffithParkGeometry as? AGSPolygon
@@ -50,22 +49,19 @@ class ChangeViewpointViewController: NSViewController {
         self.mapView.graphicsOverlays.add(graphicsOverlay)
     }
     
-    func geometryFromTextFile(filename:String) -> AGSGeometry? {
-        if let filepath = Bundle.main.path(forResource: filename, ofType: "txt") {
-            if let jsonString = try? String(contentsOfFile: filepath, encoding: String.Encoding.utf8) {
-                let data = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)
-                let dictionary = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions())) as! [AnyHashable: Any]
-                let geometry = try? AGSGeometry.fromJSON(dictionary)
-                return geometry as? AGSGeometry
-            }
+    func geometryFromTextFile(filename: String) -> AGSGeometry? {
+        if let fileURL = Bundle.main.url(forResource: filename, withExtension: "txt"),
+            let data = try? Data(contentsOf: fileURL),
+            let jsonObject = try? JSONSerialization.jsonObject(with: data),
+            let geometry = try? AGSGeometry.fromJSON(jsonObject) {
+            return geometry as? AGSGeometry
         }
-        
         return nil
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction private func valueChanged(_ control:NSSegmentedControl) {
+    @IBAction private func valueChanged(_ control: NSSegmentedControl) {
         switch control.selectedSegment {
         case 0:
             self.mapView.setViewpointGeometry(self.griffithParkGeometry, padding: 50, completion: nil)
@@ -75,15 +71,13 @@ class ChangeViewpointViewController: NSViewController {
             let currentScale = self.mapView.mapScale
             let targetScale = currentScale / 2.5 //zoom in
             let currentCenter = self.mapView.visibleArea!.extent.center
-            self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: targetScale), duration: 5, curve: AGSAnimationCurve.easeInOutSine, completion: { (finishedWithoutInterruption) -> Void in
-                if(finishedWithoutInterruption){
-                    self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: currentScale), duration: 5, curve: AGSAnimationCurve.easeInOutSine, completion:  nil);
+            self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: targetScale), duration: 5, curve: AGSAnimationCurve.easeInOutSine, completion: { (finishedWithoutInterruption) in
+                if finishedWithoutInterruption {
+                    self.mapView.setViewpoint(AGSViewpoint(center: currentCenter, scale: currentScale), duration: 5, curve: .easeInOutSine)
                 }
             })
         default:
             print("Never should get here")
         }
-        
     }
-    
 }

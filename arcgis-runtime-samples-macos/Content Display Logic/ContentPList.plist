@@ -130,6 +130,19 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Display layer view state</string>
+				<key>storyboardName</key>
+				<string>DisplayLayerViewState</string>
+				<key>descriptionText</key>
+				<string>Demonstrates how to get view status for layers in a map.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>DisplayLayerViewStateViewController</string>
+					<string>LayerViewStatusViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Change viewpoint</string>
 				<key>storyboardName</key>
 				<string>ChangeViewpoint</string>
@@ -204,6 +217,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Open mobile map (map package)</string>
+				<key>storyboardName</key>
+				<string>OpenMobileMap</string>
+				<key>descriptionText</key>
+				<string>Open a mobile map from a mobile map package.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>OpenMobileMapViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>Mobile map (search and route)</string>
 				<key>storyboardName</key>
 				<string>MobileMapSearchRoute</string>
@@ -227,7 +252,7 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>GenerateOfflineMapViewController</string>
-					<string>OfflineMapProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -241,7 +266,7 @@
 				<array>
 					<string>GenerateOfflineMapOverridesViewController</string>
 					<string>OfflineMapParameterOverridesViewController</string>
-					<string>OfflineMapOverridesProgressViewController</string>
+					<string>ProgressViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -463,6 +488,18 @@
 			</dict>
 			<dict>
 				<key>displayName</key>
+				<string>Show labels on layers</string>
+				<key>storyboardName</key>
+				<string>ShowLabelsOnLayers</string>
+				<key>descriptionText</key>
+				<string>Show labels on feature layers using JSON label definitions.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ShowLabelsOnLayersViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
 				<string>WMTS layer</string>
 				<key>storyboardName</key>
 				<string>WMTSLayer</string>
@@ -602,6 +639,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>FeatureLayerRenderingModeMapViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Feature layer rendering mode (scene)</string>
+				<key>storyboardName</key>
+				<string>FeatureLayerRenderingModeScene</string>
+				<key>descriptionText</key>
+				<string>Control the rendering mode of feature layers in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>FeatureLayerRenderingModeSceneViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -795,6 +844,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>AddFeaturesViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Update attributes (feature service)</string>
+				<key>storyboardName</key>
+				<string>UpdateAttributesFeatureService</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to edit the attributes of features in a feature service.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>UpdateAttributesViewController</string>
 				</array>
 			</dict>
 			<dict>
@@ -1095,6 +1156,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>SpatialRelationshipsViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Buffer</string>
+				<key>storyboardName</key>
+				<string>Buffer</string>
+				<key>descriptionText</key>
+				<string>Create buffers around the click location with a given radius.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>BufferViewController</string>
 				</array>
 			</dict>
 		</array>
@@ -1420,6 +1493,18 @@
 				<key>sourceFileNames</key>
 				<array>
 					<string>SceneLayerSelectionViewController</string>
+				</array>
+			</dict>
+			<dict>
+				<key>displayName</key>
+				<string>Change atmosphere effect</string>
+				<key>storyboardName</key>
+				<string>ChangeAtmosphereEffect</string>
+				<key>descriptionText</key>
+				<string>This sample demonstrates how to change the appearance of the atmosphere in a scene.</string>
+				<key>sourceFileNames</key>
+				<array>
+					<string>ChangeAtmosphereEffectViewController</string>
 				</array>
 			</dict>
 		</array>

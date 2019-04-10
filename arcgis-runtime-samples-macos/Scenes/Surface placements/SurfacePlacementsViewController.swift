@@ -80,9 +80,12 @@ private extension AGSSurfacePlacement {
     /// The human readable name of the surface placement.
     var title: String {
         switch self {
-        case .draped: return "Draped"
-        case .relative: return "Relative"
-        case .absolute: return "Absolute"
+        case .draped:
+            return "Draped"
+        case .relative:
+            return "Relative"
+        case .absolute:
+            return "Absolute"
         }
     }
 }

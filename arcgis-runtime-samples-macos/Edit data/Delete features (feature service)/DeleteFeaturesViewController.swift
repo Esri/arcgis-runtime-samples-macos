@@ -18,14 +18,13 @@ import Cocoa
 import ArcGIS
 
 class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
-
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var deleteButton:NSButton!
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var deleteButton: NSButton!
     
-    private var featureTable:AGSServiceFeatureTable!
-    private var featureLayer:AGSFeatureLayer!
-    private var lastQuery:AGSCancelable!
-    private var selectedFeature:AGSFeature! {
+    private var featureTable: AGSServiceFeatureTable!
+    private var featureLayer: AGSFeatureLayer!
+    private var lastQuery: AGSCancelable!
+    private var selectedFeature: AGSFeature! {
         didSet {
             self.deleteButton.isEnabled = (selectedFeature != nil)
         }
@@ -37,7 +36,7 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //instantiate map with a basemap
         let map = AGSMap(basemap: .streets())
         //set initial viewpoint
-        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: AGSSpatialReference.webMercator()), scale: 2e6)
+        map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: 544871.19, y: 6806138.66, spatialReference: .webMercator()), scale: 2e6)
         
         //assign the map to the map view
         self.mapView.map = map
@@ -53,18 +52,17 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         map.operationalLayers.add(featureLayer)
     }
     
-    func deleteFeature(_ feature:AGSFeature) {
+    func deleteFeature(_ feature: AGSFeature) {
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.delete(feature) { [weak self] (error: Error?) -> Void in
+        self.featureTable.delete(feature) { [weak self] (error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while deleting feature : \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 self?.selectedFeature = nil
                 self?.applyEdits()
             }
@@ -75,26 +73,25 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) -> Void in
-            
+        self.featureTable.applyEdits { [weak self] (featureEditResults: [AGSFeatureEditResult]?, error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
-            }
-            else {
-                if let featureEditResults = featureEditResults , featureEditResults.count > 0 && featureEditResults[0].completedWithErrors == false {
+            } else {
+                if let featureEditResults = featureEditResults,
+                    featureEditResults.first?.completedWithErrors == false {
                     print("Edits applied successfully")
                 }
             }
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        if let lastQuery = self.lastQuery{
+        if let lastQuery = self.lastQuery {
             lastQuery.cancel()
         }
         
@@ -104,21 +101,18 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
-            
+        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 1) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else if let features = identifyLayerResult.geoElements as? [AGSFeature] {
-                
+            } else if let features = identifyLayerResult.geoElements as? [AGSFeature] {
                 //clear selection
                 self?.featureLayer.clearSelection()
                 self?.selectedFeature = nil
                 
-                if features.count > 0 {
+                if !features.isEmpty {
                     self?.featureLayer.select(features[0])
                     //update selected feature
                     self?.selectedFeature = features[0]
@@ -127,16 +121,16 @@ class DeleteFeaturesViewController: NSViewController, AGSGeoViewTouchDelegate, A
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func deleteAction(_ button: AnyObject) {
         //confirmation
         self.showConfirmationAlert()
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

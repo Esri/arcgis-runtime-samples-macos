@@ -18,13 +18,12 @@ import Cocoa
 import ArcGIS
 
 class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
-    
     @IBOutlet var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
-    private var featureLayer:AGSFeatureLayer!
-    private var mapImageLayer:AGSArcGISMapImageLayer!
+    private var featureLayer: AGSFeatureLayer!
+    private var mapImageLayer: AGSArcGISMapImageLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +49,11 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         //feature layer
         self.featureLayer = AGSFeatureLayer(featureTable: featureTable)
         
-        
         //add feature layer add to the operational layers
         self.map.operationalLayers.add(self.featureLayer)
         
         //set initial viewpoint to a specific region
-        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -10977012.785807, y: 4514257.550369, spatialReference: AGSSpatialReference(wkid: 3857)), scale: 68015210)
+        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -10977012.785807, y: 4514257.550369, spatialReference: .webMercator()), scale: 68015210)
         
         //assign map to the map view
         self.mapView.map = self.map
@@ -64,37 +62,34 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         self.mapView.touchDelegate = self
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         //get the geoElements for all layers present at the tapped point
         self.identifyLayers(at: screenPoint)
     }
     
-    //MARK: - Identify layers
+    // MARK: - Identify layers
     
     private func identifyLayers(at screenPoint: CGPoint) {
         //show progress indicator
         NSApp.showProgressIndicator()
         
         self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 22, returnPopupsOnly: false, maximumResultsPerLayer: 10) { [weak self] (results: [AGSIdentifyLayerResult]?, error: Error?) in
-            
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 self?.handleIdentifyResults(results!)
             }
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
     private func handleIdentifyResults(_ results: [AGSIdentifyLayerResult]) {
-        
         var messageString = ""
         var totalCount = 0
         for identifyLayerResult in results {
@@ -115,8 +110,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
         //else notify user that no elements were found
         if totalCount > 0 {
             self.showAlert(messageText: "Number of geoElements found", informativeText: messageString)
-        }
-        else {
+        } else {
             self.showAlert(messageText: "Error", informativeText: "No geoElement found")
         }
     }
@@ -139,7 +133,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
             //check if the result has any sublayer results
             //if yes then add those result objects in the tempResults
             //array after the current result
-            if identifyResult.sublayerResults.count > 0 {
+            if !identifyResult.sublayerResults.isEmpty {
                 tempResults.insert(contentsOf: identifyResult.sublayerResults, at: index + 1)
             }
             
@@ -151,7 +145,7 @@ class IdentifyLayersViewController: NSViewController, AGSGeoViewTouchDelegate {
     }
     
     //helper method to show results to the user
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

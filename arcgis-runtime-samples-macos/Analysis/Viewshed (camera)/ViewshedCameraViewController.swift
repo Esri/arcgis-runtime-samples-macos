@@ -16,7 +16,6 @@ import Cocoa
 import ArcGIS
 
 class ViewshedCameraViewController: NSViewController {
-    
     @IBOutlet weak var sceneView: AGSSceneView!
     
     private var viewshed: AGSLocationViewshed!
@@ -31,7 +30,7 @@ class ViewshedCameraViewController: NSViewController {
         self.sceneView.scene = scene
         
         //initialize the camera and set the viewpoint specified by the camera position
-        let camera = AGSCamera(location: AGSPoint(x: -4.49492, y: 48.3808, z: 48.2511, spatialReference: AGSSpatialReference.wgs84()), heading: 344.488, pitch: 74.1212, roll: 0)
+        let camera = AGSCamera(location: AGSPoint(x: -4.49492, y: 48.3808, z: 48.2511, spatialReference: .wgs84()), heading: 344.488, pitch: 74.1212, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
         /// The url of the image service for elevation in Brest, France.
@@ -57,11 +56,10 @@ class ViewshedCameraViewController: NSViewController {
         sceneView.analysisOverlays.add(analysisOverlay)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func updateFromCamera(_ sender: Any) {
         //update the viewshed with the current camera
         viewshed.update(from: sceneView.currentViewpointCamera())
     }
-    
 }

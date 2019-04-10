@@ -18,10 +18,9 @@ import Cocoa
 import ArcGIS
 
 class ShowMagnifierViewController: NSViewController {
-
-    @IBOutlet private weak var mapView:AGSMapView!
+    @IBOutlet private weak var mapView: AGSMapView!
     
-    private var map:AGSMap!
+    private var map: AGSMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class ShowMagnifierViewController: NSViewController {
         self.mapView.interactionOptions.isMagnifierEnabled = true
         
         //zoom to custom viewpoint
-        let viewpoint = AGSViewpoint(center: AGSPoint(x: -110.8258 , y: 32.1545089, spatialReference: AGSSpatialReference.wgs84()), scale: 5e3)
+        let viewpoint = AGSViewpoint(center: AGSPoint(x: -110.8258, y: 32.1545089, spatialReference: .wgs84()), scale: 5e3)
         self.mapView.setViewpoint(viewpoint)
     }
 }

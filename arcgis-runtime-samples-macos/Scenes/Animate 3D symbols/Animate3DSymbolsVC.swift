@@ -17,36 +17,35 @@ import Cocoa
 import ArcGIS
 
 class Animate3DSymbolsVC: NSViewController {
-
-    @IBOutlet var sceneView:AGSSceneView!
-    @IBOutlet var popUpButton:NSPopUpButton!
-    @IBOutlet var speedSlider:NSSlider!
-    @IBOutlet var progressIndicator:NSProgressIndicator!
-    @IBOutlet var playButton:NSButton!
+    @IBOutlet var sceneView: AGSSceneView!
+    @IBOutlet var popUpButton: NSPopUpButton!
+    @IBOutlet var speedSlider: NSSlider!
+    @IBOutlet var progressIndicator: NSProgressIndicator!
+    @IBOutlet var playButton: NSButton!
     
-    @IBOutlet var headingOffsetSlider:NSSlider!
-    @IBOutlet var pitchOffsetSlider:NSSlider!
-    @IBOutlet var distanceSlider:NSSlider!
-    @IBOutlet var distanceLabel:NSTextField!
-    @IBOutlet var headingOffsetLabel:NSTextField!
-    @IBOutlet var pitchOffsetLabel:NSTextField!
-    @IBOutlet var autoHeadingEnabledButton:NSButton!
-    @IBOutlet var autoPitchEnabledButton:NSButton!
-    @IBOutlet var autoRollEnabledButton:NSButton!
+    @IBOutlet var headingOffsetSlider: NSSlider!
+    @IBOutlet var pitchOffsetSlider: NSSlider!
+    @IBOutlet var distanceSlider: NSSlider!
+    @IBOutlet var distanceLabel: NSTextField!
+    @IBOutlet var headingOffsetLabel: NSTextField!
+    @IBOutlet var pitchOffsetLabel: NSTextField!
+    @IBOutlet var autoHeadingEnabledButton: NSButton!
+    @IBOutlet var autoPitchEnabledButton: NSButton!
+    @IBOutlet var autoRollEnabledButton: NSButton!
     
-    @IBOutlet var altitiudeLabel:NSTextField!
-    @IBOutlet var headingLabel:NSTextField!
-    @IBOutlet var pitchLabel:NSTextField!
-    @IBOutlet var rollLabel:NSTextField!
+    @IBOutlet var altitiudeLabel: NSTextField!
+    @IBOutlet var headingLabel: NSTextField!
+    @IBOutlet var pitchLabel: NSTextField!
+    @IBOutlet var rollLabel: NSTextField!
     
     private var sceneGraphicsOverlay = AGSGraphicsOverlay()
-    private var frames:[Frame]!
-    private var fileNames:[String]!
-    private var planeModelSymbol:AGSModelSceneSymbol!
-    private var planeModelGraphic:AGSGraphic!
+    private var frames: [Frame]!
+    private var fileNames: [String]!
+    private var planeModelSymbol: AGSModelSceneSymbol!
+    private var planeModelGraphic: AGSGraphic!
     private var currentFrameIndex = 0
-    private var animationTimer:Timer!
-    private var orbitGeoElementCameraController:AGSOrbitGeoElementCameraController!
+    private var animationTimer: Timer!
+    private var orbitGeoElementCameraController: AGSOrbitGeoElementCameraController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +100,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.planeModelSymbol.anchorPosition = .center
         
         //arbitrary geometry for time being, the geometry will update with animation
-        let point = AGSPoint(x: 0, y: 0, z: 0, spatialReference: AGSSpatialReference.wgs84())
+        let point = AGSPoint(x: 0, y: 0, z: 0, spatialReference: .wgs84())
         
         //create graphic for the model
         self.planeModelGraphic = AGSGraphic()
@@ -112,8 +111,11 @@ class Animate3DSymbolsVC: NSViewController {
         self.sceneGraphicsOverlay.graphics.add(self.planeModelGraphic)
     }
     
+    private var cameraDistanceObservation: NSKeyValueObservation?
+    private var cameraHeadingOffsetObservation: NSKeyValueObservation?
+    private var cameraPitchOffsetObservation: NSKeyValueObservation?
+    
     private func setupCamera() {
-        
         //AGSOrbitGeoElementCameraController to follow plane graphic
         //initialize object specifying the target geo element and distance to keep from it
         self.orbitGeoElementCameraController = AGSOrbitGeoElementCameraController(targetGeoElement: self.planeModelGraphic, distance: 1000)
@@ -131,22 +133,50 @@ class Animate3DSymbolsVC: NSViewController {
         
         //set the camera controller on scene view
         self.sceneView.cameraController = self.orbitGeoElementCameraController
-        
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
         //add observers to update the sliders
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraDistance", options: .new, context: nil)
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraHeadingOffset", options: .new, context: nil)
-        self.orbitGeoElementCameraController.addObserver(self, forKeyPath: "cameraPitchOffset", options: .new, context: nil)
+        cameraDistanceObservation = orbitGeoElementCameraController.observe(\.cameraDistance, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
+                let distance = Int(controller.cameraDistance)
+                self?.distanceSlider.integerValue = distance
+                //update label
+                self?.distanceLabel.stringValue = "\(distance)"
+            }
+        }
+        cameraHeadingOffsetObservation = orbitGeoElementCameraController.observe(\.cameraHeadingOffset, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
+                let cameraHeadingOffset = Int(controller.cameraHeadingOffset)
+                self?.headingOffsetSlider.integerValue = cameraHeadingOffset
+                //update label
+                self?.headingOffsetLabel.stringValue = "\(cameraHeadingOffset)°"
+            }
+        }
+        cameraPitchOffsetObservation = orbitGeoElementCameraController.observe(\.cameraPitchOffset, options: .initial) { [weak self] (controller, _) in
+            DispatchQueue.main.async {
+                let cameraPitchOffset = Int(controller.cameraPitchOffset)
+                self?.pitchOffsetSlider.integerValue = cameraPitchOffset
+                //update label
+                self?.pitchOffsetLabel.stringValue = "\(cameraPitchOffset)°"
+            }
+        }
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        cameraDistanceObservation = nil
+        cameraHeadingOffsetObservation = nil
+        cameraPitchOffsetObservation = nil
     }
     
     private func populatePopUpButton() {
-        
-        if self.fileNames == nil {
-            
+        if fileNames == nil,
+            let resourcePath = Bundle.main.resourcePath,
+            let content = try? FileManager.default.contentsOfDirectory(atPath: resourcePath) {
             //fetch csv file names in the bundle
-            let resourcePath = Bundle.main.resourcePath!
-            let fileManager = FileManager.default
-            let content = try! fileManager.contentsOfDirectory(atPath: resourcePath)
-            self.fileNames = content.filter({ $0.lowercased().hasSuffix(".csv") })
+            fileNames = content.filter { $0.lowercased().hasSuffix(".csv") }
         }
         
         //remove existing values
@@ -157,13 +187,10 @@ class Animate3DSymbolsVC: NSViewController {
     }
 
     private func loadMissionData(_ name: String) {
-        
         //get the path of the specified file in the bundle
         if let path = Bundle.main.path(forResource: name, ofType: nil) {
-            
             //get content of the file
             if let content = try? String(contentsOfFile: path) {
-                
                 //split content into array of lines separated by new line character
                 //each line is one frame
                 let lines = content.components(separatedBy: CharacterSet.newlines)
@@ -177,7 +204,7 @@ class Animate3DSymbolsVC: NSViewController {
                     
                     //load position, heading, pitch and roll for each frame
                     let frame = Frame()
-                    frame.position = AGSPoint(x: Double(details[0])!, y: Double(details[1])!, z: Double(details[2])!, spatialReference: AGSSpatialReference.wgs84())
+                    frame.position = AGSPoint(x: Double(details[0])!, y: Double(details[1])!, z: Double(details[2])!, spatialReference: .wgs84())
                     frame.heading = Double(details[3])!
                     frame.pitch = Double(details[4])!
                     frame.roll = Double(details[5])!
@@ -187,14 +214,12 @@ class Animate3DSymbolsVC: NSViewController {
                 
                 self.frames = frames
             }
-        }
-        else {
+        } else {
             Swift.print("Mission file not found")
         }
     }
     
     private func startAnimation() {
-        
         //invalidate timer to stop previous ongoing animation
         self.animationTimer?.invalidate()
         
@@ -206,9 +231,8 @@ class Animate3DSymbolsVC: NSViewController {
         RunLoop.main.add(self.animationTimer, forMode: .common)
     }
     
-    
-    @objc func animate() {
-        
+    @objc
+    func animate() {
         //validations
         if self.frames == nil || self.planeModelSymbol == nil {
             return
@@ -216,7 +240,6 @@ class Animate3DSymbolsVC: NSViewController {
         
         //if animation is complete
         if self.currentFrameIndex >= self.frames.count {
-            
             //invalidate timer
             self.animationTimer?.invalidate()
             
@@ -243,47 +266,17 @@ class Animate3DSymbolsVC: NSViewController {
         
         //update labels
         self.altitiudeLabel.stringValue = "\(Int(frame.position.z))"
-        self.headingLabel.stringValue = "\(Int(frame.heading))º"
-        self.pitchLabel.stringValue = "\(Int(frame.pitch))º"
-        self.rollLabel.stringValue = "\(Int(frame.roll))º"
+        self.headingLabel.stringValue = "\(Int(frame.heading))°"
+        self.pitchLabel.stringValue = "\(Int(frame.pitch))°"
+        self.rollLabel.stringValue = "\(Int(frame.roll))°"
         
         //increment current frame index
         self.currentFrameIndex += 1
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        DispatchQueue.main.async { [weak self] in
-        
-            guard let weakSelf = self else {
-                return
-            }
-            
-            if keyPath == "cameraDistance" {
-                weakSelf.distanceSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraDistance)
-                
-                //update label
-                weakSelf.distanceLabel.stringValue = "\(weakSelf.distanceSlider.integerValue)"
-            }
-            else if keyPath == "cameraHeadingOffset" {
-                weakSelf.headingOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraHeadingOffset)
-                
-                //update label
-                weakSelf.headingOffsetLabel.stringValue = "\(weakSelf.headingOffsetSlider.integerValue)º"
-            }
-            else if keyPath == "cameraPitchOffset" {
-                weakSelf.pitchOffsetSlider.integerValue = Int(weakSelf.orbitGeoElementCameraController.cameraPitchOffset)
-                
-                //update label
-                weakSelf.pitchOffsetLabel.stringValue = "\(weakSelf.pitchOffsetSlider.integerValue)º"
-            }
-        }
-    }
+    // MARK: - Actions
     
-    //MARK: - Actions
-    
-    @IBAction func changeMissionAction(_ sender:NSPopUpButton) {
-        
+    @IBAction func changeMissionAction(_ sender: NSPopUpButton) {
         //invalidate timer
         self.animationTimer?.invalidate()
         
@@ -307,8 +300,7 @@ class Animate3DSymbolsVC: NSViewController {
         self.animate()
     }
     
-    @IBAction func distanceValueChanged(_ sender:NSSlider) {
-        
+    @IBAction func distanceValueChanged(_ sender: NSSlider) {
         //update property
         self.orbitGeoElementCameraController.cameraDistance = sender.doubleValue
         
@@ -316,49 +308,42 @@ class Animate3DSymbolsVC: NSViewController {
         self.distanceLabel.stringValue = "\(sender.integerValue)"
     }
     
-    @IBAction func headingOffsetValueChanged(_ sender:NSSlider) {
-        
+    @IBAction func headingOffsetValueChanged(_ sender: NSSlider) {
         //update property
         self.orbitGeoElementCameraController.cameraHeadingOffset = sender.doubleValue
         
         //update label
-        self.headingOffsetLabel.stringValue = "\(sender.integerValue)º"
+        self.headingOffsetLabel.stringValue = "\(sender.integerValue)°"
     }
     
-    @IBAction func pitchOffsetValueChanged(_ sender:NSSlider) {
-        
+    @IBAction func pitchOffsetValueChanged(_ sender: NSSlider) {
         //update property
         self.orbitGeoElementCameraController.cameraPitchOffset = sender.doubleValue
         
         //update label
-        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)º"
+        self.pitchOffsetLabel.stringValue = "\(sender.integerValue)°"
     }
     
-    @IBAction func autoHeadingEnabledAction(_ sender:NSButton) {
-        
+    @IBAction func autoHeadingEnabledAction(_ sender: NSButton) {
         //update property
         self.orbitGeoElementCameraController.isAutoHeadingEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func autoPitchEnabledAction(_ sender:NSButton) {
-        
+    @IBAction func autoPitchEnabledAction(_ sender: NSButton) {
         //update property
         self.orbitGeoElementCameraController.isAutoPitchEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func autoRollEnabledAction(_ sender:NSButton) {
-        
+    @IBAction func autoRollEnabledAction(_ sender: NSButton) {
         //update property
         self.orbitGeoElementCameraController.isAutoRollEnabled = (sender.state == NSControl.StateValue.on)
     }
     
-    @IBAction func speedValueChanged(_ sender:NSSlider) {
-        
+    @IBAction func speedValueChanged(_ sender: NSSlider) {
         //if the animation is playing, invalidate the timer and 
         //start the animation for the speed to take effect
         //else do nothing
         if self.playButton.state == NSControl.StateValue.on {
-
             //invalidate previous timer
             self.animationTimer?.invalidate()
             
@@ -367,23 +352,14 @@ class Animate3DSymbolsVC: NSViewController {
         }
     }
     
-    @IBAction func playAction(_ sender:NSButton) {
-        
+    @IBAction func playAction(_ sender: NSButton) {
         //if the button is now in on state then start animation
         //else stop animation by invalidating the timer
         if sender.state == NSControl.StateValue.on {
             self.startAnimation()
-        }
-        else {
+        } else {
             self.animationTimer?.invalidate()
         }
-    }
-    
-    deinit {
-        //remove observers
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraDistance")
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraHeadingOffset")
-        self.orbitGeoElementCameraController.removeObserver(self, forKeyPath: "cameraPitchOffset")
     }
 }
 

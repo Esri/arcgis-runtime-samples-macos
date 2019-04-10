@@ -18,10 +18,9 @@ import Cocoa
 import ArcGIS
 
 class HotspotsViewController: NSViewController {
-
-    @IBOutlet var mapView:AGSMapView!
-    @IBOutlet var datePicker:NSDatePicker!
-    @IBOutlet var applyButton:NSButton!
+    @IBOutlet var mapView: AGSMapView!
+    @IBOutlet var datePicker: NSDatePicker!
+    @IBOutlet var applyButton: NSButton!
     
     private var geoprocessingTask: AGSGeoprocessingTask!
     private var geoprocessingJob: AGSGeoprocessingJob!
@@ -36,7 +35,7 @@ class HotspotsViewController: NSViewController {
         let map = AGSMap(basemap: .topographic())
         
         //center for initial viewpoint
-        let center = AGSPoint(x: -13671170.647485, y: 5693633.356735, spatialReference: AGSSpatialReference(wkid: 3857))
+        let center = AGSPoint(x: -13671170.647485, y: 5693633.356735, spatialReference: .webMercator())
         
         //set initial viewpoint
         map.initialViewpoint = AGSViewpoint(center: center, scale: 57779)
@@ -45,7 +44,7 @@ class HotspotsViewController: NSViewController {
         self.mapView.map = map
         
         //initilaize geoprocessing task with the url of the service
-        self.geoprocessingTask = AGSGeoprocessingTask(url: URL(string: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/911CallsHotspot/GPServer/911%20Calls%20Hotspot")!)
+        self.geoprocessingTask = AGSGeoprocessingTask(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/911CallsHotspot/GPServer/911%20Calls%20Hotspot")!)
         
         //create date formatter to format dates for input
         self.dateFormatter = DateFormatter()
@@ -53,7 +52,6 @@ class HotspotsViewController: NSViewController {
     }
     
     private func analyzeHotspots(fromDate: Date, toDate: Date) {
-        
         //disable apply button until processing
         self.applyButton.isEnabled = false
         
@@ -82,8 +80,7 @@ class HotspotsViewController: NSViewController {
         //start job
         self.geoprocessingJob.start(statusHandler: { (status: AGSJobStatus) in
             print(status.rawValue)
-        }) { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
-            
+        }, completion: { [weak self] (result: AGSGeoprocessingResult?, error: Error?) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
@@ -92,8 +89,7 @@ class HotspotsViewController: NSViewController {
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: error.localizedDescription)
-            }
-            else {
+            } else {
                 //a map image layer is generated as a result
                 //remove any layer previously added to the map
                 self?.mapView.map?.operationalLayers.removeAllObjects()
@@ -104,7 +100,6 @@ class HotspotsViewController: NSViewController {
                 //set map view's viewpoint to the new layer's full extent
                 (self?.mapView.map?.operationalLayers.firstObject as! AGSLayer).load { (error: Error?) in
                     if error == nil {
-                        
                         //set viewpoint as the extent of the mapImageLayer
                         if let extent = result?.mapImageLayer?.fullExtent {
                             self?.mapView.setViewpointGeometry(extent, completion: nil)
@@ -112,21 +107,19 @@ class HotspotsViewController: NSViewController {
                     }
                 }
             }
-        }
+        })
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func applyAction(_ sender:NSButton) {
-        
+    @IBAction func applyAction(_ sender: NSButton) {
         //validate input
         let timeInterval = self.datePicker.timeInterval
         
         //if no interval specified
         if timeInterval <= 0 {
             self.showAlert(messageText: "Error", informativeText: "Please select a date range")
-        }
-        else {
+        } else {
             //get the dates from the date picker
             let fromDate = self.datePicker.dateValue
             let toDate = self.datePicker.dateValue.addingTimeInterval(timeInterval)
@@ -136,9 +129,9 @@ class HotspotsViewController: NSViewController {
         }
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

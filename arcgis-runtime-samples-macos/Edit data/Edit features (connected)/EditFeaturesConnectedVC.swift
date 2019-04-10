@@ -18,30 +18,29 @@ import Cocoa
 import ArcGIS
 
 class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPopupsViewControllerDelegate, FeatureTemplatePickerVCDelegate {
+    @IBOutlet private var mapView: AGSMapView!
+    @IBOutlet private var containerView: NSView!
+    @IBOutlet private var containerViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var addFeatureButton: NSButton!
     
-    @IBOutlet private var mapView:AGSMapView!
-    @IBOutlet private var containerView:NSView!
-    @IBOutlet private var containerViewLeadingConstraint:NSLayoutConstraint!
-    @IBOutlet private var addFeatureButton:NSButton!
-    
-    private var map:AGSMap!
-    private var sketchEditor:AGSSketchEditor!
-    private var featureLayer:AGSFeatureLayer!
-    private var popupsVC:AGSPopupsViewController!
+    private var map: AGSMap!
+    private var sketchEditor: AGSSketchEditor!
+    private var featureLayer: AGSFeatureLayer!
+    private var popupsVC: AGSPopupsViewController!
     private var isAddingNewFeature = false {
         didSet {
             self.addFeatureButton?.isEnabled = !isAddingNewFeature
         }
     }
     
-    private var lastQuery:AGSCancelable!
+    private var lastQuery: AGSCancelable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.map = AGSMap(basemap: .topographic())
         //set initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -9184518.55, y: 3240636.90, spatialReference: AGSSpatialReference.webMercator()), scale: 7e5)
+        self.map.initialViewpoint = AGSViewpoint(center: AGSPoint(x: -9184518.55, y: 3240636.90, spatialReference: .webMercator()), scale: 7e5)
         self.mapView.map = self.map
         self.mapView.touchDelegate = self
         
@@ -61,39 +60,35 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (result:[AGSFeatureEditResult]?, error:Error?) -> Void in
-            
+        (self.featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (results, error) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while applying edits :: \(error.localizedDescription)")
-            }
-            else {
-                print("Edits applied successfully")
+            } else if let results = results {
+                print("Edits applied successfully with results: \(results)")
             }
         }
     }
     
-    //MARK: - AGSGeoViewTouchDelegate
+    // MARK: - AGSGeoViewTouchDelegate
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
-        if let lastQuery = self.lastQuery{
+        if let lastQuery = self.lastQuery {
             lastQuery.cancel()
         }
         
         //show progress indicator
         NSApp.showProgressIndicator()
         
-        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) -> Void in
-            
+        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 5, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
             //hide progress indicator
             NSApp.hideProgressIndicator()
             
             if let error = identifyLayerResult.error {
                 self?.showAlert(messageText: "Error", informativeText: "Error while identifying features :: \(error.localizedDescription)")
-            }
-            else {
+            } else {
                 var popups = [AGSPopup]()
                 let geoElements = identifyLayerResult.geoElements
                 
@@ -103,11 +98,10 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
                     popups.append(popup)
                 }
                 
-                if popups.count > 0 {
+                if !popups.isEmpty {
                     //show popups view controller
                     self?.showPopupsViewController(with: popups)
-                }
-                else {
+                } else {
                     //hide popups view controller
                     self?.hidePopupsViewController(animated: true)
                 }
@@ -115,10 +109,9 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         }
     }
     
-    //MARK: - Show/hide popups view controller
+    // MARK: - Show/hide popups view controller
     
     private func showPopupsViewController(with popups: [AGSPopup]) {
-        
         //hide popups view controller if it exists
         if self.popupsVC != nil {
             self.popupsVC.view.removeFromSuperview()
@@ -141,12 +134,10 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     }
     
     private func hidePopupsViewController(animated: Bool) {
-        
         //hide popups view controller to the left with or without animation
         if animated {
             self.containerViewLeadingConstraint.animator().constant = -200
-        }
-        else {
+        } else {
             self.containerViewLeadingConstraint.constant = -200
         }
         
@@ -158,10 +149,9 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.popupsVC = nil
     }
     
-    //MARK: -  AGSPopupsViewContollerDelegate methods
+    // MARK: - AGSPopupsViewContollerDelegate methods
     
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, sketchEditorFor popup: AGSPopup) -> AGSSketchEditor? {
-        
         //start sketch editing and
         //zoom to the existing feature's geometry
         if let geometry = popup.geoElement.geometry {
@@ -182,7 +172,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the user clicks on Finish button
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, didFinishEditingFor popup: AGSPopup) {
-        
         if self.isAddingNewFeature {
             //done adding new feature
             self.isAddingNewFeature = false
@@ -206,7 +195,6 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the user clicks Cancel button
     func popupsViewController(_ popupsViewController: AGSPopupsViewController, didCancelEditingFor popup: AGSPopup) {
-        
         if self.isAddingNewFeature {
             //canceled adding a new feature
             self.isAddingNewFeature = false
@@ -220,13 +208,11 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
     
     //called when the only popup in the popups view controller is deleted
     func popupsViewControllerDidFinishViewingPopups(_ popupsViewController: AGSPopupsViewController) {
-        
         //slide the popups view controller to the left
         self.hidePopupsViewController(animated: true)
     }
 
     private func disableSketchEditor() {
-        
         //stop the sketchEditor
         self.mapView.sketchEditor?.stop()
         
@@ -234,10 +220,9 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.mapView.sketchEditor?.clearGeometry()
     }
     
-    //MARK: - FeatureTemplatePickerVCDelegate
+    // MARK: - FeatureTemplatePickerVCDelegate
     
     func featureTemplatePickerVC(_ featureTemplatePickerVC: FeatureTemplatePickerVC, didSelectFeatureTemplate template: AGSFeatureTemplate, forFeatureLayer featureLayer: AGSFeatureLayer) {
-        
         let featureTable = self.featureLayer.featureTable as! AGSArcGISFeatureTable
         //create a new feature based on the template
         let newFeature = featureTable.createFeature(with: template)!
@@ -245,8 +230,7 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         //set the geometry as the center of the screen
         if let visibleArea = self.mapView.visibleArea {
             newFeature.geometry = visibleArea.extent.center
-        }
-        else {
+        } else {
             newFeature.geometry = AGSPoint(x: 0, y: 0, spatialReference: self.map.spatialReference)
         }
         
@@ -267,13 +251,13 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.dismiss(featureTemplatePickerVC)
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let id = segue.identifier, id == "FeatureTemplateSegue" else {
+        guard segue.identifier == "FeatureTemplateSegue",
+            let controller = segue.destinationController as? FeatureTemplatePickerVC else {
             return
         }
-        let controller = segue.destinationController as! FeatureTemplatePickerVC
         controller.featureLayer = self.featureLayer
         controller.delegate = self
         
@@ -281,9 +265,9 @@ class EditFeaturesConnectedVC: NSViewController, AGSGeoViewTouchDelegate, AGSPop
         self.isAddingNewFeature = true
     }
     
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func showAlert(messageText:String, informativeText:String) {
+    private func showAlert(messageText: String, informativeText: String) {
         let alert = NSAlert()
         alert.messageText = messageText
         alert.informativeText = informativeText

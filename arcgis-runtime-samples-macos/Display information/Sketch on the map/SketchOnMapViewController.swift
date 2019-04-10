@@ -18,15 +18,14 @@ import Cocoa
 import ArcGIS
 
 class SketchOnMapViewController: NSViewController {
-
-    @IBOutlet private weak var mapView:AGSMapView!
-    @IBOutlet private weak var geometrySegmentedControl:NSSegmentedControl!
-    @IBOutlet private weak var undoButton:NSButton!
-    @IBOutlet private weak var redoButton:NSButton!
-    @IBOutlet private weak var clearButton:NSButton!
+    @IBOutlet private weak var mapView: AGSMapView!
+    @IBOutlet private weak var geometrySegmentedControl: NSSegmentedControl!
+    @IBOutlet private weak var undoButton: NSButton!
+    @IBOutlet private weak var redoButton: NSButton!
+    @IBOutlet private weak var clearButton: NSButton!
     
-    private var map:AGSMap!
-    private var sketchEditor:AGSSketchEditor!
+    private var map: AGSMap!
+    private var sketchEditor: AGSSketchEditor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class SketchOnMapViewController: NSViewController {
         self.map = AGSMap(basemap: .lightGrayCanvas())
         
         self.sketchEditor = AGSSketchEditor()
-        self.mapView.sketchEditor =  self.sketchEditor
+        self.mapView.sketchEditor = self.sketchEditor
         
         //self.sketchEditor.start(with: .polyline)
         self.sketchEditor.start(with: nil, creationMode: .polyline)
@@ -45,19 +44,20 @@ class SketchOnMapViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(respondToGeomChanged), name: .AGSSketchEditorGeometryDidChange, object: nil)
         
         //set initial viewpoint
-        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -10049589.670344, yMin: 3480099.843772, xMax: -10010071.251113, yMax: 3512023.489701, spatialReference: AGSSpatialReference.webMercator()))
+        self.map.initialViewpoint = AGSViewpoint(targetExtent: AGSEnvelope(xMin: -10049589.670344, yMin: 3480099.843772, xMax: -10010071.251113, yMax: 3512023.489701, spatialReference: .webMercator()))
     }
     
-    @objc func respondToGeomChanged() {
+    @objc
+    func respondToGeomChanged() {
         //Enable/disable UI elements appropriately
         self.undoButton.isEnabled = self.sketchEditor.undoManager.canUndo
         self.redoButton.isEnabled = self.sketchEditor.undoManager.canRedo
         self.clearButton.isEnabled = self.sketchEditor.geometry != nil && !self.sketchEditor.geometry!.isEmpty
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
-    @IBAction func geometryValueChanged(_ segmentedControl:NSSegmentedControl) {
+    @IBAction func geometryValueChanged(_ segmentedControl: NSSegmentedControl) {
         switch segmentedControl.selectedSegment {
         case 0://point
             self.sketchEditor.start(with: nil, creationMode: .point)

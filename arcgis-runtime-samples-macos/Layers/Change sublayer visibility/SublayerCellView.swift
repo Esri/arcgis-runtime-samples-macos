@@ -17,20 +17,18 @@
 import Cocoa
 
 protocol SublayerCellViewDelegate: AnyObject {
-    func sublayerCellView(_ sublayerCellView:SublayerCellView, didToggleVisibility visible:Bool)
+    func sublayerCellView(_ sublayerCellView: SublayerCellView, didSetVisibility visible: Bool)
 }
 
 class SublayerCellView: NSTableCellView {
-
-    @IBOutlet var button:NSButton!
+    @IBOutlet var button: NSButton!
     
-    var index:Int = -1
+    var index: Int = -1
     
-    weak var delegate:SublayerCellViewDelegate?
+    weak var delegate: SublayerCellViewDelegate?
     
-    @IBAction func checkboxAction(_ sender:NSButton) {
+    @IBAction func checkboxAction(_ sender: NSButton) {
         Swift.print(sender.state)
-        self.delegate?.sublayerCellView(self, didToggleVisibility: sender.state.rawValue == 1)
+        self.delegate?.sublayerCellView(self, didSetVisibility: sender.state.rawValue == 1)
     }
-    
 }

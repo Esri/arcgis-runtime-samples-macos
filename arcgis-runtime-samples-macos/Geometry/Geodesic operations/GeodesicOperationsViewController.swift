@@ -18,7 +18,6 @@ import Cocoa
 import ArcGIS
 
 class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegate {
-
     @IBOutlet var mapView: AGSMapView!
    
     private let destinationGraphic: AGSGraphic
@@ -26,7 +25,7 @@ class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegat
     
     private let graphicsOverlay = AGSGraphicsOverlay()
     private let measurementFormatter = MeasurementFormatter()
-    private let JFKAirportLocation = AGSPoint(x: -73.7781, y: 40.6413, spatialReference: AGSSpatialReference.wgs84())
+    private let JFKAirportLocation = AGSPoint(x: -73.7781, y: 40.6413, spatialReference: .wgs84())
     
     /// Add graphics representing origin, destination, and path to a graphics overlay.
     required init?(coder aDecoder: NSCoder) {
@@ -50,7 +49,6 @@ class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegat
         super.init(coder: aDecoder)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +61,6 @@ class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegat
         // Set touch delegate on map view as self.
         mapView.touchDelegate = self
     }
-    
     
     // MARK: - AGSGeoViewTouchDelegate
     
@@ -103,5 +100,4 @@ class GeodesicOperationsViewController: NSViewController, AGSGeoViewTouchDelegat
         
         mapView.callout.show(at: mapPoint, screenOffset: .zero, rotateOffsetWithMap: false, animated: true)
     }
-
 }

@@ -18,8 +18,7 @@ import Cocoa
 import ArcGIS
 
 class SceneLayerURLViewController: NSViewController {
-
-    @IBOutlet var sceneView:AGSSceneView!
+    @IBOutlet var sceneView: AGSSceneView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class SceneLayerURLViewController: NSViewController {
         self.sceneView.scene = scene
         
         //set the viewpoint camera
-        let point = AGSPoint(x: -4.49779155626782, y: 48.38282454039932, z: 62.013264927081764, spatialReference: AGSSpatialReference(wkid: 4326))
+        let point = AGSPoint(x: -4.49779155626782, y: 48.38282454039932, z: 62.013264927081764, spatialReference: .wgs84())
         let camera = AGSCamera(location: point, heading: 41.64729875588979, pitch: 71.2017391571523, roll: 0)
         self.sceneView.setViewpointCamera(camera)
         
@@ -49,5 +48,4 @@ class SceneLayerURLViewController: NSViewController {
         let sceneLayer = AGSArcGISSceneLayer(url: brestBuildingsServiceURL)
         self.sceneView.scene?.operationalLayers.add(sceneLayer)
     }
-    
 }
