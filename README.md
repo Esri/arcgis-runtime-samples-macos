@@ -1,5 +1,5 @@
 # ArcGIS Runtime SDK for macOS Samples 
-x
+
 This is a set of samples for demonstrating the capabilities of the [ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/).
 The samples use ArcGIS Online basemaps and services.  Learn more [here](http://www.arcgis.com/about/).
 
