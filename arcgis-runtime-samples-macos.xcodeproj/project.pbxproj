@@ -2647,7 +2647,7 @@
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Esri;
 				TargetAttributes = {
 					3EC1AE681BAC8DA100E32B1D = {
@@ -2664,7 +2664,7 @@
 			};
 			buildConfigurationList = 3EC1AE641BAC8DA100E32B1D /* Build configuration list for PBXProject "arcgis-runtime-samples-macos" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
