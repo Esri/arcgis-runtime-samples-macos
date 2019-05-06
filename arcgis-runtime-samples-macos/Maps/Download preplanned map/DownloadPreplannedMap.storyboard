@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="grZ-q4-GUm">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Download Preplanned Map View Controller-->
+        <scene sceneID="HiF-LQ-Ovn">
+            <objects>
+                <viewController id="grZ-q4-GUm" customClass="DownloadPreplannedMapViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eyb-5H-N8F">
+                        <rect key="frame" x="0.0" y="0.0" width="552" height="357"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1bp-W4-cHD" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="53" width="552" height="304"/>
+                            </customView>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-52-eC5">
+                                <rect key="frame" x="0.0" y="0.0" width="552" height="53"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ozd-Mu-MIH">
+                                        <rect key="frame" x="0.0" y="0.0" width="552" height="53"/>
+                                        <subviews>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2UH-07-FXa">
+                                                <rect key="frame" x="78" y="16" width="397" height="21"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I2M-3X-uSp">
+                                                        <rect key="frame" x="-2" y="2" width="97" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Displayed Map:" id="lJf-cw-8nr">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLs-p4-Vzg">
+                                                        <rect key="frame" x="99" y="0.0" width="298" height="21"/>
+                                                        <subviews>
+                                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zWm-e1-3Mz">
+                                                                <rect key="frame" x="-2" y="-3" width="144" height="25"/>
+                                                                <popUpButtonCell key="cell" type="push" title="Online Map" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="mmB-P6-O6Q" id="7uP-3M-zff">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="menu"/>
+                                                                    <menu key="menu" autoenablesItems="NO" id="2TX-97-BZw">
+                                                                        <items>
+                                                                            <menuItem title="Online Map" state="on" id="mmB-P6-O6Q">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="n1t-RQ-AHx"/>
+                                                                            <menuItem title="Preplanned Maps" enabled="NO" id="2zG-cM-Lm4">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                        </items>
+                                                                    </menu>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="popUpButtonAction:" target="grZ-q4-GUm" id="m5Q-Dt-dtW"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nh7-jv-Vmv">
+                                                                <rect key="frame" x="145" y="-7" width="159" height="32"/>
+                                                                <buttonCell key="cell" type="push" title="Remove Downloads" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zoq-6i-nBY">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="removeDownloadsButtonAction:" target="grZ-q4-GUm" id="oMK-LF-uMr"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="I2M-3X-uSp" firstAttribute="firstBaseline" secondItem="zWm-e1-3Mz" secondAttribute="firstBaseline" id="dt4-bl-4HQ"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2UH-07-FXa" firstAttribute="centerX" secondItem="ozd-Mu-MIH" secondAttribute="centerX" id="8VL-xp-Vzm"/>
+                                            <constraint firstItem="2UH-07-FXa" firstAttribute="top" secondItem="ozd-Mu-MIH" secondAttribute="top" constant="16" id="ZgC-Am-ajM"/>
+                                            <constraint firstAttribute="bottom" secondItem="2UH-07-FXa" secondAttribute="bottom" constant="16" id="kKv-T3-i5S"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ozd-Mu-MIH" firstAttribute="leading" secondItem="fYU-52-eC5" secondAttribute="leading" id="Vne-nT-8g4"/>
+                                    <constraint firstAttribute="trailing" secondItem="ozd-Mu-MIH" secondAttribute="trailing" id="cOh-YV-U0D"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="top" secondItem="eyb-5H-N8F" secondAttribute="top" id="0YH-LE-RQy"/>
+                            <constraint firstAttribute="trailing" secondItem="fYU-52-eC5" secondAttribute="trailing" id="8w7-GH-ATY"/>
+                            <constraint firstAttribute="trailing" secondItem="1bp-W4-cHD" secondAttribute="trailing" id="IY4-0Q-CBi"/>
+                            <constraint firstItem="fYU-52-eC5" firstAttribute="top" secondItem="1bp-W4-cHD" secondAttribute="bottom" id="Z7a-vn-yPe"/>
+                            <constraint firstAttribute="bottom" secondItem="fYU-52-eC5" secondAttribute="bottom" id="aDk-b2-LGk"/>
+                            <constraint firstItem="1bp-W4-cHD" firstAttribute="leading" secondItem="eyb-5H-N8F" secondAttribute="leading" id="bkI-td-HuT"/>
+                            <constraint firstItem="fYU-52-eC5" firstAttribute="leading" secondItem="eyb-5H-N8F" secondAttribute="leading" id="w2K-Wf-02q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="1bp-W4-cHD" id="xae-xr-UOX"/>
+                        <outlet property="popUpButton" destination="zWm-e1-3Mz" id="2Tu-OI-VFn"/>
+                        <outlet property="progressLabel" destination="qMT-xZ-t1U" id="z1B-1m-peg"/>
+                        <outlet property="progressView" destination="FF4-4y-qxF" id="nkH-i6-cri"/>
+                        <outlet property="removeDownloadsButton" destination="Nh7-jv-Vmv" id="vZl-mN-f3n"/>
+                    </connections>
+                </viewController>
+                <customObject id="Leb-q1-OUq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="427.5"/>
+        </scene>
+        <!--Download Preplanned Map Progress View Controller-->
+        <scene sceneID="oEb-j7-oeq">
+            <objects>
+                <viewController storyboardIdentifier="DownloadPreplannedMapProgressViewController" id="2Iu-rv-mAx" customClass="DownloadPreplannedMapProgressViewController" customModule="arcgis_runtime_samples_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="Zo0-tC-T31">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="69"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" verticalHuggingPriority="1000" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-4y-qxF">
+                                <rect key="frame" x="16" y="15" width="332" height="20"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-xZ-t1U">
+                                <rect key="frame" x="14" y="36" width="336" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="naJ-zx-h1J">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="pQf-Os-6Ha">
+                                <rect key="frame" x="358" y="17" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zVb-Su-LqC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelAction:" target="2Iu-rv-mAx" id="a6M-dg-dz9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="leading" secondItem="Zo0-tC-T31" secondAttribute="leading" constant="16" id="Bqt-oC-eze"/>
+                            <constraint firstItem="FF4-4y-qxF" firstAttribute="top" secondItem="qMT-xZ-t1U" secondAttribute="bottom" constant="2" id="M7H-Ha-ytp"/>
+                            <constraint firstItem="qMT-xZ-t1U" firstAttribute="top" secondItem="Zo0-tC-T31" secondAttribute="top" constant="16" id="PbF-yC-xdF"/>
+                            <constraint firstAttribute="trailing" secondItem="pQf-Os-6Ha" secondAttribute="trailing" constant="16" id="SDf-jG-MUC"/>
+                            <constraint firstItem="FF4-4y-qxF" firstAttribute="trailing" secondItem="qMT-xZ-t1U" secondAttribute="trailing" id="Y0h-y1-fOt"/>
+                            <constraint firstAttribute="bottom" secondItem="FF4-4y-qxF" secondAttribute="bottom" constant="16" id="YHJ-g1-o7k"/>
+                            <constraint firstItem="FF4-4y-qxF" firstAttribute="leading" secondItem="qMT-xZ-t1U" secondAttribute="leading" id="f62-Ph-Iz4"/>
+                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="leading" secondItem="FF4-4y-qxF" secondAttribute="trailing" constant="16" id="hT5-DB-dRZ"/>
+                            <constraint firstItem="pQf-Os-6Ha" firstAttribute="centerY" secondItem="Zo0-tC-T31" secondAttribute="centerY" id="imp-Bt-or8"/>
+                        </constraints>
+                    </customView>
+                    <connections>
+                        <outlet property="progressLabel" destination="qMT-xZ-t1U" id="7d0-IE-m8n"/>
+                        <outlet property="progressView" destination="FF4-4y-qxF" id="q0u-zT-3vp"/>
+                    </connections>
+                </viewController>
+                <customObject id="nDM-Xc-pCv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="380.5"/>
+        </scene>
+    </scenes>
+</document>

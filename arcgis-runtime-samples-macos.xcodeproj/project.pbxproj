@@ -389,6 +389,9 @@
 		97F8BF191FDA6FB400A65B2E /* RasterLayerGPKGViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */; };
 		C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7D22F892167D35200C39D5C /* ProgressViewController.swift */; };
 		C7052B1E216E9130002F077F /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7052B1D216E9130002F077F /* ProgressView.xib */; };
+		C70905DC215EBFDE00689C24 /* DownloadPreplannedMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */; };
+		C70905DE215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
+		C70905DF215EC58A00689C24 /* DownloadPreplannedMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */; };
 		C7197AEB218A278300838D31 /* OpenMobileMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */; };
 		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
@@ -505,6 +508,7 @@
 				C700D3C6216BF2E100E365B5 /* ProgressViewController.swift in CopyFiles */,
 				C7D22F882167BDE300C39D5C /* UseGeodatabaseTransactionsViewController.swift in CopyFiles */,
 				C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */,
+				C70905DF215EC58A00689C24 /* DownloadPreplannedMapViewController.swift in CopyFiles */,
 				C796FAF321B8929D00B5849E /* UpdateAttributesViewController.swift in CopyFiles */,
 				C743A8F7215A9D550081B756 /* DisplayKMLNetworkLinksViewController.swift in CopyFiles */,
 				C731A01F21B734EA003F5D14 /* BufferViewController.swift in CopyFiles */,
@@ -924,6 +928,8 @@
 		97F8BF141FDA6E6300A65B2E /* RasterLayerGPKG.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RasterLayerGPKG.storyboard; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKG.storyboard"; sourceTree = SOURCE_ROOT; };
 		97F8BF151FDA6E6300A65B2E /* RasterLayerGPKGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RasterLayerGPKGViewController.swift; path = "arcgis-runtime-samples-macos/Layers/Raster layer (geopackage)/RasterLayerGPKGViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadPreplannedMap.storyboard; sourceTree = "<group>"; };
+		C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreplannedMapViewController.swift; sourceTree = "<group>"; };
 		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
 		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
 		C730BFD421B5CC610076FC18 /* Buffer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buffer.storyboard; sourceTree = "<group>"; };
@@ -1539,6 +1545,7 @@
 				3E496EC81DD14FE2004C921C /* Mobile map (search and route) */,
 				C7E79ADC213F3B4800C24A02 /* Generate offline map */,
 				C7586C812153F6DD005A4F11 /* Generate offline map (overrides) */,
+				C70905D8215EBE5600689C24 /* Download preplanned map */,
 				D959FE3D1FDC771400B507CB /* Read a geopackage */,
 			);
 			path = Maps;
@@ -2338,6 +2345,15 @@
 			path = "Progress View";
 			sourceTree = "<group>";
 		};
+		C70905D8215EBE5600689C24 /* Download preplanned map */ = {
+			isa = PBXGroup;
+			children = (
+				C70905D9215EBFDE00689C24 /* DownloadPreplannedMap.storyboard */,
+				C70905DB215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift */,
+			);
+			path = "Download preplanned map";
+			sourceTree = "<group>";
+		};
 		C7197AE8218A26DA00838D31 /* Open mobile map (map package) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2838,6 +2854,7 @@
 				3E496EF21DD39DF4004C921C /* RouteAroundBarriers.storyboard in Resources */,
 				3EFDE0851E30100800CBCD92 /* ShowLegend.storyboard in Resources */,
 				3E0103721E298D300013AEEF /* streetmap_SD.tpk in Resources */,
+				C70905DC215EBFDE00689C24 /* DownloadPreplannedMap.storyboard in Resources */,
 				3EFDE0991E303B0600CBCD92 /* srtm.tiff.ovr in Resources */,
 				3EFDE0B71E31287B00CBCD92 /* Shasta_Elevation.tif.aux.xml in Resources */,
 				10C3F21F1F02BBF5003C7F20 /* TerrainExaggeration.storyboard in Resources */,
@@ -3018,6 +3035,7 @@
 				C764E0FD2171438C00A82795 /* ShowLabelsOnLayersViewController.swift in Sources */,
 				3EF190AA1EF9BF550037779D /* AddDeleteRelatedFeaturesVC.swift in Sources */,
 				3ECCFE321BCC4FC900CE256D /* ShowMagnifierViewController.swift in Sources */,
+				C70905DE215EBFDE00689C24 /* DownloadPreplannedMapViewController.swift in Sources */,
 				4CB1707221668F480038535D /* CollectionViewItem.swift in Sources */,
 				3E84EE461DCA4ADE006731B5 /* FeatureTemplatePickerVC.swift in Sources */,
 				3EC1AE6F1BAC8DA100E32B1D /* MainViewController.swift in Sources */,
