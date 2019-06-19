@@ -393,6 +393,9 @@
 		C7197AEC218A278300838D31 /* OpenMobileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */; };
 		C729FC352159512F00D42EA7 /* ListKMLContentsViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C79F51D82155A622001B41EA /* ListKMLContentsViewController.swift */; };
+		C72B72F52192071000577579 /* DisplayDeviceLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72B72F32192071000577579 /* DisplayDeviceLocation.storyboard */; };
+		C72B72F62192071000577579 /* DisplayDeviceLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B72F42192071000577579 /* DisplayDeviceLocationViewController.swift */; };
+		C72B72F721920F4A00577579 /* DisplayDeviceLocationViewController.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = C72B72F42192071000577579 /* DisplayDeviceLocationViewController.swift */; };
 		C730BFD621B5CC610076FC18 /* Buffer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C730BFD421B5CC610076FC18 /* Buffer.storyboard */; };
 		C730BFD721B5CC610076FC18 /* BufferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730BFD521B5CC610076FC18 /* BufferViewController.swift */; };
 		C731A01C21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */; };
@@ -499,6 +502,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C72B72F721920F4A00577579 /* DisplayDeviceLocationViewController.swift in CopyFiles */,
 				C7197AED218A278F00838D31 /* OpenMobileMapViewController.swift in CopyFiles */,
 				C764E0FE2171471E00A82795 /* ShowLabelsOnLayersViewController.swift in CopyFiles */,
 				C793B5F12166BF4F000A7A10 /* OpenStreetMapLayerViewController.swift in CopyFiles */,
@@ -926,6 +930,8 @@
 		C7052B1D216E9130002F077F /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		C7197AE9218A278300838D31 /* OpenMobileMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OpenMobileMap.storyboard; sourceTree = "<group>"; };
 		C7197AEA218A278300838D31 /* OpenMobileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenMobileMapViewController.swift; sourceTree = "<group>"; };
+		C72B72F32192071000577579 /* DisplayDeviceLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayDeviceLocation.storyboard; sourceTree = "<group>"; };
+		C72B72F42192071000577579 /* DisplayDeviceLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayDeviceLocationViewController.swift; sourceTree = "<group>"; };
 		C730BFD421B5CC610076FC18 /* Buffer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buffer.storyboard; sourceTree = "<group>"; };
 		C730BFD521B5CC610076FC18 /* BufferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferViewController.swift; sourceTree = "<group>"; };
 		C731A01A21B70973003F5D14 /* ChangeAtmosphereEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAtmosphereEffectViewController.swift; sourceTree = "<group>"; };
@@ -1532,6 +1538,7 @@
 				3ECCFE221BCC2E7E00CE256D /* Change viewpoint */,
 				3ECCFE2B1BCC31B600CE256D /* Map rotation */,
 				3ECCFE301BCC4F9100CE256D /* Show magnifier */,
+				C72B72F22192017B00577579 /* Display device location */,
 				3E496EE01DD29B5D004C921C /* Take screenshot */,
 				3E913DBA1CE65F34000375C8 /* Create and save a map */,
 				3E78235B1DCD52D20011B304 /* Identify layers */,
@@ -2347,6 +2354,15 @@
 			path = "Open mobile map (map package)";
 			sourceTree = "<group>";
 		};
+		C72B72F22192017B00577579 /* Display device location */ = {
+			isa = PBXGroup;
+			children = (
+				C72B72F32192071000577579 /* DisplayDeviceLocation.storyboard */,
+				C72B72F42192071000577579 /* DisplayDeviceLocationViewController.swift */,
+			);
+			path = "Display device location";
+			sourceTree = "<group>";
+		};
 		C730BFD321B5CA5A0076FC18 /* Buffer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2849,6 +2865,7 @@
 				D97B7EA51FDAEA8200E1239D /* Subdivisions.prj in Resources */,
 				3EFDE0BB1E31287B00CBCD92 /* Shasta.tif.aux.xml in Resources */,
 				C7367ABF214023DE0022572E /* GenerateOfflineMap.storyboard in Resources */,
+				C72B72F52192071000577579 /* DisplayDeviceLocation.storyboard in Resources */,
 				3E87247F1BC70BA3006386C1 /* TiledLayerURL.storyboard in Resources */,
 				3E0662561F031F2C007666DF /* ChangeSublayerRenderer.storyboard in Resources */,
 				3ECCFE071BC86AAF00CE256D /* ChangeBasemap.storyboard in Resources */,
@@ -2959,6 +2976,7 @@
 				3E5E09471EF843ED00FF3454 /* FindServiceAreaInteractiveVC.swift in Sources */,
 				3E01036D1E298B530013AEEF /* LocalTiledLayerViewController.swift in Sources */,
 				3E913DBC1CE6602E000375C8 /* CreateSaveMapViewController.swift in Sources */,
+				C72B72F62192071000577579 /* DisplayDeviceLocationViewController.swift in Sources */,
 				4C73C5D720C0456500D6D00B /* OpenSceneViewController.swift in Sources */,
 				09607F8C1FDB644700FA43B6 /* TimeBasedQueryVC.swift in Sources */,
 				3EFDE0E41E3288C900CBCD92 /* HotspotsViewController.swift in Sources */,
