@@ -1,7 +1,13 @@
 # ArcGIS Runtime SDK for macOS Samples 
 
-This is a set of samples for demonstrating the capabilities of the [ArcGIS Runtime SDK for macOS](http://developers.arcgis.com/macOS/).
-The samples use ArcGIS Online basemaps and services.  Learn more [here](http://www.arcgis.com/about/).
+This is a set of samples for demonstrating the capabilities of the [ArcGIS Runtime SDK for macOS](https://developers.arcgis.com/macos/).
+The samples use ArcGIS Online basemaps and services.  Learn more [here](https://www.arcgis.com/about/).
+
+> Try [ArcGIS Maps SDK for Swift version 200](https://github.com/Esri/arcgis-maps-sdk-swift-samples/)
+>
+> ArcGIS Maps SDK for Swift version 200 builds on the proven architecture of 100.x, and provides a new API designed exclusively for developing iOS apps using Swift - Apple's modern, powerful, and intuitive programming language. ArcGIS Maps SDK for Swift comes with Mac Catalyst, which means you can make a Mac version of your iPad app with minimal efforts.
+> 
+> For more information, read the [deprecation notice](https://community.esri.com/t5/arcgis-maps-sdks-native-blog/deprecation-notice-arcgis-runtime-sdk-for-macos/ba-p/883709) on our forum.
 
 ## Features
 
@@ -38,7 +44,7 @@ app target.
 ## Additional Resources
 
 * New to the API? Explore the documentation : [Guide](https://developers.arcgis.com/macos) | [API Reference](https://developers.arcgis.com/macos/latest/api-reference/)
-* Got a question? Ask the community on our [forum](http://geonet.esri.com/community/developers/native-app-developers/arcgis-runtime-sdk-for-os-x)
+* Got a question? Ask the community on our [forum](https://community.esri.com/t5/arcgis-runtime-sdk-for-macos-retired-questions/bd-p/arcgis-runtime-sdk-for-macos-questions)
 
 ## Issues
 
